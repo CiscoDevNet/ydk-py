@@ -5,9 +5,10 @@ for Cisco IOS\-XR crypto\-ssh package operational data.
 
 This module contains definitions
 for the following management objects\:
-  ssh\: Crypto Secure Shell(SSH) data
+  ssh1\: Crypto Secure Shell(SSH) data
+  ssh\: ssh
 
-Copyright (c) 2013\-2015 by Cisco Systems, Inc.
+Copyright (c) 2013\-2016 by Cisco Systems, Inc.
 All rights reserved.
 
 """
@@ -363,9 +364,510 @@ class VersionEnum(Enum):
 
 
 
-class Ssh(object):
+class Ssh1(object):
     """
     Crypto Secure Shell(SSH) data
+    
+    .. attribute:: kex
+    
+    	key exchange method data
+    	**type**\:  :py:class:`Kex <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_ssh_oper.Ssh1.Kex>`
+    
+    
+
+    """
+
+    _prefix = 'crypto-ssh-oper'
+    _revision = '2015-06-02'
+
+    def __init__(self):
+        self.kex = Ssh1.Kex()
+        self.kex.parent = self
+
+
+    class Kex(object):
+        """
+        key exchange method data
+        
+        .. attribute:: nodes
+        
+        	Node\-specific ssh session details
+        	**type**\:  :py:class:`Nodes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_ssh_oper.Ssh1.Kex.Nodes>`
+        
+        
+
+        """
+
+        _prefix = 'crypto-ssh-oper'
+        _revision = '2015-06-02'
+
+        def __init__(self):
+            self.parent = None
+            self.nodes = Ssh1.Kex.Nodes()
+            self.nodes.parent = self
+
+
+        class Nodes(object):
+            """
+            Node\-specific ssh session details
+            
+            .. attribute:: node
+            
+            	SSH session details for a particular node
+            	**type**\: list of  :py:class:`Node <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_ssh_oper.Ssh1.Kex.Nodes.Node>`
+            
+            
+
+            """
+
+            _prefix = 'crypto-ssh-oper'
+            _revision = '2015-06-02'
+
+            def __init__(self):
+                self.parent = None
+                self.node = YList()
+                self.node.parent = self
+                self.node.name = 'node'
+
+
+            class Node(object):
+                """
+                SSH session details for a particular node
+                
+                .. attribute:: node_name  <key>
+                
+                	Node name
+                	**type**\:  str
+                
+                	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
+                
+                .. attribute:: incoming_sessions
+                
+                	List of incoming sessions
+                	**type**\:  :py:class:`IncomingSessions <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_ssh_oper.Ssh1.Kex.Nodes.Node.IncomingSessions>`
+                
+                .. attribute:: outgoing_connections
+                
+                	List of outgoing connections
+                	**type**\:  :py:class:`OutgoingConnections <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_ssh_oper.Ssh1.Kex.Nodes.Node.OutgoingConnections>`
+                
+                
+
+                """
+
+                _prefix = 'crypto-ssh-oper'
+                _revision = '2015-06-02'
+
+                def __init__(self):
+                    self.parent = None
+                    self.node_name = None
+                    self.incoming_sessions = Ssh1.Kex.Nodes.Node.IncomingSessions()
+                    self.incoming_sessions.parent = self
+                    self.outgoing_connections = Ssh1.Kex.Nodes.Node.OutgoingConnections()
+                    self.outgoing_connections.parent = self
+
+
+                class IncomingSessions(object):
+                    """
+                    List of incoming sessions
+                    
+                    .. attribute:: session_detail_info
+                    
+                    	session detail info
+                    	**type**\: list of  :py:class:`SessionDetailInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_ssh_oper.Ssh1.Kex.Nodes.Node.IncomingSessions.SessionDetailInfo>`
+                    
+                    
+
+                    """
+
+                    _prefix = 'crypto-ssh-oper'
+                    _revision = '2015-06-02'
+
+                    def __init__(self):
+                        self.parent = None
+                        self.session_detail_info = YList()
+                        self.session_detail_info.parent = self
+                        self.session_detail_info.name = 'session_detail_info'
+
+
+                    class SessionDetailInfo(object):
+                        """
+                        session detail info
+                        
+                        .. attribute:: in_cipher
+                        
+                        	In cipher algorithm
+                        	**type**\:  :py:class:`CipherEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_ssh_oper.CipherEnum>`
+                        
+                        .. attribute:: in_mac
+                        
+                        	In MAC
+                        	**type**\:  :py:class:`MacEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_ssh_oper.MacEnum>`
+                        
+                        .. attribute:: key_exchange
+                        
+                        	Key exchange name
+                        	**type**\:  :py:class:`KexNameEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_ssh_oper.KexNameEnum>`
+                        
+                        .. attribute:: out_cipher
+                        
+                        	Out cipher algorithm
+                        	**type**\:  :py:class:`CipherEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_ssh_oper.CipherEnum>`
+                        
+                        .. attribute:: out_mac
+                        
+                        	Out MAC
+                        	**type**\:  :py:class:`MacEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_ssh_oper.MacEnum>`
+                        
+                        .. attribute:: public_key
+                        
+                        	Host key algorithm
+                        	**type**\:  :py:class:`HostkeyEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_ssh_oper.HostkeyEnum>`
+                        
+                        .. attribute:: session_id
+                        
+                        	Session ID
+                        	**type**\:  int
+                        
+                        	**range:** 0..4294967295
+                        
+                        
+
+                        """
+
+                        _prefix = 'crypto-ssh-oper'
+                        _revision = '2015-06-02'
+
+                        def __init__(self):
+                            self.parent = None
+                            self.in_cipher = None
+                            self.in_mac = None
+                            self.key_exchange = None
+                            self.out_cipher = None
+                            self.out_mac = None
+                            self.public_key = None
+                            self.session_id = None
+
+                        @property
+                        def _common_path(self):
+                            if self.parent is None:
+                                raise YPYModelError('parent is not set . Cannot derive path.')
+
+                            return self.parent._common_path +'/Cisco-IOS-XR-crypto-ssh-oper:session-detail-info'
+
+                        def is_config(self):
+                            ''' Returns True if this instance represents config data else returns False '''
+                            return False
+
+                        def _has_data(self):
+                            if not self.is_config():
+                                return False
+                            if self.in_cipher is not None:
+                                return True
+
+                            if self.in_mac is not None:
+                                return True
+
+                            if self.key_exchange is not None:
+                                return True
+
+                            if self.out_cipher is not None:
+                                return True
+
+                            if self.out_mac is not None:
+                                return True
+
+                            if self.public_key is not None:
+                                return True
+
+                            if self.session_id is not None:
+                                return True
+
+                            return False
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_crypto_ssh_oper as meta
+                            return meta._meta_table['Ssh1.Kex.Nodes.Node.IncomingSessions.SessionDetailInfo']['meta_info']
+
+                    @property
+                    def _common_path(self):
+                        if self.parent is None:
+                            raise YPYModelError('parent is not set . Cannot derive path.')
+
+                        return self.parent._common_path +'/Cisco-IOS-XR-crypto-ssh-oper:incoming-sessions'
+
+                    def is_config(self):
+                        ''' Returns True if this instance represents config data else returns False '''
+                        return False
+
+                    def _has_data(self):
+                        if not self.is_config():
+                            return False
+                        if self.session_detail_info is not None:
+                            for child_ref in self.session_detail_info:
+                                if child_ref._has_data():
+                                    return True
+
+                        return False
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_crypto_ssh_oper as meta
+                        return meta._meta_table['Ssh1.Kex.Nodes.Node.IncomingSessions']['meta_info']
+
+
+                class OutgoingConnections(object):
+                    """
+                    List of outgoing connections
+                    
+                    .. attribute:: session_detail_info
+                    
+                    	session detail info
+                    	**type**\: list of  :py:class:`SessionDetailInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_ssh_oper.Ssh1.Kex.Nodes.Node.OutgoingConnections.SessionDetailInfo>`
+                    
+                    
+
+                    """
+
+                    _prefix = 'crypto-ssh-oper'
+                    _revision = '2015-06-02'
+
+                    def __init__(self):
+                        self.parent = None
+                        self.session_detail_info = YList()
+                        self.session_detail_info.parent = self
+                        self.session_detail_info.name = 'session_detail_info'
+
+
+                    class SessionDetailInfo(object):
+                        """
+                        session detail info
+                        
+                        .. attribute:: in_cipher
+                        
+                        	In cipher algorithm
+                        	**type**\:  :py:class:`CipherEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_ssh_oper.CipherEnum>`
+                        
+                        .. attribute:: in_mac
+                        
+                        	In MAC
+                        	**type**\:  :py:class:`MacEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_ssh_oper.MacEnum>`
+                        
+                        .. attribute:: key_exchange
+                        
+                        	Key exchange name
+                        	**type**\:  :py:class:`KexNameEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_ssh_oper.KexNameEnum>`
+                        
+                        .. attribute:: out_cipher
+                        
+                        	Out cipher algorithm
+                        	**type**\:  :py:class:`CipherEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_ssh_oper.CipherEnum>`
+                        
+                        .. attribute:: out_mac
+                        
+                        	Out MAC
+                        	**type**\:  :py:class:`MacEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_ssh_oper.MacEnum>`
+                        
+                        .. attribute:: public_key
+                        
+                        	Host key algorithm
+                        	**type**\:  :py:class:`HostkeyEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_ssh_oper.HostkeyEnum>`
+                        
+                        .. attribute:: session_id
+                        
+                        	Session ID
+                        	**type**\:  int
+                        
+                        	**range:** 0..4294967295
+                        
+                        
+
+                        """
+
+                        _prefix = 'crypto-ssh-oper'
+                        _revision = '2015-06-02'
+
+                        def __init__(self):
+                            self.parent = None
+                            self.in_cipher = None
+                            self.in_mac = None
+                            self.key_exchange = None
+                            self.out_cipher = None
+                            self.out_mac = None
+                            self.public_key = None
+                            self.session_id = None
+
+                        @property
+                        def _common_path(self):
+                            if self.parent is None:
+                                raise YPYModelError('parent is not set . Cannot derive path.')
+
+                            return self.parent._common_path +'/Cisco-IOS-XR-crypto-ssh-oper:session-detail-info'
+
+                        def is_config(self):
+                            ''' Returns True if this instance represents config data else returns False '''
+                            return False
+
+                        def _has_data(self):
+                            if not self.is_config():
+                                return False
+                            if self.in_cipher is not None:
+                                return True
+
+                            if self.in_mac is not None:
+                                return True
+
+                            if self.key_exchange is not None:
+                                return True
+
+                            if self.out_cipher is not None:
+                                return True
+
+                            if self.out_mac is not None:
+                                return True
+
+                            if self.public_key is not None:
+                                return True
+
+                            if self.session_id is not None:
+                                return True
+
+                            return False
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_crypto_ssh_oper as meta
+                            return meta._meta_table['Ssh1.Kex.Nodes.Node.OutgoingConnections.SessionDetailInfo']['meta_info']
+
+                    @property
+                    def _common_path(self):
+                        if self.parent is None:
+                            raise YPYModelError('parent is not set . Cannot derive path.')
+
+                        return self.parent._common_path +'/Cisco-IOS-XR-crypto-ssh-oper:outgoing-connections'
+
+                    def is_config(self):
+                        ''' Returns True if this instance represents config data else returns False '''
+                        return False
+
+                    def _has_data(self):
+                        if not self.is_config():
+                            return False
+                        if self.session_detail_info is not None:
+                            for child_ref in self.session_detail_info:
+                                if child_ref._has_data():
+                                    return True
+
+                        return False
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_crypto_ssh_oper as meta
+                        return meta._meta_table['Ssh1.Kex.Nodes.Node.OutgoingConnections']['meta_info']
+
+                @property
+                def _common_path(self):
+                    if self.node_name is None:
+                        raise YPYModelError('Key property node_name is None')
+
+                    return '/Cisco-IOS-XR-crypto-ssh-oper:ssh1/Cisco-IOS-XR-crypto-ssh-oper:kex/Cisco-IOS-XR-crypto-ssh-oper:nodes/Cisco-IOS-XR-crypto-ssh-oper:node[Cisco-IOS-XR-crypto-ssh-oper:node-name = ' + str(self.node_name) + ']'
+
+                def is_config(self):
+                    ''' Returns True if this instance represents config data else returns False '''
+                    return False
+
+                def _has_data(self):
+                    if not self.is_config():
+                        return False
+                    if self.node_name is not None:
+                        return True
+
+                    if self.incoming_sessions is not None and self.incoming_sessions._has_data():
+                        return True
+
+                    if self.outgoing_connections is not None and self.outgoing_connections._has_data():
+                        return True
+
+                    return False
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_crypto_ssh_oper as meta
+                    return meta._meta_table['Ssh1.Kex.Nodes.Node']['meta_info']
+
+            @property
+            def _common_path(self):
+
+                return '/Cisco-IOS-XR-crypto-ssh-oper:ssh1/Cisco-IOS-XR-crypto-ssh-oper:kex/Cisco-IOS-XR-crypto-ssh-oper:nodes'
+
+            def is_config(self):
+                ''' Returns True if this instance represents config data else returns False '''
+                return False
+
+            def _has_data(self):
+                if not self.is_config():
+                    return False
+                if self.node is not None:
+                    for child_ref in self.node:
+                        if child_ref._has_data():
+                            return True
+
+                return False
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_crypto_ssh_oper as meta
+                return meta._meta_table['Ssh1.Kex.Nodes']['meta_info']
+
+        @property
+        def _common_path(self):
+
+            return '/Cisco-IOS-XR-crypto-ssh-oper:ssh1/Cisco-IOS-XR-crypto-ssh-oper:kex'
+
+        def is_config(self):
+            ''' Returns True if this instance represents config data else returns False '''
+            return False
+
+        def _has_data(self):
+            if not self.is_config():
+                return False
+            if self.nodes is not None and self.nodes._has_data():
+                return True
+
+            return False
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_crypto_ssh_oper as meta
+            return meta._meta_table['Ssh1.Kex']['meta_info']
+
+    @property
+    def _common_path(self):
+
+        return '/Cisco-IOS-XR-crypto-ssh-oper:ssh1'
+
+    def is_config(self):
+        ''' Returns True if this instance represents config data else returns False '''
+        return False
+
+    def _has_data(self):
+        if not self.is_config():
+            return False
+        if self.kex is not None and self.kex._has_data():
+            return True
+
+        return False
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_crypto_ssh_oper as meta
+        return meta._meta_table['Ssh1']['meta_info']
+
+
+class Ssh(object):
+    """
+    ssh
     
     .. attribute:: session
     

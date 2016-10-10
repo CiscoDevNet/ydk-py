@@ -7,7 +7,7 @@ This module contains definitions
 for the following management objects\:
   tty\: TTY Line Configuration
 
-Copyright (c) 2013\-2015 by Cisco Systems, Inc.
+Copyright (c) 2013\-2016 by Cisco Systems, Inc.
 All rights reserved.
 
 """
@@ -23,10 +23,6 @@ from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
 from ydk.errors import YPYError, YPYModelError
 
 
-from ydk.models.cisco_ios_xr.Cisco_IOS_XR_tty_management_datatypes import TtyPagerEnum
-from ydk.models.cisco_ios_xr.Cisco_IOS_XR_tty_management_datatypes import TtySessionTimeoutDirectionEnum
-from ydk.models.cisco_ios_xr.Cisco_IOS_XR_tty_management_datatypes import TtyTransportProtocolEnum
-from ydk.models.cisco_ios_xr.Cisco_IOS_XR_tty_management_datatypes import TtyTransportProtocolSelectEnum
 
 
 class Tty(object):

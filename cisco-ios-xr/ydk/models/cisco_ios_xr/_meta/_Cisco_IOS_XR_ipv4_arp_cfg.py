@@ -31,13 +31,20 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('inner-cos', ATTRIBUTE, 'int' , None, None, 
-                [(0, 7)], [], 
+                [('0', '7')], [], 
                 '''                Configure inner cos values for arp packets
                 ''',
                 'inner_cos',
                 'Cisco-IOS-XR-ipv4-arp-cfg', False),
+            _MetaInfoClassMember('max-entries', ATTRIBUTE, 'int' , None, None, 
+                [('1', '256000')], [], 
+                '''                Configure maximum number of safe ARP entries per
+                line card
+                ''',
+                'max_entries',
+                'Cisco-IOS-XR-ipv4-arp-cfg', False),
             _MetaInfoClassMember('outer-cos', ATTRIBUTE, 'int' , None, None, 
-                [(0, 7)], [], 
+                [('0', '7')], [], 
                 '''                Configure outer cos values for arp packets
                 ''',
                 'outer_cos',
@@ -70,6 +77,12 @@ _meta_table = {
                 '''                Entry type
                 ''',
                 'entry_type',
+                'Cisco-IOS-XR-ipv4-arp-cfg', False),
+            _MetaInfoClassMember('interface', ATTRIBUTE, 'str' , None, None, 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                '''                Interface name
+                ''',
+                'interface',
                 'Cisco-IOS-XR-ipv4-arp-cfg', False),
             _MetaInfoClassMember('mac-address', ATTRIBUTE, 'str' , None, None, 
                 [], ['[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'], 
@@ -194,13 +207,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('interface-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Interface name
                 ''',
                 'interface_name',
                 'Cisco-IOS-XR-ipv4-arp-cfg', True),
             _MetaInfoClassMember('interface-id', ATTRIBUTE, 'int' , None, None, 
-                [(1, 65535)], [], 
+                [('1', '65535')], [], 
                 '''                Interface Id for the interface
                 ''',
                 'interface_id',
@@ -260,7 +273,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('group-id', ATTRIBUTE, 'int' , None, None, 
-                [(1, 32)], [], 
+                [('1', '32')], [], 
                 '''                Group ID
                 ''',
                 'group_id',
@@ -278,7 +291,7 @@ _meta_table = {
                 'peers',
                 'Cisco-IOS-XR-ipv4-arp-cfg', False),
             _MetaInfoClassMember('source-interface', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Interface name
                 ''',
                 'source_interface',

@@ -73,7 +73,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('label-space-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Label space ID of neighbor
                 ''',
                 'label_space_id',
@@ -155,7 +155,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('label-space-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Label space ID of neighbor
                 ''',
                 'label_space_id',
@@ -278,7 +278,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('interface-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Name of interface
                 ''',
                 'interface_name',
@@ -505,7 +505,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('mesh-group-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Mesh group ID
                 ''',
                 'mesh_group_id',
@@ -655,7 +655,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('as-xx', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                First half of BGP AS number in XX.YY
                 format.  Mandatory Must be a non-zero
                 value if second half is zero.
@@ -663,7 +663,7 @@ _meta_table = {
                 'as_xx',
                 'Cisco-IOS-XR-mpls-ldp-cfg', False),
             _MetaInfoClassMember('as-yy', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Second half of BGP AS number in XX.YY
                 format. Mandatory Must be a non-zero value
                 if first half is zero.
@@ -819,7 +819,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('duration', ATTRIBUTE, 'int' , None, None, 
-                [(30, 2147483)], [], 
+                [('30', '2147483')], [], 
                 '''                Holdup duration
                 ''',
                 'duration',
@@ -918,7 +918,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('label-space-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Label space ID of neighbor
                 ''',
                 'label_space_id',
@@ -985,7 +985,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('max-wait', ATTRIBUTE, 'int' , None, None, 
-                [(0, 60)], [], 
+                [('0', '60')], [], 
                 '''                Configuration related to neighbor
                 dual-stack xport-connection max-wait
                 ''',
@@ -1288,13 +1288,13 @@ _meta_table = {
                 'dual_stack',
                 'Cisco-IOS-XR-mpls-ldp-cfg', False),
             _MetaInfoClassMember('hold-time', ATTRIBUTE, 'int' , None, None, 
-                [(1, 65535)], [], 
+                [('1', '65535')], [], 
                 '''                Time (seconds) - 65535 implies infinite
                 ''',
                 'hold_time',
                 'Cisco-IOS-XR-mpls-ldp-cfg', False),
             _MetaInfoClassMember('interval', ATTRIBUTE, 'int' , None, None, 
-                [(1, 65535)], [], 
+                [('1', '65535')], [], 
                 '''                Link Hello interval
                 ''',
                 'interval',
@@ -1340,7 +1340,7 @@ _meta_table = {
                 'disable',
                 'Cisco-IOS-XR-mpls-ldp-cfg', False),
             _MetaInfoClassMember('timeout', ATTRIBUTE, 'int' , None, None, 
-                [(5, 300)], [], 
+                [('5', '300')], [], 
                 '''                Time (seconds)
                 ''',
                 'timeout',
@@ -1431,7 +1431,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('interface-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Name of interface
                 ''',
                 'interface_name',
@@ -1581,7 +1581,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('label-space-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Label space ID of neighbor
                 ''',
                 'label_space_id',
@@ -1783,7 +1783,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('label-space-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Label space ID of neighbor
                 ''',
                 'label_space_id',
@@ -1905,7 +1905,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('label-space-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Label space ID of neighbor
                 ''',
                 'label_space_id',
@@ -1952,7 +1952,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('interface-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Name of interface
                 ''',
                 'interface_name',
@@ -2290,7 +2290,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('interface-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Name of interface
                 ''',
                 'interface_name',
@@ -2416,13 +2416,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('initial-backoff-time', ATTRIBUTE, 'int' , None, None, 
-                [(5, 2147483)], [], 
+                [('5', '2147483')], [], 
                 '''                Initial session backoff time (seconds)
                 ''',
                 'initial_backoff_time',
                 'Cisco-IOS-XR-mpls-ldp-cfg', False),
             _MetaInfoClassMember('max-backoff-time', ATTRIBUTE, 'int' , None, None, 
-                [(5, 2147483)], [], 
+                [('5', '2147483')], [], 
                 '''                Maximum session backoff time (seconds)
                 ''',
                 'max_backoff_time',
@@ -2445,7 +2445,7 @@ _meta_table = {
                 'backoff_time',
                 'Cisco-IOS-XR-mpls-ldp-cfg', False),
             _MetaInfoClassMember('hold-time', ATTRIBUTE, 'int' , None, None, 
-                [(15, 65535)], [], 
+                [('15', '65535')], [], 
                 '''                LDP Session holdtime
                 ''',
                 'hold_time',
@@ -2462,14 +2462,14 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('on-proc-restart', ATTRIBUTE, 'int' , None, None, 
-                [(60, 600)], [], 
+                [('60', '600')], [], 
                 '''                Global sync up delay to be used after
                 process restart
                 ''',
                 'on_proc_restart',
                 'Cisco-IOS-XR-mpls-ldp-cfg', False),
             _MetaInfoClassMember('on-session-up', ATTRIBUTE, 'int' , None, None, 
-                [(5, 300)], [], 
+                [('5', '300')], [], 
                 '''                Interface sync up delay after session up
                 ''',
                 'on_session_up',
@@ -2561,7 +2561,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('dscp', ATTRIBUTE, 'int' , None, None, 
-                [(0, 63)], [], 
+                [('0', '63')], [], 
                 '''                DSCP for control packets
                 ''',
                 'dscp',
@@ -2601,13 +2601,13 @@ _meta_table = {
                 'enable',
                 'Cisco-IOS-XR-mpls-ldp-cfg', False),
             _MetaInfoClassMember('forwarding-hold-time', ATTRIBUTE, 'int' , None, None, 
-                [(60, 1800)], [], 
+                [('60', '1800')], [], 
                 '''                Configure Graceful Restart Session holdtime
                 ''',
                 'forwarding_hold_time',
                 'Cisco-IOS-XR-mpls-ldp-cfg', False),
             _MetaInfoClassMember('reconnect-timeout', ATTRIBUTE, 'int' , None, None, 
-                [(60, 1800)], [], 
+                [('60', '1800')], [], 
                 '''                Configure Graceful Restart Reconnect Timeout
                 value
                 ''',
@@ -2625,13 +2625,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('hold-time', ATTRIBUTE, 'int' , None, None, 
-                [(1, 65535)], [], 
+                [('1', '65535')], [], 
                 '''                Time (seconds) - 65535 implies infinite
                 ''',
                 'hold_time',
                 'Cisco-IOS-XR-mpls-ldp-cfg', False),
             _MetaInfoClassMember('interval', ATTRIBUTE, 'int' , None, None, 
-                [(1, 65535)], [], 
+                [('1', '65535')], [], 
                 '''                Link Hello interval
                 ''',
                 'interval',
@@ -2648,13 +2648,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('hold-time', ATTRIBUTE, 'int' , None, None, 
-                [(1, 65535)], [], 
+                [('1', '65535')], [], 
                 '''                Time (seconds) - 65535 implies infinite
                 ''',
                 'hold_time',
                 'Cisco-IOS-XR-mpls-ldp-cfg', False),
             _MetaInfoClassMember('interval', ATTRIBUTE, 'int' , None, None, 
-                [(1, 65535)], [], 
+                [('1', '65535')], [], 
                 '''                Targeted Hello interval
                 ''',
                 'interval',
@@ -2742,13 +2742,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('delete-delay', ATTRIBUTE, 'int' , None, None, 
-                [(0, 60)], [], 
+                [('0', '60')], [], 
                 '''                Delete Delay in seconds
                 ''',
                 'delete_delay',
                 'Cisco-IOS-XR-mpls-ldp-cfg', False),
             _MetaInfoClassMember('forward-delay', ATTRIBUTE, 'int' , None, None, 
-                [(0, 600)], [], 
+                [('0', '600')], [], 
                 '''                Forwarding Delay in Seconds
                 ''',
                 'forward_delay',
@@ -2945,13 +2945,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('delete-delay', ATTRIBUTE, 'int' , None, None, 
-                [(0, 60)], [], 
+                [('0', '60')], [], 
                 '''                Delete Delay in seconds
                 ''',
                 'delete_delay',
                 'Cisco-IOS-XR-mpls-ldp-cfg', False),
             _MetaInfoClassMember('forward-delay', ATTRIBUTE, 'int' , None, None, 
-                [(0, 600)], [], 
+                [('0', '600')], [], 
                 '''                Forwarding Delay in Seconds
                 ''',
                 'forward_delay',
@@ -3197,6 +3197,12 @@ _meta_table = {
                 '''                LDP IGP configuration
                 ''',
                 'igp',
+                'Cisco-IOS-XR-mpls-ldp-cfg', False),
+            _MetaInfoClassMember('ltrace-buf-multiplier', ATTRIBUTE, 'int' , None, None, 
+                [('1', '5')], [], 
+                '''                Configure Ltrace Buffer Multiplier
+                ''',
+                'ltrace_buf_multiplier',
                 'Cisco-IOS-XR-mpls-ldp-cfg', False),
             _MetaInfoClassMember('mldp', REFERENCE_CLASS, 'Mldp' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg', 'MplsLdp.Global.Mldp', 
                 [], [], 

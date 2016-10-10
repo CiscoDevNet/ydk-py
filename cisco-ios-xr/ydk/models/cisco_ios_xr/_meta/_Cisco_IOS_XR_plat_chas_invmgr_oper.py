@@ -521,13 +521,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('time-in-nano-seconds', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Time Value in Nano-seconds
                 ''',
                 'time_in_nano_seconds',
                 'Cisco-IOS-XR-plat-chas-invmgr-oper', False),
             _MetaInfoClassMember('time-in-seconds', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Time Value in Seconds
                 ''',
                 'time_in_seconds',
@@ -544,13 +544,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('time-in-nano-seconds', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Time Value in Nano-seconds
                 ''',
                 'time_in_nano_seconds',
                 'Cisco-IOS-XR-plat-chas-invmgr-oper', False),
             _MetaInfoClassMember('time-in-seconds', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Time Value in Seconds
                 ''',
                 'time_in_seconds',
@@ -718,7 +718,7 @@ _meta_table = {
                 'image_name',
                 'Cisco-IOS-XR-plat-chas-invmgr-oper', False),
             _MetaInfoClassMember('major-version', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Major version
                 ''',
                 'major_version',
@@ -730,7 +730,7 @@ _meta_table = {
                 'micro_image_version',
                 'Cisco-IOS-XR-plat-chas-invmgr-oper', False),
             _MetaInfoClassMember('minor-version', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Minor version
                 ''',
                 'minor_version',
@@ -759,7 +759,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('bootflash-size', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Bootflash size in kilo-bytes
                 ''',
                 'bootflash_size',
@@ -777,7 +777,7 @@ _meta_table = {
                 'image_name',
                 'Cisco-IOS-XR-plat-chas-invmgr-oper', False),
             _MetaInfoClassMember('major-version', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Major version
                 ''',
                 'major_version',
@@ -789,7 +789,7 @@ _meta_table = {
                 'micro_image_version',
                 'Cisco-IOS-XR-plat-chas-invmgr-oper', False),
             _MetaInfoClassMember('minor-version', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Minor version
                 ''',
                 'minor_version',
@@ -813,7 +813,7 @@ _meta_table = {
                 'release_type',
                 'Cisco-IOS-XR-plat-chas-invmgr-oper', False),
             _MetaInfoClassMember('sector-size', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Sector size in bytes
                 ''',
                 'sector_size',
@@ -864,14 +864,14 @@ _meta_table = {
                 ''',
                 'bootflash',
                 'Cisco-IOS-XR-plat-chas-invmgr-oper', False),
-            _MetaInfoClassMember('main-memory-size', ATTRIBUTE, 'long' , None, None, 
-                [(0, 18446744073709551615L)], [], 
+            _MetaInfoClassMember('main-memory-size', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
                 '''                Memory size in bytes
                 ''',
                 'main_memory_size',
                 'Cisco-IOS-XR-plat-chas-invmgr-oper', False),
-            _MetaInfoClassMember('nvram-size', ATTRIBUTE, 'long' , None, None, 
-                [(0, 18446744073709551615L)], [], 
+            _MetaInfoClassMember('nvram-size', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
                 '''                NVRAM size in bytes
                 ''',
                 'nvram_size',
@@ -900,7 +900,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('bootflash-size', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Bootflash size in kilo-bytes
                 ''',
                 'bootflash_size',
@@ -918,7 +918,7 @@ _meta_table = {
                 'image_name',
                 'Cisco-IOS-XR-plat-chas-invmgr-oper', False),
             _MetaInfoClassMember('major-version', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Major version
                 ''',
                 'major_version',
@@ -930,7 +930,7 @@ _meta_table = {
                 'micro_image_version',
                 'Cisco-IOS-XR-plat-chas-invmgr-oper', False),
             _MetaInfoClassMember('minor-version', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Minor version
                 ''',
                 'minor_version',
@@ -954,7 +954,7 @@ _meta_table = {
                 'release_type',
                 'Cisco-IOS-XR-plat-chas-invmgr-oper', False),
             _MetaInfoClassMember('sector-size', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Sector size in bytes
                 ''',
                 'sector_size',
@@ -977,13 +977,13 @@ _meta_table = {
                 'disk_name',
                 'Cisco-IOS-XR-plat-chas-invmgr-oper', False),
             _MetaInfoClassMember('disk-size', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Disk size in mega-bytes
                 ''',
                 'disk_size',
                 'Cisco-IOS-XR-plat-chas-invmgr-oper', False),
             _MetaInfoClassMember('sector-size', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Disk sector size in bytes
                 ''',
                 'sector_size',
@@ -1006,7 +1006,7 @@ _meta_table = {
                 'disk_name',
                 'Cisco-IOS-XR-plat-chas-invmgr-oper', False),
             _MetaInfoClassMember('disk-size', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                (Deprecated) Disk size in mega-bytes
                 ''',
                 'disk_size',
@@ -1018,7 +1018,7 @@ _meta_table = {
                 'disks',
                 'Cisco-IOS-XR-plat-chas-invmgr-oper', False),
             _MetaInfoClassMember('sector-size', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                (Deprecated) Disk sector size in bytes
                 ''',
                 'sector_size',
@@ -1136,13 +1136,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('time-in-nano-seconds', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Time Value in Nano-seconds
                 ''',
                 'time_in_nano_seconds',
                 'Cisco-IOS-XR-plat-chas-invmgr-oper', False),
             _MetaInfoClassMember('time-in-seconds', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Time Value in Seconds
                 ''',
                 'time_in_seconds',
@@ -1159,13 +1159,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('time-in-nano-seconds', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Time Value in Nano-seconds
                 ''',
                 'time_in_nano_seconds',
                 'Cisco-IOS-XR-plat-chas-invmgr-oper', False),
             _MetaInfoClassMember('time-in-seconds', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Time Value in Seconds
                 ''',
                 'time_in_seconds',
@@ -1341,13 +1341,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('time-in-nano-seconds', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Time Value in Nano-seconds
                 ''',
                 'time_in_nano_seconds',
                 'Cisco-IOS-XR-plat-chas-invmgr-oper', False),
             _MetaInfoClassMember('time-in-seconds', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Time Value in Seconds
                 ''',
                 'time_in_seconds',
@@ -1364,13 +1364,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('time-in-nano-seconds', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Time Value in Nano-seconds
                 ''',
                 'time_in_nano_seconds',
                 'Cisco-IOS-XR-plat-chas-invmgr-oper', False),
             _MetaInfoClassMember('time-in-seconds', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Time Value in Seconds
                 ''',
                 'time_in_seconds',
@@ -1569,13 +1569,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('time-in-nano-seconds', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Time Value in Nano-seconds
                 ''',
                 'time_in_nano_seconds',
                 'Cisco-IOS-XR-plat-chas-invmgr-oper', False),
             _MetaInfoClassMember('time-in-seconds', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Time Value in Seconds
                 ''',
                 'time_in_seconds',
@@ -1592,13 +1592,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('time-in-nano-seconds', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Time Value in Nano-seconds
                 ''',
                 'time_in_nano_seconds',
                 'Cisco-IOS-XR-plat-chas-invmgr-oper', False),
             _MetaInfoClassMember('time-in-seconds', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Time Value in Seconds
                 ''',
                 'time_in_seconds',
@@ -1809,13 +1809,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('time-in-nano-seconds', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Time Value in Nano-seconds
                 ''',
                 'time_in_nano_seconds',
                 'Cisco-IOS-XR-plat-chas-invmgr-oper', False),
             _MetaInfoClassMember('time-in-seconds', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Time Value in Seconds
                 ''',
                 'time_in_seconds',
@@ -1832,13 +1832,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('time-in-nano-seconds', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Time Value in Nano-seconds
                 ''',
                 'time_in_nano_seconds',
                 'Cisco-IOS-XR-plat-chas-invmgr-oper', False),
             _MetaInfoClassMember('time-in-seconds', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Time Value in Seconds
                 ''',
                 'time_in_seconds',
@@ -2037,13 +2037,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('time-in-nano-seconds', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Time Value in Nano-seconds
                 ''',
                 'time_in_nano_seconds',
                 'Cisco-IOS-XR-plat-chas-invmgr-oper', False),
             _MetaInfoClassMember('time-in-seconds', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Time Value in Seconds
                 ''',
                 'time_in_seconds',
@@ -2060,13 +2060,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('time-in-nano-seconds', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Time Value in Nano-seconds
                 ''',
                 'time_in_nano_seconds',
                 'Cisco-IOS-XR-plat-chas-invmgr-oper', False),
             _MetaInfoClassMember('time-in-seconds', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Time Value in Seconds
                 ''',
                 'time_in_seconds',
@@ -2254,13 +2254,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('time-in-nano-seconds', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Time Value in Nano-seconds
                 ''',
                 'time_in_nano_seconds',
                 'Cisco-IOS-XR-plat-chas-invmgr-oper', False),
             _MetaInfoClassMember('time-in-seconds', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Time Value in Seconds
                 ''',
                 'time_in_seconds',
@@ -2277,13 +2277,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('time-in-nano-seconds', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Time Value in Nano-seconds
                 ''',
                 'time_in_nano_seconds',
                 'Cisco-IOS-XR-plat-chas-invmgr-oper', False),
             _MetaInfoClassMember('time-in-seconds', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Time Value in Seconds
                 ''',
                 'time_in_seconds',
@@ -2488,13 +2488,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('time-in-nano-seconds', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Time Value in Nano-seconds
                 ''',
                 'time_in_nano_seconds',
                 'Cisco-IOS-XR-plat-chas-invmgr-oper', False),
             _MetaInfoClassMember('time-in-seconds', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Time Value in Seconds
                 ''',
                 'time_in_seconds',
@@ -2511,13 +2511,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('time-in-nano-seconds', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Time Value in Nano-seconds
                 ''',
                 'time_in_nano_seconds',
                 'Cisco-IOS-XR-plat-chas-invmgr-oper', False),
             _MetaInfoClassMember('time-in-seconds', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Time Value in Seconds
                 ''',
                 'time_in_seconds',
@@ -2716,13 +2716,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('time-in-nano-seconds', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Time Value in Nano-seconds
                 ''',
                 'time_in_nano_seconds',
                 'Cisco-IOS-XR-plat-chas-invmgr-oper', False),
             _MetaInfoClassMember('time-in-seconds', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Time Value in Seconds
                 ''',
                 'time_in_seconds',
@@ -2739,13 +2739,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('time-in-nano-seconds', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Time Value in Nano-seconds
                 ''',
                 'time_in_nano_seconds',
                 'Cisco-IOS-XR-plat-chas-invmgr-oper', False),
             _MetaInfoClassMember('time-in-seconds', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Time Value in Seconds
                 ''',
                 'time_in_seconds',
@@ -2950,13 +2950,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('time-in-nano-seconds', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Time Value in Nano-seconds
                 ''',
                 'time_in_nano_seconds',
                 'Cisco-IOS-XR-plat-chas-invmgr-oper', False),
             _MetaInfoClassMember('time-in-seconds', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Time Value in Seconds
                 ''',
                 'time_in_seconds',
@@ -2973,13 +2973,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('time-in-nano-seconds', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Time Value in Nano-seconds
                 ''',
                 'time_in_nano_seconds',
                 'Cisco-IOS-XR-plat-chas-invmgr-oper', False),
             _MetaInfoClassMember('time-in-seconds', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Time Value in Seconds
                 ''',
                 'time_in_seconds',
@@ -3155,13 +3155,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('time-in-nano-seconds', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Time Value in Nano-seconds
                 ''',
                 'time_in_nano_seconds',
                 'Cisco-IOS-XR-plat-chas-invmgr-oper', False),
             _MetaInfoClassMember('time-in-seconds', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Time Value in Seconds
                 ''',
                 'time_in_seconds',
@@ -3178,13 +3178,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('time-in-nano-seconds', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Time Value in Nano-seconds
                 ''',
                 'time_in_nano_seconds',
                 'Cisco-IOS-XR-plat-chas-invmgr-oper', False),
             _MetaInfoClassMember('time-in-seconds', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Time Value in Seconds
                 ''',
                 'time_in_seconds',
@@ -3383,13 +3383,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('time-in-nano-seconds', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Time Value in Nano-seconds
                 ''',
                 'time_in_nano_seconds',
                 'Cisco-IOS-XR-plat-chas-invmgr-oper', False),
             _MetaInfoClassMember('time-in-seconds', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Time Value in Seconds
                 ''',
                 'time_in_seconds',
@@ -3406,13 +3406,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('time-in-nano-seconds', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Time Value in Nano-seconds
                 ''',
                 'time_in_nano_seconds',
                 'Cisco-IOS-XR-plat-chas-invmgr-oper', False),
             _MetaInfoClassMember('time-in-seconds', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Time Value in Seconds
                 ''',
                 'time_in_seconds',
@@ -3623,13 +3623,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('time-in-nano-seconds', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Time Value in Nano-seconds
                 ''',
                 'time_in_nano_seconds',
                 'Cisco-IOS-XR-plat-chas-invmgr-oper', False),
             _MetaInfoClassMember('time-in-seconds', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Time Value in Seconds
                 ''',
                 'time_in_seconds',
@@ -3646,13 +3646,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('time-in-nano-seconds', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Time Value in Nano-seconds
                 ''',
                 'time_in_nano_seconds',
                 'Cisco-IOS-XR-plat-chas-invmgr-oper', False),
             _MetaInfoClassMember('time-in-seconds', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Time Value in Seconds
                 ''',
                 'time_in_seconds',
@@ -3851,13 +3851,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('time-in-nano-seconds', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Time Value in Nano-seconds
                 ''',
                 'time_in_nano_seconds',
                 'Cisco-IOS-XR-plat-chas-invmgr-oper', False),
             _MetaInfoClassMember('time-in-seconds', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Time Value in Seconds
                 ''',
                 'time_in_seconds',
@@ -3874,13 +3874,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('time-in-nano-seconds', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Time Value in Nano-seconds
                 ''',
                 'time_in_nano_seconds',
                 'Cisco-IOS-XR-plat-chas-invmgr-oper', False),
             _MetaInfoClassMember('time-in-seconds', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Time Value in Seconds
                 ''',
                 'time_in_seconds',
@@ -4115,13 +4115,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('time-in-nano-seconds', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Time Value in Nano-seconds
                 ''',
                 'time_in_nano_seconds',
                 'Cisco-IOS-XR-plat-chas-invmgr-oper', False),
             _MetaInfoClassMember('time-in-seconds', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Time Value in Seconds
                 ''',
                 'time_in_seconds',
@@ -4138,13 +4138,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('time-in-nano-seconds', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Time Value in Nano-seconds
                 ''',
                 'time_in_nano_seconds',
                 'Cisco-IOS-XR-plat-chas-invmgr-oper', False),
             _MetaInfoClassMember('time-in-seconds', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Time Value in Seconds
                 ''',
                 'time_in_seconds',
@@ -4349,13 +4349,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('time-in-nano-seconds', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Time Value in Nano-seconds
                 ''',
                 'time_in_nano_seconds',
                 'Cisco-IOS-XR-plat-chas-invmgr-oper', False),
             _MetaInfoClassMember('time-in-seconds', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Time Value in Seconds
                 ''',
                 'time_in_seconds',
@@ -4372,13 +4372,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('time-in-nano-seconds', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Time Value in Nano-seconds
                 ''',
                 'time_in_nano_seconds',
                 'Cisco-IOS-XR-plat-chas-invmgr-oper', False),
             _MetaInfoClassMember('time-in-seconds', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Time Value in Seconds
                 ''',
                 'time_in_seconds',

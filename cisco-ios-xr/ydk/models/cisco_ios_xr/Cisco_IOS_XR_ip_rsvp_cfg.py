@@ -11,7 +11,7 @@ This YANG module augments the
   Cisco\-IOS\-XR\-snmp\-agent\-cfg
 module with configuration data.
 
-Copyright (c) 2013\-2015 by Cisco Systems, Inc.
+Copyright (c) 2013\-2016 by Cisco Systems, Inc.
 All rights reserved.
 
 """
@@ -271,6 +271,11 @@ class Rsvp(object):
                 """
                 Configure RSVP authentication
                 
+                .. attribute:: enable
+                
+                	Enable or disable RSVP authentication
+                	**type**\:  bool
+                
                 .. attribute:: key_chain
                 
                 	Key chain to authenticate RSVP signalling messages
@@ -301,6 +306,7 @@ class Rsvp(object):
 
                 def __init__(self):
                     self.parent = None
+                    self.enable = None
                     self.key_chain = None
                     self.life_time = None
                     self.window_size = None
@@ -319,6 +325,9 @@ class Rsvp(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
+                    if self.enable is not None:
+                        return True
+
                     if self.key_chain is not None:
                         return True
 
@@ -419,7 +428,7 @@ class Rsvp(object):
             	Name of controller
             	**type**\:  str
             
-            	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+            	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
             
             .. attribute:: cntl_signalling
             
@@ -911,7 +920,7 @@ class Rsvp(object):
             	Name of interface
             	**type**\:  str
             
-            	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+            	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
             
             .. attribute:: authentication
             
@@ -1549,6 +1558,11 @@ class Rsvp(object):
                 """
                 Configure RSVP authentication
                 
+                .. attribute:: enable
+                
+                	Enable or disable RSVP authentication
+                	**type**\:  bool
+                
                 .. attribute:: key_chain
                 
                 	Key chain to authenticate RSVP signalling messages
@@ -1579,6 +1593,7 @@ class Rsvp(object):
 
                 def __init__(self):
                     self.parent = None
+                    self.enable = None
                     self.key_chain = None
                     self.life_time = None
                     self.window_size = None
@@ -1597,6 +1612,9 @@ class Rsvp(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
+                    if self.enable is not None:
+                        return True
+
                     if self.key_chain is not None:
                         return True
 
@@ -1792,7 +1810,14 @@ class Rsvp(object):
             .. attribute:: enable
             
             	Enable RSVP graceful restart
-            	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+            	**type**\:  bool
+            
+            .. attribute:: recovery_time
+            
+            	Graceful restart recovery time (seconds)
+            	**type**\:  int
+            
+            	**range:** 0..3600
             
             .. attribute:: restart_time
             
@@ -1811,6 +1836,7 @@ class Rsvp(object):
             def __init__(self):
                 self.parent = None
                 self.enable = None
+                self.recovery_time = None
                 self.restart_time = None
 
             @property
@@ -1826,6 +1852,9 @@ class Rsvp(object):
                 if not self.is_config():
                     return False
                 if self.enable is not None:
+                    return True
+
+                if self.recovery_time is not None:
                     return True
 
                 if self.restart_time is not None:
@@ -2068,6 +2097,11 @@ class Rsvp(object):
         """
         Configure RSVP authentication
         
+        .. attribute:: enable
+        
+        	Enable or disable RSVP authentication
+        	**type**\:  bool
+        
         .. attribute:: key_chain
         
         	Key chain to authenticate RSVP signalling messages
@@ -2098,6 +2132,7 @@ class Rsvp(object):
 
         def __init__(self):
             self.parent = None
+            self.enable = None
             self.key_chain = None
             self.life_time = None
             self.window_size = None
@@ -2114,6 +2149,9 @@ class Rsvp(object):
         def _has_data(self):
             if not self.is_config():
                 return False
+            if self.enable is not None:
+                return True
+
             if self.key_chain is not None:
                 return True
 

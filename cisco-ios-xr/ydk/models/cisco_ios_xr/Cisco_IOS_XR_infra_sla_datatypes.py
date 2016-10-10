@@ -3,7 +3,7 @@
 This module contains a collection of generally useful
 derived YANG data types.
 
-Copyright (c) 2013\-2015 by Cisco Systems, Inc.
+Copyright (c) 2013\-2016 by Cisco Systems, Inc.
 All rights reserved.
 
 """
@@ -59,6 +59,12 @@ class SlaBurstIntervalUnitsEnumEnum(Enum):
 
     	Send one burst per probe
 
+    .. data:: MILLISECONDS = 2
+
+    	Send bursts within a probe with an interval
+
+    	unit of milliseconds
+
     .. data:: SECONDS = 3
 
     	Send bursts within a probe with an interval
@@ -80,6 +86,8 @@ class SlaBurstIntervalUnitsEnumEnum(Enum):
     """
 
     ONCE = 1
+
+    MILLISECONDS = 2
 
     SECONDS = 3
 

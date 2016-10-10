@@ -8,7 +8,7 @@ for the following management objects\:
   snmp\: The heirarchy point for all the SNMP configurations
   mib\: mib
 
-Copyright (c) 2013\-2015 by Cisco Systems, Inc.
+Copyright (c) 2013\-2016 by Cisco Systems, Inc.
 All rights reserved.
 
 """
@@ -24,25 +24,6 @@ from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
 from ydk.errors import YPYError, YPYModelError
 
 
-from ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg import IsisMibAdjacencyChangeBooleanEnum
-from ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg import IsisMibAllBooleanEnum
-from ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg import IsisMibAreaMismatchBooleanEnum
-from ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg import IsisMibAttemptToExceedMaxSequenceBooleanEnum
-from ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg import IsisMibAuthenticationFailureBooleanEnum
-from ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg import IsisMibAuthenticationTypeFailureBooleanEnum
-from ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg import IsisMibCorruptedLspDetectedBooleanEnum
-from ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg import IsisMibDatabaseOverFlowBooleanEnum
-from ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg import IsisMibIdLengthMismatchBooleanEnum
-from ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg import IsisMibLspErrorDetectedBooleanEnum
-from ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg import IsisMibLspTooLargeToPropagateBooleanEnum
-from ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg import IsisMibManualAddressDropsBooleanEnum
-from ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg import IsisMibMaxAreaAddressMismatchBooleanEnum
-from ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg import IsisMibOriginatedLspBufferSizeMismatchBooleanEnum
-from ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg import IsisMibOwnLspPurgeBooleanEnum
-from ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg import IsisMibProtocolsSupportedMismatchBooleanEnum
-from ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg import IsisMibRejectedAdjacencyBooleanEnum
-from ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg import IsisMibSequenceNumberSkipBooleanEnum
-from ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg import IsisMibVersionSkewBooleanEnum
 
 class GroupSnmpVersionEnum(Enum):
     """
@@ -846,14 +827,14 @@ class Snmp(object):
     	Assign an interface for the source address of all traps
     	**type**\:  str
     
-    	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+    	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
     
     .. attribute:: trap_source_ipv6
     
     	Assign an interface for the source IPV6 address of all traps
     	**type**\:  str
     
-    	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+    	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
     
     .. attribute:: users
     
@@ -2656,10 +2637,20 @@ class Snmp(object):
         	ENTITY\-STATE\-MIB notification configuration
         	**type**\:  :py:class:`EntityState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Snmp.Notification.EntityState>`
         
+        .. attribute:: flash
+        
+        	CISCO\-FLASH\-MIB notification configuration
+        	**type**\:  :py:class:`Flash <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Snmp.Notification.Flash>`
+        
         .. attribute:: fru_control
         
         	CISCO\-ENTITY\-FRU\-CONTROL\-MIB notification configuration
         	**type**\:  :py:class:`FruControl <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Snmp.Notification.FruControl>`
+        
+        .. attribute:: hsrp
+        
+        	CISCO\-HSRP\-MIB notification configuration
+        	**type**\:  :py:class:`Hsrp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Snmp.Notification.Hsrp>`
         
         .. attribute:: isis
         
@@ -2711,6 +2702,16 @@ class Snmp(object):
         	OSPFv3\-MIB notification configuration
         	**type**\:  :py:class:`Ospfv3 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Snmp.Notification.Ospfv3>`
         
+        .. attribute:: otn
+        
+        	CISCO\-OTN\-IF\-MIB notification configuration
+        	**type**\:  :py:class:`Otn <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Snmp.Notification.Otn>`
+        
+        .. attribute:: rf
+        
+        	CISCO\-RF\-MIB notification configuration
+        	**type**\:  :py:class:`Rf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Snmp.Notification.Rf>`
+        
         .. attribute:: rsvp
         
         	Enable RSVP\-MIB notifications
@@ -2720,6 +2721,11 @@ class Snmp(object):
         
         	CISCO\-SELECTIVE\-VRF\-DOWNLOAD\-MIB notification configuration
         	**type**\:  :py:class:`SelectiveVrfDownload <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Snmp.Notification.SelectiveVrfDownload>`
+        
+        .. attribute:: sensor
+        
+        	CISCO\-ENTITY\-SENSOR\-MIB notification configuration
+        	**type**\:  :py:class:`Sensor <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Snmp.Notification.Sensor>`
         
         .. attribute:: snmp
         
@@ -2740,6 +2746,11 @@ class Snmp(object):
         
         	CISCO\-IETF\-VPLS\-GENERIC\-MIB notification configuration
         	**type**\:  :py:class:`Vpls <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Snmp.Notification.Vpls>`
+        
+        .. attribute:: vrrp
+        
+        	VRRP\-MIB notification configuration
+        	**type**\:  :py:class:`Vrrp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Snmp.Notification.Vrrp>`
         
         
 
@@ -2764,8 +2775,12 @@ class Snmp(object):
             self.entity_redundancy.parent = self
             self.entity_state = Snmp.Notification.EntityState()
             self.entity_state.parent = self
+            self.flash = Snmp.Notification.Flash()
+            self.flash.parent = self
             self.fru_control = Snmp.Notification.FruControl()
             self.fru_control.parent = self
+            self.hsrp = Snmp.Notification.Hsrp()
+            self.hsrp.parent = self
             self.isis = Snmp.Notification.Isis()
             self.isis.parent = self
             self.l2vpn = Snmp.Notification.L2Vpn()
@@ -2786,10 +2801,16 @@ class Snmp(object):
             self.ospf.parent = self
             self.ospfv3 = Snmp.Notification.Ospfv3()
             self.ospfv3.parent = self
+            self.otn = Snmp.Notification.Otn()
+            self.otn.parent = self
+            self.rf = Snmp.Notification.Rf()
+            self.rf.parent = self
             self.rsvp = Snmp.Notification.Rsvp()
             self.rsvp.parent = self
             self.selective_vrf_download = Snmp.Notification.SelectiveVrfDownload()
             self.selective_vrf_download.parent = self
+            self.sensor = Snmp.Notification.Sensor()
+            self.sensor.parent = self
             self.snmp = Snmp.Notification.Snmp()
             self.snmp.parent = self
             self.syslog = Snmp.Notification.Syslog()
@@ -2798,6 +2819,8 @@ class Snmp(object):
             self.system.parent = self
             self.vpls = Snmp.Notification.Vpls()
             self.vpls.parent = self
+            self.vrrp = Snmp.Notification.Vrrp()
+            self.vrrp.parent = self
 
 
         class Snmp(object):
@@ -3364,6 +3387,58 @@ class Snmp(object):
                 return meta._meta_table['Snmp.Notification.Oam']['meta_info']
 
 
+        class Flash(object):
+            """
+            CISCO\-FLASH\-MIB notification configuration
+            
+            .. attribute:: insertion
+            
+            	Enable ciscoFlashDeviceInsertedNotif notification
+            	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+            
+            .. attribute:: removal
+            
+            	Enable ciscoFlashDeviceRemovedNotif notification
+            	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+            
+            
+
+            """
+
+            _prefix = 'flashmib-cfg'
+            _revision = '2015-12-15'
+
+            def __init__(self):
+                self.parent = None
+                self.insertion = None
+                self.removal = None
+
+            @property
+            def _common_path(self):
+
+                return '/Cisco-IOS-XR-snmp-agent-cfg:snmp/Cisco-IOS-XR-snmp-agent-cfg:notification/Cisco-IOS-XR-flashmib-cfg:flash'
+
+            def is_config(self):
+                ''' Returns True if this instance represents config data else returns False '''
+                return True
+
+            def _has_data(self):
+                if not self.is_config():
+                    return False
+                if self.insertion is not None:
+                    return True
+
+                if self.removal is not None:
+                    return True
+
+                return False
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_agent_cfg as meta
+                return meta._meta_table['Snmp.Notification.Flash']['meta_info']
+
+
         class EntityRedundancy(object):
             """
             CISCO\-ENTITY\-REDUNDANCY\-MIB notification
@@ -3830,6 +3905,49 @@ class Snmp(object):
                 return meta._meta_table['Snmp.Notification.Bgp']['meta_info']
 
 
+        class Hsrp(object):
+            """
+            CISCO\-HSRP\-MIB notification configuration
+            
+            .. attribute:: enable
+            
+            	Enable CISCO\-HSRP\-MIB notifications
+            	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+            
+            
+
+            """
+
+            _prefix = 'ipv4-hsrp-cfg'
+            _revision = '2015-11-09'
+
+            def __init__(self):
+                self.parent = None
+                self.enable = None
+
+            @property
+            def _common_path(self):
+
+                return '/Cisco-IOS-XR-snmp-agent-cfg:snmp/Cisco-IOS-XR-snmp-agent-cfg:notification/Cisco-IOS-XR-ipv4-hsrp-cfg:hsrp'
+
+            def is_config(self):
+                ''' Returns True if this instance represents config data else returns False '''
+                return True
+
+            def _has_data(self):
+                if not self.is_config():
+                    return False
+                if self.enable is not None:
+                    return True
+
+                return False
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_agent_cfg as meta
+                return meta._meta_table['Snmp.Notification.Hsrp']['meta_info']
+
+
         class Ospf(object):
             """
             OSPF\-MIB notification configuration
@@ -4164,6 +4282,49 @@ class Snmp(object):
             def _meta_info():
                 from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_agent_cfg as meta
                 return meta._meta_table['Snmp.Notification.Ospf']['meta_info']
+
+
+        class Vrrp(object):
+            """
+            VRRP\-MIB notification configuration
+            
+            .. attribute:: enable
+            
+            	Enable VRRP\-MIB notifications
+            	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+            
+            
+
+            """
+
+            _prefix = 'ipv4-vrrp-cfg'
+            _revision = '2015-11-09'
+
+            def __init__(self):
+                self.parent = None
+                self.enable = None
+
+            @property
+            def _common_path(self):
+
+                return '/Cisco-IOS-XR-snmp-agent-cfg:snmp/Cisco-IOS-XR-snmp-agent-cfg:notification/Cisco-IOS-XR-ipv4-vrrp-cfg:vrrp'
+
+            def is_config(self):
+                ''' Returns True if this instance represents config data else returns False '''
+                return True
+
+            def _has_data(self):
+                if not self.is_config():
+                    return False
+                if self.enable is not None:
+                    return True
+
+                return False
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_agent_cfg as meta
+                return meta._meta_table['Snmp.Notification.Vrrp']['meta_info']
 
 
         class Ospfv3(object):
@@ -4740,6 +4901,93 @@ class Snmp(object):
                 return meta._meta_table['Snmp.Notification.MplsFrr']['meta_info']
 
 
+        class Otn(object):
+            """
+            CISCO\-OTN\-IF\-MIB notification configuration
+            
+            .. attribute:: enable
+            
+            	Enable ciscoOtnIfMIB notifications
+            	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+            
+            
+
+            """
+
+            _prefix = 'otnifmib-cfg'
+            _revision = '2015-11-09'
+
+            def __init__(self):
+                self.parent = None
+                self.enable = None
+
+            @property
+            def _common_path(self):
+
+                return '/Cisco-IOS-XR-snmp-agent-cfg:snmp/Cisco-IOS-XR-snmp-agent-cfg:notification/Cisco-IOS-XR-otnifmib-cfg:otn'
+
+            def is_config(self):
+                ''' Returns True if this instance represents config data else returns False '''
+                return True
+
+            def _has_data(self):
+                if not self.is_config():
+                    return False
+                if self.enable is not None:
+                    return True
+
+                return False
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_agent_cfg as meta
+                return meta._meta_table['Snmp.Notification.Otn']['meta_info']
+
+
+        class Sensor(object):
+            """
+            CISCO\-ENTITY\-SENSOR\-MIB notification
+            configuration
+            
+            .. attribute:: enable
+            
+            	Enable entitySensorMIB notifications
+            	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+            
+            
+
+            """
+
+            _prefix = 'snmp-ciscosensormib-cfg'
+            _revision = '2015-11-09'
+
+            def __init__(self):
+                self.parent = None
+                self.enable = None
+
+            @property
+            def _common_path(self):
+
+                return '/Cisco-IOS-XR-snmp-agent-cfg:snmp/Cisco-IOS-XR-snmp-agent-cfg:notification/Cisco-IOS-XR-snmp-ciscosensormib-cfg:sensor'
+
+            def is_config(self):
+                ''' Returns True if this instance represents config data else returns False '''
+                return True
+
+            def _has_data(self):
+                if not self.is_config():
+                    return False
+                if self.enable is not None:
+                    return True
+
+                return False
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_agent_cfg as meta
+                return meta._meta_table['Snmp.Notification.Sensor']['meta_info']
+
+
         class Entity(object):
             """
             Enable ENTITY\-MIB notifications
@@ -4879,6 +5127,49 @@ class Snmp(object):
                 return meta._meta_table['Snmp.Notification.FruControl']['meta_info']
 
 
+        class Rf(object):
+            """
+            CISCO\-RF\-MIB notification configuration
+            
+            .. attribute:: enable
+            
+            	Enable ciscoRFMIB notifications
+            	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+            
+            
+
+            """
+
+            _prefix = 'snmp-mib-rfmib-cfg'
+            _revision = '2016-05-13'
+
+            def __init__(self):
+                self.parent = None
+                self.enable = None
+
+            @property
+            def _common_path(self):
+
+                return '/Cisco-IOS-XR-snmp-agent-cfg:snmp/Cisco-IOS-XR-snmp-agent-cfg:notification/Cisco-IOS-XR-snmp-mib-rfmib-cfg:rf'
+
+            def is_config(self):
+                ''' Returns True if this instance represents config data else returns False '''
+                return True
+
+            def _has_data(self):
+                if not self.is_config():
+                    return False
+                if self.enable is not None:
+                    return True
+
+                return False
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_agent_cfg as meta
+                return meta._meta_table['Snmp.Notification.Rf']['meta_info']
+
+
         class Syslog(object):
             """
             CISCO\-SYSLOG\-MIB notification configuration
@@ -4893,7 +5184,7 @@ class Snmp(object):
             """
 
             _prefix = 'snmp-syslogmib-cfg'
-            _revision = '2015-11-09'
+            _revision = '2015-12-01'
 
             def __init__(self):
                 self.parent = None
@@ -4954,7 +5245,13 @@ class Snmp(object):
             if self.entity_state is not None and self.entity_state._has_data():
                 return True
 
+            if self.flash is not None and self.flash._has_data():
+                return True
+
             if self.fru_control is not None and self.fru_control._has_data():
+                return True
+
+            if self.hsrp is not None and self.hsrp._has_data():
                 return True
 
             if self.isis is not None and self.isis._has_data():
@@ -4987,10 +5284,19 @@ class Snmp(object):
             if self.ospfv3 is not None and self.ospfv3._has_data():
                 return True
 
+            if self.otn is not None and self.otn._has_data():
+                return True
+
+            if self.rf is not None and self.rf._has_data():
+                return True
+
             if self.rsvp is not None and self.rsvp._has_data():
                 return True
 
             if self.selective_vrf_download is not None and self.selective_vrf_download._has_data():
+                return True
+
+            if self.sensor is not None and self.sensor._has_data():
                 return True
 
             if self.snmp is not None and self.snmp._has_data():
@@ -5003,6 +5309,9 @@ class Snmp(object):
                 return True
 
             if self.vpls is not None and self.vpls._has_data():
+                return True
+
+            if self.vrrp is not None and self.vrrp._has_data():
                 return True
 
             return False
@@ -6518,7 +6827,7 @@ class Snmp(object):
                     	Instance of the schema
                     	**type**\:  str
                     
-                    	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+                    	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
                     
                     .. attribute:: max
                     
@@ -10358,6 +10667,11 @@ class Mib(object):
     """
     mib
     
+    .. attribute:: cb_qosmib
+    
+    	CBQoSMIB configuration
+    	**type**\:  :py:class:`CbQosmib <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Mib.CbQosmib>`
+    
     .. attribute:: entity_mib
     
     	Entity MIB
@@ -10393,6 +10707,11 @@ class Mib(object):
     	MPLS TE MIB configuration
     	**type**\:  :py:class:`MplsTeMib <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Mib.MplsTeMib>`
     
+    .. attribute:: sensor_mib_cache
+    
+    	Get cached Sesnsor MIB statistics
+    	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+    
     
 
     """
@@ -10401,6 +10720,8 @@ class Mib(object):
     _revision = '2015-10-27'
 
     def __init__(self):
+        self.cb_qosmib = Mib.CbQosmib()
+        self.cb_qosmib.parent = self
         self.entity_mib = Mib.EntityMib()
         self.entity_mib.parent = self
         self.interface_mib = Mib.InterfaceMib()
@@ -10415,6 +10736,7 @@ class Mib(object):
         self.mpls_te_ext_std_mib.parent = self
         self.mpls_te_mib = Mib.MplsTeMib()
         self.mpls_te_mib.parent = self
+        self.sensor_mib_cache = None
 
 
     class MplsTeMib(object):
@@ -10653,6 +10975,133 @@ class Mib(object):
             return meta._meta_table['Mib.MplsFrrMib']['meta_info']
 
 
+    class CbQosmib(object):
+        """
+        CBQoSMIB configuration
+        
+        .. attribute:: cache
+        
+        	CBQoSMIB statistics data caching
+        	**type**\:  :py:class:`Cache <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Mib.CbQosmib.Cache>`
+        
+        .. attribute:: member_interface_stats
+        
+        	Enable bundle member interface statistics retrieval
+        	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+        
+        .. attribute:: persist
+        
+        	Persist CBQoSMIB config, service\-policy and object indices
+        	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+        
+        
+
+        """
+
+        _prefix = 'qos-mibs-cfg'
+        _revision = '2015-11-09'
+
+        def __init__(self):
+            self.parent = None
+            self.cache = Mib.CbQosmib.Cache()
+            self.cache.parent = self
+            self.member_interface_stats = None
+            self.persist = None
+
+
+        class Cache(object):
+            """
+            CBQoSMIB statistics data caching
+            
+            .. attribute:: enable
+            
+            	Enable CBQoSMIB statistics data caching
+            	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+            
+            .. attribute:: refresh_time
+            
+            	Cache refresh time in seconds
+            	**type**\:  int
+            
+            	**range:** 5..60
+            
+            .. attribute:: service_policy_count
+            
+            	Maximum number of service policies to cache the statistics for
+            	**type**\:  int
+            
+            	**range:** 1..5000
+            
+            
+
+            """
+
+            _prefix = 'qos-mibs-cfg'
+            _revision = '2015-11-09'
+
+            def __init__(self):
+                self.parent = None
+                self.enable = None
+                self.refresh_time = None
+                self.service_policy_count = None
+
+            @property
+            def _common_path(self):
+
+                return '/Cisco-IOS-XR-snmp-agent-cfg:mib/Cisco-IOS-XR-qos-mibs-cfg:cb-qosmib/Cisco-IOS-XR-qos-mibs-cfg:cache'
+
+            def is_config(self):
+                ''' Returns True if this instance represents config data else returns False '''
+                return True
+
+            def _has_data(self):
+                if not self.is_config():
+                    return False
+                if self.enable is not None:
+                    return True
+
+                if self.refresh_time is not None:
+                    return True
+
+                if self.service_policy_count is not None:
+                    return True
+
+                return False
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_agent_cfg as meta
+                return meta._meta_table['Mib.CbQosmib.Cache']['meta_info']
+
+        @property
+        def _common_path(self):
+
+            return '/Cisco-IOS-XR-snmp-agent-cfg:mib/Cisco-IOS-XR-qos-mibs-cfg:cb-qosmib'
+
+        def is_config(self):
+            ''' Returns True if this instance represents config data else returns False '''
+            return True
+
+        def _has_data(self):
+            if not self.is_config():
+                return False
+            if self.cache is not None and self.cache._has_data():
+                return True
+
+            if self.member_interface_stats is not None:
+                return True
+
+            if self.persist is not None:
+                return True
+
+            return False
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_agent_cfg as meta
+            return meta._meta_table['Mib.CbQosmib']['meta_info']
+
+
     class EntityMib(object):
         """
         Entity MIB
@@ -10710,6 +11159,11 @@ class Mib(object):
         	Enable ifindex persistence
         	**type**\:  :py:class:`Empty <ydk.types.Empty>`
         
+        .. attribute:: interfaces
+        
+        	Enter the SNMP interface configuration commands
+        	**type**\:  :py:class:`Interfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Mib.InterfaceMib.Interfaces>`
+        
         .. attribute:: internal_cache
         
         	Get cached interface statistics
@@ -10748,6 +11202,8 @@ class Mib(object):
             self.parent = None
             self.interface_alias_long = None
             self.interface_index_persistence = None
+            self.interfaces = Mib.InterfaceMib.Interfaces()
+            self.interfaces.parent = self
             self.internal_cache = None
             self.ip_subscriber = None
             self.notification = Mib.InterfaceMib.Notification()
@@ -10755,6 +11211,118 @@ class Mib(object):
             self.statistics_cache = None
             self.subsets = Mib.InterfaceMib.Subsets()
             self.subsets.parent = self
+
+
+        class Interfaces(object):
+            """
+            Enter the SNMP interface configuration commands
+            
+            .. attribute:: interface
+            
+            	Interface to configure
+            	**type**\: list of  :py:class:`Interface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg.Mib.InterfaceMib.Interfaces.Interface>`
+            
+            
+
+            """
+
+            _prefix = 'snmp-ifmib-cfg'
+            _revision = '2015-05-14'
+
+            def __init__(self):
+                self.parent = None
+                self.interface = YList()
+                self.interface.parent = self
+                self.interface.name = 'interface'
+
+
+            class Interface(object):
+                """
+                Interface to configure
+                
+                .. attribute:: interface_name  <key>
+                
+                	The name of the interface
+                	**type**\:  str
+                
+                	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+                
+                .. attribute:: index_persistence
+                
+                	Enable or disable index persistence
+                	**type**\:  bool
+                
+                .. attribute:: link_up_down
+                
+                	Enable or disable LinkUpDown notification
+                	**type**\:  bool
+                
+                
+
+                """
+
+                _prefix = 'snmp-ifmib-cfg'
+                _revision = '2015-05-14'
+
+                def __init__(self):
+                    self.parent = None
+                    self.interface_name = None
+                    self.index_persistence = None
+                    self.link_up_down = None
+
+                @property
+                def _common_path(self):
+                    if self.interface_name is None:
+                        raise YPYModelError('Key property interface_name is None')
+
+                    return '/Cisco-IOS-XR-snmp-agent-cfg:mib/Cisco-IOS-XR-snmp-ifmib-cfg:interface-mib/Cisco-IOS-XR-snmp-ifmib-cfg:interfaces/Cisco-IOS-XR-snmp-ifmib-cfg:interface[Cisco-IOS-XR-snmp-ifmib-cfg:interface-name = ' + str(self.interface_name) + ']'
+
+                def is_config(self):
+                    ''' Returns True if this instance represents config data else returns False '''
+                    return True
+
+                def _has_data(self):
+                    if not self.is_config():
+                        return False
+                    if self.interface_name is not None:
+                        return True
+
+                    if self.index_persistence is not None:
+                        return True
+
+                    if self.link_up_down is not None:
+                        return True
+
+                    return False
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_agent_cfg as meta
+                    return meta._meta_table['Mib.InterfaceMib.Interfaces.Interface']['meta_info']
+
+            @property
+            def _common_path(self):
+
+                return '/Cisco-IOS-XR-snmp-agent-cfg:mib/Cisco-IOS-XR-snmp-ifmib-cfg:interface-mib/Cisco-IOS-XR-snmp-ifmib-cfg:interfaces'
+
+            def is_config(self):
+                ''' Returns True if this instance represents config data else returns False '''
+                return True
+
+            def _has_data(self):
+                if not self.is_config():
+                    return False
+                if self.interface is not None:
+                    for child_ref in self.interface:
+                        if child_ref._has_data():
+                            return True
+
+                return False
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_agent_cfg as meta
+                return meta._meta_table['Mib.InterfaceMib.Interfaces']['meta_info']
 
 
         class Notification(object):
@@ -10976,6 +11544,9 @@ class Mib(object):
             if self.interface_index_persistence is not None:
                 return True
 
+            if self.interfaces is not None and self.interfaces._has_data():
+                return True
+
             if self.internal_cache is not None:
                 return True
 
@@ -11010,6 +11581,9 @@ class Mib(object):
     def _has_data(self):
         if not self.is_config():
             return False
+        if self.cb_qosmib is not None and self.cb_qosmib._has_data():
+            return True
+
         if self.entity_mib is not None and self.entity_mib._has_data():
             return True
 
@@ -11029,6 +11603,9 @@ class Mib(object):
             return True
 
         if self.mpls_te_mib is not None and self.mpls_te_mib._has_data():
+            return True
+
+        if self.sensor_mib_cache is not None:
             return True
 
         return False

@@ -7,7 +7,7 @@ This module contains definitions
 for the following management objects\:
   dynamic\-template\: All dynamic template configurations
 
-Copyright (c) 2013\-2015 by Cisco Systems, Inc.
+Copyright (c) 2013\-2016 by Cisco Systems, Inc.
 All rights reserved.
 
 """
@@ -23,15 +23,6 @@ from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
 from ydk.errors import YPYError, YPYModelError
 
 
-from ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_datatypes import SpanSessionClassEnum
-from ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_subscriber_cfg import SpanMirrorIntervalEnum
-from ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_subscriber_cfg import SpanTrafficDirectionEnum
-from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_subscriber_cfg import Ipv6ReachableViaEnum
-from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_nd_subscriber_cfg import Ipv6NdHopLimitEnum
-from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_nd_subscriber_cfg import Ipv6NdRouterPrefTemplateEnum
-from ydk.models.cisco_ios_xr.Cisco_IOS_XR_qos_ma_cfg import QosPolicyAccountEnum
-from ydk.models.cisco_ios_xr.Cisco_IOS_XR_qos_ma_cfg import Qosl2DataLinkEnum
-from ydk.models.cisco_ios_xr.Cisco_IOS_XR_qos_ma_cfg import Qosl2EncapEnum
 
 
 class DynamicTemplate(object):
@@ -108,6 +99,11 @@ class DynamicTemplate(object):
             	Interface dhcpv6 configuration data
             	**type**\:  :py:class:`Dhcpv6 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.Ppps.Ppp.Dhcpv6>`
             
+            .. attribute:: igmp
+            
+            	IGMPconfiguration
+            	**type**\:  :py:class:`Igmp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.Ppps.Ppp.Igmp>`
+            
             .. attribute:: ipv4_network
             
             	Interface IPv4 Network configuration data
@@ -138,11 +134,6 @@ class DynamicTemplate(object):
             	Dynamic Template PBR configuration
             	**type**\:  :py:class:`Pbr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.Ppps.Ppp.Pbr>`
             
-            .. attribute:: qos
-            
-            	QoS dynamically applied configuration template
-            	**type**\:  :py:class:`Qos <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.Ppps.Ppp.Qos>`
-            
             .. attribute:: span_monitor_sessions
             
             	Monitor Session container for this template
@@ -167,6 +158,8 @@ class DynamicTemplate(object):
                 self.template_name = None
                 self.dhcpv6 = DynamicTemplate.Ppps.Ppp.Dhcpv6()
                 self.dhcpv6.parent = self
+                self.igmp = DynamicTemplate.Ppps.Ppp.Igmp()
+                self.igmp.parent = self
                 self.ipv4_network = DynamicTemplate.Ppps.Ppp.Ipv4Network()
                 self.ipv4_network.parent = self
                 self.ipv4_packet_filter = DynamicTemplate.Ppps.Ppp.Ipv4PacketFilter()
@@ -179,8 +172,6 @@ class DynamicTemplate(object):
                 self.ipv6_packet_filter.parent = self
                 self.pbr = DynamicTemplate.Ppps.Ppp.Pbr()
                 self.pbr.parent = self
-                self.qos = DynamicTemplate.Ppps.Ppp.Qos()
-                self.qos.parent = self
                 self.span_monitor_sessions = DynamicTemplate.Ppps.Ppp.SpanMonitorSessions()
                 self.span_monitor_sessions.parent = self
                 self.vrf = None
@@ -814,6 +805,238 @@ class DynamicTemplate(object):
                 def _meta_info():
                     from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg as meta
                     return meta._meta_table['DynamicTemplate.Ppps.Ppp.Ipv6PacketFilter']['meta_info']
+
+
+            class Igmp(object):
+                """
+                IGMPconfiguration
+                
+                .. attribute:: default_vrf
+                
+                	Default VRF
+                	**type**\:  :py:class:`DefaultVrf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.Ppps.Ppp.Igmp.DefaultVrf>`
+                
+                
+
+                """
+
+                _prefix = 'ipv4-igmp-dyn-tmpl-cfg'
+                _revision = '2015-11-09'
+
+                def __init__(self):
+                    self.parent = None
+                    self.default_vrf = DynamicTemplate.Ppps.Ppp.Igmp.DefaultVrf()
+                    self.default_vrf.parent = self
+
+
+                class DefaultVrf(object):
+                    """
+                    Default VRF
+                    
+                    .. attribute:: access_group
+                    
+                    	Access list specifying access\-list group range
+                    	**type**\:  str
+                    
+                    .. attribute:: explicit_tracking
+                    
+                    	IGMPv3 explicit host tracking
+                    	**type**\:  :py:class:`ExplicitTracking <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.Ppps.Ppp.Igmp.DefaultVrf.ExplicitTracking>`
+                    
+                    .. attribute:: max_groups
+                    
+                    	IGMP Max Groups
+                    	**type**\:  int
+                    
+                    	**range:** 1..40000
+                    
+                    .. attribute:: multicast
+                    
+                    	Configure Multicast mode variable
+                    	**type**\:  int
+                    
+                    	**range:** \-2147483648..2147483647
+                    
+                    .. attribute:: query_interval
+                    
+                    	Query interval in seconds
+                    	**type**\:  int
+                    
+                    	**range:** 1..3600
+                    
+                    .. attribute:: query_max_response_time
+                    
+                    	Query response value in seconds
+                    	**type**\:  int
+                    
+                    	**range:** 1..12
+                    
+                    .. attribute:: robustness
+                    
+                    	Configure IGMP Robustness variable
+                    	**type**\:  int
+                    
+                    	**range:** 2..10
+                    
+                    .. attribute:: version
+                    
+                    	IGMP Version
+                    	**type**\:  int
+                    
+                    	**range:** 1..3
+                    
+                    
+
+                    """
+
+                    _prefix = 'ipv4-igmp-dyn-tmpl-cfg'
+                    _revision = '2015-11-09'
+
+                    def __init__(self):
+                        self.parent = None
+                        self.access_group = None
+                        self.explicit_tracking = None
+                        self.max_groups = None
+                        self.multicast = None
+                        self.query_interval = None
+                        self.query_max_response_time = None
+                        self.robustness = None
+                        self.version = None
+
+
+                    class ExplicitTracking(object):
+                        """
+                        IGMPv3 explicit host tracking
+                        
+                        .. attribute:: access_list_name
+                        
+                        	Access list specifying tracking group range
+                        	**type**\:  str
+                        
+                        .. attribute:: enable
+                        
+                        	Enable or disable, when value is TRUE or FALSE respectively
+                        	**type**\:  bool
+                        
+                        	**mandatory**\: True
+                        
+                        .. attribute:: _is_presence
+                        
+                        	Is present if this instance represents presence container else not
+                        	**type**\: bool
+                        
+                        
+
+                        This class is a :ref:`presence class<presence-class>`
+
+                        """
+
+                        _prefix = 'ipv4-igmp-dyn-tmpl-cfg'
+                        _revision = '2015-11-09'
+
+                        def __init__(self):
+                            self.parent = None
+                            self._is_presence = True
+                            self.access_list_name = None
+                            self.enable = None
+
+                        @property
+                        def _common_path(self):
+                            if self.parent is None:
+                                raise YPYModelError('parent is not set . Cannot derive path.')
+
+                            return self.parent._common_path +'/Cisco-IOS-XR-ipv4-igmp-dyn-tmpl-cfg:explicit-tracking'
+
+                        def is_config(self):
+                            ''' Returns True if this instance represents config data else returns False '''
+                            return True
+
+                        def _has_data(self):
+                            if not self.is_config():
+                                return False
+                            if self._is_presence:
+                                return True
+                            if self.access_list_name is not None:
+                                return True
+
+                            if self.enable is not None:
+                                return True
+
+                            return False
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg as meta
+                            return meta._meta_table['DynamicTemplate.Ppps.Ppp.Igmp.DefaultVrf.ExplicitTracking']['meta_info']
+
+                    @property
+                    def _common_path(self):
+                        if self.parent is None:
+                            raise YPYModelError('parent is not set . Cannot derive path.')
+
+                        return self.parent._common_path +'/Cisco-IOS-XR-ipv4-igmp-dyn-tmpl-cfg:default-vrf'
+
+                    def is_config(self):
+                        ''' Returns True if this instance represents config data else returns False '''
+                        return True
+
+                    def _has_data(self):
+                        if not self.is_config():
+                            return False
+                        if self.access_group is not None:
+                            return True
+
+                        if self.explicit_tracking is not None and self.explicit_tracking._has_data():
+                            return True
+
+                        if self.max_groups is not None:
+                            return True
+
+                        if self.multicast is not None:
+                            return True
+
+                        if self.query_interval is not None:
+                            return True
+
+                        if self.query_max_response_time is not None:
+                            return True
+
+                        if self.robustness is not None:
+                            return True
+
+                        if self.version is not None:
+                            return True
+
+                        return False
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg as meta
+                        return meta._meta_table['DynamicTemplate.Ppps.Ppp.Igmp.DefaultVrf']['meta_info']
+
+                @property
+                def _common_path(self):
+                    if self.parent is None:
+                        raise YPYModelError('parent is not set . Cannot derive path.')
+
+                    return self.parent._common_path +'/Cisco-IOS-XR-ipv4-igmp-dyn-tmpl-cfg:igmp'
+
+                def is_config(self):
+                    ''' Returns True if this instance represents config data else returns False '''
+                    return True
+
+                def _has_data(self):
+                    if not self.is_config():
+                        return False
+                    if self.default_vrf is not None and self.default_vrf._has_data():
+                        return True
+
+                    return False
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg as meta
+                    return meta._meta_table['DynamicTemplate.Ppps.Ppp.Igmp']['meta_info']
 
 
             class Ipv4Network(object):
@@ -1495,7 +1718,7 @@ class DynamicTemplate(object):
 
                 """
 
-                _prefix = 'ipv6-new-dhcpv6d-cfg'
+                _prefix = 'ipv6-new-dhcpv6d-subscriber-cfg'
                 _revision = '2015-11-09'
 
                 def __init__(self):
@@ -1541,7 +1764,7 @@ class DynamicTemplate(object):
 
                     """
 
-                    _prefix = 'ipv6-new-dhcpv6d-cfg'
+                    _prefix = 'ipv6-new-dhcpv6d-subscriber-cfg'
                     _revision = '2015-11-09'
 
                     def __init__(self):
@@ -1555,7 +1778,7 @@ class DynamicTemplate(object):
                         if self.parent is None:
                             raise YPYModelError('parent is not set . Cannot derive path.')
 
-                        return self.parent._common_path +'/Cisco-IOS-XR-ipv6-new-dhcpv6d-cfg:delegated-prefix'
+                        return self.parent._common_path +'/Cisco-IOS-XR-ipv6-new-dhcpv6d-subscriber-cfg:delegated-prefix'
 
                     def is_config(self):
                         ''' Returns True if this instance represents config data else returns False '''
@@ -1584,7 +1807,7 @@ class DynamicTemplate(object):
                     if self.parent is None:
                         raise YPYModelError('parent is not set . Cannot derive path.')
 
-                    return self.parent._common_path +'/Cisco-IOS-XR-ipv6-new-dhcpv6d-cfg:dhcpv6'
+                    return self.parent._common_path +'/Cisco-IOS-XR-ipv6-new-dhcpv6d-subscriber-cfg:dhcpv6'
 
                 def is_config(self):
                     ''' Returns True if this instance represents config data else returns False '''
@@ -1637,7 +1860,7 @@ class DynamicTemplate(object):
 
                 """
 
-                _prefix = 'pbr-cfg'
+                _prefix = 'pbr-subscriber-cfg'
                 _revision = '2015-11-09'
 
                 def __init__(self):
@@ -1660,7 +1883,7 @@ class DynamicTemplate(object):
 
                     """
 
-                    _prefix = 'pbr-cfg'
+                    _prefix = 'pbr-subscriber-cfg'
                     _revision = '2015-11-09'
 
                     def __init__(self):
@@ -1672,7 +1895,7 @@ class DynamicTemplate(object):
                         if self.parent is None:
                             raise YPYModelError('parent is not set . Cannot derive path.')
 
-                        return self.parent._common_path +'/Cisco-IOS-XR-pbr-cfg:service-policy'
+                        return self.parent._common_path +'/Cisco-IOS-XR-pbr-subscriber-cfg:service-policy'
 
                     def is_config(self):
                         ''' Returns True if this instance represents config data else returns False '''
@@ -1696,7 +1919,7 @@ class DynamicTemplate(object):
                     if self.parent is None:
                         raise YPYModelError('parent is not set . Cannot derive path.')
 
-                    return self.parent._common_path +'/Cisco-IOS-XR-pbr-cfg:pbr'
+                    return self.parent._common_path +'/Cisco-IOS-XR-pbr-subscriber-cfg:pbr'
 
                 def is_config(self):
                     ''' Returns True if this instance represents config data else returns False '''
@@ -1718,456 +1941,6 @@ class DynamicTemplate(object):
                     from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg as meta
                     return meta._meta_table['DynamicTemplate.Ppps.Ppp.Pbr']['meta_info']
 
-
-            class Qos(object):
-                """
-                QoS dynamically applied configuration template
-                
-                .. attribute:: account
-                
-                	QoS L2 overhead accounting
-                	**type**\:  :py:class:`Account <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.Ppps.Ppp.Qos.Account>`
-                
-                .. attribute:: output
-                
-                	QoS to be applied in egress direction
-                	**type**\:  :py:class:`Output <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.Ppps.Ppp.Qos.Output>`
-                
-                .. attribute:: service_policy
-                
-                	Service policy to be applied in ingress/egress direction
-                	**type**\:  :py:class:`ServicePolicy <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.Ppps.Ppp.Qos.ServicePolicy>`
-                
-                
-
-                """
-
-                _prefix = 'qos-ma-cfg'
-                _revision = '2015-07-30'
-
-                def __init__(self):
-                    self.parent = None
-                    self.account = DynamicTemplate.Ppps.Ppp.Qos.Account()
-                    self.account.parent = self
-                    self.output = DynamicTemplate.Ppps.Ppp.Qos.Output()
-                    self.output.parent = self
-                    self.service_policy = DynamicTemplate.Ppps.Ppp.Qos.ServicePolicy()
-                    self.service_policy.parent = self
-
-
-                class ServicePolicy(object):
-                    """
-                    Service policy to be applied in ingress/egress
-                    direction
-                    
-                    .. attribute:: input
-                    
-                    	Subscriber ingress policy
-                    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.Ppps.Ppp.Qos.ServicePolicy.Input>`
-                    
-                    .. attribute:: output
-                    
-                    	Subscriber egress policy
-                    	**type**\:  :py:class:`Output <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.Ppps.Ppp.Qos.ServicePolicy.Output>`
-                    
-                    
-
-                    """
-
-                    _prefix = 'qos-ma-cfg'
-                    _revision = '2015-07-30'
-
-                    def __init__(self):
-                        self.parent = None
-                        self.input = None
-                        self.output = None
-
-
-                    class Input(object):
-                        """
-                        Subscriber ingress policy
-                        
-                        .. attribute:: account_stats
-                        
-                        	TRUE for account stats enabled for service\-policy applied on dynamic template. Note\: account stats not supported for subscriber type 'ppp' and 'ipsubscriber'
-                        	**type**\:  bool
-                        
-                        .. attribute:: account_type
-                        
-                        	Turn off L2 or L3 accounting
-                        	**type**\:  :py:class:`QosPolicyAccountEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_qos_ma_cfg.QosPolicyAccountEnum>`
-                        
-                        .. attribute:: merge
-                        
-                        	TRUE for merge enabled for service\-policy applied on dynamic template
-                        	**type**\:  bool
-                        
-                        .. attribute:: merge_id
-                        
-                        	Merge ID value
-                        	**type**\:  int
-                        
-                        	**range:** 0..255
-                        
-                        .. attribute:: policy_name
-                        
-                        	Name of policy\-map
-                        	**type**\:  str
-                        
-                        	**mandatory**\: True
-                        
-                        .. attribute:: spi_name
-                        
-                        	Name of the SPI
-                        	**type**\:  str
-                        
-                        .. attribute:: _is_presence
-                        
-                        	Is present if this instance represents presence container else not
-                        	**type**\: bool
-                        
-                        
-
-                        This class is a :ref:`presence class<presence-class>`
-
-                        """
-
-                        _prefix = 'qos-ma-cfg'
-                        _revision = '2015-07-30'
-
-                        def __init__(self):
-                            self.parent = None
-                            self._is_presence = True
-                            self.account_stats = None
-                            self.account_type = None
-                            self.merge = None
-                            self.merge_id = None
-                            self.policy_name = None
-                            self.spi_name = None
-
-                        @property
-                        def _common_path(self):
-                            if self.parent is None:
-                                raise YPYModelError('parent is not set . Cannot derive path.')
-
-                            return self.parent._common_path +'/Cisco-IOS-XR-qos-ma-cfg:input'
-
-                        def is_config(self):
-                            ''' Returns True if this instance represents config data else returns False '''
-                            return True
-
-                        def _has_data(self):
-                            if not self.is_config():
-                                return False
-                            if self._is_presence:
-                                return True
-                            if self.account_stats is not None:
-                                return True
-
-                            if self.account_type is not None:
-                                return True
-
-                            if self.merge is not None:
-                                return True
-
-                            if self.merge_id is not None:
-                                return True
-
-                            if self.policy_name is not None:
-                                return True
-
-                            if self.spi_name is not None:
-                                return True
-
-                            return False
-
-                        @staticmethod
-                        def _meta_info():
-                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg as meta
-                            return meta._meta_table['DynamicTemplate.Ppps.Ppp.Qos.ServicePolicy.Input']['meta_info']
-
-
-                    class Output(object):
-                        """
-                        Subscriber egress policy
-                        
-                        .. attribute:: account_stats
-                        
-                        	TRUE for account stats enabled for service\-policy applied on dynamic template. Note\: account stats not supported for subscriber type 'ppp' and 'ipsubscriber'
-                        	**type**\:  bool
-                        
-                        .. attribute:: account_type
-                        
-                        	Turn off L2 or L3 accounting
-                        	**type**\:  :py:class:`QosPolicyAccountEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_qos_ma_cfg.QosPolicyAccountEnum>`
-                        
-                        .. attribute:: merge
-                        
-                        	TRUE for merge enabled for service\-policy applied on dynamic template
-                        	**type**\:  bool
-                        
-                        .. attribute:: merge_id
-                        
-                        	Merge ID value
-                        	**type**\:  int
-                        
-                        	**range:** 0..255
-                        
-                        .. attribute:: policy_name
-                        
-                        	Name of policy\-map
-                        	**type**\:  str
-                        
-                        	**mandatory**\: True
-                        
-                        .. attribute:: spi_name
-                        
-                        	Name of the SPI
-                        	**type**\:  str
-                        
-                        .. attribute:: _is_presence
-                        
-                        	Is present if this instance represents presence container else not
-                        	**type**\: bool
-                        
-                        
-
-                        This class is a :ref:`presence class<presence-class>`
-
-                        """
-
-                        _prefix = 'qos-ma-cfg'
-                        _revision = '2015-07-30'
-
-                        def __init__(self):
-                            self.parent = None
-                            self._is_presence = True
-                            self.account_stats = None
-                            self.account_type = None
-                            self.merge = None
-                            self.merge_id = None
-                            self.policy_name = None
-                            self.spi_name = None
-
-                        @property
-                        def _common_path(self):
-                            if self.parent is None:
-                                raise YPYModelError('parent is not set . Cannot derive path.')
-
-                            return self.parent._common_path +'/Cisco-IOS-XR-qos-ma-cfg:output'
-
-                        def is_config(self):
-                            ''' Returns True if this instance represents config data else returns False '''
-                            return True
-
-                        def _has_data(self):
-                            if not self.is_config():
-                                return False
-                            if self._is_presence:
-                                return True
-                            if self.account_stats is not None:
-                                return True
-
-                            if self.account_type is not None:
-                                return True
-
-                            if self.merge is not None:
-                                return True
-
-                            if self.merge_id is not None:
-                                return True
-
-                            if self.policy_name is not None:
-                                return True
-
-                            if self.spi_name is not None:
-                                return True
-
-                            return False
-
-                        @staticmethod
-                        def _meta_info():
-                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg as meta
-                            return meta._meta_table['DynamicTemplate.Ppps.Ppp.Qos.ServicePolicy.Output']['meta_info']
-
-                    @property
-                    def _common_path(self):
-                        if self.parent is None:
-                            raise YPYModelError('parent is not set . Cannot derive path.')
-
-                        return self.parent._common_path +'/Cisco-IOS-XR-qos-ma-cfg:service-policy'
-
-                    def is_config(self):
-                        ''' Returns True if this instance represents config data else returns False '''
-                        return True
-
-                    def _has_data(self):
-                        if not self.is_config():
-                            return False
-                        if self.input is not None and self.input._has_data():
-                            return True
-
-                        if self.output is not None and self.output._has_data():
-                            return True
-
-                        return False
-
-                    @staticmethod
-                    def _meta_info():
-                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg as meta
-                        return meta._meta_table['DynamicTemplate.Ppps.Ppp.Qos.ServicePolicy']['meta_info']
-
-
-                class Account(object):
-                    """
-                    QoS L2 overhead accounting
-                    
-                    .. attribute:: aal
-                    
-                    	ATM adaptation layer AAL
-                    	**type**\:  :py:class:`Qosl2DataLinkEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_qos_ma_cfg.Qosl2DataLinkEnum>`
-                    
-                    .. attribute:: atm_cell_tax
-                    
-                    	ATM cell tax to L2 overhead
-                    	**type**\:  :py:class:`Empty <ydk.types.Empty>`
-                    
-                    .. attribute:: encapsulation
-                    
-                    	Specify encapsulation type
-                    	**type**\:  :py:class:`Qosl2EncapEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_qos_ma_cfg.Qosl2EncapEnum>`
-                    
-                    .. attribute:: user_defined
-                    
-                    	Numeric L2 overhead offset
-                    	**type**\:  int
-                    
-                    	**range:** \-63..63
-                    
-                    
-
-                    """
-
-                    _prefix = 'qos-ma-cfg'
-                    _revision = '2015-07-30'
-
-                    def __init__(self):
-                        self.parent = None
-                        self.aal = None
-                        self.atm_cell_tax = None
-                        self.encapsulation = None
-                        self.user_defined = None
-
-                    @property
-                    def _common_path(self):
-                        if self.parent is None:
-                            raise YPYModelError('parent is not set . Cannot derive path.')
-
-                        return self.parent._common_path +'/Cisco-IOS-XR-qos-ma-cfg:account'
-
-                    def is_config(self):
-                        ''' Returns True if this instance represents config data else returns False '''
-                        return True
-
-                    def _has_data(self):
-                        if not self.is_config():
-                            return False
-                        if self.aal is not None:
-                            return True
-
-                        if self.atm_cell_tax is not None:
-                            return True
-
-                        if self.encapsulation is not None:
-                            return True
-
-                        if self.user_defined is not None:
-                            return True
-
-                        return False
-
-                    @staticmethod
-                    def _meta_info():
-                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg as meta
-                        return meta._meta_table['DynamicTemplate.Ppps.Ppp.Qos.Account']['meta_info']
-
-
-                class Output(object):
-                    """
-                    QoS to be applied in egress direction
-                    
-                    .. attribute:: minimum_bandwidth
-                    
-                    	Minimum bandwidth value for the subscriber (in kbps)
-                    	**type**\:  int
-                    
-                    	**range:** 1..4294967295
-                    
-                    
-
-                    """
-
-                    _prefix = 'qos-ma-cfg'
-                    _revision = '2015-07-30'
-
-                    def __init__(self):
-                        self.parent = None
-                        self.minimum_bandwidth = None
-
-                    @property
-                    def _common_path(self):
-                        if self.parent is None:
-                            raise YPYModelError('parent is not set . Cannot derive path.')
-
-                        return self.parent._common_path +'/Cisco-IOS-XR-qos-ma-cfg:output'
-
-                    def is_config(self):
-                        ''' Returns True if this instance represents config data else returns False '''
-                        return True
-
-                    def _has_data(self):
-                        if not self.is_config():
-                            return False
-                        if self.minimum_bandwidth is not None:
-                            return True
-
-                        return False
-
-                    @staticmethod
-                    def _meta_info():
-                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg as meta
-                        return meta._meta_table['DynamicTemplate.Ppps.Ppp.Qos.Output']['meta_info']
-
-                @property
-                def _common_path(self):
-                    if self.parent is None:
-                        raise YPYModelError('parent is not set . Cannot derive path.')
-
-                    return self.parent._common_path +'/Cisco-IOS-XR-qos-ma-cfg:qos'
-
-                def is_config(self):
-                    ''' Returns True if this instance represents config data else returns False '''
-                    return True
-
-                def _has_data(self):
-                    if not self.is_config():
-                        return False
-                    if self.account is not None and self.account._has_data():
-                        return True
-
-                    if self.output is not None and self.output._has_data():
-                        return True
-
-                    if self.service_policy is not None and self.service_policy._has_data():
-                        return True
-
-                    return False
-
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg as meta
-                    return meta._meta_table['DynamicTemplate.Ppps.Ppp.Qos']['meta_info']
-
             @property
             def _common_path(self):
                 if self.template_name is None:
@@ -2188,6 +1961,9 @@ class DynamicTemplate(object):
                 if self.dhcpv6 is not None and self.dhcpv6._has_data():
                     return True
 
+                if self.igmp is not None and self.igmp._has_data():
+                    return True
+
                 if self.ipv4_network is not None and self.ipv4_network._has_data():
                     return True
 
@@ -2204,9 +1980,6 @@ class DynamicTemplate(object):
                     return True
 
                 if self.pbr is not None and self.pbr._has_data():
-                    return True
-
-                if self.qos is not None and self.qos._has_data():
                     return True
 
                 if self.span_monitor_sessions is not None and self.span_monitor_sessions._has_data():
@@ -2316,11 +2089,6 @@ class DynamicTemplate(object):
             	Dynamic Template PBR configuration
             	**type**\:  :py:class:`Pbr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.IpSubscribers.IpSubscriber.Pbr>`
             
-            .. attribute:: qos
-            
-            	QoS dynamically applied configuration template
-            	**type**\:  :py:class:`Qos <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.IpSubscribers.IpSubscriber.Qos>`
-            
             .. attribute:: span_monitor_sessions
             
             	Monitor Session container for this template
@@ -2357,8 +2125,6 @@ class DynamicTemplate(object):
                 self.ipv6_packet_filter.parent = self
                 self.pbr = DynamicTemplate.IpSubscribers.IpSubscriber.Pbr()
                 self.pbr.parent = self
-                self.qos = DynamicTemplate.IpSubscribers.IpSubscriber.Qos()
-                self.qos.parent = self
                 self.span_monitor_sessions = DynamicTemplate.IpSubscribers.IpSubscriber.SpanMonitorSessions()
                 self.span_monitor_sessions.parent = self
                 self.vrf = None
@@ -3673,7 +3439,7 @@ class DynamicTemplate(object):
 
                 """
 
-                _prefix = 'ipv6-new-dhcpv6d-cfg'
+                _prefix = 'ipv6-new-dhcpv6d-subscriber-cfg'
                 _revision = '2015-11-09'
 
                 def __init__(self):
@@ -3719,7 +3485,7 @@ class DynamicTemplate(object):
 
                     """
 
-                    _prefix = 'ipv6-new-dhcpv6d-cfg'
+                    _prefix = 'ipv6-new-dhcpv6d-subscriber-cfg'
                     _revision = '2015-11-09'
 
                     def __init__(self):
@@ -3733,7 +3499,7 @@ class DynamicTemplate(object):
                         if self.parent is None:
                             raise YPYModelError('parent is not set . Cannot derive path.')
 
-                        return self.parent._common_path +'/Cisco-IOS-XR-ipv6-new-dhcpv6d-cfg:delegated-prefix'
+                        return self.parent._common_path +'/Cisco-IOS-XR-ipv6-new-dhcpv6d-subscriber-cfg:delegated-prefix'
 
                     def is_config(self):
                         ''' Returns True if this instance represents config data else returns False '''
@@ -3762,7 +3528,7 @@ class DynamicTemplate(object):
                     if self.parent is None:
                         raise YPYModelError('parent is not set . Cannot derive path.')
 
-                    return self.parent._common_path +'/Cisco-IOS-XR-ipv6-new-dhcpv6d-cfg:dhcpv6'
+                    return self.parent._common_path +'/Cisco-IOS-XR-ipv6-new-dhcpv6d-subscriber-cfg:dhcpv6'
 
                 def is_config(self):
                     ''' Returns True if this instance represents config data else returns False '''
@@ -3815,7 +3581,7 @@ class DynamicTemplate(object):
 
                 """
 
-                _prefix = 'pbr-cfg'
+                _prefix = 'pbr-subscriber-cfg'
                 _revision = '2015-11-09'
 
                 def __init__(self):
@@ -3838,7 +3604,7 @@ class DynamicTemplate(object):
 
                     """
 
-                    _prefix = 'pbr-cfg'
+                    _prefix = 'pbr-subscriber-cfg'
                     _revision = '2015-11-09'
 
                     def __init__(self):
@@ -3850,7 +3616,7 @@ class DynamicTemplate(object):
                         if self.parent is None:
                             raise YPYModelError('parent is not set . Cannot derive path.')
 
-                        return self.parent._common_path +'/Cisco-IOS-XR-pbr-cfg:service-policy'
+                        return self.parent._common_path +'/Cisco-IOS-XR-pbr-subscriber-cfg:service-policy'
 
                     def is_config(self):
                         ''' Returns True if this instance represents config data else returns False '''
@@ -3874,7 +3640,7 @@ class DynamicTemplate(object):
                     if self.parent is None:
                         raise YPYModelError('parent is not set . Cannot derive path.')
 
-                    return self.parent._common_path +'/Cisco-IOS-XR-pbr-cfg:pbr'
+                    return self.parent._common_path +'/Cisco-IOS-XR-pbr-subscriber-cfg:pbr'
 
                 def is_config(self):
                     ''' Returns True if this instance represents config data else returns False '''
@@ -3895,456 +3661,6 @@ class DynamicTemplate(object):
                 def _meta_info():
                     from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg as meta
                     return meta._meta_table['DynamicTemplate.IpSubscribers.IpSubscriber.Pbr']['meta_info']
-
-
-            class Qos(object):
-                """
-                QoS dynamically applied configuration template
-                
-                .. attribute:: account
-                
-                	QoS L2 overhead accounting
-                	**type**\:  :py:class:`Account <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.IpSubscribers.IpSubscriber.Qos.Account>`
-                
-                .. attribute:: output
-                
-                	QoS to be applied in egress direction
-                	**type**\:  :py:class:`Output <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.IpSubscribers.IpSubscriber.Qos.Output>`
-                
-                .. attribute:: service_policy
-                
-                	Service policy to be applied in ingress/egress direction
-                	**type**\:  :py:class:`ServicePolicy <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.IpSubscribers.IpSubscriber.Qos.ServicePolicy>`
-                
-                
-
-                """
-
-                _prefix = 'qos-ma-cfg'
-                _revision = '2015-07-30'
-
-                def __init__(self):
-                    self.parent = None
-                    self.account = DynamicTemplate.IpSubscribers.IpSubscriber.Qos.Account()
-                    self.account.parent = self
-                    self.output = DynamicTemplate.IpSubscribers.IpSubscriber.Qos.Output()
-                    self.output.parent = self
-                    self.service_policy = DynamicTemplate.IpSubscribers.IpSubscriber.Qos.ServicePolicy()
-                    self.service_policy.parent = self
-
-
-                class ServicePolicy(object):
-                    """
-                    Service policy to be applied in ingress/egress
-                    direction
-                    
-                    .. attribute:: input
-                    
-                    	Subscriber ingress policy
-                    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.IpSubscribers.IpSubscriber.Qos.ServicePolicy.Input>`
-                    
-                    .. attribute:: output
-                    
-                    	Subscriber egress policy
-                    	**type**\:  :py:class:`Output <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.IpSubscribers.IpSubscriber.Qos.ServicePolicy.Output>`
-                    
-                    
-
-                    """
-
-                    _prefix = 'qos-ma-cfg'
-                    _revision = '2015-07-30'
-
-                    def __init__(self):
-                        self.parent = None
-                        self.input = None
-                        self.output = None
-
-
-                    class Input(object):
-                        """
-                        Subscriber ingress policy
-                        
-                        .. attribute:: account_stats
-                        
-                        	TRUE for account stats enabled for service\-policy applied on dynamic template. Note\: account stats not supported for subscriber type 'ppp' and 'ipsubscriber'
-                        	**type**\:  bool
-                        
-                        .. attribute:: account_type
-                        
-                        	Turn off L2 or L3 accounting
-                        	**type**\:  :py:class:`QosPolicyAccountEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_qos_ma_cfg.QosPolicyAccountEnum>`
-                        
-                        .. attribute:: merge
-                        
-                        	TRUE for merge enabled for service\-policy applied on dynamic template
-                        	**type**\:  bool
-                        
-                        .. attribute:: merge_id
-                        
-                        	Merge ID value
-                        	**type**\:  int
-                        
-                        	**range:** 0..255
-                        
-                        .. attribute:: policy_name
-                        
-                        	Name of policy\-map
-                        	**type**\:  str
-                        
-                        	**mandatory**\: True
-                        
-                        .. attribute:: spi_name
-                        
-                        	Name of the SPI
-                        	**type**\:  str
-                        
-                        .. attribute:: _is_presence
-                        
-                        	Is present if this instance represents presence container else not
-                        	**type**\: bool
-                        
-                        
-
-                        This class is a :ref:`presence class<presence-class>`
-
-                        """
-
-                        _prefix = 'qos-ma-cfg'
-                        _revision = '2015-07-30'
-
-                        def __init__(self):
-                            self.parent = None
-                            self._is_presence = True
-                            self.account_stats = None
-                            self.account_type = None
-                            self.merge = None
-                            self.merge_id = None
-                            self.policy_name = None
-                            self.spi_name = None
-
-                        @property
-                        def _common_path(self):
-                            if self.parent is None:
-                                raise YPYModelError('parent is not set . Cannot derive path.')
-
-                            return self.parent._common_path +'/Cisco-IOS-XR-qos-ma-cfg:input'
-
-                        def is_config(self):
-                            ''' Returns True if this instance represents config data else returns False '''
-                            return True
-
-                        def _has_data(self):
-                            if not self.is_config():
-                                return False
-                            if self._is_presence:
-                                return True
-                            if self.account_stats is not None:
-                                return True
-
-                            if self.account_type is not None:
-                                return True
-
-                            if self.merge is not None:
-                                return True
-
-                            if self.merge_id is not None:
-                                return True
-
-                            if self.policy_name is not None:
-                                return True
-
-                            if self.spi_name is not None:
-                                return True
-
-                            return False
-
-                        @staticmethod
-                        def _meta_info():
-                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg as meta
-                            return meta._meta_table['DynamicTemplate.IpSubscribers.IpSubscriber.Qos.ServicePolicy.Input']['meta_info']
-
-
-                    class Output(object):
-                        """
-                        Subscriber egress policy
-                        
-                        .. attribute:: account_stats
-                        
-                        	TRUE for account stats enabled for service\-policy applied on dynamic template. Note\: account stats not supported for subscriber type 'ppp' and 'ipsubscriber'
-                        	**type**\:  bool
-                        
-                        .. attribute:: account_type
-                        
-                        	Turn off L2 or L3 accounting
-                        	**type**\:  :py:class:`QosPolicyAccountEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_qos_ma_cfg.QosPolicyAccountEnum>`
-                        
-                        .. attribute:: merge
-                        
-                        	TRUE for merge enabled for service\-policy applied on dynamic template
-                        	**type**\:  bool
-                        
-                        .. attribute:: merge_id
-                        
-                        	Merge ID value
-                        	**type**\:  int
-                        
-                        	**range:** 0..255
-                        
-                        .. attribute:: policy_name
-                        
-                        	Name of policy\-map
-                        	**type**\:  str
-                        
-                        	**mandatory**\: True
-                        
-                        .. attribute:: spi_name
-                        
-                        	Name of the SPI
-                        	**type**\:  str
-                        
-                        .. attribute:: _is_presence
-                        
-                        	Is present if this instance represents presence container else not
-                        	**type**\: bool
-                        
-                        
-
-                        This class is a :ref:`presence class<presence-class>`
-
-                        """
-
-                        _prefix = 'qos-ma-cfg'
-                        _revision = '2015-07-30'
-
-                        def __init__(self):
-                            self.parent = None
-                            self._is_presence = True
-                            self.account_stats = None
-                            self.account_type = None
-                            self.merge = None
-                            self.merge_id = None
-                            self.policy_name = None
-                            self.spi_name = None
-
-                        @property
-                        def _common_path(self):
-                            if self.parent is None:
-                                raise YPYModelError('parent is not set . Cannot derive path.')
-
-                            return self.parent._common_path +'/Cisco-IOS-XR-qos-ma-cfg:output'
-
-                        def is_config(self):
-                            ''' Returns True if this instance represents config data else returns False '''
-                            return True
-
-                        def _has_data(self):
-                            if not self.is_config():
-                                return False
-                            if self._is_presence:
-                                return True
-                            if self.account_stats is not None:
-                                return True
-
-                            if self.account_type is not None:
-                                return True
-
-                            if self.merge is not None:
-                                return True
-
-                            if self.merge_id is not None:
-                                return True
-
-                            if self.policy_name is not None:
-                                return True
-
-                            if self.spi_name is not None:
-                                return True
-
-                            return False
-
-                        @staticmethod
-                        def _meta_info():
-                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg as meta
-                            return meta._meta_table['DynamicTemplate.IpSubscribers.IpSubscriber.Qos.ServicePolicy.Output']['meta_info']
-
-                    @property
-                    def _common_path(self):
-                        if self.parent is None:
-                            raise YPYModelError('parent is not set . Cannot derive path.')
-
-                        return self.parent._common_path +'/Cisco-IOS-XR-qos-ma-cfg:service-policy'
-
-                    def is_config(self):
-                        ''' Returns True if this instance represents config data else returns False '''
-                        return True
-
-                    def _has_data(self):
-                        if not self.is_config():
-                            return False
-                        if self.input is not None and self.input._has_data():
-                            return True
-
-                        if self.output is not None and self.output._has_data():
-                            return True
-
-                        return False
-
-                    @staticmethod
-                    def _meta_info():
-                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg as meta
-                        return meta._meta_table['DynamicTemplate.IpSubscribers.IpSubscriber.Qos.ServicePolicy']['meta_info']
-
-
-                class Account(object):
-                    """
-                    QoS L2 overhead accounting
-                    
-                    .. attribute:: aal
-                    
-                    	ATM adaptation layer AAL
-                    	**type**\:  :py:class:`Qosl2DataLinkEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_qos_ma_cfg.Qosl2DataLinkEnum>`
-                    
-                    .. attribute:: atm_cell_tax
-                    
-                    	ATM cell tax to L2 overhead
-                    	**type**\:  :py:class:`Empty <ydk.types.Empty>`
-                    
-                    .. attribute:: encapsulation
-                    
-                    	Specify encapsulation type
-                    	**type**\:  :py:class:`Qosl2EncapEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_qos_ma_cfg.Qosl2EncapEnum>`
-                    
-                    .. attribute:: user_defined
-                    
-                    	Numeric L2 overhead offset
-                    	**type**\:  int
-                    
-                    	**range:** \-63..63
-                    
-                    
-
-                    """
-
-                    _prefix = 'qos-ma-cfg'
-                    _revision = '2015-07-30'
-
-                    def __init__(self):
-                        self.parent = None
-                        self.aal = None
-                        self.atm_cell_tax = None
-                        self.encapsulation = None
-                        self.user_defined = None
-
-                    @property
-                    def _common_path(self):
-                        if self.parent is None:
-                            raise YPYModelError('parent is not set . Cannot derive path.')
-
-                        return self.parent._common_path +'/Cisco-IOS-XR-qos-ma-cfg:account'
-
-                    def is_config(self):
-                        ''' Returns True if this instance represents config data else returns False '''
-                        return True
-
-                    def _has_data(self):
-                        if not self.is_config():
-                            return False
-                        if self.aal is not None:
-                            return True
-
-                        if self.atm_cell_tax is not None:
-                            return True
-
-                        if self.encapsulation is not None:
-                            return True
-
-                        if self.user_defined is not None:
-                            return True
-
-                        return False
-
-                    @staticmethod
-                    def _meta_info():
-                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg as meta
-                        return meta._meta_table['DynamicTemplate.IpSubscribers.IpSubscriber.Qos.Account']['meta_info']
-
-
-                class Output(object):
-                    """
-                    QoS to be applied in egress direction
-                    
-                    .. attribute:: minimum_bandwidth
-                    
-                    	Minimum bandwidth value for the subscriber (in kbps)
-                    	**type**\:  int
-                    
-                    	**range:** 1..4294967295
-                    
-                    
-
-                    """
-
-                    _prefix = 'qos-ma-cfg'
-                    _revision = '2015-07-30'
-
-                    def __init__(self):
-                        self.parent = None
-                        self.minimum_bandwidth = None
-
-                    @property
-                    def _common_path(self):
-                        if self.parent is None:
-                            raise YPYModelError('parent is not set . Cannot derive path.')
-
-                        return self.parent._common_path +'/Cisco-IOS-XR-qos-ma-cfg:output'
-
-                    def is_config(self):
-                        ''' Returns True if this instance represents config data else returns False '''
-                        return True
-
-                    def _has_data(self):
-                        if not self.is_config():
-                            return False
-                        if self.minimum_bandwidth is not None:
-                            return True
-
-                        return False
-
-                    @staticmethod
-                    def _meta_info():
-                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg as meta
-                        return meta._meta_table['DynamicTemplate.IpSubscribers.IpSubscriber.Qos.Output']['meta_info']
-
-                @property
-                def _common_path(self):
-                    if self.parent is None:
-                        raise YPYModelError('parent is not set . Cannot derive path.')
-
-                    return self.parent._common_path +'/Cisco-IOS-XR-qos-ma-cfg:qos'
-
-                def is_config(self):
-                    ''' Returns True if this instance represents config data else returns False '''
-                    return True
-
-                def _has_data(self):
-                    if not self.is_config():
-                        return False
-                    if self.account is not None and self.account._has_data():
-                        return True
-
-                    if self.output is not None and self.output._has_data():
-                        return True
-
-                    if self.service_policy is not None and self.service_policy._has_data():
-                        return True
-
-                    return False
-
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg as meta
-                    return meta._meta_table['DynamicTemplate.IpSubscribers.IpSubscriber.Qos']['meta_info']
 
             @property
             def _common_path(self):
@@ -4382,9 +3698,6 @@ class DynamicTemplate(object):
                     return True
 
                 if self.pbr is not None and self.pbr._has_data():
-                    return True
-
-                if self.qos is not None and self.qos._has_data():
                     return True
 
                 if self.span_monitor_sessions is not None and self.span_monitor_sessions._has_data():
@@ -4489,11 +3802,6 @@ class DynamicTemplate(object):
             	Dynamic Template PBR configuration
             	**type**\:  :py:class:`Pbr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.SubscriberServices.SubscriberService.Pbr>`
             
-            .. attribute:: qos
-            
-            	QoS dynamically applied configuration template
-            	**type**\:  :py:class:`Qos <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.SubscriberServices.SubscriberService.Qos>`
-            
             .. attribute:: span_monitor_sessions
             
             	Monitor Session container for this template
@@ -4528,8 +3836,6 @@ class DynamicTemplate(object):
                 self.ipv6_packet_filter.parent = self
                 self.pbr = DynamicTemplate.SubscriberServices.SubscriberService.Pbr()
                 self.pbr.parent = self
-                self.qos = DynamicTemplate.SubscriberServices.SubscriberService.Qos()
-                self.qos.parent = self
                 self.span_monitor_sessions = DynamicTemplate.SubscriberServices.SubscriberService.SpanMonitorSessions()
                 self.span_monitor_sessions.parent = self
                 self.vrf = None
@@ -5820,7 +5126,7 @@ class DynamicTemplate(object):
 
                 """
 
-                _prefix = 'pbr-cfg'
+                _prefix = 'pbr-subscriber-cfg'
                 _revision = '2015-11-09'
 
                 def __init__(self):
@@ -5843,7 +5149,7 @@ class DynamicTemplate(object):
 
                     """
 
-                    _prefix = 'pbr-cfg'
+                    _prefix = 'pbr-subscriber-cfg'
                     _revision = '2015-11-09'
 
                     def __init__(self):
@@ -5855,7 +5161,7 @@ class DynamicTemplate(object):
                         if self.parent is None:
                             raise YPYModelError('parent is not set . Cannot derive path.')
 
-                        return self.parent._common_path +'/Cisco-IOS-XR-pbr-cfg:service-policy'
+                        return self.parent._common_path +'/Cisco-IOS-XR-pbr-subscriber-cfg:service-policy'
 
                     def is_config(self):
                         ''' Returns True if this instance represents config data else returns False '''
@@ -5879,7 +5185,7 @@ class DynamicTemplate(object):
                     if self.parent is None:
                         raise YPYModelError('parent is not set . Cannot derive path.')
 
-                    return self.parent._common_path +'/Cisco-IOS-XR-pbr-cfg:pbr'
+                    return self.parent._common_path +'/Cisco-IOS-XR-pbr-subscriber-cfg:pbr'
 
                 def is_config(self):
                     ''' Returns True if this instance represents config data else returns False '''
@@ -5900,456 +5206,6 @@ class DynamicTemplate(object):
                 def _meta_info():
                     from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg as meta
                     return meta._meta_table['DynamicTemplate.SubscriberServices.SubscriberService.Pbr']['meta_info']
-
-
-            class Qos(object):
-                """
-                QoS dynamically applied configuration template
-                
-                .. attribute:: account
-                
-                	QoS L2 overhead accounting
-                	**type**\:  :py:class:`Account <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.SubscriberServices.SubscriberService.Qos.Account>`
-                
-                .. attribute:: output
-                
-                	QoS to be applied in egress direction
-                	**type**\:  :py:class:`Output <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.SubscriberServices.SubscriberService.Qos.Output>`
-                
-                .. attribute:: service_policy
-                
-                	Service policy to be applied in ingress/egress direction
-                	**type**\:  :py:class:`ServicePolicy <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.SubscriberServices.SubscriberService.Qos.ServicePolicy>`
-                
-                
-
-                """
-
-                _prefix = 'qos-ma-cfg'
-                _revision = '2015-07-30'
-
-                def __init__(self):
-                    self.parent = None
-                    self.account = DynamicTemplate.SubscriberServices.SubscriberService.Qos.Account()
-                    self.account.parent = self
-                    self.output = DynamicTemplate.SubscriberServices.SubscriberService.Qos.Output()
-                    self.output.parent = self
-                    self.service_policy = DynamicTemplate.SubscriberServices.SubscriberService.Qos.ServicePolicy()
-                    self.service_policy.parent = self
-
-
-                class ServicePolicy(object):
-                    """
-                    Service policy to be applied in ingress/egress
-                    direction
-                    
-                    .. attribute:: input
-                    
-                    	Subscriber ingress policy
-                    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.SubscriberServices.SubscriberService.Qos.ServicePolicy.Input>`
-                    
-                    .. attribute:: output
-                    
-                    	Subscriber egress policy
-                    	**type**\:  :py:class:`Output <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.SubscriberServices.SubscriberService.Qos.ServicePolicy.Output>`
-                    
-                    
-
-                    """
-
-                    _prefix = 'qos-ma-cfg'
-                    _revision = '2015-07-30'
-
-                    def __init__(self):
-                        self.parent = None
-                        self.input = None
-                        self.output = None
-
-
-                    class Input(object):
-                        """
-                        Subscriber ingress policy
-                        
-                        .. attribute:: account_stats
-                        
-                        	TRUE for account stats enabled for service\-policy applied on dynamic template. Note\: account stats not supported for subscriber type 'ppp' and 'ipsubscriber'
-                        	**type**\:  bool
-                        
-                        .. attribute:: account_type
-                        
-                        	Turn off L2 or L3 accounting
-                        	**type**\:  :py:class:`QosPolicyAccountEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_qos_ma_cfg.QosPolicyAccountEnum>`
-                        
-                        .. attribute:: merge
-                        
-                        	TRUE for merge enabled for service\-policy applied on dynamic template
-                        	**type**\:  bool
-                        
-                        .. attribute:: merge_id
-                        
-                        	Merge ID value
-                        	**type**\:  int
-                        
-                        	**range:** 0..255
-                        
-                        .. attribute:: policy_name
-                        
-                        	Name of policy\-map
-                        	**type**\:  str
-                        
-                        	**mandatory**\: True
-                        
-                        .. attribute:: spi_name
-                        
-                        	Name of the SPI
-                        	**type**\:  str
-                        
-                        .. attribute:: _is_presence
-                        
-                        	Is present if this instance represents presence container else not
-                        	**type**\: bool
-                        
-                        
-
-                        This class is a :ref:`presence class<presence-class>`
-
-                        """
-
-                        _prefix = 'qos-ma-cfg'
-                        _revision = '2015-07-30'
-
-                        def __init__(self):
-                            self.parent = None
-                            self._is_presence = True
-                            self.account_stats = None
-                            self.account_type = None
-                            self.merge = None
-                            self.merge_id = None
-                            self.policy_name = None
-                            self.spi_name = None
-
-                        @property
-                        def _common_path(self):
-                            if self.parent is None:
-                                raise YPYModelError('parent is not set . Cannot derive path.')
-
-                            return self.parent._common_path +'/Cisco-IOS-XR-qos-ma-cfg:input'
-
-                        def is_config(self):
-                            ''' Returns True if this instance represents config data else returns False '''
-                            return True
-
-                        def _has_data(self):
-                            if not self.is_config():
-                                return False
-                            if self._is_presence:
-                                return True
-                            if self.account_stats is not None:
-                                return True
-
-                            if self.account_type is not None:
-                                return True
-
-                            if self.merge is not None:
-                                return True
-
-                            if self.merge_id is not None:
-                                return True
-
-                            if self.policy_name is not None:
-                                return True
-
-                            if self.spi_name is not None:
-                                return True
-
-                            return False
-
-                        @staticmethod
-                        def _meta_info():
-                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg as meta
-                            return meta._meta_table['DynamicTemplate.SubscriberServices.SubscriberService.Qos.ServicePolicy.Input']['meta_info']
-
-
-                    class Output(object):
-                        """
-                        Subscriber egress policy
-                        
-                        .. attribute:: account_stats
-                        
-                        	TRUE for account stats enabled for service\-policy applied on dynamic template. Note\: account stats not supported for subscriber type 'ppp' and 'ipsubscriber'
-                        	**type**\:  bool
-                        
-                        .. attribute:: account_type
-                        
-                        	Turn off L2 or L3 accounting
-                        	**type**\:  :py:class:`QosPolicyAccountEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_qos_ma_cfg.QosPolicyAccountEnum>`
-                        
-                        .. attribute:: merge
-                        
-                        	TRUE for merge enabled for service\-policy applied on dynamic template
-                        	**type**\:  bool
-                        
-                        .. attribute:: merge_id
-                        
-                        	Merge ID value
-                        	**type**\:  int
-                        
-                        	**range:** 0..255
-                        
-                        .. attribute:: policy_name
-                        
-                        	Name of policy\-map
-                        	**type**\:  str
-                        
-                        	**mandatory**\: True
-                        
-                        .. attribute:: spi_name
-                        
-                        	Name of the SPI
-                        	**type**\:  str
-                        
-                        .. attribute:: _is_presence
-                        
-                        	Is present if this instance represents presence container else not
-                        	**type**\: bool
-                        
-                        
-
-                        This class is a :ref:`presence class<presence-class>`
-
-                        """
-
-                        _prefix = 'qos-ma-cfg'
-                        _revision = '2015-07-30'
-
-                        def __init__(self):
-                            self.parent = None
-                            self._is_presence = True
-                            self.account_stats = None
-                            self.account_type = None
-                            self.merge = None
-                            self.merge_id = None
-                            self.policy_name = None
-                            self.spi_name = None
-
-                        @property
-                        def _common_path(self):
-                            if self.parent is None:
-                                raise YPYModelError('parent is not set . Cannot derive path.')
-
-                            return self.parent._common_path +'/Cisco-IOS-XR-qos-ma-cfg:output'
-
-                        def is_config(self):
-                            ''' Returns True if this instance represents config data else returns False '''
-                            return True
-
-                        def _has_data(self):
-                            if not self.is_config():
-                                return False
-                            if self._is_presence:
-                                return True
-                            if self.account_stats is not None:
-                                return True
-
-                            if self.account_type is not None:
-                                return True
-
-                            if self.merge is not None:
-                                return True
-
-                            if self.merge_id is not None:
-                                return True
-
-                            if self.policy_name is not None:
-                                return True
-
-                            if self.spi_name is not None:
-                                return True
-
-                            return False
-
-                        @staticmethod
-                        def _meta_info():
-                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg as meta
-                            return meta._meta_table['DynamicTemplate.SubscriberServices.SubscriberService.Qos.ServicePolicy.Output']['meta_info']
-
-                    @property
-                    def _common_path(self):
-                        if self.parent is None:
-                            raise YPYModelError('parent is not set . Cannot derive path.')
-
-                        return self.parent._common_path +'/Cisco-IOS-XR-qos-ma-cfg:service-policy'
-
-                    def is_config(self):
-                        ''' Returns True if this instance represents config data else returns False '''
-                        return True
-
-                    def _has_data(self):
-                        if not self.is_config():
-                            return False
-                        if self.input is not None and self.input._has_data():
-                            return True
-
-                        if self.output is not None and self.output._has_data():
-                            return True
-
-                        return False
-
-                    @staticmethod
-                    def _meta_info():
-                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg as meta
-                        return meta._meta_table['DynamicTemplate.SubscriberServices.SubscriberService.Qos.ServicePolicy']['meta_info']
-
-
-                class Account(object):
-                    """
-                    QoS L2 overhead accounting
-                    
-                    .. attribute:: aal
-                    
-                    	ATM adaptation layer AAL
-                    	**type**\:  :py:class:`Qosl2DataLinkEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_qos_ma_cfg.Qosl2DataLinkEnum>`
-                    
-                    .. attribute:: atm_cell_tax
-                    
-                    	ATM cell tax to L2 overhead
-                    	**type**\:  :py:class:`Empty <ydk.types.Empty>`
-                    
-                    .. attribute:: encapsulation
-                    
-                    	Specify encapsulation type
-                    	**type**\:  :py:class:`Qosl2EncapEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_qos_ma_cfg.Qosl2EncapEnum>`
-                    
-                    .. attribute:: user_defined
-                    
-                    	Numeric L2 overhead offset
-                    	**type**\:  int
-                    
-                    	**range:** \-63..63
-                    
-                    
-
-                    """
-
-                    _prefix = 'qos-ma-cfg'
-                    _revision = '2015-07-30'
-
-                    def __init__(self):
-                        self.parent = None
-                        self.aal = None
-                        self.atm_cell_tax = None
-                        self.encapsulation = None
-                        self.user_defined = None
-
-                    @property
-                    def _common_path(self):
-                        if self.parent is None:
-                            raise YPYModelError('parent is not set . Cannot derive path.')
-
-                        return self.parent._common_path +'/Cisco-IOS-XR-qos-ma-cfg:account'
-
-                    def is_config(self):
-                        ''' Returns True if this instance represents config data else returns False '''
-                        return True
-
-                    def _has_data(self):
-                        if not self.is_config():
-                            return False
-                        if self.aal is not None:
-                            return True
-
-                        if self.atm_cell_tax is not None:
-                            return True
-
-                        if self.encapsulation is not None:
-                            return True
-
-                        if self.user_defined is not None:
-                            return True
-
-                        return False
-
-                    @staticmethod
-                    def _meta_info():
-                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg as meta
-                        return meta._meta_table['DynamicTemplate.SubscriberServices.SubscriberService.Qos.Account']['meta_info']
-
-
-                class Output(object):
-                    """
-                    QoS to be applied in egress direction
-                    
-                    .. attribute:: minimum_bandwidth
-                    
-                    	Minimum bandwidth value for the subscriber (in kbps)
-                    	**type**\:  int
-                    
-                    	**range:** 1..4294967295
-                    
-                    
-
-                    """
-
-                    _prefix = 'qos-ma-cfg'
-                    _revision = '2015-07-30'
-
-                    def __init__(self):
-                        self.parent = None
-                        self.minimum_bandwidth = None
-
-                    @property
-                    def _common_path(self):
-                        if self.parent is None:
-                            raise YPYModelError('parent is not set . Cannot derive path.')
-
-                        return self.parent._common_path +'/Cisco-IOS-XR-qos-ma-cfg:output'
-
-                    def is_config(self):
-                        ''' Returns True if this instance represents config data else returns False '''
-                        return True
-
-                    def _has_data(self):
-                        if not self.is_config():
-                            return False
-                        if self.minimum_bandwidth is not None:
-                            return True
-
-                        return False
-
-                    @staticmethod
-                    def _meta_info():
-                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg as meta
-                        return meta._meta_table['DynamicTemplate.SubscriberServices.SubscriberService.Qos.Output']['meta_info']
-
-                @property
-                def _common_path(self):
-                    if self.parent is None:
-                        raise YPYModelError('parent is not set . Cannot derive path.')
-
-                    return self.parent._common_path +'/Cisco-IOS-XR-qos-ma-cfg:qos'
-
-                def is_config(self):
-                    ''' Returns True if this instance represents config data else returns False '''
-                    return True
-
-                def _has_data(self):
-                    if not self.is_config():
-                        return False
-                    if self.account is not None and self.account._has_data():
-                        return True
-
-                    if self.output is not None and self.output._has_data():
-                        return True
-
-                    if self.service_policy is not None and self.service_policy._has_data():
-                        return True
-
-                    return False
-
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg as meta
-                    return meta._meta_table['DynamicTemplate.SubscriberServices.SubscriberService.Qos']['meta_info']
 
             @property
             def _common_path(self):
@@ -6384,9 +5240,6 @@ class DynamicTemplate(object):
                     return True
 
                 if self.pbr is not None and self.pbr._has_data():
-                    return True
-
-                if self.qos is not None and self.qos._has_data():
                     return True
 
                 if self.span_monitor_sessions is not None and self.span_monitor_sessions._has_data():

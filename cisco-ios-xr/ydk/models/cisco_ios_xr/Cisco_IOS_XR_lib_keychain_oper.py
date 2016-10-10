@@ -7,7 +7,7 @@ This module contains definitions
 for the following management objects\:
   keychain\: Keychain operational data
 
-Copyright (c) 2013\-2015 by Cisco Systems, Inc.
+Copyright (c) 2013\-2016 by Cisco Systems, Inc.
 All rights reserved.
 
 """
@@ -198,7 +198,7 @@ class Keychain(object):
                     .. attribute:: key_id
                     
                     	Key ID
-                    	**type**\:  long
+                    	**type**\:  int
                     
                     	**range:** 0..18446744073709551615
                     

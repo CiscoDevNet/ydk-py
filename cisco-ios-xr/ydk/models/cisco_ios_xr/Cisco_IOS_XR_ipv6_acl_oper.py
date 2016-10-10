@@ -7,7 +7,7 @@ This module contains definitions
 for the following management objects\:
   ipv6\-acl\-and\-prefix\-list\: Root class of IPv6 Oper schema tree
 
-Copyright (c) 2013\-2015 by Cisco Systems, Inc.
+Copyright (c) 2013\-2016 by Cisco Systems, Inc.
 All rights reserved.
 
 """
@@ -23,7 +23,6 @@ from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
 from ydk.errors import YPYError, YPYModelError
 
 
-from ydk.models.cisco_ios_xr.Cisco_IOS_XR_common_acl_datatypes import AclUsageAppIdEnumEnum
 
 class AclAce1Enum(Enum):
     """
@@ -425,6 +424,10 @@ class BagAclNhAtStatusEnum(Enum):
 
     	AT State Not Present
 
+    .. data:: MAX = 4
+
+    	invalid status
+
     """
 
     UNKNOWN = 0
@@ -434,6 +437,8 @@ class BagAclNhAtStatusEnum(Enum):
     DOWN = 2
 
     NOT_PRESENT = 3
+
+    MAX = 4
 
 
     @staticmethod
@@ -497,6 +502,10 @@ class BagAclNhStatusEnum(Enum):
 
     	State UP
 
+    .. data:: MAX = 4
+
+    	invalid status
+
     """
 
     NOT_PRESENT = 0
@@ -506,6 +515,8 @@ class BagAclNhStatusEnum(Enum):
     DOWN = 2
 
     UP = 3
+
+    MAX = 4
 
 
     @staticmethod
@@ -1140,7 +1151,7 @@ class Ipv6AclAndPrefixList(object):
                         .. attribute:: hits
                         
                         	hits
-                        	**type**\:  long
+                        	**type**\:  int
                         
                         	**range:** 0..18446744073709551615
                         
@@ -1372,6 +1383,11 @@ class Ipv6AclAndPrefixList(object):
                         
                         	**range:** \-2147483648..2147483647
                         
+                        .. attribute:: sequence_str
+                        
+                        	Sequence String
+                        	**type**\:  str
+                        
                         .. attribute:: source_mask
                         
                         	Source Mask
@@ -1445,6 +1461,7 @@ class Ipv6AclAndPrefixList(object):
                             self.next_hop_info.name = 'next_hop_info'
                             self.next_hop_type = None
                             self.no_stats = None
+                            self.sequence_str = None
                             self.source_mask = None
                             self.source_port_group = None
                             self.source_prefix_group = None
@@ -1773,6 +1790,9 @@ class Ipv6AclAndPrefixList(object):
                                 return True
 
                             if self.no_stats is not None:
+                                return True
+
+                            if self.sequence_str is not None:
                                 return True
 
                             if self.source_mask is not None:

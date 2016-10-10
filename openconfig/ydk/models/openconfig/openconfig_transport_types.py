@@ -16,49 +16,86 @@ from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
 from ydk.errors import YPYError, YPYModelError
 
 
+from ydk.models.openconfig.openconfig_platform_types import Openconfig_Hardware_ComponentIdentity
 
-
-class EthernetPmdTypeIdentity(object):
+class AdminStateTypeEnum(Enum):
     """
-    Ethernet compliance codes (PMD) supported by transceivers
-    
-    
+    AdminStateTypeEnum
+
+    Administrative state modes for
+
+    logical channels in the transponder model.
+
+    .. data:: ENABLED = 0
+
+    	Sets the channel admin state to enabled
+
+    .. data:: DISABLED = 1
+
+    	Sets the channel admin state to disabled
+
+    .. data:: MAINT = 2
+
+    	Sets the channel to maintenance / diagnostic mode
 
     """
 
-    _prefix = 'opt-types'
-    _revision = '2015-11-25'
+    ENABLED = 0
 
-    def __init__(self):
-        pass
+    DISABLED = 1
+
+    MAINT = 2
+
 
     @staticmethod
     def _meta_info():
         from ydk.models.openconfig._meta import _openconfig_transport_types as meta
-        return meta._meta_table['EthernetPmdTypeIdentity']['meta_info']
+        return meta._meta_table['AdminStateTypeEnum']
 
 
-class OtnApplicationCodeIdentity(object):
+class LoopbackModeTypeEnum(Enum):
     """
-    Supported OTN application codes
-    
-    
+    LoopbackModeTypeEnum
+
+    Loopback modes for transponder logical channels
+
+    .. data:: NONE = 0
+
+    	No loopback is applied
+
+    .. data:: FACILITY = 1
+
+    	A loopback which directs traffic normally transmitted
+
+    	on the port back to the device as if received on the same
+
+    	port from an external source.
+
+    .. data:: TERMINAL = 2
+
+    	A loopback which directs traffic received from an external
+
+    	source on the port back out the transmit side of the same
+
+    	port.
 
     """
 
-    _prefix = 'opt-types'
-    _revision = '2015-11-25'
+    NONE = 0
 
-    def __init__(self):
-        pass
+    FACILITY = 1
+
+    TERMINAL = 2
+
 
     @staticmethod
     def _meta_info():
         from ydk.models.openconfig._meta import _openconfig_transport_types as meta
-        return meta._meta_table['OtnApplicationCodeIdentity']['meta_info']
+        return meta._meta_table['LoopbackModeTypeEnum']
 
 
-class SonetApplicationCodeIdentity(object):
+
+class Sonet_Application_CodeIdentity(object):
     """
     Supported SONET/SDH application codes
     
@@ -66,8 +103,8 @@ class SonetApplicationCodeIdentity(object):
 
     """
 
-    _prefix = 'opt-types'
-    _revision = '2015-11-25'
+    _prefix = 'oc-opt-types'
+    _revision = '2016-06-17'
 
     def __init__(self):
         pass
@@ -75,10 +112,30 @@ class SonetApplicationCodeIdentity(object):
     @staticmethod
     def _meta_info():
         from ydk.models.openconfig._meta import _openconfig_transport_types as meta
-        return meta._meta_table['SonetApplicationCodeIdentity']['meta_info']
+        return meta._meta_table['Sonet_Application_CodeIdentity']['meta_info']
 
 
-class TransceiverFormFactorTypeIdentity(object):
+class Otn_Application_CodeIdentity(object):
+    """
+    Supported OTN application codes
+    
+    
+
+    """
+
+    _prefix = 'oc-opt-types'
+    _revision = '2016-06-17'
+
+    def __init__(self):
+        pass
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.openconfig._meta import _openconfig_transport_types as meta
+        return meta._meta_table['Otn_Application_CodeIdentity']['meta_info']
+
+
+class Transceiver_Form_Factor_TypeIdentity(object):
     """
     Base identity for identifying the type of pluggable optic
     transceiver (i.e,. form factor) used in a port.
@@ -87,8 +144,8 @@ class TransceiverFormFactorTypeIdentity(object):
 
     """
 
-    _prefix = 'opt-types'
-    _revision = '2015-11-25'
+    _prefix = 'oc-opt-types'
+    _revision = '2016-06-17'
 
     def __init__(self):
         pass
@@ -96,10 +153,10 @@ class TransceiverFormFactorTypeIdentity(object):
     @staticmethod
     def _meta_info():
         from ydk.models.openconfig._meta import _openconfig_transport_types as meta
-        return meta._meta_table['TransceiverFormFactorTypeIdentity']['meta_info']
+        return meta._meta_table['Transceiver_Form_Factor_TypeIdentity']['meta_info']
 
 
-class LogicalElementProtocolTypeIdentity(object):
+class Logical_Element_Protocol_TypeIdentity(object):
     """
     Type of protocol framing used on the logical channel or
     tributary
@@ -108,8 +165,8 @@ class LogicalElementProtocolTypeIdentity(object):
 
     """
 
-    _prefix = 'opt-types'
-    _revision = '2015-11-25'
+    _prefix = 'oc-opt-types'
+    _revision = '2016-06-17'
 
     def __init__(self):
         pass
@@ -117,10 +174,93 @@ class LogicalElementProtocolTypeIdentity(object):
     @staticmethod
     def _meta_info():
         from ydk.models.openconfig._meta import _openconfig_transport_types as meta
-        return meta._meta_table['LogicalElementProtocolTypeIdentity']['meta_info']
+        return meta._meta_table['Logical_Element_Protocol_TypeIdentity']['meta_info']
 
 
-class TributaryProtocolTypeIdentity(object):
+class Tributary_Rate_Class_TypeIdentity(object):
+    """
+    Rate of tributary signal \_\- identities will typically reflect
+    rounded bit rate.
+    
+    
+
+    """
+
+    _prefix = 'oc-opt-types'
+    _revision = '2016-06-17'
+
+    def __init__(self):
+        pass
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.openconfig._meta import _openconfig_transport_types as meta
+        return meta._meta_table['Tributary_Rate_Class_TypeIdentity']['meta_info']
+
+
+class Ethernet_Pmd_TypeIdentity(object):
+    """
+    Ethernet compliance codes (PMD) supported by transceivers
+    
+    
+
+    """
+
+    _prefix = 'oc-opt-types'
+    _revision = '2016-06-17'
+
+    def __init__(self):
+        pass
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.openconfig._meta import _openconfig_transport_types as meta
+        return meta._meta_table['Ethernet_Pmd_TypeIdentity']['meta_info']
+
+
+class Fiber_Connector_TypeIdentity(object):
+    """
+    Type of optical fiber connector
+    
+    
+
+    """
+
+    _prefix = 'oc-opt-types'
+    _revision = '2016-06-17'
+
+    def __init__(self):
+        pass
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.openconfig._meta import _openconfig_transport_types as meta
+        return meta._meta_table['Fiber_Connector_TypeIdentity']['meta_info']
+
+
+class Optical_ChannelIdentity(Openconfig_Hardware_ComponentIdentity):
+    """
+    Optical channels act as carriers for transport traffic
+    directed over a line system.  They are represented as
+    physical components in the physical inventory model.
+    
+    
+
+    """
+
+    _prefix = 'oc-opt-types'
+    _revision = '2016-06-17'
+
+    def __init__(self):
+        Openconfig_Hardware_ComponentIdentity.__init__(self)
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.openconfig._meta import _openconfig_transport_types as meta
+        return meta._meta_table['Optical_ChannelIdentity']['meta_info']
+
+
+class Tributary_Protocol_TypeIdentity(object):
     """
     Base identity for protocol framing used by tributary
     signals.
@@ -129,8 +269,8 @@ class TributaryProtocolTypeIdentity(object):
 
     """
 
-    _prefix = 'opt-types'
-    _revision = '2015-11-25'
+    _prefix = 'oc-opt-types'
+    _revision = '2016-06-17'
 
     def __init__(self):
         pass
@@ -138,71 +278,10 @@ class TributaryProtocolTypeIdentity(object):
     @staticmethod
     def _meta_info():
         from ydk.models.openconfig._meta import _openconfig_transport_types as meta
-        return meta._meta_table['TributaryProtocolTypeIdentity']['meta_info']
+        return meta._meta_table['Tributary_Protocol_TypeIdentity']['meta_info']
 
 
-class TributaryRateClassTypeIdentity(object):
-    """
-    Rate of tributary signal \-\- identities will typically reflect
-    rounded bit rate.
-    
-    
-
-    """
-
-    _prefix = 'opt-types'
-    _revision = '2015-11-25'
-
-    def __init__(self):
-        pass
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.openconfig._meta import _openconfig_transport_types as meta
-        return meta._meta_table['TributaryRateClassTypeIdentity']['meta_info']
-
-
-class FiberConnectorTypeIdentity(object):
-    """
-    Type of optical fiber connector
-    
-    
-
-    """
-
-    _prefix = 'opt-types'
-    _revision = '2015-11-25'
-
-    def __init__(self):
-        pass
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.openconfig._meta import _openconfig_transport_types as meta
-        return meta._meta_table['FiberConnectorTypeIdentity']['meta_info']
-
-
-class ProtOc192Identity(TributaryProtocolTypeIdentity):
-    """
-    OC 192 (9.6GB) port protocol
-    
-    
-
-    """
-
-    _prefix = 'opt-types'
-    _revision = '2015-11-25'
-
-    def __init__(self):
-        TributaryProtocolTypeIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.openconfig._meta import _openconfig_transport_types as meta
-        return meta._meta_table['ProtOc192Identity']['meta_info']
-
-
-class Cfp2Identity(TransceiverFormFactorTypeIdentity):
+class Cfp2Identity(Transceiver_Form_Factor_TypeIdentity):
     """
     1/2 C form\-factor pluggable, that can support up to a
     200 Gb/s signal with 10x10G, 4x25G, or 8x25G physical
@@ -212,11 +291,11 @@ class Cfp2Identity(TransceiverFormFactorTypeIdentity):
 
     """
 
-    _prefix = 'opt-types'
-    _revision = '2015-11-25'
+    _prefix = 'oc-opt-types'
+    _revision = '2016-06-17'
 
     def __init__(self):
-        TransceiverFormFactorTypeIdentity.__init__(self)
+        Transceiver_Form_Factor_TypeIdentity.__init__(self)
 
     @staticmethod
     def _meta_info():
@@ -224,148 +303,7 @@ class Cfp2Identity(TransceiverFormFactorTypeIdentity):
         return meta._meta_table['Cfp2Identity']['meta_info']
 
 
-class Prot100G_MlgIdentity(TributaryProtocolTypeIdentity):
-    """
-    100G MLG protocol
-    
-    
-
-    """
-
-    _prefix = 'opt-types'
-    _revision = '2015-11-25'
-
-    def __init__(self):
-        TributaryProtocolTypeIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.openconfig._meta import _openconfig_transport_types as meta
-        return meta._meta_table['Prot100G_MlgIdentity']['meta_info']
-
-
-class Eth100GbaseEr4Identity(EthernetPmdTypeIdentity):
-    """
-    Ethernet compliance code\: 100GBASE\-ER4
-    
-    
-
-    """
-
-    _prefix = 'opt-types'
-    _revision = '2015-11-25'
-
-    def __init__(self):
-        EthernetPmdTypeIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.openconfig._meta import _openconfig_transport_types as meta
-        return meta._meta_table['Eth100GbaseEr4Identity']['meta_info']
-
-
-class Cfp4Identity(TransceiverFormFactorTypeIdentity):
-    """
-    1/4 C form\-factor pluggable, that can support up to a
-    100 Gb/s signal with 10x10G or 4x25G physical channels
-    
-    
-
-    """
-
-    _prefix = 'opt-types'
-    _revision = '2015-11-25'
-
-    def __init__(self):
-        TransceiverFormFactorTypeIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.openconfig._meta import _openconfig_transport_types as meta
-        return meta._meta_table['Cfp4Identity']['meta_info']
-
-
-class Eth100G_AocIdentity(EthernetPmdTypeIdentity):
-    """
-    Ethernet compliance code\: 100G\_AOC
-    
-    
-
-    """
-
-    _prefix = 'opt-types'
-    _revision = '2015-11-25'
-
-    def __init__(self):
-        EthernetPmdTypeIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.openconfig._meta import _openconfig_transport_types as meta
-        return meta._meta_table['Eth100G_AocIdentity']['meta_info']
-
-
-class Eth10GbaseLrmIdentity(EthernetPmdTypeIdentity):
-    """
-    Ethernet compliance code\: 10GBASE\-LRM
-    
-    
-
-    """
-
-    _prefix = 'opt-types'
-    _revision = '2015-11-25'
-
-    def __init__(self):
-        EthernetPmdTypeIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.openconfig._meta import _openconfig_transport_types as meta
-        return meta._meta_table['Eth10GbaseLrmIdentity']['meta_info']
-
-
-class ProtOdu4Identity(TributaryProtocolTypeIdentity):
-    """
-    ODU 4 protocol
-    
-    
-
-    """
-
-    _prefix = 'opt-types'
-    _revision = '2015-11-25'
-
-    def __init__(self):
-        TributaryProtocolTypeIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.openconfig._meta import _openconfig_transport_types as meta
-        return meta._meta_table['ProtOdu4Identity']['meta_info']
-
-
-class P1L12D2Identity(OtnApplicationCodeIdentity):
-    """
-    OTN application code\: P1L1\-2D2
-    
-    
-
-    """
-
-    _prefix = 'opt-types'
-    _revision = '2015-11-25'
-
-    def __init__(self):
-        OtnApplicationCodeIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.openconfig._meta import _openconfig_transport_types as meta
-        return meta._meta_table['P1L12D2Identity']['meta_info']
-
-
-class Qsfp28Identity(TransceiverFormFactorTypeIdentity):
+class Qsfp28Identity(Transceiver_Form_Factor_TypeIdentity):
     """
     QSFP pluggable optic with support for up to 4x28G physical
     channels
@@ -374,11 +312,11 @@ class Qsfp28Identity(TransceiverFormFactorTypeIdentity):
 
     """
 
-    _prefix = 'opt-types'
-    _revision = '2015-11-25'
+    _prefix = 'oc-opt-types'
+    _revision = '2016-06-17'
 
     def __init__(self):
-        TransceiverFormFactorTypeIdentity.__init__(self)
+        Transceiver_Form_Factor_TypeIdentity.__init__(self)
 
     @staticmethod
     def _meta_info():
@@ -386,210 +324,108 @@ class Qsfp28Identity(TransceiverFormFactorTypeIdentity):
         return meta._meta_table['Qsfp28Identity']['meta_info']
 
 
-class Prot10Ge_LanIdentity(TributaryProtocolTypeIdentity):
+class Eth_40Gbase_Sr4Identity(Ethernet_Pmd_TypeIdentity):
     """
-    10G Ethernet LAN protocol
+    Ethernet compliance code\: 40GBASE\_SR4
     
     
 
     """
 
-    _prefix = 'opt-types'
-    _revision = '2015-11-25'
+    _prefix = 'oc-opt-types'
+    _revision = '2016-06-17'
 
     def __init__(self):
-        TributaryProtocolTypeIdentity.__init__(self)
+        Ethernet_Pmd_TypeIdentity.__init__(self)
 
     @staticmethod
     def _meta_info():
         from ydk.models.openconfig._meta import _openconfig_transport_types as meta
-        return meta._meta_table['Prot10Ge_LanIdentity']['meta_info']
+        return meta._meta_table['Eth_40Gbase_Sr4Identity']['meta_info']
 
 
-class Eth10GbaseErIdentity(EthernetPmdTypeIdentity):
+class Eth_10Gbase_LrmIdentity(Ethernet_Pmd_TypeIdentity):
     """
-    Ethernet compliance code\: 10GBASE\-ER
+    Ethernet compliance code\: 10GBASE\_LRM
     
     
 
     """
 
-    _prefix = 'opt-types'
-    _revision = '2015-11-25'
+    _prefix = 'oc-opt-types'
+    _revision = '2016-06-17'
 
     def __init__(self):
-        EthernetPmdTypeIdentity.__init__(self)
+        Ethernet_Pmd_TypeIdentity.__init__(self)
 
     @staticmethod
     def _meta_info():
         from ydk.models.openconfig._meta import _openconfig_transport_types as meta
-        return meta._meta_table['Eth10GbaseErIdentity']['meta_info']
+        return meta._meta_table['Eth_10Gbase_LrmIdentity']['meta_info']
 
 
-class Sfp_PlusIdentity(TransceiverFormFactorTypeIdentity):
+class Eth_4X10Gbase_SrIdentity(Ethernet_Pmd_TypeIdentity):
     """
-    Enhanced small form\-factor pluggable transceiver supporting
-    up to 16 Gb/s signals, including 10 GbE and OTU2
+    Ethernet compliance code\: 4x10GBASE\_SR
     
     
 
     """
 
-    _prefix = 'opt-types'
-    _revision = '2015-11-25'
+    _prefix = 'oc-opt-types'
+    _revision = '2016-06-17'
 
     def __init__(self):
-        TransceiverFormFactorTypeIdentity.__init__(self)
+        Ethernet_Pmd_TypeIdentity.__init__(self)
 
     @staticmethod
     def _meta_info():
         from ydk.models.openconfig._meta import _openconfig_transport_types as meta
-        return meta._meta_table['Sfp_PlusIdentity']['meta_info']
+        return meta._meta_table['Eth_4X10Gbase_SrIdentity']['meta_info']
 
 
-class Eth100GbaseCr4Identity(EthernetPmdTypeIdentity):
+class Eth_100G_AocIdentity(Ethernet_Pmd_TypeIdentity):
     """
-    Ethernet compliance code\: 100GBASE\-CR4
+    Ethernet compliance code\: 100G\_AOC
     
     
 
     """
 
-    _prefix = 'opt-types'
-    _revision = '2015-11-25'
+    _prefix = 'oc-opt-types'
+    _revision = '2016-06-17'
 
     def __init__(self):
-        EthernetPmdTypeIdentity.__init__(self)
+        Ethernet_Pmd_TypeIdentity.__init__(self)
 
     @staticmethod
     def _meta_info():
         from ydk.models.openconfig._meta import _openconfig_transport_types as meta
-        return meta._meta_table['Eth100GbaseCr4Identity']['meta_info']
+        return meta._meta_table['Eth_100G_AocIdentity']['meta_info']
 
 
-class P1L12D1Identity(OtnApplicationCodeIdentity):
+class Cfp4Identity(Transceiver_Form_Factor_TypeIdentity):
     """
-    OTN application code\: P1L1\-2D1
+    1/4 C form\-factor pluggable, that can support up to a
+    100 Gb/s signal with 10x10G or 4x25G physical channels
     
     
 
     """
 
-    _prefix = 'opt-types'
-    _revision = '2015-11-25'
+    _prefix = 'oc-opt-types'
+    _revision = '2016-06-17'
 
     def __init__(self):
-        OtnApplicationCodeIdentity.__init__(self)
+        Transceiver_Form_Factor_TypeIdentity.__init__(self)
 
     @staticmethod
     def _meta_info():
         from ydk.models.openconfig._meta import _openconfig_transport_types as meta
-        return meta._meta_table['P1L12D1Identity']['meta_info']
+        return meta._meta_table['Cfp4Identity']['meta_info']
 
 
-class SfpIdentity(TransceiverFormFactorTypeIdentity):
-    """
-    Small form\-factor pluggable transceiver supporting up to
-    10 Gb/s signal
-    
-    
-
-    """
-
-    _prefix = 'opt-types'
-    _revision = '2015-11-25'
-
-    def __init__(self):
-        TransceiverFormFactorTypeIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.openconfig._meta import _openconfig_transport_types as meta
-        return meta._meta_table['SfpIdentity']['meta_info']
-
-
-class ProtOtu4Identity(TributaryProtocolTypeIdentity):
-    """
-    OTU4 signal protocol (112G) for transporting
-    100GE signal
-    
-    
-
-    """
-
-    _prefix = 'opt-types'
-    _revision = '2015-11-25'
-
-    def __init__(self):
-        TributaryProtocolTypeIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.openconfig._meta import _openconfig_transport_types as meta
-        return meta._meta_table['ProtOtu4Identity']['meta_info']
-
-
-class Eth40GbaseEr4Identity(EthernetPmdTypeIdentity):
-    """
-    Ethernet compliance code\: 40GBASE\-ER4
-    
-    
-
-    """
-
-    _prefix = 'opt-types'
-    _revision = '2015-11-25'
-
-    def __init__(self):
-        EthernetPmdTypeIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.openconfig._meta import _openconfig_transport_types as meta
-        return meta._meta_table['Eth40GbaseEr4Identity']['meta_info']
-
-
-class Eth100GbasePsm4Identity(EthernetPmdTypeIdentity):
-    """
-    Ethernet compliance code\: 100GBASE\-PSM4
-    
-    
-
-    """
-
-    _prefix = 'opt-types'
-    _revision = '2015-11-25'
-
-    def __init__(self):
-        EthernetPmdTypeIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.openconfig._meta import _openconfig_transport_types as meta
-        return meta._meta_table['Eth100GbasePsm4Identity']['meta_info']
-
-
-class Eth40GbaseCr4Identity(EthernetPmdTypeIdentity):
-    """
-    Ethernet compliance code\: 40GBASE\-CR4
-    
-    
-
-    """
-
-    _prefix = 'opt-types'
-    _revision = '2015-11-25'
-
-    def __init__(self):
-        EthernetPmdTypeIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.openconfig._meta import _openconfig_transport_types as meta
-        return meta._meta_table['Eth40GbaseCr4Identity']['meta_info']
-
-
-class SonetUndefinedIdentity(SonetApplicationCodeIdentity):
+class Sonet_UndefinedIdentity(Sonet_Application_CodeIdentity):
     """
     SONET/SDH application code\: undefined
     
@@ -597,140 +433,259 @@ class SonetUndefinedIdentity(SonetApplicationCodeIdentity):
 
     """
 
-    _prefix = 'opt-types'
-    _revision = '2015-11-25'
+    _prefix = 'oc-opt-types'
+    _revision = '2016-06-17'
 
     def __init__(self):
-        SonetApplicationCodeIdentity.__init__(self)
+        Sonet_Application_CodeIdentity.__init__(self)
 
     @staticmethod
     def _meta_info():
         from ydk.models.openconfig._meta import _openconfig_transport_types as meta
-        return meta._meta_table['SonetUndefinedIdentity']['meta_info']
+        return meta._meta_table['Sonet_UndefinedIdentity']['meta_info']
 
 
-class Eth100GbaseClr4Identity(EthernetPmdTypeIdentity):
+class P1L1_2D2Identity(Otn_Application_CodeIdentity):
     """
-    Ethernet compliance code\: 100GBASE\-CLR4
+    OTN application code\: P1L1\_2D2
     
     
 
     """
 
-    _prefix = 'opt-types'
-    _revision = '2015-11-25'
+    _prefix = 'oc-opt-types'
+    _revision = '2016-06-17'
 
     def __init__(self):
-        EthernetPmdTypeIdentity.__init__(self)
+        Otn_Application_CodeIdentity.__init__(self)
 
     @staticmethod
     def _meta_info():
         from ydk.models.openconfig._meta import _openconfig_transport_types as meta
-        return meta._meta_table['Eth100GbaseClr4Identity']['meta_info']
+        return meta._meta_table['P1L1_2D2Identity']['meta_info']
 
 
-class Prot10Ge_WanIdentity(TributaryProtocolTypeIdentity):
+class P1L1_2D1Identity(Otn_Application_CodeIdentity):
     """
-    10G Ethernet WAN protocol
+    OTN application code\: P1L1\_2D1
     
     
 
     """
 
-    _prefix = 'opt-types'
-    _revision = '2015-11-25'
+    _prefix = 'oc-opt-types'
+    _revision = '2016-06-17'
 
     def __init__(self):
-        TributaryProtocolTypeIdentity.__init__(self)
+        Otn_Application_CodeIdentity.__init__(self)
 
     @staticmethod
     def _meta_info():
         from ydk.models.openconfig._meta import _openconfig_transport_types as meta
-        return meta._meta_table['Prot10Ge_WanIdentity']['meta_info']
+        return meta._meta_table['P1L1_2D1Identity']['meta_info']
 
 
-class ProtStm64Identity(TributaryProtocolTypeIdentity):
+class Trib_Rate_10GIdentity(Tributary_Rate_Class_TypeIdentity):
     """
-    STM 64 protocol
+    10G tributary signal rate
     
     
 
     """
 
-    _prefix = 'opt-types'
-    _revision = '2015-11-25'
+    _prefix = 'oc-opt-types'
+    _revision = '2016-06-17'
 
     def __init__(self):
-        TributaryProtocolTypeIdentity.__init__(self)
+        Tributary_Rate_Class_TypeIdentity.__init__(self)
 
     @staticmethod
     def _meta_info():
         from ydk.models.openconfig._meta import _openconfig_transport_types as meta
-        return meta._meta_table['ProtStm64Identity']['meta_info']
+        return meta._meta_table['Trib_Rate_10GIdentity']['meta_info']
 
 
-class Eth100GbaseCwdm4Identity(EthernetPmdTypeIdentity):
+class Prot_Otu2EIdentity(Tributary_Protocol_TypeIdentity):
     """
-    Ethernet compliance code\: 100GBASE\-CWDM4
+    OTU 2e protocol
     
     
 
     """
 
-    _prefix = 'opt-types'
-    _revision = '2015-11-25'
+    _prefix = 'oc-opt-types'
+    _revision = '2016-06-17'
 
     def __init__(self):
-        EthernetPmdTypeIdentity.__init__(self)
+        Tributary_Protocol_TypeIdentity.__init__(self)
 
     @staticmethod
     def _meta_info():
         from ydk.models.openconfig._meta import _openconfig_transport_types as meta
-        return meta._meta_table['Eth100GbaseCwdm4Identity']['meta_info']
+        return meta._meta_table['Prot_Otu2EIdentity']['meta_info']
 
 
-class ProtOc48Identity(TributaryProtocolTypeIdentity):
+class Eth_100Gbase_Sr4Identity(Ethernet_Pmd_TypeIdentity):
     """
-    OC48 protocol
+    Ethernet compliance code\: 100GBASE\_SR4
     
     
 
     """
 
-    _prefix = 'opt-types'
-    _revision = '2015-11-25'
+    _prefix = 'oc-opt-types'
+    _revision = '2016-06-17'
 
     def __init__(self):
-        TributaryProtocolTypeIdentity.__init__(self)
+        Ethernet_Pmd_TypeIdentity.__init__(self)
 
     @staticmethod
     def _meta_info():
         from ydk.models.openconfig._meta import _openconfig_transport_types as meta
-        return meta._meta_table['ProtOc48Identity']['meta_info']
+        return meta._meta_table['Eth_100Gbase_Sr4Identity']['meta_info']
 
 
-class NonPluggableIdentity(TransceiverFormFactorTypeIdentity):
+class Eth_10Gbase_ZrIdentity(Ethernet_Pmd_TypeIdentity):
     """
-    Represents a port that does not require a pluggable optic,
-    e.g., with on\-board optics like COBO
+    Ethernet compliance code\: 10GBASE\_ZR
     
     
 
     """
 
-    _prefix = 'opt-types'
-    _revision = '2015-11-25'
+    _prefix = 'oc-opt-types'
+    _revision = '2016-06-17'
 
     def __init__(self):
-        TransceiverFormFactorTypeIdentity.__init__(self)
+        Ethernet_Pmd_TypeIdentity.__init__(self)
 
     @staticmethod
     def _meta_info():
         from ydk.models.openconfig._meta import _openconfig_transport_types as meta
-        return meta._meta_table['NonPluggableIdentity']['meta_info']
+        return meta._meta_table['Eth_10Gbase_ZrIdentity']['meta_info']
 
 
-class Eth100G_AccIdentity(EthernetPmdTypeIdentity):
+class Sc_ConnectorIdentity(Fiber_Connector_TypeIdentity):
+    """
+    SC type fiber connector
+    
+    
+
+    """
+
+    _prefix = 'oc-opt-types'
+    _revision = '2016-06-17'
+
+    def __init__(self):
+        Fiber_Connector_TypeIdentity.__init__(self)
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.openconfig._meta import _openconfig_transport_types as meta
+        return meta._meta_table['Sc_ConnectorIdentity']['meta_info']
+
+
+class Vsr2000_3R3Identity(Sonet_Application_CodeIdentity):
+    """
+    SONET/SDH application code\: VSR2000\_3R3
+    
+    
+
+    """
+
+    _prefix = 'oc-opt-types'
+    _revision = '2016-06-17'
+
+    def __init__(self):
+        Sonet_Application_CodeIdentity.__init__(self)
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.openconfig._meta import _openconfig_transport_types as meta
+        return meta._meta_table['Vsr2000_3R3Identity']['meta_info']
+
+
+class Eth_100Gbase_Er4Identity(Ethernet_Pmd_TypeIdentity):
+    """
+    Ethernet compliance code\: 100GBASE\_ER4
+    
+    
+
+    """
+
+    _prefix = 'oc-opt-types'
+    _revision = '2016-06-17'
+
+    def __init__(self):
+        Ethernet_Pmd_TypeIdentity.__init__(self)
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.openconfig._meta import _openconfig_transport_types as meta
+        return meta._meta_table['Eth_100Gbase_Er4Identity']['meta_info']
+
+
+class Otn_UndefinedIdentity(Otn_Application_CodeIdentity):
+    """
+    OTN application code\: undefined
+    
+    
+
+    """
+
+    _prefix = 'oc-opt-types'
+    _revision = '2016-06-17'
+
+    def __init__(self):
+        Otn_Application_CodeIdentity.__init__(self)
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.openconfig._meta import _openconfig_transport_types as meta
+        return meta._meta_table['Otn_UndefinedIdentity']['meta_info']
+
+
+class Eth_40Gbase_Er4Identity(Ethernet_Pmd_TypeIdentity):
+    """
+    Ethernet compliance code\: 40GBASE\_ER4
+    
+    
+
+    """
+
+    _prefix = 'oc-opt-types'
+    _revision = '2016-06-17'
+
+    def __init__(self):
+        Ethernet_Pmd_TypeIdentity.__init__(self)
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.openconfig._meta import _openconfig_transport_types as meta
+        return meta._meta_table['Eth_40Gbase_Er4Identity']['meta_info']
+
+
+class Prot_Odu2EIdentity(Tributary_Protocol_TypeIdentity):
+    """
+    ODU 2e protocol
+    
+    
+
+    """
+
+    _prefix = 'oc-opt-types'
+    _revision = '2016-06-17'
+
+    def __init__(self):
+        Tributary_Protocol_TypeIdentity.__init__(self)
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.openconfig._meta import _openconfig_transport_types as meta
+        return meta._meta_table['Prot_Odu2EIdentity']['meta_info']
+
+
+class Eth_100G_AccIdentity(Ethernet_Pmd_TypeIdentity):
     """
     Ethernet compliance code\: 100G\_ACC
     
@@ -738,99 +693,119 @@ class Eth100G_AccIdentity(EthernetPmdTypeIdentity):
 
     """
 
-    _prefix = 'opt-types'
-    _revision = '2015-11-25'
+    _prefix = 'oc-opt-types'
+    _revision = '2016-06-17'
 
     def __init__(self):
-        EthernetPmdTypeIdentity.__init__(self)
+        Ethernet_Pmd_TypeIdentity.__init__(self)
 
     @staticmethod
     def _meta_info():
         from ydk.models.openconfig._meta import _openconfig_transport_types as meta
-        return meta._meta_table['Eth100G_AccIdentity']['meta_info']
+        return meta._meta_table['Eth_100G_AccIdentity']['meta_info']
 
 
-class Prot1GeIdentity(TributaryProtocolTypeIdentity):
+class Prot_Oc768Identity(Tributary_Protocol_TypeIdentity):
     """
-    1G Ethernet protocol
+    OC 768 protocol
     
     
 
     """
 
-    _prefix = 'opt-types'
-    _revision = '2015-11-25'
+    _prefix = 'oc-opt-types'
+    _revision = '2016-06-17'
 
     def __init__(self):
-        TributaryProtocolTypeIdentity.__init__(self)
+        Tributary_Protocol_TypeIdentity.__init__(self)
 
     @staticmethod
     def _meta_info():
         from ydk.models.openconfig._meta import _openconfig_transport_types as meta
-        return meta._meta_table['Prot1GeIdentity']['meta_info']
+        return meta._meta_table['Prot_Oc768Identity']['meta_info']
 
 
-class Eth40GbaseSr4Identity(EthernetPmdTypeIdentity):
+class Eth_UndefinedIdentity(Ethernet_Pmd_TypeIdentity):
     """
-    Ethernet compliance code\: 40GBASE\-SR4
+    Ethernet compliance code\: undefined
     
     
 
     """
 
-    _prefix = 'opt-types'
-    _revision = '2015-11-25'
+    _prefix = 'oc-opt-types'
+    _revision = '2016-06-17'
 
     def __init__(self):
-        EthernetPmdTypeIdentity.__init__(self)
+        Ethernet_Pmd_TypeIdentity.__init__(self)
 
     @staticmethod
     def _meta_info():
         from ydk.models.openconfig._meta import _openconfig_transport_types as meta
-        return meta._meta_table['Eth40GbaseSr4Identity']['meta_info']
+        return meta._meta_table['Eth_UndefinedIdentity']['meta_info']
 
 
-class Eth40GbasePsm4Identity(EthernetPmdTypeIdentity):
+class Prot_10Ge_WanIdentity(Tributary_Protocol_TypeIdentity):
     """
-    Ethernet compliance code\: 40GBASE\-PSM4
+    10G Ethernet WAN protocol
     
     
 
     """
 
-    _prefix = 'opt-types'
-    _revision = '2015-11-25'
+    _prefix = 'oc-opt-types'
+    _revision = '2016-06-17'
 
     def __init__(self):
-        EthernetPmdTypeIdentity.__init__(self)
+        Tributary_Protocol_TypeIdentity.__init__(self)
 
     @staticmethod
     def _meta_info():
         from ydk.models.openconfig._meta import _openconfig_transport_types as meta
-        return meta._meta_table['Eth40GbasePsm4Identity']['meta_info']
+        return meta._meta_table['Prot_10Ge_WanIdentity']['meta_info']
 
 
-class OtherIdentity(TransceiverFormFactorTypeIdentity):
+class Eth_40Gbase_Lr4Identity(Ethernet_Pmd_TypeIdentity):
     """
-    Represents a transceiver form factor not otherwise listed
+    Ethernet compliance code\: 40GBASE\_LR4
     
     
 
     """
 
-    _prefix = 'opt-types'
-    _revision = '2015-11-25'
+    _prefix = 'oc-opt-types'
+    _revision = '2016-06-17'
 
     def __init__(self):
-        TransceiverFormFactorTypeIdentity.__init__(self)
+        Ethernet_Pmd_TypeIdentity.__init__(self)
 
     @staticmethod
     def _meta_info():
         from ydk.models.openconfig._meta import _openconfig_transport_types as meta
-        return meta._meta_table['OtherIdentity']['meta_info']
+        return meta._meta_table['Eth_40Gbase_Lr4Identity']['meta_info']
 
 
-class TribRate40GIdentity(TributaryRateClassTypeIdentity):
+class Eth_40Gbase_Psm4Identity(Ethernet_Pmd_TypeIdentity):
+    """
+    Ethernet compliance code\: 40GBASE\_PSM4
+    
+    
+
+    """
+
+    _prefix = 'oc-opt-types'
+    _revision = '2016-06-17'
+
+    def __init__(self):
+        Ethernet_Pmd_TypeIdentity.__init__(self)
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.openconfig._meta import _openconfig_transport_types as meta
+        return meta._meta_table['Eth_40Gbase_Psm4Identity']['meta_info']
+
+
+class Trib_Rate_40GIdentity(Tributary_Rate_Class_TypeIdentity):
     """
     40G tributary signal rate
     
@@ -838,19 +813,100 @@ class TribRate40GIdentity(TributaryRateClassTypeIdentity):
 
     """
 
-    _prefix = 'opt-types'
-    _revision = '2015-11-25'
+    _prefix = 'oc-opt-types'
+    _revision = '2016-06-17'
 
     def __init__(self):
-        TributaryRateClassTypeIdentity.__init__(self)
+        Tributary_Rate_Class_TypeIdentity.__init__(self)
 
     @staticmethod
     def _meta_info():
         from ydk.models.openconfig._meta import _openconfig_transport_types as meta
-        return meta._meta_table['TribRate40GIdentity']['meta_info']
+        return meta._meta_table['Trib_Rate_40GIdentity']['meta_info']
 
 
-class X2Identity(TransceiverFormFactorTypeIdentity):
+class Vsr2000_3R2Identity(Sonet_Application_CodeIdentity):
+    """
+    SONET/SDH application code\: VSR2000\_3R2
+    
+    
+
+    """
+
+    _prefix = 'oc-opt-types'
+    _revision = '2016-06-17'
+
+    def __init__(self):
+        Sonet_Application_CodeIdentity.__init__(self)
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.openconfig._meta import _openconfig_transport_types as meta
+        return meta._meta_table['Vsr2000_3R2Identity']['meta_info']
+
+
+class Prot_Stm16Identity(Tributary_Protocol_TypeIdentity):
+    """
+    STM 16 protocol
+    
+    
+
+    """
+
+    _prefix = 'oc-opt-types'
+    _revision = '2016-06-17'
+
+    def __init__(self):
+        Tributary_Protocol_TypeIdentity.__init__(self)
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.openconfig._meta import _openconfig_transport_types as meta
+        return meta._meta_table['Prot_Stm16Identity']['meta_info']
+
+
+class Prot_OtucnIdentity(Tributary_Protocol_TypeIdentity):
+    """
+    OTU Cn protocol
+    
+    
+
+    """
+
+    _prefix = 'oc-opt-types'
+    _revision = '2016-06-17'
+
+    def __init__(self):
+        Tributary_Protocol_TypeIdentity.__init__(self)
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.openconfig._meta import _openconfig_transport_types as meta
+        return meta._meta_table['Prot_OtucnIdentity']['meta_info']
+
+
+class Cfp2_AcoIdentity(Transceiver_Form_Factor_TypeIdentity):
+    """
+    CFP2 analog coherent optics transceiver, supporting
+    100 Gb, 200Gb, and 250 Gb/s signal.
+    
+    
+
+    """
+
+    _prefix = 'oc-opt-types'
+    _revision = '2016-06-17'
+
+    def __init__(self):
+        Transceiver_Form_Factor_TypeIdentity.__init__(self)
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.openconfig._meta import _openconfig_transport_types as meta
+        return meta._meta_table['Cfp2_AcoIdentity']['meta_info']
+
+
+class X2Identity(Transceiver_Form_Factor_TypeIdentity):
     """
     10 Gigabit small form factor pluggable transceiver supporting
     10 GbE using a XAUI inerface and 4 data channels.
@@ -859,11 +915,11 @@ class X2Identity(TransceiverFormFactorTypeIdentity):
 
     """
 
-    _prefix = 'opt-types'
-    _revision = '2015-11-25'
+    _prefix = 'oc-opt-types'
+    _revision = '2016-06-17'
 
     def __init__(self):
-        TransceiverFormFactorTypeIdentity.__init__(self)
+        Transceiver_Form_Factor_TypeIdentity.__init__(self)
 
     @staticmethod
     def _meta_info():
@@ -871,7 +927,7 @@ class X2Identity(TransceiverFormFactorTypeIdentity):
         return meta._meta_table['X2Identity']['meta_info']
 
 
-class XfpIdentity(TransceiverFormFactorTypeIdentity):
+class XfpIdentity(Transceiver_Form_Factor_TypeIdentity):
     """
     10 Gigabit small form factor pluggable transceiver supporting
     10 GbE and OTU2
@@ -880,11 +936,11 @@ class XfpIdentity(TransceiverFormFactorTypeIdentity):
 
     """
 
-    _prefix = 'opt-types'
-    _revision = '2015-11-25'
+    _prefix = 'oc-opt-types'
+    _revision = '2016-06-17'
 
     def __init__(self):
-        TransceiverFormFactorTypeIdentity.__init__(self)
+        Transceiver_Form_Factor_TypeIdentity.__init__(self)
 
     @staticmethod
     def _meta_info():
@@ -892,167 +948,47 @@ class XfpIdentity(TransceiverFormFactorTypeIdentity):
         return meta._meta_table['XfpIdentity']['meta_info']
 
 
-class Eth10GbaseSrIdentity(EthernetPmdTypeIdentity):
+class Prot_1GeIdentity(Tributary_Protocol_TypeIdentity):
     """
-    Ethernet compliance code\: 10GBASE\-SR
+    1G Ethernet protocol
     
     
 
     """
 
-    _prefix = 'opt-types'
-    _revision = '2015-11-25'
+    _prefix = 'oc-opt-types'
+    _revision = '2016-06-17'
 
     def __init__(self):
-        EthernetPmdTypeIdentity.__init__(self)
+        Tributary_Protocol_TypeIdentity.__init__(self)
 
     @staticmethod
     def _meta_info():
         from ydk.models.openconfig._meta import _openconfig_transport_types as meta
-        return meta._meta_table['Eth10GbaseSrIdentity']['meta_info']
+        return meta._meta_table['Prot_1GeIdentity']['meta_info']
 
 
-class EthUndefinedIdentity(EthernetPmdTypeIdentity):
+class Vsr2000_3R5Identity(Sonet_Application_CodeIdentity):
     """
-    Ethernet compliance code\: undefined
+    SONET/SDH application code\: VSR2000\_3R5
     
     
 
     """
 
-    _prefix = 'opt-types'
-    _revision = '2015-11-25'
+    _prefix = 'oc-opt-types'
+    _revision = '2016-06-17'
 
     def __init__(self):
-        EthernetPmdTypeIdentity.__init__(self)
+        Sonet_Application_CodeIdentity.__init__(self)
 
     @staticmethod
     def _meta_info():
         from ydk.models.openconfig._meta import _openconfig_transport_types as meta
-        return meta._meta_table['EthUndefinedIdentity']['meta_info']
+        return meta._meta_table['Vsr2000_3R5Identity']['meta_info']
 
 
-class TribRate10GIdentity(TributaryRateClassTypeIdentity):
-    """
-    10G tributary signal rate
-    
-    
-
-    """
-
-    _prefix = 'opt-types'
-    _revision = '2015-11-25'
-
-    def __init__(self):
-        TributaryRateClassTypeIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.openconfig._meta import _openconfig_transport_types as meta
-        return meta._meta_table['TribRate10GIdentity']['meta_info']
-
-
-class Eth100GbaseSr4Identity(EthernetPmdTypeIdentity):
-    """
-    Ethernet compliance code\: 100GBASE\-SR4
-    
-    
-
-    """
-
-    _prefix = 'opt-types'
-    _revision = '2015-11-25'
-
-    def __init__(self):
-        EthernetPmdTypeIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.openconfig._meta import _openconfig_transport_types as meta
-        return meta._meta_table['Eth100GbaseSr4Identity']['meta_info']
-
-
-class OtnUndefinedIdentity(OtnApplicationCodeIdentity):
-    """
-    OTN application code\: undefined
-    
-    
-
-    """
-
-    _prefix = 'opt-types'
-    _revision = '2015-11-25'
-
-    def __init__(self):
-        OtnApplicationCodeIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.openconfig._meta import _openconfig_transport_types as meta
-        return meta._meta_table['OtnUndefinedIdentity']['meta_info']
-
-
-class TribRate1GIdentity(TributaryRateClassTypeIdentity):
-    """
-    1G tributary signal rate
-    
-    
-
-    """
-
-    _prefix = 'opt-types'
-    _revision = '2015-11-25'
-
-    def __init__(self):
-        TributaryRateClassTypeIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.openconfig._meta import _openconfig_transport_types as meta
-        return meta._meta_table['TribRate1GIdentity']['meta_info']
-
-
-class Eth100GbaseLr4Identity(EthernetPmdTypeIdentity):
-    """
-    Ethernet compliance code\: 100GBASE\-LR4
-    
-    
-
-    """
-
-    _prefix = 'opt-types'
-    _revision = '2015-11-25'
-
-    def __init__(self):
-        EthernetPmdTypeIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.openconfig._meta import _openconfig_transport_types as meta
-        return meta._meta_table['Eth100GbaseLr4Identity']['meta_info']
-
-
-class TribRate2__Dot__5GIdentity(TributaryRateClassTypeIdentity):
-    """
-    2.5G tributary signal rate
-    
-    
-
-    """
-
-    _prefix = 'opt-types'
-    _revision = '2015-11-25'
-
-    def __init__(self):
-        TributaryRateClassTypeIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.openconfig._meta import _openconfig_transport_types as meta
-        return meta._meta_table['TribRate2__Dot__5GIdentity']['meta_info']
-
-
-class Prot100GeIdentity(TributaryProtocolTypeIdentity):
+class Prot_100GeIdentity(Tributary_Protocol_TypeIdentity):
     """
     100G Ethernet protocol
     
@@ -1060,279 +996,19 @@ class Prot100GeIdentity(TributaryProtocolTypeIdentity):
 
     """
 
-    _prefix = 'opt-types'
-    _revision = '2015-11-25'
+    _prefix = 'oc-opt-types'
+    _revision = '2016-06-17'
 
     def __init__(self):
-        TributaryProtocolTypeIdentity.__init__(self)
+        Tributary_Protocol_TypeIdentity.__init__(self)
 
     @staticmethod
     def _meta_info():
         from ydk.models.openconfig._meta import _openconfig_transport_types as meta
-        return meta._meta_table['Prot100GeIdentity']['meta_info']
+        return meta._meta_table['Prot_100GeIdentity']['meta_info']
 
 
-class ProtStm256Identity(TributaryProtocolTypeIdentity):
-    """
-    STM 256 protocol
-    
-    
-
-    """
-
-    _prefix = 'opt-types'
-    _revision = '2015-11-25'
-
-    def __init__(self):
-        TributaryProtocolTypeIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.openconfig._meta import _openconfig_transport_types as meta
-        return meta._meta_table['ProtStm256Identity']['meta_info']
-
-
-class LcConnectorIdentity(FiberConnectorTypeIdentity):
-    """
-    LC type fiber connector
-    
-    
-
-    """
-
-    _prefix = 'opt-types'
-    _revision = '2015-11-25'
-
-    def __init__(self):
-        FiberConnectorTypeIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.openconfig._meta import _openconfig_transport_types as meta
-        return meta._meta_table['LcConnectorIdentity']['meta_info']
-
-
-class ProtOdu3Identity(TributaryProtocolTypeIdentity):
-    """
-    ODU 3 protocol
-    
-    
-
-    """
-
-    _prefix = 'opt-types'
-    _revision = '2015-11-25'
-
-    def __init__(self):
-        TributaryProtocolTypeIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.openconfig._meta import _openconfig_transport_types as meta
-        return meta._meta_table['ProtOdu3Identity']['meta_info']
-
-
-class ProtOc768Identity(TributaryProtocolTypeIdentity):
-    """
-    OC 768 protocol
-    
-    
-
-    """
-
-    _prefix = 'opt-types'
-    _revision = '2015-11-25'
-
-    def __init__(self):
-        TributaryProtocolTypeIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.openconfig._meta import _openconfig_transport_types as meta
-        return meta._meta_table['ProtOc768Identity']['meta_info']
-
-
-class Eth4X10GbaseSrIdentity(EthernetPmdTypeIdentity):
-    """
-    Ethernet compliance code\: 4x10GBASE\-SR
-    
-    
-
-    """
-
-    _prefix = 'opt-types'
-    _revision = '2015-11-25'
-
-    def __init__(self):
-        EthernetPmdTypeIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.openconfig._meta import _openconfig_transport_types as meta
-        return meta._meta_table['Eth4X10GbaseSrIdentity']['meta_info']
-
-
-class Eth4X10GbaseLrIdentity(EthernetPmdTypeIdentity):
-    """
-    Ethernet compliance code\: 4x10GBASE\-LR
-    
-    
-
-    """
-
-    _prefix = 'opt-types'
-    _revision = '2015-11-25'
-
-    def __init__(self):
-        EthernetPmdTypeIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.openconfig._meta import _openconfig_transport_types as meta
-        return meta._meta_table['Eth4X10GbaseLrIdentity']['meta_info']
-
-
-class Eth10GbaseZrIdentity(EthernetPmdTypeIdentity):
-    """
-    Ethernet compliance code\: 10GBASE\-ZR
-    
-    
-
-    """
-
-    _prefix = 'opt-types'
-    _revision = '2015-11-25'
-
-    def __init__(self):
-        EthernetPmdTypeIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.openconfig._meta import _openconfig_transport_types as meta
-        return meta._meta_table['Eth10GbaseZrIdentity']['meta_info']
-
-
-class ProtOtu2EIdentity(TributaryProtocolTypeIdentity):
-    """
-    OTU 2e protocol
-    
-    
-
-    """
-
-    _prefix = 'opt-types'
-    _revision = '2015-11-25'
-
-    def __init__(self):
-        TributaryProtocolTypeIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.openconfig._meta import _openconfig_transport_types as meta
-        return meta._meta_table['ProtOtu2EIdentity']['meta_info']
-
-
-class ScConnectorIdentity(FiberConnectorTypeIdentity):
-    """
-    SC type fiber connector
-    
-    
-
-    """
-
-    _prefix = 'opt-types'
-    _revision = '2015-11-25'
-
-    def __init__(self):
-        FiberConnectorTypeIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.openconfig._meta import _openconfig_transport_types as meta
-        return meta._meta_table['ScConnectorIdentity']['meta_info']
-
-
-class Vsr20003R2Identity(SonetApplicationCodeIdentity):
-    """
-    SONET/SDH application code\: VSR2000\-3R2
-    
-    
-
-    """
-
-    _prefix = 'opt-types'
-    _revision = '2015-11-25'
-
-    def __init__(self):
-        SonetApplicationCodeIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.openconfig._meta import _openconfig_transport_types as meta
-        return meta._meta_table['Vsr20003R2Identity']['meta_info']
-
-
-class ProtOdu2Identity(TributaryProtocolTypeIdentity):
-    """
-    ODU 2 protocol
-    
-    
-
-    """
-
-    _prefix = 'opt-types'
-    _revision = '2015-11-25'
-
-    def __init__(self):
-        TributaryProtocolTypeIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.openconfig._meta import _openconfig_transport_types as meta
-        return meta._meta_table['ProtOdu2Identity']['meta_info']
-
-
-class ProtEthernetIdentity(LogicalElementProtocolTypeIdentity):
-    """
-    Ethernet protocol framing
-    
-    
-
-    """
-
-    _prefix = 'opt-types'
-    _revision = '2015-11-25'
-
-    def __init__(self):
-        LogicalElementProtocolTypeIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.openconfig._meta import _openconfig_transport_types as meta
-        return meta._meta_table['ProtEthernetIdentity']['meta_info']
-
-
-class Prot40GeIdentity(TributaryProtocolTypeIdentity):
-    """
-    40G Ethernet port protocol
-    
-    
-
-    """
-
-    _prefix = 'opt-types'
-    _revision = '2015-11-25'
-
-    def __init__(self):
-        TributaryProtocolTypeIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.openconfig._meta import _openconfig_transport_types as meta
-        return meta._meta_table['Prot40GeIdentity']['meta_info']
-
-
-class ProtOtu3Identity(TributaryProtocolTypeIdentity):
+class Prot_Otu3Identity(Tributary_Protocol_TypeIdentity):
     """
     OTU 3 protocol
     
@@ -1340,19 +1016,19 @@ class ProtOtu3Identity(TributaryProtocolTypeIdentity):
 
     """
 
-    _prefix = 'opt-types'
-    _revision = '2015-11-25'
+    _prefix = 'oc-opt-types'
+    _revision = '2016-06-17'
 
     def __init__(self):
-        TributaryProtocolTypeIdentity.__init__(self)
+        Tributary_Protocol_TypeIdentity.__init__(self)
 
     @staticmethod
     def _meta_info():
         from ydk.models.openconfig._meta import _openconfig_transport_types as meta
-        return meta._meta_table['ProtOtu3Identity']['meta_info']
+        return meta._meta_table['Prot_Otu3Identity']['meta_info']
 
 
-class ProtOtu2Identity(TributaryProtocolTypeIdentity):
+class Prot_Otu2Identity(Tributary_Protocol_TypeIdentity):
     """
     OTU 2 protocol
     
@@ -1360,39 +1036,402 @@ class ProtOtu2Identity(TributaryProtocolTypeIdentity):
 
     """
 
-    _prefix = 'opt-types'
-    _revision = '2015-11-25'
+    _prefix = 'oc-opt-types'
+    _revision = '2016-06-17'
 
     def __init__(self):
-        TributaryProtocolTypeIdentity.__init__(self)
+        Tributary_Protocol_TypeIdentity.__init__(self)
 
     @staticmethod
     def _meta_info():
         from ydk.models.openconfig._meta import _openconfig_transport_types as meta
-        return meta._meta_table['ProtOtu2Identity']['meta_info']
+        return meta._meta_table['Prot_Otu2Identity']['meta_info']
 
 
-class Vsr20003R5Identity(SonetApplicationCodeIdentity):
+class Prot_Otu4Identity(Tributary_Protocol_TypeIdentity):
     """
-    SONET/SDH application code\: VSR2000\-3R5
+    OTU4 signal protocol (112G) for transporting
+    100GE signal
     
     
 
     """
 
-    _prefix = 'opt-types'
-    _revision = '2015-11-25'
+    _prefix = 'oc-opt-types'
+    _revision = '2016-06-17'
 
     def __init__(self):
-        SonetApplicationCodeIdentity.__init__(self)
+        Tributary_Protocol_TypeIdentity.__init__(self)
 
     @staticmethod
     def _meta_info():
         from ydk.models.openconfig._meta import _openconfig_transport_types as meta
-        return meta._meta_table['Vsr20003R5Identity']['meta_info']
+        return meta._meta_table['Prot_Otu4Identity']['meta_info']
 
 
-class QsfpIdentity(TransceiverFormFactorTypeIdentity):
+class Prot_EthernetIdentity(Logical_Element_Protocol_TypeIdentity):
+    """
+    Ethernet protocol framing
+    
+    
+
+    """
+
+    _prefix = 'oc-opt-types'
+    _revision = '2016-06-17'
+
+    def __init__(self):
+        Logical_Element_Protocol_TypeIdentity.__init__(self)
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.openconfig._meta import _openconfig_transport_types as meta
+        return meta._meta_table['Prot_EthernetIdentity']['meta_info']
+
+
+class Trib_Rate_100GIdentity(Tributary_Rate_Class_TypeIdentity):
+    """
+    100G tributary signal rate
+    
+    
+
+    """
+
+    _prefix = 'oc-opt-types'
+    _revision = '2016-06-17'
+
+    def __init__(self):
+        Tributary_Rate_Class_TypeIdentity.__init__(self)
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.openconfig._meta import _openconfig_transport_types as meta
+        return meta._meta_table['Trib_Rate_100GIdentity']['meta_info']
+
+
+class Prot_Stm256Identity(Tributary_Protocol_TypeIdentity):
+    """
+    STM 256 protocol
+    
+    
+
+    """
+
+    _prefix = 'oc-opt-types'
+    _revision = '2016-06-17'
+
+    def __init__(self):
+        Tributary_Protocol_TypeIdentity.__init__(self)
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.openconfig._meta import _openconfig_transport_types as meta
+        return meta._meta_table['Prot_Stm256Identity']['meta_info']
+
+
+class Prot_OtnIdentity(Logical_Element_Protocol_TypeIdentity):
+    """
+    OTN protocol framing
+    
+    
+
+    """
+
+    _prefix = 'oc-opt-types'
+    _revision = '2016-06-17'
+
+    def __init__(self):
+        Logical_Element_Protocol_TypeIdentity.__init__(self)
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.openconfig._meta import _openconfig_transport_types as meta
+        return meta._meta_table['Prot_OtnIdentity']['meta_info']
+
+
+class Eth_10Gbase_LrIdentity(Ethernet_Pmd_TypeIdentity):
+    """
+    Ethernet compliance code\: 10GBASE\_LR
+    
+    
+
+    """
+
+    _prefix = 'oc-opt-types'
+    _revision = '2016-06-17'
+
+    def __init__(self):
+        Ethernet_Pmd_TypeIdentity.__init__(self)
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.openconfig._meta import _openconfig_transport_types as meta
+        return meta._meta_table['Eth_10Gbase_LrIdentity']['meta_info']
+
+
+class Eth_100Gbase_Sr10Identity(Ethernet_Pmd_TypeIdentity):
+    """
+    Ethernet compliance code\: 100GBASE\_SR10
+    
+    
+
+    """
+
+    _prefix = 'oc-opt-types'
+    _revision = '2016-06-17'
+
+    def __init__(self):
+        Ethernet_Pmd_TypeIdentity.__init__(self)
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.openconfig._meta import _openconfig_transport_types as meta
+        return meta._meta_table['Eth_100Gbase_Sr10Identity']['meta_info']
+
+
+class Eth_4X10Gbase_LrIdentity(Ethernet_Pmd_TypeIdentity):
+    """
+    Ethernet compliance code\: 4x10GBASE\_LR
+    
+    
+
+    """
+
+    _prefix = 'oc-opt-types'
+    _revision = '2016-06-17'
+
+    def __init__(self):
+        Ethernet_Pmd_TypeIdentity.__init__(self)
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.openconfig._meta import _openconfig_transport_types as meta
+        return meta._meta_table['Eth_4X10Gbase_LrIdentity']['meta_info']
+
+
+class Sfp_PlusIdentity(Transceiver_Form_Factor_TypeIdentity):
+    """
+    Enhanced small form\-factor pluggable transceiver supporting
+    up to 16 Gb/s signals, including 10 GbE and OTU2
+    
+    
+
+    """
+
+    _prefix = 'oc-opt-types'
+    _revision = '2016-06-17'
+
+    def __init__(self):
+        Transceiver_Form_Factor_TypeIdentity.__init__(self)
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.openconfig._meta import _openconfig_transport_types as meta
+        return meta._meta_table['Sfp_PlusIdentity']['meta_info']
+
+
+class Non_PluggableIdentity(Transceiver_Form_Factor_TypeIdentity):
+    """
+    Represents a port that does not require a pluggable optic,
+    e.g., with on\-board optics like COBO
+    
+    
+
+    """
+
+    _prefix = 'oc-opt-types'
+    _revision = '2016-06-17'
+
+    def __init__(self):
+        Transceiver_Form_Factor_TypeIdentity.__init__(self)
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.openconfig._meta import _openconfig_transport_types as meta
+        return meta._meta_table['Non_PluggableIdentity']['meta_info']
+
+
+class OtherIdentity(Transceiver_Form_Factor_TypeIdentity):
+    """
+    Represents a transceiver form factor not otherwise listed
+    
+    
+
+    """
+
+    _prefix = 'oc-opt-types'
+    _revision = '2016-06-17'
+
+    def __init__(self):
+        Transceiver_Form_Factor_TypeIdentity.__init__(self)
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.openconfig._meta import _openconfig_transport_types as meta
+        return meta._meta_table['OtherIdentity']['meta_info']
+
+
+class Prot_10Ge_LanIdentity(Tributary_Protocol_TypeIdentity):
+    """
+    10G Ethernet LAN protocol
+    
+    
+
+    """
+
+    _prefix = 'oc-opt-types'
+    _revision = '2016-06-17'
+
+    def __init__(self):
+        Tributary_Protocol_TypeIdentity.__init__(self)
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.openconfig._meta import _openconfig_transport_types as meta
+        return meta._meta_table['Prot_10Ge_LanIdentity']['meta_info']
+
+
+class Prot_Oc48Identity(Tributary_Protocol_TypeIdentity):
+    """
+    OC48 protocol
+    
+    
+
+    """
+
+    _prefix = 'oc-opt-types'
+    _revision = '2016-06-17'
+
+    def __init__(self):
+        Tributary_Protocol_TypeIdentity.__init__(self)
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.openconfig._meta import _openconfig_transport_types as meta
+        return meta._meta_table['Prot_Oc48Identity']['meta_info']
+
+
+class P1S1_2D2Identity(Otn_Application_CodeIdentity):
+    """
+    OTN application code\: P1S1\_2D2
+    
+    
+
+    """
+
+    _prefix = 'oc-opt-types'
+    _revision = '2016-06-17'
+
+    def __init__(self):
+        Otn_Application_CodeIdentity.__init__(self)
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.openconfig._meta import _openconfig_transport_types as meta
+        return meta._meta_table['P1S1_2D2Identity']['meta_info']
+
+
+class Prot_Oc192Identity(Tributary_Protocol_TypeIdentity):
+    """
+    OC 192 (9.6GB) port protocol
+    
+    
+
+    """
+
+    _prefix = 'oc-opt-types'
+    _revision = '2016-06-17'
+
+    def __init__(self):
+        Tributary_Protocol_TypeIdentity.__init__(self)
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.openconfig._meta import _openconfig_transport_types as meta
+        return meta._meta_table['Prot_Oc192Identity']['meta_info']
+
+
+class Eth_100Gbase_Lr4Identity(Ethernet_Pmd_TypeIdentity):
+    """
+    Ethernet compliance code\: 100GBASE\_LR4
+    
+    
+
+    """
+
+    _prefix = 'oc-opt-types'
+    _revision = '2016-06-17'
+
+    def __init__(self):
+        Ethernet_Pmd_TypeIdentity.__init__(self)
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.openconfig._meta import _openconfig_transport_types as meta
+        return meta._meta_table['Eth_100Gbase_Lr4Identity']['meta_info']
+
+
+class Trib_Rate_1GIdentity(Tributary_Rate_Class_TypeIdentity):
+    """
+    1G tributary signal rate
+    
+    
+
+    """
+
+    _prefix = 'oc-opt-types'
+    _revision = '2016-06-17'
+
+    def __init__(self):
+        Tributary_Rate_Class_TypeIdentity.__init__(self)
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.openconfig._meta import _openconfig_transport_types as meta
+        return meta._meta_table['Trib_Rate_1GIdentity']['meta_info']
+
+
+class Prot_40GeIdentity(Tributary_Protocol_TypeIdentity):
+    """
+    40G Ethernet port protocol
+    
+    
+
+    """
+
+    _prefix = 'oc-opt-types'
+    _revision = '2016-06-17'
+
+    def __init__(self):
+        Tributary_Protocol_TypeIdentity.__init__(self)
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.openconfig._meta import _openconfig_transport_types as meta
+        return meta._meta_table['Prot_40GeIdentity']['meta_info']
+
+
+class Eth_100Gbase_Clr4Identity(Ethernet_Pmd_TypeIdentity):
+    """
+    Ethernet compliance code\: 100GBASE\_CLR4
+    
+    
+
+    """
+
+    _prefix = 'oc-opt-types'
+    _revision = '2016-06-17'
+
+    def __init__(self):
+        Ethernet_Pmd_TypeIdentity.__init__(self)
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.openconfig._meta import _openconfig_transport_types as meta
+        return meta._meta_table['Eth_100Gbase_Clr4Identity']['meta_info']
+
+
+class QsfpIdentity(Transceiver_Form_Factor_TypeIdentity):
     """
     Quad Small Form\-factor Pluggable transceiver that can support
     up to 4x10G physical channels
@@ -1401,11 +1440,11 @@ class QsfpIdentity(TransceiverFormFactorTypeIdentity):
 
     """
 
-    _prefix = 'opt-types'
-    _revision = '2015-11-25'
+    _prefix = 'oc-opt-types'
+    _revision = '2016-06-17'
 
     def __init__(self):
-        TransceiverFormFactorTypeIdentity.__init__(self)
+        Transceiver_Form_Factor_TypeIdentity.__init__(self)
 
     @staticmethod
     def _meta_info():
@@ -1413,207 +1452,7 @@ class QsfpIdentity(TransceiverFormFactorTypeIdentity):
         return meta._meta_table['QsfpIdentity']['meta_info']
 
 
-class ProtStm16Identity(TributaryProtocolTypeIdentity):
-    """
-    STM 16 protocol
-    
-    
-
-    """
-
-    _prefix = 'opt-types'
-    _revision = '2015-11-25'
-
-    def __init__(self):
-        TributaryProtocolTypeIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.openconfig._meta import _openconfig_transport_types as meta
-        return meta._meta_table['ProtStm16Identity']['meta_info']
-
-
-class ProtOtnIdentity(LogicalElementProtocolTypeIdentity):
-    """
-    OTN protocol framing
-    
-    
-
-    """
-
-    _prefix = 'opt-types'
-    _revision = '2015-11-25'
-
-    def __init__(self):
-        LogicalElementProtocolTypeIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.openconfig._meta import _openconfig_transport_types as meta
-        return meta._meta_table['ProtOtnIdentity']['meta_info']
-
-
-class ProtOdu2EIdentity(TributaryProtocolTypeIdentity):
-    """
-    ODU 2e protocol
-    
-    
-
-    """
-
-    _prefix = 'opt-types'
-    _revision = '2015-11-25'
-
-    def __init__(self):
-        TributaryProtocolTypeIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.openconfig._meta import _openconfig_transport_types as meta
-        return meta._meta_table['ProtOdu2EIdentity']['meta_info']
-
-
-class Eth40GbaseLr4Identity(EthernetPmdTypeIdentity):
-    """
-    Ethernet compliance code\: 40GBASE\-LR4
-    
-    
-
-    """
-
-    _prefix = 'opt-types'
-    _revision = '2015-11-25'
-
-    def __init__(self):
-        EthernetPmdTypeIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.openconfig._meta import _openconfig_transport_types as meta
-        return meta._meta_table['Eth40GbaseLr4Identity']['meta_info']
-
-
-class Vsr20003R3Identity(SonetApplicationCodeIdentity):
-    """
-    SONET/SDH application code\: VSR2000\-3R3
-    
-    
-
-    """
-
-    _prefix = 'opt-types'
-    _revision = '2015-11-25'
-
-    def __init__(self):
-        SonetApplicationCodeIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.openconfig._meta import _openconfig_transport_types as meta
-        return meta._meta_table['Vsr20003R3Identity']['meta_info']
-
-
-class ProtOtu1EIdentity(TributaryProtocolTypeIdentity):
-    """
-    OTU 1e protocol
-    
-    
-
-    """
-
-    _prefix = 'opt-types'
-    _revision = '2015-11-25'
-
-    def __init__(self):
-        TributaryProtocolTypeIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.openconfig._meta import _openconfig_transport_types as meta
-        return meta._meta_table['ProtOtu1EIdentity']['meta_info']
-
-
-class ProtOtucnIdentity(TributaryProtocolTypeIdentity):
-    """
-    OTU Cn protocol
-    
-    
-
-    """
-
-    _prefix = 'opt-types'
-    _revision = '2015-11-25'
-
-    def __init__(self):
-        TributaryProtocolTypeIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.openconfig._meta import _openconfig_transport_types as meta
-        return meta._meta_table['ProtOtucnIdentity']['meta_info']
-
-
-class Eth100GbaseSr10Identity(EthernetPmdTypeIdentity):
-    """
-    Ethernet compliance code\: 100GBASE\-SR10
-    
-    
-
-    """
-
-    _prefix = 'opt-types'
-    _revision = '2015-11-25'
-
-    def __init__(self):
-        EthernetPmdTypeIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.openconfig._meta import _openconfig_transport_types as meta
-        return meta._meta_table['Eth100GbaseSr10Identity']['meta_info']
-
-
-class Eth10GbaseLrIdentity(EthernetPmdTypeIdentity):
-    """
-    Ethernet compliance code\: 10GBASE\-LR
-    
-    
-
-    """
-
-    _prefix = 'opt-types'
-    _revision = '2015-11-25'
-
-    def __init__(self):
-        EthernetPmdTypeIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.openconfig._meta import _openconfig_transport_types as meta
-        return meta._meta_table['Eth10GbaseLrIdentity']['meta_info']
-
-
-class P1S12D2Identity(OtnApplicationCodeIdentity):
-    """
-    OTN application code\: P1S1\-2D2
-    
-    
-
-    """
-
-    _prefix = 'opt-types'
-    _revision = '2015-11-25'
-
-    def __init__(self):
-        OtnApplicationCodeIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.openconfig._meta import _openconfig_transport_types as meta
-        return meta._meta_table['P1S12D2Identity']['meta_info']
-
-
-class MpoConnectorIdentity(FiberConnectorTypeIdentity):
+class Mpo_ConnectorIdentity(Fiber_Connector_TypeIdentity):
     """
     MPO (multi\-fiber push\-on/pull\-off) type fiber connector
     1x12 fibers
@@ -1622,39 +1461,320 @@ class MpoConnectorIdentity(FiberConnectorTypeIdentity):
 
     """
 
-    _prefix = 'opt-types'
-    _revision = '2015-11-25'
+    _prefix = 'oc-opt-types'
+    _revision = '2016-06-17'
 
     def __init__(self):
-        FiberConnectorTypeIdentity.__init__(self)
+        Fiber_Connector_TypeIdentity.__init__(self)
 
     @staticmethod
     def _meta_info():
         from ydk.models.openconfig._meta import _openconfig_transport_types as meta
-        return meta._meta_table['MpoConnectorIdentity']['meta_info']
+        return meta._meta_table['Mpo_ConnectorIdentity']['meta_info']
 
 
-class TribRate100GIdentity(TributaryRateClassTypeIdentity):
+class Prot_100G_MlgIdentity(Tributary_Protocol_TypeIdentity):
     """
-    100G tributary signal rate
+    100G MLG protocol
     
     
 
     """
 
-    _prefix = 'opt-types'
-    _revision = '2015-11-25'
+    _prefix = 'oc-opt-types'
+    _revision = '2016-06-17'
 
     def __init__(self):
-        TributaryRateClassTypeIdentity.__init__(self)
+        Tributary_Protocol_TypeIdentity.__init__(self)
 
     @staticmethod
     def _meta_info():
         from ydk.models.openconfig._meta import _openconfig_transport_types as meta
-        return meta._meta_table['TribRate100GIdentity']['meta_info']
+        return meta._meta_table['Prot_100G_MlgIdentity']['meta_info']
 
 
-class CfpIdentity(TransceiverFormFactorTypeIdentity):
+class Trib_Rate_2__Dot__5GIdentity(Tributary_Rate_Class_TypeIdentity):
+    """
+    2.5G tributary signal rate
+    
+    
+
+    """
+
+    _prefix = 'oc-opt-types'
+    _revision = '2016-06-17'
+
+    def __init__(self):
+        Tributary_Rate_Class_TypeIdentity.__init__(self)
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.openconfig._meta import _openconfig_transport_types as meta
+        return meta._meta_table['Trib_Rate_2__Dot__5GIdentity']['meta_info']
+
+
+class Eth_10Gbase_SrIdentity(Ethernet_Pmd_TypeIdentity):
+    """
+    Ethernet compliance code\: 10GBASE\_SR
+    
+    
+
+    """
+
+    _prefix = 'oc-opt-types'
+    _revision = '2016-06-17'
+
+    def __init__(self):
+        Ethernet_Pmd_TypeIdentity.__init__(self)
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.openconfig._meta import _openconfig_transport_types as meta
+        return meta._meta_table['Eth_10Gbase_SrIdentity']['meta_info']
+
+
+class Eth_100Gbase_Cwdm4Identity(Ethernet_Pmd_TypeIdentity):
+    """
+    Ethernet compliance code\: 100GBASE\_CWDM4
+    
+    
+
+    """
+
+    _prefix = 'oc-opt-types'
+    _revision = '2016-06-17'
+
+    def __init__(self):
+        Ethernet_Pmd_TypeIdentity.__init__(self)
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.openconfig._meta import _openconfig_transport_types as meta
+        return meta._meta_table['Eth_100Gbase_Cwdm4Identity']['meta_info']
+
+
+class SfpIdentity(Transceiver_Form_Factor_TypeIdentity):
+    """
+    Small form\-factor pluggable transceiver supporting up to
+    10 Gb/s signal
+    
+    
+
+    """
+
+    _prefix = 'oc-opt-types'
+    _revision = '2016-06-17'
+
+    def __init__(self):
+        Transceiver_Form_Factor_TypeIdentity.__init__(self)
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.openconfig._meta import _openconfig_transport_types as meta
+        return meta._meta_table['SfpIdentity']['meta_info']
+
+
+class Eth_100Gbase_Psm4Identity(Ethernet_Pmd_TypeIdentity):
+    """
+    Ethernet compliance code\: 100GBASE\_PSM4
+    
+    
+
+    """
+
+    _prefix = 'oc-opt-types'
+    _revision = '2016-06-17'
+
+    def __init__(self):
+        Ethernet_Pmd_TypeIdentity.__init__(self)
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.openconfig._meta import _openconfig_transport_types as meta
+        return meta._meta_table['Eth_100Gbase_Psm4Identity']['meta_info']
+
+
+class Eth_40Gbase_Cr4Identity(Ethernet_Pmd_TypeIdentity):
+    """
+    Ethernet compliance code\: 40GBASE\_CR4
+    
+    
+
+    """
+
+    _prefix = 'oc-opt-types'
+    _revision = '2016-06-17'
+
+    def __init__(self):
+        Ethernet_Pmd_TypeIdentity.__init__(self)
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.openconfig._meta import _openconfig_transport_types as meta
+        return meta._meta_table['Eth_40Gbase_Cr4Identity']['meta_info']
+
+
+class Prot_Odu3Identity(Tributary_Protocol_TypeIdentity):
+    """
+    ODU 3 protocol
+    
+    
+
+    """
+
+    _prefix = 'oc-opt-types'
+    _revision = '2016-06-17'
+
+    def __init__(self):
+        Tributary_Protocol_TypeIdentity.__init__(self)
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.openconfig._meta import _openconfig_transport_types as meta
+        return meta._meta_table['Prot_Odu3Identity']['meta_info']
+
+
+class Prot_Odu2Identity(Tributary_Protocol_TypeIdentity):
+    """
+    ODU 2 protocol
+    
+    
+
+    """
+
+    _prefix = 'oc-opt-types'
+    _revision = '2016-06-17'
+
+    def __init__(self):
+        Tributary_Protocol_TypeIdentity.__init__(self)
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.openconfig._meta import _openconfig_transport_types as meta
+        return meta._meta_table['Prot_Odu2Identity']['meta_info']
+
+
+class Prot_Odu4Identity(Tributary_Protocol_TypeIdentity):
+    """
+    ODU 4 protocol
+    
+    
+
+    """
+
+    _prefix = 'oc-opt-types'
+    _revision = '2016-06-17'
+
+    def __init__(self):
+        Tributary_Protocol_TypeIdentity.__init__(self)
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.openconfig._meta import _openconfig_transport_types as meta
+        return meta._meta_table['Prot_Odu4Identity']['meta_info']
+
+
+class Eth_100Gbase_Cr4Identity(Ethernet_Pmd_TypeIdentity):
+    """
+    Ethernet compliance code\: 100GBASE\_CR4
+    
+    
+
+    """
+
+    _prefix = 'oc-opt-types'
+    _revision = '2016-06-17'
+
+    def __init__(self):
+        Ethernet_Pmd_TypeIdentity.__init__(self)
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.openconfig._meta import _openconfig_transport_types as meta
+        return meta._meta_table['Eth_100Gbase_Cr4Identity']['meta_info']
+
+
+class Lc_ConnectorIdentity(Fiber_Connector_TypeIdentity):
+    """
+    LC type fiber connector
+    
+    
+
+    """
+
+    _prefix = 'oc-opt-types'
+    _revision = '2016-06-17'
+
+    def __init__(self):
+        Fiber_Connector_TypeIdentity.__init__(self)
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.openconfig._meta import _openconfig_transport_types as meta
+        return meta._meta_table['Lc_ConnectorIdentity']['meta_info']
+
+
+class Prot_Stm64Identity(Tributary_Protocol_TypeIdentity):
+    """
+    STM 64 protocol
+    
+    
+
+    """
+
+    _prefix = 'oc-opt-types'
+    _revision = '2016-06-17'
+
+    def __init__(self):
+        Tributary_Protocol_TypeIdentity.__init__(self)
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.openconfig._meta import _openconfig_transport_types as meta
+        return meta._meta_table['Prot_Stm64Identity']['meta_info']
+
+
+class Prot_Otu1EIdentity(Tributary_Protocol_TypeIdentity):
+    """
+    OTU 1e protocol
+    
+    
+
+    """
+
+    _prefix = 'oc-opt-types'
+    _revision = '2016-06-17'
+
+    def __init__(self):
+        Tributary_Protocol_TypeIdentity.__init__(self)
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.openconfig._meta import _openconfig_transport_types as meta
+        return meta._meta_table['Prot_Otu1EIdentity']['meta_info']
+
+
+class Eth_10Gbase_ErIdentity(Ethernet_Pmd_TypeIdentity):
+    """
+    Ethernet compliance code\: 10GBASE\_ER
+    
+    
+
+    """
+
+    _prefix = 'oc-opt-types'
+    _revision = '2016-06-17'
+
+    def __init__(self):
+        Ethernet_Pmd_TypeIdentity.__init__(self)
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.openconfig._meta import _openconfig_transport_types as meta
+        return meta._meta_table['Eth_10Gbase_ErIdentity']['meta_info']
+
+
+class CfpIdentity(Transceiver_Form_Factor_TypeIdentity):
     """
     C form\-factor pluggable, that can support up to a
     100 Gb/s signal with 10x10G or 4x25G physical channels
@@ -1663,11 +1783,11 @@ class CfpIdentity(TransceiverFormFactorTypeIdentity):
 
     """
 
-    _prefix = 'opt-types'
-    _revision = '2015-11-25'
+    _prefix = 'oc-opt-types'
+    _revision = '2016-06-17'
 
     def __init__(self):
-        TransceiverFormFactorTypeIdentity.__init__(self)
+        Transceiver_Form_Factor_TypeIdentity.__init__(self)
 
     @staticmethod
     def _meta_info():

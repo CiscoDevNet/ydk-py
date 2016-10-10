@@ -42,7 +42,7 @@ class CodecServiceProvider(ServiceProvider):
             raise YPYServiceProviderError('Codec type is required')
 
         codec_type = ''
-        for key, val in kwargs.iteritems():
+        for key, val in kwargs.items():
             if key == 'type':
                 codec_type = val
 

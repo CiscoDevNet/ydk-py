@@ -217,7 +217,7 @@ _meta_table = {
                 'coverage',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('fully-protected-routes', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Fully Protected Routes
                 ''',
                 'fully_protected_routes',
@@ -229,7 +229,7 @@ _meta_table = {
                 'local_lfa_coverage',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('partially-protected-routes', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Partially Protected Routes
                 ''',
                 'partially_protected_routes',
@@ -247,7 +247,7 @@ _meta_table = {
                 'remote_lfa_coverage',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('total-routes', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Total Number of Routes
                 ''',
                 'total_routes',
@@ -306,7 +306,7 @@ _meta_table = {
                 'neighbour_address',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('path-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of paths protected by this Remote Node
                 ''',
                 'path_count',
@@ -335,13 +335,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('event-id', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Specific IP-FRR Event
                 ''',
                 'event_id',
                 'Cisco-IOS-XR-infra-rcmd-oper', True),
             _MetaInfoClassMember('completed-spf-run', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                IP-Frr Completed reference SPF Run Number
                 ''',
                 'completed_spf_run',
@@ -359,13 +359,13 @@ _meta_table = {
                 'duration',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('event-id-xr', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                IP-Frr Event ID
                 ''',
                 'event_id_xr',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('fully-protected-routes', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Cumulative Number of Fully Protected Routes
                 ''',
                 'fully_protected_routes',
@@ -377,7 +377,7 @@ _meta_table = {
                 'ipfrr_statistic',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('partially-protected-routes', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Cumulative Number of Partially Protected Routes
                 ''',
                 'partially_protected_routes',
@@ -396,13 +396,13 @@ _meta_table = {
                 'start_time_offset',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('total-routes', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Cumulative Number of Routes for all priorities
                 ''',
                 'total_routes',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('trigger-spf-run', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                IP-Frr Triggered reference SPF Run Number
                 ''',
                 'trigger_spf_run',
@@ -414,7 +414,7 @@ _meta_table = {
                 'trigger_time',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('wait-time', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Waiting Time (in milliseconds)
                 ''',
                 'wait_time',
@@ -467,25 +467,25 @@ _meta_table = {
                         'Cisco-IOS-XR-infra-rcmd-oper', True),
                 ]),
             _MetaInfoClassMember('add-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                No. of times route gets Added
                 ''',
                 'add_count',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('critical-priority', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                No. of times processed under Critical Priority
                 ''',
                 'critical_priority',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('delete-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                No. of times route gets Deleted
                 ''',
                 'delete_count',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('high-priority', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                No. of times processed under High Priority
                 ''',
                 'high_priority',
@@ -497,7 +497,7 @@ _meta_table = {
                 'last_change_type',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('last-cost', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Last Known Cost
                 ''',
                 'last_cost',
@@ -521,19 +521,19 @@ _meta_table = {
                 'last_route_type',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('low-priority', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                No. of times processed under Low Priority
                 ''',
                 'low_priority',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('medium-priority', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                No. of times processed under Medium Priority
                 ''',
                 'medium_priority',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('modify-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                No. of times route gets Deleted
                 ''',
                 'modify_count',
@@ -545,13 +545,13 @@ _meta_table = {
                 'prefix',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('prefix-lenth', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Prefix length
                 ''',
                 'prefix_lenth',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('threshold-exceed-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                No. of times threshold got exceeded
                 ''',
                 'threshold_exceed_count',
@@ -585,37 +585,37 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('adds', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Added
                 ''',
                 'adds',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('deletes', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Deleted
                 ''',
                 'deletes',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('modifies', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Modified
                 ''',
                 'modifies',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('reachables', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Reachable
                 ''',
                 'reachables',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('touches', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Touched
                 ''',
                 'touches',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('unreachables', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Unreachable
                 ''',
                 'unreachables',
@@ -708,19 +708,19 @@ _meta_table = {
                 'coverage',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('fully-protected-routes', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Fully Protected Routes
                 ''',
                 'fully_protected_routes',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('partially-protected-routes', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Partially Protected Routes
                 ''',
                 'partially_protected_routes',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('total-routes', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Total Number of Routes
                 ''',
                 'total_routes',
@@ -823,26 +823,26 @@ _meta_table = {
                 'threshold_exceeded',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('total-dijkstra-runs', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                Total number of Dijkstra runs
                 ''',
                 'total_dijkstra_runs',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('total-inter-area-and-external-batches', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                Total number of inter-area/external computation
                 batches
                 ''',
                 'total_inter_area_and_external_batches',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('total-type12lsa-changes', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                Total number of Type 1/2 LSA changes processed
                 ''',
                 'total_type12lsa_changes',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('total-type357lsa-changes', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                Total number of Type 3/5/7 LSA changes processed
                 ''',
                 'total_type357lsa_changes',
@@ -912,37 +912,37 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('adds', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Added
                 ''',
                 'adds',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('deletes', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Deleted
                 ''',
                 'deletes',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('modifies', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Modified
                 ''',
                 'modifies',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('reachables', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Reachable
                 ''',
                 'reachables',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('touches', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Touched
                 ''',
                 'touches',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('unreachables', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Unreachable
                 ''',
                 'unreachables',
@@ -1035,19 +1035,19 @@ _meta_table = {
                 'coverage',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('fully-protected-routes', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Fully Protected Routes
                 ''',
                 'fully_protected_routes',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('partially-protected-routes', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Partially Protected Routes
                 ''',
                 'partially_protected_routes',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('total-routes', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Total Number of Routes
                 ''',
                 'total_routes',
@@ -1558,7 +1558,7 @@ _meta_table = {
                 'address',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('net-mask', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                Mask
                 ''',
                 'net_mask',
@@ -1581,7 +1581,7 @@ _meta_table = {
                 'address',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('net-mask', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                Mask
                 ''',
                 'net_mask',
@@ -1686,7 +1686,7 @@ _meta_table = {
                 'area_id',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('dijkstra-run-number', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Area Dijkstra run number
                 ''',
                 'dijkstra_run_number',
@@ -1735,7 +1735,7 @@ _meta_table = {
                 'trigger_time',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('wait-time', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Wait time (offset from event trigger time in ss
                 .msec)
                 ''',
@@ -1753,37 +1753,37 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('adds', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Added
                 ''',
                 'adds',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('deletes', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Deleted
                 ''',
                 'deletes',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('modifies', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Modified
                 ''',
                 'modifies',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('reachables', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Reachable
                 ''',
                 'reachables',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('touches', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Touched
                 ''',
                 'touches',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('unreachables', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Unreachable
                 ''',
                 'unreachables',
@@ -1900,19 +1900,19 @@ _meta_table = {
                 'threshold_exceeded',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('type3ls-as', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of Type 3 LSA
                 ''',
                 'type3ls_as',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('type4ls-as', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of Type 4 LSA
                 ''',
                 'type4ls_as',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('type57ls-as', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of Type 5/7 LSA
                 ''',
                 'type57ls_as',
@@ -2376,7 +2376,7 @@ _meta_table = {
                 'address',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('net-mask', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                Mask
                 ''',
                 'net_mask',
@@ -2399,7 +2399,7 @@ _meta_table = {
                 'address',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('net-mask', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                Mask
                 ''',
                 'net_mask',
@@ -2468,7 +2468,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('spf-run-number', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Specific SPF run
                 ''',
                 'spf_run_number',
@@ -2532,7 +2532,7 @@ _meta_table = {
                 'coverage',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('fully-protected-routes', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Fully Protected Routes
                 ''',
                 'fully_protected_routes',
@@ -2544,7 +2544,7 @@ _meta_table = {
                 'local_lfa_coverage',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('partially-protected-routes', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Partially Protected Routes
                 ''',
                 'partially_protected_routes',
@@ -2562,7 +2562,7 @@ _meta_table = {
                 'remote_lfa_coverage',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('total-routes', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Total Number of Routes
                 ''',
                 'total_routes',
@@ -2621,7 +2621,7 @@ _meta_table = {
                 'neighbour_address',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('path-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of paths protected by this Remote Node
                 ''',
                 'path_count',
@@ -2650,13 +2650,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('event-id', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Specific IP-FRR Event
                 ''',
                 'event_id',
                 'Cisco-IOS-XR-infra-rcmd-oper', True),
             _MetaInfoClassMember('completed-spf-run', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                IP-Frr Completed reference SPF Run Number
                 ''',
                 'completed_spf_run',
@@ -2674,13 +2674,13 @@ _meta_table = {
                 'duration',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('event-id-xr', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                IP-Frr Event ID
                 ''',
                 'event_id_xr',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('fully-protected-routes', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Cumulative Number of Fully Protected Routes
                 ''',
                 'fully_protected_routes',
@@ -2692,7 +2692,7 @@ _meta_table = {
                 'ipfrr_statistic',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('partially-protected-routes', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Cumulative Number of Partially Protected Routes
                 ''',
                 'partially_protected_routes',
@@ -2711,13 +2711,13 @@ _meta_table = {
                 'start_time_offset',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('total-routes', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Cumulative Number of Routes for all priorities
                 ''',
                 'total_routes',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('trigger-spf-run', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                IP-Frr Triggered reference SPF Run Number
                 ''',
                 'trigger_spf_run',
@@ -2729,7 +2729,7 @@ _meta_table = {
                 'trigger_time',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('wait-time', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Waiting Time (in milliseconds)
                 ''',
                 'wait_time',
@@ -2764,37 +2764,37 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('adds', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Added
                 ''',
                 'adds',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('deletes', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Deleted
                 ''',
                 'deletes',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('modifies', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Modified
                 ''',
                 'modifies',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('reachables', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Reachable
                 ''',
                 'reachables',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('touches', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Touched
                 ''',
                 'touches',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('unreachables', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Unreachable
                 ''',
                 'unreachables',
@@ -2887,19 +2887,19 @@ _meta_table = {
                 'coverage',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('fully-protected-routes', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Fully Protected Routes
                 ''',
                 'fully_protected_routes',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('partially-protected-routes', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Partially Protected Routes
                 ''',
                 'partially_protected_routes',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('total-routes', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Total Number of Routes
                 ''',
                 'total_routes',
@@ -3002,26 +3002,26 @@ _meta_table = {
                 'threshold_exceeded',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('total-dijkstra-runs', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                Total number of Dijkstra runs
                 ''',
                 'total_dijkstra_runs',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('total-inter-area-and-external-batches', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                Total number of inter-area/external computation
                 batches
                 ''',
                 'total_inter_area_and_external_batches',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('total-type12lsa-changes', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                Total number of Type 1/2 LSA changes processed
                 ''',
                 'total_type12lsa_changes',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('total-type357lsa-changes', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                Total number of Type 3/5/7 LSA changes processed
                 ''',
                 'total_type357lsa_changes',
@@ -3091,37 +3091,37 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('adds', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Added
                 ''',
                 'adds',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('deletes', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Deleted
                 ''',
                 'deletes',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('modifies', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Modified
                 ''',
                 'modifies',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('reachables', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Reachable
                 ''',
                 'reachables',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('touches', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Touched
                 ''',
                 'touches',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('unreachables', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Unreachable
                 ''',
                 'unreachables',
@@ -3214,19 +3214,19 @@ _meta_table = {
                 'coverage',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('fully-protected-routes', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Fully Protected Routes
                 ''',
                 'fully_protected_routes',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('partially-protected-routes', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Partially Protected Routes
                 ''',
                 'partially_protected_routes',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('total-routes', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Total Number of Routes
                 ''',
                 'total_routes',
@@ -3737,7 +3737,7 @@ _meta_table = {
                 'address',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('net-mask', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                Mask
                 ''',
                 'net_mask',
@@ -3760,7 +3760,7 @@ _meta_table = {
                 'address',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('net-mask', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                Mask
                 ''',
                 'net_mask',
@@ -3865,7 +3865,7 @@ _meta_table = {
                 'area_id',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('dijkstra-run-number', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Area Dijkstra run number
                 ''',
                 'dijkstra_run_number',
@@ -3914,7 +3914,7 @@ _meta_table = {
                 'trigger_time',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('wait-time', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Wait time (offset from event trigger time in ss
                 .msec)
                 ''',
@@ -3932,37 +3932,37 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('adds', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Added
                 ''',
                 'adds',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('deletes', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Deleted
                 ''',
                 'deletes',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('modifies', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Modified
                 ''',
                 'modifies',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('reachables', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Reachable
                 ''',
                 'reachables',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('touches', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Touched
                 ''',
                 'touches',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('unreachables', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Unreachable
                 ''',
                 'unreachables',
@@ -4079,19 +4079,19 @@ _meta_table = {
                 'threshold_exceeded',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('type3ls-as', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of Type 3 LSA
                 ''',
                 'type3ls_as',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('type4ls-as', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of Type 4 LSA
                 ''',
                 'type4ls_as',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('type57ls-as', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of Type 5/7 LSA
                 ''',
                 'type57ls_as',
@@ -4555,7 +4555,7 @@ _meta_table = {
                 'address',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('net-mask', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                Mask
                 ''',
                 'net_mask',
@@ -4578,7 +4578,7 @@ _meta_table = {
                 'address',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('net-mask', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                Mask
                 ''',
                 'net_mask',
@@ -4647,7 +4647,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('spf-run-number', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Specific SPF run
                 ''',
                 'spf_run_number',
@@ -4794,7 +4794,7 @@ _meta_table = {
                 'neighbour_address',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('path-metric', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Path Metric
                 ''',
                 'path_metric',
@@ -4841,7 +4841,7 @@ _meta_table = {
                 'neighbour_address',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('path-metric', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Path Metric
                 ''',
                 'path_metric',
@@ -5083,7 +5083,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('event-id', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Specific Event ID
                 ''',
                 'event_id',
@@ -5095,7 +5095,7 @@ _meta_table = {
                 'change_type',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('cost', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Protocol route cost
                 ''',
                 'cost',
@@ -5107,7 +5107,7 @@ _meta_table = {
                 'ip_convergence_time',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('ipfrr-event-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Referenced IP-FRR Event ID (0 - Not Applicable)
                 ''',
                 'ipfrr_event_id',
@@ -5137,7 +5137,7 @@ _meta_table = {
                 'prefix',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('prefix-lenth', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Prefix length
                 ''',
                 'prefix_lenth',
@@ -5161,7 +5161,7 @@ _meta_table = {
                 'route_type',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('spf-run-no', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Referenced SPF Run No (0 - Not Applicable)
                 ''',
                 'spf_run_no',
@@ -5313,7 +5313,7 @@ _meta_table = {
                 'neighbour_address',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('path-metric', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Path Metric
                 ''',
                 'path_metric',
@@ -5360,7 +5360,7 @@ _meta_table = {
                 'neighbour_address',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('path-metric', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Path Metric
                 ''',
                 'path_metric',
@@ -5602,7 +5602,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('event-id', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Specific Event ID
                 ''',
                 'event_id',
@@ -5614,7 +5614,7 @@ _meta_table = {
                 'change_type',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('cost', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Protocol route cost
                 ''',
                 'cost',
@@ -5626,7 +5626,7 @@ _meta_table = {
                 'ip_convergence_time',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('ipfrr-event-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Referenced IP-FRR Event ID (0 - Not Applicable)
                 ''',
                 'ipfrr_event_id',
@@ -5656,7 +5656,7 @@ _meta_table = {
                 'prefix',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('prefix-lenth', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Prefix length
                 ''',
                 'prefix_lenth',
@@ -5680,7 +5680,7 @@ _meta_table = {
                 'route_type',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('spf-run-no', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Referenced SPF Run No (0 - Not Applicable)
                 ''',
                 'spf_run_no',
@@ -5832,7 +5832,7 @@ _meta_table = {
                 'neighbour_address',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('path-metric', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Path Metric
                 ''',
                 'path_metric',
@@ -5879,7 +5879,7 @@ _meta_table = {
                 'neighbour_address',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('path-metric', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Path Metric
                 ''',
                 'path_metric',
@@ -6121,7 +6121,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('event-id', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Specific Event ID
                 ''',
                 'event_id',
@@ -6133,7 +6133,7 @@ _meta_table = {
                 'change_type',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('cost', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Protocol route cost
                 ''',
                 'cost',
@@ -6145,7 +6145,7 @@ _meta_table = {
                 'ip_convergence_time',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('ipfrr-event-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Referenced IP-FRR Event ID (0 - Not Applicable)
                 ''',
                 'ipfrr_event_id',
@@ -6175,7 +6175,7 @@ _meta_table = {
                 'prefix',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('prefix-lenth', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Prefix length
                 ''',
                 'prefix_lenth',
@@ -6199,7 +6199,7 @@ _meta_table = {
                 'route_type',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('spf-run-no', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Referenced SPF Run No (0 - Not Applicable)
                 ''',
                 'spf_run_no',
@@ -6352,7 +6352,7 @@ _meta_table = {
                 'neighbour_address',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('path-metric', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Path Metric
                 ''',
                 'path_metric',
@@ -6399,7 +6399,7 @@ _meta_table = {
                 'neighbour_address',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('path-metric', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Path Metric
                 ''',
                 'path_metric',
@@ -6641,7 +6641,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('event-id', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Specific Event ID
                 ''',
                 'event_id',
@@ -6653,7 +6653,7 @@ _meta_table = {
                 'change_type',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('cost', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Protocol route cost
                 ''',
                 'cost',
@@ -6665,7 +6665,7 @@ _meta_table = {
                 'ip_convergence_time',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('ipfrr-event-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Referenced IP-FRR Event ID (0 - Not Applicable)
                 ''',
                 'ipfrr_event_id',
@@ -6695,7 +6695,7 @@ _meta_table = {
                 'prefix',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('prefix-lenth', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Prefix length
                 ''',
                 'prefix_lenth',
@@ -6719,7 +6719,7 @@ _meta_table = {
                 'route_type',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('spf-run-no', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Referenced SPF Run No (0 - Not Applicable)
                 ''',
                 'spf_run_no',
@@ -6778,97 +6778,97 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('external-added', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Total Ext Routes Added
                 ''',
                 'external_added',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('external-critical', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Total Ext Routes Critical
                 ''',
                 'external_critical',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('external-deleted', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Total Ext Routes Deleted
                 ''',
                 'external_deleted',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('external-high', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Total Ext Routes High
                 ''',
                 'external_high',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('external-low', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Total Ext Routes Low
                 ''',
                 'external_low',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('external-medium', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Total Ext Routes Medium
                 ''',
                 'external_medium',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('external-modified', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Total Ext Routes Modified
                 ''',
                 'external_modified',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('external-routes', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Total External Routes
                 ''',
                 'external_routes',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('inter-area-added', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Total IA Routes Added
                 ''',
                 'inter_area_added',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('inter-area-critical', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Total IA Routes Critical
                 ''',
                 'inter_area_critical',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('inter-area-deleted', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Total IA Routes Deleted
                 ''',
                 'inter_area_deleted',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('inter-area-high', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Total IA Routes High
                 ''',
                 'inter_area_high',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('inter-area-low', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Total IA Routes Low
                 ''',
                 'inter_area_low',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('inter-area-medium', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Total IA Routes Medium
                 ''',
                 'inter_area_medium',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('inter-area-modified', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Total IA Routes Modified
                 ''',
                 'inter_area_modified',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('inter-area-routes', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Total Inter-Area Routes
                 ''',
                 'inter_area_routes',
@@ -7010,7 +7010,7 @@ _meta_table = {
                 'priority_name',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('threshold', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                threshold value
                 ''',
                 'threshold',
@@ -7050,19 +7050,19 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('error-stats', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Server Error Status
                 ''',
                 'error_stats',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('last-run-stats', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Server Last Run Status
                 ''',
                 'last_run_stats',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('total-stats', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Server Total Status
                 ''',
                 'total_stats',
@@ -7085,13 +7085,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('memory-suspend', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Memory Suspend
                 ''',
                 'memory_suspend',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('overload-suspend', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Overload suspend
                 ''',
                 'overload_suspend',
@@ -7114,13 +7114,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('archive-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Archive Count
                 ''',
                 'archive_count',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('diag-node-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Diag Node count
                 ''',
                 'diag_node_count',
@@ -7139,13 +7139,13 @@ _meta_table = {
                 'diagnostics_archive_path',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('disabled-node-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Disabled Node count
                 ''',
                 'disabled_node_count',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('event-buffer-size', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Event Buffer Size
                 ''',
                 'event_buffer_size',
@@ -7157,13 +7157,13 @@ _meta_table = {
                 'host_name',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('in-active-node-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Disabled Node count
                 ''',
                 'in_active_node_count',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('interface-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Interface events count
                 ''',
                 'interface_count',
@@ -7205,43 +7205,43 @@ _meta_table = {
                 'last_process_state',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('max-events', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Maximum Events
                 ''',
                 'max_events',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('max-interface-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Max Interface events count
                 ''',
                 'max_interface_count',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('monitoring-interval', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Configured Monitor Interval
                 ''',
                 'monitoring_interval',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('next-interval', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Time for next processing
                 ''',
                 'next_interval',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('node-lc-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                LC count
                 ''',
                 'node_lc_count',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('node-rp-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                RP count
                 ''',
                 'node_rp_count',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('process-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Post Processing count
                 ''',
                 'process_count',
@@ -7272,7 +7272,7 @@ _meta_table = {
                 'server_detail',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('spf-process-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                SPF Processing count
                 ''',
                 'spf_process_count',
@@ -7307,7 +7307,7 @@ _meta_table = {
                 'priority_name',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('threshold', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                threshold value
                 ''',
                 'threshold',
@@ -7347,19 +7347,19 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('error-stats', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Server Error Status
                 ''',
                 'error_stats',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('last-run-stats', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Server Last Run Status
                 ''',
                 'last_run_stats',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('total-stats', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Server Total Status
                 ''',
                 'total_stats',
@@ -7382,13 +7382,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('memory-suspend', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Memory Suspend
                 ''',
                 'memory_suspend',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('overload-suspend', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Overload suspend
                 ''',
                 'overload_suspend',
@@ -7411,13 +7411,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('archive-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Archive Count
                 ''',
                 'archive_count',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('diag-node-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Diag Node count
                 ''',
                 'diag_node_count',
@@ -7436,13 +7436,13 @@ _meta_table = {
                 'diagnostics_archive_path',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('disabled-node-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Disabled Node count
                 ''',
                 'disabled_node_count',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('event-buffer-size', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Event Buffer Size
                 ''',
                 'event_buffer_size',
@@ -7454,13 +7454,13 @@ _meta_table = {
                 'host_name',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('in-active-node-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Disabled Node count
                 ''',
                 'in_active_node_count',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('interface-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Interface events count
                 ''',
                 'interface_count',
@@ -7502,43 +7502,43 @@ _meta_table = {
                 'last_process_state',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('max-events', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Maximum Events
                 ''',
                 'max_events',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('max-interface-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Max Interface events count
                 ''',
                 'max_interface_count',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('monitoring-interval', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Configured Monitor Interval
                 ''',
                 'monitoring_interval',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('next-interval', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Time for next processing
                 ''',
                 'next_interval',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('node-lc-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                LC count
                 ''',
                 'node_lc_count',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('node-rp-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                RP count
                 ''',
                 'node_rp_count',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('process-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Post Processing count
                 ''',
                 'process_count',
@@ -7569,7 +7569,7 @@ _meta_table = {
                 'server_detail',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('spf-process-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                SPF Processing count
                 ''',
                 'spf_process_count',
@@ -7615,13 +7615,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('card-state', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Card State
                 ''',
                 'card_state',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('diag-mode', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Diag Mode
                 ''',
                 'diag_mode',
@@ -7639,7 +7639,7 @@ _meta_table = {
                 'last_update_time',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('node-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Node Id
                 ''',
                 'node_id',
@@ -7663,19 +7663,19 @@ _meta_table = {
                 'node_type',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('rack-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Rack Id
                 ''',
                 'rack_id',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('redundancy-state', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Redundancy State
                 ''',
                 'redundancy_state',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('software-state', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Software State
                 ''',
                 'software_state',
@@ -7727,7 +7727,7 @@ _meta_table = {
                 'coverage',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('fully-protected-routes', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Fully Protected Routes
                 ''',
                 'fully_protected_routes',
@@ -7739,7 +7739,7 @@ _meta_table = {
                 'local_lfa_coverage',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('partially-protected-routes', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Partially Protected Routes
                 ''',
                 'partially_protected_routes',
@@ -7757,7 +7757,7 @@ _meta_table = {
                 'remote_lfa_coverage',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('total-routes', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Total Number of Routes
                 ''',
                 'total_routes',
@@ -7816,7 +7816,7 @@ _meta_table = {
                 'neighbour_address',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('path-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of paths protected by this Remote Node
                 ''',
                 'path_count',
@@ -7845,13 +7845,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('event-id', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Specific IP-FRR Event
                 ''',
                 'event_id',
                 'Cisco-IOS-XR-infra-rcmd-oper', True),
             _MetaInfoClassMember('completed-spf-run', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                IP-Frr Completed reference SPF Run Number
                 ''',
                 'completed_spf_run',
@@ -7869,13 +7869,13 @@ _meta_table = {
                 'duration',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('event-id-xr', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                IP-Frr Event ID
                 ''',
                 'event_id_xr',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('fully-protected-routes', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Cumulative Number of Fully Protected Routes
                 ''',
                 'fully_protected_routes',
@@ -7887,7 +7887,7 @@ _meta_table = {
                 'ipfrr_statistic',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('partially-protected-routes', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Cumulative Number of Partially Protected Routes
                 ''',
                 'partially_protected_routes',
@@ -7906,13 +7906,13 @@ _meta_table = {
                 'start_time_offset',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('total-routes', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Cumulative Number of Routes for all priorities
                 ''',
                 'total_routes',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('trigger-spf-run', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                IP-Frr Triggered reference SPF Run Number
                 ''',
                 'trigger_spf_run',
@@ -7924,7 +7924,7 @@ _meta_table = {
                 'trigger_time',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('wait-time', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Waiting Time (in milliseconds)
                 ''',
                 'wait_time',
@@ -7977,25 +7977,25 @@ _meta_table = {
                         'Cisco-IOS-XR-infra-rcmd-oper', True),
                 ]),
             _MetaInfoClassMember('add-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                No. of times route gets Added
                 ''',
                 'add_count',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('critical-priority', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                No. of times processed under Critical Priority
                 ''',
                 'critical_priority',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('delete-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                No. of times route gets Deleted
                 ''',
                 'delete_count',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('high-priority', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                No. of times processed under High Priority
                 ''',
                 'high_priority',
@@ -8007,7 +8007,7 @@ _meta_table = {
                 'last_change_type',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('last-cost', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Last Known Cost
                 ''',
                 'last_cost',
@@ -8031,19 +8031,19 @@ _meta_table = {
                 'last_route_type',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('low-priority', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                No. of times processed under Low Priority
                 ''',
                 'low_priority',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('medium-priority', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                No. of times processed under Medium Priority
                 ''',
                 'medium_priority',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('modify-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                No. of times route gets Deleted
                 ''',
                 'modify_count',
@@ -8055,13 +8055,13 @@ _meta_table = {
                 'prefix',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('prefix-lenth', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Prefix length
                 ''',
                 'prefix_lenth',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('threshold-exceed-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                No. of times threshold got exceeded
                 ''',
                 'threshold_exceed_count',
@@ -8095,37 +8095,37 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('adds', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Added
                 ''',
                 'adds',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('deletes', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Deleted
                 ''',
                 'deletes',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('modifies', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Modified
                 ''',
                 'modifies',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('reachables', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Reachable
                 ''',
                 'reachables',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('touches', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Touched
                 ''',
                 'touches',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('unreachables', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Unreachable
                 ''',
                 'unreachables',
@@ -8218,19 +8218,19 @@ _meta_table = {
                 'coverage',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('fully-protected-routes', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Fully Protected Routes
                 ''',
                 'fully_protected_routes',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('partially-protected-routes', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Partially Protected Routes
                 ''',
                 'partially_protected_routes',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('total-routes', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Total Number of Routes
                 ''',
                 'total_routes',
@@ -8331,13 +8331,13 @@ _meta_table = {
                 'threshold_exceeded',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('topology', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Topology index (multi-topology)
                 ''',
                 'topology',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('total-lsp-changes', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                Total number of LSP changes processed
                 ''',
                 'total_lsp_changes',
@@ -8366,37 +8366,37 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('adds', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Added
                 ''',
                 'adds',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('deletes', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Deleted
                 ''',
                 'deletes',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('modifies', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Modified
                 ''',
                 'modifies',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('reachables', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Reachable
                 ''',
                 'reachables',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('touches', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Touched
                 ''',
                 'touches',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('unreachables', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Unreachable
                 ''',
                 'unreachables',
@@ -8431,7 +8431,7 @@ _meta_table = {
                 'reception_time',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('sequence-number', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Sequence Number
                 ''',
                 'sequence_number',
@@ -8448,37 +8448,37 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('adds', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Added
                 ''',
                 'adds',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('deletes', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Deleted
                 ''',
                 'deletes',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('modifies', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Modified
                 ''',
                 'modifies',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('reachables', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Reachable
                 ''',
                 'reachables',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('touches', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Touched
                 ''',
                 'touches',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('unreachables', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Unreachable
                 ''',
                 'unreachables',
@@ -8571,19 +8571,19 @@ _meta_table = {
                 'coverage',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('fully-protected-routes', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Fully Protected Routes
                 ''',
                 'fully_protected_routes',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('partially-protected-routes', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Partially Protected Routes
                 ''',
                 'partially_protected_routes',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('total-routes', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Total Number of Routes
                 ''',
                 'total_routes',
@@ -9094,7 +9094,7 @@ _meta_table = {
                 'address',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('net-mask', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                Mask
                 ''',
                 'net_mask',
@@ -9117,7 +9117,7 @@ _meta_table = {
                 'address',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('net-mask', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                Mask
                 ''',
                 'net_mask',
@@ -9187,7 +9187,7 @@ _meta_table = {
                 'reception_time',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('sequence-number', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Sequence Number
                 ''',
                 'sequence_number',
@@ -9230,19 +9230,19 @@ _meta_table = {
                 'reception_time',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('sequence-number', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Sequence Number
                 ''',
                 'sequence_number',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('serial-number-xr', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Serial Number of the session event
                 ''',
                 'serial_number_xr',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('spf-run-number', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                SPF Run Number
                 ''',
                 'spf_run_number',
@@ -9259,7 +9259,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('spf-run-number', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Specific SPF run
                 ''',
                 'spf_run_number',
@@ -9316,7 +9316,7 @@ _meta_table = {
                 'trigger_lsp',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('wait-time', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Wait time applied at SPF schedule (in msec)
                 ''',
                 'wait_time',
@@ -9362,7 +9362,7 @@ _meta_table = {
                 'coverage',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('fully-protected-routes', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Fully Protected Routes
                 ''',
                 'fully_protected_routes',
@@ -9374,7 +9374,7 @@ _meta_table = {
                 'local_lfa_coverage',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('partially-protected-routes', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Partially Protected Routes
                 ''',
                 'partially_protected_routes',
@@ -9392,7 +9392,7 @@ _meta_table = {
                 'remote_lfa_coverage',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('total-routes', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Total Number of Routes
                 ''',
                 'total_routes',
@@ -9451,7 +9451,7 @@ _meta_table = {
                 'neighbour_address',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('path-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of paths protected by this Remote Node
                 ''',
                 'path_count',
@@ -9480,13 +9480,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('event-id', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Specific IP-FRR Event
                 ''',
                 'event_id',
                 'Cisco-IOS-XR-infra-rcmd-oper', True),
             _MetaInfoClassMember('completed-spf-run', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                IP-Frr Completed reference SPF Run Number
                 ''',
                 'completed_spf_run',
@@ -9504,13 +9504,13 @@ _meta_table = {
                 'duration',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('event-id-xr', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                IP-Frr Event ID
                 ''',
                 'event_id_xr',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('fully-protected-routes', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Cumulative Number of Fully Protected Routes
                 ''',
                 'fully_protected_routes',
@@ -9522,7 +9522,7 @@ _meta_table = {
                 'ipfrr_statistic',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('partially-protected-routes', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Cumulative Number of Partially Protected Routes
                 ''',
                 'partially_protected_routes',
@@ -9541,13 +9541,13 @@ _meta_table = {
                 'start_time_offset',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('total-routes', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Cumulative Number of Routes for all priorities
                 ''',
                 'total_routes',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('trigger-spf-run', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                IP-Frr Triggered reference SPF Run Number
                 ''',
                 'trigger_spf_run',
@@ -9559,7 +9559,7 @@ _meta_table = {
                 'trigger_time',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('wait-time', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Waiting Time (in milliseconds)
                 ''',
                 'wait_time',
@@ -9594,37 +9594,37 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('adds', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Added
                 ''',
                 'adds',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('deletes', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Deleted
                 ''',
                 'deletes',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('modifies', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Modified
                 ''',
                 'modifies',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('reachables', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Reachable
                 ''',
                 'reachables',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('touches', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Touched
                 ''',
                 'touches',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('unreachables', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Unreachable
                 ''',
                 'unreachables',
@@ -9717,19 +9717,19 @@ _meta_table = {
                 'coverage',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('fully-protected-routes', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Fully Protected Routes
                 ''',
                 'fully_protected_routes',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('partially-protected-routes', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Partially Protected Routes
                 ''',
                 'partially_protected_routes',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('total-routes', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Total Number of Routes
                 ''',
                 'total_routes',
@@ -9830,13 +9830,13 @@ _meta_table = {
                 'threshold_exceeded',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('topology', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Topology index (multi-topology)
                 ''',
                 'topology',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('total-lsp-changes', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                Total number of LSP changes processed
                 ''',
                 'total_lsp_changes',
@@ -9865,37 +9865,37 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('adds', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Added
                 ''',
                 'adds',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('deletes', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Deleted
                 ''',
                 'deletes',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('modifies', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Modified
                 ''',
                 'modifies',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('reachables', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Reachable
                 ''',
                 'reachables',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('touches', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Touched
                 ''',
                 'touches',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('unreachables', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Unreachable
                 ''',
                 'unreachables',
@@ -9930,7 +9930,7 @@ _meta_table = {
                 'reception_time',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('sequence-number', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Sequence Number
                 ''',
                 'sequence_number',
@@ -9947,37 +9947,37 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('adds', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Added
                 ''',
                 'adds',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('deletes', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Deleted
                 ''',
                 'deletes',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('modifies', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Modified
                 ''',
                 'modifies',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('reachables', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Reachable
                 ''',
                 'reachables',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('touches', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Touched
                 ''',
                 'touches',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('unreachables', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Unreachable
                 ''',
                 'unreachables',
@@ -10070,19 +10070,19 @@ _meta_table = {
                 'coverage',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('fully-protected-routes', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Fully Protected Routes
                 ''',
                 'fully_protected_routes',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('partially-protected-routes', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Partially Protected Routes
                 ''',
                 'partially_protected_routes',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('total-routes', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Total Number of Routes
                 ''',
                 'total_routes',
@@ -10593,7 +10593,7 @@ _meta_table = {
                 'address',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('net-mask', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                Mask
                 ''',
                 'net_mask',
@@ -10616,7 +10616,7 @@ _meta_table = {
                 'address',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('net-mask', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                Mask
                 ''',
                 'net_mask',
@@ -10686,7 +10686,7 @@ _meta_table = {
                 'reception_time',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('sequence-number', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Sequence Number
                 ''',
                 'sequence_number',
@@ -10729,19 +10729,19 @@ _meta_table = {
                 'reception_time',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('sequence-number', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Sequence Number
                 ''',
                 'sequence_number',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('serial-number-xr', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Serial Number of the session event
                 ''',
                 'serial_number_xr',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('spf-run-number', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                SPF Run Number
                 ''',
                 'spf_run_number',
@@ -10758,7 +10758,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('spf-run-number', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Specific SPF run
                 ''',
                 'spf_run_number',
@@ -10815,7 +10815,7 @@ _meta_table = {
                 'trigger_lsp',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('wait-time', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Wait time applied at SPF schedule (in msec)
                 ''',
                 'wait_time',
@@ -10944,7 +10944,7 @@ _meta_table = {
                 'neighbour_address',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('path-metric', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Path Metric
                 ''',
                 'path_metric',
@@ -10991,7 +10991,7 @@ _meta_table = {
                 'neighbour_address',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('path-metric', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Path Metric
                 ''',
                 'path_metric',
@@ -11233,7 +11233,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('event-id', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Specific Event ID
                 ''',
                 'event_id',
@@ -11245,7 +11245,7 @@ _meta_table = {
                 'change_type',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('cost', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Protocol route cost
                 ''',
                 'cost',
@@ -11257,7 +11257,7 @@ _meta_table = {
                 'ip_convergence_time',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('ipfrr-event-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Referenced IP-FRR Event ID (0 - Not Applicable)
                 ''',
                 'ipfrr_event_id',
@@ -11287,7 +11287,7 @@ _meta_table = {
                 'prefix',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('prefix-lenth', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Prefix length
                 ''',
                 'prefix_lenth',
@@ -11311,7 +11311,7 @@ _meta_table = {
                 'route_type',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('spf-run-no', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Referenced SPF Run No (0 - Not Applicable)
                 ''',
                 'spf_run_no',
@@ -11463,7 +11463,7 @@ _meta_table = {
                 'neighbour_address',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('path-metric', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Path Metric
                 ''',
                 'path_metric',
@@ -11510,7 +11510,7 @@ _meta_table = {
                 'neighbour_address',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('path-metric', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Path Metric
                 ''',
                 'path_metric',
@@ -11752,7 +11752,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('event-id', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Specific Event ID
                 ''',
                 'event_id',
@@ -11764,7 +11764,7 @@ _meta_table = {
                 'change_type',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('cost', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Protocol route cost
                 ''',
                 'cost',
@@ -11776,7 +11776,7 @@ _meta_table = {
                 'ip_convergence_time',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('ipfrr-event-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Referenced IP-FRR Event ID (0 - Not Applicable)
                 ''',
                 'ipfrr_event_id',
@@ -11806,7 +11806,7 @@ _meta_table = {
                 'prefix',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('prefix-lenth', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Prefix length
                 ''',
                 'prefix_lenth',
@@ -11830,7 +11830,7 @@ _meta_table = {
                 'route_type',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('spf-run-no', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Referenced SPF Run No (0 - Not Applicable)
                 ''',
                 'spf_run_no',
@@ -11889,7 +11889,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('serial-number', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Data for a particular regenerated LSP
                 ''',
                 'serial_number',
@@ -11921,19 +11921,19 @@ _meta_table = {
                 'reception_time',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('sequence-number', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Sequence Number
                 ''',
                 'sequence_number',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('serial-number-xr', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Serial Number of the session event
                 ''',
                 'serial_number_xr',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('spf-run-number', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                SPF Run Number
                 ''',
                 'spf_run_number',
@@ -12066,25 +12066,25 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('alloc-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Allocated count
                 ''',
                 'alloc_count',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('alloc-fails', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Allocation Fails
                 ''',
                 'alloc_fails',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('current-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Current Count
                 ''',
                 'current_count',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('freed-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Freed Count
                 ''',
                 'freed_count',
@@ -12096,7 +12096,7 @@ _meta_table = {
                 'memory_type',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('size', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Size of the datastructure
                 ''',
                 'size',
@@ -12119,25 +12119,25 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('failure', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Cache-hit failure
                 ''',
                 'failure',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('size', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Size of the block
                 ''',
                 'size',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('success', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Cache-hit success
                 ''',
                 'success',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('total', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Total request
                 ''',
                 'total',
@@ -12154,25 +12154,25 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('failure', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Cache-hit failure
                 ''',
                 'failure',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('size', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Size of the block
                 ''',
                 'size',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('success', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Cache-hit success
                 ''',
                 'success',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('total', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Total request
                 ''',
                 'total',
@@ -12218,7 +12218,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('event-id', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Specific Event ID
                 ''',
                 'event_id',
@@ -12230,7 +12230,7 @@ _meta_table = {
                 'address',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('event-id-xr', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Event ID
                 ''',
                 'event_id_xr',
@@ -12294,37 +12294,37 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('path-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Total Path Count
                 ''',
                 'path_count',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('protected-path-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Protected Path Count
                 ''',
                 'protected_path_count',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('protected-route-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Protected Route Count
                 ''',
                 'protected_route_count',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('remote-label-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Remote Label Count
                 ''',
                 'remote_label_count',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('route-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Total Route Count
                 ''',
                 'route_count',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('session-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                LDP Session Count
                 ''',
                 'session_count',
@@ -12359,25 +12359,25 @@ _meta_table = {
                 'lsr_id',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('path-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Total Path Count
                 ''',
                 'path_count',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('protected-path-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Protected Path Count
                 ''',
                 'protected_path_count',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('protected-route-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Protected Route Count
                 ''',
                 'protected_route_count',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('remote-label-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Remote Label Count
                 ''',
                 'remote_label_count',
@@ -12389,7 +12389,7 @@ _meta_table = {
                 'remote_node_id',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('route-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Total Route Count
                 ''',
                 'route_count',
@@ -12430,13 +12430,13 @@ _meta_table = {
                 'log_time',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('remote-label-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Remote Label Count
                 ''',
                 'remote_label_count',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('route-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Total Route Count
                 ''',
                 'route_count',
@@ -12453,7 +12453,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('event-id', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Specific Event ID
                 ''',
                 'event_id',
@@ -12472,7 +12472,7 @@ _meta_table = {
                 'end_of_calculation_time',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('event-id-xr', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                LDP-rLFA Event ID
                 ''',
                 'event_id_xr',
@@ -12484,7 +12484,7 @@ _meta_table = {
                 'igp_protocol',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('ipfrr-event-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                IGP IP-FRR Event ID (ref:
                 rcmd_show_ipfrr_event_info(EventID))
                 ''',
@@ -12543,37 +12543,37 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('path-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Total Path Count
                 ''',
                 'path_count',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('protected-path-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Protected Path Count
                 ''',
                 'protected_path_count',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('protected-route-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Protected Route Count
                 ''',
                 'protected_route_count',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('remote-label-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Remote Label Count
                 ''',
                 'remote_label_count',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('route-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Total Route Count
                 ''',
                 'route_count',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('session-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                LDP Session Count
                 ''',
                 'session_count',
@@ -12608,25 +12608,25 @@ _meta_table = {
                 'lsr_id',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('path-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Total Path Count
                 ''',
                 'path_count',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('protected-path-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Protected Path Count
                 ''',
                 'protected_path_count',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('protected-route-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Protected Route Count
                 ''',
                 'protected_route_count',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('remote-label-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Remote Label Count
                 ''',
                 'remote_label_count',
@@ -12638,7 +12638,7 @@ _meta_table = {
                 'remote_node_id',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('route-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Total Route Count
                 ''',
                 'route_count',
@@ -12679,13 +12679,13 @@ _meta_table = {
                 'log_time',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('remote-label-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Remote Label Count
                 ''',
                 'remote_label_count',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('route-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Total Route Count
                 ''',
                 'route_count',
@@ -12702,7 +12702,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('event-id', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Specific Event ID
                 ''',
                 'event_id',
@@ -12721,7 +12721,7 @@ _meta_table = {
                 'end_of_calculation_time',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('event-id-xr', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                LDP-rLFA Event ID
                 ''',
                 'event_id_xr',
@@ -12733,7 +12733,7 @@ _meta_table = {
                 'igp_protocol',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('ipfrr-event-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                IGP IP-FRR Event ID (ref:
                 rcmd_show_ipfrr_event_info(EventID))
                 ''',
@@ -12821,7 +12821,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('event-no', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Specific Event No.
                 ''',
                 'event_no',
@@ -12857,7 +12857,7 @@ _meta_table = {
                 'primary_address',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('sequence-no', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Sequence No
                 ''',
                 'sequence_no',
@@ -12908,7 +12908,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('arch-spf-run', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                spf run can be archived
                 ''',
                 'arch_spf_run',
@@ -12926,7 +12926,7 @@ _meta_table = {
                 'instance_deleted',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('instance-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Instance Id
                 ''',
                 'instance_id',
@@ -12944,43 +12944,43 @@ _meta_table = {
                 'last_update_time',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('no-route-change-spf-nos', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                No Route change spf nos
                 ''',
                 'no_route_change_spf_nos',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('node-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Node Id
                 ''',
                 'node_id',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('not-interested-spf-nos', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Not Interested SPF nos
                 ''',
                 'not_interested_spf_nos',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('route-change-spf-nos', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Route change spf nos
                 ''',
                 'route_change_spf_nos',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('spf-offset', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                SPF Offset
                 ''',
                 'spf_offset',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('total-spf-nos', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Total spf nos
                 ''',
                 'total_spf_nos',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('total-spt-nos', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Total spt nos
                 ''',
                 'total_spt_nos',
@@ -12997,13 +12997,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('arch-lsp-regeneration', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Archive Lsp regen
                 ''',
                 'arch_lsp_regeneration',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('arch-spf-event', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Archive SPF event
                 ''',
                 'arch_spf_event',
@@ -13021,13 +13021,13 @@ _meta_table = {
                 'last_update_time',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('lsp-regeneration-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                LSP Regen Count
                 ''',
                 'lsp_regeneration_count',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('lsp-regeneration-serial', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Last Serial
                 ''',
                 'lsp_regeneration_serial',
@@ -13039,25 +13039,25 @@ _meta_table = {
                 'name',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('no-route-change-spf-nos', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                No Route change spf nos
                 ''',
                 'no_route_change_spf_nos',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('not-interested-spf-nos', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Not Interested SPF nos
                 ''',
                 'not_interested_spf_nos',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('route-change-spf-nos', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Route change spf nos
                 ''',
                 'route_change_spf_nos',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('total-spf-nos', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Total spf nos
                 ''',
                 'total_spf_nos',
@@ -13120,7 +13120,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('arch-spf-run', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                spf run can be archived
                 ''',
                 'arch_spf_run',
@@ -13138,7 +13138,7 @@ _meta_table = {
                 'instance_deleted',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('instance-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Instance Id
                 ''',
                 'instance_id',
@@ -13156,43 +13156,43 @@ _meta_table = {
                 'last_update_time',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('no-route-change-spf-nos', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                No Route change spf nos
                 ''',
                 'no_route_change_spf_nos',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('node-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Node Id
                 ''',
                 'node_id',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('not-interested-spf-nos', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Not Interested SPF nos
                 ''',
                 'not_interested_spf_nos',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('route-change-spf-nos', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Route change spf nos
                 ''',
                 'route_change_spf_nos',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('spf-offset', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                SPF Offset
                 ''',
                 'spf_offset',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('total-spf-nos', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Total spf nos
                 ''',
                 'total_spf_nos',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('total-spt-nos', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Total spt nos
                 ''',
                 'total_spt_nos',
@@ -13209,13 +13209,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('arch-lsp-regeneration', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Archive Lsp regen
                 ''',
                 'arch_lsp_regeneration',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('arch-spf-event', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Archive SPF event
                 ''',
                 'arch_spf_event',
@@ -13233,13 +13233,13 @@ _meta_table = {
                 'last_update_time',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('lsp-regeneration-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                LSP Regen Count
                 ''',
                 'lsp_regeneration_count',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('lsp-regeneration-serial', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Last Serial
                 ''',
                 'lsp_regeneration_serial',
@@ -13251,25 +13251,25 @@ _meta_table = {
                 'name',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('no-route-change-spf-nos', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                No Route change spf nos
                 ''',
                 'no_route_change_spf_nos',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('not-interested-spf-nos', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Not Interested SPF nos
                 ''',
                 'not_interested_spf_nos',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('route-change-spf-nos', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Route change spf nos
                 ''',
                 'route_change_spf_nos',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('total-spf-nos', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Total spf nos
                 ''',
                 'total_spf_nos',
@@ -13332,7 +13332,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('arch-spf-run', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                spf run can be archived
                 ''',
                 'arch_spf_run',
@@ -13350,7 +13350,7 @@ _meta_table = {
                 'instance_deleted',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('instance-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Instance Id
                 ''',
                 'instance_id',
@@ -13368,43 +13368,43 @@ _meta_table = {
                 'last_update_time',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('no-route-change-spf-nos', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                No Route change spf nos
                 ''',
                 'no_route_change_spf_nos',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('node-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Node Id
                 ''',
                 'node_id',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('not-interested-spf-nos', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Not Interested SPF nos
                 ''',
                 'not_interested_spf_nos',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('route-change-spf-nos', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Route change spf nos
                 ''',
                 'route_change_spf_nos',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('spf-offset', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                SPF Offset
                 ''',
                 'spf_offset',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('total-spf-nos', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Total spf nos
                 ''',
                 'total_spf_nos',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('total-spt-nos', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Total spt nos
                 ''',
                 'total_spt_nos',
@@ -13421,13 +13421,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('arch-lsp-regeneration', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Archive Lsp regen
                 ''',
                 'arch_lsp_regeneration',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('arch-spf-event', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Archive SPF event
                 ''',
                 'arch_spf_event',
@@ -13445,13 +13445,13 @@ _meta_table = {
                 'last_update_time',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('lsp-regeneration-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                LSP Regen Count
                 ''',
                 'lsp_regeneration_count',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('lsp-regeneration-serial', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Last Serial
                 ''',
                 'lsp_regeneration_serial',
@@ -13463,25 +13463,25 @@ _meta_table = {
                 'name',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('no-route-change-spf-nos', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                No Route change spf nos
                 ''',
                 'no_route_change_spf_nos',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('not-interested-spf-nos', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Not Interested SPF nos
                 ''',
                 'not_interested_spf_nos',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('route-change-spf-nos', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Route change spf nos
                 ''',
                 'route_change_spf_nos',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
             _MetaInfoClassMember('total-spf-nos', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Total spf nos
                 ''',
                 'total_spf_nos',

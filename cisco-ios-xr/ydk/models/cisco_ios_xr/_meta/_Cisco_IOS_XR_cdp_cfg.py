@@ -31,7 +31,7 @@ _meta_table = {
                 'enable',
                 'Cisco-IOS-XR-cdp-cfg', False),
             _MetaInfoClassMember('hold-time', ATTRIBUTE, 'int' , None, None, 
-                [(10, 255)], [], 
+                [('10', '255')], [], 
                 '''                Length of time (in sec) that the receiver must
                 keep a CDP packet
                 ''',
@@ -44,7 +44,7 @@ _meta_table = {
                 'log_adjacency',
                 'Cisco-IOS-XR-cdp-cfg', False),
             _MetaInfoClassMember('timer', ATTRIBUTE, 'int' , None, None, 
-                [(5, 255)], [], 
+                [('5', '255')], [], 
                 '''                Specify the rate at which CDP packets are sent
                 ''',
                 'timer',

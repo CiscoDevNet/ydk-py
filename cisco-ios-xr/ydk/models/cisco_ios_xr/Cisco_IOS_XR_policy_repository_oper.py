@@ -7,7 +7,7 @@ This module contains definitions
 for the following management objects\:
   routing\-policy\: Routing policy operational data
 
-Copyright (c) 2013\-2015 by Cisco Systems, Inc.
+Copyright (c) 2013\-2016 by Cisco Systems, Inc.
 All rights reserved.
 
 """
@@ -42,17 +42,17 @@ class AddressFamilyEnum(Enum):
 
     	L2VPN Address Family
 
-    .. data:: AF_NONE = 3
+    .. data:: LS = 3
+
+    	LINKSTATE Address Family
+
+    .. data:: AF_NONE = 4
 
     	No Address Family
 
-    .. data:: AF_UNKNOWN = 4
+    .. data:: AF_UNKNOWN = 5
 
     	Unknown Address Family
-
-    .. data:: LS = 200
-
-    	LINKSTATE Address Family
 
     """
 
@@ -62,11 +62,11 @@ class AddressFamilyEnum(Enum):
 
     L2VPN = 2
 
-    AF_NONE = 3
+    LS = 3
 
-    AF_UNKNOWN = 4
+    AF_NONE = 4
 
-    LS = 200
+    AF_UNKNOWN = 5
 
 
     @staticmethod

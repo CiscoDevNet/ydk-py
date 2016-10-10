@@ -19,6 +19,12 @@ _meta_table = {
             'low':'LOW',
             'high':'HIGH',
         }, 'Cisco-IOS-XR-controller-optics-cfg', _yang_ns._namespaces['Cisco-IOS-XR-controller-optics-cfg']),
+    'OpticsFecEnum' : _MetaInfoEnum('OpticsFecEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_cfg',
+        {
+            'fec-none':'FEC_NONE',
+            'fec-h15':'FEC_H15',
+            'fec-h25':'FEC_H25',
+        }, 'Cisco-IOS-XR-controller-optics-cfg', _yang_ns._namespaces['Cisco-IOS-XR-controller-optics-cfg']),
     'OpticsLoopbackEnum' : _MetaInfoEnum('OpticsLoopbackEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_cfg',
         {
             'none':'NONE',

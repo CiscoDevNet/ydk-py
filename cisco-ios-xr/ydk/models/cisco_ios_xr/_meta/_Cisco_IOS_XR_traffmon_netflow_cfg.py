@@ -28,7 +28,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('destination-port', ATTRIBUTE, 'int' , None, None, 
-                [(1024, 65535)], [], 
+                [('1024', '65535')], [], 
                 '''                Configure Destination UDP port
                 ''',
                 'destination_port',
@@ -45,20 +45,20 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('interface-table-export-timeout', ATTRIBUTE, 'int' , None, None, 
-                [(0, 604800)], [], 
+                [('0', '604800')], [], 
                 '''                Specify timeout for exporting interface
                 table
                 ''',
                 'interface_table_export_timeout',
                 'Cisco-IOS-XR-traffmon-netflow-cfg', False),
             _MetaInfoClassMember('sampler-table-export-timeout', ATTRIBUTE, 'int' , None, None, 
-                [(0, 604800)], [], 
+                [('0', '604800')], [], 
                 '''                Specify timeout for exporting sampler table
                 ''',
                 'sampler_table_export_timeout',
                 'Cisco-IOS-XR-traffmon-netflow-cfg', False),
             _MetaInfoClassMember('vrf-table-export-timeout', ATTRIBUTE, 'int' , None, None, 
-                [(0, 604800)], [], 
+                [('0', '604800')], [], 
                 '''                Specify timeout for exporting vrf table
                 ''',
                 'vrf_table_export_timeout',
@@ -75,19 +75,19 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('version-number', ATTRIBUTE, 'int' , None, None, 
-                [(9, 10)], [], 
+                [('9', '10')], [], 
                 '''                Export version number
                 ''',
                 'version_number',
                 'Cisco-IOS-XR-traffmon-netflow-cfg', True),
             _MetaInfoClassMember('common-template-timeout', ATTRIBUTE, 'int' , None, None, 
-                [(1, 604800)], [], 
+                [('1', '604800')], [], 
                 '''                Specify custom timeout for the template
                 ''',
                 'common_template_timeout',
                 'Cisco-IOS-XR-traffmon-netflow-cfg', False),
             _MetaInfoClassMember('data-template-timeout', ATTRIBUTE, 'int' , None, None, 
-                [(1, 604800)], [], 
+                [('1', '604800')], [], 
                 '''                Data template configuration options
                 ''',
                 'data_template_timeout',
@@ -99,7 +99,7 @@ _meta_table = {
                 'options',
                 'Cisco-IOS-XR-traffmon-netflow-cfg', False),
             _MetaInfoClassMember('options-template-timeout', ATTRIBUTE, 'int' , None, None, 
-                [(1, 604800)], [], 
+                [('1', '604800')], [], 
                 '''                Option template configuration options
                 ''',
                 'options_template_timeout',
@@ -174,13 +174,13 @@ _meta_table = {
                 'destination',
                 'Cisco-IOS-XR-traffmon-netflow-cfg', False),
             _MetaInfoClassMember('dscp', ATTRIBUTE, 'int' , None, None, 
-                [(0, 63)], [], 
+                [('0', '63')], [], 
                 '''                Specify DSCP value for export packets
                 ''',
                 'dscp',
                 'Cisco-IOS-XR-traffmon-netflow-cfg', False),
             _MetaInfoClassMember('source-interface', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Configure source interface for collector
                 ''',
                 'source_interface',
@@ -232,13 +232,13 @@ _meta_table = {
                 'mode',
                 'Cisco-IOS-XR-traffmon-netflow-cfg', True),
             _MetaInfoClassMember('interval', ATTRIBUTE, 'int' , None, None, 
-                [(1, 65535)], [], 
+                [('1', '65535')], [], 
                 '''                Sampling interval in units of packets
                 ''',
                 'interval',
                 'Cisco-IOS-XR-traffmon-netflow-cfg', False),
             _MetaInfoClassMember('sample-number', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of packets to be sampled in the
                 sampling interval
                 ''',
@@ -372,7 +372,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('label', ATTRIBUTE, 'int' , None, None, 
-                [(1, 6)], [], 
+                [('1', '6')], [], 
                 '''                Enter label value for MPLS record type
                 ''',
                 'label',
@@ -403,7 +403,7 @@ _meta_table = {
                 'monitor_map_name',
                 'Cisco-IOS-XR-traffmon-netflow-cfg', True),
             _MetaInfoClassMember('cache-active-aging-timeout', ATTRIBUTE, 'int' , None, None, 
-                [(1, 604800)], [], 
+                [('1', '604800')], [], 
                 '''                Specify the active flow cache aging timeout
                 ''',
                 'cache_active_aging_timeout',
@@ -415,26 +415,26 @@ _meta_table = {
                 'cache_aging_mode',
                 'Cisco-IOS-XR-traffmon-netflow-cfg', False),
             _MetaInfoClassMember('cache-entries', ATTRIBUTE, 'int' , None, None, 
-                [(4096, 1000000)], [], 
+                [('4096', '1000000')], [], 
                 '''                Specify the number of entries in the flow cache
                 ''',
                 'cache_entries',
                 'Cisco-IOS-XR-traffmon-netflow-cfg', False),
             _MetaInfoClassMember('cache-inactive-aging-timeout', ATTRIBUTE, 'int' , None, None, 
-                [(0, 604800)], [], 
+                [('0', '604800')], [], 
                 '''                Specify the inactive flow cache aging timeout
                 ''',
                 'cache_inactive_aging_timeout',
                 'Cisco-IOS-XR-traffmon-netflow-cfg', False),
             _MetaInfoClassMember('cache-timeout-rate-limit', ATTRIBUTE, 'int' , None, None, 
-                [(1, 1000000)], [], 
+                [('1', '1000000')], [], 
                 '''                Specify the maximum number of entries to age
                 each second
                 ''',
                 'cache_timeout_rate_limit',
                 'Cisco-IOS-XR-traffmon-netflow-cfg', False),
             _MetaInfoClassMember('cache-update-aging-timeout', ATTRIBUTE, 'int' , None, None, 
-                [(1, 604800)], [], 
+                [('1', '604800')], [], 
                 '''                Specify the update flow cache aging timeout
                 ''',
                 'cache_update_aging_timeout',
@@ -546,7 +546,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('label', ATTRIBUTE, 'int' , None, None, 
-                [(1, 6)], [], 
+                [('1', '6')], [], 
                 '''                Enter label value for MPLS record type
                 ''',
                 'label',
@@ -577,7 +577,7 @@ _meta_table = {
                 'monitor_map_name',
                 'Cisco-IOS-XR-traffmon-netflow-cfg', True),
             _MetaInfoClassMember('cache-active-aging-timeout', ATTRIBUTE, 'int' , None, None, 
-                [(1, 604800)], [], 
+                [('1', '604800')], [], 
                 '''                Specify the active flow cache aging timeout
                 ''',
                 'cache_active_aging_timeout',
@@ -589,26 +589,26 @@ _meta_table = {
                 'cache_aging_mode',
                 'Cisco-IOS-XR-traffmon-netflow-cfg', False),
             _MetaInfoClassMember('cache-entries', ATTRIBUTE, 'int' , None, None, 
-                [(4096, 1000000)], [], 
+                [('4096', '1000000')], [], 
                 '''                Specify the number of entries in the flow cache
                 ''',
                 'cache_entries',
                 'Cisco-IOS-XR-traffmon-netflow-cfg', False),
             _MetaInfoClassMember('cache-inactive-aging-timeout', ATTRIBUTE, 'int' , None, None, 
-                [(0, 604800)], [], 
+                [('0', '604800')], [], 
                 '''                Specify the inactive flow cache aging timeout
                 ''',
                 'cache_inactive_aging_timeout',
                 'Cisco-IOS-XR-traffmon-netflow-cfg', False),
             _MetaInfoClassMember('cache-timeout-rate-limit', ATTRIBUTE, 'int' , None, None, 
-                [(1, 1000000)], [], 
+                [('1', '1000000')], [], 
                 '''                Specify the maximum number of entries to age
                 each second
                 ''',
                 'cache_timeout_rate_limit',
                 'Cisco-IOS-XR-traffmon-netflow-cfg', False),
             _MetaInfoClassMember('cache-update-aging-timeout', ATTRIBUTE, 'int' , None, None, 
-                [(1, 604800)], [], 
+                [('1', '604800')], [], 
                 '''                Specify the update flow cache aging timeout
                 ''',
                 'cache_update_aging_timeout',

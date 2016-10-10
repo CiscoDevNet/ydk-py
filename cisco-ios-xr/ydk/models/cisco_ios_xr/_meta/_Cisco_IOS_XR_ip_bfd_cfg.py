@@ -40,7 +40,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('initial-delay', ATTRIBUTE, 'int' , None, None, 
-                [(1, 518400000)], [], 
+                [('1', '518400000')], [], 
                 '''                Initial delay before bringing up session
                 ''',
                 'initial_delay',
@@ -53,13 +53,13 @@ _meta_table = {
                 'l3_only_mode',
                 'Cisco-IOS-XR-ip-bfd-cfg', False),
             _MetaInfoClassMember('maximum-delay', ATTRIBUTE, 'int' , None, None, 
-                [(1, 518400000)], [], 
+                [('1', '518400000')], [], 
                 '''                Maximum delay before bringing up session
                 ''',
                 'maximum_delay',
                 'Cisco-IOS-XR-ip-bfd-cfg', False),
             _MetaInfoClassMember('secondary-delay', ATTRIBUTE, 'int' , None, None, 
-                [(1, 518400000)], [], 
+                [('1', '518400000')], [], 
                 '''                Secondary delay before bringing up session
                 ''',
                 'secondary_delay',
@@ -98,6 +98,12 @@ _meta_table = {
                 ''',
                 'bundle_member',
                 'Cisco-IOS-XR-ip-bfd-cfg', False),
+            _MetaInfoClassMember('dampen-disable', ATTRIBUTE, 'Empty' , None, None, 
+                [], [], 
+                '''                Dampening Enable/Disable
+                ''',
+                'dampen_disable',
+                'Cisco-IOS-XR-ip-bfd-cfg', False),
             _MetaInfoClassMember('extensions', REFERENCE_CLASS, 'Extensions' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_cfg', 'Bfd.FlapDamp.Extensions', 
                 [], [], 
                 '''                Extensions to the BFD dampening feature
@@ -105,25 +111,25 @@ _meta_table = {
                 'extensions',
                 'Cisco-IOS-XR-ip-bfd-cfg', False),
             _MetaInfoClassMember('initial-delay', ATTRIBUTE, 'int' , None, None, 
-                [(1, 3600000)], [], 
+                [('1', '3600000')], [], 
                 '''                Initial delay before bringing up session
                 ''',
                 'initial_delay',
                 'Cisco-IOS-XR-ip-bfd-cfg', False),
             _MetaInfoClassMember('maximum-delay', ATTRIBUTE, 'int' , None, None, 
-                [(1, 3600000)], [], 
+                [('1', '3600000')], [], 
                 '''                Maximum delay before bringing up session
                 ''',
                 'maximum_delay',
                 'Cisco-IOS-XR-ip-bfd-cfg', False),
             _MetaInfoClassMember('secondary-delay', ATTRIBUTE, 'int' , None, None, 
-                [(1, 3600000)], [], 
+                [('1', '3600000')], [], 
                 '''                Secondary delay before bringing up session
                 ''',
                 'secondary_delay',
                 'Cisco-IOS-XR-ip-bfd-cfg', False),
             _MetaInfoClassMember('threshold', ATTRIBUTE, 'int' , None, None, 
-                [(60000, 3600000)], [], 
+                [('60000', '3600000')], [], 
                 '''                Stability threshold to enable dampening
                 ''',
                 'threshold',
@@ -140,7 +146,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('latency-detect-count', ATTRIBUTE, 'int' , None, None, 
-                [(1, 10)], [], 
+                [('1', '10')], [], 
                 '''                Echo latency detect count
                 ''',
                 'latency_detect_count',
@@ -152,7 +158,7 @@ _meta_table = {
                 'latency_detect_enabled',
                 'Cisco-IOS-XR-ip-bfd-cfg', False),
             _MetaInfoClassMember('latency-detect-percentage', ATTRIBUTE, 'int' , None, None, 
-                [(100, 250)], [], 
+                [('100', '250')], [], 
                 '''                Echo latency detect percentage
                 ''',
                 'latency_detect_percentage',
@@ -203,7 +209,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('interface-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Interface Name
                 ''',
                 'interface_name',
@@ -365,7 +371,7 @@ _meta_table = {
                 'flap_damp',
                 'Cisco-IOS-XR-ip-bfd-cfg', False),
             _MetaInfoClassMember('global-echo-min-interval', ATTRIBUTE, 'int' , None, None, 
-                [(15, 2000)], [], 
+                [('15', '2000')], [], 
                 '''                Configure echo min-interval for bundle interface
                 ''',
                 'global_echo_min_interval',
@@ -420,7 +426,7 @@ _meta_table = {
                 'single_hop_trap',
                 'Cisco-IOS-XR-ip-bfd-cfg', False),
             _MetaInfoClassMember('ttl-drop-threshold', ATTRIBUTE, 'int' , None, None, 
-                [(0, 254)], [], 
+                [('0', '254')], [], 
                 '''                Multihop TTL Drop Threshold
                 ''',
                 'ttl_drop_threshold',

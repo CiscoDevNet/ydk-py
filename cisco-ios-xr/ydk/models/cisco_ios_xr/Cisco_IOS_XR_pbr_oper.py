@@ -7,7 +7,7 @@ This module contains definitions
 for the following management objects\:
   pbr\: PBR operational data
 
-Copyright (c) 2013\-2015 by Cisco Systems, Inc.
+Copyright (c) 2013\-2016 by Cisco Systems, Inc.
 All rights reserved.
 
 """
@@ -180,7 +180,7 @@ class Pbr(object):
                         	Name of the interface
                         	**type**\:  str
                         
-                        	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+                        	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
                         
                         .. attribute:: direction
                         
@@ -297,7 +297,7 @@ class Pbr(object):
                                     .. attribute:: counter_validity_bitmask
                                     
                                     	 Bitmask to indicate which counter or counters are undetermined. Counters will be marked undetermined when one or more classes share queues with class\-default because in such cases the value of counters for each class is invalid. Based on the flag(s) set, the following counters will be marked undetermined. For example, if value of this object returned is 0x00000101, counters TransmitPackets/TransmitBytes/TotalTransmitRate and DropPackets/DropBytes are undetermined .0x00000001 \- Transmit (TransmitPackets/TransmitBytes/TotalTransmitRate ), 0x00000002 \- Drop (TotalDropPackets/TotalDropBytes/TotalDropRate), 0x00000004 \- Httpr (HttprTransmitPackets/HttprTransmitBytes), 
-                                    	**type**\:  long
+                                    	**type**\:  int
                                     
                                     	**range:** 0..18446744073709551615
                                     
@@ -343,28 +343,28 @@ class Pbr(object):
                                         .. attribute:: pre_policy_matched_bytes
                                         
                                         	Matched bytes before applying policy
-                                        	**type**\:  long
+                                        	**type**\:  int
                                         
                                         	**range:** 0..18446744073709551615
                                         
                                         .. attribute:: pre_policy_matched_packets
                                         
                                         	Matched pkts before applying policy
-                                        	**type**\:  long
+                                        	**type**\:  int
                                         
                                         	**range:** 0..18446744073709551615
                                         
                                         .. attribute:: total_drop_bytes
                                         
                                         	Dropped bytes (packets/bytes)
-                                        	**type**\:  long
+                                        	**type**\:  int
                                         
                                         	**range:** 0..18446744073709551615
                                         
                                         .. attribute:: total_drop_packets
                                         
                                         	Dropped packets (packets/bytes)
-                                        	**type**\:  long
+                                        	**type**\:  int
                                         
                                         	**range:** 0..18446744073709551615
                                         
@@ -385,14 +385,14 @@ class Pbr(object):
                                         .. attribute:: transmit_bytes
                                         
                                         	Transmitted bytes (packets/bytes)
-                                        	**type**\:  long
+                                        	**type**\:  int
                                         
                                         	**range:** 0..18446744073709551615
                                         
                                         .. attribute:: transmit_packets
                                         
                                         	Transmitted packets (packets/bytes)
-                                        	**type**\:  long
+                                        	**type**\:  int
                                         
                                         	**range:** 0..18446744073709551615
                                         
@@ -471,42 +471,42 @@ class Pbr(object):
                                         .. attribute:: drop_bytes
                                         
                                         	Dropped bytes
-                                        	**type**\:  long
+                                        	**type**\:  int
                                         
                                         	**range:** 0..18446744073709551615
                                         
                                         .. attribute:: drop_packets
                                         
                                         	Dropped  packets
-                                        	**type**\:  long
+                                        	**type**\:  int
                                         
                                         	**range:** 0..18446744073709551615
                                         
                                         .. attribute:: resp_sent_bytes
                                         
                                         	TotalNum of Bytes HTTPR response sent
-                                        	**type**\:  long
+                                        	**type**\:  int
                                         
                                         	**range:** 0..18446744073709551615
                                         
                                         .. attribute:: resp_sent_packets
                                         
                                         	TotalNum of pkts HTTPR response sent
-                                        	**type**\:  long
+                                        	**type**\:  int
                                         
                                         	**range:** 0..18446744073709551615
                                         
                                         .. attribute:: rqst_rcvd_bytes
                                         
                                         	TotalNum of Bytes HTTP request received
-                                        	**type**\:  long
+                                        	**type**\:  int
                                         
                                         	**range:** 0..18446744073709551615
                                         
                                         .. attribute:: rqst_rcvd_packets
                                         
                                         	TotalNum of pkts HTTP request received
-                                        	**type**\:  long
+                                        	**type**\:  int
                                         
                                         	**range:** 0..18446744073709551615
                                         

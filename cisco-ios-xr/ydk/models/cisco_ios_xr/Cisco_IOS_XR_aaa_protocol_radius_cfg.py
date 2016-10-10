@@ -8,7 +8,7 @@ This YANG module augments the
   Cisco\-IOS\-XR\-aaa\-lib\-cfg
 modules with configuration data.
 
-Copyright (c) 2013\-2015 by Cisco Systems, Inc.
+Copyright (c) 2013\-2016 by Cisco Systems, Inc.
 All rights reserved.
 
 """

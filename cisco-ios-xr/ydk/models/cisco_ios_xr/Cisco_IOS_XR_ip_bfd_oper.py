@@ -7,7 +7,7 @@ This module contains definitions
 for the following management objects\:
   bfd\: Bidirectional Forwarding Detection(BFD) operational data
 
-Copyright (c) 2013\-2015 by Cisco Systems, Inc.
+Copyright (c) 2013\-2016 by Cisco Systems, Inc.
 All rights reserved.
 
 """
@@ -38,7 +38,7 @@ class BfdAfIdEnum(Enum):
 
     	IPv4 AFI
 
-    .. data:: BFD_AF_ID_IPV6 = 26
+    .. data:: BFD_AF_ID_IPV6 = 10
 
     	IPv6 AFI
 
@@ -48,7 +48,7 @@ class BfdAfIdEnum(Enum):
 
     BFD_AF_ID_IPV4 = 2
 
-    BFD_AF_ID_IPV6 = 26
+    BFD_AF_ID_IPV6 = 10
 
 
     @staticmethod
@@ -589,6 +589,11 @@ class Bfd(object):
     	Table of summary about IPv4 TE tail BFD sessions for location
     	**type**\:  :py:class:`Ipv4BfdMplsteTailNodeSummaries <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4BfdMplsteTailNodeSummaries>`
     
+    .. attribute:: ipv6_multi_hop_counters
+    
+    	IPv6 multiple hop Counters
+    	**type**\:  :py:class:`Ipv6MultiHopCounters <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv6MultiHopCounters>`
+    
     .. attribute:: ipv6_multi_hop_multi_paths
     
     	IPv6 multi hop multipath
@@ -775,6 +780,8 @@ class Bfd(object):
         self.ipv4bfd_mplste_head_summary_nodes.parent = self
         self.ipv4bfd_mplste_tail_node_summaries = Bfd.Ipv4BfdMplsteTailNodeSummaries()
         self.ipv4bfd_mplste_tail_node_summaries.parent = self
+        self.ipv6_multi_hop_counters = Bfd.Ipv6MultiHopCounters()
+        self.ipv6_multi_hop_counters.parent = self
         self.ipv6_multi_hop_multi_paths = Bfd.Ipv6MultiHopMultiPaths()
         self.ipv6_multi_hop_multi_paths.parent = self
         self.ipv6_multi_hop_node_location_summaries = Bfd.Ipv6MultiHopNodeLocationSummaries()
@@ -866,7 +873,7 @@ class Bfd(object):
             	Interface Name
             	**type**\:  str
             
-            	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+            	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
             
             .. attribute:: location
             
@@ -1376,7 +1383,7 @@ class Bfd(object):
                 	Interface Name
                 	**type**\:  str
                 
-                	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+                	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
                 
                 .. attribute:: display_type
                 
@@ -1567,7 +1574,7 @@ class Bfd(object):
                 	Interface Name
                 	**type**\:  str
                 
-                	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+                	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
                 
                 .. attribute:: display_type
                 
@@ -2248,7 +2255,7 @@ class Bfd(object):
             	Interface Name
             	**type**\:  str
             
-            	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+            	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
             
             .. attribute:: local_discriminator
             
@@ -2276,7 +2283,7 @@ class Bfd(object):
             	Interface name
             	**type**\:  str
             
-            	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+            	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
             
             .. attribute:: session_subtype
             
@@ -3948,7 +3955,7 @@ class Bfd(object):
                     	seconds
                     	**type**\:  int
                     
-                    	**range:** 0..4294967295
+                    	**range:** 0..18446744073709551615
                     
                     
 
@@ -4131,7 +4138,7 @@ class Bfd(object):
                     	seconds
                     	**type**\:  int
                     
-                    	**range:** 0..4294967295
+                    	**range:** 0..18446744073709551615
                     
                     
 
@@ -4187,7 +4194,7 @@ class Bfd(object):
                     	seconds
                     	**type**\:  int
                     
-                    	**range:** 0..4294967295
+                    	**range:** 0..18446744073709551615
                     
                     
 
@@ -4243,7 +4250,7 @@ class Bfd(object):
                     	seconds
                     	**type**\:  int
                     
-                    	**range:** 0..4294967295
+                    	**range:** 0..18446744073709551615
                     
                     
 
@@ -4504,12 +4511,31 @@ class Bfd(object):
                     	IPv4/v6 source address
                     	**type**\:  :py:class:`IpSourceAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4MultiHopSessionDetails.Ipv4MultiHopSessionDetail.AssociationInformation.SessionKey.IpSourceAddress>`
                     
+                    .. attribute:: sbfd_enabled
+                    
+                    	SBFD enable flag
+                    	**type**\:  int
+                    
+                    	**range:** \-2147483648..2147483647
+                    
+                    .. attribute:: sbfd_target_type
+                    
+                    	SBFD target type
+                    	**type**\:  int
+                    
+                    	**range:** 0..4294967295
+                    
                     .. attribute:: session_key_type
                     
                     	Session Key Type
                     	**type**\:  int
                     
                     	**range:** 0..4294967295
+                    
+                    .. attribute:: target_address
+                    
+                    	sbfd target address
+                    	**type**\:  :py:class:`TargetAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4MultiHopSessionDetails.Ipv4MultiHopSessionDetail.AssociationInformation.SessionKey.TargetAddress>`
                     
                     .. attribute:: vrf_name
                     
@@ -4535,7 +4561,11 @@ class Bfd(object):
                         self.ip_destination_address.parent = self
                         self.ip_source_address = Bfd.Ipv4MultiHopSessionDetails.Ipv4MultiHopSessionDetail.AssociationInformation.SessionKey.IpSourceAddress()
                         self.ip_source_address.parent = self
+                        self.sbfd_enabled = None
+                        self.sbfd_target_type = None
                         self.session_key_type = None
+                        self.target_address = Bfd.Ipv4MultiHopSessionDetails.Ipv4MultiHopSessionDetail.AssociationInformation.SessionKey.TargetAddress()
+                        self.target_address.parent = self
                         self.vrf_name = None
 
 
@@ -4938,6 +4968,82 @@ class Bfd(object):
                             from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_bfd_oper as meta
                             return meta._meta_table['Bfd.Ipv4MultiHopSessionDetails.Ipv4MultiHopSessionDetail.AssociationInformation.SessionKey.Bfdfec']['meta_info']
 
+
+                    class TargetAddress(object):
+                        """
+                        sbfd target address
+                        
+                        .. attribute:: afi
+                        
+                        	AFI
+                        	**type**\:  :py:class:`BfdAfIdEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.BfdAfIdEnum>`
+                        
+                        .. attribute:: dummy
+                        
+                        	No Address
+                        	**type**\:  int
+                        
+                        	**range:** 0..255
+                        
+                        .. attribute:: ipv4
+                        
+                        	IPv4 address type
+                        	**type**\:  str
+                        
+                        	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                        
+                        .. attribute:: ipv6
+                        
+                        	IPv6 address type
+                        	**type**\:  str
+                        
+                        	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                        
+                        
+
+                        """
+
+                        _prefix = 'ip-bfd-oper'
+                        _revision = '2015-11-09'
+
+                        def __init__(self):
+                            self.parent = None
+                            self.afi = None
+                            self.dummy = None
+                            self.ipv4 = None
+                            self.ipv6 = None
+
+                        @property
+                        def _common_path(self):
+
+                            return '/Cisco-IOS-XR-ip-bfd-oper:bfd/Cisco-IOS-XR-ip-bfd-oper:ipv4-multi-hop-session-details/Cisco-IOS-XR-ip-bfd-oper:ipv4-multi-hop-session-detail/Cisco-IOS-XR-ip-bfd-oper:association-information/Cisco-IOS-XR-ip-bfd-oper:session-key/Cisco-IOS-XR-ip-bfd-oper:target-address'
+
+                        def is_config(self):
+                            ''' Returns True if this instance represents config data else returns False '''
+                            return False
+
+                        def _has_data(self):
+                            if not self.is_config():
+                                return False
+                            if self.afi is not None:
+                                return True
+
+                            if self.dummy is not None:
+                                return True
+
+                            if self.ipv4 is not None:
+                                return True
+
+                            if self.ipv6 is not None:
+                                return True
+
+                            return False
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_bfd_oper as meta
+                            return meta._meta_table['Bfd.Ipv4MultiHopSessionDetails.Ipv4MultiHopSessionDetail.AssociationInformation.SessionKey.TargetAddress']['meta_info']
+
                     @property
                     def _common_path(self):
 
@@ -4965,7 +5071,16 @@ class Bfd(object):
                         if self.ip_source_address is not None and self.ip_source_address._has_data():
                             return True
 
+                        if self.sbfd_enabled is not None:
+                            return True
+
+                        if self.sbfd_target_type is not None:
+                            return True
+
                         if self.session_key_type is not None:
+                            return True
+
+                        if self.target_address is not None and self.target_address._has_data():
                             return True
 
                         if self.vrf_name is not None:
@@ -5221,7 +5336,7 @@ class Bfd(object):
             	Interface Name
             	**type**\:  str
             
-            	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+            	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
             
             .. attribute:: location
             
@@ -6717,7 +6832,7 @@ class Bfd(object):
                     	seconds
                     	**type**\:  int
                     
-                    	**range:** 0..4294967295
+                    	**range:** 0..18446744073709551615
                     
                     
 
@@ -6900,7 +7015,7 @@ class Bfd(object):
                     	seconds
                     	**type**\:  int
                     
-                    	**range:** 0..4294967295
+                    	**range:** 0..18446744073709551615
                     
                     
 
@@ -6956,7 +7071,7 @@ class Bfd(object):
                     	seconds
                     	**type**\:  int
                     
-                    	**range:** 0..4294967295
+                    	**range:** 0..18446744073709551615
                     
                     
 
@@ -7012,7 +7127,7 @@ class Bfd(object):
                     	seconds
                     	**type**\:  int
                     
-                    	**range:** 0..4294967295
+                    	**range:** 0..18446744073709551615
                     
                     
 
@@ -7273,12 +7388,31 @@ class Bfd(object):
                     	IPv4/v6 source address
                     	**type**\:  :py:class:`IpSourceAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4SingleHopSessionDetails.Ipv4SingleHopSessionDetail.AssociationInformation.SessionKey.IpSourceAddress>`
                     
+                    .. attribute:: sbfd_enabled
+                    
+                    	SBFD enable flag
+                    	**type**\:  int
+                    
+                    	**range:** \-2147483648..2147483647
+                    
+                    .. attribute:: sbfd_target_type
+                    
+                    	SBFD target type
+                    	**type**\:  int
+                    
+                    	**range:** 0..4294967295
+                    
                     .. attribute:: session_key_type
                     
                     	Session Key Type
                     	**type**\:  int
                     
                     	**range:** 0..4294967295
+                    
+                    .. attribute:: target_address
+                    
+                    	sbfd target address
+                    	**type**\:  :py:class:`TargetAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4SingleHopSessionDetails.Ipv4SingleHopSessionDetail.AssociationInformation.SessionKey.TargetAddress>`
                     
                     .. attribute:: vrf_name
                     
@@ -7304,7 +7438,11 @@ class Bfd(object):
                         self.ip_destination_address.parent = self
                         self.ip_source_address = Bfd.Ipv4SingleHopSessionDetails.Ipv4SingleHopSessionDetail.AssociationInformation.SessionKey.IpSourceAddress()
                         self.ip_source_address.parent = self
+                        self.sbfd_enabled = None
+                        self.sbfd_target_type = None
                         self.session_key_type = None
+                        self.target_address = Bfd.Ipv4SingleHopSessionDetails.Ipv4SingleHopSessionDetail.AssociationInformation.SessionKey.TargetAddress()
+                        self.target_address.parent = self
                         self.vrf_name = None
 
 
@@ -7707,6 +7845,82 @@ class Bfd(object):
                             from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_bfd_oper as meta
                             return meta._meta_table['Bfd.Ipv4SingleHopSessionDetails.Ipv4SingleHopSessionDetail.AssociationInformation.SessionKey.Bfdfec']['meta_info']
 
+
+                    class TargetAddress(object):
+                        """
+                        sbfd target address
+                        
+                        .. attribute:: afi
+                        
+                        	AFI
+                        	**type**\:  :py:class:`BfdAfIdEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.BfdAfIdEnum>`
+                        
+                        .. attribute:: dummy
+                        
+                        	No Address
+                        	**type**\:  int
+                        
+                        	**range:** 0..255
+                        
+                        .. attribute:: ipv4
+                        
+                        	IPv4 address type
+                        	**type**\:  str
+                        
+                        	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                        
+                        .. attribute:: ipv6
+                        
+                        	IPv6 address type
+                        	**type**\:  str
+                        
+                        	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                        
+                        
+
+                        """
+
+                        _prefix = 'ip-bfd-oper'
+                        _revision = '2015-11-09'
+
+                        def __init__(self):
+                            self.parent = None
+                            self.afi = None
+                            self.dummy = None
+                            self.ipv4 = None
+                            self.ipv6 = None
+
+                        @property
+                        def _common_path(self):
+
+                            return '/Cisco-IOS-XR-ip-bfd-oper:bfd/Cisco-IOS-XR-ip-bfd-oper:ipv4-single-hop-session-details/Cisco-IOS-XR-ip-bfd-oper:ipv4-single-hop-session-detail/Cisco-IOS-XR-ip-bfd-oper:association-information/Cisco-IOS-XR-ip-bfd-oper:session-key/Cisco-IOS-XR-ip-bfd-oper:target-address'
+
+                        def is_config(self):
+                            ''' Returns True if this instance represents config data else returns False '''
+                            return False
+
+                        def _has_data(self):
+                            if not self.is_config():
+                                return False
+                            if self.afi is not None:
+                                return True
+
+                            if self.dummy is not None:
+                                return True
+
+                            if self.ipv4 is not None:
+                                return True
+
+                            if self.ipv6 is not None:
+                                return True
+
+                            return False
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_bfd_oper as meta
+                            return meta._meta_table['Bfd.Ipv4SingleHopSessionDetails.Ipv4SingleHopSessionDetail.AssociationInformation.SessionKey.TargetAddress']['meta_info']
+
                     @property
                     def _common_path(self):
 
@@ -7734,7 +7948,16 @@ class Bfd(object):
                         if self.ip_source_address is not None and self.ip_source_address._has_data():
                             return True
 
+                        if self.sbfd_enabled is not None:
+                            return True
+
+                        if self.sbfd_target_type is not None:
+                            return True
+
                         if self.session_key_type is not None:
+                            return True
+
+                        if self.target_address is not None and self.target_address._has_data():
                             return True
 
                         if self.vrf_name is not None:
@@ -8539,10 +8762,20 @@ class Bfd(object):
             .. attribute:: destination_address
             
             	Destination address
+            	**type**\: one of the below types:
+            
             	**type**\:  str
             
             	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
             
+            
+            ----
+            	**type**\:  str
+            
+            	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+            
+            
+            ----
             .. attribute:: incoming_label_xr
             
             	Incoming Label
@@ -8555,7 +8788,7 @@ class Bfd(object):
             	Interface name
             	**type**\:  str
             
-            	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+            	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
             
             .. attribute:: local_discriminator
             
@@ -8583,7 +8816,7 @@ class Bfd(object):
             	Interface name
             	**type**\:  str
             
-            	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+            	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
             
             .. attribute:: session_subtype
             
@@ -9126,7 +9359,7 @@ class Bfd(object):
             	Interface Name
             	**type**\:  str
             
-            	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+            	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
             
             .. attribute:: location
             
@@ -11132,7 +11365,7 @@ class Bfd(object):
                     	seconds
                     	**type**\:  int
                     
-                    	**range:** 0..4294967295
+                    	**range:** 0..18446744073709551615
                     
                     
 
@@ -11315,7 +11548,7 @@ class Bfd(object):
                     	seconds
                     	**type**\:  int
                     
-                    	**range:** 0..4294967295
+                    	**range:** 0..18446744073709551615
                     
                     
 
@@ -11371,7 +11604,7 @@ class Bfd(object):
                     	seconds
                     	**type**\:  int
                     
-                    	**range:** 0..4294967295
+                    	**range:** 0..18446744073709551615
                     
                     
 
@@ -11427,7 +11660,7 @@ class Bfd(object):
                     	seconds
                     	**type**\:  int
                     
-                    	**range:** 0..4294967295
+                    	**range:** 0..18446744073709551615
                     
                     
 
@@ -11688,12 +11921,31 @@ class Bfd(object):
                     	IPv4/v6 source address
                     	**type**\:  :py:class:`IpSourceAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4BfDoMplsteTailSessionDetails.Ipv4BfDoMplsteTailSessionDetail.AssociationInformation.SessionKey.IpSourceAddress>`
                     
+                    .. attribute:: sbfd_enabled
+                    
+                    	SBFD enable flag
+                    	**type**\:  int
+                    
+                    	**range:** \-2147483648..2147483647
+                    
+                    .. attribute:: sbfd_target_type
+                    
+                    	SBFD target type
+                    	**type**\:  int
+                    
+                    	**range:** 0..4294967295
+                    
                     .. attribute:: session_key_type
                     
                     	Session Key Type
                     	**type**\:  int
                     
                     	**range:** 0..4294967295
+                    
+                    .. attribute:: target_address
+                    
+                    	sbfd target address
+                    	**type**\:  :py:class:`TargetAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4BfDoMplsteTailSessionDetails.Ipv4BfDoMplsteTailSessionDetail.AssociationInformation.SessionKey.TargetAddress>`
                     
                     .. attribute:: vrf_name
                     
@@ -11719,7 +11971,11 @@ class Bfd(object):
                         self.ip_destination_address.parent = self
                         self.ip_source_address = Bfd.Ipv4BfDoMplsteTailSessionDetails.Ipv4BfDoMplsteTailSessionDetail.AssociationInformation.SessionKey.IpSourceAddress()
                         self.ip_source_address.parent = self
+                        self.sbfd_enabled = None
+                        self.sbfd_target_type = None
                         self.session_key_type = None
+                        self.target_address = Bfd.Ipv4BfDoMplsteTailSessionDetails.Ipv4BfDoMplsteTailSessionDetail.AssociationInformation.SessionKey.TargetAddress()
+                        self.target_address.parent = self
                         self.vrf_name = None
 
 
@@ -12122,6 +12378,82 @@ class Bfd(object):
                             from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_bfd_oper as meta
                             return meta._meta_table['Bfd.Ipv4BfDoMplsteTailSessionDetails.Ipv4BfDoMplsteTailSessionDetail.AssociationInformation.SessionKey.Bfdfec']['meta_info']
 
+
+                    class TargetAddress(object):
+                        """
+                        sbfd target address
+                        
+                        .. attribute:: afi
+                        
+                        	AFI
+                        	**type**\:  :py:class:`BfdAfIdEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.BfdAfIdEnum>`
+                        
+                        .. attribute:: dummy
+                        
+                        	No Address
+                        	**type**\:  int
+                        
+                        	**range:** 0..255
+                        
+                        .. attribute:: ipv4
+                        
+                        	IPv4 address type
+                        	**type**\:  str
+                        
+                        	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                        
+                        .. attribute:: ipv6
+                        
+                        	IPv6 address type
+                        	**type**\:  str
+                        
+                        	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                        
+                        
+
+                        """
+
+                        _prefix = 'ip-bfd-oper'
+                        _revision = '2015-11-09'
+
+                        def __init__(self):
+                            self.parent = None
+                            self.afi = None
+                            self.dummy = None
+                            self.ipv4 = None
+                            self.ipv6 = None
+
+                        @property
+                        def _common_path(self):
+
+                            return '/Cisco-IOS-XR-ip-bfd-oper:bfd/Cisco-IOS-XR-ip-bfd-oper:ipv4bf-do-mplste-tail-session-details/Cisco-IOS-XR-ip-bfd-oper:ipv4bf-do-mplste-tail-session-detail/Cisco-IOS-XR-ip-bfd-oper:association-information/Cisco-IOS-XR-ip-bfd-oper:session-key/Cisco-IOS-XR-ip-bfd-oper:target-address'
+
+                        def is_config(self):
+                            ''' Returns True if this instance represents config data else returns False '''
+                            return False
+
+                        def _has_data(self):
+                            if not self.is_config():
+                                return False
+                            if self.afi is not None:
+                                return True
+
+                            if self.dummy is not None:
+                                return True
+
+                            if self.ipv4 is not None:
+                                return True
+
+                            if self.ipv6 is not None:
+                                return True
+
+                            return False
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_bfd_oper as meta
+                            return meta._meta_table['Bfd.Ipv4BfDoMplsteTailSessionDetails.Ipv4BfDoMplsteTailSessionDetail.AssociationInformation.SessionKey.TargetAddress']['meta_info']
+
                     @property
                     def _common_path(self):
 
@@ -12149,7 +12481,16 @@ class Bfd(object):
                         if self.ip_source_address is not None and self.ip_source_address._has_data():
                             return True
 
+                        if self.sbfd_enabled is not None:
+                            return True
+
+                        if self.sbfd_target_type is not None:
+                            return True
+
                         if self.session_key_type is not None:
+                            return True
+
+                        if self.target_address is not None and self.target_address._has_data():
                             return True
 
                         if self.vrf_name is not None:
@@ -13463,7 +13804,7 @@ class Bfd(object):
                 	Interface Name
                 	**type**\:  str
                 
-                	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+                	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
                 
                 .. attribute:: display_type
                 
@@ -15170,7 +15511,7 @@ class Bfd(object):
                     	seconds
                     	**type**\:  int
                     
-                    	**range:** 0..4294967295
+                    	**range:** 0..18446744073709551615
                     
                     
 
@@ -15353,7 +15694,7 @@ class Bfd(object):
                     	seconds
                     	**type**\:  int
                     
-                    	**range:** 0..4294967295
+                    	**range:** 0..18446744073709551615
                     
                     
 
@@ -15409,7 +15750,7 @@ class Bfd(object):
                     	seconds
                     	**type**\:  int
                     
-                    	**range:** 0..4294967295
+                    	**range:** 0..18446744073709551615
                     
                     
 
@@ -15465,7 +15806,7 @@ class Bfd(object):
                     	seconds
                     	**type**\:  int
                     
-                    	**range:** 0..4294967295
+                    	**range:** 0..18446744073709551615
                     
                     
 
@@ -15726,12 +16067,31 @@ class Bfd(object):
                     	IPv4/v6 source address
                     	**type**\:  :py:class:`IpSourceAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv6MultiHopSessionDetails.Ipv6MultiHopSessionDetail.AssociationInformation.SessionKey.IpSourceAddress>`
                     
+                    .. attribute:: sbfd_enabled
+                    
+                    	SBFD enable flag
+                    	**type**\:  int
+                    
+                    	**range:** \-2147483648..2147483647
+                    
+                    .. attribute:: sbfd_target_type
+                    
+                    	SBFD target type
+                    	**type**\:  int
+                    
+                    	**range:** 0..4294967295
+                    
                     .. attribute:: session_key_type
                     
                     	Session Key Type
                     	**type**\:  int
                     
                     	**range:** 0..4294967295
+                    
+                    .. attribute:: target_address
+                    
+                    	sbfd target address
+                    	**type**\:  :py:class:`TargetAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv6MultiHopSessionDetails.Ipv6MultiHopSessionDetail.AssociationInformation.SessionKey.TargetAddress>`
                     
                     .. attribute:: vrf_name
                     
@@ -15757,7 +16117,11 @@ class Bfd(object):
                         self.ip_destination_address.parent = self
                         self.ip_source_address = Bfd.Ipv6MultiHopSessionDetails.Ipv6MultiHopSessionDetail.AssociationInformation.SessionKey.IpSourceAddress()
                         self.ip_source_address.parent = self
+                        self.sbfd_enabled = None
+                        self.sbfd_target_type = None
                         self.session_key_type = None
+                        self.target_address = Bfd.Ipv6MultiHopSessionDetails.Ipv6MultiHopSessionDetail.AssociationInformation.SessionKey.TargetAddress()
+                        self.target_address.parent = self
                         self.vrf_name = None
 
 
@@ -16160,6 +16524,82 @@ class Bfd(object):
                             from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_bfd_oper as meta
                             return meta._meta_table['Bfd.Ipv6MultiHopSessionDetails.Ipv6MultiHopSessionDetail.AssociationInformation.SessionKey.Bfdfec']['meta_info']
 
+
+                    class TargetAddress(object):
+                        """
+                        sbfd target address
+                        
+                        .. attribute:: afi
+                        
+                        	AFI
+                        	**type**\:  :py:class:`BfdAfIdEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.BfdAfIdEnum>`
+                        
+                        .. attribute:: dummy
+                        
+                        	No Address
+                        	**type**\:  int
+                        
+                        	**range:** 0..255
+                        
+                        .. attribute:: ipv4
+                        
+                        	IPv4 address type
+                        	**type**\:  str
+                        
+                        	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                        
+                        .. attribute:: ipv6
+                        
+                        	IPv6 address type
+                        	**type**\:  str
+                        
+                        	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                        
+                        
+
+                        """
+
+                        _prefix = 'ip-bfd-oper'
+                        _revision = '2015-11-09'
+
+                        def __init__(self):
+                            self.parent = None
+                            self.afi = None
+                            self.dummy = None
+                            self.ipv4 = None
+                            self.ipv6 = None
+
+                        @property
+                        def _common_path(self):
+
+                            return '/Cisco-IOS-XR-ip-bfd-oper:bfd/Cisco-IOS-XR-ip-bfd-oper:ipv6-multi-hop-session-details/Cisco-IOS-XR-ip-bfd-oper:ipv6-multi-hop-session-detail/Cisco-IOS-XR-ip-bfd-oper:association-information/Cisco-IOS-XR-ip-bfd-oper:session-key/Cisco-IOS-XR-ip-bfd-oper:target-address'
+
+                        def is_config(self):
+                            ''' Returns True if this instance represents config data else returns False '''
+                            return False
+
+                        def _has_data(self):
+                            if not self.is_config():
+                                return False
+                            if self.afi is not None:
+                                return True
+
+                            if self.dummy is not None:
+                                return True
+
+                            if self.ipv4 is not None:
+                                return True
+
+                            if self.ipv6 is not None:
+                                return True
+
+                            return False
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_bfd_oper as meta
+                            return meta._meta_table['Bfd.Ipv6MultiHopSessionDetails.Ipv6MultiHopSessionDetail.AssociationInformation.SessionKey.TargetAddress']['meta_info']
+
                     @property
                     def _common_path(self):
 
@@ -16187,7 +16627,16 @@ class Bfd(object):
                         if self.ip_source_address is not None and self.ip_source_address._has_data():
                             return True
 
+                        if self.sbfd_enabled is not None:
+                            return True
+
+                        if self.sbfd_target_type is not None:
+                            return True
+
                         if self.session_key_type is not None:
+                            return True
+
+                        if self.target_address is not None and self.target_address._has_data():
                             return True
 
                         if self.vrf_name is not None:
@@ -16474,7 +16923,7 @@ class Bfd(object):
             	Interface name
             	**type**\:  str
             
-            	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+            	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
             
             .. attribute:: session_subtype
             
@@ -16692,7 +17141,7 @@ class Bfd(object):
                 	Interface Name
                 	**type**\:  str
                 
-                	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+                	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
                 
                 .. attribute:: location
                 
@@ -16887,14 +17336,14 @@ class Bfd(object):
             .. attribute:: last_down_time_sec
             
             	Last Session Down Time (seconds)
-            	**type**\:  long
+            	**type**\:  int
             
             	**range:** 0..18446744073709551615
             
             .. attribute:: last_time_cached
             
             	Last Time Session Info Queried
-            	**type**\:  long
+            	**type**\:  int
             
             	**range:** 0..18446744073709551615
             
@@ -16908,7 +17357,7 @@ class Bfd(object):
             .. attribute:: last_up_time_sec
             
             	Last Session Up Time (seconds)
-            	**type**\:  long
+            	**type**\:  int
             
             	**range:** 0..18446744073709551615
             
@@ -16922,14 +17371,14 @@ class Bfd(object):
             .. attribute:: pkt_in
             
             	Packet In Counter
-            	**type**\:  long
+            	**type**\:  int
             
             	**range:** 0..18446744073709551615
             
             .. attribute:: pkt_out
             
             	Packet Out Counter
-            	**type**\:  long
+            	**type**\:  int
             
             	**range:** 0..18446744073709551615
             
@@ -17981,7 +18430,7 @@ class Bfd(object):
             	Interface Name
             	**type**\:  str
             
-            	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+            	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
             
             .. attribute:: location
             
@@ -19312,7 +19761,7 @@ class Bfd(object):
             	Interface Name
             	**type**\:  str
             
-            	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+            	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
             
             .. attribute:: location
             
@@ -20808,7 +21257,7 @@ class Bfd(object):
                     	seconds
                     	**type**\:  int
                     
-                    	**range:** 0..4294967295
+                    	**range:** 0..18446744073709551615
                     
                     
 
@@ -20991,7 +21440,7 @@ class Bfd(object):
                     	seconds
                     	**type**\:  int
                     
-                    	**range:** 0..4294967295
+                    	**range:** 0..18446744073709551615
                     
                     
 
@@ -21047,7 +21496,7 @@ class Bfd(object):
                     	seconds
                     	**type**\:  int
                     
-                    	**range:** 0..4294967295
+                    	**range:** 0..18446744073709551615
                     
                     
 
@@ -21103,7 +21552,7 @@ class Bfd(object):
                     	seconds
                     	**type**\:  int
                     
-                    	**range:** 0..4294967295
+                    	**range:** 0..18446744073709551615
                     
                     
 
@@ -21364,12 +21813,31 @@ class Bfd(object):
                     	IPv4/v6 source address
                     	**type**\:  :py:class:`IpSourceAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.LabelSessionDetails.LabelSessionDetail.AssociationInformation.SessionKey.IpSourceAddress>`
                     
+                    .. attribute:: sbfd_enabled
+                    
+                    	SBFD enable flag
+                    	**type**\:  int
+                    
+                    	**range:** \-2147483648..2147483647
+                    
+                    .. attribute:: sbfd_target_type
+                    
+                    	SBFD target type
+                    	**type**\:  int
+                    
+                    	**range:** 0..4294967295
+                    
                     .. attribute:: session_key_type
                     
                     	Session Key Type
                     	**type**\:  int
                     
                     	**range:** 0..4294967295
+                    
+                    .. attribute:: target_address
+                    
+                    	sbfd target address
+                    	**type**\:  :py:class:`TargetAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.LabelSessionDetails.LabelSessionDetail.AssociationInformation.SessionKey.TargetAddress>`
                     
                     .. attribute:: vrf_name
                     
@@ -21395,7 +21863,11 @@ class Bfd(object):
                         self.ip_destination_address.parent = self
                         self.ip_source_address = Bfd.LabelSessionDetails.LabelSessionDetail.AssociationInformation.SessionKey.IpSourceAddress()
                         self.ip_source_address.parent = self
+                        self.sbfd_enabled = None
+                        self.sbfd_target_type = None
                         self.session_key_type = None
+                        self.target_address = Bfd.LabelSessionDetails.LabelSessionDetail.AssociationInformation.SessionKey.TargetAddress()
+                        self.target_address.parent = self
                         self.vrf_name = None
 
 
@@ -21798,6 +22270,82 @@ class Bfd(object):
                             from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_bfd_oper as meta
                             return meta._meta_table['Bfd.LabelSessionDetails.LabelSessionDetail.AssociationInformation.SessionKey.Bfdfec']['meta_info']
 
+
+                    class TargetAddress(object):
+                        """
+                        sbfd target address
+                        
+                        .. attribute:: afi
+                        
+                        	AFI
+                        	**type**\:  :py:class:`BfdAfIdEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.BfdAfIdEnum>`
+                        
+                        .. attribute:: dummy
+                        
+                        	No Address
+                        	**type**\:  int
+                        
+                        	**range:** 0..255
+                        
+                        .. attribute:: ipv4
+                        
+                        	IPv4 address type
+                        	**type**\:  str
+                        
+                        	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                        
+                        .. attribute:: ipv6
+                        
+                        	IPv6 address type
+                        	**type**\:  str
+                        
+                        	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                        
+                        
+
+                        """
+
+                        _prefix = 'ip-bfd-oper'
+                        _revision = '2015-11-09'
+
+                        def __init__(self):
+                            self.parent = None
+                            self.afi = None
+                            self.dummy = None
+                            self.ipv4 = None
+                            self.ipv6 = None
+
+                        @property
+                        def _common_path(self):
+
+                            return '/Cisco-IOS-XR-ip-bfd-oper:bfd/Cisco-IOS-XR-ip-bfd-oper:label-session-details/Cisco-IOS-XR-ip-bfd-oper:label-session-detail/Cisco-IOS-XR-ip-bfd-oper:association-information/Cisco-IOS-XR-ip-bfd-oper:session-key/Cisco-IOS-XR-ip-bfd-oper:target-address'
+
+                        def is_config(self):
+                            ''' Returns True if this instance represents config data else returns False '''
+                            return False
+
+                        def _has_data(self):
+                            if not self.is_config():
+                                return False
+                            if self.afi is not None:
+                                return True
+
+                            if self.dummy is not None:
+                                return True
+
+                            if self.ipv4 is not None:
+                                return True
+
+                            if self.ipv6 is not None:
+                                return True
+
+                            return False
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_bfd_oper as meta
+                            return meta._meta_table['Bfd.LabelSessionDetails.LabelSessionDetail.AssociationInformation.SessionKey.TargetAddress']['meta_info']
+
                     @property
                     def _common_path(self):
 
@@ -21825,7 +22373,16 @@ class Bfd(object):
                         if self.ip_source_address is not None and self.ip_source_address._has_data():
                             return True
 
+                        if self.sbfd_enabled is not None:
+                            return True
+
+                        if self.sbfd_target_type is not None:
+                            return True
+
                         if self.session_key_type is not None:
+                            return True
+
+                        if self.target_address is not None and self.target_address._has_data():
                             return True
 
                         if self.vrf_name is not None:
@@ -22088,7 +22645,7 @@ class Bfd(object):
             	Interface Name
             	**type**\:  str
             
-            	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+            	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
             
             .. attribute:: location
             
@@ -23584,7 +24141,7 @@ class Bfd(object):
                     	seconds
                     	**type**\:  int
                     
-                    	**range:** 0..4294967295
+                    	**range:** 0..18446744073709551615
                     
                     
 
@@ -23767,7 +24324,7 @@ class Bfd(object):
                     	seconds
                     	**type**\:  int
                     
-                    	**range:** 0..4294967295
+                    	**range:** 0..18446744073709551615
                     
                     
 
@@ -23823,7 +24380,7 @@ class Bfd(object):
                     	seconds
                     	**type**\:  int
                     
-                    	**range:** 0..4294967295
+                    	**range:** 0..18446744073709551615
                     
                     
 
@@ -23879,7 +24436,7 @@ class Bfd(object):
                     	seconds
                     	**type**\:  int
                     
-                    	**range:** 0..4294967295
+                    	**range:** 0..18446744073709551615
                     
                     
 
@@ -24140,12 +24697,31 @@ class Bfd(object):
                     	IPv4/v6 source address
                     	**type**\:  :py:class:`IpSourceAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv6SingleHopSessionDetails.Ipv6SingleHopSessionDetail.AssociationInformation.SessionKey.IpSourceAddress>`
                     
+                    .. attribute:: sbfd_enabled
+                    
+                    	SBFD enable flag
+                    	**type**\:  int
+                    
+                    	**range:** \-2147483648..2147483647
+                    
+                    .. attribute:: sbfd_target_type
+                    
+                    	SBFD target type
+                    	**type**\:  int
+                    
+                    	**range:** 0..4294967295
+                    
                     .. attribute:: session_key_type
                     
                     	Session Key Type
                     	**type**\:  int
                     
                     	**range:** 0..4294967295
+                    
+                    .. attribute:: target_address
+                    
+                    	sbfd target address
+                    	**type**\:  :py:class:`TargetAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv6SingleHopSessionDetails.Ipv6SingleHopSessionDetail.AssociationInformation.SessionKey.TargetAddress>`
                     
                     .. attribute:: vrf_name
                     
@@ -24171,7 +24747,11 @@ class Bfd(object):
                         self.ip_destination_address.parent = self
                         self.ip_source_address = Bfd.Ipv6SingleHopSessionDetails.Ipv6SingleHopSessionDetail.AssociationInformation.SessionKey.IpSourceAddress()
                         self.ip_source_address.parent = self
+                        self.sbfd_enabled = None
+                        self.sbfd_target_type = None
                         self.session_key_type = None
+                        self.target_address = Bfd.Ipv6SingleHopSessionDetails.Ipv6SingleHopSessionDetail.AssociationInformation.SessionKey.TargetAddress()
+                        self.target_address.parent = self
                         self.vrf_name = None
 
 
@@ -24574,6 +25154,82 @@ class Bfd(object):
                             from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_bfd_oper as meta
                             return meta._meta_table['Bfd.Ipv6SingleHopSessionDetails.Ipv6SingleHopSessionDetail.AssociationInformation.SessionKey.Bfdfec']['meta_info']
 
+
+                    class TargetAddress(object):
+                        """
+                        sbfd target address
+                        
+                        .. attribute:: afi
+                        
+                        	AFI
+                        	**type**\:  :py:class:`BfdAfIdEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.BfdAfIdEnum>`
+                        
+                        .. attribute:: dummy
+                        
+                        	No Address
+                        	**type**\:  int
+                        
+                        	**range:** 0..255
+                        
+                        .. attribute:: ipv4
+                        
+                        	IPv4 address type
+                        	**type**\:  str
+                        
+                        	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                        
+                        .. attribute:: ipv6
+                        
+                        	IPv6 address type
+                        	**type**\:  str
+                        
+                        	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                        
+                        
+
+                        """
+
+                        _prefix = 'ip-bfd-oper'
+                        _revision = '2015-11-09'
+
+                        def __init__(self):
+                            self.parent = None
+                            self.afi = None
+                            self.dummy = None
+                            self.ipv4 = None
+                            self.ipv6 = None
+
+                        @property
+                        def _common_path(self):
+
+                            return '/Cisco-IOS-XR-ip-bfd-oper:bfd/Cisco-IOS-XR-ip-bfd-oper:ipv6-single-hop-session-details/Cisco-IOS-XR-ip-bfd-oper:ipv6-single-hop-session-detail/Cisco-IOS-XR-ip-bfd-oper:association-information/Cisco-IOS-XR-ip-bfd-oper:session-key/Cisco-IOS-XR-ip-bfd-oper:target-address'
+
+                        def is_config(self):
+                            ''' Returns True if this instance represents config data else returns False '''
+                            return False
+
+                        def _has_data(self):
+                            if not self.is_config():
+                                return False
+                            if self.afi is not None:
+                                return True
+
+                            if self.dummy is not None:
+                                return True
+
+                            if self.ipv4 is not None:
+                                return True
+
+                            if self.ipv6 is not None:
+                                return True
+
+                            return False
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_bfd_oper as meta
+                            return meta._meta_table['Bfd.Ipv6SingleHopSessionDetails.Ipv6SingleHopSessionDetail.AssociationInformation.SessionKey.TargetAddress']['meta_info']
+
                     @property
                     def _common_path(self):
 
@@ -24601,7 +25257,16 @@ class Bfd(object):
                         if self.ip_source_address is not None and self.ip_source_address._has_data():
                             return True
 
+                        if self.sbfd_enabled is not None:
+                            return True
+
+                        if self.sbfd_target_type is not None:
+                            return True
+
                         if self.session_key_type is not None:
+                            return True
+
+                        if self.target_address is not None and self.target_address._has_data():
                             return True
 
                         if self.vrf_name is not None:
@@ -25096,7 +25761,7 @@ class Bfd(object):
             	Interface Name
             	**type**\:  str
             
-            	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+            	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
             
             .. attribute:: location
             
@@ -26592,7 +27257,7 @@ class Bfd(object):
                     	seconds
                     	**type**\:  int
                     
-                    	**range:** 0..4294967295
+                    	**range:** 0..18446744073709551615
                     
                     
 
@@ -26775,7 +27440,7 @@ class Bfd(object):
                     	seconds
                     	**type**\:  int
                     
-                    	**range:** 0..4294967295
+                    	**range:** 0..18446744073709551615
                     
                     
 
@@ -26831,7 +27496,7 @@ class Bfd(object):
                     	seconds
                     	**type**\:  int
                     
-                    	**range:** 0..4294967295
+                    	**range:** 0..18446744073709551615
                     
                     
 
@@ -26887,7 +27552,7 @@ class Bfd(object):
                     	seconds
                     	**type**\:  int
                     
-                    	**range:** 0..4294967295
+                    	**range:** 0..18446744073709551615
                     
                     
 
@@ -27148,12 +27813,31 @@ class Bfd(object):
                     	IPv4/v6 source address
                     	**type**\:  :py:class:`IpSourceAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.SessionDetails.SessionDetail.AssociationInformation.SessionKey.IpSourceAddress>`
                     
+                    .. attribute:: sbfd_enabled
+                    
+                    	SBFD enable flag
+                    	**type**\:  int
+                    
+                    	**range:** \-2147483648..2147483647
+                    
+                    .. attribute:: sbfd_target_type
+                    
+                    	SBFD target type
+                    	**type**\:  int
+                    
+                    	**range:** 0..4294967295
+                    
                     .. attribute:: session_key_type
                     
                     	Session Key Type
                     	**type**\:  int
                     
                     	**range:** 0..4294967295
+                    
+                    .. attribute:: target_address
+                    
+                    	sbfd target address
+                    	**type**\:  :py:class:`TargetAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.SessionDetails.SessionDetail.AssociationInformation.SessionKey.TargetAddress>`
                     
                     .. attribute:: vrf_name
                     
@@ -27179,7 +27863,11 @@ class Bfd(object):
                         self.ip_destination_address.parent = self
                         self.ip_source_address = Bfd.SessionDetails.SessionDetail.AssociationInformation.SessionKey.IpSourceAddress()
                         self.ip_source_address.parent = self
+                        self.sbfd_enabled = None
+                        self.sbfd_target_type = None
                         self.session_key_type = None
+                        self.target_address = Bfd.SessionDetails.SessionDetail.AssociationInformation.SessionKey.TargetAddress()
+                        self.target_address.parent = self
                         self.vrf_name = None
 
 
@@ -27582,6 +28270,82 @@ class Bfd(object):
                             from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_bfd_oper as meta
                             return meta._meta_table['Bfd.SessionDetails.SessionDetail.AssociationInformation.SessionKey.Bfdfec']['meta_info']
 
+
+                    class TargetAddress(object):
+                        """
+                        sbfd target address
+                        
+                        .. attribute:: afi
+                        
+                        	AFI
+                        	**type**\:  :py:class:`BfdAfIdEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.BfdAfIdEnum>`
+                        
+                        .. attribute:: dummy
+                        
+                        	No Address
+                        	**type**\:  int
+                        
+                        	**range:** 0..255
+                        
+                        .. attribute:: ipv4
+                        
+                        	IPv4 address type
+                        	**type**\:  str
+                        
+                        	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                        
+                        .. attribute:: ipv6
+                        
+                        	IPv6 address type
+                        	**type**\:  str
+                        
+                        	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                        
+                        
+
+                        """
+
+                        _prefix = 'ip-bfd-oper'
+                        _revision = '2015-11-09'
+
+                        def __init__(self):
+                            self.parent = None
+                            self.afi = None
+                            self.dummy = None
+                            self.ipv4 = None
+                            self.ipv6 = None
+
+                        @property
+                        def _common_path(self):
+
+                            return '/Cisco-IOS-XR-ip-bfd-oper:bfd/Cisco-IOS-XR-ip-bfd-oper:session-details/Cisco-IOS-XR-ip-bfd-oper:session-detail/Cisco-IOS-XR-ip-bfd-oper:association-information/Cisco-IOS-XR-ip-bfd-oper:session-key/Cisco-IOS-XR-ip-bfd-oper:target-address'
+
+                        def is_config(self):
+                            ''' Returns True if this instance represents config data else returns False '''
+                            return False
+
+                        def _has_data(self):
+                            if not self.is_config():
+                                return False
+                            if self.afi is not None:
+                                return True
+
+                            if self.dummy is not None:
+                                return True
+
+                            if self.ipv4 is not None:
+                                return True
+
+                            if self.ipv6 is not None:
+                                return True
+
+                            return False
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_bfd_oper as meta
+                            return meta._meta_table['Bfd.SessionDetails.SessionDetail.AssociationInformation.SessionKey.TargetAddress']['meta_info']
+
                     @property
                     def _common_path(self):
 
@@ -27609,7 +28373,16 @@ class Bfd(object):
                         if self.ip_source_address is not None and self.ip_source_address._has_data():
                             return True
 
+                        if self.sbfd_enabled is not None:
+                            return True
+
+                        if self.sbfd_target_type is not None:
+                            return True
+
                         if self.session_key_type is not None:
+                            return True
+
+                        if self.target_address is not None and self.target_address._has_data():
                             return True
 
                         if self.vrf_name is not None:
@@ -27862,7 +28635,7 @@ class Bfd(object):
             	Interface Name
             	**type**\:  str
             
-            	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+            	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
             
             .. attribute:: local_discriminator
             
@@ -27890,7 +28663,7 @@ class Bfd(object):
             	Interface name
             	**type**\:  str
             
-            	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+            	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
             
             .. attribute:: session_subtype
             
@@ -28033,7 +28806,7 @@ class Bfd(object):
             	Interface Name
             	**type**\:  str
             
-            	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+            	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
             
             .. attribute:: location
             
@@ -28366,6 +29139,248 @@ class Bfd(object):
             return meta._meta_table['Bfd.Ipv4SingleHopSessionBriefs']['meta_info']
 
 
+    class Ipv6MultiHopCounters(object):
+        """
+        IPv6 multiple hop Counters
+        
+        .. attribute:: ipv6_multi_hop_packet_counters
+        
+        	Table of IPv6 multiple hop Packet counters
+        	**type**\:  :py:class:`Ipv6MultiHopPacketCounters <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv6MultiHopCounters.Ipv6MultiHopPacketCounters>`
+        
+        
+
+        """
+
+        _prefix = 'ip-bfd-oper'
+        _revision = '2015-11-09'
+
+        def __init__(self):
+            self.parent = None
+            self.ipv6_multi_hop_packet_counters = Bfd.Ipv6MultiHopCounters.Ipv6MultiHopPacketCounters()
+            self.ipv6_multi_hop_packet_counters.parent = self
+
+
+        class Ipv6MultiHopPacketCounters(object):
+            """
+            Table of IPv6 multiple hop Packet counters
+            
+            .. attribute:: ipv6_multi_hop_packet_counter
+            
+            	IPv4 multiple hop Packet counters
+            	**type**\: list of  :py:class:`Ipv6MultiHopPacketCounter <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv6MultiHopCounters.Ipv6MultiHopPacketCounters.Ipv6MultiHopPacketCounter>`
+            
+            
+
+            """
+
+            _prefix = 'ip-bfd-oper'
+            _revision = '2015-11-09'
+
+            def __init__(self):
+                self.parent = None
+                self.ipv6_multi_hop_packet_counter = YList()
+                self.ipv6_multi_hop_packet_counter.parent = self
+                self.ipv6_multi_hop_packet_counter.name = 'ipv6_multi_hop_packet_counter'
+
+
+            class Ipv6MultiHopPacketCounter(object):
+                """
+                IPv4 multiple hop Packet counters
+                
+                .. attribute:: destination_address
+                
+                	Destination Address
+                	**type**\: one of the below types:
+                
+                	**type**\:  str
+                
+                	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                
+                
+                ----
+                	**type**\:  str
+                
+                	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                
+                
+                ----
+                .. attribute:: display_type
+                
+                	Packet Display Type
+                	**type**\:  :py:class:`BfdMgmtPktDisplayEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.BfdMgmtPktDisplayEnum>`
+                
+                .. attribute:: echo_receive_count
+                
+                	Number of echo packets received
+                	**type**\:  int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: echo_transmit_count
+                
+                	Number of echo packets transmitted
+                	**type**\:  int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: hello_receive_count
+                
+                	Number of Hellos received
+                	**type**\:  int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: hello_transmit_count
+                
+                	Number of Hellos transmitted
+                	**type**\:  int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: location
+                
+                	Location
+                	**type**\:  str
+                
+                	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
+                
+                .. attribute:: source_address
+                
+                	Source Address
+                	**type**\: one of the below types:
+                
+                	**type**\:  str
+                
+                	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                
+                
+                ----
+                	**type**\:  str
+                
+                	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                
+                
+                ----
+                .. attribute:: vrf_name
+                
+                	VRF name
+                	**type**\:  str
+                
+                	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
+                
+                
+
+                """
+
+                _prefix = 'ip-bfd-oper'
+                _revision = '2015-11-09'
+
+                def __init__(self):
+                    self.parent = None
+                    self.destination_address = None
+                    self.display_type = None
+                    self.echo_receive_count = None
+                    self.echo_transmit_count = None
+                    self.hello_receive_count = None
+                    self.hello_transmit_count = None
+                    self.location = None
+                    self.source_address = None
+                    self.vrf_name = None
+
+                @property
+                def _common_path(self):
+
+                    return '/Cisco-IOS-XR-ip-bfd-oper:bfd/Cisco-IOS-XR-ip-bfd-oper:ipv6-multi-hop-counters/Cisco-IOS-XR-ip-bfd-oper:ipv6-multi-hop-packet-counters/Cisco-IOS-XR-ip-bfd-oper:ipv6-multi-hop-packet-counter'
+
+                def is_config(self):
+                    ''' Returns True if this instance represents config data else returns False '''
+                    return False
+
+                def _has_data(self):
+                    if not self.is_config():
+                        return False
+                    if self.destination_address is not None:
+                        return True
+
+                    if self.display_type is not None:
+                        return True
+
+                    if self.echo_receive_count is not None:
+                        return True
+
+                    if self.echo_transmit_count is not None:
+                        return True
+
+                    if self.hello_receive_count is not None:
+                        return True
+
+                    if self.hello_transmit_count is not None:
+                        return True
+
+                    if self.location is not None:
+                        return True
+
+                    if self.source_address is not None:
+                        return True
+
+                    if self.vrf_name is not None:
+                        return True
+
+                    return False
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_bfd_oper as meta
+                    return meta._meta_table['Bfd.Ipv6MultiHopCounters.Ipv6MultiHopPacketCounters.Ipv6MultiHopPacketCounter']['meta_info']
+
+            @property
+            def _common_path(self):
+
+                return '/Cisco-IOS-XR-ip-bfd-oper:bfd/Cisco-IOS-XR-ip-bfd-oper:ipv6-multi-hop-counters/Cisco-IOS-XR-ip-bfd-oper:ipv6-multi-hop-packet-counters'
+
+            def is_config(self):
+                ''' Returns True if this instance represents config data else returns False '''
+                return False
+
+            def _has_data(self):
+                if not self.is_config():
+                    return False
+                if self.ipv6_multi_hop_packet_counter is not None:
+                    for child_ref in self.ipv6_multi_hop_packet_counter:
+                        if child_ref._has_data():
+                            return True
+
+                return False
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_bfd_oper as meta
+                return meta._meta_table['Bfd.Ipv6MultiHopCounters.Ipv6MultiHopPacketCounters']['meta_info']
+
+        @property
+        def _common_path(self):
+
+            return '/Cisco-IOS-XR-ip-bfd-oper:bfd/Cisco-IOS-XR-ip-bfd-oper:ipv6-multi-hop-counters'
+
+        def is_config(self):
+            ''' Returns True if this instance represents config data else returns False '''
+            return False
+
+        def _has_data(self):
+            if not self.is_config():
+                return False
+            if self.ipv6_multi_hop_packet_counters is not None and self.ipv6_multi_hop_packet_counters._has_data():
+                return True
+
+            return False
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_bfd_oper as meta
+            return meta._meta_table['Bfd.Ipv6MultiHopCounters']['meta_info']
+
+
     class Ipv6SingleHopLocationSummaries(object):
         """
         Table of summary information about BFD IPv6
@@ -28661,7 +29676,7 @@ class Bfd(object):
                 	Interface Name
                 	**type**\:  str
                 
-                	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+                	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
                 
                 .. attribute:: location
                 
@@ -28890,7 +29905,7 @@ class Bfd(object):
             	Interface Name
             	**type**\:  str
             
-            	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+            	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
             
             .. attribute:: location
             
@@ -30404,7 +31419,7 @@ class Bfd(object):
                     	seconds
                     	**type**\:  int
                     
-                    	**range:** 0..4294967295
+                    	**range:** 0..18446744073709551615
                     
                     
 
@@ -30587,7 +31602,7 @@ class Bfd(object):
                     	seconds
                     	**type**\:  int
                     
-                    	**range:** 0..4294967295
+                    	**range:** 0..18446744073709551615
                     
                     
 
@@ -30643,7 +31658,7 @@ class Bfd(object):
                     	seconds
                     	**type**\:  int
                     
-                    	**range:** 0..4294967295
+                    	**range:** 0..18446744073709551615
                     
                     
 
@@ -30699,7 +31714,7 @@ class Bfd(object):
                     	seconds
                     	**type**\:  int
                     
-                    	**range:** 0..4294967295
+                    	**range:** 0..18446744073709551615
                     
                     
 
@@ -30960,12 +31975,31 @@ class Bfd(object):
                     	IPv4/v6 source address
                     	**type**\:  :py:class:`IpSourceAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4BfDoMplsteHeadSessionDetails.Ipv4BfDoMplsteHeadSessionDetail.AssociationInformation.SessionKey.IpSourceAddress>`
                     
+                    .. attribute:: sbfd_enabled
+                    
+                    	SBFD enable flag
+                    	**type**\:  int
+                    
+                    	**range:** \-2147483648..2147483647
+                    
+                    .. attribute:: sbfd_target_type
+                    
+                    	SBFD target type
+                    	**type**\:  int
+                    
+                    	**range:** 0..4294967295
+                    
                     .. attribute:: session_key_type
                     
                     	Session Key Type
                     	**type**\:  int
                     
                     	**range:** 0..4294967295
+                    
+                    .. attribute:: target_address
+                    
+                    	sbfd target address
+                    	**type**\:  :py:class:`TargetAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4BfDoMplsteHeadSessionDetails.Ipv4BfDoMplsteHeadSessionDetail.AssociationInformation.SessionKey.TargetAddress>`
                     
                     .. attribute:: vrf_name
                     
@@ -30991,7 +32025,11 @@ class Bfd(object):
                         self.ip_destination_address.parent = self
                         self.ip_source_address = Bfd.Ipv4BfDoMplsteHeadSessionDetails.Ipv4BfDoMplsteHeadSessionDetail.AssociationInformation.SessionKey.IpSourceAddress()
                         self.ip_source_address.parent = self
+                        self.sbfd_enabled = None
+                        self.sbfd_target_type = None
                         self.session_key_type = None
+                        self.target_address = Bfd.Ipv4BfDoMplsteHeadSessionDetails.Ipv4BfDoMplsteHeadSessionDetail.AssociationInformation.SessionKey.TargetAddress()
+                        self.target_address.parent = self
                         self.vrf_name = None
 
 
@@ -31394,6 +32432,82 @@ class Bfd(object):
                             from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_bfd_oper as meta
                             return meta._meta_table['Bfd.Ipv4BfDoMplsteHeadSessionDetails.Ipv4BfDoMplsteHeadSessionDetail.AssociationInformation.SessionKey.Bfdfec']['meta_info']
 
+
+                    class TargetAddress(object):
+                        """
+                        sbfd target address
+                        
+                        .. attribute:: afi
+                        
+                        	AFI
+                        	**type**\:  :py:class:`BfdAfIdEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.BfdAfIdEnum>`
+                        
+                        .. attribute:: dummy
+                        
+                        	No Address
+                        	**type**\:  int
+                        
+                        	**range:** 0..255
+                        
+                        .. attribute:: ipv4
+                        
+                        	IPv4 address type
+                        	**type**\:  str
+                        
+                        	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                        
+                        .. attribute:: ipv6
+                        
+                        	IPv6 address type
+                        	**type**\:  str
+                        
+                        	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                        
+                        
+
+                        """
+
+                        _prefix = 'ip-bfd-oper'
+                        _revision = '2015-11-09'
+
+                        def __init__(self):
+                            self.parent = None
+                            self.afi = None
+                            self.dummy = None
+                            self.ipv4 = None
+                            self.ipv6 = None
+
+                        @property
+                        def _common_path(self):
+
+                            return '/Cisco-IOS-XR-ip-bfd-oper:bfd/Cisco-IOS-XR-ip-bfd-oper:ipv4bf-do-mplste-head-session-details/Cisco-IOS-XR-ip-bfd-oper:ipv4bf-do-mplste-head-session-detail/Cisco-IOS-XR-ip-bfd-oper:association-information/Cisco-IOS-XR-ip-bfd-oper:session-key/Cisco-IOS-XR-ip-bfd-oper:target-address'
+
+                        def is_config(self):
+                            ''' Returns True if this instance represents config data else returns False '''
+                            return False
+
+                        def _has_data(self):
+                            if not self.is_config():
+                                return False
+                            if self.afi is not None:
+                                return True
+
+                            if self.dummy is not None:
+                                return True
+
+                            if self.ipv4 is not None:
+                                return True
+
+                            if self.ipv6 is not None:
+                                return True
+
+                            return False
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_bfd_oper as meta
+                            return meta._meta_table['Bfd.Ipv4BfDoMplsteHeadSessionDetails.Ipv4BfDoMplsteHeadSessionDetail.AssociationInformation.SessionKey.TargetAddress']['meta_info']
+
                     @property
                     def _common_path(self):
 
@@ -31421,7 +32535,16 @@ class Bfd(object):
                         if self.ip_source_address is not None and self.ip_source_address._has_data():
                             return True
 
+                        if self.sbfd_enabled is not None:
+                            return True
+
+                        if self.sbfd_target_type is not None:
+                            return True
+
                         if self.session_key_type is not None:
+                            return True
+
+                        if self.target_address is not None and self.target_address._has_data():
                             return True
 
                         if self.vrf_name is not None:
@@ -31712,7 +32835,7 @@ class Bfd(object):
             	Interface Name
             	**type**\:  str
             
-            	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+            	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
             
             .. attribute:: link_information
             
@@ -32095,7 +33218,7 @@ class Bfd(object):
             	Interface Name
             	**type**\:  str
             
-            	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+            	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
             
             .. attribute:: local_discriminator
             
@@ -32123,7 +33246,7 @@ class Bfd(object):
             	Interface name
             	**type**\:  str
             
-            	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+            	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
             
             .. attribute:: session_subtype
             
@@ -32332,7 +33455,7 @@ class Bfd(object):
             	Interface Name
             	**type**\:  str
             
-            	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+            	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
             
             .. attribute:: link_information
             
@@ -32514,12 +33637,31 @@ class Bfd(object):
                     	IPv4/v6 source address
                     	**type**\:  :py:class:`IpSourceAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.RelationDetails.RelationDetail.AssociationInformation.SessionKey.IpSourceAddress>`
                     
+                    .. attribute:: sbfd_enabled
+                    
+                    	SBFD enable flag
+                    	**type**\:  int
+                    
+                    	**range:** \-2147483648..2147483647
+                    
+                    .. attribute:: sbfd_target_type
+                    
+                    	SBFD target type
+                    	**type**\:  int
+                    
+                    	**range:** 0..4294967295
+                    
                     .. attribute:: session_key_type
                     
                     	Session Key Type
                     	**type**\:  int
                     
                     	**range:** 0..4294967295
+                    
+                    .. attribute:: target_address
+                    
+                    	sbfd target address
+                    	**type**\:  :py:class:`TargetAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.RelationDetails.RelationDetail.AssociationInformation.SessionKey.TargetAddress>`
                     
                     .. attribute:: vrf_name
                     
@@ -32545,7 +33687,11 @@ class Bfd(object):
                         self.ip_destination_address.parent = self
                         self.ip_source_address = Bfd.RelationDetails.RelationDetail.AssociationInformation.SessionKey.IpSourceAddress()
                         self.ip_source_address.parent = self
+                        self.sbfd_enabled = None
+                        self.sbfd_target_type = None
                         self.session_key_type = None
+                        self.target_address = Bfd.RelationDetails.RelationDetail.AssociationInformation.SessionKey.TargetAddress()
+                        self.target_address.parent = self
                         self.vrf_name = None
 
 
@@ -32948,6 +34094,82 @@ class Bfd(object):
                             from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_bfd_oper as meta
                             return meta._meta_table['Bfd.RelationDetails.RelationDetail.AssociationInformation.SessionKey.Bfdfec']['meta_info']
 
+
+                    class TargetAddress(object):
+                        """
+                        sbfd target address
+                        
+                        .. attribute:: afi
+                        
+                        	AFI
+                        	**type**\:  :py:class:`BfdAfIdEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.BfdAfIdEnum>`
+                        
+                        .. attribute:: dummy
+                        
+                        	No Address
+                        	**type**\:  int
+                        
+                        	**range:** 0..255
+                        
+                        .. attribute:: ipv4
+                        
+                        	IPv4 address type
+                        	**type**\:  str
+                        
+                        	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                        
+                        .. attribute:: ipv6
+                        
+                        	IPv6 address type
+                        	**type**\:  str
+                        
+                        	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                        
+                        
+
+                        """
+
+                        _prefix = 'ip-bfd-oper'
+                        _revision = '2015-11-09'
+
+                        def __init__(self):
+                            self.parent = None
+                            self.afi = None
+                            self.dummy = None
+                            self.ipv4 = None
+                            self.ipv6 = None
+
+                        @property
+                        def _common_path(self):
+
+                            return '/Cisco-IOS-XR-ip-bfd-oper:bfd/Cisco-IOS-XR-ip-bfd-oper:relation-details/Cisco-IOS-XR-ip-bfd-oper:relation-detail/Cisco-IOS-XR-ip-bfd-oper:association-information/Cisco-IOS-XR-ip-bfd-oper:session-key/Cisco-IOS-XR-ip-bfd-oper:target-address'
+
+                        def is_config(self):
+                            ''' Returns True if this instance represents config data else returns False '''
+                            return False
+
+                        def _has_data(self):
+                            if not self.is_config():
+                                return False
+                            if self.afi is not None:
+                                return True
+
+                            if self.dummy is not None:
+                                return True
+
+                            if self.ipv4 is not None:
+                                return True
+
+                            if self.ipv6 is not None:
+                                return True
+
+                            return False
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_bfd_oper as meta
+                            return meta._meta_table['Bfd.RelationDetails.RelationDetail.AssociationInformation.SessionKey.TargetAddress']['meta_info']
+
                     @property
                     def _common_path(self):
 
@@ -32975,7 +34197,16 @@ class Bfd(object):
                         if self.ip_source_address is not None and self.ip_source_address._has_data():
                             return True
 
+                        if self.sbfd_enabled is not None:
+                            return True
+
+                        if self.sbfd_target_type is not None:
+                            return True
+
                         if self.session_key_type is not None:
+                            return True
+
+                        if self.target_address is not None and self.target_address._has_data():
                             return True
 
                         if self.vrf_name is not None:
@@ -33549,7 +34780,7 @@ class Bfd(object):
             	Interface Name
             	**type**\:  str
             
-            	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+            	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
             
             .. attribute:: location
             
@@ -34019,7 +35250,7 @@ class Bfd(object):
             	Interface name
             	**type**\:  str
             
-            	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+            	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
             
             .. attribute:: session_subtype
             
@@ -34245,7 +35476,7 @@ class Bfd(object):
             	Interface name
             	**type**\:  str
             
-            	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+            	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
             
             .. attribute:: session_subtype
             
@@ -34594,6 +35825,9 @@ class Bfd(object):
             return True
 
         if self.ipv4bfd_mplste_tail_node_summaries is not None and self.ipv4bfd_mplste_tail_node_summaries._has_data():
+            return True
+
+        if self.ipv6_multi_hop_counters is not None and self.ipv6_multi_hop_counters._has_data():
             return True
 
         if self.ipv6_multi_hop_multi_paths is not None and self.ipv6_multi_hop_multi_paths._has_data():

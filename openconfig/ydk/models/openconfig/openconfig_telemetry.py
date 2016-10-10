@@ -1122,7 +1122,7 @@ class TelemetrySystem(object):
                 .. attribute:: subscription_id  <key>
                 
                 	Reference to the identifier of the subscription itself. The id will be the handle to refer to the subscription once created
-                	**type**\:  long
+                	**type**\:  int
                 
                 	**range:** 0..18446744073709551615
                 
@@ -1200,7 +1200,7 @@ class TelemetrySystem(object):
                     .. attribute:: subscription_id
                     
                     	Identifer of the telemetry subscription. Will be used by configuration operations needing to modify or delete the telemetry subscription
-                    	**type**\:  long
+                    	**type**\:  int
                     
                     	**range:** 0..18446744073709551615
                     
@@ -1280,7 +1280,7 @@ class TelemetrySystem(object):
                     .. attribute:: subscription_id
                     
                     	Identifer of the telemetry subscription. Will be used by configuration operations needing to modify or delete the telemetry subscription
-                    	**type**\:  long
+                    	**type**\:  int
                     
                     	**range:** 0..18446744073709551615
                     
@@ -1401,14 +1401,14 @@ class TelemetrySystem(object):
                             .. attribute:: heartbeat_interval
                             
                             	Maximum time interval in seconds that may pass between updates from a device to a telemetry collector. If this interval expires, but there is no updated data to send (such as if suppress\_updates has been configured), the device must send a telemetry message to the collector
-                            	**type**\:  long
+                            	**type**\:  int
                             
                             	**range:** 0..18446744073709551615
                             
                             .. attribute:: sample_interval
                             
                             	Time in milliseconds between the device's sample of a telemetry data source. For example, setting this to 100 would require the local device to collect the telemetry data every 100 milliseconds. There can be latency or jitter in transmitting the data, but the sample must occur at the specified interval.  The timestamp must reflect the actual time when the data was sampled, not simply the previous sample timestamp + sample\-interval.  If sample\-interval is set to 0, the telemetry sensor becomes event based. The sensor must then emit data upon every change of the underlying data source
-                            	**type**\:  long
+                            	**type**\:  int
                             
                             	**range:** 0..18446744073709551615
                             
@@ -1480,14 +1480,14 @@ class TelemetrySystem(object):
                             .. attribute:: heartbeat_interval
                             
                             	Maximum time interval in seconds that may pass between updates from a device to a telemetry collector. If this interval expires, but there is no updated data to send (such as if suppress\_updates has been configured), the device must send a telemetry message to the collector
-                            	**type**\:  long
+                            	**type**\:  int
                             
                             	**range:** 0..18446744073709551615
                             
                             .. attribute:: sample_interval
                             
                             	Time in milliseconds between the device's sample of a telemetry data source. For example, setting this to 100 would require the local device to collect the telemetry data every 100 milliseconds. There can be latency or jitter in transmitting the data, but the sample must occur at the specified interval.  The timestamp must reflect the actual time when the data was sampled, not simply the previous sample timestamp + sample\-interval.  If sample\-interval is set to 0, the telemetry sensor becomes event based. The sensor must then emit data upon every change of the underlying data source
-                            	**type**\:  long
+                            	**type**\:  int
                             
                             	**range:** 0..18446744073709551615
                             
@@ -1937,7 +1937,7 @@ class TelemetrySystem(object):
                 .. attribute:: subscription_id  <key>
                 
                 	Reference to the identifier of the subscription itself. The id will be the handle to refer to the subscription once created
-                	**type**\:  long
+                	**type**\:  int
                 
                 	**range:** 0..18446744073709551615
                 
@@ -2006,7 +2006,7 @@ class TelemetrySystem(object):
                     .. attribute:: heartbeat_interval
                     
                     	Maximum time interval in seconds that may pass between updates from a device to a telemetry collector. If this interval expires, but there is no updated data to send (such as if suppress\_updates has been configured), the device must send a telemetry message to the collector
-                    	**type**\:  long
+                    	**type**\:  int
                     
                     	**range:** 0..18446744073709551615
                     
@@ -2020,14 +2020,14 @@ class TelemetrySystem(object):
                     .. attribute:: sample_interval
                     
                     	Time in milliseconds between the device's sample of a telemetry data source. For example, setting this to 100 would require the local device to collect the telemetry data every 100 milliseconds. There can be latency or jitter in transmitting the data, but the sample must occur at the specified interval.  The timestamp must reflect the actual time when the data was sampled, not simply the previous sample timestamp + sample\-interval.  If sample\-interval is set to 0, the telemetry sensor becomes event based. The sensor must then emit data upon every change of the underlying data source
-                    	**type**\:  long
+                    	**type**\:  int
                     
                     	**range:** 0..18446744073709551615
                     
                     .. attribute:: subscription_id
                     
                     	Identifer of the telemetry subscription. Will be used by configuration operations needing to modify or delete the telemetry subscription
-                    	**type**\:  long
+                    	**type**\:  int
                     
                     	**range:** 0..18446744073709551615
                     

@@ -79,7 +79,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('member-interface', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Member Interface
                 ''',
                 'member_interface',
@@ -151,7 +151,7 @@ _meta_table = {
                 'local_mode_valid',
                 'Cisco-IOS-XR-ethernet-link-oam-oper', False),
             _MetaInfoClassMember('local-mtu', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Local MTU
                 ''',
                 'local_mtu',
@@ -163,7 +163,7 @@ _meta_table = {
                 'local_mtu_valid',
                 'Cisco-IOS-XR-ethernet-link-oam-oper', False),
             _MetaInfoClassMember('local-mwd-key', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Local Mis-wiring Detection key
                 ''',
                 'local_mwd_key',
@@ -181,7 +181,7 @@ _meta_table = {
                 'local_operational',
                 'Cisco-IOS-XR-ethernet-link-oam-oper', False),
             _MetaInfoClassMember('local-revision', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Local revision
                 ''',
                 'local_revision',
@@ -234,6 +234,21 @@ _meta_table = {
                 ''',
                 'operational_status_valid',
                 'Cisco-IOS-XR-ethernet-link-oam-oper', False),
+            _MetaInfoClassMember('received-at-risk-notification-time-remaining', ATTRIBUTE, 'int' , None, None, 
+                [('0', '65535')], [], 
+                '''                Number of seconds remaining that the peer has
+                indicated it will be At Risk
+                ''',
+                'received_at_risk_notification_time_remaining',
+                'Cisco-IOS-XR-ethernet-link-oam-oper', False),
+            _MetaInfoClassMember('received-at-risk-notification-timestamp', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                Timestamp of when the last At Risk notification
+                was received (in seconds since the UNIX epoch),
+                or 0 if the peer is not currently at risk
+                ''',
+                'received_at_risk_notification_timestamp',
+                'Cisco-IOS-XR-ethernet-link-oam-oper', False),
             _MetaInfoClassMember('remote-event', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
                 '''                Remote event support
@@ -283,7 +298,7 @@ _meta_table = {
                 'remote_mode_valid',
                 'Cisco-IOS-XR-ethernet-link-oam-oper', False),
             _MetaInfoClassMember('remote-mtu', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Remote MTU
                 ''',
                 'remote_mtu',
@@ -295,7 +310,7 @@ _meta_table = {
                 'remote_mtu_valid',
                 'Cisco-IOS-XR-ethernet-link-oam-oper', False),
             _MetaInfoClassMember('remote-mwd-key', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Remote Mis-wiring Detection key
                 ''',
                 'remote_mwd_key',
@@ -307,7 +322,7 @@ _meta_table = {
                 'remote_mwd_key_valid',
                 'Cisco-IOS-XR-ethernet-link-oam-oper', False),
             _MetaInfoClassMember('remote-revision', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                Remote revision
                 ''',
                 'remote_revision',
@@ -343,7 +358,7 @@ _meta_table = {
                 'remote_variable_valid',
                 'Cisco-IOS-XR-ethernet-link-oam-oper', False),
             _MetaInfoClassMember('remote-vendor-info', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Remote vendor info
                 ''',
                 'remote_vendor_info',
@@ -396,7 +411,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('caps-add-error-code', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                The caps add error/success code
                 ''',
                 'caps_add_error_code',
@@ -408,7 +423,7 @@ _meta_table = {
                 'caps_add_reason',
                 'Cisco-IOS-XR-ethernet-link-oam-oper', False),
             _MetaInfoClassMember('epi-error-code', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                The Packet error/success code
                 ''',
                 'epi_error_code',
@@ -420,7 +435,7 @@ _meta_table = {
                 'epi_reason',
                 'Cisco-IOS-XR-ethernet-link-oam-oper', False),
             _MetaInfoClassMember('pfi-error-code', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                The Interface Management error/success code
                 ''',
                 'pfi_error_code',
@@ -433,7 +448,7 @@ _meta_table = {
                 'pfi_reason',
                 'Cisco-IOS-XR-ethernet-link-oam-oper', False),
             _MetaInfoClassMember('platform-error-code', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                The platform error/success code
                 ''',
                 'platform_error_code',
@@ -445,7 +460,7 @@ _meta_table = {
                 'platform_reason',
                 'Cisco-IOS-XR-ethernet-link-oam-oper', False),
             _MetaInfoClassMember('spio-error-code', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                The Packet I/O error/success code
                 ''',
                 'spio_error_code',
@@ -509,7 +524,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('member-interface', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Member Interface
                 ''',
                 'member_interface',
@@ -527,7 +542,7 @@ _meta_table = {
                 'errors',
                 'Cisco-IOS-XR-ethernet-link-oam-oper', False),
             _MetaInfoClassMember('local-mwd-key', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                The local MWD key
                 ''',
                 'local_mwd_key',
@@ -539,7 +554,7 @@ _meta_table = {
                 'protocol_code',
                 'Cisco-IOS-XR-ethernet-link-oam-oper', False),
             _MetaInfoClassMember('remote-mwd-key', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                The remote MWD key
                 ''',
                 'remote_mwd_key',
@@ -586,7 +601,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('member-interface', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Member Interface
                 ''',
                 'member_interface',
@@ -606,7 +621,7 @@ _meta_table = {
                 'capabilities_conflict_action_overridden',
                 'Cisco-IOS-XR-ethernet-link-oam-oper', False),
             _MetaInfoClassMember('connection-timeout', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                Connection timeout
                 ''',
                 'connection_timeout',
@@ -672,7 +687,7 @@ _meta_table = {
                 'fast_hello_interval_enabled_overridden',
                 'Cisco-IOS-XR-ethernet-link-oam-oper', False),
             _MetaInfoClassMember('frame-period-threshold-high', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Frame period event high threshold
                 ''',
                 'frame_period_threshold_high',
@@ -685,7 +700,7 @@ _meta_table = {
                 'frame_period_threshold_high_overridden',
                 'Cisco-IOS-XR-ethernet-link-oam-oper', False),
             _MetaInfoClassMember('frame-period-threshold-low', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Frame period event low threshold
                 ''',
                 'frame_period_threshold_low',
@@ -698,7 +713,7 @@ _meta_table = {
                 'frame_period_threshold_low_overridden',
                 'Cisco-IOS-XR-ethernet-link-oam-oper', False),
             _MetaInfoClassMember('frame-period-window', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Frame period event window size
                 ''',
                 'frame_period_window',
@@ -711,7 +726,7 @@ _meta_table = {
                 'frame_period_window_overridden',
                 'Cisco-IOS-XR-ethernet-link-oam-oper', False),
             _MetaInfoClassMember('frame-seconds-threshold-high', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Frame seconds event high threshold
                 ''',
                 'frame_seconds_threshold_high',
@@ -724,7 +739,7 @@ _meta_table = {
                 'frame_seconds_threshold_high_overridden',
                 'Cisco-IOS-XR-ethernet-link-oam-oper', False),
             _MetaInfoClassMember('frame-seconds-threshold-low', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Frame seconds event high threshold
                 ''',
                 'frame_seconds_threshold_low',
@@ -737,7 +752,7 @@ _meta_table = {
                 'frame_seconds_threshold_low_overridden',
                 'Cisco-IOS-XR-ethernet-link-oam-oper', False),
             _MetaInfoClassMember('frame-seconds-window', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Frame seconds event high threshold
                 ''',
                 'frame_seconds_window',
@@ -750,7 +765,7 @@ _meta_table = {
                 'frame_seconds_window_overridden',
                 'Cisco-IOS-XR-ethernet-link-oam-oper', False),
             _MetaInfoClassMember('frame-threshold-high', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Frame event high threshold
                 ''',
                 'frame_threshold_high',
@@ -763,7 +778,7 @@ _meta_table = {
                 'frame_threshold_high_overridden',
                 'Cisco-IOS-XR-ethernet-link-oam-oper', False),
             _MetaInfoClassMember('frame-threshold-low', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Frame event low threshold
                 ''',
                 'frame_threshold_low',
@@ -776,7 +791,7 @@ _meta_table = {
                 'frame_threshold_low_overridden',
                 'Cisco-IOS-XR-ethernet-link-oam-oper', False),
             _MetaInfoClassMember('frame-window', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Frame event window size
                 ''',
                 'frame_window',
@@ -960,8 +975,8 @@ _meta_table = {
                 ''',
                 'session_up_action_overridden',
                 'Cisco-IOS-XR-ethernet-link-oam-oper', False),
-            _MetaInfoClassMember('symbol-period-threshold-high', ATTRIBUTE, 'long' , None, None, 
-                [(0, 18446744073709551615L)], [], 
+            _MetaInfoClassMember('symbol-period-threshold-high', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
                 '''                High symbol period event threshold
                 ''',
                 'symbol_period_threshold_high',
@@ -973,8 +988,8 @@ _meta_table = {
                 ''',
                 'symbol_period_threshold_high_overridden',
                 'Cisco-IOS-XR-ethernet-link-oam-oper', False),
-            _MetaInfoClassMember('symbol-period-threshold-low', ATTRIBUTE, 'long' , None, None, 
-                [(0, 18446744073709551615L)], [], 
+            _MetaInfoClassMember('symbol-period-threshold-low', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
                 '''                Low symbol period event threshold
                 ''',
                 'symbol_period_threshold_low',
@@ -987,7 +1002,7 @@ _meta_table = {
                 'symbol_period_threshold_low_overridden',
                 'Cisco-IOS-XR-ethernet-link-oam-oper', False),
             _MetaInfoClassMember('symbol-period-window', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Symbol period event window size
                 ''',
                 'symbol_period_window',
@@ -1055,137 +1070,137 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('active-send', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                The number of interfaces in 'Active Send' state
                 ''',
                 'active_send',
                 'Cisco-IOS-XR-ethernet-link-oam-oper', False),
             _MetaInfoClassMember('evaluating', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                The number of interfaces in 'Evaluating' state
                 ''',
                 'evaluating',
                 'Cisco-IOS-XR-ethernet-link-oam-oper', False),
-            _MetaInfoClassMember('events', ATTRIBUTE, 'long' , None, None, 
-                [(0, 18446744073709551615L)], [], 
+            _MetaInfoClassMember('events', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
                 '''                The number of events recorded
                 ''',
                 'events',
                 'Cisco-IOS-XR-ethernet-link-oam-oper', False),
             _MetaInfoClassMember('interfaces', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                The number of interfaces with 802.3 OAM
                 configured
                 ''',
                 'interfaces',
                 'Cisco-IOS-XR-ethernet-link-oam-oper', False),
             _MetaInfoClassMember('local-accept', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                The number of interfaces in 'Local Accept' state
                 ''',
                 'local_accept',
                 'Cisco-IOS-XR-ethernet-link-oam-oper', False),
-            _MetaInfoClassMember('local-events', ATTRIBUTE, 'long' , None, None, 
-                [(0, 18446744073709551615L)], [], 
+            _MetaInfoClassMember('local-events', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
                 '''                The number of local events recorded
                 ''',
                 'local_events',
                 'Cisco-IOS-XR-ethernet-link-oam-oper', False),
-            _MetaInfoClassMember('local-frame', ATTRIBUTE, 'long' , None, None, 
-                [(0, 18446744073709551615L)], [], 
+            _MetaInfoClassMember('local-frame', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
                 '''                The mumber of local frame error events recorded
                 ''',
                 'local_frame',
                 'Cisco-IOS-XR-ethernet-link-oam-oper', False),
-            _MetaInfoClassMember('local-frame-period', ATTRIBUTE, 'long' , None, None, 
-                [(0, 18446744073709551615L)], [], 
+            _MetaInfoClassMember('local-frame-period', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
                 '''                The number of local frame period events recorded
                 ''',
                 'local_frame_period',
                 'Cisco-IOS-XR-ethernet-link-oam-oper', False),
-            _MetaInfoClassMember('local-frame-seconds', ATTRIBUTE, 'long' , None, None, 
-                [(0, 18446744073709551615L)], [], 
+            _MetaInfoClassMember('local-frame-seconds', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
                 '''                The number of local frame second events recoded
                 ''',
                 'local_frame_seconds',
                 'Cisco-IOS-XR-ethernet-link-oam-oper', False),
             _MetaInfoClassMember('local-reject', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                The number of interfaces in 'Local Reject' state
                 ''',
                 'local_reject',
                 'Cisco-IOS-XR-ethernet-link-oam-oper', False),
-            _MetaInfoClassMember('local-symbol-period', ATTRIBUTE, 'long' , None, None, 
-                [(0, 18446744073709551615L)], [], 
+            _MetaInfoClassMember('local-symbol-period', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
                 '''                The number of local symbol period events
                 recorded
                 ''',
                 'local_symbol_period',
                 'Cisco-IOS-XR-ethernet-link-oam-oper', False),
             _MetaInfoClassMember('loopback-mode', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                The number of interfaces in loopback mode
                 ''',
                 'loopback_mode',
                 'Cisco-IOS-XR-ethernet-link-oam-oper', False),
             _MetaInfoClassMember('miswired-connections', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                The number of miswired connections
                 ''',
                 'miswired_connections',
                 'Cisco-IOS-XR-ethernet-link-oam-oper', False),
             _MetaInfoClassMember('operational', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                The number of interfaces in 'Operational' state
                 ''',
                 'operational',
                 'Cisco-IOS-XR-ethernet-link-oam-oper', False),
             _MetaInfoClassMember('passive-wait', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                The number of interfaces in 'Passive Wait' state
                 ''',
                 'passive_wait',
                 'Cisco-IOS-XR-ethernet-link-oam-oper', False),
             _MetaInfoClassMember('port-down', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                The number of interfaces in 'Port Down' state
                 ''',
                 'port_down',
                 'Cisco-IOS-XR-ethernet-link-oam-oper', False),
-            _MetaInfoClassMember('remote-events', ATTRIBUTE, 'long' , None, None, 
-                [(0, 18446744073709551615L)], [], 
+            _MetaInfoClassMember('remote-events', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
                 '''                The number of remote events recorded
                 ''',
                 'remote_events',
                 'Cisco-IOS-XR-ethernet-link-oam-oper', False),
-            _MetaInfoClassMember('remote-frame', ATTRIBUTE, 'long' , None, None, 
-                [(0, 18446744073709551615L)], [], 
+            _MetaInfoClassMember('remote-frame', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
                 '''                The mumber of remote frame error events recorded
                 ''',
                 'remote_frame',
                 'Cisco-IOS-XR-ethernet-link-oam-oper', False),
-            _MetaInfoClassMember('remote-frame-period', ATTRIBUTE, 'long' , None, None, 
-                [(0, 18446744073709551615L)], [], 
+            _MetaInfoClassMember('remote-frame-period', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
                 '''                The number of remote frame period events
                 recorded
                 ''',
                 'remote_frame_period',
                 'Cisco-IOS-XR-ethernet-link-oam-oper', False),
-            _MetaInfoClassMember('remote-frame-seconds', ATTRIBUTE, 'long' , None, None, 
-                [(0, 18446744073709551615L)], [], 
+            _MetaInfoClassMember('remote-frame-seconds', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
                 '''                The number of remote frame second events recoded
                 ''',
                 'remote_frame_seconds',
                 'Cisco-IOS-XR-ethernet-link-oam-oper', False),
             _MetaInfoClassMember('remote-reject', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                The number of interfaces in 'Remote Reject'
                 state
                 ''',
                 'remote_reject',
                 'Cisco-IOS-XR-ethernet-link-oam-oper', False),
-            _MetaInfoClassMember('remote-symbol-period', ATTRIBUTE, 'long' , None, None, 
-                [(0, 18446744073709551615L)], [], 
+            _MetaInfoClassMember('remote-symbol-period', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
                 '''                The number of remote symbol period events
                 recorded
                 ''',
@@ -1256,25 +1271,25 @@ _meta_table = {
                 'action_taken',
                 'Cisco-IOS-XR-ethernet-link-oam-oper', False),
             _MetaInfoClassMember('event-total', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Total number of times event has occurred
                 ''',
                 'event_total',
                 'Cisco-IOS-XR-ethernet-link-oam-oper', False),
             _MetaInfoClassMember('handle', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Interface handle for this log entry
                 ''',
                 'handle',
                 'Cisco-IOS-XR-ethernet-link-oam-oper', False),
             _MetaInfoClassMember('index', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Index in the log entries table
                 ''',
                 'index',
                 'Cisco-IOS-XR-ethernet-link-oam-oper', False),
-            _MetaInfoClassMember('local-high-threshold', ATTRIBUTE, 'long' , None, None, 
-                [(0, 18446744073709551615L)], [], 
+            _MetaInfoClassMember('local-high-threshold', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
                 '''                Size of the local high threshold (If applicable)
                 . For remote threshold events this is scaled for
                 comparison with the Breaching Value. This is to
@@ -1282,6 +1297,12 @@ _meta_table = {
                 sizes.
                 ''',
                 'local_high_threshold',
+                'Cisco-IOS-XR-ethernet-link-oam-oper', False),
+            _MetaInfoClassMember('local-high-threshold-config-units', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                The local high threshold in configuration units
+                ''',
+                'local_high_threshold_config_units',
                 'Cisco-IOS-XR-ethernet-link-oam-oper', False),
             _MetaInfoClassMember('location', REFERENCE_ENUM_CLASS, 'LogLocationEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_link_oam_oper', 'LogLocationEnum', 
                 [], [], 
@@ -1295,21 +1316,27 @@ _meta_table = {
                 ''',
                 'oui',
                 'Cisco-IOS-XR-ethernet-link-oam-oper', False),
-            _MetaInfoClassMember('running-total', ATTRIBUTE, 'long' , None, None, 
-                [(0, 18446744073709551615L)], [], 
+            _MetaInfoClassMember('running-total', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
                 '''                The running total number of errors seen since
                 OAM was enabled on the interface(If applicable)
                 ''',
                 'running_total',
                 'Cisco-IOS-XR-ethernet-link-oam-oper', False),
-            _MetaInfoClassMember('threshold', ATTRIBUTE, 'long' , None, None, 
-                [(0, 18446744073709551615L)], [], 
+            _MetaInfoClassMember('threshold', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
                 '''                Size of the threshold (If applicable)
                 ''',
                 'threshold',
                 'Cisco-IOS-XR-ethernet-link-oam-oper', False),
-            _MetaInfoClassMember('timestamp', ATTRIBUTE, 'long' , None, None, 
-                [(0, 18446744073709551615L)], [], 
+            _MetaInfoClassMember('threshold-config-units', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                The threshold in configuration units
+                ''',
+                'threshold_config_units',
+                'Cisco-IOS-XR-ethernet-link-oam-oper', False),
+            _MetaInfoClassMember('timestamp', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
                 '''                Timestamp in hundredths of a second since unix
                 epoch for when the event occurred
                 ''',
@@ -1321,17 +1348,29 @@ _meta_table = {
                 ''',
                 'type',
                 'Cisco-IOS-XR-ethernet-link-oam-oper', False),
-            _MetaInfoClassMember('value', ATTRIBUTE, 'long' , None, None, 
-                [(0, 18446744073709551615L)], [], 
+            _MetaInfoClassMember('value', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
                 '''                Breaching value (If applicable)
                 ''',
                 'value',
                 'Cisco-IOS-XR-ethernet-link-oam-oper', False),
-            _MetaInfoClassMember('window', ATTRIBUTE, 'long' , None, None, 
-                [(0, 18446744073709551615L)], [], 
+            _MetaInfoClassMember('value-config-units', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                The breaching value in configuration units
+                ''',
+                'value_config_units',
+                'Cisco-IOS-XR-ethernet-link-oam-oper', False),
+            _MetaInfoClassMember('window', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
                 '''                Size of the window (If applicable)
                 ''',
                 'window',
+                'Cisco-IOS-XR-ethernet-link-oam-oper', False),
+            _MetaInfoClassMember('window-config-units', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                The window in configuration units
+                ''',
+                'window_config_units',
                 'Cisco-IOS-XR-ethernet-link-oam-oper', False),
             ],
             'Cisco-IOS-XR-ethernet-link-oam-oper',
@@ -1363,7 +1402,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('member-interface', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Member Interface
                 ''',
                 'member_interface',
@@ -1405,170 +1444,170 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('member-interface', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Member Interface
                 ''',
                 'member_interface',
                 'Cisco-IOS-XR-ethernet-link-oam-oper', True),
             _MetaInfoClassMember('duplicate-event-notification-rx', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of duplicate event notification OAMPDUs
                 received
                 ''',
                 'duplicate_event_notification_rx',
                 'Cisco-IOS-XR-ethernet-link-oam-oper', False),
             _MetaInfoClassMember('duplicate-event-notification-tx', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of duplicate event notification OAMPDUs
                 transmitted
                 ''',
                 'duplicate_event_notification_tx',
                 'Cisco-IOS-XR-ethernet-link-oam-oper', False),
             _MetaInfoClassMember('fixed-frames-rx', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of RX frames 'fixed' by OAM
                 ''',
                 'fixed_frames_rx',
                 'Cisco-IOS-XR-ethernet-link-oam-oper', False),
             _MetaInfoClassMember('frames-lost-due-to-oam', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of frames lost due to OAM
                 ''',
                 'frames_lost_due_to_oam',
                 'Cisco-IOS-XR-ethernet-link-oam-oper', False),
             _MetaInfoClassMember('information-rx', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of information OAMPDUs received
                 ''',
                 'information_rx',
                 'Cisco-IOS-XR-ethernet-link-oam-oper', False),
             _MetaInfoClassMember('information-tx', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of information OAMPDUs transmitted
                 ''',
                 'information_tx',
                 'Cisco-IOS-XR-ethernet-link-oam-oper', False),
             _MetaInfoClassMember('local-error-frame-period-records', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of local error frame period records
                 ''',
                 'local_error_frame_period_records',
                 'Cisco-IOS-XR-ethernet-link-oam-oper', False),
             _MetaInfoClassMember('local-error-frame-records', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of local error frame records
                 ''',
                 'local_error_frame_records',
                 'Cisco-IOS-XR-ethernet-link-oam-oper', False),
             _MetaInfoClassMember('local-error-frame-second-records', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of local error frame second records
                 ''',
                 'local_error_frame_second_records',
                 'Cisco-IOS-XR-ethernet-link-oam-oper', False),
             _MetaInfoClassMember('local-error-symbol-period-records', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of local error symbol period records
                 ''',
                 'local_error_symbol_period_records',
                 'Cisco-IOS-XR-ethernet-link-oam-oper', False),
             _MetaInfoClassMember('loopback-control-rx', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of loopback control OAMPDUs received
                 ''',
                 'loopback_control_rx',
                 'Cisco-IOS-XR-ethernet-link-oam-oper', False),
             _MetaInfoClassMember('loopback-control-tx', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of loopback control OAMPDUs transmitted
                 ''',
                 'loopback_control_tx',
                 'Cisco-IOS-XR-ethernet-link-oam-oper', False),
             _MetaInfoClassMember('org-specific-rx', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of organization specific OAMPDUs received
                 ''',
                 'org_specific_rx',
                 'Cisco-IOS-XR-ethernet-link-oam-oper', False),
             _MetaInfoClassMember('org-specific-tx', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of organization specific OAMPDUs
                 transmitted
                 ''',
                 'org_specific_tx',
                 'Cisco-IOS-XR-ethernet-link-oam-oper', False),
             _MetaInfoClassMember('remote-error-frame-period-records', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of remote error frame period records
                 ''',
                 'remote_error_frame_period_records',
                 'Cisco-IOS-XR-ethernet-link-oam-oper', False),
             _MetaInfoClassMember('remote-error-frame-records', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of remote error frame records
                 ''',
                 'remote_error_frame_records',
                 'Cisco-IOS-XR-ethernet-link-oam-oper', False),
             _MetaInfoClassMember('remote-error-frame-second-records', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of remote error frame second records
                 ''',
                 'remote_error_frame_second_records',
                 'Cisco-IOS-XR-ethernet-link-oam-oper', False),
             _MetaInfoClassMember('remote-error-symbol-period-records', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of remote error symbol period records
                 ''',
                 'remote_error_symbol_period_records',
                 'Cisco-IOS-XR-ethernet-link-oam-oper', False),
             _MetaInfoClassMember('unique-event-notification-rx', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of unique event notification OAMPDUs
                 received
                 ''',
                 'unique_event_notification_rx',
                 'Cisco-IOS-XR-ethernet-link-oam-oper', False),
             _MetaInfoClassMember('unique-event-notification-tx', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of unique event notification OAMPDUs
                 transmitted
                 ''',
                 'unique_event_notification_tx',
                 'Cisco-IOS-XR-ethernet-link-oam-oper', False),
             _MetaInfoClassMember('unsupported-codes-rx', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of OAMPDUs with unsupported codes
                 received
                 ''',
                 'unsupported_codes_rx',
                 'Cisco-IOS-XR-ethernet-link-oam-oper', False),
             _MetaInfoClassMember('unsupported-codes-tx', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of OAMPDUs with unsupported codes
                 transmitted
                 ''',
                 'unsupported_codes_tx',
                 'Cisco-IOS-XR-ethernet-link-oam-oper', False),
             _MetaInfoClassMember('variable-request-rx', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of variable request OAMPDUs received
                 ''',
                 'variable_request_rx',
                 'Cisco-IOS-XR-ethernet-link-oam-oper', False),
             _MetaInfoClassMember('variable-request-tx', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of variable request OAMPDUs transmitted
                 ''',
                 'variable_request_tx',
                 'Cisco-IOS-XR-ethernet-link-oam-oper', False),
             _MetaInfoClassMember('variable-response-rx', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of variable response OAMPDUs received
                 ''',
                 'variable_response_rx',
                 'Cisco-IOS-XR-ethernet-link-oam-oper', False),
             _MetaInfoClassMember('variable-response-tx', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of variable response OAMPDUs transmitted
                 ''',
                 'variable_response_tx',

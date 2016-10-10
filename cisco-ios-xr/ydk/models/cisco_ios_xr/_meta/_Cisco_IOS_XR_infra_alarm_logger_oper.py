@@ -37,7 +37,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('capacity-threshold', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Percentage of the buffer utilization which, when
                 exceeded, triggers the  generation of a
                 notification for the clients of the XML agent
@@ -45,19 +45,19 @@ _meta_table = {
                 'capacity_threshold',
                 'Cisco-IOS-XR-infra-alarm-logger-oper', False),
             _MetaInfoClassMember('log-buffer-size', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Current Logging Buffer Size (Bytes)
                 ''',
                 'log_buffer_size',
                 'Cisco-IOS-XR-infra-alarm-logger-oper', False),
             _MetaInfoClassMember('max-log-buffer-size', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Maximum Logging Buffer Size (Bytes) 
                 ''',
                 'max_log_buffer_size',
                 'Cisco-IOS-XR-infra-alarm-logger-oper', False),
             _MetaInfoClassMember('record-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of Records in the Buffer
                 ''',
                 'record_count',
@@ -80,7 +80,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('event-id', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Event ID
                 ''',
                 'event_id',
@@ -105,7 +105,7 @@ _meta_table = {
                 'code',
                 'Cisco-IOS-XR-infra-alarm-logger-oper', False),
             _MetaInfoClassMember('correlation-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Correlation Identifier
                 ''',
                 'correlation_id',
@@ -141,8 +141,8 @@ _meta_table = {
                 ''',
                 'state',
                 'Cisco-IOS-XR-infra-alarm-logger-oper', False),
-            _MetaInfoClassMember('timestamp', ATTRIBUTE, 'long' , None, None, 
-                [(0, 18446744073709551615L)], [], 
+            _MetaInfoClassMember('timestamp', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
                 '''                Time when the alarm was generated. It is
                 expressed in number of milliseconds since 00:00
                 :00 UTC, January 1, 1970

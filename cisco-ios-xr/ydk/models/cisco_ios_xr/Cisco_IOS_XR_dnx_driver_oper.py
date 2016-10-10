@@ -7,7 +7,7 @@ This module contains definitions
 for the following management objects\:
   fia\: FIA driver operational data
 
-Copyright (c) 2013\-2015 by Cisco Systems, Inc.
+Copyright (c) 2013\-2016 by Cisco Systems, Inc.
 All rights reserved.
 
 """
@@ -22,6 +22,732 @@ from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
 
 from ydk.errors import YPYError, YPYModelError
 
+
+
+class AdminStateEnum(Enum):
+    """
+    AdminStateEnum
+
+    Admin state
+
+    .. data:: ADMIN_UNSET = -1
+
+    	admin unset
+
+    .. data:: ADMIN_UP = 0
+
+    	admin up
+
+    .. data:: ADMIN_DOWN = 1
+
+    	admin down
+
+    """
+
+    ADMIN_UNSET = -1
+
+    ADMIN_UP = 0
+
+    ADMIN_DOWN = 1
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_dnx_driver_oper as meta
+        return meta._meta_table['AdminStateEnum']
+
+
+class AsicAccessStateEnum(Enum):
+    """
+    AsicAccessStateEnum
+
+    Asic access state
+
+    .. data:: ASIC_STATE_UNSET = -1
+
+    	asic state unset
+
+    .. data:: ASIC_STATE_NONE = 0
+
+    	asic state none
+
+    .. data:: ASIC_STATE_DEVICE_OFF_LINE = 1
+
+    	asic state device off line
+
+    .. data:: ASIC_STATE_DEVICE_CREATED = 2
+
+    	asic state device created
+
+    .. data:: ASIC_STATE_DEVICE_ONLINE = 3
+
+    	asic state device online
+
+    .. data:: ASIC_STATE_WARMBOOT = 4
+
+    	asic state warmboot
+
+    .. data:: ASIC_STATE_DE_INIT_START = 5
+
+    	asic state de init start
+
+    .. data:: ASIC_STATE_INTR_DE_INIT = 6
+
+    	asic state intr de init
+
+    .. data:: ASIC_STATE_BCM_DETACH = 7
+
+    	asic state bcm detach
+
+    .. data:: ASIC_STATE_SOC_DE_INIT = 8
+
+    	asic state soc de init
+
+    .. data:: ASIC_STATE_DE_INIT_DONE = 9
+
+    	asic state de init done
+
+    .. data:: ASIC_STATE_SOC_INIT = 10
+
+    	asic state soc init
+
+    .. data:: ASIC_STATE_BCM_INIT = 11
+
+    	asic state bcm init
+
+    .. data:: ASIC_STATE_INTR_INIT = 12
+
+    	asic state intr init
+
+    .. data:: ASIC_STATE_SOC_INIT_START = 13
+
+    	asic state soc init start
+
+    .. data:: ASIC_STATE_BCM_INIT_START = 14
+
+    	asic state bcm init start
+
+    .. data:: ASIC_STATE_INTR_INIT_START = 15
+
+    	asic state intr init start
+
+    .. data:: ASIC_STATE_HARD_RESET = 16
+
+    	asic state hard reset
+
+    .. data:: ASIC_STATE_NORMAL = 17
+
+    	asic state normal
+
+    .. data:: ASIC_STATE_EXCEPTION = 18
+
+    	asic state exception
+
+    .. data:: ASIC_STATE_HP_ATTACHED = 19
+
+    	asic state hp attached
+
+    .. data:: ASIC_STATE_QUIESCE = 20
+
+    	asic state quiesce
+
+    .. data:: ASIC_STATE_ISSU_STARTED = 21
+
+    	asic state issu started
+
+    .. data:: ASIC_STATE_ISSU_STARTED_NN = 22
+
+    	asic state issu started nn
+
+    .. data:: ASIC_STATE_ISSU_ABORT = 23
+
+    	asic state issu abort
+
+    .. data:: ASIC_STATE_MAX = 24
+
+    	asic state max
+
+    """
+
+    ASIC_STATE_UNSET = -1
+
+    ASIC_STATE_NONE = 0
+
+    ASIC_STATE_DEVICE_OFF_LINE = 1
+
+    ASIC_STATE_DEVICE_CREATED = 2
+
+    ASIC_STATE_DEVICE_ONLINE = 3
+
+    ASIC_STATE_WARMBOOT = 4
+
+    ASIC_STATE_DE_INIT_START = 5
+
+    ASIC_STATE_INTR_DE_INIT = 6
+
+    ASIC_STATE_BCM_DETACH = 7
+
+    ASIC_STATE_SOC_DE_INIT = 8
+
+    ASIC_STATE_DE_INIT_DONE = 9
+
+    ASIC_STATE_SOC_INIT = 10
+
+    ASIC_STATE_BCM_INIT = 11
+
+    ASIC_STATE_INTR_INIT = 12
+
+    ASIC_STATE_SOC_INIT_START = 13
+
+    ASIC_STATE_BCM_INIT_START = 14
+
+    ASIC_STATE_INTR_INIT_START = 15
+
+    ASIC_STATE_HARD_RESET = 16
+
+    ASIC_STATE_NORMAL = 17
+
+    ASIC_STATE_EXCEPTION = 18
+
+    ASIC_STATE_HP_ATTACHED = 19
+
+    ASIC_STATE_QUIESCE = 20
+
+    ASIC_STATE_ISSU_STARTED = 21
+
+    ASIC_STATE_ISSU_STARTED_NN = 22
+
+    ASIC_STATE_ISSU_ABORT = 23
+
+    ASIC_STATE_MAX = 24
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_dnx_driver_oper as meta
+        return meta._meta_table['AsicAccessStateEnum']
+
+
+class AsicEnum(Enum):
+    """
+    AsicEnum
+
+    Asic
+
+    .. data:: ASIC_UNSET = -1
+
+    	asic unset
+
+    .. data:: ASIC_UNAVAIL = 0
+
+    	asic unavail
+
+    .. data:: ASIC_FIA = 1
+
+    	asic fia
+
+    .. data:: ASIC_S123 = 2
+
+    	asic s123
+
+    .. data:: ASIC_S13 = 3
+
+    	asic s13
+
+    .. data:: ASIC_S2 = 4
+
+    	asic s2
+
+    .. data:: ASIC_B2B = 5
+
+    	asic b2b
+
+    .. data:: ASIC_UNKNOWN = 6
+
+    	asic unknown
+
+    """
+
+    ASIC_UNSET = -1
+
+    ASIC_UNAVAIL = 0
+
+    ASIC_FIA = 1
+
+    ASIC_S123 = 2
+
+    ASIC_S13 = 3
+
+    ASIC_S2 = 4
+
+    ASIC_B2B = 5
+
+    ASIC_UNKNOWN = 6
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_dnx_driver_oper as meta
+        return meta._meta_table['AsicEnum']
+
+
+class AsicInitMethodEnum(Enum):
+    """
+    AsicInitMethodEnum
+
+    Asic init method
+
+    .. data:: ASIC_INIT_METHOD_UNSET = -1
+
+    	asic init method unset
+
+    .. data:: ASIC_INIT_METHOD_NO_RESET = 0
+
+    	asic init method no reset
+
+    .. data:: ASIC_INIT_METHOD_PON_RESET = 1
+
+    	asic init method pon reset
+
+    .. data:: ASIC_INIT_METHOD_PON_RESET_ON_INTR = 2
+
+    	asic init method pon reset on intr
+
+    .. data:: ASIC_INIT_METHOD_HARD_RESET = 3
+
+    	asic init method hard reset
+
+    .. data:: ASIC_INIT_METHOD_WARMBOOT = 4
+
+    	asic init method warmboot
+
+    .. data:: ASIC_INIT_METHOD_ISSU_WB = 5
+
+    	asic init method issu wb
+
+    .. data:: ASIC_INIT_METHOD_PCI_SHUTDOWN = 6
+
+    	asic init method pci shutdown
+
+    .. data:: ASIC_INIT_METHOD_QUIESCE = 7
+
+    	asic init method quiesce
+
+    .. data:: ASIC_INIT_METHOD_ISSU_STARTED = 8
+
+    	asic init method issu started
+
+    .. data:: ASIC_INIT_METHOD_ISSU_ROLLBACK = 9
+
+    	asic init method issu rollback
+
+    .. data:: ASIC_INIT_METHOD_ISSU_ABORT = 10
+
+    	asic init method issu abort
+
+    .. data:: ASIC_INIT_METHOD_SLICE_CLEANUP = 11
+
+    	asic init method slice cleanup
+
+    .. data:: ASIC_INIT_METHOD_LC_REMOVE = 12
+
+    	asic init method lc remove
+
+    .. data:: ASIC_INIT_METHOD_NODE_DOWN = 13
+
+    	asic init method node down
+
+    .. data:: ASIC_INIT_METHOD_INTR = 14
+
+    	asic init method intr
+
+    .. data:: ASIC_INIT_METHOD_BOARD_RELOAD = 15
+
+    	asic init method board reload
+
+    .. data:: ASIC_INIT_METHOD_MAX = 16
+
+    	asic init method max
+
+    """
+
+    ASIC_INIT_METHOD_UNSET = -1
+
+    ASIC_INIT_METHOD_NO_RESET = 0
+
+    ASIC_INIT_METHOD_PON_RESET = 1
+
+    ASIC_INIT_METHOD_PON_RESET_ON_INTR = 2
+
+    ASIC_INIT_METHOD_HARD_RESET = 3
+
+    ASIC_INIT_METHOD_WARMBOOT = 4
+
+    ASIC_INIT_METHOD_ISSU_WB = 5
+
+    ASIC_INIT_METHOD_PCI_SHUTDOWN = 6
+
+    ASIC_INIT_METHOD_QUIESCE = 7
+
+    ASIC_INIT_METHOD_ISSU_STARTED = 8
+
+    ASIC_INIT_METHOD_ISSU_ROLLBACK = 9
+
+    ASIC_INIT_METHOD_ISSU_ABORT = 10
+
+    ASIC_INIT_METHOD_SLICE_CLEANUP = 11
+
+    ASIC_INIT_METHOD_LC_REMOVE = 12
+
+    ASIC_INIT_METHOD_NODE_DOWN = 13
+
+    ASIC_INIT_METHOD_INTR = 14
+
+    ASIC_INIT_METHOD_BOARD_RELOAD = 15
+
+    ASIC_INIT_METHOD_MAX = 16
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_dnx_driver_oper as meta
+        return meta._meta_table['AsicInitMethodEnum']
+
+
+class AsicOperStateEnum(Enum):
+    """
+    AsicOperStateEnum
+
+    Asic oper state
+
+    .. data:: ASIC_OPER_UNSET = -1
+
+    	asic oper unset
+
+    .. data:: ASIC_OPER_UNKNOWN = 0
+
+    	asic oper unknown
+
+    .. data:: ASIC_OPER_UP = 1
+
+    	asic oper up
+
+    .. data:: ASIC_OPER_DOWN = 2
+
+    	asic oper down
+
+    .. data:: ASIC_CARD_DOWN = 3
+
+    	asic card down
+
+    """
+
+    ASIC_OPER_UNSET = -1
+
+    ASIC_OPER_UNKNOWN = 0
+
+    ASIC_OPER_UP = 1
+
+    ASIC_OPER_DOWN = 2
+
+    ASIC_CARD_DOWN = 3
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_dnx_driver_oper as meta
+        return meta._meta_table['AsicOperStateEnum']
+
+
+class FcModeEnum(Enum):
+    """
+    FcModeEnum
+
+    Fc mode
+
+    .. data:: FC_MODE_UNSET = -1
+
+    	fc mode unset
+
+    .. data:: FC_MODE_UNAVAIL = 0
+
+    	fc mode unavail
+
+    .. data:: FC_MODE_INBAND = 1
+
+    	fc mode inband
+
+    .. data:: FC_MODE_OOB = 2
+
+    	fc mode oob
+
+    """
+
+    FC_MODE_UNSET = -1
+
+    FC_MODE_UNAVAIL = 0
+
+    FC_MODE_INBAND = 1
+
+    FC_MODE_OOB = 2
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_dnx_driver_oper as meta
+        return meta._meta_table['FcModeEnum']
+
+
+class LinkEnum(Enum):
+    """
+    LinkEnum
+
+    Link
+
+    .. data:: LINK_TYPE_UNSET = -1
+
+    	link type unset
+
+    .. data:: LINK_TYPE_UNAVAIL = 0
+
+    	link type unavail
+
+    .. data:: LINK_TYPE_TX = 1
+
+    	link type tx
+
+    .. data:: LINK_TYPE_RX = 2
+
+    	link type rx
+
+    """
+
+    LINK_TYPE_UNSET = -1
+
+    LINK_TYPE_UNAVAIL = 0
+
+    LINK_TYPE_TX = 1
+
+    LINK_TYPE_RX = 2
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_dnx_driver_oper as meta
+        return meta._meta_table['LinkEnum']
+
+
+class LinkErrorStateEnum(Enum):
+    """
+    LinkErrorStateEnum
+
+    Link error state
+
+    .. data:: LINK_ERROR_UNSET = -1
+
+    	link error unset
+
+    .. data:: LINK_ERROR_NONE = 0
+
+    	link error none
+
+    .. data:: LINK_ERROR_SHUT = 1
+
+    	link error shut
+
+    .. data:: LINK_ERROR_MAX = 2
+
+    	link error max
+
+    """
+
+    LINK_ERROR_UNSET = -1
+
+    LINK_ERROR_NONE = 0
+
+    LINK_ERROR_SHUT = 1
+
+    LINK_ERROR_MAX = 2
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_dnx_driver_oper as meta
+        return meta._meta_table['LinkErrorStateEnum']
+
+
+class LinkStageEnum(Enum):
+    """
+    LinkStageEnum
+
+    Link stage
+
+    .. data:: LINK_STAGE_UNSET = -1
+
+    	link stage unset
+
+    .. data:: LINK_STAGE_UNUSED = 0
+
+    	link stage unused
+
+    .. data:: LINK_STAGE_FIA = 1
+
+    	link stage fia
+
+    .. data:: LINK_STAGE_S1 = 2
+
+    	link stage s1
+
+    .. data:: LINK_STAGE_S2 = 3
+
+    	link stage s2
+
+    .. data:: LINK_STAGE_S3 = 4
+
+    	link stage s3
+
+    .. data:: LINK_STAGE_UNKNOWN = 5
+
+    	link stage unknown
+
+    """
+
+    LINK_STAGE_UNSET = -1
+
+    LINK_STAGE_UNUSED = 0
+
+    LINK_STAGE_FIA = 1
+
+    LINK_STAGE_S1 = 2
+
+    LINK_STAGE_S2 = 3
+
+    LINK_STAGE_S3 = 4
+
+    LINK_STAGE_UNKNOWN = 5
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_dnx_driver_oper as meta
+        return meta._meta_table['LinkStageEnum']
+
+
+class OperStateEnum(Enum):
+    """
+    OperStateEnum
+
+    Oper state
+
+    .. data:: OPER_UNSET = -1
+
+    	oper unset
+
+    .. data:: OPER_UNKNOWN = 0
+
+    	oper unknown
+
+    .. data:: OPER_UP = 1
+
+    	oper up
+
+    .. data:: OPER_DOWN = 2
+
+    	oper down
+
+    .. data:: CARD_DOWN = 3
+
+    	card down
+
+    """
+
+    OPER_UNSET = -1
+
+    OPER_UNKNOWN = 0
+
+    OPER_UP = 1
+
+    OPER_DOWN = 2
+
+    CARD_DOWN = 3
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_dnx_driver_oper as meta
+        return meta._meta_table['OperStateEnum']
+
+
+class RackEnum(Enum):
+    """
+    RackEnum
+
+    Rack
+
+    .. data:: RACK_TYPE_UNSET = -1
+
+    	rack type unset
+
+    .. data:: RACK_TYPE_LCC = 0
+
+    	rack type lcc
+
+    .. data:: RACK_TYPE_FCC = 1
+
+    	rack type fcc
+
+    """
+
+    RACK_TYPE_UNSET = -1
+
+    RACK_TYPE_LCC = 0
+
+    RACK_TYPE_FCC = 1
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_dnx_driver_oper as meta
+        return meta._meta_table['RackEnum']
+
+
+class SliceStateEnum(Enum):
+    """
+    SliceStateEnum
+
+    Slice state
+
+    .. data:: SLICE_OPER_UNSET = -1
+
+    	slice oper unset
+
+    .. data:: SLICE_OPER_DOWN = 0
+
+    	slice oper down
+
+    .. data:: SLICE_OPER_UP = 1
+
+    	slice oper up
+
+    .. data:: SLICE_OPER_NA = 2
+
+    	slice oper na
+
+    """
+
+    SLICE_OPER_UNSET = -1
+
+    SLICE_OPER_DOWN = 0
+
+    SLICE_OPER_UP = 1
+
+    SLICE_OPER_NA = 2
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_dnx_driver_oper as meta
+        return meta._meta_table['SliceStateEnum']
 
 
 
@@ -255,7 +981,7 @@ class Fia(object):
                                 	Receive instance
                                 	**type**\:  int
                                 
-                                	**range:** 0..16
+                                	**range:** 0..255
                                 
                                 .. attribute:: rx_links
                                 
@@ -359,17 +1085,13 @@ class Fia(object):
                                             
                                             .. attribute:: admin_state
                                             
-                                            	admin state
-                                            	**type**\:  int
-                                            
-                                            	**range:** 0..255
+                                            	Admin State
+                                            	**type**\:  :py:class:`AdminStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.AdminStateEnum>`
                                             
                                             .. attribute:: error_state
                                             
-                                            	error state
-                                            	**type**\:  int
-                                            
-                                            	**range:** 0..255
+                                            	Error State
+                                            	**type**\:  :py:class:`LinkErrorStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.LinkErrorStateEnum>`
                                             
                                             .. attribute:: far_end_link
                                             
@@ -417,10 +1139,8 @@ class Fia(object):
                                             
                                             .. attribute:: oper_state
                                             
-                                            	oper state
-                                            	**type**\:  int
-                                            
-                                            	**range:** 0..255
+                                            	Oper State
+                                            	**type**\:  :py:class:`OperStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.OperStateEnum>`
                                             
                                             .. attribute:: speed
                                             
@@ -431,10 +1151,8 @@ class Fia(object):
                                             
                                             .. attribute:: stage
                                             
-                                            	stage
-                                            	**type**\:  int
-                                            
-                                            	**range:** 0..255
+                                            	Stage
+                                            	**type**\:  :py:class:`LinkStageEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.LinkStageEnum>`
                                             
                                             .. attribute:: this_link
                                             
@@ -489,17 +1207,13 @@ class Fia(object):
                                                 
                                                 .. attribute:: link_stage
                                                 
-                                                	link stage
-                                                	**type**\:  int
-                                                
-                                                	**range:** 0..255
+                                                	Link Stage
+                                                	**type**\:  :py:class:`LinkStageEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.LinkStageEnum>`
                                                 
                                                 .. attribute:: link_type
                                                 
-                                                	link type
-                                                	**type**\:  int
-                                                
-                                                	**range:** 0..255
+                                                	Link Type
+                                                	**type**\:  :py:class:`LinkEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.LinkEnum>`
                                                 
                                                 .. attribute:: phy_link_num
                                                 
@@ -538,10 +1252,8 @@ class Fia(object):
                                                     
                                                     .. attribute:: asic_type
                                                     
-                                                    	asic type
-                                                    	**type**\:  int
-                                                    
-                                                    	**range:** 0..255
+                                                    	Asic Type
+                                                    	**type**\:  :py:class:`AsicEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.AsicEnum>`
                                                     
                                                     .. attribute:: rack_num
                                                     
@@ -552,10 +1264,8 @@ class Fia(object):
                                                     
                                                     .. attribute:: rack_type
                                                     
-                                                    	rack type
-                                                    	**type**\:  int
-                                                    
-                                                    	**range:** 0..4294967295
+                                                    	Rack Type
+                                                    	**type**\:  :py:class:`RackEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.RackEnum>`
                                                     
                                                     .. attribute:: slot_num
                                                     
@@ -670,17 +1380,13 @@ class Fia(object):
                                                 
                                                 .. attribute:: link_stage
                                                 
-                                                	link stage
-                                                	**type**\:  int
-                                                
-                                                	**range:** 0..255
+                                                	Link Stage
+                                                	**type**\:  :py:class:`LinkStageEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.LinkStageEnum>`
                                                 
                                                 .. attribute:: link_type
                                                 
-                                                	link type
-                                                	**type**\:  int
-                                                
-                                                	**range:** 0..255
+                                                	Link Type
+                                                	**type**\:  :py:class:`LinkEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.LinkEnum>`
                                                 
                                                 .. attribute:: phy_link_num
                                                 
@@ -719,10 +1425,8 @@ class Fia(object):
                                                     
                                                     .. attribute:: asic_type
                                                     
-                                                    	asic type
-                                                    	**type**\:  int
-                                                    
-                                                    	**range:** 0..255
+                                                    	Asic Type
+                                                    	**type**\:  :py:class:`AsicEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.AsicEnum>`
                                                     
                                                     .. attribute:: rack_num
                                                     
@@ -733,10 +1437,8 @@ class Fia(object):
                                                     
                                                     .. attribute:: rack_type
                                                     
-                                                    	rack type
-                                                    	**type**\:  int
-                                                    
-                                                    	**range:** 0..4294967295
+                                                    	Rack Type
+                                                    	**type**\:  :py:class:`RackEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.RackEnum>`
                                                     
                                                     .. attribute:: slot_num
                                                     
@@ -851,17 +1553,13 @@ class Fia(object):
                                                 
                                                 .. attribute:: link_stage
                                                 
-                                                	link stage
-                                                	**type**\:  int
-                                                
-                                                	**range:** 0..255
+                                                	Link Stage
+                                                	**type**\:  :py:class:`LinkStageEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.LinkStageEnum>`
                                                 
                                                 .. attribute:: link_type
                                                 
-                                                	link type
-                                                	**type**\:  int
-                                                
-                                                	**range:** 0..255
+                                                	Link Type
+                                                	**type**\:  :py:class:`LinkEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.LinkEnum>`
                                                 
                                                 .. attribute:: phy_link_num
                                                 
@@ -900,10 +1598,8 @@ class Fia(object):
                                                     
                                                     .. attribute:: asic_type
                                                     
-                                                    	asic type
-                                                    	**type**\:  int
-                                                    
-                                                    	**range:** 0..255
+                                                    	Asic Type
+                                                    	**type**\:  :py:class:`AsicEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.AsicEnum>`
                                                     
                                                     .. attribute:: rack_num
                                                     
@@ -914,10 +1610,8 @@ class Fia(object):
                                                     
                                                     .. attribute:: rack_type
                                                     
-                                                    	rack type
-                                                    	**type**\:  int
-                                                    
-                                                    	**range:** 0..4294967295
+                                                    	Rack Type
+                                                    	**type**\:  :py:class:`RackEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.RackEnum>`
                                                     
                                                     .. attribute:: slot_num
                                                     
@@ -1059,24 +1753,18 @@ class Fia(object):
                                                     
                                                     .. attribute:: admin_state
                                                     
-                                                    	admin state
-                                                    	**type**\:  int
-                                                    
-                                                    	**range:** \-128..127
+                                                    	Admin State
+                                                    	**type**\:  :py:class:`AdminStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.AdminStateEnum>`
                                                     
                                                     .. attribute:: error_state
                                                     
-                                                    	error state
-                                                    	**type**\:  int
-                                                    
-                                                    	**range:** \-128..127
+                                                    	Error State
+                                                    	**type**\:  :py:class:`LinkErrorStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.LinkErrorStateEnum>`
                                                     
                                                     .. attribute:: oper_state
                                                     
-                                                    	oper state
-                                                    	**type**\:  int
-                                                    
-                                                    	**range:** \-128..127
+                                                    	Oper State
+                                                    	**type**\:  :py:class:`OperStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.OperStateEnum>`
                                                     
                                                     .. attribute:: reasons
                                                     
@@ -1086,7 +1774,7 @@ class Fia(object):
                                                     .. attribute:: timestamp
                                                     
                                                     	timestamp
-                                                    	**type**\:  long
+                                                    	**type**\:  int
                                                     
                                                     	**range:** 0..18446744073709551615
                                                     
@@ -1444,14 +2132,14 @@ class Fia(object):
                 .. attribute:: asic_avail_mask
                 
                 	asic avail mask
-                	**type**\:  long
+                	**type**\:  int
                 
                 	**range:** 0..18446744073709551615
                 
                 .. attribute:: asic_oper_notify_to_fsdb_pending_bmap
                 
                 	asic oper notify to fsdb pending bmap
-                	**type**\:  long
+                	**type**\:  int
                 
                 	**range:** 0..18446744073709551615
                 
@@ -1500,26 +2188,27 @@ class Fia(object):
                 
                 	**range:** 0..4294967295
                 
-                .. attribute:: drvr_startup_timestamp
+                .. attribute:: drvr_current_startup_timestamp
                 
-                	drvr startup timestamp
-                	**type**\:  long
+                	drvr current startup timestamp
+                	**type**\:  str
                 
-                	**range:** 0..18446744073709551615
+                .. attribute:: drvr_initial_startup_timestamp
+                
+                	drvr initial startup timestamp
+                	**type**\:  str
                 
                 .. attribute:: exp_asic_avail_mask
                 
                 	exp asic avail mask
-                	**type**\:  long
+                	**type**\:  int
                 
                 	**range:** 0..18446744073709551615
                 
                 .. attribute:: fc_mode
                 
-                	fc mode
-                	**type**\:  int
-                
-                	**range:** 0..255
+                	FC Mode
+                	**type**\:  :py:class:`FcModeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.FcModeEnum>`
                 
                 .. attribute:: fgid_conn_active
                 
@@ -1666,13 +2355,6 @@ class Fia(object):
                 
                 	**range:** 0..255
                 
-                .. attribute:: offset_time_nsec
-                
-                	offset time nsec
-                	**type**\:  long
-                
-                	**range:** 0..18446744073709551615
-                
                 .. attribute:: rack_name
                 
                 	rack name
@@ -1742,7 +2424,8 @@ class Fia(object):
                     self.device_info.parent = self
                     self.device_info.name = 'device_info'
                     self.drv_version = None
-                    self.drvr_startup_timestamp = None
+                    self.drvr_current_startup_timestamp = None
+                    self.drvr_initial_startup_timestamp = None
                     self.exp_asic_avail_mask = None
                     self.fc_mode = None
                     self.fgid_conn_active = None
@@ -1770,7 +2453,6 @@ class Fia(object):
                     self.num_issu_mgr_conn_reqs = None
                     self.num_peer_fia_conn_reqs = None
                     self.num_pm_conn_reqs = None
-                    self.offset_time_nsec = None
                     self.rack_name = None
                     self.rack_num = None
                     self.rack_type = None
@@ -1786,10 +2468,8 @@ class Fia(object):
                     
                     .. attribute:: admin_state
                     
-                    	admin state
-                    	**type**\:  int
-                    
-                    	**range:** 0..255
+                    	Admin State
+                    	**type**\:  :py:class:`AdminStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.AdminStateEnum>`
                     
                     .. attribute:: asic_id
                     
@@ -1798,10 +2478,8 @@ class Fia(object):
                     
                     .. attribute:: asic_state
                     
-                    	asic state
-                    	**type**\:  int
-                    
-                    	**range:** 0..255
+                    	Asic State
+                    	**type**\:  :py:class:`AsicAccessStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.AsicAccessStateEnum>`
                     
                     .. attribute:: fapid
                     
@@ -1822,33 +2500,15 @@ class Fia(object):
                     	is valid
                     	**type**\:  bool
                     
-                    .. attribute:: last_hard_reset_timestamp
-                    
-                    	last hard reset timestamp
-                    	**type**\:  long
-                    
-                    	**range:** 0..18446744073709551615
-                    
                     .. attribute:: last_init_cause
                     
                     	last init cause
-                    	**type**\:  int
-                    
-                    	**range:** 0..255
-                    
-                    .. attribute:: last_pon_reset_timestamp
-                    
-                    	last pon reset timestamp
-                    	**type**\:  long
-                    
-                    	**range:** 0..18446744073709551615
+                    	**type**\:  :py:class:`AsicInitMethodEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.AsicInitMethodEnum>`
                     
                     .. attribute:: local_switch_state
                     
                     	local switch state
-                    	**type**\:  int
-                    
-                    	**range:** 0..4294967295
+                    	**type**\:  bool
                     
                     .. attribute:: num_hard_resets
                     
@@ -1866,17 +2526,13 @@ class Fia(object):
                     
                     .. attribute:: oper_state
                     
-                    	oper state
-                    	**type**\:  int
-                    
-                    	**range:** 0..255
+                    	Oper State
+                    	**type**\:  :py:class:`AsicOperStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.AsicOperStateEnum>`
                     
                     .. attribute:: slice_state
                     
-                    	slice state
-                    	**type**\:  int
-                    
-                    	**range:** 0..4294967295
+                    	Slice State
+                    	**type**\:  :py:class:`SliceStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.SliceStateEnum>`
                     
                     
 
@@ -1894,9 +2550,7 @@ class Fia(object):
                         self.fapid = None
                         self.hotplug_event = None
                         self.is_valid = None
-                        self.last_hard_reset_timestamp = None
                         self.last_init_cause = None
-                        self.last_pon_reset_timestamp = None
                         self.local_switch_state = None
                         self.num_hard_resets = None
                         self.num_pon_resets = None
@@ -1917,10 +2571,8 @@ class Fia(object):
                         
                         .. attribute:: asic_type
                         
-                        	asic type
-                        	**type**\:  int
-                        
-                        	**range:** 0..255
+                        	Asic Type
+                        	**type**\:  :py:class:`AsicEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.AsicEnum>`
                         
                         .. attribute:: rack_num
                         
@@ -1931,10 +2583,8 @@ class Fia(object):
                         
                         .. attribute:: rack_type
                         
-                        	rack type
-                        	**type**\:  int
-                        
-                        	**range:** 0..4294967295
+                        	Rack Type
+                        	**type**\:  :py:class:`RackEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.RackEnum>`
                         
                         .. attribute:: slot_num
                         
@@ -2026,13 +2676,7 @@ class Fia(object):
                         if self.is_valid is not None:
                             return True
 
-                        if self.last_hard_reset_timestamp is not None:
-                            return True
-
                         if self.last_init_cause is not None:
-                            return True
-
-                        if self.last_pon_reset_timestamp is not None:
                             return True
 
                         if self.local_switch_state is not None:
@@ -2091,7 +2735,7 @@ class Fia(object):
                     .. attribute:: cxp_avail_bitmap
                     
                     	cxp avail bitmap
-                    	**type**\:  long
+                    	**type**\:  int
                     
                     	**range:** 0..18446744073709551615
                     
@@ -2504,7 +3148,10 @@ class Fia(object):
                     if self.drv_version is not None:
                         return True
 
-                    if self.drvr_startup_timestamp is not None:
+                    if self.drvr_current_startup_timestamp is not None:
+                        return True
+
+                    if self.drvr_initial_startup_timestamp is not None:
                         return True
 
                     if self.exp_asic_avail_mask is not None:
@@ -2586,9 +3233,6 @@ class Fia(object):
                         return True
 
                     if self.num_pm_conn_reqs is not None:
-                        return True
-
-                    if self.offset_time_nsec is not None:
                         return True
 
                     if self.rack_name is not None:
@@ -2675,7 +3319,7 @@ class Fia(object):
                         	Asic instance
                         	**type**\:  int
                         
-                        	**range:** 0..16
+                        	**range:** 0..255
                         
                         .. attribute:: instance
                         
@@ -2876,7 +3520,7 @@ class Fia(object):
                                 	Transmit instance
                                 	**type**\:  int
                                 
-                                	**range:** 0..16
+                                	**range:** 0..255
                                 
                                 .. attribute:: tx_links
                                 
@@ -2972,10 +3616,8 @@ class Fia(object):
                                             
                                             .. attribute:: admin_state
                                             
-                                            	admin state
-                                            	**type**\:  int
-                                            
-                                            	**range:** 0..255
+                                            	Admin State
+                                            	**type**\:  :py:class:`AdminStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.AdminStateEnum>`
                                             
                                             .. attribute:: coeff1
                                             
@@ -2993,10 +3635,8 @@ class Fia(object):
                                             
                                             .. attribute:: error_state
                                             
-                                            	error state
-                                            	**type**\:  int
-                                            
-                                            	**range:** 0..255
+                                            	Error State
+                                            	**type**\:  :py:class:`LinkErrorStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.LinkErrorStateEnum>`
                                             
                                             .. attribute:: far_end_link
                                             
@@ -3032,10 +3672,8 @@ class Fia(object):
                                             
                                             .. attribute:: oper_state
                                             
-                                            	oper state
-                                            	**type**\:  int
-                                            
-                                            	**range:** 0..255
+                                            	Oper State
+                                            	**type**\:  :py:class:`OperStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.OperStateEnum>`
                                             
                                             .. attribute:: speed
                                             
@@ -3110,17 +3748,13 @@ class Fia(object):
                                                 
                                                 .. attribute:: link_stage
                                                 
-                                                	link stage
-                                                	**type**\:  int
-                                                
-                                                	**range:** 0..255
+                                                	Link Stage
+                                                	**type**\:  :py:class:`LinkStageEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.LinkStageEnum>`
                                                 
                                                 .. attribute:: link_type
                                                 
-                                                	link type
-                                                	**type**\:  int
-                                                
-                                                	**range:** 0..255
+                                                	Link Type
+                                                	**type**\:  :py:class:`LinkEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.LinkEnum>`
                                                 
                                                 .. attribute:: phy_link_num
                                                 
@@ -3159,10 +3793,8 @@ class Fia(object):
                                                     
                                                     .. attribute:: asic_type
                                                     
-                                                    	asic type
-                                                    	**type**\:  int
-                                                    
-                                                    	**range:** 0..255
+                                                    	Asic Type
+                                                    	**type**\:  :py:class:`AsicEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.AsicEnum>`
                                                     
                                                     .. attribute:: rack_num
                                                     
@@ -3173,10 +3805,8 @@ class Fia(object):
                                                     
                                                     .. attribute:: rack_type
                                                     
-                                                    	rack type
-                                                    	**type**\:  int
-                                                    
-                                                    	**range:** 0..4294967295
+                                                    	Rack Type
+                                                    	**type**\:  :py:class:`RackEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.RackEnum>`
                                                     
                                                     .. attribute:: slot_num
                                                     
@@ -3291,17 +3921,13 @@ class Fia(object):
                                                 
                                                 .. attribute:: link_stage
                                                 
-                                                	link stage
-                                                	**type**\:  int
-                                                
-                                                	**range:** 0..255
+                                                	Link Stage
+                                                	**type**\:  :py:class:`LinkStageEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.LinkStageEnum>`
                                                 
                                                 .. attribute:: link_type
                                                 
-                                                	link type
-                                                	**type**\:  int
-                                                
-                                                	**range:** 0..255
+                                                	Link Type
+                                                	**type**\:  :py:class:`LinkEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.LinkEnum>`
                                                 
                                                 .. attribute:: phy_link_num
                                                 
@@ -3340,10 +3966,8 @@ class Fia(object):
                                                     
                                                     .. attribute:: asic_type
                                                     
-                                                    	asic type
-                                                    	**type**\:  int
-                                                    
-                                                    	**range:** 0..255
+                                                    	Asic Type
+                                                    	**type**\:  :py:class:`AsicEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.AsicEnum>`
                                                     
                                                     .. attribute:: rack_num
                                                     
@@ -3354,10 +3978,8 @@ class Fia(object):
                                                     
                                                     .. attribute:: rack_type
                                                     
-                                                    	rack type
-                                                    	**type**\:  int
-                                                    
-                                                    	**range:** 0..4294967295
+                                                    	Rack Type
+                                                    	**type**\:  :py:class:`RackEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.RackEnum>`
                                                     
                                                     .. attribute:: slot_num
                                                     
@@ -3546,24 +4168,18 @@ class Fia(object):
                                                     
                                                     .. attribute:: admin_state
                                                     
-                                                    	admin state
-                                                    	**type**\:  int
-                                                    
-                                                    	**range:** \-128..127
+                                                    	Admin State
+                                                    	**type**\:  :py:class:`AdminStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.AdminStateEnum>`
                                                     
                                                     .. attribute:: error_state
                                                     
-                                                    	error state
-                                                    	**type**\:  int
-                                                    
-                                                    	**range:** \-128..127
+                                                    	Error State
+                                                    	**type**\:  :py:class:`LinkErrorStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.LinkErrorStateEnum>`
                                                     
                                                     .. attribute:: oper_state
                                                     
-                                                    	oper state
-                                                    	**type**\:  int
-                                                    
-                                                    	**range:** \-128..127
+                                                    	Oper State
+                                                    	**type**\:  :py:class:`OperStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.OperStateEnum>`
                                                     
                                                     .. attribute:: reasons
                                                     
@@ -3573,7 +4189,7 @@ class Fia(object):
                                                     .. attribute:: timestamp
                                                     
                                                     	timestamp
-                                                    	**type**\:  long
+                                                    	**type**\:  int
                                                     
                                                     	**range:** 0..18446744073709551615
                                                     
@@ -4124,7 +4740,7 @@ class Fia(object):
                         	Unit number
                         	**type**\:  int
                         
-                        	**range:** 0..15
+                        	**range:** 0..63
                         
                         .. attribute:: commands
                         
@@ -4503,14 +5119,14 @@ class Fia(object):
                                 .. attribute:: asic_avail_mask
                                 
                                 	asic avail mask
-                                	**type**\:  long
+                                	**type**\:  int
                                 
                                 	**range:** 0..18446744073709551615
                                 
                                 .. attribute:: asic_oper_notify_to_fsdb_pending_bmap
                                 
                                 	asic oper notify to fsdb pending bmap
-                                	**type**\:  long
+                                	**type**\:  int
                                 
                                 	**range:** 0..18446744073709551615
                                 
@@ -4559,26 +5175,27 @@ class Fia(object):
                                 
                                 	**range:** 0..4294967295
                                 
-                                .. attribute:: drvr_startup_timestamp
+                                .. attribute:: drvr_current_startup_timestamp
                                 
-                                	drvr startup timestamp
-                                	**type**\:  long
+                                	drvr current startup timestamp
+                                	**type**\:  str
                                 
-                                	**range:** 0..18446744073709551615
+                                .. attribute:: drvr_initial_startup_timestamp
+                                
+                                	drvr initial startup timestamp
+                                	**type**\:  str
                                 
                                 .. attribute:: exp_asic_avail_mask
                                 
                                 	exp asic avail mask
-                                	**type**\:  long
+                                	**type**\:  int
                                 
                                 	**range:** 0..18446744073709551615
                                 
                                 .. attribute:: fc_mode
                                 
-                                	fc mode
-                                	**type**\:  int
-                                
-                                	**range:** 0..255
+                                	FC Mode
+                                	**type**\:  :py:class:`FcModeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.FcModeEnum>`
                                 
                                 .. attribute:: fgid_conn_active
                                 
@@ -4725,13 +5342,6 @@ class Fia(object):
                                 
                                 	**range:** 0..255
                                 
-                                .. attribute:: offset_time_nsec
-                                
-                                	offset time nsec
-                                	**type**\:  long
-                                
-                                	**range:** 0..18446744073709551615
-                                
                                 .. attribute:: rack_name
                                 
                                 	rack name
@@ -4802,7 +5412,8 @@ class Fia(object):
                                     self.device_info.parent = self
                                     self.device_info.name = 'device_info'
                                     self.drv_version = None
-                                    self.drvr_startup_timestamp = None
+                                    self.drvr_current_startup_timestamp = None
+                                    self.drvr_initial_startup_timestamp = None
                                     self.exp_asic_avail_mask = None
                                     self.fc_mode = None
                                     self.fgid_conn_active = None
@@ -4830,7 +5441,6 @@ class Fia(object):
                                     self.num_issu_mgr_conn_reqs = None
                                     self.num_peer_fia_conn_reqs = None
                                     self.num_pm_conn_reqs = None
-                                    self.offset_time_nsec = None
                                     self.rack_name = None
                                     self.rack_num = None
                                     self.rack_type = None
@@ -4846,10 +5456,8 @@ class Fia(object):
                                     
                                     .. attribute:: admin_state
                                     
-                                    	admin state
-                                    	**type**\:  int
-                                    
-                                    	**range:** 0..255
+                                    	Admin State
+                                    	**type**\:  :py:class:`AdminStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.AdminStateEnum>`
                                     
                                     .. attribute:: asic_id
                                     
@@ -4858,10 +5466,8 @@ class Fia(object):
                                     
                                     .. attribute:: asic_state
                                     
-                                    	asic state
-                                    	**type**\:  int
-                                    
-                                    	**range:** 0..255
+                                    	Asic State
+                                    	**type**\:  :py:class:`AsicAccessStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.AsicAccessStateEnum>`
                                     
                                     .. attribute:: fapid
                                     
@@ -4882,33 +5488,15 @@ class Fia(object):
                                     	is valid
                                     	**type**\:  bool
                                     
-                                    .. attribute:: last_hard_reset_timestamp
-                                    
-                                    	last hard reset timestamp
-                                    	**type**\:  long
-                                    
-                                    	**range:** 0..18446744073709551615
-                                    
                                     .. attribute:: last_init_cause
                                     
                                     	last init cause
-                                    	**type**\:  int
-                                    
-                                    	**range:** 0..255
-                                    
-                                    .. attribute:: last_pon_reset_timestamp
-                                    
-                                    	last pon reset timestamp
-                                    	**type**\:  long
-                                    
-                                    	**range:** 0..18446744073709551615
+                                    	**type**\:  :py:class:`AsicInitMethodEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.AsicInitMethodEnum>`
                                     
                                     .. attribute:: local_switch_state
                                     
                                     	local switch state
-                                    	**type**\:  int
-                                    
-                                    	**range:** 0..4294967295
+                                    	**type**\:  bool
                                     
                                     .. attribute:: num_hard_resets
                                     
@@ -4926,17 +5514,13 @@ class Fia(object):
                                     
                                     .. attribute:: oper_state
                                     
-                                    	oper state
-                                    	**type**\:  int
-                                    
-                                    	**range:** 0..255
+                                    	Oper State
+                                    	**type**\:  :py:class:`AsicOperStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.AsicOperStateEnum>`
                                     
                                     .. attribute:: slice_state
                                     
-                                    	slice state
-                                    	**type**\:  int
-                                    
-                                    	**range:** 0..4294967295
+                                    	Slice State
+                                    	**type**\:  :py:class:`SliceStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.SliceStateEnum>`
                                     
                                     
 
@@ -4954,9 +5538,7 @@ class Fia(object):
                                         self.fapid = None
                                         self.hotplug_event = None
                                         self.is_valid = None
-                                        self.last_hard_reset_timestamp = None
                                         self.last_init_cause = None
-                                        self.last_pon_reset_timestamp = None
                                         self.local_switch_state = None
                                         self.num_hard_resets = None
                                         self.num_pon_resets = None
@@ -4977,10 +5559,8 @@ class Fia(object):
                                         
                                         .. attribute:: asic_type
                                         
-                                        	asic type
-                                        	**type**\:  int
-                                        
-                                        	**range:** 0..255
+                                        	Asic Type
+                                        	**type**\:  :py:class:`AsicEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.AsicEnum>`
                                         
                                         .. attribute:: rack_num
                                         
@@ -4991,10 +5571,8 @@ class Fia(object):
                                         
                                         .. attribute:: rack_type
                                         
-                                        	rack type
-                                        	**type**\:  int
-                                        
-                                        	**range:** 0..4294967295
+                                        	Rack Type
+                                        	**type**\:  :py:class:`RackEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.RackEnum>`
                                         
                                         .. attribute:: slot_num
                                         
@@ -5086,13 +5664,7 @@ class Fia(object):
                                         if self.is_valid is not None:
                                             return True
 
-                                        if self.last_hard_reset_timestamp is not None:
-                                            return True
-
                                         if self.last_init_cause is not None:
-                                            return True
-
-                                        if self.last_pon_reset_timestamp is not None:
                                             return True
 
                                         if self.local_switch_state is not None:
@@ -5151,7 +5723,7 @@ class Fia(object):
                                     .. attribute:: cxp_avail_bitmap
                                     
                                     	cxp avail bitmap
-                                    	**type**\:  long
+                                    	**type**\:  int
                                     
                                     	**range:** 0..18446744073709551615
                                     
@@ -5569,7 +6141,10 @@ class Fia(object):
                                     if self.drv_version is not None:
                                         return True
 
-                                    if self.drvr_startup_timestamp is not None:
+                                    if self.drvr_current_startup_timestamp is not None:
+                                        return True
+
+                                    if self.drvr_initial_startup_timestamp is not None:
                                         return True
 
                                     if self.exp_asic_avail_mask is not None:
@@ -5651,9 +6226,6 @@ class Fia(object):
                                         return True
 
                                     if self.num_pm_conn_reqs is not None:
-                                        return True
-
-                                    if self.offset_time_nsec is not None:
                                         return True
 
                                     if self.rack_name is not None:
@@ -5844,7 +6416,7 @@ class Fia(object):
                         	Asic instance
                         	**type**\:  int
                         
-                        	**range:** 0..16
+                        	**range:** 0..255
                         
                         .. attribute:: fmac_statistics
                         
@@ -6038,7 +6610,7 @@ class Fia(object):
                                             .. attribute:: field_value
                                             
                                             	Field Value
-                                            	**type**\:  long
+                                            	**type**\:  int
                                             
                                             	**range:** 0..18446744073709551615
                                             
@@ -6539,98 +7111,98 @@ class Fia(object):
                                                 .. attribute:: rx_8b_10b_code_errors
                                                 
                                                 	RX 8b 10b code errors
-                                                	**type**\:  long
+                                                	**type**\:  int
                                                 
                                                 	**range:** 0..18446744073709551615
                                                 
                                                 .. attribute:: rx_8b_10b_disparity_errors
                                                 
                                                 	RX 8b 10b disparity errors
-                                                	**type**\:  long
+                                                	**type**\:  int
                                                 
                                                 	**range:** 0..18446744073709551615
                                                 
                                                 .. attribute:: rx_asyn_fifo_rate
                                                 
                                                 	RX Asyn fifo rate
-                                                	**type**\:  long
+                                                	**type**\:  int
                                                 
                                                 	**range:** 0..18446744073709551615
                                                 
                                                 .. attribute:: rx_control_cells_counter
                                                 
                                                 	RX Control cells counter
-                                                	**type**\:  long
+                                                	**type**\:  int
                                                 
                                                 	**range:** 0..18446744073709551615
                                                 
                                                 .. attribute:: rx_crc_errors_counter
                                                 
                                                 	RX CRC errors counter
-                                                	**type**\:  long
+                                                	**type**\:  int
                                                 
                                                 	**range:** 0..18446744073709551615
                                                 
                                                 .. attribute:: rx_data_byte_counter
                                                 
                                                 	RX Data byte counter
-                                                	**type**\:  long
+                                                	**type**\:  int
                                                 
                                                 	**range:** 0..18446744073709551615
                                                 
                                                 .. attribute:: rx_data_cell_counter
                                                 
                                                 	RX Data cell counter
-                                                	**type**\:  long
+                                                	**type**\:  int
                                                 
                                                 	**range:** 0..18446744073709551615
                                                 
                                                 .. attribute:: rx_dropped_retransmitted_control
                                                 
                                                 	RX dropped retransmitted control
-                                                	**type**\:  long
+                                                	**type**\:  int
                                                 
                                                 	**range:** 0..18446744073709551615
                                                 
                                                 .. attribute:: rx_lfec_fec_correctable_error
                                                 
                                                 	RX LFEC FEC correctable error
-                                                	**type**\:  long
+                                                	**type**\:  int
                                                 
                                                 	**range:** 0..18446744073709551615
                                                 
                                                 .. attribute:: rx_lfec_fec_uncorrectable_errors
                                                 
                                                 	RX LFEC FEC uncorrectable errors
-                                                	**type**\:  long
+                                                	**type**\:  int
                                                 
                                                 	**range:** 0..18446744073709551615
                                                 
                                                 .. attribute:: tx_asyn_fifo_rate
                                                 
                                                 	TX Asyn fifo rate
-                                                	**type**\:  long
+                                                	**type**\:  int
                                                 
                                                 	**range:** 0..18446744073709551615
                                                 
                                                 .. attribute:: tx_control_cells_counter
                                                 
                                                 	TX Control cells counter
-                                                	**type**\:  long
+                                                	**type**\:  int
                                                 
                                                 	**range:** 0..18446744073709551615
                                                 
                                                 .. attribute:: tx_data_byte_counter
                                                 
                                                 	TX Data byte counter
-                                                	**type**\:  long
+                                                	**type**\:  int
                                                 
                                                 	**range:** 0..18446744073709551615
                                                 
                                                 .. attribute:: tx_data_cell_counter
                                                 
                                                 	TX Data cell counter
-                                                	**type**\:  long
+                                                	**type**\:  int
                                                 
                                                 	**range:** 0..18446744073709551615
                                                 
@@ -7109,98 +7681,98 @@ class Fia(object):
                                                 .. attribute:: rx_8b_10b_code_errors
                                                 
                                                 	RX 8b 10b code errors
-                                                	**type**\:  long
+                                                	**type**\:  int
                                                 
                                                 	**range:** 0..18446744073709551615
                                                 
                                                 .. attribute:: rx_8b_10b_disparity_errors
                                                 
                                                 	RX 8b 10b disparity errors
-                                                	**type**\:  long
+                                                	**type**\:  int
                                                 
                                                 	**range:** 0..18446744073709551615
                                                 
                                                 .. attribute:: rx_asyn_fifo_rate
                                                 
                                                 	RX Asyn fifo rate
-                                                	**type**\:  long
+                                                	**type**\:  int
                                                 
                                                 	**range:** 0..18446744073709551615
                                                 
                                                 .. attribute:: rx_control_cells_counter
                                                 
                                                 	RX Control cells counter
-                                                	**type**\:  long
+                                                	**type**\:  int
                                                 
                                                 	**range:** 0..18446744073709551615
                                                 
                                                 .. attribute:: rx_crc_errors_counter
                                                 
                                                 	RX CRC errors counter
-                                                	**type**\:  long
+                                                	**type**\:  int
                                                 
                                                 	**range:** 0..18446744073709551615
                                                 
                                                 .. attribute:: rx_data_byte_counter
                                                 
                                                 	RX Data byte counter
-                                                	**type**\:  long
+                                                	**type**\:  int
                                                 
                                                 	**range:** 0..18446744073709551615
                                                 
                                                 .. attribute:: rx_data_cell_counter
                                                 
                                                 	RX Data cell counter
-                                                	**type**\:  long
+                                                	**type**\:  int
                                                 
                                                 	**range:** 0..18446744073709551615
                                                 
                                                 .. attribute:: rx_dropped_retransmitted_control
                                                 
                                                 	RX dropped retransmitted control
-                                                	**type**\:  long
+                                                	**type**\:  int
                                                 
                                                 	**range:** 0..18446744073709551615
                                                 
                                                 .. attribute:: rx_lfec_fec_correctable_error
                                                 
                                                 	RX LFEC FEC correctable error
-                                                	**type**\:  long
+                                                	**type**\:  int
                                                 
                                                 	**range:** 0..18446744073709551615
                                                 
                                                 .. attribute:: rx_lfec_fec_uncorrectable_errors
                                                 
                                                 	RX LFEC FEC uncorrectable errors
-                                                	**type**\:  long
+                                                	**type**\:  int
                                                 
                                                 	**range:** 0..18446744073709551615
                                                 
                                                 .. attribute:: tx_asyn_fifo_rate
                                                 
                                                 	TX Asyn fifo rate
-                                                	**type**\:  long
+                                                	**type**\:  int
                                                 
                                                 	**range:** 0..18446744073709551615
                                                 
                                                 .. attribute:: tx_control_cells_counter
                                                 
                                                 	TX Control cells counter
-                                                	**type**\:  long
+                                                	**type**\:  int
                                                 
                                                 	**range:** 0..18446744073709551615
                                                 
                                                 .. attribute:: tx_data_byte_counter
                                                 
                                                 	TX Data byte counter
-                                                	**type**\:  long
+                                                	**type**\:  int
                                                 
                                                 	**range:** 0..18446744073709551615
                                                 
                                                 .. attribute:: tx_data_cell_counter
                                                 
                                                 	TX Data cell counter
-                                                	**type**\:  long
+                                                	**type**\:  int
                                                 
                                                 	**range:** 0..18446744073709551615
                                                 

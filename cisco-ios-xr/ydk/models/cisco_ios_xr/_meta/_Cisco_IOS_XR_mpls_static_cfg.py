@@ -36,10 +36,16 @@ _meta_table = {
         {
             'ipv4-unicast':'IPV4_UNICAST',
         }, 'Cisco-IOS-XR-mpls-static-cfg', _yang_ns._namespaces['Cisco-IOS-XR-mpls-static-cfg']),
-    'MplsStatic.Vrfs.Vrf.Afs.Af.TopLabelHash.LocalLabels.LocalLabel.LabelType' : {
-        'meta_info' : _MetaInfoClass('MplsStatic.Vrfs.Vrf.Afs.Af.TopLabelHash.LocalLabels.LocalLabel.LabelType',
+    'MplsStatic.Vrfs.Vrf.LabelSwitchedPaths.LabelSwitchedPath.InLabel' : {
+        'meta_info' : _MetaInfoClass('MplsStatic.Vrfs.Vrf.LabelSwitchedPaths.LabelSwitchedPath.InLabel',
             False, 
             [
+            _MetaInfoClassMember('in-label-value', ATTRIBUTE, 'int' , None, None, 
+                [('16', '1048575')], [], 
+                '''                Local Label
+                ''',
+                'in_label_value',
+                'Cisco-IOS-XR-mpls-static-cfg', False),
             _MetaInfoClassMember('label-mode', REFERENCE_ENUM_CLASS, 'MplsStaticLabelModeEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_cfg', 'MplsStaticLabelModeEnum', 
                 [], [], 
                 '''                Label Mode (PerVRF, PerPrefix or LSP)
@@ -66,30 +72,30 @@ _meta_table = {
                         'Cisco-IOS-XR-mpls-static-cfg', False),
                 ]),
             _MetaInfoClassMember('prefix-length', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Prefix length
                 ''',
                 'prefix_length',
                 'Cisco-IOS-XR-mpls-static-cfg', False),
             ],
             'Cisco-IOS-XR-mpls-static-cfg',
-            'label-type',
+            'in-label',
             _yang_ns._namespaces['Cisco-IOS-XR-mpls-static-cfg'],
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_cfg'
         ),
     },
-    'MplsStatic.Vrfs.Vrf.Afs.Af.TopLabelHash.LocalLabels.LocalLabel.Paths.Path' : {
-        'meta_info' : _MetaInfoClass('MplsStatic.Vrfs.Vrf.Afs.Af.TopLabelHash.LocalLabels.LocalLabel.Paths.Path',
+    'MplsStatic.Vrfs.Vrf.LabelSwitchedPaths.LabelSwitchedPath.Paths.Path' : {
+        'meta_info' : _MetaInfoClass('MplsStatic.Vrfs.Vrf.LabelSwitchedPaths.LabelSwitchedPath.Paths.Path',
             False, 
             [
             _MetaInfoClassMember('path-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of paths
                 ''',
                 'path_id',
                 'Cisco-IOS-XR-mpls-static-cfg', True),
             _MetaInfoClassMember('interface-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Next hop Interface with form
                 <Interface>R/S/I/P
                 ''',
@@ -121,7 +127,179 @@ _meta_table = {
                         'Cisco-IOS-XR-mpls-static-cfg', False),
                 ]),
             _MetaInfoClassMember('next-hop-label', ATTRIBUTE, 'int' , None, None, 
-                [(16, 1048575)], [], 
+                [('16', '1048575')], [], 
+                '''                NH Label
+                ''',
+                'next_hop_label',
+                'Cisco-IOS-XR-mpls-static-cfg', False),
+            _MetaInfoClassMember('path-type', REFERENCE_ENUM_CLASS, 'MplsStaticPathEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_cfg', 'MplsStaticPathEnum', 
+                [], [], 
+                '''                Type of Path (PopAndLookup, CrossConnect)
+                ''',
+                'path_type',
+                'Cisco-IOS-XR-mpls-static-cfg', False),
+            ],
+            'Cisco-IOS-XR-mpls-static-cfg',
+            'path',
+            _yang_ns._namespaces['Cisco-IOS-XR-mpls-static-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_cfg'
+        ),
+    },
+    'MplsStatic.Vrfs.Vrf.LabelSwitchedPaths.LabelSwitchedPath.Paths' : {
+        'meta_info' : _MetaInfoClass('MplsStatic.Vrfs.Vrf.LabelSwitchedPaths.LabelSwitchedPath.Paths',
+            False, 
+            [
+            _MetaInfoClassMember('path', REFERENCE_LIST, 'Path' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_cfg', 'MplsStatic.Vrfs.Vrf.LabelSwitchedPaths.LabelSwitchedPath.Paths.Path', 
+                [], [], 
+                '''                Path Information
+                ''',
+                'path',
+                'Cisco-IOS-XR-mpls-static-cfg', False),
+            ],
+            'Cisco-IOS-XR-mpls-static-cfg',
+            'paths',
+            _yang_ns._namespaces['Cisco-IOS-XR-mpls-static-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_cfg'
+        ),
+    },
+    'MplsStatic.Vrfs.Vrf.LabelSwitchedPaths.LabelSwitchedPath' : {
+        'meta_info' : _MetaInfoClass('MplsStatic.Vrfs.Vrf.LabelSwitchedPaths.LabelSwitchedPath',
+            False, 
+            [
+            _MetaInfoClassMember('lsp-name', ATTRIBUTE, 'str' , None, None, 
+                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                '''                LSP Name
+                ''',
+                'lsp_name',
+                'Cisco-IOS-XR-mpls-static-cfg', True),
+            _MetaInfoClassMember('enable', ATTRIBUTE, 'Empty' , None, None, 
+                [], [], 
+                '''                MPLS Static Apply Enable
+                ''',
+                'enable',
+                'Cisco-IOS-XR-mpls-static-cfg', False),
+            _MetaInfoClassMember('in-label', REFERENCE_CLASS, 'InLabel' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_cfg', 'MplsStatic.Vrfs.Vrf.LabelSwitchedPaths.LabelSwitchedPath.InLabel', 
+                [], [], 
+                '''                MPLS Static Local Label Value
+                ''',
+                'in_label',
+                'Cisco-IOS-XR-mpls-static-cfg', False),
+            _MetaInfoClassMember('paths', REFERENCE_CLASS, 'Paths' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_cfg', 'MplsStatic.Vrfs.Vrf.LabelSwitchedPaths.LabelSwitchedPath.Paths', 
+                [], [], 
+                '''                Forward Path Parameters
+                ''',
+                'paths',
+                'Cisco-IOS-XR-mpls-static-cfg', False),
+            ],
+            'Cisco-IOS-XR-mpls-static-cfg',
+            'label-switched-path',
+            _yang_ns._namespaces['Cisco-IOS-XR-mpls-static-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_cfg'
+        ),
+    },
+    'MplsStatic.Vrfs.Vrf.LabelSwitchedPaths' : {
+        'meta_info' : _MetaInfoClass('MplsStatic.Vrfs.Vrf.LabelSwitchedPaths',
+            False, 
+            [
+            _MetaInfoClassMember('label-switched-path', REFERENCE_LIST, 'LabelSwitchedPath' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_cfg', 'MplsStatic.Vrfs.Vrf.LabelSwitchedPaths.LabelSwitchedPath', 
+                [], [], 
+                '''                Label Switched Path
+                ''',
+                'label_switched_path',
+                'Cisco-IOS-XR-mpls-static-cfg', False),
+            ],
+            'Cisco-IOS-XR-mpls-static-cfg',
+            'label-switched-paths',
+            _yang_ns._namespaces['Cisco-IOS-XR-mpls-static-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_cfg'
+        ),
+    },
+    'MplsStatic.Vrfs.Vrf.Afs.Af.TopLabelHash.LocalLabels.LocalLabel.LabelType' : {
+        'meta_info' : _MetaInfoClass('MplsStatic.Vrfs.Vrf.Afs.Af.TopLabelHash.LocalLabels.LocalLabel.LabelType',
+            False, 
+            [
+            _MetaInfoClassMember('label-mode', REFERENCE_ENUM_CLASS, 'MplsStaticLabelModeEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_cfg', 'MplsStaticLabelModeEnum', 
+                [], [], 
+                '''                Label Mode (PerVRF, PerPrefix or LSP)
+                ''',
+                'label_mode',
+                'Cisco-IOS-XR-mpls-static-cfg', False),
+            _MetaInfoClassMember('prefix', REFERENCE_UNION, 'str' , None, None, 
+                [], [], 
+                '''                Address (IPv4/6 depending on AFI)
+                ''',
+                'prefix',
+                'Cisco-IOS-XR-mpls-static-cfg', False, [
+                    _MetaInfoClassMember('prefix', ATTRIBUTE, 'str' , None, None, 
+                        [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                        '''                        Address (IPv4/6 depending on AFI)
+                        ''',
+                        'prefix',
+                        'Cisco-IOS-XR-mpls-static-cfg', False),
+                    _MetaInfoClassMember('prefix', ATTRIBUTE, 'str' , None, None, 
+                        [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                        '''                        Address (IPv4/6 depending on AFI)
+                        ''',
+                        'prefix',
+                        'Cisco-IOS-XR-mpls-static-cfg', False),
+                ]),
+            _MetaInfoClassMember('prefix-length', ATTRIBUTE, 'int' , None, None, 
+                [('-2147483648', '2147483647')], [], 
+                '''                Prefix length
+                ''',
+                'prefix_length',
+                'Cisco-IOS-XR-mpls-static-cfg', False),
+            ],
+            'Cisco-IOS-XR-mpls-static-cfg',
+            'label-type',
+            _yang_ns._namespaces['Cisco-IOS-XR-mpls-static-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_cfg'
+        ),
+    },
+    'MplsStatic.Vrfs.Vrf.Afs.Af.TopLabelHash.LocalLabels.LocalLabel.Paths.Path' : {
+        'meta_info' : _MetaInfoClass('MplsStatic.Vrfs.Vrf.Afs.Af.TopLabelHash.LocalLabels.LocalLabel.Paths.Path',
+            False, 
+            [
+            _MetaInfoClassMember('path-id', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                Number of paths
+                ''',
+                'path_id',
+                'Cisco-IOS-XR-mpls-static-cfg', True),
+            _MetaInfoClassMember('interface-name', ATTRIBUTE, 'str' , None, None, 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                '''                Next hop Interface with form
+                <Interface>R/S/I/P
+                ''',
+                'interface_name',
+                'Cisco-IOS-XR-mpls-static-cfg', False),
+            _MetaInfoClassMember('label-type', REFERENCE_ENUM_CLASS, 'MplsStaticOutLabelTypesEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_cfg', 'MplsStaticOutLabelTypesEnum', 
+                [], [], 
+                '''                Type of label (Outlabel, ExpNull or Pop)
+                ''',
+                'label_type',
+                'Cisco-IOS-XR-mpls-static-cfg', False),
+            _MetaInfoClassMember('next-hop-address', REFERENCE_UNION, 'str' , None, None, 
+                [], [], 
+                '''                Next Hop IPv4 Address
+                ''',
+                'next_hop_address',
+                'Cisco-IOS-XR-mpls-static-cfg', False, [
+                    _MetaInfoClassMember('next-hop-address', ATTRIBUTE, 'str' , None, None, 
+                        [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                        '''                        Next Hop IPv4 Address
+                        ''',
+                        'next_hop_address',
+                        'Cisco-IOS-XR-mpls-static-cfg', False),
+                    _MetaInfoClassMember('next-hop-address', ATTRIBUTE, 'str' , None, None, 
+                        [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                        '''                        Next Hop IPv4 Address
+                        ''',
+                        'next_hop_address',
+                        'Cisco-IOS-XR-mpls-static-cfg', False),
+                ]),
+            _MetaInfoClassMember('next-hop-label', ATTRIBUTE, 'int' , None, None, 
+                [('16', '1048575')], [], 
                 '''                NH Label
                 ''',
                 'next_hop_label',
@@ -161,7 +339,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('local-label-id', ATTRIBUTE, 'int' , None, None, 
-                [(16, 1048575)], [], 
+                [('16', '1048575')], [], 
                 '''                Local Label
                 ''',
                 'local_label_id',
@@ -249,7 +427,7 @@ _meta_table = {
                         'Cisco-IOS-XR-mpls-static-cfg', False),
                 ]),
             _MetaInfoClassMember('prefix-length', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Prefix length
                 ''',
                 'prefix_length',
@@ -266,13 +444,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('path-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of paths
                 ''',
                 'path_id',
                 'Cisco-IOS-XR-mpls-static-cfg', True),
             _MetaInfoClassMember('interface-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Next hop Interface with form
                 <Interface>R/S/I/P
                 ''',
@@ -304,7 +482,7 @@ _meta_table = {
                         'Cisco-IOS-XR-mpls-static-cfg', False),
                 ]),
             _MetaInfoClassMember('next-hop-label', ATTRIBUTE, 'int' , None, None, 
-                [(16, 1048575)], [], 
+                [('16', '1048575')], [], 
                 '''                NH Label
                 ''',
                 'next_hop_label',
@@ -344,7 +522,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('local-label-id', ATTRIBUTE, 'int' , None, None, 
-                [(16, 1048575)], [], 
+                [('16', '1048575')], [], 
                 '''                Local Label
                 ''',
                 'local_label_id',
@@ -459,6 +637,12 @@ _meta_table = {
                 ''',
                 'enable',
                 'Cisco-IOS-XR-mpls-static-cfg', False),
+            _MetaInfoClassMember('label-switched-paths', REFERENCE_CLASS, 'LabelSwitchedPaths' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_cfg', 'MplsStatic.Vrfs.Vrf.LabelSwitchedPaths', 
+                [], [], 
+                '''                Table of the Label Switched Paths
+                ''',
+                'label_switched_paths',
+                'Cisco-IOS-XR-mpls-static-cfg', False),
             ],
             'Cisco-IOS-XR-mpls-static-cfg',
             'vrf',
@@ -488,7 +672,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('interface-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Name of Interface
                 ''',
                 'interface_name',
@@ -513,6 +697,184 @@ _meta_table = {
             ],
             'Cisco-IOS-XR-mpls-static-cfg',
             'interfaces',
+            _yang_ns._namespaces['Cisco-IOS-XR-mpls-static-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_cfg'
+        ),
+    },
+    'MplsStatic.DefaultVrf.LabelSwitchedPaths.LabelSwitchedPath.InLabel' : {
+        'meta_info' : _MetaInfoClass('MplsStatic.DefaultVrf.LabelSwitchedPaths.LabelSwitchedPath.InLabel',
+            False, 
+            [
+            _MetaInfoClassMember('in-label-value', ATTRIBUTE, 'int' , None, None, 
+                [('16', '1048575')], [], 
+                '''                Local Label
+                ''',
+                'in_label_value',
+                'Cisco-IOS-XR-mpls-static-cfg', False),
+            _MetaInfoClassMember('label-mode', REFERENCE_ENUM_CLASS, 'MplsStaticLabelModeEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_cfg', 'MplsStaticLabelModeEnum', 
+                [], [], 
+                '''                Label Mode (PerVRF, PerPrefix or LSP)
+                ''',
+                'label_mode',
+                'Cisco-IOS-XR-mpls-static-cfg', False),
+            _MetaInfoClassMember('prefix', REFERENCE_UNION, 'str' , None, None, 
+                [], [], 
+                '''                Address (IPv4/6 depending on AFI)
+                ''',
+                'prefix',
+                'Cisco-IOS-XR-mpls-static-cfg', False, [
+                    _MetaInfoClassMember('prefix', ATTRIBUTE, 'str' , None, None, 
+                        [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                        '''                        Address (IPv4/6 depending on AFI)
+                        ''',
+                        'prefix',
+                        'Cisco-IOS-XR-mpls-static-cfg', False),
+                    _MetaInfoClassMember('prefix', ATTRIBUTE, 'str' , None, None, 
+                        [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                        '''                        Address (IPv4/6 depending on AFI)
+                        ''',
+                        'prefix',
+                        'Cisco-IOS-XR-mpls-static-cfg', False),
+                ]),
+            _MetaInfoClassMember('prefix-length', ATTRIBUTE, 'int' , None, None, 
+                [('-2147483648', '2147483647')], [], 
+                '''                Prefix length
+                ''',
+                'prefix_length',
+                'Cisco-IOS-XR-mpls-static-cfg', False),
+            ],
+            'Cisco-IOS-XR-mpls-static-cfg',
+            'in-label',
+            _yang_ns._namespaces['Cisco-IOS-XR-mpls-static-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_cfg'
+        ),
+    },
+    'MplsStatic.DefaultVrf.LabelSwitchedPaths.LabelSwitchedPath.Paths.Path' : {
+        'meta_info' : _MetaInfoClass('MplsStatic.DefaultVrf.LabelSwitchedPaths.LabelSwitchedPath.Paths.Path',
+            False, 
+            [
+            _MetaInfoClassMember('path-id', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                Number of paths
+                ''',
+                'path_id',
+                'Cisco-IOS-XR-mpls-static-cfg', True),
+            _MetaInfoClassMember('interface-name', ATTRIBUTE, 'str' , None, None, 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                '''                Next hop Interface with form
+                <Interface>R/S/I/P
+                ''',
+                'interface_name',
+                'Cisco-IOS-XR-mpls-static-cfg', False),
+            _MetaInfoClassMember('label-type', REFERENCE_ENUM_CLASS, 'MplsStaticOutLabelTypesEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_cfg', 'MplsStaticOutLabelTypesEnum', 
+                [], [], 
+                '''                Type of label (Outlabel, ExpNull or Pop)
+                ''',
+                'label_type',
+                'Cisco-IOS-XR-mpls-static-cfg', False),
+            _MetaInfoClassMember('next-hop-address', REFERENCE_UNION, 'str' , None, None, 
+                [], [], 
+                '''                Next Hop IPv4 Address
+                ''',
+                'next_hop_address',
+                'Cisco-IOS-XR-mpls-static-cfg', False, [
+                    _MetaInfoClassMember('next-hop-address', ATTRIBUTE, 'str' , None, None, 
+                        [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                        '''                        Next Hop IPv4 Address
+                        ''',
+                        'next_hop_address',
+                        'Cisco-IOS-XR-mpls-static-cfg', False),
+                    _MetaInfoClassMember('next-hop-address', ATTRIBUTE, 'str' , None, None, 
+                        [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                        '''                        Next Hop IPv4 Address
+                        ''',
+                        'next_hop_address',
+                        'Cisco-IOS-XR-mpls-static-cfg', False),
+                ]),
+            _MetaInfoClassMember('next-hop-label', ATTRIBUTE, 'int' , None, None, 
+                [('16', '1048575')], [], 
+                '''                NH Label
+                ''',
+                'next_hop_label',
+                'Cisco-IOS-XR-mpls-static-cfg', False),
+            _MetaInfoClassMember('path-type', REFERENCE_ENUM_CLASS, 'MplsStaticPathEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_cfg', 'MplsStaticPathEnum', 
+                [], [], 
+                '''                Type of Path (PopAndLookup, CrossConnect)
+                ''',
+                'path_type',
+                'Cisco-IOS-XR-mpls-static-cfg', False),
+            ],
+            'Cisco-IOS-XR-mpls-static-cfg',
+            'path',
+            _yang_ns._namespaces['Cisco-IOS-XR-mpls-static-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_cfg'
+        ),
+    },
+    'MplsStatic.DefaultVrf.LabelSwitchedPaths.LabelSwitchedPath.Paths' : {
+        'meta_info' : _MetaInfoClass('MplsStatic.DefaultVrf.LabelSwitchedPaths.LabelSwitchedPath.Paths',
+            False, 
+            [
+            _MetaInfoClassMember('path', REFERENCE_LIST, 'Path' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_cfg', 'MplsStatic.DefaultVrf.LabelSwitchedPaths.LabelSwitchedPath.Paths.Path', 
+                [], [], 
+                '''                Path Information
+                ''',
+                'path',
+                'Cisco-IOS-XR-mpls-static-cfg', False),
+            ],
+            'Cisco-IOS-XR-mpls-static-cfg',
+            'paths',
+            _yang_ns._namespaces['Cisco-IOS-XR-mpls-static-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_cfg'
+        ),
+    },
+    'MplsStatic.DefaultVrf.LabelSwitchedPaths.LabelSwitchedPath' : {
+        'meta_info' : _MetaInfoClass('MplsStatic.DefaultVrf.LabelSwitchedPaths.LabelSwitchedPath',
+            False, 
+            [
+            _MetaInfoClassMember('lsp-name', ATTRIBUTE, 'str' , None, None, 
+                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                '''                LSP Name
+                ''',
+                'lsp_name',
+                'Cisco-IOS-XR-mpls-static-cfg', True),
+            _MetaInfoClassMember('enable', ATTRIBUTE, 'Empty' , None, None, 
+                [], [], 
+                '''                MPLS Static Apply Enable
+                ''',
+                'enable',
+                'Cisco-IOS-XR-mpls-static-cfg', False),
+            _MetaInfoClassMember('in-label', REFERENCE_CLASS, 'InLabel' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_cfg', 'MplsStatic.DefaultVrf.LabelSwitchedPaths.LabelSwitchedPath.InLabel', 
+                [], [], 
+                '''                MPLS Static Local Label Value
+                ''',
+                'in_label',
+                'Cisco-IOS-XR-mpls-static-cfg', False),
+            _MetaInfoClassMember('paths', REFERENCE_CLASS, 'Paths' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_cfg', 'MplsStatic.DefaultVrf.LabelSwitchedPaths.LabelSwitchedPath.Paths', 
+                [], [], 
+                '''                Forward Path Parameters
+                ''',
+                'paths',
+                'Cisco-IOS-XR-mpls-static-cfg', False),
+            ],
+            'Cisco-IOS-XR-mpls-static-cfg',
+            'label-switched-path',
+            _yang_ns._namespaces['Cisco-IOS-XR-mpls-static-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_cfg'
+        ),
+    },
+    'MplsStatic.DefaultVrf.LabelSwitchedPaths' : {
+        'meta_info' : _MetaInfoClass('MplsStatic.DefaultVrf.LabelSwitchedPaths',
+            False, 
+            [
+            _MetaInfoClassMember('label-switched-path', REFERENCE_LIST, 'LabelSwitchedPath' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_cfg', 'MplsStatic.DefaultVrf.LabelSwitchedPaths.LabelSwitchedPath', 
+                [], [], 
+                '''                Label Switched Path
+                ''',
+                'label_switched_path',
+                'Cisco-IOS-XR-mpls-static-cfg', False),
+            ],
+            'Cisco-IOS-XR-mpls-static-cfg',
+            'label-switched-paths',
             _yang_ns._namespaces['Cisco-IOS-XR-mpls-static-cfg'],
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_cfg'
         ),
@@ -547,7 +909,7 @@ _meta_table = {
                         'Cisco-IOS-XR-mpls-static-cfg', False),
                 ]),
             _MetaInfoClassMember('prefix-length', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Prefix length
                 ''',
                 'prefix_length',
@@ -564,13 +926,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('path-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of paths
                 ''',
                 'path_id',
                 'Cisco-IOS-XR-mpls-static-cfg', True),
             _MetaInfoClassMember('interface-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Next hop Interface with form
                 <Interface>R/S/I/P
                 ''',
@@ -602,7 +964,7 @@ _meta_table = {
                         'Cisco-IOS-XR-mpls-static-cfg', False),
                 ]),
             _MetaInfoClassMember('next-hop-label', ATTRIBUTE, 'int' , None, None, 
-                [(16, 1048575)], [], 
+                [('16', '1048575')], [], 
                 '''                NH Label
                 ''',
                 'next_hop_label',
@@ -642,7 +1004,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('local-label-id', ATTRIBUTE, 'int' , None, None, 
-                [(16, 1048575)], [], 
+                [('16', '1048575')], [], 
                 '''                Local Label
                 ''',
                 'local_label_id',
@@ -730,7 +1092,7 @@ _meta_table = {
                         'Cisco-IOS-XR-mpls-static-cfg', False),
                 ]),
             _MetaInfoClassMember('prefix-length', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Prefix length
                 ''',
                 'prefix_length',
@@ -747,13 +1109,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('path-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of paths
                 ''',
                 'path_id',
                 'Cisco-IOS-XR-mpls-static-cfg', True),
             _MetaInfoClassMember('interface-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Next hop Interface with form
                 <Interface>R/S/I/P
                 ''',
@@ -785,7 +1147,7 @@ _meta_table = {
                         'Cisco-IOS-XR-mpls-static-cfg', False),
                 ]),
             _MetaInfoClassMember('next-hop-label', ATTRIBUTE, 'int' , None, None, 
-                [(16, 1048575)], [], 
+                [('16', '1048575')], [], 
                 '''                NH Label
                 ''',
                 'next_hop_label',
@@ -825,7 +1187,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('local-label-id', ATTRIBUTE, 'int' , None, None, 
-                [(16, 1048575)], [], 
+                [('16', '1048575')], [], 
                 '''                Local Label
                 ''',
                 'local_label_id',
@@ -934,6 +1296,12 @@ _meta_table = {
                 ''',
                 'enable',
                 'Cisco-IOS-XR-mpls-static-cfg', False),
+            _MetaInfoClassMember('label-switched-paths', REFERENCE_CLASS, 'LabelSwitchedPaths' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_cfg', 'MplsStatic.DefaultVrf.LabelSwitchedPaths', 
+                [], [], 
+                '''                Table of the Label Switched Paths
+                ''',
+                'label_switched_paths',
+                'Cisco-IOS-XR-mpls-static-cfg', False),
             ],
             'Cisco-IOS-XR-mpls-static-cfg',
             'default-vrf',
@@ -977,6 +1345,10 @@ _meta_table = {
         ),
     },
 }
+_meta_table['MplsStatic.Vrfs.Vrf.LabelSwitchedPaths.LabelSwitchedPath.Paths.Path']['meta_info'].parent =_meta_table['MplsStatic.Vrfs.Vrf.LabelSwitchedPaths.LabelSwitchedPath.Paths']['meta_info']
+_meta_table['MplsStatic.Vrfs.Vrf.LabelSwitchedPaths.LabelSwitchedPath.InLabel']['meta_info'].parent =_meta_table['MplsStatic.Vrfs.Vrf.LabelSwitchedPaths.LabelSwitchedPath']['meta_info']
+_meta_table['MplsStatic.Vrfs.Vrf.LabelSwitchedPaths.LabelSwitchedPath.Paths']['meta_info'].parent =_meta_table['MplsStatic.Vrfs.Vrf.LabelSwitchedPaths.LabelSwitchedPath']['meta_info']
+_meta_table['MplsStatic.Vrfs.Vrf.LabelSwitchedPaths.LabelSwitchedPath']['meta_info'].parent =_meta_table['MplsStatic.Vrfs.Vrf.LabelSwitchedPaths']['meta_info']
 _meta_table['MplsStatic.Vrfs.Vrf.Afs.Af.TopLabelHash.LocalLabels.LocalLabel.Paths.Path']['meta_info'].parent =_meta_table['MplsStatic.Vrfs.Vrf.Afs.Af.TopLabelHash.LocalLabels.LocalLabel.Paths']['meta_info']
 _meta_table['MplsStatic.Vrfs.Vrf.Afs.Af.TopLabelHash.LocalLabels.LocalLabel.LabelType']['meta_info'].parent =_meta_table['MplsStatic.Vrfs.Vrf.Afs.Af.TopLabelHash.LocalLabels.LocalLabel']['meta_info']
 _meta_table['MplsStatic.Vrfs.Vrf.Afs.Af.TopLabelHash.LocalLabels.LocalLabel.Paths']['meta_info'].parent =_meta_table['MplsStatic.Vrfs.Vrf.Afs.Af.TopLabelHash.LocalLabels.LocalLabel']['meta_info']
@@ -989,9 +1361,14 @@ _meta_table['MplsStatic.Vrfs.Vrf.Afs.Af.LocalLabels.LocalLabel']['meta_info'].pa
 _meta_table['MplsStatic.Vrfs.Vrf.Afs.Af.TopLabelHash']['meta_info'].parent =_meta_table['MplsStatic.Vrfs.Vrf.Afs.Af']['meta_info']
 _meta_table['MplsStatic.Vrfs.Vrf.Afs.Af.LocalLabels']['meta_info'].parent =_meta_table['MplsStatic.Vrfs.Vrf.Afs.Af']['meta_info']
 _meta_table['MplsStatic.Vrfs.Vrf.Afs.Af']['meta_info'].parent =_meta_table['MplsStatic.Vrfs.Vrf.Afs']['meta_info']
+_meta_table['MplsStatic.Vrfs.Vrf.LabelSwitchedPaths']['meta_info'].parent =_meta_table['MplsStatic.Vrfs.Vrf']['meta_info']
 _meta_table['MplsStatic.Vrfs.Vrf.Afs']['meta_info'].parent =_meta_table['MplsStatic.Vrfs.Vrf']['meta_info']
 _meta_table['MplsStatic.Vrfs.Vrf']['meta_info'].parent =_meta_table['MplsStatic.Vrfs']['meta_info']
 _meta_table['MplsStatic.Interfaces.Interface']['meta_info'].parent =_meta_table['MplsStatic.Interfaces']['meta_info']
+_meta_table['MplsStatic.DefaultVrf.LabelSwitchedPaths.LabelSwitchedPath.Paths.Path']['meta_info'].parent =_meta_table['MplsStatic.DefaultVrf.LabelSwitchedPaths.LabelSwitchedPath.Paths']['meta_info']
+_meta_table['MplsStatic.DefaultVrf.LabelSwitchedPaths.LabelSwitchedPath.InLabel']['meta_info'].parent =_meta_table['MplsStatic.DefaultVrf.LabelSwitchedPaths.LabelSwitchedPath']['meta_info']
+_meta_table['MplsStatic.DefaultVrf.LabelSwitchedPaths.LabelSwitchedPath.Paths']['meta_info'].parent =_meta_table['MplsStatic.DefaultVrf.LabelSwitchedPaths.LabelSwitchedPath']['meta_info']
+_meta_table['MplsStatic.DefaultVrf.LabelSwitchedPaths.LabelSwitchedPath']['meta_info'].parent =_meta_table['MplsStatic.DefaultVrf.LabelSwitchedPaths']['meta_info']
 _meta_table['MplsStatic.DefaultVrf.Afs.Af.TopLabelHash.LocalLabels.LocalLabel.Paths.Path']['meta_info'].parent =_meta_table['MplsStatic.DefaultVrf.Afs.Af.TopLabelHash.LocalLabels.LocalLabel.Paths']['meta_info']
 _meta_table['MplsStatic.DefaultVrf.Afs.Af.TopLabelHash.LocalLabels.LocalLabel.LabelType']['meta_info'].parent =_meta_table['MplsStatic.DefaultVrf.Afs.Af.TopLabelHash.LocalLabels.LocalLabel']['meta_info']
 _meta_table['MplsStatic.DefaultVrf.Afs.Af.TopLabelHash.LocalLabels.LocalLabel.Paths']['meta_info'].parent =_meta_table['MplsStatic.DefaultVrf.Afs.Af.TopLabelHash.LocalLabels.LocalLabel']['meta_info']
@@ -1004,6 +1381,7 @@ _meta_table['MplsStatic.DefaultVrf.Afs.Af.LocalLabels.LocalLabel']['meta_info'].
 _meta_table['MplsStatic.DefaultVrf.Afs.Af.TopLabelHash']['meta_info'].parent =_meta_table['MplsStatic.DefaultVrf.Afs.Af']['meta_info']
 _meta_table['MplsStatic.DefaultVrf.Afs.Af.LocalLabels']['meta_info'].parent =_meta_table['MplsStatic.DefaultVrf.Afs.Af']['meta_info']
 _meta_table['MplsStatic.DefaultVrf.Afs.Af']['meta_info'].parent =_meta_table['MplsStatic.DefaultVrf.Afs']['meta_info']
+_meta_table['MplsStatic.DefaultVrf.LabelSwitchedPaths']['meta_info'].parent =_meta_table['MplsStatic.DefaultVrf']['meta_info']
 _meta_table['MplsStatic.DefaultVrf.Afs']['meta_info'].parent =_meta_table['MplsStatic.DefaultVrf']['meta_info']
 _meta_table['MplsStatic.Vrfs']['meta_info'].parent =_meta_table['MplsStatic']['meta_info']
 _meta_table['MplsStatic.Interfaces']['meta_info'].parent =_meta_table['MplsStatic']['meta_info']

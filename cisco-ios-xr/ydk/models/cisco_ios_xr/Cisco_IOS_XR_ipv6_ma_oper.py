@@ -7,7 +7,7 @@ This module contains definitions
 for the following management objects\:
   ipv6\-network\: IPv6 network operational data
 
-Copyright (c) 2013\-2015 by Cisco Systems, Inc.
+Copyright (c) 2013\-2016 by Cisco Systems, Inc.
 All rights reserved.
 
 """
@@ -152,11 +152,6 @@ class Ipv6Network(object):
     """
     IPv6 network operational data
     
-    .. attribute:: interface_global_data
-    
-    	IPv6 network global operational interface data
-    	**type**\:  :py:class:`InterfaceGlobalData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper.Ipv6Network.InterfaceGlobalData>`
-    
     .. attribute:: nodes
     
     	Node\-specific IPv6 network operational data
@@ -170,8 +165,6 @@ class Ipv6Network(object):
     _revision = '2015-10-20'
 
     def __init__(self):
-        self.interface_global_data = Ipv6Network.InterfaceGlobalData()
-        self.interface_global_data.parent = self
         self.nodes = Ipv6Network.Nodes()
         self.nodes.parent = self
 
@@ -368,7 +361,7 @@ class Ipv6Network(object):
                                 	The name of the interface
                                 	**type**\:  str
                                 
-                                	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+                                	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
                                 
                                 .. attribute:: address
                                 
@@ -674,7 +667,7 @@ class Ipv6Network(object):
                                 	The name of the interface
                                 	**type**\:  str
                                 
-                                	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+                                	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
                                 
                                 .. attribute:: access_control_list
                                 
@@ -695,6 +688,11 @@ class Ipv6Network(object):
                                 
                                 	CAPS Add Time
                                 	**type**\:  :py:class:`CapsUtime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper.Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.CapsUtime>`
+                                
+                                .. attribute:: client_multicast_group
+                                
+                                	IPv6 Client Multicast Group
+                                	**type**\: list of  :py:class:`ClientMulticastGroup <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper.Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.ClientMulticastGroup>`
                                 
                                 .. attribute:: flow_tag_dst
                                 
@@ -797,6 +795,9 @@ class Ipv6Network(object):
                                     self.bgp_pa.parent = self
                                     self.caps_utime = Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.CapsUtime()
                                     self.caps_utime.parent = self
+                                    self.client_multicast_group = YList()
+                                    self.client_multicast_group.parent = self
+                                    self.client_multicast_group.name = 'client_multicast_group'
                                     self.flow_tag_dst = None
                                     self.flow_tag_src = None
                                     self.fwd_dis_utime = Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.FwdDisUtime()
@@ -1631,6 +1632,53 @@ class Ipv6Network(object):
                                         from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ma_oper as meta
                                         return meta._meta_table['Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.Address']['meta_info']
 
+
+                                class ClientMulticastGroup(object):
+                                    """
+                                    IPv6 Client Multicast Group
+                                    
+                                    .. attribute:: address
+                                    
+                                    	IPv6 Address of Multicast Group
+                                    	**type**\:  str
+                                    
+                                    	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                                    
+                                    
+
+                                    """
+
+                                    _prefix = 'ipv6-ma-oper'
+                                    _revision = '2015-10-20'
+
+                                    def __init__(self):
+                                        self.parent = None
+                                        self.address = None
+
+                                    @property
+                                    def _common_path(self):
+                                        if self.parent is None:
+                                            raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                        return self.parent._common_path +'/Cisco-IOS-XR-ipv6-ma-oper:client-multicast-group'
+
+                                    def is_config(self):
+                                        ''' Returns True if this instance represents config data else returns False '''
+                                        return False
+
+                                    def _has_data(self):
+                                        if not self.is_config():
+                                            return False
+                                        if self.address is not None:
+                                            return True
+
+                                        return False
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ma_oper as meta
+                                        return meta._meta_table['Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.ClientMulticastGroup']['meta_info']
+
                                 @property
                                 def _common_path(self):
                                     if self.parent is None:
@@ -1663,6 +1711,11 @@ class Ipv6Network(object):
 
                                     if self.caps_utime is not None and self.caps_utime._has_data():
                                         return True
+
+                                    if self.client_multicast_group is not None:
+                                        for child_ref in self.client_multicast_group:
+                                            if child_ref._has_data():
+                                                return True
 
                                     if self.flow_tag_dst is not None:
                                         return True
@@ -1782,7 +1835,7 @@ class Ipv6Network(object):
                                 	The name of the interface
                                 	**type**\:  str
                                 
-                                	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+                                	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
                                 
                                 .. attribute:: address
                                 
@@ -2088,7 +2141,7 @@ class Ipv6Network(object):
                                 	The name of the interface
                                 	**type**\:  str
                                 
-                                	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+                                	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
                                 
                                 .. attribute:: access_control_list
                                 
@@ -2109,6 +2162,11 @@ class Ipv6Network(object):
                                 
                                 	CAPS Add Time
                                 	**type**\:  :py:class:`CapsUtime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper.Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.CapsUtime>`
+                                
+                                .. attribute:: client_multicast_group
+                                
+                                	IPv6 Client Multicast Group
+                                	**type**\: list of  :py:class:`ClientMulticastGroup <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper.Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.ClientMulticastGroup>`
                                 
                                 .. attribute:: flow_tag_dst
                                 
@@ -2211,6 +2269,9 @@ class Ipv6Network(object):
                                     self.bgp_pa.parent = self
                                     self.caps_utime = Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.CapsUtime()
                                     self.caps_utime.parent = self
+                                    self.client_multicast_group = YList()
+                                    self.client_multicast_group.parent = self
+                                    self.client_multicast_group.name = 'client_multicast_group'
                                     self.flow_tag_dst = None
                                     self.flow_tag_src = None
                                     self.fwd_dis_utime = Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.FwdDisUtime()
@@ -3045,6 +3106,53 @@ class Ipv6Network(object):
                                         from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ma_oper as meta
                                         return meta._meta_table['Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.Address']['meta_info']
 
+
+                                class ClientMulticastGroup(object):
+                                    """
+                                    IPv6 Client Multicast Group
+                                    
+                                    .. attribute:: address
+                                    
+                                    	IPv6 Address of Multicast Group
+                                    	**type**\:  str
+                                    
+                                    	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                                    
+                                    
+
+                                    """
+
+                                    _prefix = 'ipv6-ma-oper'
+                                    _revision = '2015-10-20'
+
+                                    def __init__(self):
+                                        self.parent = None
+                                        self.address = None
+
+                                    @property
+                                    def _common_path(self):
+                                        if self.parent is None:
+                                            raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                        return self.parent._common_path +'/Cisco-IOS-XR-ipv6-ma-oper:client-multicast-group'
+
+                                    def is_config(self):
+                                        ''' Returns True if this instance represents config data else returns False '''
+                                        return False
+
+                                    def _has_data(self):
+                                        if not self.is_config():
+                                            return False
+                                        if self.address is not None:
+                                            return True
+
+                                        return False
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ma_oper as meta
+                                        return meta._meta_table['Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.ClientMulticastGroup']['meta_info']
+
                                 @property
                                 def _common_path(self):
                                     if self.parent is None:
@@ -3077,6 +3185,11 @@ class Ipv6Network(object):
 
                                     if self.caps_utime is not None and self.caps_utime._has_data():
                                         return True
+
+                                    if self.client_multicast_group is not None:
+                                        for child_ref in self.client_multicast_group:
+                                            if child_ref._has_data():
+                                                return True
 
                                     if self.flow_tag_dst is not None:
                                         return True
@@ -3289,6 +3402,13 @@ class Ipv6Network(object):
                         
                         	**range:** 0..4294967295
                         
+                        .. attribute:: ip_unassigned
+                        
+                        	Number of unassigned interfaces without explicit address
+                        	**type**\:  int
+                        
+                        	**range:** 0..4294967295
+                        
                         .. attribute:: ip_unnumbered
                         
                         	Number of unnumbered interfaces with explicit addresses
@@ -3306,6 +3426,7 @@ class Ipv6Network(object):
                         def __init__(self):
                             self.parent = None
                             self.ip_assigned = None
+                            self.ip_unassigned = None
                             self.ip_unnumbered = None
 
                         @property
@@ -3323,6 +3444,9 @@ class Ipv6Network(object):
                             if not self.is_config():
                                 return False
                             if self.ip_assigned is not None:
+                                return True
+
+                            if self.ip_unassigned is not None:
                                 return True
 
                             if self.ip_unnumbered is not None:
@@ -3347,6 +3471,13 @@ class Ipv6Network(object):
                         
                         	**range:** 0..4294967295
                         
+                        .. attribute:: ip_unassigned
+                        
+                        	Number of unassigned interfaces without explicit address
+                        	**type**\:  int
+                        
+                        	**range:** 0..4294967295
+                        
                         .. attribute:: ip_unnumbered
                         
                         	Number of unnumbered interfaces with explicit addresses
@@ -3364,6 +3495,7 @@ class Ipv6Network(object):
                         def __init__(self):
                             self.parent = None
                             self.ip_assigned = None
+                            self.ip_unassigned = None
                             self.ip_unnumbered = None
 
                         @property
@@ -3381,6 +3513,9 @@ class Ipv6Network(object):
                             if not self.is_config():
                                 return False
                             if self.ip_assigned is not None:
+                                return True
+
+                            if self.ip_unassigned is not None:
                                 return True
 
                             if self.ip_unnumbered is not None:
@@ -3405,6 +3540,13 @@ class Ipv6Network(object):
                         
                         	**range:** 0..4294967295
                         
+                        .. attribute:: ip_unassigned
+                        
+                        	Number of unassigned interfaces without explicit address
+                        	**type**\:  int
+                        
+                        	**range:** 0..4294967295
+                        
                         .. attribute:: ip_unnumbered
                         
                         	Number of unnumbered interfaces with explicit addresses
@@ -3422,6 +3564,7 @@ class Ipv6Network(object):
                         def __init__(self):
                             self.parent = None
                             self.ip_assigned = None
+                            self.ip_unassigned = None
                             self.ip_unnumbered = None
 
                         @property
@@ -3439,6 +3582,9 @@ class Ipv6Network(object):
                             if not self.is_config():
                                 return False
                             if self.ip_assigned is not None:
+                                return True
+
+                            if self.ip_unassigned is not None:
                                 return True
 
                             if self.ip_unnumbered is not None:
@@ -3463,6 +3609,13 @@ class Ipv6Network(object):
                         
                         	**range:** 0..4294967295
                         
+                        .. attribute:: ip_unassigned
+                        
+                        	Number of unassigned interfaces without explicit address
+                        	**type**\:  int
+                        
+                        	**range:** 0..4294967295
+                        
                         .. attribute:: ip_unnumbered
                         
                         	Number of unnumbered interfaces with explicit addresses
@@ -3480,6 +3633,7 @@ class Ipv6Network(object):
                         def __init__(self):
                             self.parent = None
                             self.ip_assigned = None
+                            self.ip_unassigned = None
                             self.ip_unnumbered = None
 
                         @property
@@ -3497,6 +3651,9 @@ class Ipv6Network(object):
                             if not self.is_config():
                                 return False
                             if self.ip_assigned is not None:
+                                return True
+
+                            if self.ip_unassigned is not None:
                                 return True
 
                             if self.ip_unnumbered is not None:
@@ -3623,360 +3780,6 @@ class Ipv6Network(object):
             from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ma_oper as meta
             return meta._meta_table['Ipv6Network.Nodes']['meta_info']
 
-
-    class InterfaceGlobalData(object):
-        """
-        IPv6 network global operational interface data
-        
-        .. attribute:: summary
-        
-        	Summary of IPv6 network operational interface data on a node
-        	**type**\:  :py:class:`Summary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper.Ipv6Network.InterfaceGlobalData.Summary>`
-        
-        
-
-        """
-
-        _prefix = 'ipv6-ma-oper'
-        _revision = '2015-10-20'
-
-        def __init__(self):
-            self.parent = None
-            self.summary = Ipv6Network.InterfaceGlobalData.Summary()
-            self.summary.parent = self
-
-
-        class Summary(object):
-            """
-            Summary of IPv6 network operational interface
-            data on a node
-            
-            .. attribute:: if_down_down
-            
-            	Number of interfaces (down,down)
-            	**type**\:  :py:class:`IfDownDown <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper.Ipv6Network.InterfaceGlobalData.Summary.IfDownDown>`
-            
-            .. attribute:: if_shutdown_down
-            
-            	Number of interfaces (shutdown,down)
-            	**type**\:  :py:class:`IfShutdownDown <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper.Ipv6Network.InterfaceGlobalData.Summary.IfShutdownDown>`
-            
-            .. attribute:: if_up_down
-            
-            	Number of interfaces (up,down)
-            	**type**\:  :py:class:`IfUpDown <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper.Ipv6Network.InterfaceGlobalData.Summary.IfUpDown>`
-            
-            .. attribute:: if_up_down_basecaps_up
-            
-            	Number of interfaces (up,down) with basecaps up
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            .. attribute:: if_up_up
-            
-            	Number of interfaces (up,up)
-            	**type**\:  :py:class:`IfUpUp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper.Ipv6Network.InterfaceGlobalData.Summary.IfUpUp>`
-            
-            
-
-            """
-
-            _prefix = 'ipv6-ma-oper'
-            _revision = '2015-10-20'
-
-            def __init__(self):
-                self.parent = None
-                self.if_down_down = Ipv6Network.InterfaceGlobalData.Summary.IfDownDown()
-                self.if_down_down.parent = self
-                self.if_shutdown_down = Ipv6Network.InterfaceGlobalData.Summary.IfShutdownDown()
-                self.if_shutdown_down.parent = self
-                self.if_up_down = Ipv6Network.InterfaceGlobalData.Summary.IfUpDown()
-                self.if_up_down.parent = self
-                self.if_up_down_basecaps_up = None
-                self.if_up_up = Ipv6Network.InterfaceGlobalData.Summary.IfUpUp()
-                self.if_up_up.parent = self
-
-
-            class IfUpUp(object):
-                """
-                Number of interfaces (up,up)
-                
-                .. attribute:: ip_assigned
-                
-                	Number of interfaces with explicit addresses
-                	**type**\:  int
-                
-                	**range:** 0..4294967295
-                
-                .. attribute:: ip_unnumbered
-                
-                	Number of unnumbered interfaces with explicit addresses
-                	**type**\:  int
-                
-                	**range:** 0..4294967295
-                
-                
-
-                """
-
-                _prefix = 'ipv6-ma-oper'
-                _revision = '2015-10-20'
-
-                def __init__(self):
-                    self.parent = None
-                    self.ip_assigned = None
-                    self.ip_unnumbered = None
-
-                @property
-                def _common_path(self):
-
-                    return '/Cisco-IOS-XR-ipv6-ma-oper:ipv6-network/Cisco-IOS-XR-ipv6-ma-oper:interface-global-data/Cisco-IOS-XR-ipv6-ma-oper:summary/Cisco-IOS-XR-ipv6-ma-oper:if-up-up'
-
-                def is_config(self):
-                    ''' Returns True if this instance represents config data else returns False '''
-                    return False
-
-                def _has_data(self):
-                    if not self.is_config():
-                        return False
-                    if self.ip_assigned is not None:
-                        return True
-
-                    if self.ip_unnumbered is not None:
-                        return True
-
-                    return False
-
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ma_oper as meta
-                    return meta._meta_table['Ipv6Network.InterfaceGlobalData.Summary.IfUpUp']['meta_info']
-
-
-            class IfUpDown(object):
-                """
-                Number of interfaces (up,down)
-                
-                .. attribute:: ip_assigned
-                
-                	Number of interfaces with explicit addresses
-                	**type**\:  int
-                
-                	**range:** 0..4294967295
-                
-                .. attribute:: ip_unnumbered
-                
-                	Number of unnumbered interfaces with explicit addresses
-                	**type**\:  int
-                
-                	**range:** 0..4294967295
-                
-                
-
-                """
-
-                _prefix = 'ipv6-ma-oper'
-                _revision = '2015-10-20'
-
-                def __init__(self):
-                    self.parent = None
-                    self.ip_assigned = None
-                    self.ip_unnumbered = None
-
-                @property
-                def _common_path(self):
-
-                    return '/Cisco-IOS-XR-ipv6-ma-oper:ipv6-network/Cisco-IOS-XR-ipv6-ma-oper:interface-global-data/Cisco-IOS-XR-ipv6-ma-oper:summary/Cisco-IOS-XR-ipv6-ma-oper:if-up-down'
-
-                def is_config(self):
-                    ''' Returns True if this instance represents config data else returns False '''
-                    return False
-
-                def _has_data(self):
-                    if not self.is_config():
-                        return False
-                    if self.ip_assigned is not None:
-                        return True
-
-                    if self.ip_unnumbered is not None:
-                        return True
-
-                    return False
-
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ma_oper as meta
-                    return meta._meta_table['Ipv6Network.InterfaceGlobalData.Summary.IfUpDown']['meta_info']
-
-
-            class IfDownDown(object):
-                """
-                Number of interfaces (down,down)
-                
-                .. attribute:: ip_assigned
-                
-                	Number of interfaces with explicit addresses
-                	**type**\:  int
-                
-                	**range:** 0..4294967295
-                
-                .. attribute:: ip_unnumbered
-                
-                	Number of unnumbered interfaces with explicit addresses
-                	**type**\:  int
-                
-                	**range:** 0..4294967295
-                
-                
-
-                """
-
-                _prefix = 'ipv6-ma-oper'
-                _revision = '2015-10-20'
-
-                def __init__(self):
-                    self.parent = None
-                    self.ip_assigned = None
-                    self.ip_unnumbered = None
-
-                @property
-                def _common_path(self):
-
-                    return '/Cisco-IOS-XR-ipv6-ma-oper:ipv6-network/Cisco-IOS-XR-ipv6-ma-oper:interface-global-data/Cisco-IOS-XR-ipv6-ma-oper:summary/Cisco-IOS-XR-ipv6-ma-oper:if-down-down'
-
-                def is_config(self):
-                    ''' Returns True if this instance represents config data else returns False '''
-                    return False
-
-                def _has_data(self):
-                    if not self.is_config():
-                        return False
-                    if self.ip_assigned is not None:
-                        return True
-
-                    if self.ip_unnumbered is not None:
-                        return True
-
-                    return False
-
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ma_oper as meta
-                    return meta._meta_table['Ipv6Network.InterfaceGlobalData.Summary.IfDownDown']['meta_info']
-
-
-            class IfShutdownDown(object):
-                """
-                Number of interfaces (shutdown,down)
-                
-                .. attribute:: ip_assigned
-                
-                	Number of interfaces with explicit addresses
-                	**type**\:  int
-                
-                	**range:** 0..4294967295
-                
-                .. attribute:: ip_unnumbered
-                
-                	Number of unnumbered interfaces with explicit addresses
-                	**type**\:  int
-                
-                	**range:** 0..4294967295
-                
-                
-
-                """
-
-                _prefix = 'ipv6-ma-oper'
-                _revision = '2015-10-20'
-
-                def __init__(self):
-                    self.parent = None
-                    self.ip_assigned = None
-                    self.ip_unnumbered = None
-
-                @property
-                def _common_path(self):
-
-                    return '/Cisco-IOS-XR-ipv6-ma-oper:ipv6-network/Cisco-IOS-XR-ipv6-ma-oper:interface-global-data/Cisco-IOS-XR-ipv6-ma-oper:summary/Cisco-IOS-XR-ipv6-ma-oper:if-shutdown-down'
-
-                def is_config(self):
-                    ''' Returns True if this instance represents config data else returns False '''
-                    return False
-
-                def _has_data(self):
-                    if not self.is_config():
-                        return False
-                    if self.ip_assigned is not None:
-                        return True
-
-                    if self.ip_unnumbered is not None:
-                        return True
-
-                    return False
-
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ma_oper as meta
-                    return meta._meta_table['Ipv6Network.InterfaceGlobalData.Summary.IfShutdownDown']['meta_info']
-
-            @property
-            def _common_path(self):
-
-                return '/Cisco-IOS-XR-ipv6-ma-oper:ipv6-network/Cisco-IOS-XR-ipv6-ma-oper:interface-global-data/Cisco-IOS-XR-ipv6-ma-oper:summary'
-
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
-                return False
-
-            def _has_data(self):
-                if not self.is_config():
-                    return False
-                if self.if_down_down is not None and self.if_down_down._has_data():
-                    return True
-
-                if self.if_shutdown_down is not None and self.if_shutdown_down._has_data():
-                    return True
-
-                if self.if_up_down is not None and self.if_up_down._has_data():
-                    return True
-
-                if self.if_up_down_basecaps_up is not None:
-                    return True
-
-                if self.if_up_up is not None and self.if_up_up._has_data():
-                    return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ma_oper as meta
-                return meta._meta_table['Ipv6Network.InterfaceGlobalData.Summary']['meta_info']
-
-        @property
-        def _common_path(self):
-
-            return '/Cisco-IOS-XR-ipv6-ma-oper:ipv6-network/Cisco-IOS-XR-ipv6-ma-oper:interface-global-data'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
-            return False
-
-        def _has_data(self):
-            if not self.is_config():
-                return False
-            if self.summary is not None and self.summary._has_data():
-                return True
-
-            return False
-
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_ma_oper as meta
-            return meta._meta_table['Ipv6Network.InterfaceGlobalData']['meta_info']
-
     @property
     def _common_path(self):
 
@@ -3989,9 +3792,6 @@ class Ipv6Network(object):
     def _has_data(self):
         if not self.is_config():
             return False
-        if self.interface_global_data is not None and self.interface_global_data._has_data():
-            return True
-
         if self.nodes is not None and self.nodes._has_data():
             return True
 

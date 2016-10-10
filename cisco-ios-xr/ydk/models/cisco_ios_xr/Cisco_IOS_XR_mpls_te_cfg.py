@@ -12,7 +12,7 @@ This YANG module augments the
   Cisco\-IOS\-XR\-snmp\-agent\-cfg
 modules with configuration data.
 
-Copyright (c) 2013\-2015 by Cisco Systems, Inc.
+Copyright (c) 2013\-2016 by Cisco Systems, Inc.
 All rights reserved.
 
 """
@@ -48,6 +48,27 @@ class BandwidthConstraintEnum(Enum):
     def _meta_info():
         from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
         return meta._meta_table['BandwidthConstraintEnum']
+
+
+class BfdReversePathEnum(Enum):
+    """
+    BfdReversePathEnum
+
+    Bfd reverse path
+
+    .. data:: BFD_REVERSE_PATH_BINDING_LABEL = 1
+
+    	BindingLabel
+
+    """
+
+    BFD_REVERSE_PATH_BINDING_LABEL = 1
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+        return meta._meta_table['BfdReversePathEnum']
 
 
 class BindingSegmentIdEnum(Enum):
@@ -380,6 +401,33 @@ class MplsTeBfdSessionDownActionEnum(Enum):
         return meta._meta_table['MplsTeBfdSessionDownActionEnum']
 
 
+class MplsTeConfigTunnelEnum(Enum):
+    """
+    MplsTeConfigTunnelEnum
+
+    Mpls te config tunnel
+
+    .. data:: P2P = 0
+
+    	P2P
+
+    .. data:: P2MP = 1
+
+    	P2MP
+
+    """
+
+    P2P = 0
+
+    P2MP = 1
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+        return meta._meta_table['MplsTeConfigTunnelEnum']
+
+
 class MplsTeIgpProtocolEnum(Enum):
     """
     MplsTeIgpProtocolEnum
@@ -476,10 +524,6 @@ class MplsTeOtnApsProtectionEnum(Enum):
 
     	1PLUS1 BIDIR APS
 
-    .. data:: Y_1PLUS1PLUS_R_BIDIR_APS = 32
-
-    	1PLUS1PLUS R BIDIR APS
-
     """
 
     Y_1PLUS1_UNIDIR_NO_APS = 4
@@ -487,8 +531,6 @@ class MplsTeOtnApsProtectionEnum(Enum):
     Y_1PLUS1_UNIDIR_APS = 8
 
     Y_1PLUS1_BDIR_APS = 16
-
-    Y_1PLUS1PLUS_R_BIDIR_APS = 32
 
 
     @staticmethod
@@ -524,6 +566,33 @@ class MplsTeOtnApsProtectionModeEnum(Enum):
         return meta._meta_table['MplsTeOtnApsProtectionModeEnum']
 
 
+class MplsTeOtnApsRestorationStyleEnum(Enum):
+    """
+    MplsTeOtnApsRestorationStyleEnum
+
+    Mpls te otn aps restoration style
+
+    .. data:: KEEP_FAILED_LSP = 1
+
+    	Keep Failed Lsp
+
+    .. data:: DELETE_FAILED_LSP = 2
+
+    	Delete Failed Lsp
+
+    """
+
+    KEEP_FAILED_LSP = 1
+
+    DELETE_FAILED_LSP = 2
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+        return meta._meta_table['MplsTeOtnApsRestorationStyleEnum']
+
+
 class MplsTeOtnSncModeEnum(Enum):
     """
     MplsTeOtnSncModeEnum
@@ -555,6 +624,45 @@ class MplsTeOtnSncModeEnum(Enum):
     def _meta_info():
         from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
         return meta._meta_table['MplsTeOtnSncModeEnum']
+
+
+class MplsTePathComputationMethodEnum(Enum):
+    """
+    MplsTePathComputationMethodEnum
+
+    Mpls te path computation method
+
+    .. data:: NOT_SET = 0
+
+    	NotSet
+
+    .. data:: DYNAMIC = 1
+
+    	Dynamic
+
+    .. data:: PCE = 2
+
+    	PCE
+
+    .. data:: EXPLICIT = 3
+
+    	Explicit
+
+    """
+
+    NOT_SET = 0
+
+    DYNAMIC = 1
+
+    PCE = 2
+
+    EXPLICIT = 3
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+        return meta._meta_table['MplsTePathComputationMethodEnum']
 
 
 class MplsTePathDiversityConformanceEnum(Enum):
@@ -750,11 +858,17 @@ class MplsTePathSelectionMetricEnum(Enum):
 
     	TE Metric
 
+    .. data:: DELAY = 4
+
+    	DELAY Metric
+
     """
 
     IGP = 1
 
     TE = 2
+
+    DELAY = 4
 
 
     @staticmethod
@@ -1066,6 +1180,66 @@ class MplsTeTunnelAffinityEnum(Enum):
         return meta._meta_table['MplsTeTunnelAffinityEnum']
 
 
+class MplsTeTunnelIdEnum(Enum):
+    """
+    MplsTeTunnelIdEnum
+
+    Mpls te tunnel id
+
+    .. data:: AUTO = 0
+
+    	Auto
+
+    .. data:: EXPLICIT = 1
+
+    	Explicit
+
+    """
+
+    AUTO = 0
+
+    EXPLICIT = 1
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+        return meta._meta_table['MplsTeTunnelIdEnum']
+
+
+class MplsTebfdSessionEnum(Enum):
+    """
+    MplsTebfdSessionEnum
+
+    Mpls tebfd session
+
+    .. data:: REGULAR_BFD = 1
+
+    	Regular BFD
+
+    .. data:: SBFD = 2
+
+    	Seamless BFD
+
+    .. data:: REDUNDANT_SBFD = 3
+
+    	Redundant SBFD
+
+    """
+
+    REGULAR_BFD = 1
+
+    SBFD = 2
+
+    REDUNDANT_SBFD = 3
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+        return meta._meta_table['MplsTebfdSessionEnum']
+
+
 class MplsTesrlgExcludeEnum(Enum):
     """
     MplsTesrlgExcludeEnum
@@ -1126,27 +1300,6 @@ class OspfAreaModeEnum(Enum):
         return meta._meta_table['OspfAreaModeEnum']
 
 
-class OtnDestinationEnum(Enum):
-    """
-    OtnDestinationEnum
-
-    Otn destination
-
-    .. data:: UN_NUMBER_ED = 1
-
-    	UNICAST=0
-
-    """
-
-    UN_NUMBER_ED = 1
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
-        return meta._meta_table['OtnDestinationEnum']
-
-
 class OtnPayloadEnum(Enum):
     """
     OtnPayloadEnum
@@ -1190,6 +1343,33 @@ class OtnPayloadEnum(Enum):
     def _meta_info():
         from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
         return meta._meta_table['OtnPayloadEnum']
+
+
+class OtnProtectionSwitchLockoutEnum(Enum):
+    """
+    OtnProtectionSwitchLockoutEnum
+
+    Otn protection switch lockout
+
+    .. data:: NONE = 0
+
+    	No Lockout
+
+    .. data:: WORKING = 1
+
+    	Lockout Working
+
+    """
+
+    NONE = 0
+
+    WORKING = 1
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+        return meta._meta_table['OtnProtectionSwitchLockoutEnum']
 
 
 class OtnSignaledBandwidthEnum(Enum):
@@ -1322,39 +1502,6 @@ class OtnSignaledBandwidthFlexFramingEnum(Enum):
     def _meta_info():
         from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
         return meta._meta_table['OtnSignaledBandwidthFlexFramingEnum']
-
-
-class OtnStaticUniEnum(Enum):
-    """
-    OtnStaticUniEnum
-
-    Otn static uni
-
-    .. data:: UNKNOWN = 0
-
-    	Uni-Type None
-
-    .. data:: XC = 1
-
-    	Uni-Type XC
-
-    .. data:: TERMINATION = 2
-
-    	Uni-Type Termination
-
-    """
-
-    UNKNOWN = 0
-
-    XC = 1
-
-    TERMINATION = 2
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
-        return meta._meta_table['OtnStaticUniEnum']
 
 
 class PathInvalidationActionEnum(Enum):
@@ -1490,6 +1637,11 @@ class MplsTe(object):
     	LCAC specific MPLS global configuration
     	**type**\:  :py:class:`Lcac <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.Lcac>`
     
+    .. attribute:: named_tunnels
+    
+    	Configure MPLS TE tunnel
+    	**type**\:  :py:class:`NamedTunnels <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.NamedTunnels>`
+    
     .. attribute:: transport_profile
     
     	MPLS transport profile configuration data
@@ -1516,6 +1668,8 @@ class MplsTe(object):
         self.interfaces.parent = self
         self.lcac = MplsTe.Lcac()
         self.lcac.parent = self
+        self.named_tunnels = MplsTe.NamedTunnels()
+        self.named_tunnels.parent = self
         self.transport_profile = MplsTe.TransportProfile()
         self.transport_profile.parent = self
 
@@ -1705,6 +1859,3401 @@ class MplsTe(object):
         def _meta_info():
             from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
             return meta._meta_table['MplsTe.DiffServTrafficEngineering']['meta_info']
+
+
+    class NamedTunnels(object):
+        """
+        Configure MPLS TE tunnel
+        
+        .. attribute:: enable
+        
+        	Enable Named Tunnels
+        	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+        
+        .. attribute:: tunnels
+        
+        	Configure MPLS TE tunnel
+        	**type**\:  :py:class:`Tunnels <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.NamedTunnels.Tunnels>`
+        
+        
+
+        """
+
+        _prefix = 'mpls-te-cfg'
+        _revision = '2015-11-09'
+
+        def __init__(self):
+            self.parent = None
+            self.enable = None
+            self.tunnels = MplsTe.NamedTunnels.Tunnels()
+            self.tunnels.parent = self
+
+
+        class Tunnels(object):
+            """
+            Configure MPLS TE tunnel
+            
+            .. attribute:: tunnel
+            
+            	Configure a MPLS TE tunnel
+            	**type**\: list of  :py:class:`Tunnel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.NamedTunnels.Tunnels.Tunnel>`
+            
+            
+
+            """
+
+            _prefix = 'mpls-te-cfg'
+            _revision = '2015-11-09'
+
+            def __init__(self):
+                self.parent = None
+                self.tunnel = YList()
+                self.tunnel.parent = self
+                self.tunnel.name = 'tunnel'
+
+
+            class Tunnel(object):
+                """
+                Configure a MPLS TE tunnel
+                
+                .. attribute:: tunnel_name  <key>
+                
+                	Tunnel name
+                	**type**\:  str
+                
+                	**range:** 0..59
+                
+                .. attribute:: tunnel_type  <key>
+                
+                	Tunnel Type
+                	**type**\:  :py:class:`MplsTeConfigTunnelEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeConfigTunnelEnum>`
+                
+                .. attribute:: enable
+                
+                	Always set to true
+                	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                
+                .. attribute:: tunnel_attributes
+                
+                	MPLS tunnel attributes
+                	**type**\:  :py:class:`TunnelAttributes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes>`
+                
+                .. attribute:: tunnel_id
+                
+                	Set the tunnel ID
+                	**type**\:  :py:class:`TunnelId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelId>`
+                
+                
+
+                """
+
+                _prefix = 'mpls-te-cfg'
+                _revision = '2015-11-09'
+
+                def __init__(self):
+                    self.parent = None
+                    self.tunnel_name = None
+                    self.tunnel_type = None
+                    self.enable = None
+                    self.tunnel_attributes = MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes()
+                    self.tunnel_attributes.parent = self
+                    self.tunnel_id = None
+
+
+                class TunnelAttributes(object):
+                    """
+                    MPLS tunnel attributes
+                    
+                    .. attribute:: auto_bandwidth
+                    
+                    	Tunnel Interface Auto\-bandwidth configuration data
+                    	**type**\:  :py:class:`AutoBandwidth <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.AutoBandwidth>`
+                    
+                    .. attribute:: autoroute
+                    
+                    	Parameters for IGP routing over tunnel
+                    	**type**\:  :py:class:`Autoroute <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.Autoroute>`
+                    
+                    .. attribute:: bandwidth
+                    
+                    	Tunnel bandwidth requirement
+                    	**type**\:  :py:class:`Bandwidth <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.Bandwidth>`
+                    
+                    .. attribute:: destination
+                    
+                    	Set the destination of the tunnel
+                    	**type**\:  str
+                    
+                    	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                    
+                    .. attribute:: fast_reroute
+                    
+                    	Specify MPLS tunnel can be fast\-rerouted
+                    	**type**\:  :py:class:`FastReroute <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.FastReroute>`
+                    
+                    .. attribute:: forward_class
+                    
+                    	Forward class value
+                    	**type**\:  int
+                    
+                    	**range:** 1..7
+                    
+                    .. attribute:: load_share
+                    
+                    	Tunnel loadsharing metric
+                    	**type**\:  int
+                    
+                    	**range:** 1..4294967295
+                    
+                    .. attribute:: logging
+                    
+                    	Log tunnel LSP messages
+                    	**type**\:  :py:class:`Logging <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.Logging>`
+                    
+                    .. attribute:: new_style_affinity_affinity_types
+                    
+                    	Tunnel new style affinity attributes table
+                    	**type**\:  :py:class:`NewStyleAffinityAffinityTypes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.NewStyleAffinityAffinityTypes>`
+                    
+                    .. attribute:: path_selection_metric
+                    
+                    	Path selection metric to use in path calculation
+                    	**type**\:  :py:class:`MplsTePathSelectionMetricEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTePathSelectionMetricEnum>`
+                    
+                    .. attribute:: path_setups
+                    
+                    	Tunnel path setup table
+                    	**type**\:  :py:class:`PathSetups <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.PathSetups>`
+                    
+                    .. attribute:: priority
+                    
+                    	Tunnel Setup and Hold Priorities
+                    	**type**\:  :py:class:`Priority <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.Priority>`
+                    
+                    .. attribute:: record_route
+                    
+                    	Record the route used by the tunnel
+                    	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                    
+                    .. attribute:: shutdown
+                    
+                    	shutdown the tunnel
+                    	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                    
+                    .. attribute:: soft_preemption
+                    
+                    	Enable the soft\-preemption feature on the tunnel
+                    	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                    
+                    .. attribute:: tunnel_path_selection
+                    
+                    	Configure path selection properties
+                    	**type**\:  :py:class:`TunnelPathSelection <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.TunnelPathSelection>`
+                    
+                    
+
+                    """
+
+                    _prefix = 'mpls-te-cfg'
+                    _revision = '2015-11-09'
+
+                    def __init__(self):
+                        self.parent = None
+                        self.auto_bandwidth = MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.AutoBandwidth()
+                        self.auto_bandwidth.parent = self
+                        self.autoroute = MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.Autoroute()
+                        self.autoroute.parent = self
+                        self.bandwidth = None
+                        self.destination = None
+                        self.fast_reroute = None
+                        self.forward_class = None
+                        self.load_share = None
+                        self.logging = MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.Logging()
+                        self.logging.parent = self
+                        self.new_style_affinity_affinity_types = MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.NewStyleAffinityAffinityTypes()
+                        self.new_style_affinity_affinity_types.parent = self
+                        self.path_selection_metric = None
+                        self.path_setups = MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.PathSetups()
+                        self.path_setups.parent = self
+                        self.priority = None
+                        self.record_route = None
+                        self.shutdown = None
+                        self.soft_preemption = None
+                        self.tunnel_path_selection = MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.TunnelPathSelection()
+                        self.tunnel_path_selection.parent = self
+
+
+                    class PathSetups(object):
+                        """
+                        Tunnel path setup table
+                        
+                        .. attribute:: path_setup
+                        
+                        	Tunnel path setup
+                        	**type**\: list of  :py:class:`PathSetup <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.PathSetups.PathSetup>`
+                        
+                        
+
+                        """
+
+                        _prefix = 'mpls-te-cfg'
+                        _revision = '2015-11-09'
+
+                        def __init__(self):
+                            self.parent = None
+                            self.path_setup = YList()
+                            self.path_setup.parent = self
+                            self.path_setup.name = 'path_setup'
+
+
+                        class PathSetup(object):
+                            """
+                            Tunnel path setup
+                            
+                            .. attribute:: path_setup_name  <key>
+                            
+                            	Path Name
+                            	**type**\:  str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
+                            
+                            .. attribute:: enable
+                            
+                            	Always set to true
+                            	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                            
+                            .. attribute:: path_computation
+                            
+                            	Path computation method
+                            	**type**\:  :py:class:`PathComputation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.PathSetups.PathSetup.PathComputation>`
+                            
+                            .. attribute:: preference
+                            
+                            	Path preference level
+                            	**type**\:  int
+                            
+                            	**range:** \-2147483648..2147483647
+                            
+                            
+
+                            """
+
+                            _prefix = 'mpls-te-cfg'
+                            _revision = '2015-11-09'
+
+                            def __init__(self):
+                                self.parent = None
+                                self.path_setup_name = None
+                                self.enable = None
+                                self.path_computation = None
+                                self.preference = None
+
+
+                            class PathComputation(object):
+                                """
+                                Path computation method
+                                
+                                .. attribute:: explicit_path_name
+                                
+                                	Explicit Path Name
+                                	**type**\:  str
+                                
+                                .. attribute:: path_computation_method
+                                
+                                	Path computation method
+                                	**type**\:  :py:class:`MplsTePathComputationMethodEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTePathComputationMethodEnum>`
+                                
+                                	**mandatory**\: True
+                                
+                                .. attribute:: path_computation_server
+                                
+                                	Path Computation Server Address
+                                	**type**\:  str
+                                
+                                	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                                
+                                .. attribute:: _is_presence
+                                
+                                	Is present if this instance represents presence container else not
+                                	**type**\: bool
+                                
+                                
+
+                                This class is a :ref:`presence class<presence-class>`
+
+                                """
+
+                                _prefix = 'mpls-te-cfg'
+                                _revision = '2015-11-09'
+
+                                def __init__(self):
+                                    self.parent = None
+                                    self._is_presence = True
+                                    self.explicit_path_name = None
+                                    self.path_computation_method = None
+                                    self.path_computation_server = None
+
+                                @property
+                                def _common_path(self):
+                                    if self.parent is None:
+                                        raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                    return self.parent._common_path +'/Cisco-IOS-XR-mpls-te-cfg:path-computation'
+
+                                def is_config(self):
+                                    ''' Returns True if this instance represents config data else returns False '''
+                                    return True
+
+                                def _has_data(self):
+                                    if not self.is_config():
+                                        return False
+                                    if self._is_presence:
+                                        return True
+                                    if self.explicit_path_name is not None:
+                                        return True
+
+                                    if self.path_computation_method is not None:
+                                        return True
+
+                                    if self.path_computation_server is not None:
+                                        return True
+
+                                    return False
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+                                    return meta._meta_table['MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.PathSetups.PathSetup.PathComputation']['meta_info']
+
+                            @property
+                            def _common_path(self):
+                                if self.parent is None:
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
+                                if self.path_setup_name is None:
+                                    raise YPYModelError('Key property path_setup_name is None')
+
+                                return self.parent._common_path +'/Cisco-IOS-XR-mpls-te-cfg:path-setup[Cisco-IOS-XR-mpls-te-cfg:path-setup-name = ' + str(self.path_setup_name) + ']'
+
+                            def is_config(self):
+                                ''' Returns True if this instance represents config data else returns False '''
+                                return True
+
+                            def _has_data(self):
+                                if not self.is_config():
+                                    return False
+                                if self.path_setup_name is not None:
+                                    return True
+
+                                if self.enable is not None:
+                                    return True
+
+                                if self.path_computation is not None and self.path_computation._has_data():
+                                    return True
+
+                                if self.preference is not None:
+                                    return True
+
+                                return False
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+                                return meta._meta_table['MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.PathSetups.PathSetup']['meta_info']
+
+                        @property
+                        def _common_path(self):
+                            if self.parent is None:
+                                raise YPYModelError('parent is not set . Cannot derive path.')
+
+                            return self.parent._common_path +'/Cisco-IOS-XR-mpls-te-cfg:path-setups'
+
+                        def is_config(self):
+                            ''' Returns True if this instance represents config data else returns False '''
+                            return True
+
+                        def _has_data(self):
+                            if not self.is_config():
+                                return False
+                            if self.path_setup is not None:
+                                for child_ref in self.path_setup:
+                                    if child_ref._has_data():
+                                        return True
+
+                            return False
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+                            return meta._meta_table['MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.PathSetups']['meta_info']
+
+
+                    class TunnelPathSelection(object):
+                        """
+                        Configure path selection properties
+                        
+                        .. attribute:: invalidation
+                        
+                        	Path invalidation configuration for this specific tunnel
+                        	**type**\:  :py:class:`Invalidation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.TunnelPathSelection.Invalidation>`
+                        
+                        .. attribute:: path_selection_cost_limit
+                        
+                        	Path selection cost limit configuration for this specific tunnel
+                        	**type**\:  int
+                        
+                        	**range:** 1..4294967295
+                        
+                        .. attribute:: path_selection_hop_limit
+                        
+                        	Path selection hop limit configuration for this specific tunnel
+                        	**type**\:  int
+                        
+                        	**range:** 1..255
+                        
+                        .. attribute:: tiebreaker
+                        
+                        	CSPF tiebreaker to use in path calculation
+                        	**type**\:  :py:class:`MplsTePathSelectionTiebreakerEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTePathSelectionTiebreakerEnum>`
+                        
+                        
+
+                        """
+
+                        _prefix = 'mpls-te-cfg'
+                        _revision = '2015-11-09'
+
+                        def __init__(self):
+                            self.parent = None
+                            self.invalidation = None
+                            self.path_selection_cost_limit = None
+                            self.path_selection_hop_limit = None
+                            self.tiebreaker = None
+
+
+                        class Invalidation(object):
+                            """
+                            Path invalidation configuration for this
+                            specific tunnel
+                            
+                            .. attribute:: path_invalidation_action
+                            
+                            	Path Invalidation Action
+                            	**type**\:  :py:class:`PathInvalidationActionEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.PathInvalidationActionEnum>`
+                            
+                            .. attribute:: path_invalidation_timeout
+                            
+                            	Path Invalidation Timeout
+                            	**type**\:  int
+                            
+                            	**range:** 0..60000
+                            
+                            .. attribute:: _is_presence
+                            
+                            	Is present if this instance represents presence container else not
+                            	**type**\: bool
+                            
+                            
+
+                            This class is a :ref:`presence class<presence-class>`
+
+                            """
+
+                            _prefix = 'mpls-te-cfg'
+                            _revision = '2015-11-09'
+
+                            def __init__(self):
+                                self.parent = None
+                                self._is_presence = True
+                                self.path_invalidation_action = None
+                                self.path_invalidation_timeout = None
+
+                            @property
+                            def _common_path(self):
+                                if self.parent is None:
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                return self.parent._common_path +'/Cisco-IOS-XR-mpls-te-cfg:invalidation'
+
+                            def is_config(self):
+                                ''' Returns True if this instance represents config data else returns False '''
+                                return True
+
+                            def _has_data(self):
+                                if not self.is_config():
+                                    return False
+                                if self._is_presence:
+                                    return True
+                                if self.path_invalidation_action is not None:
+                                    return True
+
+                                if self.path_invalidation_timeout is not None:
+                                    return True
+
+                                return False
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+                                return meta._meta_table['MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.TunnelPathSelection.Invalidation']['meta_info']
+
+                        @property
+                        def _common_path(self):
+                            if self.parent is None:
+                                raise YPYModelError('parent is not set . Cannot derive path.')
+
+                            return self.parent._common_path +'/Cisco-IOS-XR-mpls-te-cfg:tunnel-path-selection'
+
+                        def is_config(self):
+                            ''' Returns True if this instance represents config data else returns False '''
+                            return True
+
+                        def _has_data(self):
+                            if not self.is_config():
+                                return False
+                            if self.invalidation is not None and self.invalidation._has_data():
+                                return True
+
+                            if self.path_selection_cost_limit is not None:
+                                return True
+
+                            if self.path_selection_hop_limit is not None:
+                                return True
+
+                            if self.tiebreaker is not None:
+                                return True
+
+                            return False
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+                            return meta._meta_table['MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.TunnelPathSelection']['meta_info']
+
+
+                    class AutoBandwidth(object):
+                        """
+                        Tunnel Interface Auto\-bandwidth configuration
+                        data
+                        
+                        .. attribute:: adjustment_threshold
+                        
+                        	Set the bandwidth change threshold to trigger adjustment
+                        	**type**\:  :py:class:`AdjustmentThreshold <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.AutoBandwidth.AdjustmentThreshold>`
+                        
+                        .. attribute:: application_frequency
+                        
+                        	Set the tunnel auto\-bw application frequency in minutes
+                        	**type**\:  int
+                        
+                        	**range:** 5..10080
+                        
+                        .. attribute:: bandwidth_limits
+                        
+                        	Set min/max bandwidth auto\-bw can apply on a tunnel
+                        	**type**\:  :py:class:`BandwidthLimits <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.AutoBandwidth.BandwidthLimits>`
+                        
+                        .. attribute:: collection_only
+                        
+                        	Enable bandwidth collection only, no auto\-bw adjustment
+                        	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                        
+                        .. attribute:: enabled
+                        
+                        	This object is only valid for tunnel interfaces and it controls whether that interface has auto\-bw enabled on it or not.The object must be set before any other auto\-bw configuration is supplied for the interface, and must be the last auto\-bw configuration object to be removed 
+                        	**type**\:  bool
+                        
+                        .. attribute:: overflow
+                        
+                        	Configuring the tunnel overflow detection
+                        	**type**\:  :py:class:`Overflow <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.AutoBandwidth.Overflow>`
+                        
+                        .. attribute:: overflow_enable
+                        
+                        	Enable auto bandwidth overflow detection
+                        	**type**\:  bool
+                        
+                        .. attribute:: underflow
+                        
+                        	Configuring the tunnel underflow detection
+                        	**type**\:  :py:class:`Underflow <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.AutoBandwidth.Underflow>`
+                        
+                        .. attribute:: underflow_enable
+                        
+                        	Enable auto bandwidth underflow detection
+                        	**type**\:  bool
+                        
+                        
+
+                        """
+
+                        _prefix = 'mpls-te-cfg'
+                        _revision = '2015-11-09'
+
+                        def __init__(self):
+                            self.parent = None
+                            self.adjustment_threshold = None
+                            self.application_frequency = None
+                            self.bandwidth_limits = None
+                            self.collection_only = None
+                            self.enabled = None
+                            self.overflow = None
+                            self.overflow_enable = None
+                            self.underflow = None
+                            self.underflow_enable = None
+
+
+                        class Underflow(object):
+                            """
+                            Configuring the tunnel underflow detection
+                            
+                            .. attribute:: underflow_threshold_limit
+                            
+                            	Number of consecutive collections exceeding threshold
+                            	**type**\:  int
+                            
+                            	**range:** 1..10
+                            
+                            	**mandatory**\: True
+                            
+                            .. attribute:: underflow_threshold_percent
+                            
+                            	Bandwidth change percent to trigger an underflow
+                            	**type**\:  int
+                            
+                            	**range:** 1..100
+                            
+                            	**mandatory**\: True
+                            
+                            .. attribute:: underflow_threshold_value
+                            
+                            	Bandwidth change value to trigger an underflow (kbps)
+                            	**type**\:  int
+                            
+                            	**range:** 10..4294967295
+                            
+                            	**mandatory**\: True
+                            
+                            .. attribute:: _is_presence
+                            
+                            	Is present if this instance represents presence container else not
+                            	**type**\: bool
+                            
+                            
+
+                            This class is a :ref:`presence class<presence-class>`
+
+                            """
+
+                            _prefix = 'mpls-te-cfg'
+                            _revision = '2015-11-09'
+
+                            def __init__(self):
+                                self.parent = None
+                                self._is_presence = True
+                                self.underflow_threshold_limit = None
+                                self.underflow_threshold_percent = None
+                                self.underflow_threshold_value = None
+
+                            @property
+                            def _common_path(self):
+                                if self.parent is None:
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                return self.parent._common_path +'/Cisco-IOS-XR-mpls-te-cfg:underflow'
+
+                            def is_config(self):
+                                ''' Returns True if this instance represents config data else returns False '''
+                                return True
+
+                            def _has_data(self):
+                                if not self.is_config():
+                                    return False
+                                if self._is_presence:
+                                    return True
+                                if self.underflow_threshold_limit is not None:
+                                    return True
+
+                                if self.underflow_threshold_percent is not None:
+                                    return True
+
+                                if self.underflow_threshold_value is not None:
+                                    return True
+
+                                return False
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+                                return meta._meta_table['MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.AutoBandwidth.Underflow']['meta_info']
+
+
+                        class Overflow(object):
+                            """
+                            Configuring the tunnel overflow detection
+                            
+                            .. attribute:: overflow_threshold_limit
+                            
+                            	Number of consecutive collections exceeding threshold
+                            	**type**\:  int
+                            
+                            	**range:** 1..10
+                            
+                            	**mandatory**\: True
+                            
+                            .. attribute:: overflow_threshold_percent
+                            
+                            	Bandwidth change percent to trigger an overflow
+                            	**type**\:  int
+                            
+                            	**range:** 1..100
+                            
+                            	**mandatory**\: True
+                            
+                            .. attribute:: overflow_threshold_value
+                            
+                            	Bandwidth change value to trigger an overflow (kbps)
+                            	**type**\:  int
+                            
+                            	**range:** 10..4294967295
+                            
+                            	**mandatory**\: True
+                            
+                            .. attribute:: _is_presence
+                            
+                            	Is present if this instance represents presence container else not
+                            	**type**\: bool
+                            
+                            
+
+                            This class is a :ref:`presence class<presence-class>`
+
+                            """
+
+                            _prefix = 'mpls-te-cfg'
+                            _revision = '2015-11-09'
+
+                            def __init__(self):
+                                self.parent = None
+                                self._is_presence = True
+                                self.overflow_threshold_limit = None
+                                self.overflow_threshold_percent = None
+                                self.overflow_threshold_value = None
+
+                            @property
+                            def _common_path(self):
+                                if self.parent is None:
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                return self.parent._common_path +'/Cisco-IOS-XR-mpls-te-cfg:overflow'
+
+                            def is_config(self):
+                                ''' Returns True if this instance represents config data else returns False '''
+                                return True
+
+                            def _has_data(self):
+                                if not self.is_config():
+                                    return False
+                                if self._is_presence:
+                                    return True
+                                if self.overflow_threshold_limit is not None:
+                                    return True
+
+                                if self.overflow_threshold_percent is not None:
+                                    return True
+
+                                if self.overflow_threshold_value is not None:
+                                    return True
+
+                                return False
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+                                return meta._meta_table['MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.AutoBandwidth.Overflow']['meta_info']
+
+
+                        class BandwidthLimits(object):
+                            """
+                            Set min/max bandwidth auto\-bw can apply on a
+                            tunnel
+                            
+                            .. attribute:: bandwidth_max_limit
+                            
+                            	Set maximum bandwidth auto\-bw can apply on a tunnel
+                            	**type**\:  int
+                            
+                            	**range:** 0..4294967295
+                            
+                            	**mandatory**\: True
+                            
+                            .. attribute:: bandwidth_min_limit
+                            
+                            	Set minimum bandwidth auto\-bw can apply on a tunnel
+                            	**type**\:  int
+                            
+                            	**range:** 0..4294967295
+                            
+                            	**mandatory**\: True
+                            
+                            .. attribute:: _is_presence
+                            
+                            	Is present if this instance represents presence container else not
+                            	**type**\: bool
+                            
+                            
+
+                            This class is a :ref:`presence class<presence-class>`
+
+                            """
+
+                            _prefix = 'mpls-te-cfg'
+                            _revision = '2015-11-09'
+
+                            def __init__(self):
+                                self.parent = None
+                                self._is_presence = True
+                                self.bandwidth_max_limit = None
+                                self.bandwidth_min_limit = None
+
+                            @property
+                            def _common_path(self):
+                                if self.parent is None:
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                return self.parent._common_path +'/Cisco-IOS-XR-mpls-te-cfg:bandwidth-limits'
+
+                            def is_config(self):
+                                ''' Returns True if this instance represents config data else returns False '''
+                                return True
+
+                            def _has_data(self):
+                                if not self.is_config():
+                                    return False
+                                if self._is_presence:
+                                    return True
+                                if self.bandwidth_max_limit is not None:
+                                    return True
+
+                                if self.bandwidth_min_limit is not None:
+                                    return True
+
+                                return False
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+                                return meta._meta_table['MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.AutoBandwidth.BandwidthLimits']['meta_info']
+
+
+                        class AdjustmentThreshold(object):
+                            """
+                            Set the bandwidth change threshold to trigger
+                            adjustment
+                            
+                            .. attribute:: adjustment_threshold_percent
+                            
+                            	Bandwidth change percent to trigger adjustment
+                            	**type**\:  int
+                            
+                            	**range:** 1..100
+                            
+                            	**mandatory**\: True
+                            
+                            .. attribute:: adjustment_threshold_value
+                            
+                            	Bandwidth change value to trigger adjustment (kbps)
+                            	**type**\:  int
+                            
+                            	**range:** 10..4294967295
+                            
+                            	**mandatory**\: True
+                            
+                            .. attribute:: _is_presence
+                            
+                            	Is present if this instance represents presence container else not
+                            	**type**\: bool
+                            
+                            
+
+                            This class is a :ref:`presence class<presence-class>`
+
+                            """
+
+                            _prefix = 'mpls-te-cfg'
+                            _revision = '2015-11-09'
+
+                            def __init__(self):
+                                self.parent = None
+                                self._is_presence = True
+                                self.adjustment_threshold_percent = None
+                                self.adjustment_threshold_value = None
+
+                            @property
+                            def _common_path(self):
+                                if self.parent is None:
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                return self.parent._common_path +'/Cisco-IOS-XR-mpls-te-cfg:adjustment-threshold'
+
+                            def is_config(self):
+                                ''' Returns True if this instance represents config data else returns False '''
+                                return True
+
+                            def _has_data(self):
+                                if not self.is_config():
+                                    return False
+                                if self._is_presence:
+                                    return True
+                                if self.adjustment_threshold_percent is not None:
+                                    return True
+
+                                if self.adjustment_threshold_value is not None:
+                                    return True
+
+                                return False
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+                                return meta._meta_table['MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.AutoBandwidth.AdjustmentThreshold']['meta_info']
+
+                        @property
+                        def _common_path(self):
+                            if self.parent is None:
+                                raise YPYModelError('parent is not set . Cannot derive path.')
+
+                            return self.parent._common_path +'/Cisco-IOS-XR-mpls-te-cfg:auto-bandwidth'
+
+                        def is_config(self):
+                            ''' Returns True if this instance represents config data else returns False '''
+                            return True
+
+                        def _has_data(self):
+                            if not self.is_config():
+                                return False
+                            if self.adjustment_threshold is not None and self.adjustment_threshold._has_data():
+                                return True
+
+                            if self.application_frequency is not None:
+                                return True
+
+                            if self.bandwidth_limits is not None and self.bandwidth_limits._has_data():
+                                return True
+
+                            if self.collection_only is not None:
+                                return True
+
+                            if self.enabled is not None:
+                                return True
+
+                            if self.overflow is not None and self.overflow._has_data():
+                                return True
+
+                            if self.overflow_enable is not None:
+                                return True
+
+                            if self.underflow is not None and self.underflow._has_data():
+                                return True
+
+                            if self.underflow_enable is not None:
+                                return True
+
+                            return False
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+                            return meta._meta_table['MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.AutoBandwidth']['meta_info']
+
+
+                    class Priority(object):
+                        """
+                        Tunnel Setup and Hold Priorities
+                        
+                        .. attribute:: hold_priority
+                        
+                        	Hold Priority
+                        	**type**\:  int
+                        
+                        	**range:** 0..7
+                        
+                        	**mandatory**\: True
+                        
+                        .. attribute:: setup_priority
+                        
+                        	Setup Priority
+                        	**type**\:  int
+                        
+                        	**range:** 0..7
+                        
+                        	**mandatory**\: True
+                        
+                        .. attribute:: _is_presence
+                        
+                        	Is present if this instance represents presence container else not
+                        	**type**\: bool
+                        
+                        
+
+                        This class is a :ref:`presence class<presence-class>`
+
+                        """
+
+                        _prefix = 'mpls-te-cfg'
+                        _revision = '2015-11-09'
+
+                        def __init__(self):
+                            self.parent = None
+                            self._is_presence = True
+                            self.hold_priority = None
+                            self.setup_priority = None
+
+                        @property
+                        def _common_path(self):
+                            if self.parent is None:
+                                raise YPYModelError('parent is not set . Cannot derive path.')
+
+                            return self.parent._common_path +'/Cisco-IOS-XR-mpls-te-cfg:priority'
+
+                        def is_config(self):
+                            ''' Returns True if this instance represents config data else returns False '''
+                            return True
+
+                        def _has_data(self):
+                            if not self.is_config():
+                                return False
+                            if self._is_presence:
+                                return True
+                            if self.hold_priority is not None:
+                                return True
+
+                            if self.setup_priority is not None:
+                                return True
+
+                            return False
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+                            return meta._meta_table['MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.Priority']['meta_info']
+
+
+                    class Logging(object):
+                        """
+                        Log tunnel LSP messages
+                        
+                        .. attribute:: all
+                        
+                        	Log all events for a tunnel
+                        	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                        
+                        .. attribute:: bandwidth_change_message
+                        
+                        	Log tunnel messages for bandwidth change
+                        	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                        
+                        .. attribute:: bfd_state_message
+                        
+                        	Enable BFD session state change alarm
+                        	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                        
+                        .. attribute:: insufficient_bw_message
+                        
+                        	Log tunnel messages for insufficient bandwidth
+                        	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                        
+                        .. attribute:: lsp_switch_over_change_message
+                        
+                        	Log tunnel messages for bandwidth change
+                        	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                        
+                        .. attribute:: pcalc_failure_message
+                        
+                        	Enable logging for path\-calculation failures
+                        	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                        
+                        .. attribute:: record_route_messsage
+                        
+                        	Log tunnel record\-route messages
+                        	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                        
+                        .. attribute:: reoptimize_attempts_message
+                        
+                        	Log tunnel reoptimization attempts messages
+                        	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                        
+                        .. attribute:: reoptimized_message
+                        
+                        	Log tunnel reoptimized messages
+                        	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                        
+                        .. attribute:: reroute_messsage
+                        
+                        	Log tunnel rereoute messages
+                        	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                        
+                        .. attribute:: state_message
+                        
+                        	Log tunnel state messages
+                        	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                        
+                        
+
+                        """
+
+                        _prefix = 'mpls-te-cfg'
+                        _revision = '2015-11-09'
+
+                        def __init__(self):
+                            self.parent = None
+                            self.all = None
+                            self.bandwidth_change_message = None
+                            self.bfd_state_message = None
+                            self.insufficient_bw_message = None
+                            self.lsp_switch_over_change_message = None
+                            self.pcalc_failure_message = None
+                            self.record_route_messsage = None
+                            self.reoptimize_attempts_message = None
+                            self.reoptimized_message = None
+                            self.reroute_messsage = None
+                            self.state_message = None
+
+                        @property
+                        def _common_path(self):
+                            if self.parent is None:
+                                raise YPYModelError('parent is not set . Cannot derive path.')
+
+                            return self.parent._common_path +'/Cisco-IOS-XR-mpls-te-cfg:logging'
+
+                        def is_config(self):
+                            ''' Returns True if this instance represents config data else returns False '''
+                            return True
+
+                        def _has_data(self):
+                            if not self.is_config():
+                                return False
+                            if self.all is not None:
+                                return True
+
+                            if self.bandwidth_change_message is not None:
+                                return True
+
+                            if self.bfd_state_message is not None:
+                                return True
+
+                            if self.insufficient_bw_message is not None:
+                                return True
+
+                            if self.lsp_switch_over_change_message is not None:
+                                return True
+
+                            if self.pcalc_failure_message is not None:
+                                return True
+
+                            if self.record_route_messsage is not None:
+                                return True
+
+                            if self.reoptimize_attempts_message is not None:
+                                return True
+
+                            if self.reoptimized_message is not None:
+                                return True
+
+                            if self.reroute_messsage is not None:
+                                return True
+
+                            if self.state_message is not None:
+                                return True
+
+                            return False
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+                            return meta._meta_table['MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.Logging']['meta_info']
+
+
+                    class Bandwidth(object):
+                        """
+                        Tunnel bandwidth requirement
+                        
+                        .. attribute:: bandwidth
+                        
+                        	The value of the bandwidth reserved by this tunnel in kbps
+                        	**type**\:  int
+                        
+                        	**range:** 0..4294967295
+                        
+                        	**mandatory**\: True
+                        
+                        .. attribute:: class_or_pool_type
+                        
+                        	Class type for the bandwith allocation
+                        	**type**\:  int
+                        
+                        	**range:** 0..1
+                        
+                        	**mandatory**\: True
+                        
+                        .. attribute:: dste_type
+                        
+                        	DSTE\-standard flag
+                        	**type**\:  :py:class:`MplsTeBandwidthDsteEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeBandwidthDsteEnum>`
+                        
+                        	**mandatory**\: True
+                        
+                        .. attribute:: _is_presence
+                        
+                        	Is present if this instance represents presence container else not
+                        	**type**\: bool
+                        
+                        
+
+                        This class is a :ref:`presence class<presence-class>`
+
+                        """
+
+                        _prefix = 'mpls-te-cfg'
+                        _revision = '2015-11-09'
+
+                        def __init__(self):
+                            self.parent = None
+                            self._is_presence = True
+                            self.bandwidth = None
+                            self.class_or_pool_type = None
+                            self.dste_type = None
+
+                        @property
+                        def _common_path(self):
+                            if self.parent is None:
+                                raise YPYModelError('parent is not set . Cannot derive path.')
+
+                            return self.parent._common_path +'/Cisco-IOS-XR-mpls-te-cfg:bandwidth'
+
+                        def is_config(self):
+                            ''' Returns True if this instance represents config data else returns False '''
+                            return True
+
+                        def _has_data(self):
+                            if not self.is_config():
+                                return False
+                            if self._is_presence:
+                                return True
+                            if self.bandwidth is not None:
+                                return True
+
+                            if self.class_or_pool_type is not None:
+                                return True
+
+                            if self.dste_type is not None:
+                                return True
+
+                            return False
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+                            return meta._meta_table['MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.Bandwidth']['meta_info']
+
+
+                    class Autoroute(object):
+                        """
+                        Parameters for IGP routing over tunnel
+                        
+                        .. attribute:: autoroute_announce
+                        
+                        	Announce tunnel to IGP
+                        	**type**\:  :py:class:`AutorouteAnnounce <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.Autoroute.AutorouteAnnounce>`
+                        
+                        .. attribute:: destination
+                        
+                        	Deprecated\: do NOT use
+                        	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                        
+                        .. attribute:: destination_xr
+                        
+                        	Tunnel Autoroute Destination(s)
+                        	**type**\:  :py:class:`DestinationXr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.Autoroute.DestinationXr>`
+                        
+                        .. attribute:: metric
+                        
+                        	Specify MPLS tunnel metric
+                        	**type**\:  :py:class:`Metric <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.Autoroute.Metric>`
+                        
+                        
+
+                        """
+
+                        _prefix = 'mpls-te-cfg'
+                        _revision = '2015-11-09'
+
+                        def __init__(self):
+                            self.parent = None
+                            self.autoroute_announce = MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.Autoroute.AutorouteAnnounce()
+                            self.autoroute_announce.parent = self
+                            self.destination = None
+                            self.destination_xr = MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.Autoroute.DestinationXr()
+                            self.destination_xr.parent = self
+                            self.metric = MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.Autoroute.Metric()
+                            self.metric.parent = self
+
+
+                        class Metric(object):
+                            """
+                            Specify MPLS tunnel metric
+                            
+                            .. attribute:: absolute_metric
+                            
+                            	The absolute metric value
+                            	**type**\:  int
+                            
+                            	**range:** 1..2147483647
+                            
+                            .. attribute:: constant_metric
+                            
+                            	The constant metric value
+                            	**type**\:  int
+                            
+                            	**range:** 1..2147483647
+                            
+                            .. attribute:: metric_type
+                            
+                            	Autoroute tunnel metric type
+                            	**type**\:  :py:class:`MplsTeAutorouteMetricEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeAutorouteMetricEnum>`
+                            
+                            .. attribute:: relative_metric
+                            
+                            	The value of the adjustment
+                            	**type**\:  int
+                            
+                            	**range:** \-10..10
+                            
+                            
+
+                            """
+
+                            _prefix = 'mpls-te-cfg'
+                            _revision = '2015-11-09'
+
+                            def __init__(self):
+                                self.parent = None
+                                self.absolute_metric = None
+                                self.constant_metric = None
+                                self.metric_type = None
+                                self.relative_metric = None
+
+                            @property
+                            def _common_path(self):
+                                if self.parent is None:
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                return self.parent._common_path +'/Cisco-IOS-XR-mpls-te-cfg:metric'
+
+                            def is_config(self):
+                                ''' Returns True if this instance represents config data else returns False '''
+                                return True
+
+                            def _has_data(self):
+                                if not self.is_config():
+                                    return False
+                                if self.absolute_metric is not None:
+                                    return True
+
+                                if self.constant_metric is not None:
+                                    return True
+
+                                if self.metric_type is not None:
+                                    return True
+
+                                if self.relative_metric is not None:
+                                    return True
+
+                                return False
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+                                return meta._meta_table['MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.Autoroute.Metric']['meta_info']
+
+
+                        class AutorouteAnnounce(object):
+                            """
+                            Announce tunnel to IGP
+                            
+                            .. attribute:: enable
+                            
+                            	Enable autoroute announce
+                            	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                            
+                            .. attribute:: include_ipv6
+                            
+                            	Specify that the tunnel should be an IPv6 autoroute announce also
+                            	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                            
+                            .. attribute:: metric
+                            
+                            	Specify MPLS tunnel metric
+                            	**type**\:  :py:class:`Metric <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.Autoroute.AutorouteAnnounce.Metric>`
+                            
+                            
+
+                            """
+
+                            _prefix = 'mpls-te-cfg'
+                            _revision = '2015-11-09'
+
+                            def __init__(self):
+                                self.parent = None
+                                self.enable = None
+                                self.include_ipv6 = None
+                                self.metric = MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.Autoroute.AutorouteAnnounce.Metric()
+                                self.metric.parent = self
+
+
+                            class Metric(object):
+                                """
+                                Specify MPLS tunnel metric
+                                
+                                .. attribute:: absolute_metric
+                                
+                                	The absolute metric value
+                                	**type**\:  int
+                                
+                                	**range:** 1..2147483647
+                                
+                                .. attribute:: constant_metric
+                                
+                                	The constant metric value
+                                	**type**\:  int
+                                
+                                	**range:** 1..2147483647
+                                
+                                .. attribute:: metric_type
+                                
+                                	Autoroute tunnel metric type
+                                	**type**\:  :py:class:`MplsTeAutorouteMetricEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeAutorouteMetricEnum>`
+                                
+                                .. attribute:: relative_metric
+                                
+                                	The value of the adjustment
+                                	**type**\:  int
+                                
+                                	**range:** \-10..10
+                                
+                                
+
+                                """
+
+                                _prefix = 'mpls-te-cfg'
+                                _revision = '2015-11-09'
+
+                                def __init__(self):
+                                    self.parent = None
+                                    self.absolute_metric = None
+                                    self.constant_metric = None
+                                    self.metric_type = None
+                                    self.relative_metric = None
+
+                                @property
+                                def _common_path(self):
+                                    if self.parent is None:
+                                        raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                    return self.parent._common_path +'/Cisco-IOS-XR-mpls-te-cfg:metric'
+
+                                def is_config(self):
+                                    ''' Returns True if this instance represents config data else returns False '''
+                                    return True
+
+                                def _has_data(self):
+                                    if not self.is_config():
+                                        return False
+                                    if self.absolute_metric is not None:
+                                        return True
+
+                                    if self.constant_metric is not None:
+                                        return True
+
+                                    if self.metric_type is not None:
+                                        return True
+
+                                    if self.relative_metric is not None:
+                                        return True
+
+                                    return False
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+                                    return meta._meta_table['MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.Autoroute.AutorouteAnnounce.Metric']['meta_info']
+
+                            @property
+                            def _common_path(self):
+                                if self.parent is None:
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                return self.parent._common_path +'/Cisco-IOS-XR-mpls-te-cfg:autoroute-announce'
+
+                            def is_config(self):
+                                ''' Returns True if this instance represents config data else returns False '''
+                                return True
+
+                            def _has_data(self):
+                                if not self.is_config():
+                                    return False
+                                if self.enable is not None:
+                                    return True
+
+                                if self.include_ipv6 is not None:
+                                    return True
+
+                                if self.metric is not None and self.metric._has_data():
+                                    return True
+
+                                return False
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+                                return meta._meta_table['MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.Autoroute.AutorouteAnnounce']['meta_info']
+
+
+                        class DestinationXr(object):
+                            """
+                            Tunnel Autoroute Destination(s)
+                            
+                            .. attribute:: destination
+                            
+                            	Destination address to add in RIB
+                            	**type**\: list of  :py:class:`Destination <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.Autoroute.DestinationXr.Destination>`
+                            
+                            
+
+                            """
+
+                            _prefix = 'mpls-te-cfg'
+                            _revision = '2015-11-09'
+
+                            def __init__(self):
+                                self.parent = None
+                                self.destination = YList()
+                                self.destination.parent = self
+                                self.destination.name = 'destination'
+
+
+                            class Destination(object):
+                                """
+                                Destination address to add in RIB
+                                
+                                .. attribute:: destination_address  <key>
+                                
+                                	IP address of destination
+                                	**type**\:  str
+                                
+                                	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                                
+                                
+
+                                """
+
+                                _prefix = 'mpls-te-cfg'
+                                _revision = '2015-11-09'
+
+                                def __init__(self):
+                                    self.parent = None
+                                    self.destination_address = None
+
+                                @property
+                                def _common_path(self):
+                                    if self.parent is None:
+                                        raise YPYModelError('parent is not set . Cannot derive path.')
+                                    if self.destination_address is None:
+                                        raise YPYModelError('Key property destination_address is None')
+
+                                    return self.parent._common_path +'/Cisco-IOS-XR-mpls-te-cfg:destination[Cisco-IOS-XR-mpls-te-cfg:destination-address = ' + str(self.destination_address) + ']'
+
+                                def is_config(self):
+                                    ''' Returns True if this instance represents config data else returns False '''
+                                    return True
+
+                                def _has_data(self):
+                                    if not self.is_config():
+                                        return False
+                                    if self.destination_address is not None:
+                                        return True
+
+                                    return False
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+                                    return meta._meta_table['MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.Autoroute.DestinationXr.Destination']['meta_info']
+
+                            @property
+                            def _common_path(self):
+                                if self.parent is None:
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                return self.parent._common_path +'/Cisco-IOS-XR-mpls-te-cfg:destination-xr'
+
+                            def is_config(self):
+                                ''' Returns True if this instance represents config data else returns False '''
+                                return True
+
+                            def _has_data(self):
+                                if not self.is_config():
+                                    return False
+                                if self.destination is not None:
+                                    for child_ref in self.destination:
+                                        if child_ref._has_data():
+                                            return True
+
+                                return False
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+                                return meta._meta_table['MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.Autoroute.DestinationXr']['meta_info']
+
+                        @property
+                        def _common_path(self):
+                            if self.parent is None:
+                                raise YPYModelError('parent is not set . Cannot derive path.')
+
+                            return self.parent._common_path +'/Cisco-IOS-XR-mpls-te-cfg:autoroute'
+
+                        def is_config(self):
+                            ''' Returns True if this instance represents config data else returns False '''
+                            return True
+
+                        def _has_data(self):
+                            if not self.is_config():
+                                return False
+                            if self.autoroute_announce is not None and self.autoroute_announce._has_data():
+                                return True
+
+                            if self.destination is not None:
+                                return True
+
+                            if self.destination_xr is not None and self.destination_xr._has_data():
+                                return True
+
+                            if self.metric is not None and self.metric._has_data():
+                                return True
+
+                            return False
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+                            return meta._meta_table['MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.Autoroute']['meta_info']
+
+
+                    class NewStyleAffinityAffinityTypes(object):
+                        """
+                        Tunnel new style affinity attributes table
+                        
+                        .. attribute:: new_style_affinity_affinity_type
+                        
+                        	Tunnel new style affinity attribute
+                        	**type**\: list of  :py:class:`NewStyleAffinityAffinityType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityType>`
+                        
+                        .. attribute:: new_style_affinity_affinity_type_affinity1
+                        
+                        	Tunnel new style affinity attribute
+                        	**type**\: list of  :py:class:`NewStyleAffinityAffinityTypeAffinity1 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1>`
+                        
+                        .. attribute:: new_style_affinity_affinity_type_affinity1_affinity2
+                        
+                        	Tunnel new style affinity attribute
+                        	**type**\: list of  :py:class:`NewStyleAffinityAffinityTypeAffinity1Affinity2 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2>`
+                        
+                        .. attribute:: new_style_affinity_affinity_type_affinity1_affinity2_affinity3
+                        
+                        	Tunnel new style affinity attribute
+                        	**type**\: list of  :py:class:`NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3>`
+                        
+                        .. attribute:: new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4
+                        
+                        	Tunnel new style affinity attribute
+                        	**type**\: list of  :py:class:`NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4>`
+                        
+                        .. attribute:: new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5
+                        
+                        	Tunnel new style affinity attribute
+                        	**type**\: list of  :py:class:`NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5>`
+                        
+                        .. attribute:: new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5_affinity6
+                        
+                        	Tunnel new style affinity attribute
+                        	**type**\: list of  :py:class:`NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6>`
+                        
+                        .. attribute:: new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5_affinity6_affinity7
+                        
+                        	Tunnel new style affinity attribute
+                        	**type**\: list of  :py:class:`NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7>`
+                        
+                        .. attribute:: new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5_affinity6_affinity7_affinity8
+                        
+                        	Tunnel new style affinity attribute
+                        	**type**\: list of  :py:class:`NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8>`
+                        
+                        .. attribute:: new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5_affinity6_affinity7_affinity8_affinity9
+                        
+                        	Tunnel new style affinity attribute
+                        	**type**\: list of  :py:class:`NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9>`
+                        
+                        .. attribute:: new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5_affinity6_affinity7_affinity8_affinity9_affinity10
+                        
+                        	Tunnel new style affinity attribute
+                        	**type**\: list of  :py:class:`NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9Affinity10 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9Affinity10>`
+                        
+                        
+
+                        """
+
+                        _prefix = 'mpls-te-cfg'
+                        _revision = '2015-11-09'
+
+                        def __init__(self):
+                            self.parent = None
+                            self.new_style_affinity_affinity_type = YList()
+                            self.new_style_affinity_affinity_type.parent = self
+                            self.new_style_affinity_affinity_type.name = 'new_style_affinity_affinity_type'
+                            self.new_style_affinity_affinity_type_affinity1 = YList()
+                            self.new_style_affinity_affinity_type_affinity1.parent = self
+                            self.new_style_affinity_affinity_type_affinity1.name = 'new_style_affinity_affinity_type_affinity1'
+                            self.new_style_affinity_affinity_type_affinity1_affinity2 = YList()
+                            self.new_style_affinity_affinity_type_affinity1_affinity2.parent = self
+                            self.new_style_affinity_affinity_type_affinity1_affinity2.name = 'new_style_affinity_affinity_type_affinity1_affinity2'
+                            self.new_style_affinity_affinity_type_affinity1_affinity2_affinity3 = YList()
+                            self.new_style_affinity_affinity_type_affinity1_affinity2_affinity3.parent = self
+                            self.new_style_affinity_affinity_type_affinity1_affinity2_affinity3.name = 'new_style_affinity_affinity_type_affinity1_affinity2_affinity3'
+                            self.new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4 = YList()
+                            self.new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4.parent = self
+                            self.new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4.name = 'new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4'
+                            self.new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5 = YList()
+                            self.new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5.parent = self
+                            self.new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5.name = 'new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5'
+                            self.new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5_affinity6 = YList()
+                            self.new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5_affinity6.parent = self
+                            self.new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5_affinity6.name = 'new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5_affinity6'
+                            self.new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5_affinity6_affinity7 = YList()
+                            self.new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5_affinity6_affinity7.parent = self
+                            self.new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5_affinity6_affinity7.name = 'new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5_affinity6_affinity7'
+                            self.new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5_affinity6_affinity7_affinity8 = YList()
+                            self.new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5_affinity6_affinity7_affinity8.parent = self
+                            self.new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5_affinity6_affinity7_affinity8.name = 'new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5_affinity6_affinity7_affinity8'
+                            self.new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5_affinity6_affinity7_affinity8_affinity9 = YList()
+                            self.new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5_affinity6_affinity7_affinity8_affinity9.parent = self
+                            self.new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5_affinity6_affinity7_affinity8_affinity9.name = 'new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5_affinity6_affinity7_affinity8_affinity9'
+                            self.new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5_affinity6_affinity7_affinity8_affinity9_affinity10 = YList()
+                            self.new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5_affinity6_affinity7_affinity8_affinity9_affinity10.parent = self
+                            self.new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5_affinity6_affinity7_affinity8_affinity9_affinity10.name = 'new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5_affinity6_affinity7_affinity8_affinity9_affinity10'
+
+
+                        class NewStyleAffinityAffinityType(object):
+                            """
+                            Tunnel new style affinity attribute
+                            
+                            .. attribute:: affinity_type  <key>
+                            
+                            	The type of the affinity entry
+                            	**type**\:  :py:class:`MplsTeTunnelAffinityEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeTunnelAffinityEnum>`
+                            
+                            
+
+                            """
+
+                            _prefix = 'mpls-te-cfg'
+                            _revision = '2015-11-09'
+
+                            def __init__(self):
+                                self.parent = None
+                                self.affinity_type = None
+
+                            @property
+                            def _common_path(self):
+                                if self.parent is None:
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
+                                if self.affinity_type is None:
+                                    raise YPYModelError('Key property affinity_type is None')
+
+                                return self.parent._common_path +'/Cisco-IOS-XR-mpls-te-cfg:new-style-affinity-affinity-type[Cisco-IOS-XR-mpls-te-cfg:affinity-type = ' + str(self.affinity_type) + ']'
+
+                            def is_config(self):
+                                ''' Returns True if this instance represents config data else returns False '''
+                                return True
+
+                            def _has_data(self):
+                                if not self.is_config():
+                                    return False
+                                if self.affinity_type is not None:
+                                    return True
+
+                                return False
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+                                return meta._meta_table['MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityType']['meta_info']
+
+
+                        class NewStyleAffinityAffinityTypeAffinity1(object):
+                            """
+                            Tunnel new style affinity attribute
+                            
+                            .. attribute:: affinity1  <key>
+                            
+                            	The name of the first affinity
+                            	**type**\:  str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
+                            
+                            .. attribute:: affinity_type  <key>
+                            
+                            	The type of the affinity entry
+                            	**type**\:  :py:class:`MplsTeTunnelAffinityEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeTunnelAffinityEnum>`
+                            
+                            
+
+                            """
+
+                            _prefix = 'mpls-te-cfg'
+                            _revision = '2015-11-09'
+
+                            def __init__(self):
+                                self.parent = None
+                                self.affinity1 = None
+                                self.affinity_type = None
+
+                            @property
+                            def _common_path(self):
+                                if self.parent is None:
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
+                                if self.affinity1 is None:
+                                    raise YPYModelError('Key property affinity1 is None')
+                                if self.affinity_type is None:
+                                    raise YPYModelError('Key property affinity_type is None')
+
+                                return self.parent._common_path +'/Cisco-IOS-XR-mpls-te-cfg:new-style-affinity-affinity-type-affinity1[Cisco-IOS-XR-mpls-te-cfg:affinity1 = ' + str(self.affinity1) + '][Cisco-IOS-XR-mpls-te-cfg:affinity-type = ' + str(self.affinity_type) + ']'
+
+                            def is_config(self):
+                                ''' Returns True if this instance represents config data else returns False '''
+                                return True
+
+                            def _has_data(self):
+                                if not self.is_config():
+                                    return False
+                                if self.affinity1 is not None:
+                                    return True
+
+                                if self.affinity_type is not None:
+                                    return True
+
+                                return False
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+                                return meta._meta_table['MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1']['meta_info']
+
+
+                        class NewStyleAffinityAffinityTypeAffinity1Affinity2(object):
+                            """
+                            Tunnel new style affinity attribute
+                            
+                            .. attribute:: affinity1  <key>
+                            
+                            	The name of the first affinity
+                            	**type**\:  str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
+                            
+                            .. attribute:: affinity2  <key>
+                            
+                            	The name of the second affinity
+                            	**type**\:  str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
+                            
+                            .. attribute:: affinity_type  <key>
+                            
+                            	The type of the affinity entry
+                            	**type**\:  :py:class:`MplsTeTunnelAffinityEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeTunnelAffinityEnum>`
+                            
+                            
+
+                            """
+
+                            _prefix = 'mpls-te-cfg'
+                            _revision = '2015-11-09'
+
+                            def __init__(self):
+                                self.parent = None
+                                self.affinity1 = None
+                                self.affinity2 = None
+                                self.affinity_type = None
+
+                            @property
+                            def _common_path(self):
+                                if self.parent is None:
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
+                                if self.affinity1 is None:
+                                    raise YPYModelError('Key property affinity1 is None')
+                                if self.affinity2 is None:
+                                    raise YPYModelError('Key property affinity2 is None')
+                                if self.affinity_type is None:
+                                    raise YPYModelError('Key property affinity_type is None')
+
+                                return self.parent._common_path +'/Cisco-IOS-XR-mpls-te-cfg:new-style-affinity-affinity-type-affinity1-affinity2[Cisco-IOS-XR-mpls-te-cfg:affinity1 = ' + str(self.affinity1) + '][Cisco-IOS-XR-mpls-te-cfg:affinity2 = ' + str(self.affinity2) + '][Cisco-IOS-XR-mpls-te-cfg:affinity-type = ' + str(self.affinity_type) + ']'
+
+                            def is_config(self):
+                                ''' Returns True if this instance represents config data else returns False '''
+                                return True
+
+                            def _has_data(self):
+                                if not self.is_config():
+                                    return False
+                                if self.affinity1 is not None:
+                                    return True
+
+                                if self.affinity2 is not None:
+                                    return True
+
+                                if self.affinity_type is not None:
+                                    return True
+
+                                return False
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+                                return meta._meta_table['MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2']['meta_info']
+
+
+                        class NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3(object):
+                            """
+                            Tunnel new style affinity attribute
+                            
+                            .. attribute:: affinity1  <key>
+                            
+                            	The name of the first affinity
+                            	**type**\:  str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
+                            
+                            .. attribute:: affinity2  <key>
+                            
+                            	The name of the second affinity
+                            	**type**\:  str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
+                            
+                            .. attribute:: affinity3  <key>
+                            
+                            	The name of the third affinity
+                            	**type**\:  str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
+                            
+                            .. attribute:: affinity_type  <key>
+                            
+                            	The type of the affinity entry
+                            	**type**\:  :py:class:`MplsTeTunnelAffinityEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeTunnelAffinityEnum>`
+                            
+                            
+
+                            """
+
+                            _prefix = 'mpls-te-cfg'
+                            _revision = '2015-11-09'
+
+                            def __init__(self):
+                                self.parent = None
+                                self.affinity1 = None
+                                self.affinity2 = None
+                                self.affinity3 = None
+                                self.affinity_type = None
+
+                            @property
+                            def _common_path(self):
+                                if self.parent is None:
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
+                                if self.affinity1 is None:
+                                    raise YPYModelError('Key property affinity1 is None')
+                                if self.affinity2 is None:
+                                    raise YPYModelError('Key property affinity2 is None')
+                                if self.affinity3 is None:
+                                    raise YPYModelError('Key property affinity3 is None')
+                                if self.affinity_type is None:
+                                    raise YPYModelError('Key property affinity_type is None')
+
+                                return self.parent._common_path +'/Cisco-IOS-XR-mpls-te-cfg:new-style-affinity-affinity-type-affinity1-affinity2-affinity3[Cisco-IOS-XR-mpls-te-cfg:affinity1 = ' + str(self.affinity1) + '][Cisco-IOS-XR-mpls-te-cfg:affinity2 = ' + str(self.affinity2) + '][Cisco-IOS-XR-mpls-te-cfg:affinity3 = ' + str(self.affinity3) + '][Cisco-IOS-XR-mpls-te-cfg:affinity-type = ' + str(self.affinity_type) + ']'
+
+                            def is_config(self):
+                                ''' Returns True if this instance represents config data else returns False '''
+                                return True
+
+                            def _has_data(self):
+                                if not self.is_config():
+                                    return False
+                                if self.affinity1 is not None:
+                                    return True
+
+                                if self.affinity2 is not None:
+                                    return True
+
+                                if self.affinity3 is not None:
+                                    return True
+
+                                if self.affinity_type is not None:
+                                    return True
+
+                                return False
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+                                return meta._meta_table['MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3']['meta_info']
+
+
+                        class NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4(object):
+                            """
+                            Tunnel new style affinity attribute
+                            
+                            .. attribute:: affinity1  <key>
+                            
+                            	The name of the first affinity
+                            	**type**\:  str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
+                            
+                            .. attribute:: affinity2  <key>
+                            
+                            	The name of the second affinity
+                            	**type**\:  str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
+                            
+                            .. attribute:: affinity3  <key>
+                            
+                            	The name of the third affinity
+                            	**type**\:  str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
+                            
+                            .. attribute:: affinity4  <key>
+                            
+                            	The name of the fourth affinity
+                            	**type**\:  str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
+                            
+                            .. attribute:: affinity_type  <key>
+                            
+                            	The type of the affinity entry
+                            	**type**\:  :py:class:`MplsTeTunnelAffinityEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeTunnelAffinityEnum>`
+                            
+                            
+
+                            """
+
+                            _prefix = 'mpls-te-cfg'
+                            _revision = '2015-11-09'
+
+                            def __init__(self):
+                                self.parent = None
+                                self.affinity1 = None
+                                self.affinity2 = None
+                                self.affinity3 = None
+                                self.affinity4 = None
+                                self.affinity_type = None
+
+                            @property
+                            def _common_path(self):
+                                if self.parent is None:
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
+                                if self.affinity1 is None:
+                                    raise YPYModelError('Key property affinity1 is None')
+                                if self.affinity2 is None:
+                                    raise YPYModelError('Key property affinity2 is None')
+                                if self.affinity3 is None:
+                                    raise YPYModelError('Key property affinity3 is None')
+                                if self.affinity4 is None:
+                                    raise YPYModelError('Key property affinity4 is None')
+                                if self.affinity_type is None:
+                                    raise YPYModelError('Key property affinity_type is None')
+
+                                return self.parent._common_path +'/Cisco-IOS-XR-mpls-te-cfg:new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4[Cisco-IOS-XR-mpls-te-cfg:affinity1 = ' + str(self.affinity1) + '][Cisco-IOS-XR-mpls-te-cfg:affinity2 = ' + str(self.affinity2) + '][Cisco-IOS-XR-mpls-te-cfg:affinity3 = ' + str(self.affinity3) + '][Cisco-IOS-XR-mpls-te-cfg:affinity4 = ' + str(self.affinity4) + '][Cisco-IOS-XR-mpls-te-cfg:affinity-type = ' + str(self.affinity_type) + ']'
+
+                            def is_config(self):
+                                ''' Returns True if this instance represents config data else returns False '''
+                                return True
+
+                            def _has_data(self):
+                                if not self.is_config():
+                                    return False
+                                if self.affinity1 is not None:
+                                    return True
+
+                                if self.affinity2 is not None:
+                                    return True
+
+                                if self.affinity3 is not None:
+                                    return True
+
+                                if self.affinity4 is not None:
+                                    return True
+
+                                if self.affinity_type is not None:
+                                    return True
+
+                                return False
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+                                return meta._meta_table['MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4']['meta_info']
+
+
+                        class NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5(object):
+                            """
+                            Tunnel new style affinity attribute
+                            
+                            .. attribute:: affinity1  <key>
+                            
+                            	The name of the first affinity
+                            	**type**\:  str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
+                            
+                            .. attribute:: affinity2  <key>
+                            
+                            	The name of the second affinity
+                            	**type**\:  str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
+                            
+                            .. attribute:: affinity3  <key>
+                            
+                            	The name of the third affinity
+                            	**type**\:  str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
+                            
+                            .. attribute:: affinity4  <key>
+                            
+                            	The name of the fourth affinity
+                            	**type**\:  str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
+                            
+                            .. attribute:: affinity5  <key>
+                            
+                            	The name of the fifth affinity
+                            	**type**\:  str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
+                            
+                            .. attribute:: affinity_type  <key>
+                            
+                            	The type of the affinity entry
+                            	**type**\:  :py:class:`MplsTeTunnelAffinityEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeTunnelAffinityEnum>`
+                            
+                            
+
+                            """
+
+                            _prefix = 'mpls-te-cfg'
+                            _revision = '2015-11-09'
+
+                            def __init__(self):
+                                self.parent = None
+                                self.affinity1 = None
+                                self.affinity2 = None
+                                self.affinity3 = None
+                                self.affinity4 = None
+                                self.affinity5 = None
+                                self.affinity_type = None
+
+                            @property
+                            def _common_path(self):
+                                if self.parent is None:
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
+                                if self.affinity1 is None:
+                                    raise YPYModelError('Key property affinity1 is None')
+                                if self.affinity2 is None:
+                                    raise YPYModelError('Key property affinity2 is None')
+                                if self.affinity3 is None:
+                                    raise YPYModelError('Key property affinity3 is None')
+                                if self.affinity4 is None:
+                                    raise YPYModelError('Key property affinity4 is None')
+                                if self.affinity5 is None:
+                                    raise YPYModelError('Key property affinity5 is None')
+                                if self.affinity_type is None:
+                                    raise YPYModelError('Key property affinity_type is None')
+
+                                return self.parent._common_path +'/Cisco-IOS-XR-mpls-te-cfg:new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5[Cisco-IOS-XR-mpls-te-cfg:affinity1 = ' + str(self.affinity1) + '][Cisco-IOS-XR-mpls-te-cfg:affinity2 = ' + str(self.affinity2) + '][Cisco-IOS-XR-mpls-te-cfg:affinity3 = ' + str(self.affinity3) + '][Cisco-IOS-XR-mpls-te-cfg:affinity4 = ' + str(self.affinity4) + '][Cisco-IOS-XR-mpls-te-cfg:affinity5 = ' + str(self.affinity5) + '][Cisco-IOS-XR-mpls-te-cfg:affinity-type = ' + str(self.affinity_type) + ']'
+
+                            def is_config(self):
+                                ''' Returns True if this instance represents config data else returns False '''
+                                return True
+
+                            def _has_data(self):
+                                if not self.is_config():
+                                    return False
+                                if self.affinity1 is not None:
+                                    return True
+
+                                if self.affinity2 is not None:
+                                    return True
+
+                                if self.affinity3 is not None:
+                                    return True
+
+                                if self.affinity4 is not None:
+                                    return True
+
+                                if self.affinity5 is not None:
+                                    return True
+
+                                if self.affinity_type is not None:
+                                    return True
+
+                                return False
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+                                return meta._meta_table['MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5']['meta_info']
+
+
+                        class NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6(object):
+                            """
+                            Tunnel new style affinity attribute
+                            
+                            .. attribute:: affinity1  <key>
+                            
+                            	The name of the first affinity
+                            	**type**\:  str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
+                            
+                            .. attribute:: affinity2  <key>
+                            
+                            	The name of the second affinity
+                            	**type**\:  str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
+                            
+                            .. attribute:: affinity3  <key>
+                            
+                            	The name of the third affinity
+                            	**type**\:  str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
+                            
+                            .. attribute:: affinity4  <key>
+                            
+                            	The name of the fourth affinity
+                            	**type**\:  str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
+                            
+                            .. attribute:: affinity5  <key>
+                            
+                            	The name of the fifth affinity
+                            	**type**\:  str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
+                            
+                            .. attribute:: affinity6  <key>
+                            
+                            	The name of the sixth affinity
+                            	**type**\:  str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
+                            
+                            .. attribute:: affinity_type  <key>
+                            
+                            	The type of the affinity entry
+                            	**type**\:  :py:class:`MplsTeTunnelAffinityEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeTunnelAffinityEnum>`
+                            
+                            
+
+                            """
+
+                            _prefix = 'mpls-te-cfg'
+                            _revision = '2015-11-09'
+
+                            def __init__(self):
+                                self.parent = None
+                                self.affinity1 = None
+                                self.affinity2 = None
+                                self.affinity3 = None
+                                self.affinity4 = None
+                                self.affinity5 = None
+                                self.affinity6 = None
+                                self.affinity_type = None
+
+                            @property
+                            def _common_path(self):
+                                if self.parent is None:
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
+                                if self.affinity1 is None:
+                                    raise YPYModelError('Key property affinity1 is None')
+                                if self.affinity2 is None:
+                                    raise YPYModelError('Key property affinity2 is None')
+                                if self.affinity3 is None:
+                                    raise YPYModelError('Key property affinity3 is None')
+                                if self.affinity4 is None:
+                                    raise YPYModelError('Key property affinity4 is None')
+                                if self.affinity5 is None:
+                                    raise YPYModelError('Key property affinity5 is None')
+                                if self.affinity6 is None:
+                                    raise YPYModelError('Key property affinity6 is None')
+                                if self.affinity_type is None:
+                                    raise YPYModelError('Key property affinity_type is None')
+
+                                return self.parent._common_path +'/Cisco-IOS-XR-mpls-te-cfg:new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5-affinity6[Cisco-IOS-XR-mpls-te-cfg:affinity1 = ' + str(self.affinity1) + '][Cisco-IOS-XR-mpls-te-cfg:affinity2 = ' + str(self.affinity2) + '][Cisco-IOS-XR-mpls-te-cfg:affinity3 = ' + str(self.affinity3) + '][Cisco-IOS-XR-mpls-te-cfg:affinity4 = ' + str(self.affinity4) + '][Cisco-IOS-XR-mpls-te-cfg:affinity5 = ' + str(self.affinity5) + '][Cisco-IOS-XR-mpls-te-cfg:affinity6 = ' + str(self.affinity6) + '][Cisco-IOS-XR-mpls-te-cfg:affinity-type = ' + str(self.affinity_type) + ']'
+
+                            def is_config(self):
+                                ''' Returns True if this instance represents config data else returns False '''
+                                return True
+
+                            def _has_data(self):
+                                if not self.is_config():
+                                    return False
+                                if self.affinity1 is not None:
+                                    return True
+
+                                if self.affinity2 is not None:
+                                    return True
+
+                                if self.affinity3 is not None:
+                                    return True
+
+                                if self.affinity4 is not None:
+                                    return True
+
+                                if self.affinity5 is not None:
+                                    return True
+
+                                if self.affinity6 is not None:
+                                    return True
+
+                                if self.affinity_type is not None:
+                                    return True
+
+                                return False
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+                                return meta._meta_table['MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6']['meta_info']
+
+
+                        class NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7(object):
+                            """
+                            Tunnel new style affinity attribute
+                            
+                            .. attribute:: affinity1  <key>
+                            
+                            	The name of the first affinity
+                            	**type**\:  str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
+                            
+                            .. attribute:: affinity2  <key>
+                            
+                            	The name of the second affinity
+                            	**type**\:  str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
+                            
+                            .. attribute:: affinity3  <key>
+                            
+                            	The name of the third affinity
+                            	**type**\:  str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
+                            
+                            .. attribute:: affinity4  <key>
+                            
+                            	The name of the fourth affinity
+                            	**type**\:  str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
+                            
+                            .. attribute:: affinity5  <key>
+                            
+                            	The name of the fifth affinity
+                            	**type**\:  str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
+                            
+                            .. attribute:: affinity6  <key>
+                            
+                            	The name of the sixth affinity
+                            	**type**\:  str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
+                            
+                            .. attribute:: affinity7  <key>
+                            
+                            	The name of the seventh affinity
+                            	**type**\:  str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
+                            
+                            .. attribute:: affinity_type  <key>
+                            
+                            	The type of the affinity entry
+                            	**type**\:  :py:class:`MplsTeTunnelAffinityEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeTunnelAffinityEnum>`
+                            
+                            
+
+                            """
+
+                            _prefix = 'mpls-te-cfg'
+                            _revision = '2015-11-09'
+
+                            def __init__(self):
+                                self.parent = None
+                                self.affinity1 = None
+                                self.affinity2 = None
+                                self.affinity3 = None
+                                self.affinity4 = None
+                                self.affinity5 = None
+                                self.affinity6 = None
+                                self.affinity7 = None
+                                self.affinity_type = None
+
+                            @property
+                            def _common_path(self):
+                                if self.parent is None:
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
+                                if self.affinity1 is None:
+                                    raise YPYModelError('Key property affinity1 is None')
+                                if self.affinity2 is None:
+                                    raise YPYModelError('Key property affinity2 is None')
+                                if self.affinity3 is None:
+                                    raise YPYModelError('Key property affinity3 is None')
+                                if self.affinity4 is None:
+                                    raise YPYModelError('Key property affinity4 is None')
+                                if self.affinity5 is None:
+                                    raise YPYModelError('Key property affinity5 is None')
+                                if self.affinity6 is None:
+                                    raise YPYModelError('Key property affinity6 is None')
+                                if self.affinity7 is None:
+                                    raise YPYModelError('Key property affinity7 is None')
+                                if self.affinity_type is None:
+                                    raise YPYModelError('Key property affinity_type is None')
+
+                                return self.parent._common_path +'/Cisco-IOS-XR-mpls-te-cfg:new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5-affinity6-affinity7[Cisco-IOS-XR-mpls-te-cfg:affinity1 = ' + str(self.affinity1) + '][Cisco-IOS-XR-mpls-te-cfg:affinity2 = ' + str(self.affinity2) + '][Cisco-IOS-XR-mpls-te-cfg:affinity3 = ' + str(self.affinity3) + '][Cisco-IOS-XR-mpls-te-cfg:affinity4 = ' + str(self.affinity4) + '][Cisco-IOS-XR-mpls-te-cfg:affinity5 = ' + str(self.affinity5) + '][Cisco-IOS-XR-mpls-te-cfg:affinity6 = ' + str(self.affinity6) + '][Cisco-IOS-XR-mpls-te-cfg:affinity7 = ' + str(self.affinity7) + '][Cisco-IOS-XR-mpls-te-cfg:affinity-type = ' + str(self.affinity_type) + ']'
+
+                            def is_config(self):
+                                ''' Returns True if this instance represents config data else returns False '''
+                                return True
+
+                            def _has_data(self):
+                                if not self.is_config():
+                                    return False
+                                if self.affinity1 is not None:
+                                    return True
+
+                                if self.affinity2 is not None:
+                                    return True
+
+                                if self.affinity3 is not None:
+                                    return True
+
+                                if self.affinity4 is not None:
+                                    return True
+
+                                if self.affinity5 is not None:
+                                    return True
+
+                                if self.affinity6 is not None:
+                                    return True
+
+                                if self.affinity7 is not None:
+                                    return True
+
+                                if self.affinity_type is not None:
+                                    return True
+
+                                return False
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+                                return meta._meta_table['MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7']['meta_info']
+
+
+                        class NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8(object):
+                            """
+                            Tunnel new style affinity attribute
+                            
+                            .. attribute:: affinity1  <key>
+                            
+                            	The name of the first affinity
+                            	**type**\:  str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
+                            
+                            .. attribute:: affinity2  <key>
+                            
+                            	The name of the second affinity
+                            	**type**\:  str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
+                            
+                            .. attribute:: affinity3  <key>
+                            
+                            	The name of the third affinity
+                            	**type**\:  str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
+                            
+                            .. attribute:: affinity4  <key>
+                            
+                            	The name of the fourth affinity
+                            	**type**\:  str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
+                            
+                            .. attribute:: affinity5  <key>
+                            
+                            	The name of the fifth affinity
+                            	**type**\:  str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
+                            
+                            .. attribute:: affinity6  <key>
+                            
+                            	The name of the sixth affinity
+                            	**type**\:  str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
+                            
+                            .. attribute:: affinity7  <key>
+                            
+                            	The name of the seventh affinity
+                            	**type**\:  str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
+                            
+                            .. attribute:: affinity8  <key>
+                            
+                            	The name of the eighth affinity
+                            	**type**\:  str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
+                            
+                            .. attribute:: affinity_type  <key>
+                            
+                            	The type of the affinity entry
+                            	**type**\:  :py:class:`MplsTeTunnelAffinityEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeTunnelAffinityEnum>`
+                            
+                            
+
+                            """
+
+                            _prefix = 'mpls-te-cfg'
+                            _revision = '2015-11-09'
+
+                            def __init__(self):
+                                self.parent = None
+                                self.affinity1 = None
+                                self.affinity2 = None
+                                self.affinity3 = None
+                                self.affinity4 = None
+                                self.affinity5 = None
+                                self.affinity6 = None
+                                self.affinity7 = None
+                                self.affinity8 = None
+                                self.affinity_type = None
+
+                            @property
+                            def _common_path(self):
+                                if self.parent is None:
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
+                                if self.affinity1 is None:
+                                    raise YPYModelError('Key property affinity1 is None')
+                                if self.affinity2 is None:
+                                    raise YPYModelError('Key property affinity2 is None')
+                                if self.affinity3 is None:
+                                    raise YPYModelError('Key property affinity3 is None')
+                                if self.affinity4 is None:
+                                    raise YPYModelError('Key property affinity4 is None')
+                                if self.affinity5 is None:
+                                    raise YPYModelError('Key property affinity5 is None')
+                                if self.affinity6 is None:
+                                    raise YPYModelError('Key property affinity6 is None')
+                                if self.affinity7 is None:
+                                    raise YPYModelError('Key property affinity7 is None')
+                                if self.affinity8 is None:
+                                    raise YPYModelError('Key property affinity8 is None')
+                                if self.affinity_type is None:
+                                    raise YPYModelError('Key property affinity_type is None')
+
+                                return self.parent._common_path +'/Cisco-IOS-XR-mpls-te-cfg:new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5-affinity6-affinity7-affinity8[Cisco-IOS-XR-mpls-te-cfg:affinity1 = ' + str(self.affinity1) + '][Cisco-IOS-XR-mpls-te-cfg:affinity2 = ' + str(self.affinity2) + '][Cisco-IOS-XR-mpls-te-cfg:affinity3 = ' + str(self.affinity3) + '][Cisco-IOS-XR-mpls-te-cfg:affinity4 = ' + str(self.affinity4) + '][Cisco-IOS-XR-mpls-te-cfg:affinity5 = ' + str(self.affinity5) + '][Cisco-IOS-XR-mpls-te-cfg:affinity6 = ' + str(self.affinity6) + '][Cisco-IOS-XR-mpls-te-cfg:affinity7 = ' + str(self.affinity7) + '][Cisco-IOS-XR-mpls-te-cfg:affinity8 = ' + str(self.affinity8) + '][Cisco-IOS-XR-mpls-te-cfg:affinity-type = ' + str(self.affinity_type) + ']'
+
+                            def is_config(self):
+                                ''' Returns True if this instance represents config data else returns False '''
+                                return True
+
+                            def _has_data(self):
+                                if not self.is_config():
+                                    return False
+                                if self.affinity1 is not None:
+                                    return True
+
+                                if self.affinity2 is not None:
+                                    return True
+
+                                if self.affinity3 is not None:
+                                    return True
+
+                                if self.affinity4 is not None:
+                                    return True
+
+                                if self.affinity5 is not None:
+                                    return True
+
+                                if self.affinity6 is not None:
+                                    return True
+
+                                if self.affinity7 is not None:
+                                    return True
+
+                                if self.affinity8 is not None:
+                                    return True
+
+                                if self.affinity_type is not None:
+                                    return True
+
+                                return False
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+                                return meta._meta_table['MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8']['meta_info']
+
+
+                        class NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9(object):
+                            """
+                            Tunnel new style affinity attribute
+                            
+                            .. attribute:: affinity1  <key>
+                            
+                            	The name of the first affinity
+                            	**type**\:  str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
+                            
+                            .. attribute:: affinity2  <key>
+                            
+                            	The name of the second affinity
+                            	**type**\:  str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
+                            
+                            .. attribute:: affinity3  <key>
+                            
+                            	The name of the third affinity
+                            	**type**\:  str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
+                            
+                            .. attribute:: affinity4  <key>
+                            
+                            	The name of the fourth affinity
+                            	**type**\:  str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
+                            
+                            .. attribute:: affinity5  <key>
+                            
+                            	The name of the fifth affinity
+                            	**type**\:  str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
+                            
+                            .. attribute:: affinity6  <key>
+                            
+                            	The name of the sixth affinity
+                            	**type**\:  str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
+                            
+                            .. attribute:: affinity7  <key>
+                            
+                            	The name of the seventh affinity
+                            	**type**\:  str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
+                            
+                            .. attribute:: affinity8  <key>
+                            
+                            	The name of the eighth affinity
+                            	**type**\:  str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
+                            
+                            .. attribute:: affinity9  <key>
+                            
+                            	The name of the nineth affinity
+                            	**type**\:  str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
+                            
+                            .. attribute:: affinity_type  <key>
+                            
+                            	The type of the affinity entry
+                            	**type**\:  :py:class:`MplsTeTunnelAffinityEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeTunnelAffinityEnum>`
+                            
+                            
+
+                            """
+
+                            _prefix = 'mpls-te-cfg'
+                            _revision = '2015-11-09'
+
+                            def __init__(self):
+                                self.parent = None
+                                self.affinity1 = None
+                                self.affinity2 = None
+                                self.affinity3 = None
+                                self.affinity4 = None
+                                self.affinity5 = None
+                                self.affinity6 = None
+                                self.affinity7 = None
+                                self.affinity8 = None
+                                self.affinity9 = None
+                                self.affinity_type = None
+
+                            @property
+                            def _common_path(self):
+                                if self.parent is None:
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
+                                if self.affinity1 is None:
+                                    raise YPYModelError('Key property affinity1 is None')
+                                if self.affinity2 is None:
+                                    raise YPYModelError('Key property affinity2 is None')
+                                if self.affinity3 is None:
+                                    raise YPYModelError('Key property affinity3 is None')
+                                if self.affinity4 is None:
+                                    raise YPYModelError('Key property affinity4 is None')
+                                if self.affinity5 is None:
+                                    raise YPYModelError('Key property affinity5 is None')
+                                if self.affinity6 is None:
+                                    raise YPYModelError('Key property affinity6 is None')
+                                if self.affinity7 is None:
+                                    raise YPYModelError('Key property affinity7 is None')
+                                if self.affinity8 is None:
+                                    raise YPYModelError('Key property affinity8 is None')
+                                if self.affinity9 is None:
+                                    raise YPYModelError('Key property affinity9 is None')
+                                if self.affinity_type is None:
+                                    raise YPYModelError('Key property affinity_type is None')
+
+                                return self.parent._common_path +'/Cisco-IOS-XR-mpls-te-cfg:new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5-affinity6-affinity7-affinity8-affinity9[Cisco-IOS-XR-mpls-te-cfg:affinity1 = ' + str(self.affinity1) + '][Cisco-IOS-XR-mpls-te-cfg:affinity2 = ' + str(self.affinity2) + '][Cisco-IOS-XR-mpls-te-cfg:affinity3 = ' + str(self.affinity3) + '][Cisco-IOS-XR-mpls-te-cfg:affinity4 = ' + str(self.affinity4) + '][Cisco-IOS-XR-mpls-te-cfg:affinity5 = ' + str(self.affinity5) + '][Cisco-IOS-XR-mpls-te-cfg:affinity6 = ' + str(self.affinity6) + '][Cisco-IOS-XR-mpls-te-cfg:affinity7 = ' + str(self.affinity7) + '][Cisco-IOS-XR-mpls-te-cfg:affinity8 = ' + str(self.affinity8) + '][Cisco-IOS-XR-mpls-te-cfg:affinity9 = ' + str(self.affinity9) + '][Cisco-IOS-XR-mpls-te-cfg:affinity-type = ' + str(self.affinity_type) + ']'
+
+                            def is_config(self):
+                                ''' Returns True if this instance represents config data else returns False '''
+                                return True
+
+                            def _has_data(self):
+                                if not self.is_config():
+                                    return False
+                                if self.affinity1 is not None:
+                                    return True
+
+                                if self.affinity2 is not None:
+                                    return True
+
+                                if self.affinity3 is not None:
+                                    return True
+
+                                if self.affinity4 is not None:
+                                    return True
+
+                                if self.affinity5 is not None:
+                                    return True
+
+                                if self.affinity6 is not None:
+                                    return True
+
+                                if self.affinity7 is not None:
+                                    return True
+
+                                if self.affinity8 is not None:
+                                    return True
+
+                                if self.affinity9 is not None:
+                                    return True
+
+                                if self.affinity_type is not None:
+                                    return True
+
+                                return False
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+                                return meta._meta_table['MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9']['meta_info']
+
+
+                        class NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9Affinity10(object):
+                            """
+                            Tunnel new style affinity attribute
+                            
+                            .. attribute:: affinity1  <key>
+                            
+                            	The name of the first affinity
+                            	**type**\:  str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
+                            
+                            .. attribute:: affinity10  <key>
+                            
+                            	The name of the tenth affinity
+                            	**type**\:  str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
+                            
+                            .. attribute:: affinity2  <key>
+                            
+                            	The name of the second affinity
+                            	**type**\:  str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
+                            
+                            .. attribute:: affinity3  <key>
+                            
+                            	The name of the third affinity
+                            	**type**\:  str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
+                            
+                            .. attribute:: affinity4  <key>
+                            
+                            	The name of the fourth affinity
+                            	**type**\:  str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
+                            
+                            .. attribute:: affinity5  <key>
+                            
+                            	The name of the fifth affinity
+                            	**type**\:  str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
+                            
+                            .. attribute:: affinity6  <key>
+                            
+                            	The name of the sixth affinity
+                            	**type**\:  str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
+                            
+                            .. attribute:: affinity7  <key>
+                            
+                            	The name of the seventh affinity
+                            	**type**\:  str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
+                            
+                            .. attribute:: affinity8  <key>
+                            
+                            	The name of the eighth affinity
+                            	**type**\:  str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
+                            
+                            .. attribute:: affinity9  <key>
+                            
+                            	The name of the nineth affinity
+                            	**type**\:  str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
+                            
+                            .. attribute:: affinity_type  <key>
+                            
+                            	The type of the affinity entry
+                            	**type**\:  :py:class:`MplsTeTunnelAffinityEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeTunnelAffinityEnum>`
+                            
+                            
+
+                            """
+
+                            _prefix = 'mpls-te-cfg'
+                            _revision = '2015-11-09'
+
+                            def __init__(self):
+                                self.parent = None
+                                self.affinity1 = None
+                                self.affinity10 = None
+                                self.affinity2 = None
+                                self.affinity3 = None
+                                self.affinity4 = None
+                                self.affinity5 = None
+                                self.affinity6 = None
+                                self.affinity7 = None
+                                self.affinity8 = None
+                                self.affinity9 = None
+                                self.affinity_type = None
+
+                            @property
+                            def _common_path(self):
+                                if self.parent is None:
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
+                                if self.affinity1 is None:
+                                    raise YPYModelError('Key property affinity1 is None')
+                                if self.affinity10 is None:
+                                    raise YPYModelError('Key property affinity10 is None')
+                                if self.affinity2 is None:
+                                    raise YPYModelError('Key property affinity2 is None')
+                                if self.affinity3 is None:
+                                    raise YPYModelError('Key property affinity3 is None')
+                                if self.affinity4 is None:
+                                    raise YPYModelError('Key property affinity4 is None')
+                                if self.affinity5 is None:
+                                    raise YPYModelError('Key property affinity5 is None')
+                                if self.affinity6 is None:
+                                    raise YPYModelError('Key property affinity6 is None')
+                                if self.affinity7 is None:
+                                    raise YPYModelError('Key property affinity7 is None')
+                                if self.affinity8 is None:
+                                    raise YPYModelError('Key property affinity8 is None')
+                                if self.affinity9 is None:
+                                    raise YPYModelError('Key property affinity9 is None')
+                                if self.affinity_type is None:
+                                    raise YPYModelError('Key property affinity_type is None')
+
+                                return self.parent._common_path +'/Cisco-IOS-XR-mpls-te-cfg:new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5-affinity6-affinity7-affinity8-affinity9-affinity10[Cisco-IOS-XR-mpls-te-cfg:affinity1 = ' + str(self.affinity1) + '][Cisco-IOS-XR-mpls-te-cfg:affinity10 = ' + str(self.affinity10) + '][Cisco-IOS-XR-mpls-te-cfg:affinity2 = ' + str(self.affinity2) + '][Cisco-IOS-XR-mpls-te-cfg:affinity3 = ' + str(self.affinity3) + '][Cisco-IOS-XR-mpls-te-cfg:affinity4 = ' + str(self.affinity4) + '][Cisco-IOS-XR-mpls-te-cfg:affinity5 = ' + str(self.affinity5) + '][Cisco-IOS-XR-mpls-te-cfg:affinity6 = ' + str(self.affinity6) + '][Cisco-IOS-XR-mpls-te-cfg:affinity7 = ' + str(self.affinity7) + '][Cisco-IOS-XR-mpls-te-cfg:affinity8 = ' + str(self.affinity8) + '][Cisco-IOS-XR-mpls-te-cfg:affinity9 = ' + str(self.affinity9) + '][Cisco-IOS-XR-mpls-te-cfg:affinity-type = ' + str(self.affinity_type) + ']'
+
+                            def is_config(self):
+                                ''' Returns True if this instance represents config data else returns False '''
+                                return True
+
+                            def _has_data(self):
+                                if not self.is_config():
+                                    return False
+                                if self.affinity1 is not None:
+                                    return True
+
+                                if self.affinity10 is not None:
+                                    return True
+
+                                if self.affinity2 is not None:
+                                    return True
+
+                                if self.affinity3 is not None:
+                                    return True
+
+                                if self.affinity4 is not None:
+                                    return True
+
+                                if self.affinity5 is not None:
+                                    return True
+
+                                if self.affinity6 is not None:
+                                    return True
+
+                                if self.affinity7 is not None:
+                                    return True
+
+                                if self.affinity8 is not None:
+                                    return True
+
+                                if self.affinity9 is not None:
+                                    return True
+
+                                if self.affinity_type is not None:
+                                    return True
+
+                                return False
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+                                return meta._meta_table['MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9Affinity10']['meta_info']
+
+                        @property
+                        def _common_path(self):
+                            if self.parent is None:
+                                raise YPYModelError('parent is not set . Cannot derive path.')
+
+                            return self.parent._common_path +'/Cisco-IOS-XR-mpls-te-cfg:new-style-affinity-affinity-types'
+
+                        def is_config(self):
+                            ''' Returns True if this instance represents config data else returns False '''
+                            return True
+
+                        def _has_data(self):
+                            if not self.is_config():
+                                return False
+                            if self.new_style_affinity_affinity_type is not None:
+                                for child_ref in self.new_style_affinity_affinity_type:
+                                    if child_ref._has_data():
+                                        return True
+
+                            if self.new_style_affinity_affinity_type_affinity1 is not None:
+                                for child_ref in self.new_style_affinity_affinity_type_affinity1:
+                                    if child_ref._has_data():
+                                        return True
+
+                            if self.new_style_affinity_affinity_type_affinity1_affinity2 is not None:
+                                for child_ref in self.new_style_affinity_affinity_type_affinity1_affinity2:
+                                    if child_ref._has_data():
+                                        return True
+
+                            if self.new_style_affinity_affinity_type_affinity1_affinity2_affinity3 is not None:
+                                for child_ref in self.new_style_affinity_affinity_type_affinity1_affinity2_affinity3:
+                                    if child_ref._has_data():
+                                        return True
+
+                            if self.new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4 is not None:
+                                for child_ref in self.new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4:
+                                    if child_ref._has_data():
+                                        return True
+
+                            if self.new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5 is not None:
+                                for child_ref in self.new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5:
+                                    if child_ref._has_data():
+                                        return True
+
+                            if self.new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5_affinity6 is not None:
+                                for child_ref in self.new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5_affinity6:
+                                    if child_ref._has_data():
+                                        return True
+
+                            if self.new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5_affinity6_affinity7 is not None:
+                                for child_ref in self.new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5_affinity6_affinity7:
+                                    if child_ref._has_data():
+                                        return True
+
+                            if self.new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5_affinity6_affinity7_affinity8 is not None:
+                                for child_ref in self.new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5_affinity6_affinity7_affinity8:
+                                    if child_ref._has_data():
+                                        return True
+
+                            if self.new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5_affinity6_affinity7_affinity8_affinity9 is not None:
+                                for child_ref in self.new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5_affinity6_affinity7_affinity8_affinity9:
+                                    if child_ref._has_data():
+                                        return True
+
+                            if self.new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5_affinity6_affinity7_affinity8_affinity9_affinity10 is not None:
+                                for child_ref in self.new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5_affinity6_affinity7_affinity8_affinity9_affinity10:
+                                    if child_ref._has_data():
+                                        return True
+
+                            return False
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+                            return meta._meta_table['MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.NewStyleAffinityAffinityTypes']['meta_info']
+
+
+                    class FastReroute(object):
+                        """
+                        Specify MPLS tunnel can be fast\-rerouted
+                        
+                        .. attribute:: bandwidth_protection
+                        
+                        	Bandwidth Protection
+                        	**type**\:  int
+                        
+                        	**range:** 0..1
+                        
+                        	**mandatory**\: True
+                        
+                        .. attribute:: node_protection
+                        
+                        	Node Protection
+                        	**type**\:  int
+                        
+                        	**range:** 0..1
+                        
+                        	**mandatory**\: True
+                        
+                        .. attribute:: _is_presence
+                        
+                        	Is present if this instance represents presence container else not
+                        	**type**\: bool
+                        
+                        
+
+                        This class is a :ref:`presence class<presence-class>`
+
+                        """
+
+                        _prefix = 'mpls-te-cfg'
+                        _revision = '2015-11-09'
+
+                        def __init__(self):
+                            self.parent = None
+                            self._is_presence = True
+                            self.bandwidth_protection = None
+                            self.node_protection = None
+
+                        @property
+                        def _common_path(self):
+                            if self.parent is None:
+                                raise YPYModelError('parent is not set . Cannot derive path.')
+
+                            return self.parent._common_path +'/Cisco-IOS-XR-mpls-te-cfg:fast-reroute'
+
+                        def is_config(self):
+                            ''' Returns True if this instance represents config data else returns False '''
+                            return True
+
+                        def _has_data(self):
+                            if not self.is_config():
+                                return False
+                            if self._is_presence:
+                                return True
+                            if self.bandwidth_protection is not None:
+                                return True
+
+                            if self.node_protection is not None:
+                                return True
+
+                            return False
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+                            return meta._meta_table['MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.FastReroute']['meta_info']
+
+                    @property
+                    def _common_path(self):
+                        if self.parent is None:
+                            raise YPYModelError('parent is not set . Cannot derive path.')
+
+                        return self.parent._common_path +'/Cisco-IOS-XR-mpls-te-cfg:tunnel-attributes'
+
+                    def is_config(self):
+                        ''' Returns True if this instance represents config data else returns False '''
+                        return True
+
+                    def _has_data(self):
+                        if not self.is_config():
+                            return False
+                        if self.auto_bandwidth is not None and self.auto_bandwidth._has_data():
+                            return True
+
+                        if self.autoroute is not None and self.autoroute._has_data():
+                            return True
+
+                        if self.bandwidth is not None and self.bandwidth._has_data():
+                            return True
+
+                        if self.destination is not None:
+                            return True
+
+                        if self.fast_reroute is not None and self.fast_reroute._has_data():
+                            return True
+
+                        if self.forward_class is not None:
+                            return True
+
+                        if self.load_share is not None:
+                            return True
+
+                        if self.logging is not None and self.logging._has_data():
+                            return True
+
+                        if self.new_style_affinity_affinity_types is not None and self.new_style_affinity_affinity_types._has_data():
+                            return True
+
+                        if self.path_selection_metric is not None:
+                            return True
+
+                        if self.path_setups is not None and self.path_setups._has_data():
+                            return True
+
+                        if self.priority is not None and self.priority._has_data():
+                            return True
+
+                        if self.record_route is not None:
+                            return True
+
+                        if self.shutdown is not None:
+                            return True
+
+                        if self.soft_preemption is not None:
+                            return True
+
+                        if self.tunnel_path_selection is not None and self.tunnel_path_selection._has_data():
+                            return True
+
+                        return False
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+                        return meta._meta_table['MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes']['meta_info']
+
+
+                class TunnelId(object):
+                    """
+                    Set the tunnel ID
+                    
+                    .. attribute:: tunnel_id
+                    
+                    	Tunnel ID
+                    	**type**\:  int
+                    
+                    	**range:** 0..65535
+                    
+                    .. attribute:: tunnel_id_type
+                    
+                    	Tunnel ID Type
+                    	**type**\:  :py:class:`MplsTeTunnelIdEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeTunnelIdEnum>`
+                    
+                    	**mandatory**\: True
+                    
+                    .. attribute:: _is_presence
+                    
+                    	Is present if this instance represents presence container else not
+                    	**type**\: bool
+                    
+                    
+
+                    This class is a :ref:`presence class<presence-class>`
+
+                    """
+
+                    _prefix = 'mpls-te-cfg'
+                    _revision = '2015-11-09'
+
+                    def __init__(self):
+                        self.parent = None
+                        self._is_presence = True
+                        self.tunnel_id = None
+                        self.tunnel_id_type = None
+
+                    @property
+                    def _common_path(self):
+                        if self.parent is None:
+                            raise YPYModelError('parent is not set . Cannot derive path.')
+
+                        return self.parent._common_path +'/Cisco-IOS-XR-mpls-te-cfg:tunnel-id'
+
+                    def is_config(self):
+                        ''' Returns True if this instance represents config data else returns False '''
+                        return True
+
+                    def _has_data(self):
+                        if not self.is_config():
+                            return False
+                        if self._is_presence:
+                            return True
+                        if self.tunnel_id is not None:
+                            return True
+
+                        if self.tunnel_id_type is not None:
+                            return True
+
+                        return False
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+                        return meta._meta_table['MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelId']['meta_info']
+
+                @property
+                def _common_path(self):
+                    if self.tunnel_name is None:
+                        raise YPYModelError('Key property tunnel_name is None')
+                    if self.tunnel_type is None:
+                        raise YPYModelError('Key property tunnel_type is None')
+
+                    return '/Cisco-IOS-XR-mpls-te-cfg:mpls-te/Cisco-IOS-XR-mpls-te-cfg:named-tunnels/Cisco-IOS-XR-mpls-te-cfg:tunnels/Cisco-IOS-XR-mpls-te-cfg:tunnel[Cisco-IOS-XR-mpls-te-cfg:tunnel-name = ' + str(self.tunnel_name) + '][Cisco-IOS-XR-mpls-te-cfg:tunnel-type = ' + str(self.tunnel_type) + ']'
+
+                def is_config(self):
+                    ''' Returns True if this instance represents config data else returns False '''
+                    return True
+
+                def _has_data(self):
+                    if not self.is_config():
+                        return False
+                    if self.tunnel_name is not None:
+                        return True
+
+                    if self.tunnel_type is not None:
+                        return True
+
+                    if self.enable is not None:
+                        return True
+
+                    if self.tunnel_attributes is not None and self.tunnel_attributes._has_data():
+                        return True
+
+                    if self.tunnel_id is not None and self.tunnel_id._has_data():
+                        return True
+
+                    return False
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+                    return meta._meta_table['MplsTe.NamedTunnels.Tunnels.Tunnel']['meta_info']
+
+            @property
+            def _common_path(self):
+
+                return '/Cisco-IOS-XR-mpls-te-cfg:mpls-te/Cisco-IOS-XR-mpls-te-cfg:named-tunnels/Cisco-IOS-XR-mpls-te-cfg:tunnels'
+
+            def is_config(self):
+                ''' Returns True if this instance represents config data else returns False '''
+                return True
+
+            def _has_data(self):
+                if not self.is_config():
+                    return False
+                if self.tunnel is not None:
+                    for child_ref in self.tunnel:
+                        if child_ref._has_data():
+                            return True
+
+                return False
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+                return meta._meta_table['MplsTe.NamedTunnels.Tunnels']['meta_info']
+
+        @property
+        def _common_path(self):
+
+            return '/Cisco-IOS-XR-mpls-te-cfg:mpls-te/Cisco-IOS-XR-mpls-te-cfg:named-tunnels'
+
+        def is_config(self):
+            ''' Returns True if this instance represents config data else returns False '''
+            return True
+
+        def _has_data(self):
+            if not self.is_config():
+                return False
+            if self.enable is not None:
+                return True
+
+            if self.tunnels is not None and self.tunnels._has_data():
+                return True
+
+            return False
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+            return meta._meta_table['MplsTe.NamedTunnels']['meta_info']
 
 
     class GmplsUni(object):
@@ -1913,7 +5462,7 @@ class MplsTe(object):
                 	Controller name
                 	**type**\:  str
                 
-                	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+                	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
                 
                 .. attribute:: announce
                 
@@ -2670,6 +6219,11 @@ class MplsTe(object):
         	Enable graceful preemption when there is a bandwidth reduction
         	**type**\:  :py:class:`Empty <ydk.types.Empty>`
         
+        .. attribute:: hardware_out_of_resource
+        
+        	Configure HW OOR processing in MPLS\-TE
+        	**type**\:  :py:class:`HardwareOutOfResource <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.HardwareOutOfResource>`
+        
         .. attribute:: link_holddown_timer
         
         	Holddown time for links which had Path Errors in seconds
@@ -2736,47 +6290,15 @@ class MplsTe(object):
         	MPLS\-TE MIB properties
         	**type**\:  :py:class:`Mib <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.Mib>`
         
-        .. attribute:: path_invalidation
+        .. attribute:: path_selection
         
-        	Path invalidation configuration for all tunnels
-        	**type**\:  :py:class:`PathInvalidation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.PathInvalidation>`
-        
-        .. attribute:: path_selection_cost_limit
-        
-        	Path selection cost limit configuration for all tunnels
-        	**type**\:  int
-        
-        	**range:** 1..4294967295
+        	Path selection configuration
+        	**type**\:  :py:class:`PathSelection <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.PathSelection>`
         
         .. attribute:: path_selection_ignore_overload
         
         	Deprecated \- do not use
         	**type**\:  :py:class:`Empty <ydk.types.Empty>`
-        
-        .. attribute:: path_selection_ignore_overload_role
-        
-        	Path selection to ignore overload node during CSPF
-        	**type**\:  :py:class:`PathSelectionIgnoreOverloadRole <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.PathSelectionIgnoreOverloadRole>`
-        
-        .. attribute:: path_selection_loose_affinities
-        
-        	Path selection Loose ERO Affinity Class configuration
-        	**type**\:  :py:class:`PathSelectionLooseAffinities <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.PathSelectionLooseAffinities>`
-        
-        .. attribute:: path_selection_loose_metrics
-        
-        	Path selection Loose ERO Metric Class configuration
-        	**type**\:  :py:class:`PathSelectionLooseMetrics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.PathSelectionLooseMetrics>`
-        
-        .. attribute:: path_selection_metric
-        
-        	Metric to use in path calculation
-        	**type**\:  :py:class:`MplsTePathSelectionMetricEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTePathSelectionMetricEnum>`
-        
-        .. attribute:: path_selection_tiebreaker
-        
-        	CSPF tiebreaker to use in path calculation
-        	**type**\:  :py:class:`MplsTePathSelectionTiebreakerEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTePathSelectionTiebreakerEnum>`
         
         .. attribute:: pce_attributes
         
@@ -2880,6 +6402,8 @@ class MplsTe(object):
             self.fast_reroute.parent = self
             self.fault_oam = None
             self.graceful_preemption_on_bandwidth_reduction = None
+            self.hardware_out_of_resource = MplsTe.GlobalAttributes.HardwareOutOfResource()
+            self.hardware_out_of_resource.parent = self
             self.link_holddown_timer = None
             self.log_all = None
             self.log_frr_protection = None
@@ -2893,18 +6417,9 @@ class MplsTe(object):
             self.maximum_tunnels = None
             self.mib = MplsTe.GlobalAttributes.Mib()
             self.mib.parent = self
-            self.path_invalidation = MplsTe.GlobalAttributes.PathInvalidation()
-            self.path_invalidation.parent = self
-            self.path_selection_cost_limit = None
+            self.path_selection = MplsTe.GlobalAttributes.PathSelection()
+            self.path_selection.parent = self
             self.path_selection_ignore_overload = None
-            self.path_selection_ignore_overload_role = MplsTe.GlobalAttributes.PathSelectionIgnoreOverloadRole()
-            self.path_selection_ignore_overload_role.parent = self
-            self.path_selection_loose_affinities = MplsTe.GlobalAttributes.PathSelectionLooseAffinities()
-            self.path_selection_loose_affinities.parent = self
-            self.path_selection_loose_metrics = MplsTe.GlobalAttributes.PathSelectionLooseMetrics()
-            self.path_selection_loose_metrics.parent = self
-            self.path_selection_metric = None
-            self.path_selection_tiebreaker = None
             self.pce_attributes = MplsTe.GlobalAttributes.PceAttributes()
             self.pce_attributes.parent = self
             self.queues = MplsTe.GlobalAttributes.Queues()
@@ -2923,124 +6438,6 @@ class MplsTe(object):
             self.soft_preemption.parent = self
             self.srlg = MplsTe.GlobalAttributes.Srlg()
             self.srlg.parent = self
-
-
-        class PathSelectionLooseAffinities(object):
-            """
-            Path selection Loose ERO Affinity Class
-            configuration
-            
-            .. attribute:: path_selection_loose_affinity
-            
-            	Path selection Loose ERO Affinity configuration
-            	**type**\: list of  :py:class:`PathSelectionLooseAffinity <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.PathSelectionLooseAffinities.PathSelectionLooseAffinity>`
-            
-            
-
-            """
-
-            _prefix = 'mpls-te-cfg'
-            _revision = '2015-11-09'
-
-            def __init__(self):
-                self.parent = None
-                self.path_selection_loose_affinity = YList()
-                self.path_selection_loose_affinity.parent = self
-                self.path_selection_loose_affinity.name = 'path_selection_loose_affinity'
-
-
-            class PathSelectionLooseAffinity(object):
-                """
-                Path selection Loose ERO Affinity
-                configuration
-                
-                .. attribute:: class_type  <key>
-                
-                	Path Selection class Type
-                	**type**\:  int
-                
-                	**range:** 0..7
-                
-                .. attribute:: affinity
-                
-                	Affinity flags
-                	**type**\:  str
-                
-                	**pattern:** [0\-9a\-fA\-F]{1,8}
-                
-                .. attribute:: mask
-                
-                	Affinity mask
-                	**type**\:  str
-                
-                	**pattern:** [0\-9a\-fA\-F]{1,8}
-                
-                
-
-                """
-
-                _prefix = 'mpls-te-cfg'
-                _revision = '2015-11-09'
-
-                def __init__(self):
-                    self.parent = None
-                    self.class_type = None
-                    self.affinity = None
-                    self.mask = None
-
-                @property
-                def _common_path(self):
-                    if self.class_type is None:
-                        raise YPYModelError('Key property class_type is None')
-
-                    return '/Cisco-IOS-XR-mpls-te-cfg:mpls-te/Cisco-IOS-XR-mpls-te-cfg:global-attributes/Cisco-IOS-XR-mpls-te-cfg:path-selection-loose-affinities/Cisco-IOS-XR-mpls-te-cfg:path-selection-loose-affinity[Cisco-IOS-XR-mpls-te-cfg:class-type = ' + str(self.class_type) + ']'
-
-                def is_config(self):
-                    ''' Returns True if this instance represents config data else returns False '''
-                    return True
-
-                def _has_data(self):
-                    if not self.is_config():
-                        return False
-                    if self.class_type is not None:
-                        return True
-
-                    if self.affinity is not None:
-                        return True
-
-                    if self.mask is not None:
-                        return True
-
-                    return False
-
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
-                    return meta._meta_table['MplsTe.GlobalAttributes.PathSelectionLooseAffinities.PathSelectionLooseAffinity']['meta_info']
-
-            @property
-            def _common_path(self):
-
-                return '/Cisco-IOS-XR-mpls-te-cfg:mpls-te/Cisco-IOS-XR-mpls-te-cfg:global-attributes/Cisco-IOS-XR-mpls-te-cfg:path-selection-loose-affinities'
-
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
-                return True
-
-            def _has_data(self):
-                if not self.is_config():
-                    return False
-                if self.path_selection_loose_affinity is not None:
-                    for child_ref in self.path_selection_loose_affinity:
-                        if child_ref._has_data():
-                            return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
-                return meta._meta_table['MplsTe.GlobalAttributes.PathSelectionLooseAffinities']['meta_info']
 
 
         class AutoTunnel(object):
@@ -3995,6 +7392,336 @@ class MplsTe(object):
                 return meta._meta_table['MplsTe.GlobalAttributes.AutoTunnel']['meta_info']
 
 
+        class HardwareOutOfResource(object):
+            """
+            Configure HW OOR processing in MPLS\-TE
+            
+            .. attribute:: oor_green_state
+            
+            	Configuration for HW OOR Green State
+            	**type**\:  :py:class:`OorGreenState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.HardwareOutOfResource.OorGreenState>`
+            
+            .. attribute:: oor_red_state
+            
+            	Configuration for HW OOR Red State
+            	**type**\:  :py:class:`OorRedState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.HardwareOutOfResource.OorRedState>`
+            
+            .. attribute:: oor_yellow_state
+            
+            	Configuration for HW OOR Yellow State
+            	**type**\:  :py:class:`OorYellowState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.HardwareOutOfResource.OorYellowState>`
+            
+            
+
+            """
+
+            _prefix = 'mpls-te-cfg'
+            _revision = '2015-11-09'
+
+            def __init__(self):
+                self.parent = None
+                self.oor_green_state = MplsTe.GlobalAttributes.HardwareOutOfResource.OorGreenState()
+                self.oor_green_state.parent = self
+                self.oor_red_state = MplsTe.GlobalAttributes.HardwareOutOfResource.OorRedState()
+                self.oor_red_state.parent = self
+                self.oor_yellow_state = MplsTe.GlobalAttributes.HardwareOutOfResource.OorYellowState()
+                self.oor_yellow_state.parent = self
+
+
+            class OorRedState(object):
+                """
+                Configuration for HW OOR Red State
+                
+                .. attribute:: oor_accept_lsp_min_bandwidth
+                
+                	Only accept LSPs with at least the specified bandwidth (in kbps)
+                	**type**\:  int
+                
+                	**range:** \-2147483648..2147483647
+                
+                .. attribute:: oor_accept_reopt_lsp
+                
+                	Allow the setup of reoptimized LSPs over the link in this OOR State
+                	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                
+                .. attribute:: oor_available_bandwidth_percentage
+                
+                	Flood a specific percentage of the available bandwidth
+                	**type**\:  int
+                
+                	**range:** 0..100
+                
+                .. attribute:: oor_metric_te_penalty
+                
+                	Penalty applied to the TE metric of a link in OOR state
+                	**type**\:  int
+                
+                	**range:** \-2147483648..2147483647
+                
+                .. attribute:: oor_node_protection_disable
+                
+                	Disable FRR node\-protection when the link is in this OOR State
+                	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                
+                
+
+                """
+
+                _prefix = 'mpls-te-cfg'
+                _revision = '2015-11-09'
+
+                def __init__(self):
+                    self.parent = None
+                    self.oor_accept_lsp_min_bandwidth = None
+                    self.oor_accept_reopt_lsp = None
+                    self.oor_available_bandwidth_percentage = None
+                    self.oor_metric_te_penalty = None
+                    self.oor_node_protection_disable = None
+
+                @property
+                def _common_path(self):
+
+                    return '/Cisco-IOS-XR-mpls-te-cfg:mpls-te/Cisco-IOS-XR-mpls-te-cfg:global-attributes/Cisco-IOS-XR-mpls-te-cfg:hardware-out-of-resource/Cisco-IOS-XR-mpls-te-cfg:oor-red-state'
+
+                def is_config(self):
+                    ''' Returns True if this instance represents config data else returns False '''
+                    return True
+
+                def _has_data(self):
+                    if not self.is_config():
+                        return False
+                    if self.oor_accept_lsp_min_bandwidth is not None:
+                        return True
+
+                    if self.oor_accept_reopt_lsp is not None:
+                        return True
+
+                    if self.oor_available_bandwidth_percentage is not None:
+                        return True
+
+                    if self.oor_metric_te_penalty is not None:
+                        return True
+
+                    if self.oor_node_protection_disable is not None:
+                        return True
+
+                    return False
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+                    return meta._meta_table['MplsTe.GlobalAttributes.HardwareOutOfResource.OorRedState']['meta_info']
+
+
+            class OorYellowState(object):
+                """
+                Configuration for HW OOR Yellow State
+                
+                .. attribute:: oor_accept_lsp_min_bandwidth
+                
+                	Only accept LSPs with at least the specified bandwidth (in kbps)
+                	**type**\:  int
+                
+                	**range:** \-2147483648..2147483647
+                
+                .. attribute:: oor_accept_reopt_lsp
+                
+                	Allow the setup of reoptimized LSPs over the link in this OOR State
+                	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                
+                .. attribute:: oor_available_bandwidth_percentage
+                
+                	Flood a specific percentage of the available bandwidth
+                	**type**\:  int
+                
+                	**range:** 0..100
+                
+                .. attribute:: oor_metric_te_penalty
+                
+                	Penalty applied to the TE metric of a link in OOR state
+                	**type**\:  int
+                
+                	**range:** \-2147483648..2147483647
+                
+                .. attribute:: oor_node_protection_disable
+                
+                	Disable FRR node\-protection when the link is in this OOR State
+                	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                
+                
+
+                """
+
+                _prefix = 'mpls-te-cfg'
+                _revision = '2015-11-09'
+
+                def __init__(self):
+                    self.parent = None
+                    self.oor_accept_lsp_min_bandwidth = None
+                    self.oor_accept_reopt_lsp = None
+                    self.oor_available_bandwidth_percentage = None
+                    self.oor_metric_te_penalty = None
+                    self.oor_node_protection_disable = None
+
+                @property
+                def _common_path(self):
+
+                    return '/Cisco-IOS-XR-mpls-te-cfg:mpls-te/Cisco-IOS-XR-mpls-te-cfg:global-attributes/Cisco-IOS-XR-mpls-te-cfg:hardware-out-of-resource/Cisco-IOS-XR-mpls-te-cfg:oor-yellow-state'
+
+                def is_config(self):
+                    ''' Returns True if this instance represents config data else returns False '''
+                    return True
+
+                def _has_data(self):
+                    if not self.is_config():
+                        return False
+                    if self.oor_accept_lsp_min_bandwidth is not None:
+                        return True
+
+                    if self.oor_accept_reopt_lsp is not None:
+                        return True
+
+                    if self.oor_available_bandwidth_percentage is not None:
+                        return True
+
+                    if self.oor_metric_te_penalty is not None:
+                        return True
+
+                    if self.oor_node_protection_disable is not None:
+                        return True
+
+                    return False
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+                    return meta._meta_table['MplsTe.GlobalAttributes.HardwareOutOfResource.OorYellowState']['meta_info']
+
+
+            class OorGreenState(object):
+                """
+                Configuration for HW OOR Green State
+                
+                .. attribute:: oor_accept_lsp_min_bandwidth
+                
+                	Only accept LSPs with at least the specified bandwidth (in kbps)
+                	**type**\:  int
+                
+                	**range:** \-2147483648..2147483647
+                
+                .. attribute:: oor_accept_reopt_lsp
+                
+                	Allow the setup of reoptimized LSPs over the link in this OOR State
+                	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                
+                .. attribute:: oor_available_bandwidth_percentage
+                
+                	Flood a specific percentage of the available bandwidth
+                	**type**\:  int
+                
+                	**range:** 0..100
+                
+                .. attribute:: oor_metric_te_penalty
+                
+                	Penalty applied to the TE metric of a link in OOR state
+                	**type**\:  int
+                
+                	**range:** \-2147483648..2147483647
+                
+                .. attribute:: oor_node_protection_disable
+                
+                	Disable FRR node\-protection when the link is in this OOR State
+                	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                
+                .. attribute:: oor_recovery_duration
+                
+                	Period of time (minutes) during which the action in Green state are applied. After this period, the processing in TE goes back to normal state
+                	**type**\:  int
+                
+                	**range:** 0..10080
+                
+                
+
+                """
+
+                _prefix = 'mpls-te-cfg'
+                _revision = '2015-11-09'
+
+                def __init__(self):
+                    self.parent = None
+                    self.oor_accept_lsp_min_bandwidth = None
+                    self.oor_accept_reopt_lsp = None
+                    self.oor_available_bandwidth_percentage = None
+                    self.oor_metric_te_penalty = None
+                    self.oor_node_protection_disable = None
+                    self.oor_recovery_duration = None
+
+                @property
+                def _common_path(self):
+
+                    return '/Cisco-IOS-XR-mpls-te-cfg:mpls-te/Cisco-IOS-XR-mpls-te-cfg:global-attributes/Cisco-IOS-XR-mpls-te-cfg:hardware-out-of-resource/Cisco-IOS-XR-mpls-te-cfg:oor-green-state'
+
+                def is_config(self):
+                    ''' Returns True if this instance represents config data else returns False '''
+                    return True
+
+                def _has_data(self):
+                    if not self.is_config():
+                        return False
+                    if self.oor_accept_lsp_min_bandwidth is not None:
+                        return True
+
+                    if self.oor_accept_reopt_lsp is not None:
+                        return True
+
+                    if self.oor_available_bandwidth_percentage is not None:
+                        return True
+
+                    if self.oor_metric_te_penalty is not None:
+                        return True
+
+                    if self.oor_node_protection_disable is not None:
+                        return True
+
+                    if self.oor_recovery_duration is not None:
+                        return True
+
+                    return False
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+                    return meta._meta_table['MplsTe.GlobalAttributes.HardwareOutOfResource.OorGreenState']['meta_info']
+
+            @property
+            def _common_path(self):
+
+                return '/Cisco-IOS-XR-mpls-te-cfg:mpls-te/Cisco-IOS-XR-mpls-te-cfg:global-attributes/Cisco-IOS-XR-mpls-te-cfg:hardware-out-of-resource'
+
+            def is_config(self):
+                ''' Returns True if this instance represents config data else returns False '''
+                return True
+
+            def _has_data(self):
+                if not self.is_config():
+                    return False
+                if self.oor_green_state is not None and self.oor_green_state._has_data():
+                    return True
+
+                if self.oor_red_state is not None and self.oor_red_state._has_data():
+                    return True
+
+                if self.oor_yellow_state is not None and self.oor_yellow_state._has_data():
+                    return True
+
+                return False
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+                return meta._meta_table['MplsTe.GlobalAttributes.HardwareOutOfResource']['meta_info']
+
+
         class SecondaryRouterIds(object):
             """
             Configure MPLS TE Secondary Router ID
@@ -4173,6 +7900,11 @@ class MplsTe(object):
                     
                     	**range:** \-2147483648..2147483647
                     
+                    .. attribute:: static_srlg_members
+                    
+                    	Configure static SRLG members list
+                    	**type**\:  :py:class:`StaticSrlgMembers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.Srlg.Names.Name.StaticSrlgMembers>`
+                    
                     
 
                     """
@@ -4184,6 +7916,119 @@ class MplsTe(object):
                         self.parent = None
                         self.srlg_name = None
                         self.admin_weight = None
+                        self.static_srlg_members = MplsTe.GlobalAttributes.Srlg.Names.Name.StaticSrlgMembers()
+                        self.static_srlg_members.parent = self
+
+
+                    class StaticSrlgMembers(object):
+                        """
+                        Configure static SRLG members list
+                        
+                        .. attribute:: static_srlg_member
+                        
+                        	A mapping of the local static SRLG member
+                        	**type**\: list of  :py:class:`StaticSrlgMember <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.Srlg.Names.Name.StaticSrlgMembers.StaticSrlgMember>`
+                        
+                        
+
+                        """
+
+                        _prefix = 'mpls-te-cfg'
+                        _revision = '2015-11-09'
+
+                        def __init__(self):
+                            self.parent = None
+                            self.static_srlg_member = YList()
+                            self.static_srlg_member.parent = self
+                            self.static_srlg_member.name = 'static_srlg_member'
+
+
+                        class StaticSrlgMember(object):
+                            """
+                            A mapping of the local static SRLG member
+                            
+                            .. attribute:: from_address  <key>
+                            
+                            	From address
+                            	**type**\:  str
+                            
+                            	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                            
+                            .. attribute:: to_address
+                            
+                            	To Addres
+                            	**type**\:  str
+                            
+                            	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                            
+                            	**mandatory**\: True
+                            
+                            
+
+                            """
+
+                            _prefix = 'mpls-te-cfg'
+                            _revision = '2015-11-09'
+
+                            def __init__(self):
+                                self.parent = None
+                                self.from_address = None
+                                self.to_address = None
+
+                            @property
+                            def _common_path(self):
+                                if self.parent is None:
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
+                                if self.from_address is None:
+                                    raise YPYModelError('Key property from_address is None')
+
+                                return self.parent._common_path +'/Cisco-IOS-XR-mpls-te-cfg:static-srlg-member[Cisco-IOS-XR-mpls-te-cfg:from-address = ' + str(self.from_address) + ']'
+
+                            def is_config(self):
+                                ''' Returns True if this instance represents config data else returns False '''
+                                return True
+
+                            def _has_data(self):
+                                if not self.is_config():
+                                    return False
+                                if self.from_address is not None:
+                                    return True
+
+                                if self.to_address is not None:
+                                    return True
+
+                                return False
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+                                return meta._meta_table['MplsTe.GlobalAttributes.Srlg.Names.Name.StaticSrlgMembers.StaticSrlgMember']['meta_info']
+
+                        @property
+                        def _common_path(self):
+                            if self.parent is None:
+                                raise YPYModelError('parent is not set . Cannot derive path.')
+
+                            return self.parent._common_path +'/Cisco-IOS-XR-mpls-te-cfg:static-srlg-members'
+
+                        def is_config(self):
+                            ''' Returns True if this instance represents config data else returns False '''
+                            return True
+
+                        def _has_data(self):
+                            if not self.is_config():
+                                return False
+                            if self.static_srlg_member is not None:
+                                for child_ref in self.static_srlg_member:
+                                    if child_ref._has_data():
+                                        return True
+
+                            return False
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+                            return meta._meta_table['MplsTe.GlobalAttributes.Srlg.Names.Name.StaticSrlgMembers']['meta_info']
 
                     @property
                     def _common_path(self):
@@ -4203,6 +8048,9 @@ class MplsTe(object):
                             return True
 
                         if self.admin_weight is not None:
+                            return True
+
+                        if self.static_srlg_members is not None and self.static_srlg_members._has_data():
                             return True
 
                         return False
@@ -4601,112 +8449,6 @@ class MplsTe(object):
                 return meta._meta_table['MplsTe.GlobalAttributes.Queues']['meta_info']
 
 
-        class PathSelectionLooseMetrics(object):
-            """
-            Path selection Loose ERO Metric Class
-            configuration
-            
-            .. attribute:: path_selection_loose_metric
-            
-            	Path selection Loose ERO Metric configuration
-            	**type**\: list of  :py:class:`PathSelectionLooseMetric <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.PathSelectionLooseMetrics.PathSelectionLooseMetric>`
-            
-            
-
-            """
-
-            _prefix = 'mpls-te-cfg'
-            _revision = '2015-11-09'
-
-            def __init__(self):
-                self.parent = None
-                self.path_selection_loose_metric = YList()
-                self.path_selection_loose_metric.parent = self
-                self.path_selection_loose_metric.name = 'path_selection_loose_metric'
-
-
-            class PathSelectionLooseMetric(object):
-                """
-                Path selection Loose ERO Metric configuration
-                
-                .. attribute:: class_type  <key>
-                
-                	Path Selection class Type
-                	**type**\:  int
-                
-                	**range:** 0..7
-                
-                .. attribute:: metric_type
-                
-                	Metric to use for ERO Expansion
-                	**type**\:  :py:class:`MplsTePathSelectionMetricEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTePathSelectionMetricEnum>`
-                
-                	**mandatory**\: True
-                
-                
-
-                """
-
-                _prefix = 'mpls-te-cfg'
-                _revision = '2015-11-09'
-
-                def __init__(self):
-                    self.parent = None
-                    self.class_type = None
-                    self.metric_type = None
-
-                @property
-                def _common_path(self):
-                    if self.class_type is None:
-                        raise YPYModelError('Key property class_type is None')
-
-                    return '/Cisco-IOS-XR-mpls-te-cfg:mpls-te/Cisco-IOS-XR-mpls-te-cfg:global-attributes/Cisco-IOS-XR-mpls-te-cfg:path-selection-loose-metrics/Cisco-IOS-XR-mpls-te-cfg:path-selection-loose-metric[Cisco-IOS-XR-mpls-te-cfg:class-type = ' + str(self.class_type) + ']'
-
-                def is_config(self):
-                    ''' Returns True if this instance represents config data else returns False '''
-                    return True
-
-                def _has_data(self):
-                    if not self.is_config():
-                        return False
-                    if self.class_type is not None:
-                        return True
-
-                    if self.metric_type is not None:
-                        return True
-
-                    return False
-
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
-                    return meta._meta_table['MplsTe.GlobalAttributes.PathSelectionLooseMetrics.PathSelectionLooseMetric']['meta_info']
-
-            @property
-            def _common_path(self):
-
-                return '/Cisco-IOS-XR-mpls-te-cfg:mpls-te/Cisco-IOS-XR-mpls-te-cfg:global-attributes/Cisco-IOS-XR-mpls-te-cfg:path-selection-loose-metrics'
-
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
-                return True
-
-            def _has_data(self):
-                if not self.is_config():
-                    return False
-                if self.path_selection_loose_metric is not None:
-                    for child_ref in self.path_selection_loose_metric:
-                        if child_ref._has_data():
-                            return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
-                return meta._meta_table['MplsTe.GlobalAttributes.PathSelectionLooseMetrics']['meta_info']
-
-
         class Mib(object):
             """
             MPLS\-TE MIB properties
@@ -4853,39 +8595,35 @@ class MplsTe(object):
                     	Set the affinity flags and mask
                     	**type**\:  :py:class:`AffinityMask <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute.AffinityMask>`
                     
+                    .. attribute:: att_path_option_path_selection
+                    
+                    	Configure path selection properties
+                    	**type**\:  :py:class:`AttPathOptionPathSelection <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute.AttPathOptionPathSelection>`
+                    
                     .. attribute:: bandwidth
                     
                     	Tunnel bandwidth requirement
                     	**type**\:  :py:class:`Bandwidth <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute.Bandwidth>`
+                    
+                    .. attribute:: bfd_reverse_path
+                    
+                    	Configure BFD reverse path
+                    	**type**\:  :py:class:`BfdReversePath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute.BfdReversePath>`
                     
                     .. attribute:: enable
                     
                     	Attribute\-set enable object that controls whether this attribute\-set is configured or not .This object must be set before other configuration supplied for this attribute\-set
                     	**type**\:  :py:class:`Empty <ydk.types.Empty>`
                     
-                    .. attribute:: new_style_affinities
+                    .. attribute:: new_style_affinity_affinity_types
                     
                     	Tunnel new style affinity attributes table
-                    	**type**\:  :py:class:`NewStyleAffinities <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute.NewStyleAffinities>`
+                    	**type**\:  :py:class:`NewStyleAffinityAffinityTypes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute.NewStyleAffinityAffinityTypes>`
                     
-                    .. attribute:: path_invalidation
+                    .. attribute:: pce
                     
-                    	Path invalidation configuration for this specific tunnel
-                    	**type**\:  :py:class:`PathInvalidation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute.PathInvalidation>`
-                    
-                    .. attribute:: path_selection_cost_limit
-                    
-                    	Path selection cost limit configuration for this specific tunnel
-                    	**type**\:  int
-                    
-                    	**range:** 1..4294967295
-                    
-                    .. attribute:: path_selection_exclude_list
-                    
-                    	Path selection exclude list name configuration
-                    	**type**\:  str
-                    
-                    	**range:** 0..64
+                    	Configure pce properties
+                    	**type**\:  :py:class:`Pce <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute.Pce>`
                     
                     
 
@@ -4898,14 +8636,446 @@ class MplsTe(object):
                         self.parent = None
                         self.attribute_set_name = None
                         self.affinity_mask = None
+                        self.att_path_option_path_selection = MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute.AttPathOptionPathSelection()
+                        self.att_path_option_path_selection.parent = self
                         self.bandwidth = None
+                        self.bfd_reverse_path = None
                         self.enable = None
-                        self.new_style_affinities = MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute.NewStyleAffinities()
-                        self.new_style_affinities.parent = self
-                        self.path_invalidation = MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute.PathInvalidation()
-                        self.path_invalidation.parent = self
-                        self.path_selection_cost_limit = None
-                        self.path_selection_exclude_list = None
+                        self.new_style_affinity_affinity_types = MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute.NewStyleAffinityAffinityTypes()
+                        self.new_style_affinity_affinity_types.parent = self
+                        self.pce = MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute.Pce()
+                        self.pce.parent = self
+
+
+                    class BfdReversePath(object):
+                        """
+                        Configure BFD reverse path
+                        
+                        .. attribute:: bfd_reverse_path_type
+                        
+                        	BFD reverse path type
+                        	**type**\:  :py:class:`BfdReversePathEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.BfdReversePathEnum>`
+                        
+                        .. attribute:: binding_label
+                        
+                        	BFD reverse path binding label
+                        	**type**\:  int
+                        
+                        	**range:** 0..1048575
+                        
+                        	**mandatory**\: True
+                        
+                        .. attribute:: _is_presence
+                        
+                        	Is present if this instance represents presence container else not
+                        	**type**\: bool
+                        
+                        
+
+                        This class is a :ref:`presence class<presence-class>`
+
+                        """
+
+                        _prefix = 'mpls-te-cfg'
+                        _revision = '2015-11-09'
+
+                        def __init__(self):
+                            self.parent = None
+                            self._is_presence = True
+                            self.bfd_reverse_path_type = None
+                            self.binding_label = None
+
+                        @property
+                        def _common_path(self):
+                            if self.parent is None:
+                                raise YPYModelError('parent is not set . Cannot derive path.')
+
+                            return self.parent._common_path +'/Cisco-IOS-XR-mpls-te-cfg:bfd-reverse-path'
+
+                        def is_config(self):
+                            ''' Returns True if this instance represents config data else returns False '''
+                            return True
+
+                        def _has_data(self):
+                            if not self.is_config():
+                                return False
+                            if self._is_presence:
+                                return True
+                            if self.bfd_reverse_path_type is not None:
+                                return True
+
+                            if self.binding_label is not None:
+                                return True
+
+                            return False
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+                            return meta._meta_table['MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute.BfdReversePath']['meta_info']
+
+
+                    class AttPathOptionPathSelection(object):
+                        """
+                        Configure path selection properties
+                        
+                        .. attribute:: enable
+                        
+                        	Enter path selection configuration
+                        	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                        
+                        .. attribute:: invalidation
+                        
+                        	Path invalidation configuration for this specific tunnel
+                        	**type**\:  :py:class:`Invalidation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute.AttPathOptionPathSelection.Invalidation>`
+                        
+                        .. attribute:: path_selection_cost_limit
+                        
+                        	Path selection cost limit configuration for this specific tunnel
+                        	**type**\:  int
+                        
+                        	**range:** 1..4294967295
+                        
+                        .. attribute:: path_selection_exclude_list
+                        
+                        	Path selection exclude list name configuration
+                        	**type**\:  str
+                        
+                        	**range:** 0..64
+                        
+                        
+
+                        """
+
+                        _prefix = 'mpls-te-cfg'
+                        _revision = '2015-11-09'
+
+                        def __init__(self):
+                            self.parent = None
+                            self.enable = None
+                            self.invalidation = None
+                            self.path_selection_cost_limit = None
+                            self.path_selection_exclude_list = None
+
+
+                        class Invalidation(object):
+                            """
+                            Path invalidation configuration for this
+                            specific tunnel
+                            
+                            .. attribute:: path_invalidation_action
+                            
+                            	Path Invalidation Action
+                            	**type**\:  :py:class:`PathInvalidationActionEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.PathInvalidationActionEnum>`
+                            
+                            .. attribute:: path_invalidation_timeout
+                            
+                            	Path Invalidation Timeout
+                            	**type**\:  int
+                            
+                            	**range:** 0..60000
+                            
+                            .. attribute:: _is_presence
+                            
+                            	Is present if this instance represents presence container else not
+                            	**type**\: bool
+                            
+                            
+
+                            This class is a :ref:`presence class<presence-class>`
+
+                            """
+
+                            _prefix = 'mpls-te-cfg'
+                            _revision = '2015-11-09'
+
+                            def __init__(self):
+                                self.parent = None
+                                self._is_presence = True
+                                self.path_invalidation_action = None
+                                self.path_invalidation_timeout = None
+
+                            @property
+                            def _common_path(self):
+                                if self.parent is None:
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                return self.parent._common_path +'/Cisco-IOS-XR-mpls-te-cfg:invalidation'
+
+                            def is_config(self):
+                                ''' Returns True if this instance represents config data else returns False '''
+                                return True
+
+                            def _has_data(self):
+                                if not self.is_config():
+                                    return False
+                                if self._is_presence:
+                                    return True
+                                if self.path_invalidation_action is not None:
+                                    return True
+
+                                if self.path_invalidation_timeout is not None:
+                                    return True
+
+                                return False
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+                                return meta._meta_table['MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute.AttPathOptionPathSelection.Invalidation']['meta_info']
+
+                        @property
+                        def _common_path(self):
+                            if self.parent is None:
+                                raise YPYModelError('parent is not set . Cannot derive path.')
+
+                            return self.parent._common_path +'/Cisco-IOS-XR-mpls-te-cfg:att-path-option-path-selection'
+
+                        def is_config(self):
+                            ''' Returns True if this instance represents config data else returns False '''
+                            return True
+
+                        def _has_data(self):
+                            if not self.is_config():
+                                return False
+                            if self.enable is not None:
+                                return True
+
+                            if self.invalidation is not None and self.invalidation._has_data():
+                                return True
+
+                            if self.path_selection_cost_limit is not None:
+                                return True
+
+                            if self.path_selection_exclude_list is not None:
+                                return True
+
+                            return False
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+                            return meta._meta_table['MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute.AttPathOptionPathSelection']['meta_info']
+
+
+                    class Pce(object):
+                        """
+                        Configure pce properties
+                        
+                        .. attribute:: bidirectional
+                        
+                        	Bidirectional parameters
+                        	**type**\:  :py:class:`Bidirectional <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute.Pce.Bidirectional>`
+                        
+                        .. attribute:: disjoint_path
+                        
+                        	Disjoint path parameters
+                        	**type**\:  :py:class:`DisjointPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute.Pce.DisjointPath>`
+                        
+                        .. attribute:: enable
+                        
+                        	Always set to true
+                        	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                        
+                        
+
+                        """
+
+                        _prefix = 'mpls-te-cfg'
+                        _revision = '2015-11-09'
+
+                        def __init__(self):
+                            self.parent = None
+                            self.bidirectional = None
+                            self.disjoint_path = None
+                            self.enable = None
+
+
+                        class Bidirectional(object):
+                            """
+                            Bidirectional parameters
+                            
+                            .. attribute:: bd_group_id
+                            
+                            	Bidirectional Group ID
+                            	**type**\:  int
+                            
+                            	**range:** 1..4294967295
+                            
+                            	**mandatory**\: True
+                            
+                            .. attribute:: bd_source_address
+                            
+                            	Bidirectional Source IP Address
+                            	**type**\:  str
+                            
+                            	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                            
+                            	**mandatory**\: True
+                            
+                            .. attribute:: _is_presence
+                            
+                            	Is present if this instance represents presence container else not
+                            	**type**\: bool
+                            
+                            
+
+                            This class is a :ref:`presence class<presence-class>`
+
+                            """
+
+                            _prefix = 'mpls-te-cfg'
+                            _revision = '2015-11-09'
+
+                            def __init__(self):
+                                self.parent = None
+                                self._is_presence = True
+                                self.bd_group_id = None
+                                self.bd_source_address = None
+
+                            @property
+                            def _common_path(self):
+                                if self.parent is None:
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                return self.parent._common_path +'/Cisco-IOS-XR-mpls-te-cfg:bidirectional'
+
+                            def is_config(self):
+                                ''' Returns True if this instance represents config data else returns False '''
+                                return True
+
+                            def _has_data(self):
+                                if not self.is_config():
+                                    return False
+                                if self._is_presence:
+                                    return True
+                                if self.bd_group_id is not None:
+                                    return True
+
+                                if self.bd_source_address is not None:
+                                    return True
+
+                                return False
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+                                return meta._meta_table['MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute.Pce.Bidirectional']['meta_info']
+
+
+                        class DisjointPath(object):
+                            """
+                            Disjoint path parameters
+                            
+                            .. attribute:: dp_group_id
+                            
+                            	Disjoint Path Group ID
+                            	**type**\:  int
+                            
+                            	**range:** 1..4294967295
+                            
+                            	**mandatory**\: True
+                            
+                            .. attribute:: dp_source_address
+                            
+                            	Disjoint Path Source IP Address
+                            	**type**\:  str
+                            
+                            	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                            
+                            	**mandatory**\: True
+                            
+                            .. attribute:: dp_type
+                            
+                            	Disjoint Path Type
+                            	**type**\:  int
+                            
+                            	**range:** 1..3
+                            
+                            	**mandatory**\: True
+                            
+                            .. attribute:: _is_presence
+                            
+                            	Is present if this instance represents presence container else not
+                            	**type**\: bool
+                            
+                            
+
+                            This class is a :ref:`presence class<presence-class>`
+
+                            """
+
+                            _prefix = 'mpls-te-cfg'
+                            _revision = '2015-11-09'
+
+                            def __init__(self):
+                                self.parent = None
+                                self._is_presence = True
+                                self.dp_group_id = None
+                                self.dp_source_address = None
+                                self.dp_type = None
+
+                            @property
+                            def _common_path(self):
+                                if self.parent is None:
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                return self.parent._common_path +'/Cisco-IOS-XR-mpls-te-cfg:disjoint-path'
+
+                            def is_config(self):
+                                ''' Returns True if this instance represents config data else returns False '''
+                                return True
+
+                            def _has_data(self):
+                                if not self.is_config():
+                                    return False
+                                if self._is_presence:
+                                    return True
+                                if self.dp_group_id is not None:
+                                    return True
+
+                                if self.dp_source_address is not None:
+                                    return True
+
+                                if self.dp_type is not None:
+                                    return True
+
+                                return False
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+                                return meta._meta_table['MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute.Pce.DisjointPath']['meta_info']
+
+                        @property
+                        def _common_path(self):
+                            if self.parent is None:
+                                raise YPYModelError('parent is not set . Cannot derive path.')
+
+                            return self.parent._common_path +'/Cisco-IOS-XR-mpls-te-cfg:pce'
+
+                        def is_config(self):
+                            ''' Returns True if this instance represents config data else returns False '''
+                            return True
+
+                        def _has_data(self):
+                            if not self.is_config():
+                                return False
+                            if self.bidirectional is not None and self.bidirectional._has_data():
+                                return True
+
+                            if self.disjoint_path is not None and self.disjoint_path._has_data():
+                                return True
+
+                            if self.enable is not None:
+                                return True
+
+                            return False
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+                            return meta._meta_table['MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute.Pce']['meta_info']
 
 
                     class AffinityMask(object):
@@ -5063,14 +9233,64 @@ class MplsTe(object):
                             return meta._meta_table['MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute.Bandwidth']['meta_info']
 
 
-                    class NewStyleAffinities(object):
+                    class NewStyleAffinityAffinityTypes(object):
                         """
                         Tunnel new style affinity attributes table
                         
-                        .. attribute:: new_style_affinity
+                        .. attribute:: new_style_affinity_affinity_type
                         
                         	Tunnel new style affinity attribute
-                        	**type**\: list of  :py:class:`NewStyleAffinity <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute.NewStyleAffinities.NewStyleAffinity>`
+                        	**type**\: list of  :py:class:`NewStyleAffinityAffinityType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityType>`
+                        
+                        .. attribute:: new_style_affinity_affinity_type_affinity1
+                        
+                        	Tunnel new style affinity attribute
+                        	**type**\: list of  :py:class:`NewStyleAffinityAffinityTypeAffinity1 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1>`
+                        
+                        .. attribute:: new_style_affinity_affinity_type_affinity1_affinity2
+                        
+                        	Tunnel new style affinity attribute
+                        	**type**\: list of  :py:class:`NewStyleAffinityAffinityTypeAffinity1Affinity2 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2>`
+                        
+                        .. attribute:: new_style_affinity_affinity_type_affinity1_affinity2_affinity3
+                        
+                        	Tunnel new style affinity attribute
+                        	**type**\: list of  :py:class:`NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3>`
+                        
+                        .. attribute:: new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4
+                        
+                        	Tunnel new style affinity attribute
+                        	**type**\: list of  :py:class:`NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4>`
+                        
+                        .. attribute:: new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5
+                        
+                        	Tunnel new style affinity attribute
+                        	**type**\: list of  :py:class:`NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5>`
+                        
+                        .. attribute:: new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5_affinity6
+                        
+                        	Tunnel new style affinity attribute
+                        	**type**\: list of  :py:class:`NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6>`
+                        
+                        .. attribute:: new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5_affinity6_affinity7
+                        
+                        	Tunnel new style affinity attribute
+                        	**type**\: list of  :py:class:`NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7>`
+                        
+                        .. attribute:: new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5_affinity6_affinity7_affinity8
+                        
+                        	Tunnel new style affinity attribute
+                        	**type**\: list of  :py:class:`NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8>`
+                        
+                        .. attribute:: new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5_affinity6_affinity7_affinity8_affinity9
+                        
+                        	Tunnel new style affinity attribute
+                        	**type**\: list of  :py:class:`NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9>`
+                        
+                        .. attribute:: new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5_affinity6_affinity7_affinity8_affinity9_affinity10
+                        
+                        	Tunnel new style affinity attribute
+                        	**type**\: list of  :py:class:`NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9Affinity10 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9Affinity10>`
                         
                         
 
@@ -5081,12 +9301,1097 @@ class MplsTe(object):
 
                         def __init__(self):
                             self.parent = None
-                            self.new_style_affinity = YList()
-                            self.new_style_affinity.parent = self
-                            self.new_style_affinity.name = 'new_style_affinity'
+                            self.new_style_affinity_affinity_type = YList()
+                            self.new_style_affinity_affinity_type.parent = self
+                            self.new_style_affinity_affinity_type.name = 'new_style_affinity_affinity_type'
+                            self.new_style_affinity_affinity_type_affinity1 = YList()
+                            self.new_style_affinity_affinity_type_affinity1.parent = self
+                            self.new_style_affinity_affinity_type_affinity1.name = 'new_style_affinity_affinity_type_affinity1'
+                            self.new_style_affinity_affinity_type_affinity1_affinity2 = YList()
+                            self.new_style_affinity_affinity_type_affinity1_affinity2.parent = self
+                            self.new_style_affinity_affinity_type_affinity1_affinity2.name = 'new_style_affinity_affinity_type_affinity1_affinity2'
+                            self.new_style_affinity_affinity_type_affinity1_affinity2_affinity3 = YList()
+                            self.new_style_affinity_affinity_type_affinity1_affinity2_affinity3.parent = self
+                            self.new_style_affinity_affinity_type_affinity1_affinity2_affinity3.name = 'new_style_affinity_affinity_type_affinity1_affinity2_affinity3'
+                            self.new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4 = YList()
+                            self.new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4.parent = self
+                            self.new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4.name = 'new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4'
+                            self.new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5 = YList()
+                            self.new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5.parent = self
+                            self.new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5.name = 'new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5'
+                            self.new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5_affinity6 = YList()
+                            self.new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5_affinity6.parent = self
+                            self.new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5_affinity6.name = 'new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5_affinity6'
+                            self.new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5_affinity6_affinity7 = YList()
+                            self.new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5_affinity6_affinity7.parent = self
+                            self.new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5_affinity6_affinity7.name = 'new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5_affinity6_affinity7'
+                            self.new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5_affinity6_affinity7_affinity8 = YList()
+                            self.new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5_affinity6_affinity7_affinity8.parent = self
+                            self.new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5_affinity6_affinity7_affinity8.name = 'new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5_affinity6_affinity7_affinity8'
+                            self.new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5_affinity6_affinity7_affinity8_affinity9 = YList()
+                            self.new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5_affinity6_affinity7_affinity8_affinity9.parent = self
+                            self.new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5_affinity6_affinity7_affinity8_affinity9.name = 'new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5_affinity6_affinity7_affinity8_affinity9'
+                            self.new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5_affinity6_affinity7_affinity8_affinity9_affinity10 = YList()
+                            self.new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5_affinity6_affinity7_affinity8_affinity9_affinity10.parent = self
+                            self.new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5_affinity6_affinity7_affinity8_affinity9_affinity10.name = 'new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5_affinity6_affinity7_affinity8_affinity9_affinity10'
 
 
-                        class NewStyleAffinity(object):
+                        class NewStyleAffinityAffinityType(object):
+                            """
+                            Tunnel new style affinity attribute
+                            
+                            .. attribute:: affinity_type  <key>
+                            
+                            	The type of the affinity entry
+                            	**type**\:  :py:class:`MplsTeTunnelAffinityEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeTunnelAffinityEnum>`
+                            
+                            
+
+                            """
+
+                            _prefix = 'mpls-te-cfg'
+                            _revision = '2015-11-09'
+
+                            def __init__(self):
+                                self.parent = None
+                                self.affinity_type = None
+
+                            @property
+                            def _common_path(self):
+                                if self.parent is None:
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
+                                if self.affinity_type is None:
+                                    raise YPYModelError('Key property affinity_type is None')
+
+                                return self.parent._common_path +'/Cisco-IOS-XR-mpls-te-cfg:new-style-affinity-affinity-type[Cisco-IOS-XR-mpls-te-cfg:affinity-type = ' + str(self.affinity_type) + ']'
+
+                            def is_config(self):
+                                ''' Returns True if this instance represents config data else returns False '''
+                                return True
+
+                            def _has_data(self):
+                                if not self.is_config():
+                                    return False
+                                if self.affinity_type is not None:
+                                    return True
+
+                                return False
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+                                return meta._meta_table['MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityType']['meta_info']
+
+
+                        class NewStyleAffinityAffinityTypeAffinity1(object):
+                            """
+                            Tunnel new style affinity attribute
+                            
+                            .. attribute:: affinity1  <key>
+                            
+                            	The name of the first affinity
+                            	**type**\:  str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
+                            
+                            .. attribute:: affinity_type  <key>
+                            
+                            	The type of the affinity entry
+                            	**type**\:  :py:class:`MplsTeTunnelAffinityEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeTunnelAffinityEnum>`
+                            
+                            
+
+                            """
+
+                            _prefix = 'mpls-te-cfg'
+                            _revision = '2015-11-09'
+
+                            def __init__(self):
+                                self.parent = None
+                                self.affinity1 = None
+                                self.affinity_type = None
+
+                            @property
+                            def _common_path(self):
+                                if self.parent is None:
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
+                                if self.affinity1 is None:
+                                    raise YPYModelError('Key property affinity1 is None')
+                                if self.affinity_type is None:
+                                    raise YPYModelError('Key property affinity_type is None')
+
+                                return self.parent._common_path +'/Cisco-IOS-XR-mpls-te-cfg:new-style-affinity-affinity-type-affinity1[Cisco-IOS-XR-mpls-te-cfg:affinity1 = ' + str(self.affinity1) + '][Cisco-IOS-XR-mpls-te-cfg:affinity-type = ' + str(self.affinity_type) + ']'
+
+                            def is_config(self):
+                                ''' Returns True if this instance represents config data else returns False '''
+                                return True
+
+                            def _has_data(self):
+                                if not self.is_config():
+                                    return False
+                                if self.affinity1 is not None:
+                                    return True
+
+                                if self.affinity_type is not None:
+                                    return True
+
+                                return False
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+                                return meta._meta_table['MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1']['meta_info']
+
+
+                        class NewStyleAffinityAffinityTypeAffinity1Affinity2(object):
+                            """
+                            Tunnel new style affinity attribute
+                            
+                            .. attribute:: affinity1  <key>
+                            
+                            	The name of the first affinity
+                            	**type**\:  str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
+                            
+                            .. attribute:: affinity2  <key>
+                            
+                            	The name of the second affinity
+                            	**type**\:  str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
+                            
+                            .. attribute:: affinity_type  <key>
+                            
+                            	The type of the affinity entry
+                            	**type**\:  :py:class:`MplsTeTunnelAffinityEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeTunnelAffinityEnum>`
+                            
+                            
+
+                            """
+
+                            _prefix = 'mpls-te-cfg'
+                            _revision = '2015-11-09'
+
+                            def __init__(self):
+                                self.parent = None
+                                self.affinity1 = None
+                                self.affinity2 = None
+                                self.affinity_type = None
+
+                            @property
+                            def _common_path(self):
+                                if self.parent is None:
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
+                                if self.affinity1 is None:
+                                    raise YPYModelError('Key property affinity1 is None')
+                                if self.affinity2 is None:
+                                    raise YPYModelError('Key property affinity2 is None')
+                                if self.affinity_type is None:
+                                    raise YPYModelError('Key property affinity_type is None')
+
+                                return self.parent._common_path +'/Cisco-IOS-XR-mpls-te-cfg:new-style-affinity-affinity-type-affinity1-affinity2[Cisco-IOS-XR-mpls-te-cfg:affinity1 = ' + str(self.affinity1) + '][Cisco-IOS-XR-mpls-te-cfg:affinity2 = ' + str(self.affinity2) + '][Cisco-IOS-XR-mpls-te-cfg:affinity-type = ' + str(self.affinity_type) + ']'
+
+                            def is_config(self):
+                                ''' Returns True if this instance represents config data else returns False '''
+                                return True
+
+                            def _has_data(self):
+                                if not self.is_config():
+                                    return False
+                                if self.affinity1 is not None:
+                                    return True
+
+                                if self.affinity2 is not None:
+                                    return True
+
+                                if self.affinity_type is not None:
+                                    return True
+
+                                return False
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+                                return meta._meta_table['MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2']['meta_info']
+
+
+                        class NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3(object):
+                            """
+                            Tunnel new style affinity attribute
+                            
+                            .. attribute:: affinity1  <key>
+                            
+                            	The name of the first affinity
+                            	**type**\:  str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
+                            
+                            .. attribute:: affinity2  <key>
+                            
+                            	The name of the second affinity
+                            	**type**\:  str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
+                            
+                            .. attribute:: affinity3  <key>
+                            
+                            	The name of the third affinity
+                            	**type**\:  str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
+                            
+                            .. attribute:: affinity_type  <key>
+                            
+                            	The type of the affinity entry
+                            	**type**\:  :py:class:`MplsTeTunnelAffinityEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeTunnelAffinityEnum>`
+                            
+                            
+
+                            """
+
+                            _prefix = 'mpls-te-cfg'
+                            _revision = '2015-11-09'
+
+                            def __init__(self):
+                                self.parent = None
+                                self.affinity1 = None
+                                self.affinity2 = None
+                                self.affinity3 = None
+                                self.affinity_type = None
+
+                            @property
+                            def _common_path(self):
+                                if self.parent is None:
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
+                                if self.affinity1 is None:
+                                    raise YPYModelError('Key property affinity1 is None')
+                                if self.affinity2 is None:
+                                    raise YPYModelError('Key property affinity2 is None')
+                                if self.affinity3 is None:
+                                    raise YPYModelError('Key property affinity3 is None')
+                                if self.affinity_type is None:
+                                    raise YPYModelError('Key property affinity_type is None')
+
+                                return self.parent._common_path +'/Cisco-IOS-XR-mpls-te-cfg:new-style-affinity-affinity-type-affinity1-affinity2-affinity3[Cisco-IOS-XR-mpls-te-cfg:affinity1 = ' + str(self.affinity1) + '][Cisco-IOS-XR-mpls-te-cfg:affinity2 = ' + str(self.affinity2) + '][Cisco-IOS-XR-mpls-te-cfg:affinity3 = ' + str(self.affinity3) + '][Cisco-IOS-XR-mpls-te-cfg:affinity-type = ' + str(self.affinity_type) + ']'
+
+                            def is_config(self):
+                                ''' Returns True if this instance represents config data else returns False '''
+                                return True
+
+                            def _has_data(self):
+                                if not self.is_config():
+                                    return False
+                                if self.affinity1 is not None:
+                                    return True
+
+                                if self.affinity2 is not None:
+                                    return True
+
+                                if self.affinity3 is not None:
+                                    return True
+
+                                if self.affinity_type is not None:
+                                    return True
+
+                                return False
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+                                return meta._meta_table['MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3']['meta_info']
+
+
+                        class NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4(object):
+                            """
+                            Tunnel new style affinity attribute
+                            
+                            .. attribute:: affinity1  <key>
+                            
+                            	The name of the first affinity
+                            	**type**\:  str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
+                            
+                            .. attribute:: affinity2  <key>
+                            
+                            	The name of the second affinity
+                            	**type**\:  str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
+                            
+                            .. attribute:: affinity3  <key>
+                            
+                            	The name of the third affinity
+                            	**type**\:  str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
+                            
+                            .. attribute:: affinity4  <key>
+                            
+                            	The name of the fourth affinity
+                            	**type**\:  str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
+                            
+                            .. attribute:: affinity_type  <key>
+                            
+                            	The type of the affinity entry
+                            	**type**\:  :py:class:`MplsTeTunnelAffinityEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeTunnelAffinityEnum>`
+                            
+                            
+
+                            """
+
+                            _prefix = 'mpls-te-cfg'
+                            _revision = '2015-11-09'
+
+                            def __init__(self):
+                                self.parent = None
+                                self.affinity1 = None
+                                self.affinity2 = None
+                                self.affinity3 = None
+                                self.affinity4 = None
+                                self.affinity_type = None
+
+                            @property
+                            def _common_path(self):
+                                if self.parent is None:
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
+                                if self.affinity1 is None:
+                                    raise YPYModelError('Key property affinity1 is None')
+                                if self.affinity2 is None:
+                                    raise YPYModelError('Key property affinity2 is None')
+                                if self.affinity3 is None:
+                                    raise YPYModelError('Key property affinity3 is None')
+                                if self.affinity4 is None:
+                                    raise YPYModelError('Key property affinity4 is None')
+                                if self.affinity_type is None:
+                                    raise YPYModelError('Key property affinity_type is None')
+
+                                return self.parent._common_path +'/Cisco-IOS-XR-mpls-te-cfg:new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4[Cisco-IOS-XR-mpls-te-cfg:affinity1 = ' + str(self.affinity1) + '][Cisco-IOS-XR-mpls-te-cfg:affinity2 = ' + str(self.affinity2) + '][Cisco-IOS-XR-mpls-te-cfg:affinity3 = ' + str(self.affinity3) + '][Cisco-IOS-XR-mpls-te-cfg:affinity4 = ' + str(self.affinity4) + '][Cisco-IOS-XR-mpls-te-cfg:affinity-type = ' + str(self.affinity_type) + ']'
+
+                            def is_config(self):
+                                ''' Returns True if this instance represents config data else returns False '''
+                                return True
+
+                            def _has_data(self):
+                                if not self.is_config():
+                                    return False
+                                if self.affinity1 is not None:
+                                    return True
+
+                                if self.affinity2 is not None:
+                                    return True
+
+                                if self.affinity3 is not None:
+                                    return True
+
+                                if self.affinity4 is not None:
+                                    return True
+
+                                if self.affinity_type is not None:
+                                    return True
+
+                                return False
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+                                return meta._meta_table['MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4']['meta_info']
+
+
+                        class NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5(object):
+                            """
+                            Tunnel new style affinity attribute
+                            
+                            .. attribute:: affinity1  <key>
+                            
+                            	The name of the first affinity
+                            	**type**\:  str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
+                            
+                            .. attribute:: affinity2  <key>
+                            
+                            	The name of the second affinity
+                            	**type**\:  str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
+                            
+                            .. attribute:: affinity3  <key>
+                            
+                            	The name of the third affinity
+                            	**type**\:  str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
+                            
+                            .. attribute:: affinity4  <key>
+                            
+                            	The name of the fourth affinity
+                            	**type**\:  str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
+                            
+                            .. attribute:: affinity5  <key>
+                            
+                            	The name of the fifth affinity
+                            	**type**\:  str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
+                            
+                            .. attribute:: affinity_type  <key>
+                            
+                            	The type of the affinity entry
+                            	**type**\:  :py:class:`MplsTeTunnelAffinityEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeTunnelAffinityEnum>`
+                            
+                            
+
+                            """
+
+                            _prefix = 'mpls-te-cfg'
+                            _revision = '2015-11-09'
+
+                            def __init__(self):
+                                self.parent = None
+                                self.affinity1 = None
+                                self.affinity2 = None
+                                self.affinity3 = None
+                                self.affinity4 = None
+                                self.affinity5 = None
+                                self.affinity_type = None
+
+                            @property
+                            def _common_path(self):
+                                if self.parent is None:
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
+                                if self.affinity1 is None:
+                                    raise YPYModelError('Key property affinity1 is None')
+                                if self.affinity2 is None:
+                                    raise YPYModelError('Key property affinity2 is None')
+                                if self.affinity3 is None:
+                                    raise YPYModelError('Key property affinity3 is None')
+                                if self.affinity4 is None:
+                                    raise YPYModelError('Key property affinity4 is None')
+                                if self.affinity5 is None:
+                                    raise YPYModelError('Key property affinity5 is None')
+                                if self.affinity_type is None:
+                                    raise YPYModelError('Key property affinity_type is None')
+
+                                return self.parent._common_path +'/Cisco-IOS-XR-mpls-te-cfg:new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5[Cisco-IOS-XR-mpls-te-cfg:affinity1 = ' + str(self.affinity1) + '][Cisco-IOS-XR-mpls-te-cfg:affinity2 = ' + str(self.affinity2) + '][Cisco-IOS-XR-mpls-te-cfg:affinity3 = ' + str(self.affinity3) + '][Cisco-IOS-XR-mpls-te-cfg:affinity4 = ' + str(self.affinity4) + '][Cisco-IOS-XR-mpls-te-cfg:affinity5 = ' + str(self.affinity5) + '][Cisco-IOS-XR-mpls-te-cfg:affinity-type = ' + str(self.affinity_type) + ']'
+
+                            def is_config(self):
+                                ''' Returns True if this instance represents config data else returns False '''
+                                return True
+
+                            def _has_data(self):
+                                if not self.is_config():
+                                    return False
+                                if self.affinity1 is not None:
+                                    return True
+
+                                if self.affinity2 is not None:
+                                    return True
+
+                                if self.affinity3 is not None:
+                                    return True
+
+                                if self.affinity4 is not None:
+                                    return True
+
+                                if self.affinity5 is not None:
+                                    return True
+
+                                if self.affinity_type is not None:
+                                    return True
+
+                                return False
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+                                return meta._meta_table['MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5']['meta_info']
+
+
+                        class NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6(object):
+                            """
+                            Tunnel new style affinity attribute
+                            
+                            .. attribute:: affinity1  <key>
+                            
+                            	The name of the first affinity
+                            	**type**\:  str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
+                            
+                            .. attribute:: affinity2  <key>
+                            
+                            	The name of the second affinity
+                            	**type**\:  str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
+                            
+                            .. attribute:: affinity3  <key>
+                            
+                            	The name of the third affinity
+                            	**type**\:  str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
+                            
+                            .. attribute:: affinity4  <key>
+                            
+                            	The name of the fourth affinity
+                            	**type**\:  str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
+                            
+                            .. attribute:: affinity5  <key>
+                            
+                            	The name of the fifth affinity
+                            	**type**\:  str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
+                            
+                            .. attribute:: affinity6  <key>
+                            
+                            	The name of the sixth affinity
+                            	**type**\:  str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
+                            
+                            .. attribute:: affinity_type  <key>
+                            
+                            	The type of the affinity entry
+                            	**type**\:  :py:class:`MplsTeTunnelAffinityEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeTunnelAffinityEnum>`
+                            
+                            
+
+                            """
+
+                            _prefix = 'mpls-te-cfg'
+                            _revision = '2015-11-09'
+
+                            def __init__(self):
+                                self.parent = None
+                                self.affinity1 = None
+                                self.affinity2 = None
+                                self.affinity3 = None
+                                self.affinity4 = None
+                                self.affinity5 = None
+                                self.affinity6 = None
+                                self.affinity_type = None
+
+                            @property
+                            def _common_path(self):
+                                if self.parent is None:
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
+                                if self.affinity1 is None:
+                                    raise YPYModelError('Key property affinity1 is None')
+                                if self.affinity2 is None:
+                                    raise YPYModelError('Key property affinity2 is None')
+                                if self.affinity3 is None:
+                                    raise YPYModelError('Key property affinity3 is None')
+                                if self.affinity4 is None:
+                                    raise YPYModelError('Key property affinity4 is None')
+                                if self.affinity5 is None:
+                                    raise YPYModelError('Key property affinity5 is None')
+                                if self.affinity6 is None:
+                                    raise YPYModelError('Key property affinity6 is None')
+                                if self.affinity_type is None:
+                                    raise YPYModelError('Key property affinity_type is None')
+
+                                return self.parent._common_path +'/Cisco-IOS-XR-mpls-te-cfg:new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5-affinity6[Cisco-IOS-XR-mpls-te-cfg:affinity1 = ' + str(self.affinity1) + '][Cisco-IOS-XR-mpls-te-cfg:affinity2 = ' + str(self.affinity2) + '][Cisco-IOS-XR-mpls-te-cfg:affinity3 = ' + str(self.affinity3) + '][Cisco-IOS-XR-mpls-te-cfg:affinity4 = ' + str(self.affinity4) + '][Cisco-IOS-XR-mpls-te-cfg:affinity5 = ' + str(self.affinity5) + '][Cisco-IOS-XR-mpls-te-cfg:affinity6 = ' + str(self.affinity6) + '][Cisco-IOS-XR-mpls-te-cfg:affinity-type = ' + str(self.affinity_type) + ']'
+
+                            def is_config(self):
+                                ''' Returns True if this instance represents config data else returns False '''
+                                return True
+
+                            def _has_data(self):
+                                if not self.is_config():
+                                    return False
+                                if self.affinity1 is not None:
+                                    return True
+
+                                if self.affinity2 is not None:
+                                    return True
+
+                                if self.affinity3 is not None:
+                                    return True
+
+                                if self.affinity4 is not None:
+                                    return True
+
+                                if self.affinity5 is not None:
+                                    return True
+
+                                if self.affinity6 is not None:
+                                    return True
+
+                                if self.affinity_type is not None:
+                                    return True
+
+                                return False
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+                                return meta._meta_table['MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6']['meta_info']
+
+
+                        class NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7(object):
+                            """
+                            Tunnel new style affinity attribute
+                            
+                            .. attribute:: affinity1  <key>
+                            
+                            	The name of the first affinity
+                            	**type**\:  str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
+                            
+                            .. attribute:: affinity2  <key>
+                            
+                            	The name of the second affinity
+                            	**type**\:  str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
+                            
+                            .. attribute:: affinity3  <key>
+                            
+                            	The name of the third affinity
+                            	**type**\:  str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
+                            
+                            .. attribute:: affinity4  <key>
+                            
+                            	The name of the fourth affinity
+                            	**type**\:  str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
+                            
+                            .. attribute:: affinity5  <key>
+                            
+                            	The name of the fifth affinity
+                            	**type**\:  str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
+                            
+                            .. attribute:: affinity6  <key>
+                            
+                            	The name of the sixth affinity
+                            	**type**\:  str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
+                            
+                            .. attribute:: affinity7  <key>
+                            
+                            	The name of the seventh affinity
+                            	**type**\:  str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
+                            
+                            .. attribute:: affinity_type  <key>
+                            
+                            	The type of the affinity entry
+                            	**type**\:  :py:class:`MplsTeTunnelAffinityEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeTunnelAffinityEnum>`
+                            
+                            
+
+                            """
+
+                            _prefix = 'mpls-te-cfg'
+                            _revision = '2015-11-09'
+
+                            def __init__(self):
+                                self.parent = None
+                                self.affinity1 = None
+                                self.affinity2 = None
+                                self.affinity3 = None
+                                self.affinity4 = None
+                                self.affinity5 = None
+                                self.affinity6 = None
+                                self.affinity7 = None
+                                self.affinity_type = None
+
+                            @property
+                            def _common_path(self):
+                                if self.parent is None:
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
+                                if self.affinity1 is None:
+                                    raise YPYModelError('Key property affinity1 is None')
+                                if self.affinity2 is None:
+                                    raise YPYModelError('Key property affinity2 is None')
+                                if self.affinity3 is None:
+                                    raise YPYModelError('Key property affinity3 is None')
+                                if self.affinity4 is None:
+                                    raise YPYModelError('Key property affinity4 is None')
+                                if self.affinity5 is None:
+                                    raise YPYModelError('Key property affinity5 is None')
+                                if self.affinity6 is None:
+                                    raise YPYModelError('Key property affinity6 is None')
+                                if self.affinity7 is None:
+                                    raise YPYModelError('Key property affinity7 is None')
+                                if self.affinity_type is None:
+                                    raise YPYModelError('Key property affinity_type is None')
+
+                                return self.parent._common_path +'/Cisco-IOS-XR-mpls-te-cfg:new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5-affinity6-affinity7[Cisco-IOS-XR-mpls-te-cfg:affinity1 = ' + str(self.affinity1) + '][Cisco-IOS-XR-mpls-te-cfg:affinity2 = ' + str(self.affinity2) + '][Cisco-IOS-XR-mpls-te-cfg:affinity3 = ' + str(self.affinity3) + '][Cisco-IOS-XR-mpls-te-cfg:affinity4 = ' + str(self.affinity4) + '][Cisco-IOS-XR-mpls-te-cfg:affinity5 = ' + str(self.affinity5) + '][Cisco-IOS-XR-mpls-te-cfg:affinity6 = ' + str(self.affinity6) + '][Cisco-IOS-XR-mpls-te-cfg:affinity7 = ' + str(self.affinity7) + '][Cisco-IOS-XR-mpls-te-cfg:affinity-type = ' + str(self.affinity_type) + ']'
+
+                            def is_config(self):
+                                ''' Returns True if this instance represents config data else returns False '''
+                                return True
+
+                            def _has_data(self):
+                                if not self.is_config():
+                                    return False
+                                if self.affinity1 is not None:
+                                    return True
+
+                                if self.affinity2 is not None:
+                                    return True
+
+                                if self.affinity3 is not None:
+                                    return True
+
+                                if self.affinity4 is not None:
+                                    return True
+
+                                if self.affinity5 is not None:
+                                    return True
+
+                                if self.affinity6 is not None:
+                                    return True
+
+                                if self.affinity7 is not None:
+                                    return True
+
+                                if self.affinity_type is not None:
+                                    return True
+
+                                return False
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+                                return meta._meta_table['MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7']['meta_info']
+
+
+                        class NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8(object):
+                            """
+                            Tunnel new style affinity attribute
+                            
+                            .. attribute:: affinity1  <key>
+                            
+                            	The name of the first affinity
+                            	**type**\:  str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
+                            
+                            .. attribute:: affinity2  <key>
+                            
+                            	The name of the second affinity
+                            	**type**\:  str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
+                            
+                            .. attribute:: affinity3  <key>
+                            
+                            	The name of the third affinity
+                            	**type**\:  str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
+                            
+                            .. attribute:: affinity4  <key>
+                            
+                            	The name of the fourth affinity
+                            	**type**\:  str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
+                            
+                            .. attribute:: affinity5  <key>
+                            
+                            	The name of the fifth affinity
+                            	**type**\:  str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
+                            
+                            .. attribute:: affinity6  <key>
+                            
+                            	The name of the sixth affinity
+                            	**type**\:  str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
+                            
+                            .. attribute:: affinity7  <key>
+                            
+                            	The name of the seventh affinity
+                            	**type**\:  str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
+                            
+                            .. attribute:: affinity8  <key>
+                            
+                            	The name of the eighth affinity
+                            	**type**\:  str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
+                            
+                            .. attribute:: affinity_type  <key>
+                            
+                            	The type of the affinity entry
+                            	**type**\:  :py:class:`MplsTeTunnelAffinityEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeTunnelAffinityEnum>`
+                            
+                            
+
+                            """
+
+                            _prefix = 'mpls-te-cfg'
+                            _revision = '2015-11-09'
+
+                            def __init__(self):
+                                self.parent = None
+                                self.affinity1 = None
+                                self.affinity2 = None
+                                self.affinity3 = None
+                                self.affinity4 = None
+                                self.affinity5 = None
+                                self.affinity6 = None
+                                self.affinity7 = None
+                                self.affinity8 = None
+                                self.affinity_type = None
+
+                            @property
+                            def _common_path(self):
+                                if self.parent is None:
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
+                                if self.affinity1 is None:
+                                    raise YPYModelError('Key property affinity1 is None')
+                                if self.affinity2 is None:
+                                    raise YPYModelError('Key property affinity2 is None')
+                                if self.affinity3 is None:
+                                    raise YPYModelError('Key property affinity3 is None')
+                                if self.affinity4 is None:
+                                    raise YPYModelError('Key property affinity4 is None')
+                                if self.affinity5 is None:
+                                    raise YPYModelError('Key property affinity5 is None')
+                                if self.affinity6 is None:
+                                    raise YPYModelError('Key property affinity6 is None')
+                                if self.affinity7 is None:
+                                    raise YPYModelError('Key property affinity7 is None')
+                                if self.affinity8 is None:
+                                    raise YPYModelError('Key property affinity8 is None')
+                                if self.affinity_type is None:
+                                    raise YPYModelError('Key property affinity_type is None')
+
+                                return self.parent._common_path +'/Cisco-IOS-XR-mpls-te-cfg:new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5-affinity6-affinity7-affinity8[Cisco-IOS-XR-mpls-te-cfg:affinity1 = ' + str(self.affinity1) + '][Cisco-IOS-XR-mpls-te-cfg:affinity2 = ' + str(self.affinity2) + '][Cisco-IOS-XR-mpls-te-cfg:affinity3 = ' + str(self.affinity3) + '][Cisco-IOS-XR-mpls-te-cfg:affinity4 = ' + str(self.affinity4) + '][Cisco-IOS-XR-mpls-te-cfg:affinity5 = ' + str(self.affinity5) + '][Cisco-IOS-XR-mpls-te-cfg:affinity6 = ' + str(self.affinity6) + '][Cisco-IOS-XR-mpls-te-cfg:affinity7 = ' + str(self.affinity7) + '][Cisco-IOS-XR-mpls-te-cfg:affinity8 = ' + str(self.affinity8) + '][Cisco-IOS-XR-mpls-te-cfg:affinity-type = ' + str(self.affinity_type) + ']'
+
+                            def is_config(self):
+                                ''' Returns True if this instance represents config data else returns False '''
+                                return True
+
+                            def _has_data(self):
+                                if not self.is_config():
+                                    return False
+                                if self.affinity1 is not None:
+                                    return True
+
+                                if self.affinity2 is not None:
+                                    return True
+
+                                if self.affinity3 is not None:
+                                    return True
+
+                                if self.affinity4 is not None:
+                                    return True
+
+                                if self.affinity5 is not None:
+                                    return True
+
+                                if self.affinity6 is not None:
+                                    return True
+
+                                if self.affinity7 is not None:
+                                    return True
+
+                                if self.affinity8 is not None:
+                                    return True
+
+                                if self.affinity_type is not None:
+                                    return True
+
+                                return False
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+                                return meta._meta_table['MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8']['meta_info']
+
+
+                        class NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9(object):
+                            """
+                            Tunnel new style affinity attribute
+                            
+                            .. attribute:: affinity1  <key>
+                            
+                            	The name of the first affinity
+                            	**type**\:  str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
+                            
+                            .. attribute:: affinity2  <key>
+                            
+                            	The name of the second affinity
+                            	**type**\:  str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
+                            
+                            .. attribute:: affinity3  <key>
+                            
+                            	The name of the third affinity
+                            	**type**\:  str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
+                            
+                            .. attribute:: affinity4  <key>
+                            
+                            	The name of the fourth affinity
+                            	**type**\:  str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
+                            
+                            .. attribute:: affinity5  <key>
+                            
+                            	The name of the fifth affinity
+                            	**type**\:  str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
+                            
+                            .. attribute:: affinity6  <key>
+                            
+                            	The name of the sixth affinity
+                            	**type**\:  str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
+                            
+                            .. attribute:: affinity7  <key>
+                            
+                            	The name of the seventh affinity
+                            	**type**\:  str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
+                            
+                            .. attribute:: affinity8  <key>
+                            
+                            	The name of the eighth affinity
+                            	**type**\:  str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
+                            
+                            .. attribute:: affinity9  <key>
+                            
+                            	The name of the nineth affinity
+                            	**type**\:  str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
+                            
+                            .. attribute:: affinity_type  <key>
+                            
+                            	The type of the affinity entry
+                            	**type**\:  :py:class:`MplsTeTunnelAffinityEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeTunnelAffinityEnum>`
+                            
+                            
+
+                            """
+
+                            _prefix = 'mpls-te-cfg'
+                            _revision = '2015-11-09'
+
+                            def __init__(self):
+                                self.parent = None
+                                self.affinity1 = None
+                                self.affinity2 = None
+                                self.affinity3 = None
+                                self.affinity4 = None
+                                self.affinity5 = None
+                                self.affinity6 = None
+                                self.affinity7 = None
+                                self.affinity8 = None
+                                self.affinity9 = None
+                                self.affinity_type = None
+
+                            @property
+                            def _common_path(self):
+                                if self.parent is None:
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
+                                if self.affinity1 is None:
+                                    raise YPYModelError('Key property affinity1 is None')
+                                if self.affinity2 is None:
+                                    raise YPYModelError('Key property affinity2 is None')
+                                if self.affinity3 is None:
+                                    raise YPYModelError('Key property affinity3 is None')
+                                if self.affinity4 is None:
+                                    raise YPYModelError('Key property affinity4 is None')
+                                if self.affinity5 is None:
+                                    raise YPYModelError('Key property affinity5 is None')
+                                if self.affinity6 is None:
+                                    raise YPYModelError('Key property affinity6 is None')
+                                if self.affinity7 is None:
+                                    raise YPYModelError('Key property affinity7 is None')
+                                if self.affinity8 is None:
+                                    raise YPYModelError('Key property affinity8 is None')
+                                if self.affinity9 is None:
+                                    raise YPYModelError('Key property affinity9 is None')
+                                if self.affinity_type is None:
+                                    raise YPYModelError('Key property affinity_type is None')
+
+                                return self.parent._common_path +'/Cisco-IOS-XR-mpls-te-cfg:new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5-affinity6-affinity7-affinity8-affinity9[Cisco-IOS-XR-mpls-te-cfg:affinity1 = ' + str(self.affinity1) + '][Cisco-IOS-XR-mpls-te-cfg:affinity2 = ' + str(self.affinity2) + '][Cisco-IOS-XR-mpls-te-cfg:affinity3 = ' + str(self.affinity3) + '][Cisco-IOS-XR-mpls-te-cfg:affinity4 = ' + str(self.affinity4) + '][Cisco-IOS-XR-mpls-te-cfg:affinity5 = ' + str(self.affinity5) + '][Cisco-IOS-XR-mpls-te-cfg:affinity6 = ' + str(self.affinity6) + '][Cisco-IOS-XR-mpls-te-cfg:affinity7 = ' + str(self.affinity7) + '][Cisco-IOS-XR-mpls-te-cfg:affinity8 = ' + str(self.affinity8) + '][Cisco-IOS-XR-mpls-te-cfg:affinity9 = ' + str(self.affinity9) + '][Cisco-IOS-XR-mpls-te-cfg:affinity-type = ' + str(self.affinity_type) + ']'
+
+                            def is_config(self):
+                                ''' Returns True if this instance represents config data else returns False '''
+                                return True
+
+                            def _has_data(self):
+                                if not self.is_config():
+                                    return False
+                                if self.affinity1 is not None:
+                                    return True
+
+                                if self.affinity2 is not None:
+                                    return True
+
+                                if self.affinity3 is not None:
+                                    return True
+
+                                if self.affinity4 is not None:
+                                    return True
+
+                                if self.affinity5 is not None:
+                                    return True
+
+                                if self.affinity6 is not None:
+                                    return True
+
+                                if self.affinity7 is not None:
+                                    return True
+
+                                if self.affinity8 is not None:
+                                    return True
+
+                                if self.affinity9 is not None:
+                                    return True
+
+                                if self.affinity_type is not None:
+                                    return True
+
+                                return False
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+                                return meta._meta_table['MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9']['meta_info']
+
+
+                        class NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9Affinity10(object):
                             """
                             Tunnel new style affinity attribute
                             
@@ -5213,7 +10518,7 @@ class MplsTe(object):
                                 if self.affinity_type is None:
                                     raise YPYModelError('Key property affinity_type is None')
 
-                                return self.parent._common_path +'/Cisco-IOS-XR-mpls-te-cfg:new-style-affinity[Cisco-IOS-XR-mpls-te-cfg:affinity1 = ' + str(self.affinity1) + '][Cisco-IOS-XR-mpls-te-cfg:affinity10 = ' + str(self.affinity10) + '][Cisco-IOS-XR-mpls-te-cfg:affinity2 = ' + str(self.affinity2) + '][Cisco-IOS-XR-mpls-te-cfg:affinity3 = ' + str(self.affinity3) + '][Cisco-IOS-XR-mpls-te-cfg:affinity4 = ' + str(self.affinity4) + '][Cisco-IOS-XR-mpls-te-cfg:affinity5 = ' + str(self.affinity5) + '][Cisco-IOS-XR-mpls-te-cfg:affinity6 = ' + str(self.affinity6) + '][Cisco-IOS-XR-mpls-te-cfg:affinity7 = ' + str(self.affinity7) + '][Cisco-IOS-XR-mpls-te-cfg:affinity8 = ' + str(self.affinity8) + '][Cisco-IOS-XR-mpls-te-cfg:affinity9 = ' + str(self.affinity9) + '][Cisco-IOS-XR-mpls-te-cfg:affinity-type = ' + str(self.affinity_type) + ']'
+                                return self.parent._common_path +'/Cisco-IOS-XR-mpls-te-cfg:new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5-affinity6-affinity7-affinity8-affinity9-affinity10[Cisco-IOS-XR-mpls-te-cfg:affinity1 = ' + str(self.affinity1) + '][Cisco-IOS-XR-mpls-te-cfg:affinity10 = ' + str(self.affinity10) + '][Cisco-IOS-XR-mpls-te-cfg:affinity2 = ' + str(self.affinity2) + '][Cisco-IOS-XR-mpls-te-cfg:affinity3 = ' + str(self.affinity3) + '][Cisco-IOS-XR-mpls-te-cfg:affinity4 = ' + str(self.affinity4) + '][Cisco-IOS-XR-mpls-te-cfg:affinity5 = ' + str(self.affinity5) + '][Cisco-IOS-XR-mpls-te-cfg:affinity6 = ' + str(self.affinity6) + '][Cisco-IOS-XR-mpls-te-cfg:affinity7 = ' + str(self.affinity7) + '][Cisco-IOS-XR-mpls-te-cfg:affinity8 = ' + str(self.affinity8) + '][Cisco-IOS-XR-mpls-te-cfg:affinity9 = ' + str(self.affinity9) + '][Cisco-IOS-XR-mpls-te-cfg:affinity-type = ' + str(self.affinity_type) + ']'
 
                             def is_config(self):
                                 ''' Returns True if this instance represents config data else returns False '''
@@ -5260,14 +10565,14 @@ class MplsTe(object):
                             @staticmethod
                             def _meta_info():
                                 from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
-                                return meta._meta_table['MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute.NewStyleAffinities.NewStyleAffinity']['meta_info']
+                                return meta._meta_table['MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9Affinity10']['meta_info']
 
                         @property
                         def _common_path(self):
                             if self.parent is None:
                                 raise YPYModelError('parent is not set . Cannot derive path.')
 
-                            return self.parent._common_path +'/Cisco-IOS-XR-mpls-te-cfg:new-style-affinities'
+                            return self.parent._common_path +'/Cisco-IOS-XR-mpls-te-cfg:new-style-affinity-affinity-types'
 
                         def is_config(self):
                             ''' Returns True if this instance represents config data else returns False '''
@@ -5276,8 +10581,58 @@ class MplsTe(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.new_style_affinity is not None:
-                                for child_ref in self.new_style_affinity:
+                            if self.new_style_affinity_affinity_type is not None:
+                                for child_ref in self.new_style_affinity_affinity_type:
+                                    if child_ref._has_data():
+                                        return True
+
+                            if self.new_style_affinity_affinity_type_affinity1 is not None:
+                                for child_ref in self.new_style_affinity_affinity_type_affinity1:
+                                    if child_ref._has_data():
+                                        return True
+
+                            if self.new_style_affinity_affinity_type_affinity1_affinity2 is not None:
+                                for child_ref in self.new_style_affinity_affinity_type_affinity1_affinity2:
+                                    if child_ref._has_data():
+                                        return True
+
+                            if self.new_style_affinity_affinity_type_affinity1_affinity2_affinity3 is not None:
+                                for child_ref in self.new_style_affinity_affinity_type_affinity1_affinity2_affinity3:
+                                    if child_ref._has_data():
+                                        return True
+
+                            if self.new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4 is not None:
+                                for child_ref in self.new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4:
+                                    if child_ref._has_data():
+                                        return True
+
+                            if self.new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5 is not None:
+                                for child_ref in self.new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5:
+                                    if child_ref._has_data():
+                                        return True
+
+                            if self.new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5_affinity6 is not None:
+                                for child_ref in self.new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5_affinity6:
+                                    if child_ref._has_data():
+                                        return True
+
+                            if self.new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5_affinity6_affinity7 is not None:
+                                for child_ref in self.new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5_affinity6_affinity7:
+                                    if child_ref._has_data():
+                                        return True
+
+                            if self.new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5_affinity6_affinity7_affinity8 is not None:
+                                for child_ref in self.new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5_affinity6_affinity7_affinity8:
+                                    if child_ref._has_data():
+                                        return True
+
+                            if self.new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5_affinity6_affinity7_affinity8_affinity9 is not None:
+                                for child_ref in self.new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5_affinity6_affinity7_affinity8_affinity9:
+                                    if child_ref._has_data():
+                                        return True
+
+                            if self.new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5_affinity6_affinity7_affinity8_affinity9_affinity10 is not None:
+                                for child_ref in self.new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5_affinity6_affinity7_affinity8_affinity9_affinity10:
                                     if child_ref._has_data():
                                         return True
 
@@ -5286,64 +10641,7 @@ class MplsTe(object):
                         @staticmethod
                         def _meta_info():
                             from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
-                            return meta._meta_table['MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute.NewStyleAffinities']['meta_info']
-
-
-                    class PathInvalidation(object):
-                        """
-                        Path invalidation configuration for this
-                        specific tunnel
-                        
-                        .. attribute:: path_invalidation_action
-                        
-                        	Path Invalidation Action
-                        	**type**\:  :py:class:`PathInvalidationActionEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.PathInvalidationActionEnum>`
-                        
-                        .. attribute:: path_invalidation_timeout
-                        
-                        	Path Invalidation Timeout
-                        	**type**\:  int
-                        
-                        	**range:** 0..60000
-                        
-                        
-
-                        """
-
-                        _prefix = 'mpls-te-cfg'
-                        _revision = '2015-11-09'
-
-                        def __init__(self):
-                            self.parent = None
-                            self.path_invalidation_action = None
-                            self.path_invalidation_timeout = None
-
-                        @property
-                        def _common_path(self):
-                            if self.parent is None:
-                                raise YPYModelError('parent is not set . Cannot derive path.')
-
-                            return self.parent._common_path +'/Cisco-IOS-XR-mpls-te-cfg:path-invalidation'
-
-                        def is_config(self):
-                            ''' Returns True if this instance represents config data else returns False '''
-                            return True
-
-                        def _has_data(self):
-                            if not self.is_config():
-                                return False
-                            if self.path_invalidation_action is not None:
-                                return True
-
-                            if self.path_invalidation_timeout is not None:
-                                return True
-
-                            return False
-
-                        @staticmethod
-                        def _meta_info():
-                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
-                            return meta._meta_table['MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute.PathInvalidation']['meta_info']
+                            return meta._meta_table['MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute.NewStyleAffinityAffinityTypes']['meta_info']
 
                     @property
                     def _common_path(self):
@@ -5365,22 +10663,22 @@ class MplsTe(object):
                         if self.affinity_mask is not None and self.affinity_mask._has_data():
                             return True
 
+                        if self.att_path_option_path_selection is not None and self.att_path_option_path_selection._has_data():
+                            return True
+
                         if self.bandwidth is not None and self.bandwidth._has_data():
+                            return True
+
+                        if self.bfd_reverse_path is not None and self.bfd_reverse_path._has_data():
                             return True
 
                         if self.enable is not None:
                             return True
 
-                        if self.new_style_affinities is not None and self.new_style_affinities._has_data():
+                        if self.new_style_affinity_affinity_types is not None and self.new_style_affinity_affinity_types._has_data():
                             return True
 
-                        if self.path_invalidation is not None and self.path_invalidation._has_data():
-                            return True
-
-                        if self.path_selection_cost_limit is not None:
-                            return True
-
-                        if self.path_selection_exclude_list is not None:
+                        if self.pce is not None and self.pce._has_data():
                             return True
 
                         return False
@@ -5481,10 +10779,15 @@ class MplsTe(object):
                     	Log tunnel LSP messages
                     	**type**\:  :py:class:`Logging <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.P2MpteAttributes.P2MpteAttribute.Logging>`
                     
-                    .. attribute:: new_style_affinities
+                    .. attribute:: new_style_affinity_affinity_types
                     
                     	Tunnel new style affinity attributes table
-                    	**type**\:  :py:class:`NewStyleAffinities <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.P2MpteAttributes.P2MpteAttribute.NewStyleAffinities>`
+                    	**type**\:  :py:class:`NewStyleAffinityAffinityTypes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.P2MpteAttributes.P2MpteAttribute.NewStyleAffinityAffinityTypes>`
+                    
+                    .. attribute:: path_selection
+                    
+                    	Configure path selection properties
+                    	**type**\:  :py:class:`PathSelection <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.P2MpteAttributes.P2MpteAttribute.PathSelection>`
                     
                     .. attribute:: priority
                     
@@ -5513,8 +10816,10 @@ class MplsTe(object):
                         self.interface_bandwidth = None
                         self.logging = MplsTe.GlobalAttributes.AttributeSet.P2MpteAttributes.P2MpteAttribute.Logging()
                         self.logging.parent = self
-                        self.new_style_affinities = MplsTe.GlobalAttributes.AttributeSet.P2MpteAttributes.P2MpteAttribute.NewStyleAffinities()
-                        self.new_style_affinities.parent = self
+                        self.new_style_affinity_affinity_types = MplsTe.GlobalAttributes.AttributeSet.P2MpteAttributes.P2MpteAttribute.NewStyleAffinityAffinityTypes()
+                        self.new_style_affinity_affinity_types.parent = self
+                        self.path_selection = MplsTe.GlobalAttributes.AttributeSet.P2MpteAttributes.P2MpteAttribute.PathSelection()
+                        self.path_selection.parent = self
                         self.priority = None
                         self.record_route = None
 
@@ -5746,14 +11051,14 @@ class MplsTe(object):
                             return meta._meta_table['MplsTe.GlobalAttributes.AttributeSet.P2MpteAttributes.P2MpteAttribute.Bandwidth']['meta_info']
 
 
-                    class NewStyleAffinities(object):
+                    class PathSelection(object):
                         """
-                        Tunnel new style affinity attributes table
+                        Configure path selection properties
                         
-                        .. attribute:: new_style_affinity
+                        .. attribute:: enable
                         
-                        	Tunnel new style affinity attribute
-                        	**type**\: list of  :py:class:`NewStyleAffinity <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.P2MpteAttributes.P2MpteAttribute.NewStyleAffinities.NewStyleAffinity>`
+                        	Enable path selection
+                        	**type**\:  :py:class:`Empty <ydk.types.Empty>`
                         
                         
 
@@ -5764,12 +11069,1192 @@ class MplsTe(object):
 
                         def __init__(self):
                             self.parent = None
-                            self.new_style_affinity = YList()
-                            self.new_style_affinity.parent = self
-                            self.new_style_affinity.name = 'new_style_affinity'
+                            self.enable = None
+
+                        @property
+                        def _common_path(self):
+                            if self.parent is None:
+                                raise YPYModelError('parent is not set . Cannot derive path.')
+
+                            return self.parent._common_path +'/Cisco-IOS-XR-mpls-te-cfg:path-selection'
+
+                        def is_config(self):
+                            ''' Returns True if this instance represents config data else returns False '''
+                            return True
+
+                        def _has_data(self):
+                            if not self.is_config():
+                                return False
+                            if self.enable is not None:
+                                return True
+
+                            return False
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+                            return meta._meta_table['MplsTe.GlobalAttributes.AttributeSet.P2MpteAttributes.P2MpteAttribute.PathSelection']['meta_info']
 
 
-                        class NewStyleAffinity(object):
+                    class NewStyleAffinityAffinityTypes(object):
+                        """
+                        Tunnel new style affinity attributes table
+                        
+                        .. attribute:: new_style_affinity_affinity_type
+                        
+                        	Tunnel new style affinity attribute
+                        	**type**\: list of  :py:class:`NewStyleAffinityAffinityType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.P2MpteAttributes.P2MpteAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityType>`
+                        
+                        .. attribute:: new_style_affinity_affinity_type_affinity1
+                        
+                        	Tunnel new style affinity attribute
+                        	**type**\: list of  :py:class:`NewStyleAffinityAffinityTypeAffinity1 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.P2MpteAttributes.P2MpteAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1>`
+                        
+                        .. attribute:: new_style_affinity_affinity_type_affinity1_affinity2
+                        
+                        	Tunnel new style affinity attribute
+                        	**type**\: list of  :py:class:`NewStyleAffinityAffinityTypeAffinity1Affinity2 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.P2MpteAttributes.P2MpteAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2>`
+                        
+                        .. attribute:: new_style_affinity_affinity_type_affinity1_affinity2_affinity3
+                        
+                        	Tunnel new style affinity attribute
+                        	**type**\: list of  :py:class:`NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.P2MpteAttributes.P2MpteAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3>`
+                        
+                        .. attribute:: new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4
+                        
+                        	Tunnel new style affinity attribute
+                        	**type**\: list of  :py:class:`NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.P2MpteAttributes.P2MpteAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4>`
+                        
+                        .. attribute:: new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5
+                        
+                        	Tunnel new style affinity attribute
+                        	**type**\: list of  :py:class:`NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.P2MpteAttributes.P2MpteAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5>`
+                        
+                        .. attribute:: new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5_affinity6
+                        
+                        	Tunnel new style affinity attribute
+                        	**type**\: list of  :py:class:`NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.P2MpteAttributes.P2MpteAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6>`
+                        
+                        .. attribute:: new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5_affinity6_affinity7
+                        
+                        	Tunnel new style affinity attribute
+                        	**type**\: list of  :py:class:`NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.P2MpteAttributes.P2MpteAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7>`
+                        
+                        .. attribute:: new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5_affinity6_affinity7_affinity8
+                        
+                        	Tunnel new style affinity attribute
+                        	**type**\: list of  :py:class:`NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.P2MpteAttributes.P2MpteAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8>`
+                        
+                        .. attribute:: new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5_affinity6_affinity7_affinity8_affinity9
+                        
+                        	Tunnel new style affinity attribute
+                        	**type**\: list of  :py:class:`NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.P2MpteAttributes.P2MpteAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9>`
+                        
+                        .. attribute:: new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5_affinity6_affinity7_affinity8_affinity9_affinity10
+                        
+                        	Tunnel new style affinity attribute
+                        	**type**\: list of  :py:class:`NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9Affinity10 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.P2MpteAttributes.P2MpteAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9Affinity10>`
+                        
+                        
+
+                        """
+
+                        _prefix = 'mpls-te-cfg'
+                        _revision = '2015-11-09'
+
+                        def __init__(self):
+                            self.parent = None
+                            self.new_style_affinity_affinity_type = YList()
+                            self.new_style_affinity_affinity_type.parent = self
+                            self.new_style_affinity_affinity_type.name = 'new_style_affinity_affinity_type'
+                            self.new_style_affinity_affinity_type_affinity1 = YList()
+                            self.new_style_affinity_affinity_type_affinity1.parent = self
+                            self.new_style_affinity_affinity_type_affinity1.name = 'new_style_affinity_affinity_type_affinity1'
+                            self.new_style_affinity_affinity_type_affinity1_affinity2 = YList()
+                            self.new_style_affinity_affinity_type_affinity1_affinity2.parent = self
+                            self.new_style_affinity_affinity_type_affinity1_affinity2.name = 'new_style_affinity_affinity_type_affinity1_affinity2'
+                            self.new_style_affinity_affinity_type_affinity1_affinity2_affinity3 = YList()
+                            self.new_style_affinity_affinity_type_affinity1_affinity2_affinity3.parent = self
+                            self.new_style_affinity_affinity_type_affinity1_affinity2_affinity3.name = 'new_style_affinity_affinity_type_affinity1_affinity2_affinity3'
+                            self.new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4 = YList()
+                            self.new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4.parent = self
+                            self.new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4.name = 'new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4'
+                            self.new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5 = YList()
+                            self.new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5.parent = self
+                            self.new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5.name = 'new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5'
+                            self.new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5_affinity6 = YList()
+                            self.new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5_affinity6.parent = self
+                            self.new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5_affinity6.name = 'new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5_affinity6'
+                            self.new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5_affinity6_affinity7 = YList()
+                            self.new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5_affinity6_affinity7.parent = self
+                            self.new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5_affinity6_affinity7.name = 'new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5_affinity6_affinity7'
+                            self.new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5_affinity6_affinity7_affinity8 = YList()
+                            self.new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5_affinity6_affinity7_affinity8.parent = self
+                            self.new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5_affinity6_affinity7_affinity8.name = 'new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5_affinity6_affinity7_affinity8'
+                            self.new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5_affinity6_affinity7_affinity8_affinity9 = YList()
+                            self.new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5_affinity6_affinity7_affinity8_affinity9.parent = self
+                            self.new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5_affinity6_affinity7_affinity8_affinity9.name = 'new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5_affinity6_affinity7_affinity8_affinity9'
+                            self.new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5_affinity6_affinity7_affinity8_affinity9_affinity10 = YList()
+                            self.new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5_affinity6_affinity7_affinity8_affinity9_affinity10.parent = self
+                            self.new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5_affinity6_affinity7_affinity8_affinity9_affinity10.name = 'new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5_affinity6_affinity7_affinity8_affinity9_affinity10'
+
+
+                        class NewStyleAffinityAffinityType(object):
+                            """
+                            Tunnel new style affinity attribute
+                            
+                            .. attribute:: affinity_type  <key>
+                            
+                            	The type of the affinity entry
+                            	**type**\:  :py:class:`MplsTeTunnelAffinityEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeTunnelAffinityEnum>`
+                            
+                            
+
+                            """
+
+                            _prefix = 'mpls-te-cfg'
+                            _revision = '2015-11-09'
+
+                            def __init__(self):
+                                self.parent = None
+                                self.affinity_type = None
+
+                            @property
+                            def _common_path(self):
+                                if self.parent is None:
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
+                                if self.affinity_type is None:
+                                    raise YPYModelError('Key property affinity_type is None')
+
+                                return self.parent._common_path +'/Cisco-IOS-XR-mpls-te-cfg:new-style-affinity-affinity-type[Cisco-IOS-XR-mpls-te-cfg:affinity-type = ' + str(self.affinity_type) + ']'
+
+                            def is_config(self):
+                                ''' Returns True if this instance represents config data else returns False '''
+                                return True
+
+                            def _has_data(self):
+                                if not self.is_config():
+                                    return False
+                                if self.affinity_type is not None:
+                                    return True
+
+                                return False
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+                                return meta._meta_table['MplsTe.GlobalAttributes.AttributeSet.P2MpteAttributes.P2MpteAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityType']['meta_info']
+
+
+                        class NewStyleAffinityAffinityTypeAffinity1(object):
+                            """
+                            Tunnel new style affinity attribute
+                            
+                            .. attribute:: affinity1  <key>
+                            
+                            	The name of the first affinity
+                            	**type**\:  str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
+                            
+                            .. attribute:: affinity_type  <key>
+                            
+                            	The type of the affinity entry
+                            	**type**\:  :py:class:`MplsTeTunnelAffinityEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeTunnelAffinityEnum>`
+                            
+                            
+
+                            """
+
+                            _prefix = 'mpls-te-cfg'
+                            _revision = '2015-11-09'
+
+                            def __init__(self):
+                                self.parent = None
+                                self.affinity1 = None
+                                self.affinity_type = None
+
+                            @property
+                            def _common_path(self):
+                                if self.parent is None:
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
+                                if self.affinity1 is None:
+                                    raise YPYModelError('Key property affinity1 is None')
+                                if self.affinity_type is None:
+                                    raise YPYModelError('Key property affinity_type is None')
+
+                                return self.parent._common_path +'/Cisco-IOS-XR-mpls-te-cfg:new-style-affinity-affinity-type-affinity1[Cisco-IOS-XR-mpls-te-cfg:affinity1 = ' + str(self.affinity1) + '][Cisco-IOS-XR-mpls-te-cfg:affinity-type = ' + str(self.affinity_type) + ']'
+
+                            def is_config(self):
+                                ''' Returns True if this instance represents config data else returns False '''
+                                return True
+
+                            def _has_data(self):
+                                if not self.is_config():
+                                    return False
+                                if self.affinity1 is not None:
+                                    return True
+
+                                if self.affinity_type is not None:
+                                    return True
+
+                                return False
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+                                return meta._meta_table['MplsTe.GlobalAttributes.AttributeSet.P2MpteAttributes.P2MpteAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1']['meta_info']
+
+
+                        class NewStyleAffinityAffinityTypeAffinity1Affinity2(object):
+                            """
+                            Tunnel new style affinity attribute
+                            
+                            .. attribute:: affinity1  <key>
+                            
+                            	The name of the first affinity
+                            	**type**\:  str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
+                            
+                            .. attribute:: affinity2  <key>
+                            
+                            	The name of the second affinity
+                            	**type**\:  str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
+                            
+                            .. attribute:: affinity_type  <key>
+                            
+                            	The type of the affinity entry
+                            	**type**\:  :py:class:`MplsTeTunnelAffinityEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeTunnelAffinityEnum>`
+                            
+                            
+
+                            """
+
+                            _prefix = 'mpls-te-cfg'
+                            _revision = '2015-11-09'
+
+                            def __init__(self):
+                                self.parent = None
+                                self.affinity1 = None
+                                self.affinity2 = None
+                                self.affinity_type = None
+
+                            @property
+                            def _common_path(self):
+                                if self.parent is None:
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
+                                if self.affinity1 is None:
+                                    raise YPYModelError('Key property affinity1 is None')
+                                if self.affinity2 is None:
+                                    raise YPYModelError('Key property affinity2 is None')
+                                if self.affinity_type is None:
+                                    raise YPYModelError('Key property affinity_type is None')
+
+                                return self.parent._common_path +'/Cisco-IOS-XR-mpls-te-cfg:new-style-affinity-affinity-type-affinity1-affinity2[Cisco-IOS-XR-mpls-te-cfg:affinity1 = ' + str(self.affinity1) + '][Cisco-IOS-XR-mpls-te-cfg:affinity2 = ' + str(self.affinity2) + '][Cisco-IOS-XR-mpls-te-cfg:affinity-type = ' + str(self.affinity_type) + ']'
+
+                            def is_config(self):
+                                ''' Returns True if this instance represents config data else returns False '''
+                                return True
+
+                            def _has_data(self):
+                                if not self.is_config():
+                                    return False
+                                if self.affinity1 is not None:
+                                    return True
+
+                                if self.affinity2 is not None:
+                                    return True
+
+                                if self.affinity_type is not None:
+                                    return True
+
+                                return False
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+                                return meta._meta_table['MplsTe.GlobalAttributes.AttributeSet.P2MpteAttributes.P2MpteAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2']['meta_info']
+
+
+                        class NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3(object):
+                            """
+                            Tunnel new style affinity attribute
+                            
+                            .. attribute:: affinity1  <key>
+                            
+                            	The name of the first affinity
+                            	**type**\:  str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
+                            
+                            .. attribute:: affinity2  <key>
+                            
+                            	The name of the second affinity
+                            	**type**\:  str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
+                            
+                            .. attribute:: affinity3  <key>
+                            
+                            	The name of the third affinity
+                            	**type**\:  str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
+                            
+                            .. attribute:: affinity_type  <key>
+                            
+                            	The type of the affinity entry
+                            	**type**\:  :py:class:`MplsTeTunnelAffinityEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeTunnelAffinityEnum>`
+                            
+                            
+
+                            """
+
+                            _prefix = 'mpls-te-cfg'
+                            _revision = '2015-11-09'
+
+                            def __init__(self):
+                                self.parent = None
+                                self.affinity1 = None
+                                self.affinity2 = None
+                                self.affinity3 = None
+                                self.affinity_type = None
+
+                            @property
+                            def _common_path(self):
+                                if self.parent is None:
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
+                                if self.affinity1 is None:
+                                    raise YPYModelError('Key property affinity1 is None')
+                                if self.affinity2 is None:
+                                    raise YPYModelError('Key property affinity2 is None')
+                                if self.affinity3 is None:
+                                    raise YPYModelError('Key property affinity3 is None')
+                                if self.affinity_type is None:
+                                    raise YPYModelError('Key property affinity_type is None')
+
+                                return self.parent._common_path +'/Cisco-IOS-XR-mpls-te-cfg:new-style-affinity-affinity-type-affinity1-affinity2-affinity3[Cisco-IOS-XR-mpls-te-cfg:affinity1 = ' + str(self.affinity1) + '][Cisco-IOS-XR-mpls-te-cfg:affinity2 = ' + str(self.affinity2) + '][Cisco-IOS-XR-mpls-te-cfg:affinity3 = ' + str(self.affinity3) + '][Cisco-IOS-XR-mpls-te-cfg:affinity-type = ' + str(self.affinity_type) + ']'
+
+                            def is_config(self):
+                                ''' Returns True if this instance represents config data else returns False '''
+                                return True
+
+                            def _has_data(self):
+                                if not self.is_config():
+                                    return False
+                                if self.affinity1 is not None:
+                                    return True
+
+                                if self.affinity2 is not None:
+                                    return True
+
+                                if self.affinity3 is not None:
+                                    return True
+
+                                if self.affinity_type is not None:
+                                    return True
+
+                                return False
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+                                return meta._meta_table['MplsTe.GlobalAttributes.AttributeSet.P2MpteAttributes.P2MpteAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3']['meta_info']
+
+
+                        class NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4(object):
+                            """
+                            Tunnel new style affinity attribute
+                            
+                            .. attribute:: affinity1  <key>
+                            
+                            	The name of the first affinity
+                            	**type**\:  str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
+                            
+                            .. attribute:: affinity2  <key>
+                            
+                            	The name of the second affinity
+                            	**type**\:  str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
+                            
+                            .. attribute:: affinity3  <key>
+                            
+                            	The name of the third affinity
+                            	**type**\:  str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
+                            
+                            .. attribute:: affinity4  <key>
+                            
+                            	The name of the fourth affinity
+                            	**type**\:  str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
+                            
+                            .. attribute:: affinity_type  <key>
+                            
+                            	The type of the affinity entry
+                            	**type**\:  :py:class:`MplsTeTunnelAffinityEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeTunnelAffinityEnum>`
+                            
+                            
+
+                            """
+
+                            _prefix = 'mpls-te-cfg'
+                            _revision = '2015-11-09'
+
+                            def __init__(self):
+                                self.parent = None
+                                self.affinity1 = None
+                                self.affinity2 = None
+                                self.affinity3 = None
+                                self.affinity4 = None
+                                self.affinity_type = None
+
+                            @property
+                            def _common_path(self):
+                                if self.parent is None:
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
+                                if self.affinity1 is None:
+                                    raise YPYModelError('Key property affinity1 is None')
+                                if self.affinity2 is None:
+                                    raise YPYModelError('Key property affinity2 is None')
+                                if self.affinity3 is None:
+                                    raise YPYModelError('Key property affinity3 is None')
+                                if self.affinity4 is None:
+                                    raise YPYModelError('Key property affinity4 is None')
+                                if self.affinity_type is None:
+                                    raise YPYModelError('Key property affinity_type is None')
+
+                                return self.parent._common_path +'/Cisco-IOS-XR-mpls-te-cfg:new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4[Cisco-IOS-XR-mpls-te-cfg:affinity1 = ' + str(self.affinity1) + '][Cisco-IOS-XR-mpls-te-cfg:affinity2 = ' + str(self.affinity2) + '][Cisco-IOS-XR-mpls-te-cfg:affinity3 = ' + str(self.affinity3) + '][Cisco-IOS-XR-mpls-te-cfg:affinity4 = ' + str(self.affinity4) + '][Cisco-IOS-XR-mpls-te-cfg:affinity-type = ' + str(self.affinity_type) + ']'
+
+                            def is_config(self):
+                                ''' Returns True if this instance represents config data else returns False '''
+                                return True
+
+                            def _has_data(self):
+                                if not self.is_config():
+                                    return False
+                                if self.affinity1 is not None:
+                                    return True
+
+                                if self.affinity2 is not None:
+                                    return True
+
+                                if self.affinity3 is not None:
+                                    return True
+
+                                if self.affinity4 is not None:
+                                    return True
+
+                                if self.affinity_type is not None:
+                                    return True
+
+                                return False
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+                                return meta._meta_table['MplsTe.GlobalAttributes.AttributeSet.P2MpteAttributes.P2MpteAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4']['meta_info']
+
+
+                        class NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5(object):
+                            """
+                            Tunnel new style affinity attribute
+                            
+                            .. attribute:: affinity1  <key>
+                            
+                            	The name of the first affinity
+                            	**type**\:  str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
+                            
+                            .. attribute:: affinity2  <key>
+                            
+                            	The name of the second affinity
+                            	**type**\:  str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
+                            
+                            .. attribute:: affinity3  <key>
+                            
+                            	The name of the third affinity
+                            	**type**\:  str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
+                            
+                            .. attribute:: affinity4  <key>
+                            
+                            	The name of the fourth affinity
+                            	**type**\:  str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
+                            
+                            .. attribute:: affinity5  <key>
+                            
+                            	The name of the fifth affinity
+                            	**type**\:  str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
+                            
+                            .. attribute:: affinity_type  <key>
+                            
+                            	The type of the affinity entry
+                            	**type**\:  :py:class:`MplsTeTunnelAffinityEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeTunnelAffinityEnum>`
+                            
+                            
+
+                            """
+
+                            _prefix = 'mpls-te-cfg'
+                            _revision = '2015-11-09'
+
+                            def __init__(self):
+                                self.parent = None
+                                self.affinity1 = None
+                                self.affinity2 = None
+                                self.affinity3 = None
+                                self.affinity4 = None
+                                self.affinity5 = None
+                                self.affinity_type = None
+
+                            @property
+                            def _common_path(self):
+                                if self.parent is None:
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
+                                if self.affinity1 is None:
+                                    raise YPYModelError('Key property affinity1 is None')
+                                if self.affinity2 is None:
+                                    raise YPYModelError('Key property affinity2 is None')
+                                if self.affinity3 is None:
+                                    raise YPYModelError('Key property affinity3 is None')
+                                if self.affinity4 is None:
+                                    raise YPYModelError('Key property affinity4 is None')
+                                if self.affinity5 is None:
+                                    raise YPYModelError('Key property affinity5 is None')
+                                if self.affinity_type is None:
+                                    raise YPYModelError('Key property affinity_type is None')
+
+                                return self.parent._common_path +'/Cisco-IOS-XR-mpls-te-cfg:new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5[Cisco-IOS-XR-mpls-te-cfg:affinity1 = ' + str(self.affinity1) + '][Cisco-IOS-XR-mpls-te-cfg:affinity2 = ' + str(self.affinity2) + '][Cisco-IOS-XR-mpls-te-cfg:affinity3 = ' + str(self.affinity3) + '][Cisco-IOS-XR-mpls-te-cfg:affinity4 = ' + str(self.affinity4) + '][Cisco-IOS-XR-mpls-te-cfg:affinity5 = ' + str(self.affinity5) + '][Cisco-IOS-XR-mpls-te-cfg:affinity-type = ' + str(self.affinity_type) + ']'
+
+                            def is_config(self):
+                                ''' Returns True if this instance represents config data else returns False '''
+                                return True
+
+                            def _has_data(self):
+                                if not self.is_config():
+                                    return False
+                                if self.affinity1 is not None:
+                                    return True
+
+                                if self.affinity2 is not None:
+                                    return True
+
+                                if self.affinity3 is not None:
+                                    return True
+
+                                if self.affinity4 is not None:
+                                    return True
+
+                                if self.affinity5 is not None:
+                                    return True
+
+                                if self.affinity_type is not None:
+                                    return True
+
+                                return False
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+                                return meta._meta_table['MplsTe.GlobalAttributes.AttributeSet.P2MpteAttributes.P2MpteAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5']['meta_info']
+
+
+                        class NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6(object):
+                            """
+                            Tunnel new style affinity attribute
+                            
+                            .. attribute:: affinity1  <key>
+                            
+                            	The name of the first affinity
+                            	**type**\:  str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
+                            
+                            .. attribute:: affinity2  <key>
+                            
+                            	The name of the second affinity
+                            	**type**\:  str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
+                            
+                            .. attribute:: affinity3  <key>
+                            
+                            	The name of the third affinity
+                            	**type**\:  str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
+                            
+                            .. attribute:: affinity4  <key>
+                            
+                            	The name of the fourth affinity
+                            	**type**\:  str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
+                            
+                            .. attribute:: affinity5  <key>
+                            
+                            	The name of the fifth affinity
+                            	**type**\:  str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
+                            
+                            .. attribute:: affinity6  <key>
+                            
+                            	The name of the sixth affinity
+                            	**type**\:  str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
+                            
+                            .. attribute:: affinity_type  <key>
+                            
+                            	The type of the affinity entry
+                            	**type**\:  :py:class:`MplsTeTunnelAffinityEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeTunnelAffinityEnum>`
+                            
+                            
+
+                            """
+
+                            _prefix = 'mpls-te-cfg'
+                            _revision = '2015-11-09'
+
+                            def __init__(self):
+                                self.parent = None
+                                self.affinity1 = None
+                                self.affinity2 = None
+                                self.affinity3 = None
+                                self.affinity4 = None
+                                self.affinity5 = None
+                                self.affinity6 = None
+                                self.affinity_type = None
+
+                            @property
+                            def _common_path(self):
+                                if self.parent is None:
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
+                                if self.affinity1 is None:
+                                    raise YPYModelError('Key property affinity1 is None')
+                                if self.affinity2 is None:
+                                    raise YPYModelError('Key property affinity2 is None')
+                                if self.affinity3 is None:
+                                    raise YPYModelError('Key property affinity3 is None')
+                                if self.affinity4 is None:
+                                    raise YPYModelError('Key property affinity4 is None')
+                                if self.affinity5 is None:
+                                    raise YPYModelError('Key property affinity5 is None')
+                                if self.affinity6 is None:
+                                    raise YPYModelError('Key property affinity6 is None')
+                                if self.affinity_type is None:
+                                    raise YPYModelError('Key property affinity_type is None')
+
+                                return self.parent._common_path +'/Cisco-IOS-XR-mpls-te-cfg:new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5-affinity6[Cisco-IOS-XR-mpls-te-cfg:affinity1 = ' + str(self.affinity1) + '][Cisco-IOS-XR-mpls-te-cfg:affinity2 = ' + str(self.affinity2) + '][Cisco-IOS-XR-mpls-te-cfg:affinity3 = ' + str(self.affinity3) + '][Cisco-IOS-XR-mpls-te-cfg:affinity4 = ' + str(self.affinity4) + '][Cisco-IOS-XR-mpls-te-cfg:affinity5 = ' + str(self.affinity5) + '][Cisco-IOS-XR-mpls-te-cfg:affinity6 = ' + str(self.affinity6) + '][Cisco-IOS-XR-mpls-te-cfg:affinity-type = ' + str(self.affinity_type) + ']'
+
+                            def is_config(self):
+                                ''' Returns True if this instance represents config data else returns False '''
+                                return True
+
+                            def _has_data(self):
+                                if not self.is_config():
+                                    return False
+                                if self.affinity1 is not None:
+                                    return True
+
+                                if self.affinity2 is not None:
+                                    return True
+
+                                if self.affinity3 is not None:
+                                    return True
+
+                                if self.affinity4 is not None:
+                                    return True
+
+                                if self.affinity5 is not None:
+                                    return True
+
+                                if self.affinity6 is not None:
+                                    return True
+
+                                if self.affinity_type is not None:
+                                    return True
+
+                                return False
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+                                return meta._meta_table['MplsTe.GlobalAttributes.AttributeSet.P2MpteAttributes.P2MpteAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6']['meta_info']
+
+
+                        class NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7(object):
+                            """
+                            Tunnel new style affinity attribute
+                            
+                            .. attribute:: affinity1  <key>
+                            
+                            	The name of the first affinity
+                            	**type**\:  str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
+                            
+                            .. attribute:: affinity2  <key>
+                            
+                            	The name of the second affinity
+                            	**type**\:  str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
+                            
+                            .. attribute:: affinity3  <key>
+                            
+                            	The name of the third affinity
+                            	**type**\:  str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
+                            
+                            .. attribute:: affinity4  <key>
+                            
+                            	The name of the fourth affinity
+                            	**type**\:  str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
+                            
+                            .. attribute:: affinity5  <key>
+                            
+                            	The name of the fifth affinity
+                            	**type**\:  str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
+                            
+                            .. attribute:: affinity6  <key>
+                            
+                            	The name of the sixth affinity
+                            	**type**\:  str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
+                            
+                            .. attribute:: affinity7  <key>
+                            
+                            	The name of the seventh affinity
+                            	**type**\:  str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
+                            
+                            .. attribute:: affinity_type  <key>
+                            
+                            	The type of the affinity entry
+                            	**type**\:  :py:class:`MplsTeTunnelAffinityEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeTunnelAffinityEnum>`
+                            
+                            
+
+                            """
+
+                            _prefix = 'mpls-te-cfg'
+                            _revision = '2015-11-09'
+
+                            def __init__(self):
+                                self.parent = None
+                                self.affinity1 = None
+                                self.affinity2 = None
+                                self.affinity3 = None
+                                self.affinity4 = None
+                                self.affinity5 = None
+                                self.affinity6 = None
+                                self.affinity7 = None
+                                self.affinity_type = None
+
+                            @property
+                            def _common_path(self):
+                                if self.parent is None:
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
+                                if self.affinity1 is None:
+                                    raise YPYModelError('Key property affinity1 is None')
+                                if self.affinity2 is None:
+                                    raise YPYModelError('Key property affinity2 is None')
+                                if self.affinity3 is None:
+                                    raise YPYModelError('Key property affinity3 is None')
+                                if self.affinity4 is None:
+                                    raise YPYModelError('Key property affinity4 is None')
+                                if self.affinity5 is None:
+                                    raise YPYModelError('Key property affinity5 is None')
+                                if self.affinity6 is None:
+                                    raise YPYModelError('Key property affinity6 is None')
+                                if self.affinity7 is None:
+                                    raise YPYModelError('Key property affinity7 is None')
+                                if self.affinity_type is None:
+                                    raise YPYModelError('Key property affinity_type is None')
+
+                                return self.parent._common_path +'/Cisco-IOS-XR-mpls-te-cfg:new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5-affinity6-affinity7[Cisco-IOS-XR-mpls-te-cfg:affinity1 = ' + str(self.affinity1) + '][Cisco-IOS-XR-mpls-te-cfg:affinity2 = ' + str(self.affinity2) + '][Cisco-IOS-XR-mpls-te-cfg:affinity3 = ' + str(self.affinity3) + '][Cisco-IOS-XR-mpls-te-cfg:affinity4 = ' + str(self.affinity4) + '][Cisco-IOS-XR-mpls-te-cfg:affinity5 = ' + str(self.affinity5) + '][Cisco-IOS-XR-mpls-te-cfg:affinity6 = ' + str(self.affinity6) + '][Cisco-IOS-XR-mpls-te-cfg:affinity7 = ' + str(self.affinity7) + '][Cisco-IOS-XR-mpls-te-cfg:affinity-type = ' + str(self.affinity_type) + ']'
+
+                            def is_config(self):
+                                ''' Returns True if this instance represents config data else returns False '''
+                                return True
+
+                            def _has_data(self):
+                                if not self.is_config():
+                                    return False
+                                if self.affinity1 is not None:
+                                    return True
+
+                                if self.affinity2 is not None:
+                                    return True
+
+                                if self.affinity3 is not None:
+                                    return True
+
+                                if self.affinity4 is not None:
+                                    return True
+
+                                if self.affinity5 is not None:
+                                    return True
+
+                                if self.affinity6 is not None:
+                                    return True
+
+                                if self.affinity7 is not None:
+                                    return True
+
+                                if self.affinity_type is not None:
+                                    return True
+
+                                return False
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+                                return meta._meta_table['MplsTe.GlobalAttributes.AttributeSet.P2MpteAttributes.P2MpteAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7']['meta_info']
+
+
+                        class NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8(object):
+                            """
+                            Tunnel new style affinity attribute
+                            
+                            .. attribute:: affinity1  <key>
+                            
+                            	The name of the first affinity
+                            	**type**\:  str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
+                            
+                            .. attribute:: affinity2  <key>
+                            
+                            	The name of the second affinity
+                            	**type**\:  str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
+                            
+                            .. attribute:: affinity3  <key>
+                            
+                            	The name of the third affinity
+                            	**type**\:  str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
+                            
+                            .. attribute:: affinity4  <key>
+                            
+                            	The name of the fourth affinity
+                            	**type**\:  str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
+                            
+                            .. attribute:: affinity5  <key>
+                            
+                            	The name of the fifth affinity
+                            	**type**\:  str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
+                            
+                            .. attribute:: affinity6  <key>
+                            
+                            	The name of the sixth affinity
+                            	**type**\:  str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
+                            
+                            .. attribute:: affinity7  <key>
+                            
+                            	The name of the seventh affinity
+                            	**type**\:  str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
+                            
+                            .. attribute:: affinity8  <key>
+                            
+                            	The name of the eighth affinity
+                            	**type**\:  str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
+                            
+                            .. attribute:: affinity_type  <key>
+                            
+                            	The type of the affinity entry
+                            	**type**\:  :py:class:`MplsTeTunnelAffinityEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeTunnelAffinityEnum>`
+                            
+                            
+
+                            """
+
+                            _prefix = 'mpls-te-cfg'
+                            _revision = '2015-11-09'
+
+                            def __init__(self):
+                                self.parent = None
+                                self.affinity1 = None
+                                self.affinity2 = None
+                                self.affinity3 = None
+                                self.affinity4 = None
+                                self.affinity5 = None
+                                self.affinity6 = None
+                                self.affinity7 = None
+                                self.affinity8 = None
+                                self.affinity_type = None
+
+                            @property
+                            def _common_path(self):
+                                if self.parent is None:
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
+                                if self.affinity1 is None:
+                                    raise YPYModelError('Key property affinity1 is None')
+                                if self.affinity2 is None:
+                                    raise YPYModelError('Key property affinity2 is None')
+                                if self.affinity3 is None:
+                                    raise YPYModelError('Key property affinity3 is None')
+                                if self.affinity4 is None:
+                                    raise YPYModelError('Key property affinity4 is None')
+                                if self.affinity5 is None:
+                                    raise YPYModelError('Key property affinity5 is None')
+                                if self.affinity6 is None:
+                                    raise YPYModelError('Key property affinity6 is None')
+                                if self.affinity7 is None:
+                                    raise YPYModelError('Key property affinity7 is None')
+                                if self.affinity8 is None:
+                                    raise YPYModelError('Key property affinity8 is None')
+                                if self.affinity_type is None:
+                                    raise YPYModelError('Key property affinity_type is None')
+
+                                return self.parent._common_path +'/Cisco-IOS-XR-mpls-te-cfg:new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5-affinity6-affinity7-affinity8[Cisco-IOS-XR-mpls-te-cfg:affinity1 = ' + str(self.affinity1) + '][Cisco-IOS-XR-mpls-te-cfg:affinity2 = ' + str(self.affinity2) + '][Cisco-IOS-XR-mpls-te-cfg:affinity3 = ' + str(self.affinity3) + '][Cisco-IOS-XR-mpls-te-cfg:affinity4 = ' + str(self.affinity4) + '][Cisco-IOS-XR-mpls-te-cfg:affinity5 = ' + str(self.affinity5) + '][Cisco-IOS-XR-mpls-te-cfg:affinity6 = ' + str(self.affinity6) + '][Cisco-IOS-XR-mpls-te-cfg:affinity7 = ' + str(self.affinity7) + '][Cisco-IOS-XR-mpls-te-cfg:affinity8 = ' + str(self.affinity8) + '][Cisco-IOS-XR-mpls-te-cfg:affinity-type = ' + str(self.affinity_type) + ']'
+
+                            def is_config(self):
+                                ''' Returns True if this instance represents config data else returns False '''
+                                return True
+
+                            def _has_data(self):
+                                if not self.is_config():
+                                    return False
+                                if self.affinity1 is not None:
+                                    return True
+
+                                if self.affinity2 is not None:
+                                    return True
+
+                                if self.affinity3 is not None:
+                                    return True
+
+                                if self.affinity4 is not None:
+                                    return True
+
+                                if self.affinity5 is not None:
+                                    return True
+
+                                if self.affinity6 is not None:
+                                    return True
+
+                                if self.affinity7 is not None:
+                                    return True
+
+                                if self.affinity8 is not None:
+                                    return True
+
+                                if self.affinity_type is not None:
+                                    return True
+
+                                return False
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+                                return meta._meta_table['MplsTe.GlobalAttributes.AttributeSet.P2MpteAttributes.P2MpteAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8']['meta_info']
+
+
+                        class NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9(object):
+                            """
+                            Tunnel new style affinity attribute
+                            
+                            .. attribute:: affinity1  <key>
+                            
+                            	The name of the first affinity
+                            	**type**\:  str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
+                            
+                            .. attribute:: affinity2  <key>
+                            
+                            	The name of the second affinity
+                            	**type**\:  str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
+                            
+                            .. attribute:: affinity3  <key>
+                            
+                            	The name of the third affinity
+                            	**type**\:  str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
+                            
+                            .. attribute:: affinity4  <key>
+                            
+                            	The name of the fourth affinity
+                            	**type**\:  str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
+                            
+                            .. attribute:: affinity5  <key>
+                            
+                            	The name of the fifth affinity
+                            	**type**\:  str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
+                            
+                            .. attribute:: affinity6  <key>
+                            
+                            	The name of the sixth affinity
+                            	**type**\:  str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
+                            
+                            .. attribute:: affinity7  <key>
+                            
+                            	The name of the seventh affinity
+                            	**type**\:  str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
+                            
+                            .. attribute:: affinity8  <key>
+                            
+                            	The name of the eighth affinity
+                            	**type**\:  str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
+                            
+                            .. attribute:: affinity9  <key>
+                            
+                            	The name of the nineth affinity
+                            	**type**\:  str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
+                            
+                            .. attribute:: affinity_type  <key>
+                            
+                            	The type of the affinity entry
+                            	**type**\:  :py:class:`MplsTeTunnelAffinityEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeTunnelAffinityEnum>`
+                            
+                            
+
+                            """
+
+                            _prefix = 'mpls-te-cfg'
+                            _revision = '2015-11-09'
+
+                            def __init__(self):
+                                self.parent = None
+                                self.affinity1 = None
+                                self.affinity2 = None
+                                self.affinity3 = None
+                                self.affinity4 = None
+                                self.affinity5 = None
+                                self.affinity6 = None
+                                self.affinity7 = None
+                                self.affinity8 = None
+                                self.affinity9 = None
+                                self.affinity_type = None
+
+                            @property
+                            def _common_path(self):
+                                if self.parent is None:
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
+                                if self.affinity1 is None:
+                                    raise YPYModelError('Key property affinity1 is None')
+                                if self.affinity2 is None:
+                                    raise YPYModelError('Key property affinity2 is None')
+                                if self.affinity3 is None:
+                                    raise YPYModelError('Key property affinity3 is None')
+                                if self.affinity4 is None:
+                                    raise YPYModelError('Key property affinity4 is None')
+                                if self.affinity5 is None:
+                                    raise YPYModelError('Key property affinity5 is None')
+                                if self.affinity6 is None:
+                                    raise YPYModelError('Key property affinity6 is None')
+                                if self.affinity7 is None:
+                                    raise YPYModelError('Key property affinity7 is None')
+                                if self.affinity8 is None:
+                                    raise YPYModelError('Key property affinity8 is None')
+                                if self.affinity9 is None:
+                                    raise YPYModelError('Key property affinity9 is None')
+                                if self.affinity_type is None:
+                                    raise YPYModelError('Key property affinity_type is None')
+
+                                return self.parent._common_path +'/Cisco-IOS-XR-mpls-te-cfg:new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5-affinity6-affinity7-affinity8-affinity9[Cisco-IOS-XR-mpls-te-cfg:affinity1 = ' + str(self.affinity1) + '][Cisco-IOS-XR-mpls-te-cfg:affinity2 = ' + str(self.affinity2) + '][Cisco-IOS-XR-mpls-te-cfg:affinity3 = ' + str(self.affinity3) + '][Cisco-IOS-XR-mpls-te-cfg:affinity4 = ' + str(self.affinity4) + '][Cisco-IOS-XR-mpls-te-cfg:affinity5 = ' + str(self.affinity5) + '][Cisco-IOS-XR-mpls-te-cfg:affinity6 = ' + str(self.affinity6) + '][Cisco-IOS-XR-mpls-te-cfg:affinity7 = ' + str(self.affinity7) + '][Cisco-IOS-XR-mpls-te-cfg:affinity8 = ' + str(self.affinity8) + '][Cisco-IOS-XR-mpls-te-cfg:affinity9 = ' + str(self.affinity9) + '][Cisco-IOS-XR-mpls-te-cfg:affinity-type = ' + str(self.affinity_type) + ']'
+
+                            def is_config(self):
+                                ''' Returns True if this instance represents config data else returns False '''
+                                return True
+
+                            def _has_data(self):
+                                if not self.is_config():
+                                    return False
+                                if self.affinity1 is not None:
+                                    return True
+
+                                if self.affinity2 is not None:
+                                    return True
+
+                                if self.affinity3 is not None:
+                                    return True
+
+                                if self.affinity4 is not None:
+                                    return True
+
+                                if self.affinity5 is not None:
+                                    return True
+
+                                if self.affinity6 is not None:
+                                    return True
+
+                                if self.affinity7 is not None:
+                                    return True
+
+                                if self.affinity8 is not None:
+                                    return True
+
+                                if self.affinity9 is not None:
+                                    return True
+
+                                if self.affinity_type is not None:
+                                    return True
+
+                                return False
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+                                return meta._meta_table['MplsTe.GlobalAttributes.AttributeSet.P2MpteAttributes.P2MpteAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9']['meta_info']
+
+
+                        class NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9Affinity10(object):
                             """
                             Tunnel new style affinity attribute
                             
@@ -5896,7 +12381,7 @@ class MplsTe(object):
                                 if self.affinity_type is None:
                                     raise YPYModelError('Key property affinity_type is None')
 
-                                return self.parent._common_path +'/Cisco-IOS-XR-mpls-te-cfg:new-style-affinity[Cisco-IOS-XR-mpls-te-cfg:affinity1 = ' + str(self.affinity1) + '][Cisco-IOS-XR-mpls-te-cfg:affinity10 = ' + str(self.affinity10) + '][Cisco-IOS-XR-mpls-te-cfg:affinity2 = ' + str(self.affinity2) + '][Cisco-IOS-XR-mpls-te-cfg:affinity3 = ' + str(self.affinity3) + '][Cisco-IOS-XR-mpls-te-cfg:affinity4 = ' + str(self.affinity4) + '][Cisco-IOS-XR-mpls-te-cfg:affinity5 = ' + str(self.affinity5) + '][Cisco-IOS-XR-mpls-te-cfg:affinity6 = ' + str(self.affinity6) + '][Cisco-IOS-XR-mpls-te-cfg:affinity7 = ' + str(self.affinity7) + '][Cisco-IOS-XR-mpls-te-cfg:affinity8 = ' + str(self.affinity8) + '][Cisco-IOS-XR-mpls-te-cfg:affinity9 = ' + str(self.affinity9) + '][Cisco-IOS-XR-mpls-te-cfg:affinity-type = ' + str(self.affinity_type) + ']'
+                                return self.parent._common_path +'/Cisco-IOS-XR-mpls-te-cfg:new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5-affinity6-affinity7-affinity8-affinity9-affinity10[Cisco-IOS-XR-mpls-te-cfg:affinity1 = ' + str(self.affinity1) + '][Cisco-IOS-XR-mpls-te-cfg:affinity10 = ' + str(self.affinity10) + '][Cisco-IOS-XR-mpls-te-cfg:affinity2 = ' + str(self.affinity2) + '][Cisco-IOS-XR-mpls-te-cfg:affinity3 = ' + str(self.affinity3) + '][Cisco-IOS-XR-mpls-te-cfg:affinity4 = ' + str(self.affinity4) + '][Cisco-IOS-XR-mpls-te-cfg:affinity5 = ' + str(self.affinity5) + '][Cisco-IOS-XR-mpls-te-cfg:affinity6 = ' + str(self.affinity6) + '][Cisco-IOS-XR-mpls-te-cfg:affinity7 = ' + str(self.affinity7) + '][Cisco-IOS-XR-mpls-te-cfg:affinity8 = ' + str(self.affinity8) + '][Cisco-IOS-XR-mpls-te-cfg:affinity9 = ' + str(self.affinity9) + '][Cisco-IOS-XR-mpls-te-cfg:affinity-type = ' + str(self.affinity_type) + ']'
 
                             def is_config(self):
                                 ''' Returns True if this instance represents config data else returns False '''
@@ -5943,14 +12428,14 @@ class MplsTe(object):
                             @staticmethod
                             def _meta_info():
                                 from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
-                                return meta._meta_table['MplsTe.GlobalAttributes.AttributeSet.P2MpteAttributes.P2MpteAttribute.NewStyleAffinities.NewStyleAffinity']['meta_info']
+                                return meta._meta_table['MplsTe.GlobalAttributes.AttributeSet.P2MpteAttributes.P2MpteAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9Affinity10']['meta_info']
 
                         @property
                         def _common_path(self):
                             if self.parent is None:
                                 raise YPYModelError('parent is not set . Cannot derive path.')
 
-                            return self.parent._common_path +'/Cisco-IOS-XR-mpls-te-cfg:new-style-affinities'
+                            return self.parent._common_path +'/Cisco-IOS-XR-mpls-te-cfg:new-style-affinity-affinity-types'
 
                         def is_config(self):
                             ''' Returns True if this instance represents config data else returns False '''
@@ -5959,8 +12444,58 @@ class MplsTe(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.new_style_affinity is not None:
-                                for child_ref in self.new_style_affinity:
+                            if self.new_style_affinity_affinity_type is not None:
+                                for child_ref in self.new_style_affinity_affinity_type:
+                                    if child_ref._has_data():
+                                        return True
+
+                            if self.new_style_affinity_affinity_type_affinity1 is not None:
+                                for child_ref in self.new_style_affinity_affinity_type_affinity1:
+                                    if child_ref._has_data():
+                                        return True
+
+                            if self.new_style_affinity_affinity_type_affinity1_affinity2 is not None:
+                                for child_ref in self.new_style_affinity_affinity_type_affinity1_affinity2:
+                                    if child_ref._has_data():
+                                        return True
+
+                            if self.new_style_affinity_affinity_type_affinity1_affinity2_affinity3 is not None:
+                                for child_ref in self.new_style_affinity_affinity_type_affinity1_affinity2_affinity3:
+                                    if child_ref._has_data():
+                                        return True
+
+                            if self.new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4 is not None:
+                                for child_ref in self.new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4:
+                                    if child_ref._has_data():
+                                        return True
+
+                            if self.new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5 is not None:
+                                for child_ref in self.new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5:
+                                    if child_ref._has_data():
+                                        return True
+
+                            if self.new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5_affinity6 is not None:
+                                for child_ref in self.new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5_affinity6:
+                                    if child_ref._has_data():
+                                        return True
+
+                            if self.new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5_affinity6_affinity7 is not None:
+                                for child_ref in self.new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5_affinity6_affinity7:
+                                    if child_ref._has_data():
+                                        return True
+
+                            if self.new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5_affinity6_affinity7_affinity8 is not None:
+                                for child_ref in self.new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5_affinity6_affinity7_affinity8:
+                                    if child_ref._has_data():
+                                        return True
+
+                            if self.new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5_affinity6_affinity7_affinity8_affinity9 is not None:
+                                for child_ref in self.new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5_affinity6_affinity7_affinity8_affinity9:
+                                    if child_ref._has_data():
+                                        return True
+
+                            if self.new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5_affinity6_affinity7_affinity8_affinity9_affinity10 is not None:
+                                for child_ref in self.new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5_affinity6_affinity7_affinity8_affinity9_affinity10:
                                     if child_ref._has_data():
                                         return True
 
@@ -5969,7 +12504,7 @@ class MplsTe(object):
                         @staticmethod
                         def _meta_info():
                             from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
-                            return meta._meta_table['MplsTe.GlobalAttributes.AttributeSet.P2MpteAttributes.P2MpteAttribute.NewStyleAffinities']['meta_info']
+                            return meta._meta_table['MplsTe.GlobalAttributes.AttributeSet.P2MpteAttributes.P2MpteAttribute.NewStyleAffinityAffinityTypes']['meta_info']
 
 
                     class FastReroute(object):
@@ -6195,7 +12730,10 @@ class MplsTe(object):
                         if self.logging is not None and self.logging._has_data():
                             return True
 
-                        if self.new_style_affinities is not None and self.new_style_affinities._has_data():
+                        if self.new_style_affinity_affinity_types is not None and self.new_style_affinity_affinity_types._has_data():
+                            return True
+
+                        if self.path_selection is not None and self.path_selection._has_data():
                             return True
 
                         if self.priority is not None and self.priority._has_data():
@@ -6285,15 +12823,20 @@ class MplsTe(object):
                     	Log tunnel LSP messages
                     	**type**\:  :py:class:`Logging <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes.P2PTeAttribute.Logging>`
                     
-                    .. attribute:: new_style_affinities
+                    .. attribute:: new_style_affinity_affinity_types
                     
                     	Tunnel new style affinity attributes table
-                    	**type**\:  :py:class:`NewStyleAffinities <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes.P2PTeAttribute.NewStyleAffinities>`
+                    	**type**\:  :py:class:`NewStyleAffinityAffinityTypes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes.P2PTeAttribute.NewStyleAffinityAffinityTypes>`
                     
                     .. attribute:: path_selection
                     
                     	Configure path selection properties
                     	**type**\:  :py:class:`PathSelection <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes.P2PTeAttribute.PathSelection>`
+                    
+                    .. attribute:: pce
+                    
+                    	Configure pce properties
+                    	**type**\:  :py:class:`Pce <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes.P2PTeAttribute.Pce>`
                     
                     
 
@@ -6309,10 +12852,12 @@ class MplsTe(object):
                         self.enable = None
                         self.logging = MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes.P2PTeAttribute.Logging()
                         self.logging.parent = self
-                        self.new_style_affinities = MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes.P2PTeAttribute.NewStyleAffinities()
-                        self.new_style_affinities.parent = self
+                        self.new_style_affinity_affinity_types = MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes.P2PTeAttribute.NewStyleAffinityAffinityTypes()
+                        self.new_style_affinity_affinity_types.parent = self
                         self.path_selection = MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes.P2PTeAttribute.PathSelection()
                         self.path_selection.parent = self
+                        self.pce = MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes.P2PTeAttribute.Pce()
+                        self.pce.parent = self
 
 
                     class PathSelection(object):
@@ -6324,10 +12869,10 @@ class MplsTe(object):
                         	Enter path selection configuration
                         	**type**\:  :py:class:`Empty <ydk.types.Empty>`
                         
-                        .. attribute:: path_selection_invalidation
+                        .. attribute:: invalidation
                         
                         	Path selection invalidation configuration
-                        	**type**\:  :py:class:`PathSelectionInvalidation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes.P2PTeAttribute.PathSelection.PathSelectionInvalidation>`
+                        	**type**\:  :py:class:`Invalidation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes.P2PTeAttribute.PathSelection.Invalidation>`
                         
                         .. attribute:: path_selection_metric
                         
@@ -6354,8 +12899,8 @@ class MplsTe(object):
                         def __init__(self):
                             self.parent = None
                             self.enable = None
-                            self.path_selection_invalidation = MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes.P2PTeAttribute.PathSelection.PathSelectionInvalidation()
-                            self.path_selection_invalidation.parent = self
+                            self.invalidation = MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes.P2PTeAttribute.PathSelection.Invalidation()
+                            self.invalidation.parent = self
                             self.path_selection_metric = None
                             self.path_selection_segment_routing_adjacency_protection = None
                             self.segment_routing_prepend = MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes.P2PTeAttribute.PathSelection.SegmentRoutingPrepend()
@@ -6536,7 +13081,7 @@ class MplsTe(object):
                                 return meta._meta_table['MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes.P2PTeAttribute.PathSelection.SegmentRoutingPrepend']['meta_info']
 
 
-                        class PathSelectionInvalidation(object):
+                        class Invalidation(object):
                             """
                             Path selection invalidation configuration
                             
@@ -6569,7 +13114,7 @@ class MplsTe(object):
                                 if self.parent is None:
                                     raise YPYModelError('parent is not set . Cannot derive path.')
 
-                                return self.parent._common_path +'/Cisco-IOS-XR-mpls-te-cfg:path-selection-invalidation'
+                                return self.parent._common_path +'/Cisco-IOS-XR-mpls-te-cfg:invalidation'
 
                             def is_config(self):
                                 ''' Returns True if this instance represents config data else returns False '''
@@ -6589,7 +13134,7 @@ class MplsTe(object):
                             @staticmethod
                             def _meta_info():
                                 from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
-                                return meta._meta_table['MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes.P2PTeAttribute.PathSelection.PathSelectionInvalidation']['meta_info']
+                                return meta._meta_table['MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes.P2PTeAttribute.PathSelection.Invalidation']['meta_info']
 
                         @property
                         def _common_path(self):
@@ -6608,7 +13153,7 @@ class MplsTe(object):
                             if self.enable is not None:
                                 return True
 
-                            if self.path_selection_invalidation is not None and self.path_selection_invalidation._has_data():
+                            if self.invalidation is not None and self.invalidation._has_data():
                                 return True
 
                             if self.path_selection_metric is not None:
@@ -6626,6 +13171,298 @@ class MplsTe(object):
                         def _meta_info():
                             from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
                             return meta._meta_table['MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes.P2PTeAttribute.PathSelection']['meta_info']
+
+
+                    class Pce(object):
+                        """
+                        Configure pce properties
+                        
+                        .. attribute:: bidirectional
+                        
+                        	Bidirectional parameters
+                        	**type**\:  :py:class:`Bidirectional <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes.P2PTeAttribute.Pce.Bidirectional>`
+                        
+                        .. attribute:: disjoint_path
+                        
+                        	Disjoint path parameters
+                        	**type**\:  :py:class:`DisjointPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes.P2PTeAttribute.Pce.DisjointPath>`
+                        
+                        .. attribute:: enable
+                        
+                        	Always set to true
+                        	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                        
+                        
+
+                        """
+
+                        _prefix = 'mpls-te-cfg'
+                        _revision = '2015-11-09'
+
+                        def __init__(self):
+                            self.parent = None
+                            self.bidirectional = None
+                            self.disjoint_path = None
+                            self.enable = None
+
+
+                        class Bidirectional(object):
+                            """
+                            Bidirectional parameters
+                            
+                            .. attribute:: bd_group_id
+                            
+                            	Bidirectional Group ID
+                            	**type**\:  int
+                            
+                            	**range:** 1..4294967295
+                            
+                            	**mandatory**\: True
+                            
+                            .. attribute:: bd_source_address
+                            
+                            	Bidirectional Source IP Address
+                            	**type**\:  str
+                            
+                            	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                            
+                            	**mandatory**\: True
+                            
+                            .. attribute:: _is_presence
+                            
+                            	Is present if this instance represents presence container else not
+                            	**type**\: bool
+                            
+                            
+
+                            This class is a :ref:`presence class<presence-class>`
+
+                            """
+
+                            _prefix = 'mpls-te-cfg'
+                            _revision = '2015-11-09'
+
+                            def __init__(self):
+                                self.parent = None
+                                self._is_presence = True
+                                self.bd_group_id = None
+                                self.bd_source_address = None
+
+                            @property
+                            def _common_path(self):
+                                if self.parent is None:
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                return self.parent._common_path +'/Cisco-IOS-XR-mpls-te-cfg:bidirectional'
+
+                            def is_config(self):
+                                ''' Returns True if this instance represents config data else returns False '''
+                                return True
+
+                            def _has_data(self):
+                                if not self.is_config():
+                                    return False
+                                if self._is_presence:
+                                    return True
+                                if self.bd_group_id is not None:
+                                    return True
+
+                                if self.bd_source_address is not None:
+                                    return True
+
+                                return False
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+                                return meta._meta_table['MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes.P2PTeAttribute.Pce.Bidirectional']['meta_info']
+
+
+                        class DisjointPath(object):
+                            """
+                            Disjoint path parameters
+                            
+                            .. attribute:: dp_group_id
+                            
+                            	Disjoint Path Group ID
+                            	**type**\:  int
+                            
+                            	**range:** 1..4294967295
+                            
+                            	**mandatory**\: True
+                            
+                            .. attribute:: dp_source_address
+                            
+                            	Disjoint Path Source IP Address
+                            	**type**\:  str
+                            
+                            	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                            
+                            	**mandatory**\: True
+                            
+                            .. attribute:: dp_type
+                            
+                            	Disjoint Path Type
+                            	**type**\:  int
+                            
+                            	**range:** 1..3
+                            
+                            	**mandatory**\: True
+                            
+                            .. attribute:: _is_presence
+                            
+                            	Is present if this instance represents presence container else not
+                            	**type**\: bool
+                            
+                            
+
+                            This class is a :ref:`presence class<presence-class>`
+
+                            """
+
+                            _prefix = 'mpls-te-cfg'
+                            _revision = '2015-11-09'
+
+                            def __init__(self):
+                                self.parent = None
+                                self._is_presence = True
+                                self.dp_group_id = None
+                                self.dp_source_address = None
+                                self.dp_type = None
+
+                            @property
+                            def _common_path(self):
+                                if self.parent is None:
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                return self.parent._common_path +'/Cisco-IOS-XR-mpls-te-cfg:disjoint-path'
+
+                            def is_config(self):
+                                ''' Returns True if this instance represents config data else returns False '''
+                                return True
+
+                            def _has_data(self):
+                                if not self.is_config():
+                                    return False
+                                if self._is_presence:
+                                    return True
+                                if self.dp_group_id is not None:
+                                    return True
+
+                                if self.dp_source_address is not None:
+                                    return True
+
+                                if self.dp_type is not None:
+                                    return True
+
+                                return False
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+                                return meta._meta_table['MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes.P2PTeAttribute.Pce.DisjointPath']['meta_info']
+
+                        @property
+                        def _common_path(self):
+                            if self.parent is None:
+                                raise YPYModelError('parent is not set . Cannot derive path.')
+
+                            return self.parent._common_path +'/Cisco-IOS-XR-mpls-te-cfg:pce'
+
+                        def is_config(self):
+                            ''' Returns True if this instance represents config data else returns False '''
+                            return True
+
+                        def _has_data(self):
+                            if not self.is_config():
+                                return False
+                            if self.bidirectional is not None and self.bidirectional._has_data():
+                                return True
+
+                            if self.disjoint_path is not None and self.disjoint_path._has_data():
+                                return True
+
+                            if self.enable is not None:
+                                return True
+
+                            return False
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+                            return meta._meta_table['MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes.P2PTeAttribute.Pce']['meta_info']
+
+
+                    class AffinityMask(object):
+                        """
+                        Set the affinity flags and mask
+                        
+                        .. attribute:: affinity
+                        
+                        	Affinity flags
+                        	**type**\:  str
+                        
+                        	**pattern:** [0\-9a\-fA\-F]{1,8}
+                        
+                        	**mandatory**\: True
+                        
+                        .. attribute:: mask
+                        
+                        	Affinity mask
+                        	**type**\:  str
+                        
+                        	**pattern:** [0\-9a\-fA\-F]{1,8}
+                        
+                        	**mandatory**\: True
+                        
+                        .. attribute:: _is_presence
+                        
+                        	Is present if this instance represents presence container else not
+                        	**type**\: bool
+                        
+                        
+
+                        This class is a :ref:`presence class<presence-class>`
+
+                        """
+
+                        _prefix = 'mpls-te-cfg'
+                        _revision = '2015-11-09'
+
+                        def __init__(self):
+                            self.parent = None
+                            self._is_presence = True
+                            self.affinity = None
+                            self.mask = None
+
+                        @property
+                        def _common_path(self):
+                            if self.parent is None:
+                                raise YPYModelError('parent is not set . Cannot derive path.')
+
+                            return self.parent._common_path +'/Cisco-IOS-XR-mpls-te-cfg:affinity-mask'
+
+                        def is_config(self):
+                            ''' Returns True if this instance represents config data else returns False '''
+                            return True
+
+                        def _has_data(self):
+                            if not self.is_config():
+                                return False
+                            if self._is_presence:
+                                return True
+                            if self.affinity is not None:
+                                return True
+
+                            if self.mask is not None:
+                                return True
+
+                            return False
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+                            return meta._meta_table['MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes.P2PTeAttribute.AffinityMask']['meta_info']
 
 
                     class Logging(object):
@@ -6763,86 +13600,64 @@ class MplsTe(object):
                             return meta._meta_table['MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes.P2PTeAttribute.Logging']['meta_info']
 
 
-                    class AffinityMask(object):
-                        """
-                        Set the affinity flags and mask
-                        
-                        .. attribute:: affinity
-                        
-                        	Affinity flags
-                        	**type**\:  str
-                        
-                        	**pattern:** [0\-9a\-fA\-F]{1,8}
-                        
-                        	**mandatory**\: True
-                        
-                        .. attribute:: mask
-                        
-                        	Affinity mask
-                        	**type**\:  str
-                        
-                        	**pattern:** [0\-9a\-fA\-F]{1,8}
-                        
-                        	**mandatory**\: True
-                        
-                        .. attribute:: _is_presence
-                        
-                        	Is present if this instance represents presence container else not
-                        	**type**\: bool
-                        
-                        
-
-                        This class is a :ref:`presence class<presence-class>`
-
-                        """
-
-                        _prefix = 'mpls-te-cfg'
-                        _revision = '2015-11-09'
-
-                        def __init__(self):
-                            self.parent = None
-                            self._is_presence = True
-                            self.affinity = None
-                            self.mask = None
-
-                        @property
-                        def _common_path(self):
-                            if self.parent is None:
-                                raise YPYModelError('parent is not set . Cannot derive path.')
-
-                            return self.parent._common_path +'/Cisco-IOS-XR-mpls-te-cfg:affinity-mask'
-
-                        def is_config(self):
-                            ''' Returns True if this instance represents config data else returns False '''
-                            return True
-
-                        def _has_data(self):
-                            if not self.is_config():
-                                return False
-                            if self._is_presence:
-                                return True
-                            if self.affinity is not None:
-                                return True
-
-                            if self.mask is not None:
-                                return True
-
-                            return False
-
-                        @staticmethod
-                        def _meta_info():
-                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
-                            return meta._meta_table['MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes.P2PTeAttribute.AffinityMask']['meta_info']
-
-
-                    class NewStyleAffinities(object):
+                    class NewStyleAffinityAffinityTypes(object):
                         """
                         Tunnel new style affinity attributes table
                         
-                        .. attribute:: new_style_affinity
+                        .. attribute:: new_style_affinity_affinity_type
                         
                         	Tunnel new style affinity attribute
-                        	**type**\: list of  :py:class:`NewStyleAffinity <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes.P2PTeAttribute.NewStyleAffinities.NewStyleAffinity>`
+                        	**type**\: list of  :py:class:`NewStyleAffinityAffinityType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes.P2PTeAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityType>`
+                        
+                        .. attribute:: new_style_affinity_affinity_type_affinity1
+                        
+                        	Tunnel new style affinity attribute
+                        	**type**\: list of  :py:class:`NewStyleAffinityAffinityTypeAffinity1 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes.P2PTeAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1>`
+                        
+                        .. attribute:: new_style_affinity_affinity_type_affinity1_affinity2
+                        
+                        	Tunnel new style affinity attribute
+                        	**type**\: list of  :py:class:`NewStyleAffinityAffinityTypeAffinity1Affinity2 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes.P2PTeAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2>`
+                        
+                        .. attribute:: new_style_affinity_affinity_type_affinity1_affinity2_affinity3
+                        
+                        	Tunnel new style affinity attribute
+                        	**type**\: list of  :py:class:`NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes.P2PTeAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3>`
+                        
+                        .. attribute:: new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4
+                        
+                        	Tunnel new style affinity attribute
+                        	**type**\: list of  :py:class:`NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes.P2PTeAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4>`
+                        
+                        .. attribute:: new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5
+                        
+                        	Tunnel new style affinity attribute
+                        	**type**\: list of  :py:class:`NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes.P2PTeAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5>`
+                        
+                        .. attribute:: new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5_affinity6
+                        
+                        	Tunnel new style affinity attribute
+                        	**type**\: list of  :py:class:`NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes.P2PTeAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6>`
+                        
+                        .. attribute:: new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5_affinity6_affinity7
+                        
+                        	Tunnel new style affinity attribute
+                        	**type**\: list of  :py:class:`NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes.P2PTeAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7>`
+                        
+                        .. attribute:: new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5_affinity6_affinity7_affinity8
+                        
+                        	Tunnel new style affinity attribute
+                        	**type**\: list of  :py:class:`NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes.P2PTeAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8>`
+                        
+                        .. attribute:: new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5_affinity6_affinity7_affinity8_affinity9
+                        
+                        	Tunnel new style affinity attribute
+                        	**type**\: list of  :py:class:`NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes.P2PTeAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9>`
+                        
+                        .. attribute:: new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5_affinity6_affinity7_affinity8_affinity9_affinity10
+                        
+                        	Tunnel new style affinity attribute
+                        	**type**\: list of  :py:class:`NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9Affinity10 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes.P2PTeAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9Affinity10>`
                         
                         
 
@@ -6853,12 +13668,1097 @@ class MplsTe(object):
 
                         def __init__(self):
                             self.parent = None
-                            self.new_style_affinity = YList()
-                            self.new_style_affinity.parent = self
-                            self.new_style_affinity.name = 'new_style_affinity'
+                            self.new_style_affinity_affinity_type = YList()
+                            self.new_style_affinity_affinity_type.parent = self
+                            self.new_style_affinity_affinity_type.name = 'new_style_affinity_affinity_type'
+                            self.new_style_affinity_affinity_type_affinity1 = YList()
+                            self.new_style_affinity_affinity_type_affinity1.parent = self
+                            self.new_style_affinity_affinity_type_affinity1.name = 'new_style_affinity_affinity_type_affinity1'
+                            self.new_style_affinity_affinity_type_affinity1_affinity2 = YList()
+                            self.new_style_affinity_affinity_type_affinity1_affinity2.parent = self
+                            self.new_style_affinity_affinity_type_affinity1_affinity2.name = 'new_style_affinity_affinity_type_affinity1_affinity2'
+                            self.new_style_affinity_affinity_type_affinity1_affinity2_affinity3 = YList()
+                            self.new_style_affinity_affinity_type_affinity1_affinity2_affinity3.parent = self
+                            self.new_style_affinity_affinity_type_affinity1_affinity2_affinity3.name = 'new_style_affinity_affinity_type_affinity1_affinity2_affinity3'
+                            self.new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4 = YList()
+                            self.new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4.parent = self
+                            self.new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4.name = 'new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4'
+                            self.new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5 = YList()
+                            self.new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5.parent = self
+                            self.new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5.name = 'new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5'
+                            self.new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5_affinity6 = YList()
+                            self.new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5_affinity6.parent = self
+                            self.new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5_affinity6.name = 'new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5_affinity6'
+                            self.new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5_affinity6_affinity7 = YList()
+                            self.new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5_affinity6_affinity7.parent = self
+                            self.new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5_affinity6_affinity7.name = 'new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5_affinity6_affinity7'
+                            self.new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5_affinity6_affinity7_affinity8 = YList()
+                            self.new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5_affinity6_affinity7_affinity8.parent = self
+                            self.new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5_affinity6_affinity7_affinity8.name = 'new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5_affinity6_affinity7_affinity8'
+                            self.new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5_affinity6_affinity7_affinity8_affinity9 = YList()
+                            self.new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5_affinity6_affinity7_affinity8_affinity9.parent = self
+                            self.new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5_affinity6_affinity7_affinity8_affinity9.name = 'new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5_affinity6_affinity7_affinity8_affinity9'
+                            self.new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5_affinity6_affinity7_affinity8_affinity9_affinity10 = YList()
+                            self.new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5_affinity6_affinity7_affinity8_affinity9_affinity10.parent = self
+                            self.new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5_affinity6_affinity7_affinity8_affinity9_affinity10.name = 'new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5_affinity6_affinity7_affinity8_affinity9_affinity10'
 
 
-                        class NewStyleAffinity(object):
+                        class NewStyleAffinityAffinityType(object):
+                            """
+                            Tunnel new style affinity attribute
+                            
+                            .. attribute:: affinity_type  <key>
+                            
+                            	The type of the affinity entry
+                            	**type**\:  :py:class:`MplsTeTunnelAffinityEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeTunnelAffinityEnum>`
+                            
+                            
+
+                            """
+
+                            _prefix = 'mpls-te-cfg'
+                            _revision = '2015-11-09'
+
+                            def __init__(self):
+                                self.parent = None
+                                self.affinity_type = None
+
+                            @property
+                            def _common_path(self):
+                                if self.parent is None:
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
+                                if self.affinity_type is None:
+                                    raise YPYModelError('Key property affinity_type is None')
+
+                                return self.parent._common_path +'/Cisco-IOS-XR-mpls-te-cfg:new-style-affinity-affinity-type[Cisco-IOS-XR-mpls-te-cfg:affinity-type = ' + str(self.affinity_type) + ']'
+
+                            def is_config(self):
+                                ''' Returns True if this instance represents config data else returns False '''
+                                return True
+
+                            def _has_data(self):
+                                if not self.is_config():
+                                    return False
+                                if self.affinity_type is not None:
+                                    return True
+
+                                return False
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+                                return meta._meta_table['MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes.P2PTeAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityType']['meta_info']
+
+
+                        class NewStyleAffinityAffinityTypeAffinity1(object):
+                            """
+                            Tunnel new style affinity attribute
+                            
+                            .. attribute:: affinity1  <key>
+                            
+                            	The name of the first affinity
+                            	**type**\:  str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
+                            
+                            .. attribute:: affinity_type  <key>
+                            
+                            	The type of the affinity entry
+                            	**type**\:  :py:class:`MplsTeTunnelAffinityEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeTunnelAffinityEnum>`
+                            
+                            
+
+                            """
+
+                            _prefix = 'mpls-te-cfg'
+                            _revision = '2015-11-09'
+
+                            def __init__(self):
+                                self.parent = None
+                                self.affinity1 = None
+                                self.affinity_type = None
+
+                            @property
+                            def _common_path(self):
+                                if self.parent is None:
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
+                                if self.affinity1 is None:
+                                    raise YPYModelError('Key property affinity1 is None')
+                                if self.affinity_type is None:
+                                    raise YPYModelError('Key property affinity_type is None')
+
+                                return self.parent._common_path +'/Cisco-IOS-XR-mpls-te-cfg:new-style-affinity-affinity-type-affinity1[Cisco-IOS-XR-mpls-te-cfg:affinity1 = ' + str(self.affinity1) + '][Cisco-IOS-XR-mpls-te-cfg:affinity-type = ' + str(self.affinity_type) + ']'
+
+                            def is_config(self):
+                                ''' Returns True if this instance represents config data else returns False '''
+                                return True
+
+                            def _has_data(self):
+                                if not self.is_config():
+                                    return False
+                                if self.affinity1 is not None:
+                                    return True
+
+                                if self.affinity_type is not None:
+                                    return True
+
+                                return False
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+                                return meta._meta_table['MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes.P2PTeAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1']['meta_info']
+
+
+                        class NewStyleAffinityAffinityTypeAffinity1Affinity2(object):
+                            """
+                            Tunnel new style affinity attribute
+                            
+                            .. attribute:: affinity1  <key>
+                            
+                            	The name of the first affinity
+                            	**type**\:  str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
+                            
+                            .. attribute:: affinity2  <key>
+                            
+                            	The name of the second affinity
+                            	**type**\:  str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
+                            
+                            .. attribute:: affinity_type  <key>
+                            
+                            	The type of the affinity entry
+                            	**type**\:  :py:class:`MplsTeTunnelAffinityEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeTunnelAffinityEnum>`
+                            
+                            
+
+                            """
+
+                            _prefix = 'mpls-te-cfg'
+                            _revision = '2015-11-09'
+
+                            def __init__(self):
+                                self.parent = None
+                                self.affinity1 = None
+                                self.affinity2 = None
+                                self.affinity_type = None
+
+                            @property
+                            def _common_path(self):
+                                if self.parent is None:
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
+                                if self.affinity1 is None:
+                                    raise YPYModelError('Key property affinity1 is None')
+                                if self.affinity2 is None:
+                                    raise YPYModelError('Key property affinity2 is None')
+                                if self.affinity_type is None:
+                                    raise YPYModelError('Key property affinity_type is None')
+
+                                return self.parent._common_path +'/Cisco-IOS-XR-mpls-te-cfg:new-style-affinity-affinity-type-affinity1-affinity2[Cisco-IOS-XR-mpls-te-cfg:affinity1 = ' + str(self.affinity1) + '][Cisco-IOS-XR-mpls-te-cfg:affinity2 = ' + str(self.affinity2) + '][Cisco-IOS-XR-mpls-te-cfg:affinity-type = ' + str(self.affinity_type) + ']'
+
+                            def is_config(self):
+                                ''' Returns True if this instance represents config data else returns False '''
+                                return True
+
+                            def _has_data(self):
+                                if not self.is_config():
+                                    return False
+                                if self.affinity1 is not None:
+                                    return True
+
+                                if self.affinity2 is not None:
+                                    return True
+
+                                if self.affinity_type is not None:
+                                    return True
+
+                                return False
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+                                return meta._meta_table['MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes.P2PTeAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2']['meta_info']
+
+
+                        class NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3(object):
+                            """
+                            Tunnel new style affinity attribute
+                            
+                            .. attribute:: affinity1  <key>
+                            
+                            	The name of the first affinity
+                            	**type**\:  str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
+                            
+                            .. attribute:: affinity2  <key>
+                            
+                            	The name of the second affinity
+                            	**type**\:  str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
+                            
+                            .. attribute:: affinity3  <key>
+                            
+                            	The name of the third affinity
+                            	**type**\:  str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
+                            
+                            .. attribute:: affinity_type  <key>
+                            
+                            	The type of the affinity entry
+                            	**type**\:  :py:class:`MplsTeTunnelAffinityEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeTunnelAffinityEnum>`
+                            
+                            
+
+                            """
+
+                            _prefix = 'mpls-te-cfg'
+                            _revision = '2015-11-09'
+
+                            def __init__(self):
+                                self.parent = None
+                                self.affinity1 = None
+                                self.affinity2 = None
+                                self.affinity3 = None
+                                self.affinity_type = None
+
+                            @property
+                            def _common_path(self):
+                                if self.parent is None:
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
+                                if self.affinity1 is None:
+                                    raise YPYModelError('Key property affinity1 is None')
+                                if self.affinity2 is None:
+                                    raise YPYModelError('Key property affinity2 is None')
+                                if self.affinity3 is None:
+                                    raise YPYModelError('Key property affinity3 is None')
+                                if self.affinity_type is None:
+                                    raise YPYModelError('Key property affinity_type is None')
+
+                                return self.parent._common_path +'/Cisco-IOS-XR-mpls-te-cfg:new-style-affinity-affinity-type-affinity1-affinity2-affinity3[Cisco-IOS-XR-mpls-te-cfg:affinity1 = ' + str(self.affinity1) + '][Cisco-IOS-XR-mpls-te-cfg:affinity2 = ' + str(self.affinity2) + '][Cisco-IOS-XR-mpls-te-cfg:affinity3 = ' + str(self.affinity3) + '][Cisco-IOS-XR-mpls-te-cfg:affinity-type = ' + str(self.affinity_type) + ']'
+
+                            def is_config(self):
+                                ''' Returns True if this instance represents config data else returns False '''
+                                return True
+
+                            def _has_data(self):
+                                if not self.is_config():
+                                    return False
+                                if self.affinity1 is not None:
+                                    return True
+
+                                if self.affinity2 is not None:
+                                    return True
+
+                                if self.affinity3 is not None:
+                                    return True
+
+                                if self.affinity_type is not None:
+                                    return True
+
+                                return False
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+                                return meta._meta_table['MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes.P2PTeAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3']['meta_info']
+
+
+                        class NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4(object):
+                            """
+                            Tunnel new style affinity attribute
+                            
+                            .. attribute:: affinity1  <key>
+                            
+                            	The name of the first affinity
+                            	**type**\:  str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
+                            
+                            .. attribute:: affinity2  <key>
+                            
+                            	The name of the second affinity
+                            	**type**\:  str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
+                            
+                            .. attribute:: affinity3  <key>
+                            
+                            	The name of the third affinity
+                            	**type**\:  str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
+                            
+                            .. attribute:: affinity4  <key>
+                            
+                            	The name of the fourth affinity
+                            	**type**\:  str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
+                            
+                            .. attribute:: affinity_type  <key>
+                            
+                            	The type of the affinity entry
+                            	**type**\:  :py:class:`MplsTeTunnelAffinityEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeTunnelAffinityEnum>`
+                            
+                            
+
+                            """
+
+                            _prefix = 'mpls-te-cfg'
+                            _revision = '2015-11-09'
+
+                            def __init__(self):
+                                self.parent = None
+                                self.affinity1 = None
+                                self.affinity2 = None
+                                self.affinity3 = None
+                                self.affinity4 = None
+                                self.affinity_type = None
+
+                            @property
+                            def _common_path(self):
+                                if self.parent is None:
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
+                                if self.affinity1 is None:
+                                    raise YPYModelError('Key property affinity1 is None')
+                                if self.affinity2 is None:
+                                    raise YPYModelError('Key property affinity2 is None')
+                                if self.affinity3 is None:
+                                    raise YPYModelError('Key property affinity3 is None')
+                                if self.affinity4 is None:
+                                    raise YPYModelError('Key property affinity4 is None')
+                                if self.affinity_type is None:
+                                    raise YPYModelError('Key property affinity_type is None')
+
+                                return self.parent._common_path +'/Cisco-IOS-XR-mpls-te-cfg:new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4[Cisco-IOS-XR-mpls-te-cfg:affinity1 = ' + str(self.affinity1) + '][Cisco-IOS-XR-mpls-te-cfg:affinity2 = ' + str(self.affinity2) + '][Cisco-IOS-XR-mpls-te-cfg:affinity3 = ' + str(self.affinity3) + '][Cisco-IOS-XR-mpls-te-cfg:affinity4 = ' + str(self.affinity4) + '][Cisco-IOS-XR-mpls-te-cfg:affinity-type = ' + str(self.affinity_type) + ']'
+
+                            def is_config(self):
+                                ''' Returns True if this instance represents config data else returns False '''
+                                return True
+
+                            def _has_data(self):
+                                if not self.is_config():
+                                    return False
+                                if self.affinity1 is not None:
+                                    return True
+
+                                if self.affinity2 is not None:
+                                    return True
+
+                                if self.affinity3 is not None:
+                                    return True
+
+                                if self.affinity4 is not None:
+                                    return True
+
+                                if self.affinity_type is not None:
+                                    return True
+
+                                return False
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+                                return meta._meta_table['MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes.P2PTeAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4']['meta_info']
+
+
+                        class NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5(object):
+                            """
+                            Tunnel new style affinity attribute
+                            
+                            .. attribute:: affinity1  <key>
+                            
+                            	The name of the first affinity
+                            	**type**\:  str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
+                            
+                            .. attribute:: affinity2  <key>
+                            
+                            	The name of the second affinity
+                            	**type**\:  str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
+                            
+                            .. attribute:: affinity3  <key>
+                            
+                            	The name of the third affinity
+                            	**type**\:  str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
+                            
+                            .. attribute:: affinity4  <key>
+                            
+                            	The name of the fourth affinity
+                            	**type**\:  str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
+                            
+                            .. attribute:: affinity5  <key>
+                            
+                            	The name of the fifth affinity
+                            	**type**\:  str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
+                            
+                            .. attribute:: affinity_type  <key>
+                            
+                            	The type of the affinity entry
+                            	**type**\:  :py:class:`MplsTeTunnelAffinityEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeTunnelAffinityEnum>`
+                            
+                            
+
+                            """
+
+                            _prefix = 'mpls-te-cfg'
+                            _revision = '2015-11-09'
+
+                            def __init__(self):
+                                self.parent = None
+                                self.affinity1 = None
+                                self.affinity2 = None
+                                self.affinity3 = None
+                                self.affinity4 = None
+                                self.affinity5 = None
+                                self.affinity_type = None
+
+                            @property
+                            def _common_path(self):
+                                if self.parent is None:
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
+                                if self.affinity1 is None:
+                                    raise YPYModelError('Key property affinity1 is None')
+                                if self.affinity2 is None:
+                                    raise YPYModelError('Key property affinity2 is None')
+                                if self.affinity3 is None:
+                                    raise YPYModelError('Key property affinity3 is None')
+                                if self.affinity4 is None:
+                                    raise YPYModelError('Key property affinity4 is None')
+                                if self.affinity5 is None:
+                                    raise YPYModelError('Key property affinity5 is None')
+                                if self.affinity_type is None:
+                                    raise YPYModelError('Key property affinity_type is None')
+
+                                return self.parent._common_path +'/Cisco-IOS-XR-mpls-te-cfg:new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5[Cisco-IOS-XR-mpls-te-cfg:affinity1 = ' + str(self.affinity1) + '][Cisco-IOS-XR-mpls-te-cfg:affinity2 = ' + str(self.affinity2) + '][Cisco-IOS-XR-mpls-te-cfg:affinity3 = ' + str(self.affinity3) + '][Cisco-IOS-XR-mpls-te-cfg:affinity4 = ' + str(self.affinity4) + '][Cisco-IOS-XR-mpls-te-cfg:affinity5 = ' + str(self.affinity5) + '][Cisco-IOS-XR-mpls-te-cfg:affinity-type = ' + str(self.affinity_type) + ']'
+
+                            def is_config(self):
+                                ''' Returns True if this instance represents config data else returns False '''
+                                return True
+
+                            def _has_data(self):
+                                if not self.is_config():
+                                    return False
+                                if self.affinity1 is not None:
+                                    return True
+
+                                if self.affinity2 is not None:
+                                    return True
+
+                                if self.affinity3 is not None:
+                                    return True
+
+                                if self.affinity4 is not None:
+                                    return True
+
+                                if self.affinity5 is not None:
+                                    return True
+
+                                if self.affinity_type is not None:
+                                    return True
+
+                                return False
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+                                return meta._meta_table['MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes.P2PTeAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5']['meta_info']
+
+
+                        class NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6(object):
+                            """
+                            Tunnel new style affinity attribute
+                            
+                            .. attribute:: affinity1  <key>
+                            
+                            	The name of the first affinity
+                            	**type**\:  str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
+                            
+                            .. attribute:: affinity2  <key>
+                            
+                            	The name of the second affinity
+                            	**type**\:  str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
+                            
+                            .. attribute:: affinity3  <key>
+                            
+                            	The name of the third affinity
+                            	**type**\:  str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
+                            
+                            .. attribute:: affinity4  <key>
+                            
+                            	The name of the fourth affinity
+                            	**type**\:  str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
+                            
+                            .. attribute:: affinity5  <key>
+                            
+                            	The name of the fifth affinity
+                            	**type**\:  str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
+                            
+                            .. attribute:: affinity6  <key>
+                            
+                            	The name of the sixth affinity
+                            	**type**\:  str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
+                            
+                            .. attribute:: affinity_type  <key>
+                            
+                            	The type of the affinity entry
+                            	**type**\:  :py:class:`MplsTeTunnelAffinityEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeTunnelAffinityEnum>`
+                            
+                            
+
+                            """
+
+                            _prefix = 'mpls-te-cfg'
+                            _revision = '2015-11-09'
+
+                            def __init__(self):
+                                self.parent = None
+                                self.affinity1 = None
+                                self.affinity2 = None
+                                self.affinity3 = None
+                                self.affinity4 = None
+                                self.affinity5 = None
+                                self.affinity6 = None
+                                self.affinity_type = None
+
+                            @property
+                            def _common_path(self):
+                                if self.parent is None:
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
+                                if self.affinity1 is None:
+                                    raise YPYModelError('Key property affinity1 is None')
+                                if self.affinity2 is None:
+                                    raise YPYModelError('Key property affinity2 is None')
+                                if self.affinity3 is None:
+                                    raise YPYModelError('Key property affinity3 is None')
+                                if self.affinity4 is None:
+                                    raise YPYModelError('Key property affinity4 is None')
+                                if self.affinity5 is None:
+                                    raise YPYModelError('Key property affinity5 is None')
+                                if self.affinity6 is None:
+                                    raise YPYModelError('Key property affinity6 is None')
+                                if self.affinity_type is None:
+                                    raise YPYModelError('Key property affinity_type is None')
+
+                                return self.parent._common_path +'/Cisco-IOS-XR-mpls-te-cfg:new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5-affinity6[Cisco-IOS-XR-mpls-te-cfg:affinity1 = ' + str(self.affinity1) + '][Cisco-IOS-XR-mpls-te-cfg:affinity2 = ' + str(self.affinity2) + '][Cisco-IOS-XR-mpls-te-cfg:affinity3 = ' + str(self.affinity3) + '][Cisco-IOS-XR-mpls-te-cfg:affinity4 = ' + str(self.affinity4) + '][Cisco-IOS-XR-mpls-te-cfg:affinity5 = ' + str(self.affinity5) + '][Cisco-IOS-XR-mpls-te-cfg:affinity6 = ' + str(self.affinity6) + '][Cisco-IOS-XR-mpls-te-cfg:affinity-type = ' + str(self.affinity_type) + ']'
+
+                            def is_config(self):
+                                ''' Returns True if this instance represents config data else returns False '''
+                                return True
+
+                            def _has_data(self):
+                                if not self.is_config():
+                                    return False
+                                if self.affinity1 is not None:
+                                    return True
+
+                                if self.affinity2 is not None:
+                                    return True
+
+                                if self.affinity3 is not None:
+                                    return True
+
+                                if self.affinity4 is not None:
+                                    return True
+
+                                if self.affinity5 is not None:
+                                    return True
+
+                                if self.affinity6 is not None:
+                                    return True
+
+                                if self.affinity_type is not None:
+                                    return True
+
+                                return False
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+                                return meta._meta_table['MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes.P2PTeAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6']['meta_info']
+
+
+                        class NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7(object):
+                            """
+                            Tunnel new style affinity attribute
+                            
+                            .. attribute:: affinity1  <key>
+                            
+                            	The name of the first affinity
+                            	**type**\:  str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
+                            
+                            .. attribute:: affinity2  <key>
+                            
+                            	The name of the second affinity
+                            	**type**\:  str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
+                            
+                            .. attribute:: affinity3  <key>
+                            
+                            	The name of the third affinity
+                            	**type**\:  str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
+                            
+                            .. attribute:: affinity4  <key>
+                            
+                            	The name of the fourth affinity
+                            	**type**\:  str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
+                            
+                            .. attribute:: affinity5  <key>
+                            
+                            	The name of the fifth affinity
+                            	**type**\:  str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
+                            
+                            .. attribute:: affinity6  <key>
+                            
+                            	The name of the sixth affinity
+                            	**type**\:  str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
+                            
+                            .. attribute:: affinity7  <key>
+                            
+                            	The name of the seventh affinity
+                            	**type**\:  str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
+                            
+                            .. attribute:: affinity_type  <key>
+                            
+                            	The type of the affinity entry
+                            	**type**\:  :py:class:`MplsTeTunnelAffinityEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeTunnelAffinityEnum>`
+                            
+                            
+
+                            """
+
+                            _prefix = 'mpls-te-cfg'
+                            _revision = '2015-11-09'
+
+                            def __init__(self):
+                                self.parent = None
+                                self.affinity1 = None
+                                self.affinity2 = None
+                                self.affinity3 = None
+                                self.affinity4 = None
+                                self.affinity5 = None
+                                self.affinity6 = None
+                                self.affinity7 = None
+                                self.affinity_type = None
+
+                            @property
+                            def _common_path(self):
+                                if self.parent is None:
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
+                                if self.affinity1 is None:
+                                    raise YPYModelError('Key property affinity1 is None')
+                                if self.affinity2 is None:
+                                    raise YPYModelError('Key property affinity2 is None')
+                                if self.affinity3 is None:
+                                    raise YPYModelError('Key property affinity3 is None')
+                                if self.affinity4 is None:
+                                    raise YPYModelError('Key property affinity4 is None')
+                                if self.affinity5 is None:
+                                    raise YPYModelError('Key property affinity5 is None')
+                                if self.affinity6 is None:
+                                    raise YPYModelError('Key property affinity6 is None')
+                                if self.affinity7 is None:
+                                    raise YPYModelError('Key property affinity7 is None')
+                                if self.affinity_type is None:
+                                    raise YPYModelError('Key property affinity_type is None')
+
+                                return self.parent._common_path +'/Cisco-IOS-XR-mpls-te-cfg:new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5-affinity6-affinity7[Cisco-IOS-XR-mpls-te-cfg:affinity1 = ' + str(self.affinity1) + '][Cisco-IOS-XR-mpls-te-cfg:affinity2 = ' + str(self.affinity2) + '][Cisco-IOS-XR-mpls-te-cfg:affinity3 = ' + str(self.affinity3) + '][Cisco-IOS-XR-mpls-te-cfg:affinity4 = ' + str(self.affinity4) + '][Cisco-IOS-XR-mpls-te-cfg:affinity5 = ' + str(self.affinity5) + '][Cisco-IOS-XR-mpls-te-cfg:affinity6 = ' + str(self.affinity6) + '][Cisco-IOS-XR-mpls-te-cfg:affinity7 = ' + str(self.affinity7) + '][Cisco-IOS-XR-mpls-te-cfg:affinity-type = ' + str(self.affinity_type) + ']'
+
+                            def is_config(self):
+                                ''' Returns True if this instance represents config data else returns False '''
+                                return True
+
+                            def _has_data(self):
+                                if not self.is_config():
+                                    return False
+                                if self.affinity1 is not None:
+                                    return True
+
+                                if self.affinity2 is not None:
+                                    return True
+
+                                if self.affinity3 is not None:
+                                    return True
+
+                                if self.affinity4 is not None:
+                                    return True
+
+                                if self.affinity5 is not None:
+                                    return True
+
+                                if self.affinity6 is not None:
+                                    return True
+
+                                if self.affinity7 is not None:
+                                    return True
+
+                                if self.affinity_type is not None:
+                                    return True
+
+                                return False
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+                                return meta._meta_table['MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes.P2PTeAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7']['meta_info']
+
+
+                        class NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8(object):
+                            """
+                            Tunnel new style affinity attribute
+                            
+                            .. attribute:: affinity1  <key>
+                            
+                            	The name of the first affinity
+                            	**type**\:  str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
+                            
+                            .. attribute:: affinity2  <key>
+                            
+                            	The name of the second affinity
+                            	**type**\:  str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
+                            
+                            .. attribute:: affinity3  <key>
+                            
+                            	The name of the third affinity
+                            	**type**\:  str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
+                            
+                            .. attribute:: affinity4  <key>
+                            
+                            	The name of the fourth affinity
+                            	**type**\:  str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
+                            
+                            .. attribute:: affinity5  <key>
+                            
+                            	The name of the fifth affinity
+                            	**type**\:  str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
+                            
+                            .. attribute:: affinity6  <key>
+                            
+                            	The name of the sixth affinity
+                            	**type**\:  str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
+                            
+                            .. attribute:: affinity7  <key>
+                            
+                            	The name of the seventh affinity
+                            	**type**\:  str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
+                            
+                            .. attribute:: affinity8  <key>
+                            
+                            	The name of the eighth affinity
+                            	**type**\:  str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
+                            
+                            .. attribute:: affinity_type  <key>
+                            
+                            	The type of the affinity entry
+                            	**type**\:  :py:class:`MplsTeTunnelAffinityEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeTunnelAffinityEnum>`
+                            
+                            
+
+                            """
+
+                            _prefix = 'mpls-te-cfg'
+                            _revision = '2015-11-09'
+
+                            def __init__(self):
+                                self.parent = None
+                                self.affinity1 = None
+                                self.affinity2 = None
+                                self.affinity3 = None
+                                self.affinity4 = None
+                                self.affinity5 = None
+                                self.affinity6 = None
+                                self.affinity7 = None
+                                self.affinity8 = None
+                                self.affinity_type = None
+
+                            @property
+                            def _common_path(self):
+                                if self.parent is None:
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
+                                if self.affinity1 is None:
+                                    raise YPYModelError('Key property affinity1 is None')
+                                if self.affinity2 is None:
+                                    raise YPYModelError('Key property affinity2 is None')
+                                if self.affinity3 is None:
+                                    raise YPYModelError('Key property affinity3 is None')
+                                if self.affinity4 is None:
+                                    raise YPYModelError('Key property affinity4 is None')
+                                if self.affinity5 is None:
+                                    raise YPYModelError('Key property affinity5 is None')
+                                if self.affinity6 is None:
+                                    raise YPYModelError('Key property affinity6 is None')
+                                if self.affinity7 is None:
+                                    raise YPYModelError('Key property affinity7 is None')
+                                if self.affinity8 is None:
+                                    raise YPYModelError('Key property affinity8 is None')
+                                if self.affinity_type is None:
+                                    raise YPYModelError('Key property affinity_type is None')
+
+                                return self.parent._common_path +'/Cisco-IOS-XR-mpls-te-cfg:new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5-affinity6-affinity7-affinity8[Cisco-IOS-XR-mpls-te-cfg:affinity1 = ' + str(self.affinity1) + '][Cisco-IOS-XR-mpls-te-cfg:affinity2 = ' + str(self.affinity2) + '][Cisco-IOS-XR-mpls-te-cfg:affinity3 = ' + str(self.affinity3) + '][Cisco-IOS-XR-mpls-te-cfg:affinity4 = ' + str(self.affinity4) + '][Cisco-IOS-XR-mpls-te-cfg:affinity5 = ' + str(self.affinity5) + '][Cisco-IOS-XR-mpls-te-cfg:affinity6 = ' + str(self.affinity6) + '][Cisco-IOS-XR-mpls-te-cfg:affinity7 = ' + str(self.affinity7) + '][Cisco-IOS-XR-mpls-te-cfg:affinity8 = ' + str(self.affinity8) + '][Cisco-IOS-XR-mpls-te-cfg:affinity-type = ' + str(self.affinity_type) + ']'
+
+                            def is_config(self):
+                                ''' Returns True if this instance represents config data else returns False '''
+                                return True
+
+                            def _has_data(self):
+                                if not self.is_config():
+                                    return False
+                                if self.affinity1 is not None:
+                                    return True
+
+                                if self.affinity2 is not None:
+                                    return True
+
+                                if self.affinity3 is not None:
+                                    return True
+
+                                if self.affinity4 is not None:
+                                    return True
+
+                                if self.affinity5 is not None:
+                                    return True
+
+                                if self.affinity6 is not None:
+                                    return True
+
+                                if self.affinity7 is not None:
+                                    return True
+
+                                if self.affinity8 is not None:
+                                    return True
+
+                                if self.affinity_type is not None:
+                                    return True
+
+                                return False
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+                                return meta._meta_table['MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes.P2PTeAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8']['meta_info']
+
+
+                        class NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9(object):
+                            """
+                            Tunnel new style affinity attribute
+                            
+                            .. attribute:: affinity1  <key>
+                            
+                            	The name of the first affinity
+                            	**type**\:  str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
+                            
+                            .. attribute:: affinity2  <key>
+                            
+                            	The name of the second affinity
+                            	**type**\:  str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
+                            
+                            .. attribute:: affinity3  <key>
+                            
+                            	The name of the third affinity
+                            	**type**\:  str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
+                            
+                            .. attribute:: affinity4  <key>
+                            
+                            	The name of the fourth affinity
+                            	**type**\:  str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
+                            
+                            .. attribute:: affinity5  <key>
+                            
+                            	The name of the fifth affinity
+                            	**type**\:  str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
+                            
+                            .. attribute:: affinity6  <key>
+                            
+                            	The name of the sixth affinity
+                            	**type**\:  str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
+                            
+                            .. attribute:: affinity7  <key>
+                            
+                            	The name of the seventh affinity
+                            	**type**\:  str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
+                            
+                            .. attribute:: affinity8  <key>
+                            
+                            	The name of the eighth affinity
+                            	**type**\:  str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
+                            
+                            .. attribute:: affinity9  <key>
+                            
+                            	The name of the nineth affinity
+                            	**type**\:  str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
+                            
+                            .. attribute:: affinity_type  <key>
+                            
+                            	The type of the affinity entry
+                            	**type**\:  :py:class:`MplsTeTunnelAffinityEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeTunnelAffinityEnum>`
+                            
+                            
+
+                            """
+
+                            _prefix = 'mpls-te-cfg'
+                            _revision = '2015-11-09'
+
+                            def __init__(self):
+                                self.parent = None
+                                self.affinity1 = None
+                                self.affinity2 = None
+                                self.affinity3 = None
+                                self.affinity4 = None
+                                self.affinity5 = None
+                                self.affinity6 = None
+                                self.affinity7 = None
+                                self.affinity8 = None
+                                self.affinity9 = None
+                                self.affinity_type = None
+
+                            @property
+                            def _common_path(self):
+                                if self.parent is None:
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
+                                if self.affinity1 is None:
+                                    raise YPYModelError('Key property affinity1 is None')
+                                if self.affinity2 is None:
+                                    raise YPYModelError('Key property affinity2 is None')
+                                if self.affinity3 is None:
+                                    raise YPYModelError('Key property affinity3 is None')
+                                if self.affinity4 is None:
+                                    raise YPYModelError('Key property affinity4 is None')
+                                if self.affinity5 is None:
+                                    raise YPYModelError('Key property affinity5 is None')
+                                if self.affinity6 is None:
+                                    raise YPYModelError('Key property affinity6 is None')
+                                if self.affinity7 is None:
+                                    raise YPYModelError('Key property affinity7 is None')
+                                if self.affinity8 is None:
+                                    raise YPYModelError('Key property affinity8 is None')
+                                if self.affinity9 is None:
+                                    raise YPYModelError('Key property affinity9 is None')
+                                if self.affinity_type is None:
+                                    raise YPYModelError('Key property affinity_type is None')
+
+                                return self.parent._common_path +'/Cisco-IOS-XR-mpls-te-cfg:new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5-affinity6-affinity7-affinity8-affinity9[Cisco-IOS-XR-mpls-te-cfg:affinity1 = ' + str(self.affinity1) + '][Cisco-IOS-XR-mpls-te-cfg:affinity2 = ' + str(self.affinity2) + '][Cisco-IOS-XR-mpls-te-cfg:affinity3 = ' + str(self.affinity3) + '][Cisco-IOS-XR-mpls-te-cfg:affinity4 = ' + str(self.affinity4) + '][Cisco-IOS-XR-mpls-te-cfg:affinity5 = ' + str(self.affinity5) + '][Cisco-IOS-XR-mpls-te-cfg:affinity6 = ' + str(self.affinity6) + '][Cisco-IOS-XR-mpls-te-cfg:affinity7 = ' + str(self.affinity7) + '][Cisco-IOS-XR-mpls-te-cfg:affinity8 = ' + str(self.affinity8) + '][Cisco-IOS-XR-mpls-te-cfg:affinity9 = ' + str(self.affinity9) + '][Cisco-IOS-XR-mpls-te-cfg:affinity-type = ' + str(self.affinity_type) + ']'
+
+                            def is_config(self):
+                                ''' Returns True if this instance represents config data else returns False '''
+                                return True
+
+                            def _has_data(self):
+                                if not self.is_config():
+                                    return False
+                                if self.affinity1 is not None:
+                                    return True
+
+                                if self.affinity2 is not None:
+                                    return True
+
+                                if self.affinity3 is not None:
+                                    return True
+
+                                if self.affinity4 is not None:
+                                    return True
+
+                                if self.affinity5 is not None:
+                                    return True
+
+                                if self.affinity6 is not None:
+                                    return True
+
+                                if self.affinity7 is not None:
+                                    return True
+
+                                if self.affinity8 is not None:
+                                    return True
+
+                                if self.affinity9 is not None:
+                                    return True
+
+                                if self.affinity_type is not None:
+                                    return True
+
+                                return False
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+                                return meta._meta_table['MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes.P2PTeAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9']['meta_info']
+
+
+                        class NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9Affinity10(object):
                             """
                             Tunnel new style affinity attribute
                             
@@ -6985,7 +14885,7 @@ class MplsTe(object):
                                 if self.affinity_type is None:
                                     raise YPYModelError('Key property affinity_type is None')
 
-                                return self.parent._common_path +'/Cisco-IOS-XR-mpls-te-cfg:new-style-affinity[Cisco-IOS-XR-mpls-te-cfg:affinity1 = ' + str(self.affinity1) + '][Cisco-IOS-XR-mpls-te-cfg:affinity10 = ' + str(self.affinity10) + '][Cisco-IOS-XR-mpls-te-cfg:affinity2 = ' + str(self.affinity2) + '][Cisco-IOS-XR-mpls-te-cfg:affinity3 = ' + str(self.affinity3) + '][Cisco-IOS-XR-mpls-te-cfg:affinity4 = ' + str(self.affinity4) + '][Cisco-IOS-XR-mpls-te-cfg:affinity5 = ' + str(self.affinity5) + '][Cisco-IOS-XR-mpls-te-cfg:affinity6 = ' + str(self.affinity6) + '][Cisco-IOS-XR-mpls-te-cfg:affinity7 = ' + str(self.affinity7) + '][Cisco-IOS-XR-mpls-te-cfg:affinity8 = ' + str(self.affinity8) + '][Cisco-IOS-XR-mpls-te-cfg:affinity9 = ' + str(self.affinity9) + '][Cisco-IOS-XR-mpls-te-cfg:affinity-type = ' + str(self.affinity_type) + ']'
+                                return self.parent._common_path +'/Cisco-IOS-XR-mpls-te-cfg:new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5-affinity6-affinity7-affinity8-affinity9-affinity10[Cisco-IOS-XR-mpls-te-cfg:affinity1 = ' + str(self.affinity1) + '][Cisco-IOS-XR-mpls-te-cfg:affinity10 = ' + str(self.affinity10) + '][Cisco-IOS-XR-mpls-te-cfg:affinity2 = ' + str(self.affinity2) + '][Cisco-IOS-XR-mpls-te-cfg:affinity3 = ' + str(self.affinity3) + '][Cisco-IOS-XR-mpls-te-cfg:affinity4 = ' + str(self.affinity4) + '][Cisco-IOS-XR-mpls-te-cfg:affinity5 = ' + str(self.affinity5) + '][Cisco-IOS-XR-mpls-te-cfg:affinity6 = ' + str(self.affinity6) + '][Cisco-IOS-XR-mpls-te-cfg:affinity7 = ' + str(self.affinity7) + '][Cisco-IOS-XR-mpls-te-cfg:affinity8 = ' + str(self.affinity8) + '][Cisco-IOS-XR-mpls-te-cfg:affinity9 = ' + str(self.affinity9) + '][Cisco-IOS-XR-mpls-te-cfg:affinity-type = ' + str(self.affinity_type) + ']'
 
                             def is_config(self):
                                 ''' Returns True if this instance represents config data else returns False '''
@@ -7032,14 +14932,14 @@ class MplsTe(object):
                             @staticmethod
                             def _meta_info():
                                 from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
-                                return meta._meta_table['MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes.P2PTeAttribute.NewStyleAffinities.NewStyleAffinity']['meta_info']
+                                return meta._meta_table['MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes.P2PTeAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9Affinity10']['meta_info']
 
                         @property
                         def _common_path(self):
                             if self.parent is None:
                                 raise YPYModelError('parent is not set . Cannot derive path.')
 
-                            return self.parent._common_path +'/Cisco-IOS-XR-mpls-te-cfg:new-style-affinities'
+                            return self.parent._common_path +'/Cisco-IOS-XR-mpls-te-cfg:new-style-affinity-affinity-types'
 
                         def is_config(self):
                             ''' Returns True if this instance represents config data else returns False '''
@@ -7048,8 +14948,58 @@ class MplsTe(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.new_style_affinity is not None:
-                                for child_ref in self.new_style_affinity:
+                            if self.new_style_affinity_affinity_type is not None:
+                                for child_ref in self.new_style_affinity_affinity_type:
+                                    if child_ref._has_data():
+                                        return True
+
+                            if self.new_style_affinity_affinity_type_affinity1 is not None:
+                                for child_ref in self.new_style_affinity_affinity_type_affinity1:
+                                    if child_ref._has_data():
+                                        return True
+
+                            if self.new_style_affinity_affinity_type_affinity1_affinity2 is not None:
+                                for child_ref in self.new_style_affinity_affinity_type_affinity1_affinity2:
+                                    if child_ref._has_data():
+                                        return True
+
+                            if self.new_style_affinity_affinity_type_affinity1_affinity2_affinity3 is not None:
+                                for child_ref in self.new_style_affinity_affinity_type_affinity1_affinity2_affinity3:
+                                    if child_ref._has_data():
+                                        return True
+
+                            if self.new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4 is not None:
+                                for child_ref in self.new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4:
+                                    if child_ref._has_data():
+                                        return True
+
+                            if self.new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5 is not None:
+                                for child_ref in self.new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5:
+                                    if child_ref._has_data():
+                                        return True
+
+                            if self.new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5_affinity6 is not None:
+                                for child_ref in self.new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5_affinity6:
+                                    if child_ref._has_data():
+                                        return True
+
+                            if self.new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5_affinity6_affinity7 is not None:
+                                for child_ref in self.new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5_affinity6_affinity7:
+                                    if child_ref._has_data():
+                                        return True
+
+                            if self.new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5_affinity6_affinity7_affinity8 is not None:
+                                for child_ref in self.new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5_affinity6_affinity7_affinity8:
+                                    if child_ref._has_data():
+                                        return True
+
+                            if self.new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5_affinity6_affinity7_affinity8_affinity9 is not None:
+                                for child_ref in self.new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5_affinity6_affinity7_affinity8_affinity9:
+                                    if child_ref._has_data():
+                                        return True
+
+                            if self.new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5_affinity6_affinity7_affinity8_affinity9_affinity10 is not None:
+                                for child_ref in self.new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5_affinity6_affinity7_affinity8_affinity9_affinity10:
                                     if child_ref._has_data():
                                         return True
 
@@ -7058,7 +15008,7 @@ class MplsTe(object):
                         @staticmethod
                         def _meta_info():
                             from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
-                            return meta._meta_table['MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes.P2PTeAttribute.NewStyleAffinities']['meta_info']
+                            return meta._meta_table['MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes.P2PTeAttribute.NewStyleAffinityAffinityTypes']['meta_info']
 
                     @property
                     def _common_path(self):
@@ -7086,10 +15036,13 @@ class MplsTe(object):
                         if self.logging is not None and self.logging._has_data():
                             return True
 
-                        if self.new_style_affinities is not None and self.new_style_affinities._has_data():
+                        if self.new_style_affinity_affinity_types is not None and self.new_style_affinity_affinity_types._has_data():
                             return True
 
                         if self.path_selection is not None and self.path_selection._has_data():
+                            return True
+
+                        if self.pce is not None and self.pce._has_data():
                             return True
 
                         return False
@@ -7173,10 +15126,15 @@ class MplsTe(object):
                     	Attribute\-set enable object that controls whether this attribute\-set is configured or not .This object must be set before other configuration supplied for this attribute\-set
                     	**type**\:  :py:class:`Empty <ydk.types.Empty>`
                     
-                    .. attribute:: new_style_affinities
+                    .. attribute:: new_style_affinity_affinity_types
                     
                     	Tunnel new style affinity attributes table
-                    	**type**\:  :py:class:`NewStyleAffinities <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.AutoBackupAttributes.AutoBackupAttribute.NewStyleAffinities>`
+                    	**type**\:  :py:class:`NewStyleAffinityAffinityTypes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.AutoBackupAttributes.AutoBackupAttribute.NewStyleAffinityAffinityTypes>`
+                    
+                    .. attribute:: path_selection
+                    
+                    	Configure path selection properties
+                    	**type**\:  :py:class:`PathSelection <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.AutoBackupAttributes.AutoBackupAttribute.PathSelection>`
                     
                     .. attribute:: policy_classes
                     
@@ -7212,8 +15170,10 @@ class MplsTe(object):
                         self.auto_backup_logging = MplsTe.GlobalAttributes.AttributeSet.AutoBackupAttributes.AutoBackupAttribute.AutoBackupLogging()
                         self.auto_backup_logging.parent = self
                         self.enable = None
-                        self.new_style_affinities = MplsTe.GlobalAttributes.AttributeSet.AutoBackupAttributes.AutoBackupAttribute.NewStyleAffinities()
-                        self.new_style_affinities.parent = self
+                        self.new_style_affinity_affinity_types = MplsTe.GlobalAttributes.AttributeSet.AutoBackupAttributes.AutoBackupAttribute.NewStyleAffinityAffinityTypes()
+                        self.new_style_affinity_affinity_types.parent = self
+                        self.path_selection = MplsTe.GlobalAttributes.AttributeSet.AutoBackupAttributes.AutoBackupAttribute.PathSelection()
+                        self.path_selection.parent = self
                         self.policy_classes = MplsTe.GlobalAttributes.AttributeSet.AutoBackupAttributes.AutoBackupAttribute.PolicyClasses()
                         self.policy_classes.parent = self
                         self.priority = None
@@ -7510,6 +15470,51 @@ class MplsTe(object):
                             return meta._meta_table['MplsTe.GlobalAttributes.AttributeSet.AutoBackupAttributes.AutoBackupAttribute.AffinityMask']['meta_info']
 
 
+                    class PathSelection(object):
+                        """
+                        Configure path selection properties
+                        
+                        .. attribute:: enable
+                        
+                        	Enable path selection
+                        	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                        
+                        
+
+                        """
+
+                        _prefix = 'mpls-te-cfg'
+                        _revision = '2015-11-09'
+
+                        def __init__(self):
+                            self.parent = None
+                            self.enable = None
+
+                        @property
+                        def _common_path(self):
+                            if self.parent is None:
+                                raise YPYModelError('parent is not set . Cannot derive path.')
+
+                            return self.parent._common_path +'/Cisco-IOS-XR-mpls-te-cfg:path-selection'
+
+                        def is_config(self):
+                            ''' Returns True if this instance represents config data else returns False '''
+                            return True
+
+                        def _has_data(self):
+                            if not self.is_config():
+                                return False
+                            if self.enable is not None:
+                                return True
+
+                            return False
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+                            return meta._meta_table['MplsTe.GlobalAttributes.AttributeSet.AutoBackupAttributes.AutoBackupAttribute.PathSelection']['meta_info']
+
+
                     class PolicyClasses(object):
                         """
                         Policy classes for PBTS
@@ -7561,14 +15566,64 @@ class MplsTe(object):
                             return meta._meta_table['MplsTe.GlobalAttributes.AttributeSet.AutoBackupAttributes.AutoBackupAttribute.PolicyClasses']['meta_info']
 
 
-                    class NewStyleAffinities(object):
+                    class NewStyleAffinityAffinityTypes(object):
                         """
                         Tunnel new style affinity attributes table
                         
-                        .. attribute:: new_style_affinity
+                        .. attribute:: new_style_affinity_affinity_type
                         
                         	Tunnel new style affinity attribute
-                        	**type**\: list of  :py:class:`NewStyleAffinity <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.AutoBackupAttributes.AutoBackupAttribute.NewStyleAffinities.NewStyleAffinity>`
+                        	**type**\: list of  :py:class:`NewStyleAffinityAffinityType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.AutoBackupAttributes.AutoBackupAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityType>`
+                        
+                        .. attribute:: new_style_affinity_affinity_type_affinity1
+                        
+                        	Tunnel new style affinity attribute
+                        	**type**\: list of  :py:class:`NewStyleAffinityAffinityTypeAffinity1 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.AutoBackupAttributes.AutoBackupAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1>`
+                        
+                        .. attribute:: new_style_affinity_affinity_type_affinity1_affinity2
+                        
+                        	Tunnel new style affinity attribute
+                        	**type**\: list of  :py:class:`NewStyleAffinityAffinityTypeAffinity1Affinity2 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.AutoBackupAttributes.AutoBackupAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2>`
+                        
+                        .. attribute:: new_style_affinity_affinity_type_affinity1_affinity2_affinity3
+                        
+                        	Tunnel new style affinity attribute
+                        	**type**\: list of  :py:class:`NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.AutoBackupAttributes.AutoBackupAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3>`
+                        
+                        .. attribute:: new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4
+                        
+                        	Tunnel new style affinity attribute
+                        	**type**\: list of  :py:class:`NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.AutoBackupAttributes.AutoBackupAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4>`
+                        
+                        .. attribute:: new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5
+                        
+                        	Tunnel new style affinity attribute
+                        	**type**\: list of  :py:class:`NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.AutoBackupAttributes.AutoBackupAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5>`
+                        
+                        .. attribute:: new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5_affinity6
+                        
+                        	Tunnel new style affinity attribute
+                        	**type**\: list of  :py:class:`NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.AutoBackupAttributes.AutoBackupAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6>`
+                        
+                        .. attribute:: new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5_affinity6_affinity7
+                        
+                        	Tunnel new style affinity attribute
+                        	**type**\: list of  :py:class:`NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.AutoBackupAttributes.AutoBackupAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7>`
+                        
+                        .. attribute:: new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5_affinity6_affinity7_affinity8
+                        
+                        	Tunnel new style affinity attribute
+                        	**type**\: list of  :py:class:`NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.AutoBackupAttributes.AutoBackupAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8>`
+                        
+                        .. attribute:: new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5_affinity6_affinity7_affinity8_affinity9
+                        
+                        	Tunnel new style affinity attribute
+                        	**type**\: list of  :py:class:`NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.AutoBackupAttributes.AutoBackupAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9>`
+                        
+                        .. attribute:: new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5_affinity6_affinity7_affinity8_affinity9_affinity10
+                        
+                        	Tunnel new style affinity attribute
+                        	**type**\: list of  :py:class:`NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9Affinity10 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.AutoBackupAttributes.AutoBackupAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9Affinity10>`
                         
                         
 
@@ -7579,12 +15634,1097 @@ class MplsTe(object):
 
                         def __init__(self):
                             self.parent = None
-                            self.new_style_affinity = YList()
-                            self.new_style_affinity.parent = self
-                            self.new_style_affinity.name = 'new_style_affinity'
+                            self.new_style_affinity_affinity_type = YList()
+                            self.new_style_affinity_affinity_type.parent = self
+                            self.new_style_affinity_affinity_type.name = 'new_style_affinity_affinity_type'
+                            self.new_style_affinity_affinity_type_affinity1 = YList()
+                            self.new_style_affinity_affinity_type_affinity1.parent = self
+                            self.new_style_affinity_affinity_type_affinity1.name = 'new_style_affinity_affinity_type_affinity1'
+                            self.new_style_affinity_affinity_type_affinity1_affinity2 = YList()
+                            self.new_style_affinity_affinity_type_affinity1_affinity2.parent = self
+                            self.new_style_affinity_affinity_type_affinity1_affinity2.name = 'new_style_affinity_affinity_type_affinity1_affinity2'
+                            self.new_style_affinity_affinity_type_affinity1_affinity2_affinity3 = YList()
+                            self.new_style_affinity_affinity_type_affinity1_affinity2_affinity3.parent = self
+                            self.new_style_affinity_affinity_type_affinity1_affinity2_affinity3.name = 'new_style_affinity_affinity_type_affinity1_affinity2_affinity3'
+                            self.new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4 = YList()
+                            self.new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4.parent = self
+                            self.new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4.name = 'new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4'
+                            self.new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5 = YList()
+                            self.new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5.parent = self
+                            self.new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5.name = 'new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5'
+                            self.new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5_affinity6 = YList()
+                            self.new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5_affinity6.parent = self
+                            self.new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5_affinity6.name = 'new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5_affinity6'
+                            self.new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5_affinity6_affinity7 = YList()
+                            self.new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5_affinity6_affinity7.parent = self
+                            self.new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5_affinity6_affinity7.name = 'new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5_affinity6_affinity7'
+                            self.new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5_affinity6_affinity7_affinity8 = YList()
+                            self.new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5_affinity6_affinity7_affinity8.parent = self
+                            self.new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5_affinity6_affinity7_affinity8.name = 'new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5_affinity6_affinity7_affinity8'
+                            self.new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5_affinity6_affinity7_affinity8_affinity9 = YList()
+                            self.new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5_affinity6_affinity7_affinity8_affinity9.parent = self
+                            self.new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5_affinity6_affinity7_affinity8_affinity9.name = 'new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5_affinity6_affinity7_affinity8_affinity9'
+                            self.new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5_affinity6_affinity7_affinity8_affinity9_affinity10 = YList()
+                            self.new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5_affinity6_affinity7_affinity8_affinity9_affinity10.parent = self
+                            self.new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5_affinity6_affinity7_affinity8_affinity9_affinity10.name = 'new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5_affinity6_affinity7_affinity8_affinity9_affinity10'
 
 
-                        class NewStyleAffinity(object):
+                        class NewStyleAffinityAffinityType(object):
+                            """
+                            Tunnel new style affinity attribute
+                            
+                            .. attribute:: affinity_type  <key>
+                            
+                            	The type of the affinity entry
+                            	**type**\:  :py:class:`MplsTeTunnelAffinityEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeTunnelAffinityEnum>`
+                            
+                            
+
+                            """
+
+                            _prefix = 'mpls-te-cfg'
+                            _revision = '2015-11-09'
+
+                            def __init__(self):
+                                self.parent = None
+                                self.affinity_type = None
+
+                            @property
+                            def _common_path(self):
+                                if self.parent is None:
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
+                                if self.affinity_type is None:
+                                    raise YPYModelError('Key property affinity_type is None')
+
+                                return self.parent._common_path +'/Cisco-IOS-XR-mpls-te-cfg:new-style-affinity-affinity-type[Cisco-IOS-XR-mpls-te-cfg:affinity-type = ' + str(self.affinity_type) + ']'
+
+                            def is_config(self):
+                                ''' Returns True if this instance represents config data else returns False '''
+                                return True
+
+                            def _has_data(self):
+                                if not self.is_config():
+                                    return False
+                                if self.affinity_type is not None:
+                                    return True
+
+                                return False
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+                                return meta._meta_table['MplsTe.GlobalAttributes.AttributeSet.AutoBackupAttributes.AutoBackupAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityType']['meta_info']
+
+
+                        class NewStyleAffinityAffinityTypeAffinity1(object):
+                            """
+                            Tunnel new style affinity attribute
+                            
+                            .. attribute:: affinity1  <key>
+                            
+                            	The name of the first affinity
+                            	**type**\:  str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
+                            
+                            .. attribute:: affinity_type  <key>
+                            
+                            	The type of the affinity entry
+                            	**type**\:  :py:class:`MplsTeTunnelAffinityEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeTunnelAffinityEnum>`
+                            
+                            
+
+                            """
+
+                            _prefix = 'mpls-te-cfg'
+                            _revision = '2015-11-09'
+
+                            def __init__(self):
+                                self.parent = None
+                                self.affinity1 = None
+                                self.affinity_type = None
+
+                            @property
+                            def _common_path(self):
+                                if self.parent is None:
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
+                                if self.affinity1 is None:
+                                    raise YPYModelError('Key property affinity1 is None')
+                                if self.affinity_type is None:
+                                    raise YPYModelError('Key property affinity_type is None')
+
+                                return self.parent._common_path +'/Cisco-IOS-XR-mpls-te-cfg:new-style-affinity-affinity-type-affinity1[Cisco-IOS-XR-mpls-te-cfg:affinity1 = ' + str(self.affinity1) + '][Cisco-IOS-XR-mpls-te-cfg:affinity-type = ' + str(self.affinity_type) + ']'
+
+                            def is_config(self):
+                                ''' Returns True if this instance represents config data else returns False '''
+                                return True
+
+                            def _has_data(self):
+                                if not self.is_config():
+                                    return False
+                                if self.affinity1 is not None:
+                                    return True
+
+                                if self.affinity_type is not None:
+                                    return True
+
+                                return False
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+                                return meta._meta_table['MplsTe.GlobalAttributes.AttributeSet.AutoBackupAttributes.AutoBackupAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1']['meta_info']
+
+
+                        class NewStyleAffinityAffinityTypeAffinity1Affinity2(object):
+                            """
+                            Tunnel new style affinity attribute
+                            
+                            .. attribute:: affinity1  <key>
+                            
+                            	The name of the first affinity
+                            	**type**\:  str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
+                            
+                            .. attribute:: affinity2  <key>
+                            
+                            	The name of the second affinity
+                            	**type**\:  str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
+                            
+                            .. attribute:: affinity_type  <key>
+                            
+                            	The type of the affinity entry
+                            	**type**\:  :py:class:`MplsTeTunnelAffinityEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeTunnelAffinityEnum>`
+                            
+                            
+
+                            """
+
+                            _prefix = 'mpls-te-cfg'
+                            _revision = '2015-11-09'
+
+                            def __init__(self):
+                                self.parent = None
+                                self.affinity1 = None
+                                self.affinity2 = None
+                                self.affinity_type = None
+
+                            @property
+                            def _common_path(self):
+                                if self.parent is None:
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
+                                if self.affinity1 is None:
+                                    raise YPYModelError('Key property affinity1 is None')
+                                if self.affinity2 is None:
+                                    raise YPYModelError('Key property affinity2 is None')
+                                if self.affinity_type is None:
+                                    raise YPYModelError('Key property affinity_type is None')
+
+                                return self.parent._common_path +'/Cisco-IOS-XR-mpls-te-cfg:new-style-affinity-affinity-type-affinity1-affinity2[Cisco-IOS-XR-mpls-te-cfg:affinity1 = ' + str(self.affinity1) + '][Cisco-IOS-XR-mpls-te-cfg:affinity2 = ' + str(self.affinity2) + '][Cisco-IOS-XR-mpls-te-cfg:affinity-type = ' + str(self.affinity_type) + ']'
+
+                            def is_config(self):
+                                ''' Returns True if this instance represents config data else returns False '''
+                                return True
+
+                            def _has_data(self):
+                                if not self.is_config():
+                                    return False
+                                if self.affinity1 is not None:
+                                    return True
+
+                                if self.affinity2 is not None:
+                                    return True
+
+                                if self.affinity_type is not None:
+                                    return True
+
+                                return False
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+                                return meta._meta_table['MplsTe.GlobalAttributes.AttributeSet.AutoBackupAttributes.AutoBackupAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2']['meta_info']
+
+
+                        class NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3(object):
+                            """
+                            Tunnel new style affinity attribute
+                            
+                            .. attribute:: affinity1  <key>
+                            
+                            	The name of the first affinity
+                            	**type**\:  str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
+                            
+                            .. attribute:: affinity2  <key>
+                            
+                            	The name of the second affinity
+                            	**type**\:  str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
+                            
+                            .. attribute:: affinity3  <key>
+                            
+                            	The name of the third affinity
+                            	**type**\:  str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
+                            
+                            .. attribute:: affinity_type  <key>
+                            
+                            	The type of the affinity entry
+                            	**type**\:  :py:class:`MplsTeTunnelAffinityEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeTunnelAffinityEnum>`
+                            
+                            
+
+                            """
+
+                            _prefix = 'mpls-te-cfg'
+                            _revision = '2015-11-09'
+
+                            def __init__(self):
+                                self.parent = None
+                                self.affinity1 = None
+                                self.affinity2 = None
+                                self.affinity3 = None
+                                self.affinity_type = None
+
+                            @property
+                            def _common_path(self):
+                                if self.parent is None:
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
+                                if self.affinity1 is None:
+                                    raise YPYModelError('Key property affinity1 is None')
+                                if self.affinity2 is None:
+                                    raise YPYModelError('Key property affinity2 is None')
+                                if self.affinity3 is None:
+                                    raise YPYModelError('Key property affinity3 is None')
+                                if self.affinity_type is None:
+                                    raise YPYModelError('Key property affinity_type is None')
+
+                                return self.parent._common_path +'/Cisco-IOS-XR-mpls-te-cfg:new-style-affinity-affinity-type-affinity1-affinity2-affinity3[Cisco-IOS-XR-mpls-te-cfg:affinity1 = ' + str(self.affinity1) + '][Cisco-IOS-XR-mpls-te-cfg:affinity2 = ' + str(self.affinity2) + '][Cisco-IOS-XR-mpls-te-cfg:affinity3 = ' + str(self.affinity3) + '][Cisco-IOS-XR-mpls-te-cfg:affinity-type = ' + str(self.affinity_type) + ']'
+
+                            def is_config(self):
+                                ''' Returns True if this instance represents config data else returns False '''
+                                return True
+
+                            def _has_data(self):
+                                if not self.is_config():
+                                    return False
+                                if self.affinity1 is not None:
+                                    return True
+
+                                if self.affinity2 is not None:
+                                    return True
+
+                                if self.affinity3 is not None:
+                                    return True
+
+                                if self.affinity_type is not None:
+                                    return True
+
+                                return False
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+                                return meta._meta_table['MplsTe.GlobalAttributes.AttributeSet.AutoBackupAttributes.AutoBackupAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3']['meta_info']
+
+
+                        class NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4(object):
+                            """
+                            Tunnel new style affinity attribute
+                            
+                            .. attribute:: affinity1  <key>
+                            
+                            	The name of the first affinity
+                            	**type**\:  str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
+                            
+                            .. attribute:: affinity2  <key>
+                            
+                            	The name of the second affinity
+                            	**type**\:  str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
+                            
+                            .. attribute:: affinity3  <key>
+                            
+                            	The name of the third affinity
+                            	**type**\:  str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
+                            
+                            .. attribute:: affinity4  <key>
+                            
+                            	The name of the fourth affinity
+                            	**type**\:  str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
+                            
+                            .. attribute:: affinity_type  <key>
+                            
+                            	The type of the affinity entry
+                            	**type**\:  :py:class:`MplsTeTunnelAffinityEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeTunnelAffinityEnum>`
+                            
+                            
+
+                            """
+
+                            _prefix = 'mpls-te-cfg'
+                            _revision = '2015-11-09'
+
+                            def __init__(self):
+                                self.parent = None
+                                self.affinity1 = None
+                                self.affinity2 = None
+                                self.affinity3 = None
+                                self.affinity4 = None
+                                self.affinity_type = None
+
+                            @property
+                            def _common_path(self):
+                                if self.parent is None:
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
+                                if self.affinity1 is None:
+                                    raise YPYModelError('Key property affinity1 is None')
+                                if self.affinity2 is None:
+                                    raise YPYModelError('Key property affinity2 is None')
+                                if self.affinity3 is None:
+                                    raise YPYModelError('Key property affinity3 is None')
+                                if self.affinity4 is None:
+                                    raise YPYModelError('Key property affinity4 is None')
+                                if self.affinity_type is None:
+                                    raise YPYModelError('Key property affinity_type is None')
+
+                                return self.parent._common_path +'/Cisco-IOS-XR-mpls-te-cfg:new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4[Cisco-IOS-XR-mpls-te-cfg:affinity1 = ' + str(self.affinity1) + '][Cisco-IOS-XR-mpls-te-cfg:affinity2 = ' + str(self.affinity2) + '][Cisco-IOS-XR-mpls-te-cfg:affinity3 = ' + str(self.affinity3) + '][Cisco-IOS-XR-mpls-te-cfg:affinity4 = ' + str(self.affinity4) + '][Cisco-IOS-XR-mpls-te-cfg:affinity-type = ' + str(self.affinity_type) + ']'
+
+                            def is_config(self):
+                                ''' Returns True if this instance represents config data else returns False '''
+                                return True
+
+                            def _has_data(self):
+                                if not self.is_config():
+                                    return False
+                                if self.affinity1 is not None:
+                                    return True
+
+                                if self.affinity2 is not None:
+                                    return True
+
+                                if self.affinity3 is not None:
+                                    return True
+
+                                if self.affinity4 is not None:
+                                    return True
+
+                                if self.affinity_type is not None:
+                                    return True
+
+                                return False
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+                                return meta._meta_table['MplsTe.GlobalAttributes.AttributeSet.AutoBackupAttributes.AutoBackupAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4']['meta_info']
+
+
+                        class NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5(object):
+                            """
+                            Tunnel new style affinity attribute
+                            
+                            .. attribute:: affinity1  <key>
+                            
+                            	The name of the first affinity
+                            	**type**\:  str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
+                            
+                            .. attribute:: affinity2  <key>
+                            
+                            	The name of the second affinity
+                            	**type**\:  str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
+                            
+                            .. attribute:: affinity3  <key>
+                            
+                            	The name of the third affinity
+                            	**type**\:  str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
+                            
+                            .. attribute:: affinity4  <key>
+                            
+                            	The name of the fourth affinity
+                            	**type**\:  str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
+                            
+                            .. attribute:: affinity5  <key>
+                            
+                            	The name of the fifth affinity
+                            	**type**\:  str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
+                            
+                            .. attribute:: affinity_type  <key>
+                            
+                            	The type of the affinity entry
+                            	**type**\:  :py:class:`MplsTeTunnelAffinityEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeTunnelAffinityEnum>`
+                            
+                            
+
+                            """
+
+                            _prefix = 'mpls-te-cfg'
+                            _revision = '2015-11-09'
+
+                            def __init__(self):
+                                self.parent = None
+                                self.affinity1 = None
+                                self.affinity2 = None
+                                self.affinity3 = None
+                                self.affinity4 = None
+                                self.affinity5 = None
+                                self.affinity_type = None
+
+                            @property
+                            def _common_path(self):
+                                if self.parent is None:
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
+                                if self.affinity1 is None:
+                                    raise YPYModelError('Key property affinity1 is None')
+                                if self.affinity2 is None:
+                                    raise YPYModelError('Key property affinity2 is None')
+                                if self.affinity3 is None:
+                                    raise YPYModelError('Key property affinity3 is None')
+                                if self.affinity4 is None:
+                                    raise YPYModelError('Key property affinity4 is None')
+                                if self.affinity5 is None:
+                                    raise YPYModelError('Key property affinity5 is None')
+                                if self.affinity_type is None:
+                                    raise YPYModelError('Key property affinity_type is None')
+
+                                return self.parent._common_path +'/Cisco-IOS-XR-mpls-te-cfg:new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5[Cisco-IOS-XR-mpls-te-cfg:affinity1 = ' + str(self.affinity1) + '][Cisco-IOS-XR-mpls-te-cfg:affinity2 = ' + str(self.affinity2) + '][Cisco-IOS-XR-mpls-te-cfg:affinity3 = ' + str(self.affinity3) + '][Cisco-IOS-XR-mpls-te-cfg:affinity4 = ' + str(self.affinity4) + '][Cisco-IOS-XR-mpls-te-cfg:affinity5 = ' + str(self.affinity5) + '][Cisco-IOS-XR-mpls-te-cfg:affinity-type = ' + str(self.affinity_type) + ']'
+
+                            def is_config(self):
+                                ''' Returns True if this instance represents config data else returns False '''
+                                return True
+
+                            def _has_data(self):
+                                if not self.is_config():
+                                    return False
+                                if self.affinity1 is not None:
+                                    return True
+
+                                if self.affinity2 is not None:
+                                    return True
+
+                                if self.affinity3 is not None:
+                                    return True
+
+                                if self.affinity4 is not None:
+                                    return True
+
+                                if self.affinity5 is not None:
+                                    return True
+
+                                if self.affinity_type is not None:
+                                    return True
+
+                                return False
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+                                return meta._meta_table['MplsTe.GlobalAttributes.AttributeSet.AutoBackupAttributes.AutoBackupAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5']['meta_info']
+
+
+                        class NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6(object):
+                            """
+                            Tunnel new style affinity attribute
+                            
+                            .. attribute:: affinity1  <key>
+                            
+                            	The name of the first affinity
+                            	**type**\:  str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
+                            
+                            .. attribute:: affinity2  <key>
+                            
+                            	The name of the second affinity
+                            	**type**\:  str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
+                            
+                            .. attribute:: affinity3  <key>
+                            
+                            	The name of the third affinity
+                            	**type**\:  str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
+                            
+                            .. attribute:: affinity4  <key>
+                            
+                            	The name of the fourth affinity
+                            	**type**\:  str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
+                            
+                            .. attribute:: affinity5  <key>
+                            
+                            	The name of the fifth affinity
+                            	**type**\:  str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
+                            
+                            .. attribute:: affinity6  <key>
+                            
+                            	The name of the sixth affinity
+                            	**type**\:  str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
+                            
+                            .. attribute:: affinity_type  <key>
+                            
+                            	The type of the affinity entry
+                            	**type**\:  :py:class:`MplsTeTunnelAffinityEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeTunnelAffinityEnum>`
+                            
+                            
+
+                            """
+
+                            _prefix = 'mpls-te-cfg'
+                            _revision = '2015-11-09'
+
+                            def __init__(self):
+                                self.parent = None
+                                self.affinity1 = None
+                                self.affinity2 = None
+                                self.affinity3 = None
+                                self.affinity4 = None
+                                self.affinity5 = None
+                                self.affinity6 = None
+                                self.affinity_type = None
+
+                            @property
+                            def _common_path(self):
+                                if self.parent is None:
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
+                                if self.affinity1 is None:
+                                    raise YPYModelError('Key property affinity1 is None')
+                                if self.affinity2 is None:
+                                    raise YPYModelError('Key property affinity2 is None')
+                                if self.affinity3 is None:
+                                    raise YPYModelError('Key property affinity3 is None')
+                                if self.affinity4 is None:
+                                    raise YPYModelError('Key property affinity4 is None')
+                                if self.affinity5 is None:
+                                    raise YPYModelError('Key property affinity5 is None')
+                                if self.affinity6 is None:
+                                    raise YPYModelError('Key property affinity6 is None')
+                                if self.affinity_type is None:
+                                    raise YPYModelError('Key property affinity_type is None')
+
+                                return self.parent._common_path +'/Cisco-IOS-XR-mpls-te-cfg:new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5-affinity6[Cisco-IOS-XR-mpls-te-cfg:affinity1 = ' + str(self.affinity1) + '][Cisco-IOS-XR-mpls-te-cfg:affinity2 = ' + str(self.affinity2) + '][Cisco-IOS-XR-mpls-te-cfg:affinity3 = ' + str(self.affinity3) + '][Cisco-IOS-XR-mpls-te-cfg:affinity4 = ' + str(self.affinity4) + '][Cisco-IOS-XR-mpls-te-cfg:affinity5 = ' + str(self.affinity5) + '][Cisco-IOS-XR-mpls-te-cfg:affinity6 = ' + str(self.affinity6) + '][Cisco-IOS-XR-mpls-te-cfg:affinity-type = ' + str(self.affinity_type) + ']'
+
+                            def is_config(self):
+                                ''' Returns True if this instance represents config data else returns False '''
+                                return True
+
+                            def _has_data(self):
+                                if not self.is_config():
+                                    return False
+                                if self.affinity1 is not None:
+                                    return True
+
+                                if self.affinity2 is not None:
+                                    return True
+
+                                if self.affinity3 is not None:
+                                    return True
+
+                                if self.affinity4 is not None:
+                                    return True
+
+                                if self.affinity5 is not None:
+                                    return True
+
+                                if self.affinity6 is not None:
+                                    return True
+
+                                if self.affinity_type is not None:
+                                    return True
+
+                                return False
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+                                return meta._meta_table['MplsTe.GlobalAttributes.AttributeSet.AutoBackupAttributes.AutoBackupAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6']['meta_info']
+
+
+                        class NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7(object):
+                            """
+                            Tunnel new style affinity attribute
+                            
+                            .. attribute:: affinity1  <key>
+                            
+                            	The name of the first affinity
+                            	**type**\:  str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
+                            
+                            .. attribute:: affinity2  <key>
+                            
+                            	The name of the second affinity
+                            	**type**\:  str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
+                            
+                            .. attribute:: affinity3  <key>
+                            
+                            	The name of the third affinity
+                            	**type**\:  str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
+                            
+                            .. attribute:: affinity4  <key>
+                            
+                            	The name of the fourth affinity
+                            	**type**\:  str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
+                            
+                            .. attribute:: affinity5  <key>
+                            
+                            	The name of the fifth affinity
+                            	**type**\:  str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
+                            
+                            .. attribute:: affinity6  <key>
+                            
+                            	The name of the sixth affinity
+                            	**type**\:  str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
+                            
+                            .. attribute:: affinity7  <key>
+                            
+                            	The name of the seventh affinity
+                            	**type**\:  str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
+                            
+                            .. attribute:: affinity_type  <key>
+                            
+                            	The type of the affinity entry
+                            	**type**\:  :py:class:`MplsTeTunnelAffinityEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeTunnelAffinityEnum>`
+                            
+                            
+
+                            """
+
+                            _prefix = 'mpls-te-cfg'
+                            _revision = '2015-11-09'
+
+                            def __init__(self):
+                                self.parent = None
+                                self.affinity1 = None
+                                self.affinity2 = None
+                                self.affinity3 = None
+                                self.affinity4 = None
+                                self.affinity5 = None
+                                self.affinity6 = None
+                                self.affinity7 = None
+                                self.affinity_type = None
+
+                            @property
+                            def _common_path(self):
+                                if self.parent is None:
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
+                                if self.affinity1 is None:
+                                    raise YPYModelError('Key property affinity1 is None')
+                                if self.affinity2 is None:
+                                    raise YPYModelError('Key property affinity2 is None')
+                                if self.affinity3 is None:
+                                    raise YPYModelError('Key property affinity3 is None')
+                                if self.affinity4 is None:
+                                    raise YPYModelError('Key property affinity4 is None')
+                                if self.affinity5 is None:
+                                    raise YPYModelError('Key property affinity5 is None')
+                                if self.affinity6 is None:
+                                    raise YPYModelError('Key property affinity6 is None')
+                                if self.affinity7 is None:
+                                    raise YPYModelError('Key property affinity7 is None')
+                                if self.affinity_type is None:
+                                    raise YPYModelError('Key property affinity_type is None')
+
+                                return self.parent._common_path +'/Cisco-IOS-XR-mpls-te-cfg:new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5-affinity6-affinity7[Cisco-IOS-XR-mpls-te-cfg:affinity1 = ' + str(self.affinity1) + '][Cisco-IOS-XR-mpls-te-cfg:affinity2 = ' + str(self.affinity2) + '][Cisco-IOS-XR-mpls-te-cfg:affinity3 = ' + str(self.affinity3) + '][Cisco-IOS-XR-mpls-te-cfg:affinity4 = ' + str(self.affinity4) + '][Cisco-IOS-XR-mpls-te-cfg:affinity5 = ' + str(self.affinity5) + '][Cisco-IOS-XR-mpls-te-cfg:affinity6 = ' + str(self.affinity6) + '][Cisco-IOS-XR-mpls-te-cfg:affinity7 = ' + str(self.affinity7) + '][Cisco-IOS-XR-mpls-te-cfg:affinity-type = ' + str(self.affinity_type) + ']'
+
+                            def is_config(self):
+                                ''' Returns True if this instance represents config data else returns False '''
+                                return True
+
+                            def _has_data(self):
+                                if not self.is_config():
+                                    return False
+                                if self.affinity1 is not None:
+                                    return True
+
+                                if self.affinity2 is not None:
+                                    return True
+
+                                if self.affinity3 is not None:
+                                    return True
+
+                                if self.affinity4 is not None:
+                                    return True
+
+                                if self.affinity5 is not None:
+                                    return True
+
+                                if self.affinity6 is not None:
+                                    return True
+
+                                if self.affinity7 is not None:
+                                    return True
+
+                                if self.affinity_type is not None:
+                                    return True
+
+                                return False
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+                                return meta._meta_table['MplsTe.GlobalAttributes.AttributeSet.AutoBackupAttributes.AutoBackupAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7']['meta_info']
+
+
+                        class NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8(object):
+                            """
+                            Tunnel new style affinity attribute
+                            
+                            .. attribute:: affinity1  <key>
+                            
+                            	The name of the first affinity
+                            	**type**\:  str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
+                            
+                            .. attribute:: affinity2  <key>
+                            
+                            	The name of the second affinity
+                            	**type**\:  str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
+                            
+                            .. attribute:: affinity3  <key>
+                            
+                            	The name of the third affinity
+                            	**type**\:  str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
+                            
+                            .. attribute:: affinity4  <key>
+                            
+                            	The name of the fourth affinity
+                            	**type**\:  str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
+                            
+                            .. attribute:: affinity5  <key>
+                            
+                            	The name of the fifth affinity
+                            	**type**\:  str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
+                            
+                            .. attribute:: affinity6  <key>
+                            
+                            	The name of the sixth affinity
+                            	**type**\:  str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
+                            
+                            .. attribute:: affinity7  <key>
+                            
+                            	The name of the seventh affinity
+                            	**type**\:  str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
+                            
+                            .. attribute:: affinity8  <key>
+                            
+                            	The name of the eighth affinity
+                            	**type**\:  str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
+                            
+                            .. attribute:: affinity_type  <key>
+                            
+                            	The type of the affinity entry
+                            	**type**\:  :py:class:`MplsTeTunnelAffinityEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeTunnelAffinityEnum>`
+                            
+                            
+
+                            """
+
+                            _prefix = 'mpls-te-cfg'
+                            _revision = '2015-11-09'
+
+                            def __init__(self):
+                                self.parent = None
+                                self.affinity1 = None
+                                self.affinity2 = None
+                                self.affinity3 = None
+                                self.affinity4 = None
+                                self.affinity5 = None
+                                self.affinity6 = None
+                                self.affinity7 = None
+                                self.affinity8 = None
+                                self.affinity_type = None
+
+                            @property
+                            def _common_path(self):
+                                if self.parent is None:
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
+                                if self.affinity1 is None:
+                                    raise YPYModelError('Key property affinity1 is None')
+                                if self.affinity2 is None:
+                                    raise YPYModelError('Key property affinity2 is None')
+                                if self.affinity3 is None:
+                                    raise YPYModelError('Key property affinity3 is None')
+                                if self.affinity4 is None:
+                                    raise YPYModelError('Key property affinity4 is None')
+                                if self.affinity5 is None:
+                                    raise YPYModelError('Key property affinity5 is None')
+                                if self.affinity6 is None:
+                                    raise YPYModelError('Key property affinity6 is None')
+                                if self.affinity7 is None:
+                                    raise YPYModelError('Key property affinity7 is None')
+                                if self.affinity8 is None:
+                                    raise YPYModelError('Key property affinity8 is None')
+                                if self.affinity_type is None:
+                                    raise YPYModelError('Key property affinity_type is None')
+
+                                return self.parent._common_path +'/Cisco-IOS-XR-mpls-te-cfg:new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5-affinity6-affinity7-affinity8[Cisco-IOS-XR-mpls-te-cfg:affinity1 = ' + str(self.affinity1) + '][Cisco-IOS-XR-mpls-te-cfg:affinity2 = ' + str(self.affinity2) + '][Cisco-IOS-XR-mpls-te-cfg:affinity3 = ' + str(self.affinity3) + '][Cisco-IOS-XR-mpls-te-cfg:affinity4 = ' + str(self.affinity4) + '][Cisco-IOS-XR-mpls-te-cfg:affinity5 = ' + str(self.affinity5) + '][Cisco-IOS-XR-mpls-te-cfg:affinity6 = ' + str(self.affinity6) + '][Cisco-IOS-XR-mpls-te-cfg:affinity7 = ' + str(self.affinity7) + '][Cisco-IOS-XR-mpls-te-cfg:affinity8 = ' + str(self.affinity8) + '][Cisco-IOS-XR-mpls-te-cfg:affinity-type = ' + str(self.affinity_type) + ']'
+
+                            def is_config(self):
+                                ''' Returns True if this instance represents config data else returns False '''
+                                return True
+
+                            def _has_data(self):
+                                if not self.is_config():
+                                    return False
+                                if self.affinity1 is not None:
+                                    return True
+
+                                if self.affinity2 is not None:
+                                    return True
+
+                                if self.affinity3 is not None:
+                                    return True
+
+                                if self.affinity4 is not None:
+                                    return True
+
+                                if self.affinity5 is not None:
+                                    return True
+
+                                if self.affinity6 is not None:
+                                    return True
+
+                                if self.affinity7 is not None:
+                                    return True
+
+                                if self.affinity8 is not None:
+                                    return True
+
+                                if self.affinity_type is not None:
+                                    return True
+
+                                return False
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+                                return meta._meta_table['MplsTe.GlobalAttributes.AttributeSet.AutoBackupAttributes.AutoBackupAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8']['meta_info']
+
+
+                        class NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9(object):
+                            """
+                            Tunnel new style affinity attribute
+                            
+                            .. attribute:: affinity1  <key>
+                            
+                            	The name of the first affinity
+                            	**type**\:  str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
+                            
+                            .. attribute:: affinity2  <key>
+                            
+                            	The name of the second affinity
+                            	**type**\:  str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
+                            
+                            .. attribute:: affinity3  <key>
+                            
+                            	The name of the third affinity
+                            	**type**\:  str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
+                            
+                            .. attribute:: affinity4  <key>
+                            
+                            	The name of the fourth affinity
+                            	**type**\:  str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
+                            
+                            .. attribute:: affinity5  <key>
+                            
+                            	The name of the fifth affinity
+                            	**type**\:  str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
+                            
+                            .. attribute:: affinity6  <key>
+                            
+                            	The name of the sixth affinity
+                            	**type**\:  str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
+                            
+                            .. attribute:: affinity7  <key>
+                            
+                            	The name of the seventh affinity
+                            	**type**\:  str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
+                            
+                            .. attribute:: affinity8  <key>
+                            
+                            	The name of the eighth affinity
+                            	**type**\:  str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
+                            
+                            .. attribute:: affinity9  <key>
+                            
+                            	The name of the nineth affinity
+                            	**type**\:  str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
+                            
+                            .. attribute:: affinity_type  <key>
+                            
+                            	The type of the affinity entry
+                            	**type**\:  :py:class:`MplsTeTunnelAffinityEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeTunnelAffinityEnum>`
+                            
+                            
+
+                            """
+
+                            _prefix = 'mpls-te-cfg'
+                            _revision = '2015-11-09'
+
+                            def __init__(self):
+                                self.parent = None
+                                self.affinity1 = None
+                                self.affinity2 = None
+                                self.affinity3 = None
+                                self.affinity4 = None
+                                self.affinity5 = None
+                                self.affinity6 = None
+                                self.affinity7 = None
+                                self.affinity8 = None
+                                self.affinity9 = None
+                                self.affinity_type = None
+
+                            @property
+                            def _common_path(self):
+                                if self.parent is None:
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
+                                if self.affinity1 is None:
+                                    raise YPYModelError('Key property affinity1 is None')
+                                if self.affinity2 is None:
+                                    raise YPYModelError('Key property affinity2 is None')
+                                if self.affinity3 is None:
+                                    raise YPYModelError('Key property affinity3 is None')
+                                if self.affinity4 is None:
+                                    raise YPYModelError('Key property affinity4 is None')
+                                if self.affinity5 is None:
+                                    raise YPYModelError('Key property affinity5 is None')
+                                if self.affinity6 is None:
+                                    raise YPYModelError('Key property affinity6 is None')
+                                if self.affinity7 is None:
+                                    raise YPYModelError('Key property affinity7 is None')
+                                if self.affinity8 is None:
+                                    raise YPYModelError('Key property affinity8 is None')
+                                if self.affinity9 is None:
+                                    raise YPYModelError('Key property affinity9 is None')
+                                if self.affinity_type is None:
+                                    raise YPYModelError('Key property affinity_type is None')
+
+                                return self.parent._common_path +'/Cisco-IOS-XR-mpls-te-cfg:new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5-affinity6-affinity7-affinity8-affinity9[Cisco-IOS-XR-mpls-te-cfg:affinity1 = ' + str(self.affinity1) + '][Cisco-IOS-XR-mpls-te-cfg:affinity2 = ' + str(self.affinity2) + '][Cisco-IOS-XR-mpls-te-cfg:affinity3 = ' + str(self.affinity3) + '][Cisco-IOS-XR-mpls-te-cfg:affinity4 = ' + str(self.affinity4) + '][Cisco-IOS-XR-mpls-te-cfg:affinity5 = ' + str(self.affinity5) + '][Cisco-IOS-XR-mpls-te-cfg:affinity6 = ' + str(self.affinity6) + '][Cisco-IOS-XR-mpls-te-cfg:affinity7 = ' + str(self.affinity7) + '][Cisco-IOS-XR-mpls-te-cfg:affinity8 = ' + str(self.affinity8) + '][Cisco-IOS-XR-mpls-te-cfg:affinity9 = ' + str(self.affinity9) + '][Cisco-IOS-XR-mpls-te-cfg:affinity-type = ' + str(self.affinity_type) + ']'
+
+                            def is_config(self):
+                                ''' Returns True if this instance represents config data else returns False '''
+                                return True
+
+                            def _has_data(self):
+                                if not self.is_config():
+                                    return False
+                                if self.affinity1 is not None:
+                                    return True
+
+                                if self.affinity2 is not None:
+                                    return True
+
+                                if self.affinity3 is not None:
+                                    return True
+
+                                if self.affinity4 is not None:
+                                    return True
+
+                                if self.affinity5 is not None:
+                                    return True
+
+                                if self.affinity6 is not None:
+                                    return True
+
+                                if self.affinity7 is not None:
+                                    return True
+
+                                if self.affinity8 is not None:
+                                    return True
+
+                                if self.affinity9 is not None:
+                                    return True
+
+                                if self.affinity_type is not None:
+                                    return True
+
+                                return False
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+                                return meta._meta_table['MplsTe.GlobalAttributes.AttributeSet.AutoBackupAttributes.AutoBackupAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9']['meta_info']
+
+
+                        class NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9Affinity10(object):
                             """
                             Tunnel new style affinity attribute
                             
@@ -7711,7 +16851,7 @@ class MplsTe(object):
                                 if self.affinity_type is None:
                                     raise YPYModelError('Key property affinity_type is None')
 
-                                return self.parent._common_path +'/Cisco-IOS-XR-mpls-te-cfg:new-style-affinity[Cisco-IOS-XR-mpls-te-cfg:affinity1 = ' + str(self.affinity1) + '][Cisco-IOS-XR-mpls-te-cfg:affinity10 = ' + str(self.affinity10) + '][Cisco-IOS-XR-mpls-te-cfg:affinity2 = ' + str(self.affinity2) + '][Cisco-IOS-XR-mpls-te-cfg:affinity3 = ' + str(self.affinity3) + '][Cisco-IOS-XR-mpls-te-cfg:affinity4 = ' + str(self.affinity4) + '][Cisco-IOS-XR-mpls-te-cfg:affinity5 = ' + str(self.affinity5) + '][Cisco-IOS-XR-mpls-te-cfg:affinity6 = ' + str(self.affinity6) + '][Cisco-IOS-XR-mpls-te-cfg:affinity7 = ' + str(self.affinity7) + '][Cisco-IOS-XR-mpls-te-cfg:affinity8 = ' + str(self.affinity8) + '][Cisco-IOS-XR-mpls-te-cfg:affinity9 = ' + str(self.affinity9) + '][Cisco-IOS-XR-mpls-te-cfg:affinity-type = ' + str(self.affinity_type) + ']'
+                                return self.parent._common_path +'/Cisco-IOS-XR-mpls-te-cfg:new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5-affinity6-affinity7-affinity8-affinity9-affinity10[Cisco-IOS-XR-mpls-te-cfg:affinity1 = ' + str(self.affinity1) + '][Cisco-IOS-XR-mpls-te-cfg:affinity10 = ' + str(self.affinity10) + '][Cisco-IOS-XR-mpls-te-cfg:affinity2 = ' + str(self.affinity2) + '][Cisco-IOS-XR-mpls-te-cfg:affinity3 = ' + str(self.affinity3) + '][Cisco-IOS-XR-mpls-te-cfg:affinity4 = ' + str(self.affinity4) + '][Cisco-IOS-XR-mpls-te-cfg:affinity5 = ' + str(self.affinity5) + '][Cisco-IOS-XR-mpls-te-cfg:affinity6 = ' + str(self.affinity6) + '][Cisco-IOS-XR-mpls-te-cfg:affinity7 = ' + str(self.affinity7) + '][Cisco-IOS-XR-mpls-te-cfg:affinity8 = ' + str(self.affinity8) + '][Cisco-IOS-XR-mpls-te-cfg:affinity9 = ' + str(self.affinity9) + '][Cisco-IOS-XR-mpls-te-cfg:affinity-type = ' + str(self.affinity_type) + ']'
 
                             def is_config(self):
                                 ''' Returns True if this instance represents config data else returns False '''
@@ -7758,14 +16898,14 @@ class MplsTe(object):
                             @staticmethod
                             def _meta_info():
                                 from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
-                                return meta._meta_table['MplsTe.GlobalAttributes.AttributeSet.AutoBackupAttributes.AutoBackupAttribute.NewStyleAffinities.NewStyleAffinity']['meta_info']
+                                return meta._meta_table['MplsTe.GlobalAttributes.AttributeSet.AutoBackupAttributes.AutoBackupAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9Affinity10']['meta_info']
 
                         @property
                         def _common_path(self):
                             if self.parent is None:
                                 raise YPYModelError('parent is not set . Cannot derive path.')
 
-                            return self.parent._common_path +'/Cisco-IOS-XR-mpls-te-cfg:new-style-affinities'
+                            return self.parent._common_path +'/Cisco-IOS-XR-mpls-te-cfg:new-style-affinity-affinity-types'
 
                         def is_config(self):
                             ''' Returns True if this instance represents config data else returns False '''
@@ -7774,8 +16914,58 @@ class MplsTe(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.new_style_affinity is not None:
-                                for child_ref in self.new_style_affinity:
+                            if self.new_style_affinity_affinity_type is not None:
+                                for child_ref in self.new_style_affinity_affinity_type:
+                                    if child_ref._has_data():
+                                        return True
+
+                            if self.new_style_affinity_affinity_type_affinity1 is not None:
+                                for child_ref in self.new_style_affinity_affinity_type_affinity1:
+                                    if child_ref._has_data():
+                                        return True
+
+                            if self.new_style_affinity_affinity_type_affinity1_affinity2 is not None:
+                                for child_ref in self.new_style_affinity_affinity_type_affinity1_affinity2:
+                                    if child_ref._has_data():
+                                        return True
+
+                            if self.new_style_affinity_affinity_type_affinity1_affinity2_affinity3 is not None:
+                                for child_ref in self.new_style_affinity_affinity_type_affinity1_affinity2_affinity3:
+                                    if child_ref._has_data():
+                                        return True
+
+                            if self.new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4 is not None:
+                                for child_ref in self.new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4:
+                                    if child_ref._has_data():
+                                        return True
+
+                            if self.new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5 is not None:
+                                for child_ref in self.new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5:
+                                    if child_ref._has_data():
+                                        return True
+
+                            if self.new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5_affinity6 is not None:
+                                for child_ref in self.new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5_affinity6:
+                                    if child_ref._has_data():
+                                        return True
+
+                            if self.new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5_affinity6_affinity7 is not None:
+                                for child_ref in self.new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5_affinity6_affinity7:
+                                    if child_ref._has_data():
+                                        return True
+
+                            if self.new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5_affinity6_affinity7_affinity8 is not None:
+                                for child_ref in self.new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5_affinity6_affinity7_affinity8:
+                                    if child_ref._has_data():
+                                        return True
+
+                            if self.new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5_affinity6_affinity7_affinity8_affinity9 is not None:
+                                for child_ref in self.new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5_affinity6_affinity7_affinity8_affinity9:
+                                    if child_ref._has_data():
+                                        return True
+
+                            if self.new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5_affinity6_affinity7_affinity8_affinity9_affinity10 is not None:
+                                for child_ref in self.new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5_affinity6_affinity7_affinity8_affinity9_affinity10:
                                     if child_ref._has_data():
                                         return True
 
@@ -7784,7 +16974,7 @@ class MplsTe(object):
                         @staticmethod
                         def _meta_info():
                             from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
-                            return meta._meta_table['MplsTe.GlobalAttributes.AttributeSet.AutoBackupAttributes.AutoBackupAttribute.NewStyleAffinities']['meta_info']
+                            return meta._meta_table['MplsTe.GlobalAttributes.AttributeSet.AutoBackupAttributes.AutoBackupAttribute.NewStyleAffinityAffinityTypes']['meta_info']
 
                     @property
                     def _common_path(self):
@@ -7812,7 +17002,10 @@ class MplsTe(object):
                         if self.enable is not None:
                             return True
 
-                        if self.new_style_affinities is not None and self.new_style_affinities._has_data():
+                        if self.new_style_affinity_affinity_types is not None and self.new_style_affinity_affinity_types._has_data():
+                            return True
+
+                        if self.path_selection is not None and self.path_selection._has_data():
                             return True
 
                         if self.policy_classes is not None and self.policy_classes._has_data():
@@ -7903,10 +17096,25 @@ class MplsTe(object):
                     	The APS protecion type
                     	**type**\:  :py:class:`MplsTeOtnApsProtectionEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeOtnApsProtectionEnum>`
                     
+                    .. attribute:: aps_restoration_style
+                    
+                    	The APS restoration style
+                    	**type**\:  :py:class:`MplsTeOtnApsRestorationStyleEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeOtnApsRestorationStyleEnum>`
+                    
                     .. attribute:: enable
                     
                     	Attribute\-set enable object that controls whether this attribute\-set is configured or not .This object must be set before other configuration supplied for this attribute\-set
                     	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                    
+                    .. attribute:: path_selection
+                    
+                    	Configure path selection properties
+                    	**type**\:  :py:class:`PathSelection <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.OtnPpAttributes.OtnPpAttribute.PathSelection>`
+                    
+                    .. attribute:: revert_schedule_names
+                    
+                    	Specify APS revert schedule
+                    	**type**\:  :py:class:`RevertScheduleNames <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.OtnPpAttributes.OtnPpAttribute.RevertScheduleNames>`
                     
                     .. attribute:: sub_network_connection_mode
                     
@@ -7930,11 +17138,346 @@ class MplsTe(object):
                         self.attribute_set_name = None
                         self.aps_protection_mode = None
                         self.aps_protection_type = None
+                        self.aps_restoration_style = None
                         self.enable = None
+                        self.path_selection = MplsTe.GlobalAttributes.AttributeSet.OtnPpAttributes.OtnPpAttribute.PathSelection()
+                        self.path_selection.parent = self
+                        self.revert_schedule_names = MplsTe.GlobalAttributes.AttributeSet.OtnPpAttributes.OtnPpAttribute.RevertScheduleNames()
+                        self.revert_schedule_names.parent = self
                         self.sub_network_connection_mode = MplsTe.GlobalAttributes.AttributeSet.OtnPpAttributes.OtnPpAttribute.SubNetworkConnectionMode()
                         self.sub_network_connection_mode.parent = self
                         self.timers = MplsTe.GlobalAttributes.AttributeSet.OtnPpAttributes.OtnPpAttribute.Timers()
                         self.timers.parent = self
+
+
+                    class RevertScheduleNames(object):
+                        """
+                        Specify APS revert schedule
+                        
+                        .. attribute:: revert_schedule_name
+                        
+                        	Name Identifier for revert schedule
+                        	**type**\: list of  :py:class:`RevertScheduleName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.OtnPpAttributes.OtnPpAttribute.RevertScheduleNames.RevertScheduleName>`
+                        
+                        
+
+                        """
+
+                        _prefix = 'mpls-te-cfg'
+                        _revision = '2015-11-09'
+
+                        def __init__(self):
+                            self.parent = None
+                            self.revert_schedule_name = YList()
+                            self.revert_schedule_name.parent = self
+                            self.revert_schedule_name.name = 'revert_schedule_name'
+
+
+                        class RevertScheduleName(object):
+                            """
+                            Name Identifier for revert schedule
+                            
+                            .. attribute:: schedule_name  <key>
+                            
+                            	Enter 64 characters for revert schedule name
+                            	**type**\:  str
+                            
+                            	**range:** 0..254
+                            
+                            .. attribute:: revert_schedule_frequency
+                            
+                            	Frequency set as Once, Daily, Weekly
+                            	**type**\:  int
+                            
+                            	**range:** 1..3
+                            
+                            .. attribute:: revert_schedule_max_tries
+                            
+                            	Revert Schedule Max tries
+                            	**type**\:  int
+                            
+                            	**range:** 1..2016
+                            
+                            .. attribute:: sch_name_enable
+                            
+                            	Schedule name enable object
+                            	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                            
+                            .. attribute:: schedule_date
+                            
+                            	Set date in format hh\:mm MMM DD YYYY
+                            	**type**\:  :py:class:`ScheduleDate <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.OtnPpAttributes.OtnPpAttribute.RevertScheduleNames.RevertScheduleName.ScheduleDate>`
+                            
+                            .. attribute:: schedule_duration
+                            
+                            	Set duration in format hh\:mm
+                            	**type**\:  :py:class:`ScheduleDuration <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.OtnPpAttributes.OtnPpAttribute.RevertScheduleNames.RevertScheduleName.ScheduleDuration>`
+                            
+                            
+
+                            """
+
+                            _prefix = 'mpls-te-cfg'
+                            _revision = '2015-11-09'
+
+                            def __init__(self):
+                                self.parent = None
+                                self.schedule_name = None
+                                self.revert_schedule_frequency = None
+                                self.revert_schedule_max_tries = None
+                                self.sch_name_enable = None
+                                self.schedule_date = None
+                                self.schedule_duration = None
+
+
+                            class ScheduleDuration(object):
+                                """
+                                Set duration in format hh\:mm
+                                
+                                .. attribute:: hour
+                                
+                                	Hour of day
+                                	**type**\:  int
+                                
+                                	**range:** 0..167
+                                
+                                	**mandatory**\: True
+                                
+                                .. attribute:: minutes
+                                
+                                	Minute of the hour
+                                	**type**\:  int
+                                
+                                	**range:** 0..59
+                                
+                                	**mandatory**\: True
+                                
+                                .. attribute:: _is_presence
+                                
+                                	Is present if this instance represents presence container else not
+                                	**type**\: bool
+                                
+                                
+
+                                This class is a :ref:`presence class<presence-class>`
+
+                                """
+
+                                _prefix = 'mpls-te-cfg'
+                                _revision = '2015-11-09'
+
+                                def __init__(self):
+                                    self.parent = None
+                                    self._is_presence = True
+                                    self.hour = None
+                                    self.minutes = None
+
+                                @property
+                                def _common_path(self):
+                                    if self.parent is None:
+                                        raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                    return self.parent._common_path +'/Cisco-IOS-XR-mpls-te-cfg:schedule-duration'
+
+                                def is_config(self):
+                                    ''' Returns True if this instance represents config data else returns False '''
+                                    return True
+
+                                def _has_data(self):
+                                    if not self.is_config():
+                                        return False
+                                    if self._is_presence:
+                                        return True
+                                    if self.hour is not None:
+                                        return True
+
+                                    if self.minutes is not None:
+                                        return True
+
+                                    return False
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+                                    return meta._meta_table['MplsTe.GlobalAttributes.AttributeSet.OtnPpAttributes.OtnPpAttribute.RevertScheduleNames.RevertScheduleName.ScheduleDuration']['meta_info']
+
+
+                            class ScheduleDate(object):
+                                """
+                                Set date in format hh\:mm MMM DD YYYY
+                                
+                                .. attribute:: day
+                                
+                                	Day of the month
+                                	**type**\:  int
+                                
+                                	**range:** 1..31
+                                
+                                	**mandatory**\: True
+                                
+                                .. attribute:: hour
+                                
+                                	Hour of day
+                                	**type**\:  int
+                                
+                                	**range:** 0..23
+                                
+                                	**mandatory**\: True
+                                
+                                .. attribute:: minutes
+                                
+                                	Minute of the hour
+                                	**type**\:  int
+                                
+                                	**range:** 0..59
+                                
+                                	**mandatory**\: True
+                                
+                                .. attribute:: month
+                                
+                                	Month of the year
+                                	**type**\:  int
+                                
+                                	**range:** 0..11
+                                
+                                	**mandatory**\: True
+                                
+                                .. attribute:: year
+                                
+                                	Year
+                                	**type**\:  int
+                                
+                                	**range:** 2015..2035
+                                
+                                	**mandatory**\: True
+                                
+                                .. attribute:: _is_presence
+                                
+                                	Is present if this instance represents presence container else not
+                                	**type**\: bool
+                                
+                                
+
+                                This class is a :ref:`presence class<presence-class>`
+
+                                """
+
+                                _prefix = 'mpls-te-cfg'
+                                _revision = '2015-11-09'
+
+                                def __init__(self):
+                                    self.parent = None
+                                    self._is_presence = True
+                                    self.day = None
+                                    self.hour = None
+                                    self.minutes = None
+                                    self.month = None
+                                    self.year = None
+
+                                @property
+                                def _common_path(self):
+                                    if self.parent is None:
+                                        raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                    return self.parent._common_path +'/Cisco-IOS-XR-mpls-te-cfg:schedule-date'
+
+                                def is_config(self):
+                                    ''' Returns True if this instance represents config data else returns False '''
+                                    return True
+
+                                def _has_data(self):
+                                    if not self.is_config():
+                                        return False
+                                    if self._is_presence:
+                                        return True
+                                    if self.day is not None:
+                                        return True
+
+                                    if self.hour is not None:
+                                        return True
+
+                                    if self.minutes is not None:
+                                        return True
+
+                                    if self.month is not None:
+                                        return True
+
+                                    if self.year is not None:
+                                        return True
+
+                                    return False
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+                                    return meta._meta_table['MplsTe.GlobalAttributes.AttributeSet.OtnPpAttributes.OtnPpAttribute.RevertScheduleNames.RevertScheduleName.ScheduleDate']['meta_info']
+
+                            @property
+                            def _common_path(self):
+                                if self.parent is None:
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
+                                if self.schedule_name is None:
+                                    raise YPYModelError('Key property schedule_name is None')
+
+                                return self.parent._common_path +'/Cisco-IOS-XR-mpls-te-cfg:revert-schedule-name[Cisco-IOS-XR-mpls-te-cfg:schedule-name = ' + str(self.schedule_name) + ']'
+
+                            def is_config(self):
+                                ''' Returns True if this instance represents config data else returns False '''
+                                return True
+
+                            def _has_data(self):
+                                if not self.is_config():
+                                    return False
+                                if self.schedule_name is not None:
+                                    return True
+
+                                if self.revert_schedule_frequency is not None:
+                                    return True
+
+                                if self.revert_schedule_max_tries is not None:
+                                    return True
+
+                                if self.sch_name_enable is not None:
+                                    return True
+
+                                if self.schedule_date is not None and self.schedule_date._has_data():
+                                    return True
+
+                                if self.schedule_duration is not None and self.schedule_duration._has_data():
+                                    return True
+
+                                return False
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+                                return meta._meta_table['MplsTe.GlobalAttributes.AttributeSet.OtnPpAttributes.OtnPpAttribute.RevertScheduleNames.RevertScheduleName']['meta_info']
+
+                        @property
+                        def _common_path(self):
+                            if self.parent is None:
+                                raise YPYModelError('parent is not set . Cannot derive path.')
+
+                            return self.parent._common_path +'/Cisco-IOS-XR-mpls-te-cfg:revert-schedule-names'
+
+                        def is_config(self):
+                            ''' Returns True if this instance represents config data else returns False '''
+                            return True
+
+                        def _has_data(self):
+                            if not self.is_config():
+                                return False
+                            if self.revert_schedule_name is not None:
+                                for child_ref in self.revert_schedule_name:
+                                    if child_ref._has_data():
+                                        return True
+
+                            return False
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+                            return meta._meta_table['MplsTe.GlobalAttributes.AttributeSet.OtnPpAttributes.OtnPpAttribute.RevertScheduleNames']['meta_info']
 
 
                     class SubNetworkConnectionMode(object):
@@ -8050,6 +17593,51 @@ class MplsTe(object):
                             from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
                             return meta._meta_table['MplsTe.GlobalAttributes.AttributeSet.OtnPpAttributes.OtnPpAttribute.Timers']['meta_info']
 
+
+                    class PathSelection(object):
+                        """
+                        Configure path selection properties
+                        
+                        .. attribute:: enable
+                        
+                        	Enable path selection
+                        	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                        
+                        
+
+                        """
+
+                        _prefix = 'mpls-te-cfg'
+                        _revision = '2015-11-09'
+
+                        def __init__(self):
+                            self.parent = None
+                            self.enable = None
+
+                        @property
+                        def _common_path(self):
+                            if self.parent is None:
+                                raise YPYModelError('parent is not set . Cannot derive path.')
+
+                            return self.parent._common_path +'/Cisco-IOS-XR-mpls-te-cfg:path-selection'
+
+                        def is_config(self):
+                            ''' Returns True if this instance represents config data else returns False '''
+                            return True
+
+                        def _has_data(self):
+                            if not self.is_config():
+                                return False
+                            if self.enable is not None:
+                                return True
+
+                            return False
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+                            return meta._meta_table['MplsTe.GlobalAttributes.AttributeSet.OtnPpAttributes.OtnPpAttribute.PathSelection']['meta_info']
+
                     @property
                     def _common_path(self):
                         if self.attribute_set_name is None:
@@ -8073,7 +17661,16 @@ class MplsTe(object):
                         if self.aps_protection_type is not None:
                             return True
 
+                        if self.aps_restoration_style is not None:
+                            return True
+
                         if self.enable is not None:
+                            return True
+
+                        if self.path_selection is not None and self.path_selection._has_data():
+                            return True
+
+                        if self.revert_schedule_names is not None and self.revert_schedule_names._has_data():
                             return True
 
                         if self.sub_network_connection_mode is not None and self.sub_network_connection_mode._has_data():
@@ -8204,10 +17801,15 @@ class MplsTe(object):
                     
                     	**range:** 1..4294967295
                     
-                    .. attribute:: new_style_affinities
+                    .. attribute:: new_style_affinity_affinity_types
                     
                     	Tunnel new style affinity attributes table
-                    	**type**\:  :py:class:`NewStyleAffinities <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.AutoMeshAttributes.AutoMeshAttribute.NewStyleAffinities>`
+                    	**type**\:  :py:class:`NewStyleAffinityAffinityTypes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.AutoMeshAttributes.AutoMeshAttribute.NewStyleAffinityAffinityTypes>`
+                    
+                    .. attribute:: path_selection
+                    
+                    	Configure path selection properties
+                    	**type**\:  :py:class:`PathSelection <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.AutoMeshAttributes.AutoMeshAttribute.PathSelection>`
                     
                     .. attribute:: policy_classes
                     
@@ -8250,8 +17852,10 @@ class MplsTe(object):
                         self.forward_class = None
                         self.interface_bandwidth = None
                         self.load_share = None
-                        self.new_style_affinities = MplsTe.GlobalAttributes.AttributeSet.AutoMeshAttributes.AutoMeshAttribute.NewStyleAffinities()
-                        self.new_style_affinities.parent = self
+                        self.new_style_affinity_affinity_types = MplsTe.GlobalAttributes.AttributeSet.AutoMeshAttributes.AutoMeshAttribute.NewStyleAffinityAffinityTypes()
+                        self.new_style_affinity_affinity_types.parent = self
+                        self.path_selection = MplsTe.GlobalAttributes.AttributeSet.AutoMeshAttributes.AutoMeshAttribute.PathSelection()
+                        self.path_selection.parent = self
                         self.policy_classes = MplsTe.GlobalAttributes.AttributeSet.AutoMeshAttributes.AutoMeshAttribute.PolicyClasses()
                         self.policy_classes.parent = self
                         self.priority = None
@@ -8585,6 +18189,51 @@ class MplsTe(object):
                             return meta._meta_table['MplsTe.GlobalAttributes.AttributeSet.AutoMeshAttributes.AutoMeshAttribute.Bandwidth']['meta_info']
 
 
+                    class PathSelection(object):
+                        """
+                        Configure path selection properties
+                        
+                        .. attribute:: enable
+                        
+                        	Enable path selection
+                        	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                        
+                        
+
+                        """
+
+                        _prefix = 'mpls-te-cfg'
+                        _revision = '2015-11-09'
+
+                        def __init__(self):
+                            self.parent = None
+                            self.enable = None
+
+                        @property
+                        def _common_path(self):
+                            if self.parent is None:
+                                raise YPYModelError('parent is not set . Cannot derive path.')
+
+                            return self.parent._common_path +'/Cisco-IOS-XR-mpls-te-cfg:path-selection'
+
+                        def is_config(self):
+                            ''' Returns True if this instance represents config data else returns False '''
+                            return True
+
+                        def _has_data(self):
+                            if not self.is_config():
+                                return False
+                            if self.enable is not None:
+                                return True
+
+                            return False
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+                            return meta._meta_table['MplsTe.GlobalAttributes.AttributeSet.AutoMeshAttributes.AutoMeshAttribute.PathSelection']['meta_info']
+
+
                     class PolicyClasses(object):
                         """
                         Policy classes for PBTS
@@ -8636,14 +18285,64 @@ class MplsTe(object):
                             return meta._meta_table['MplsTe.GlobalAttributes.AttributeSet.AutoMeshAttributes.AutoMeshAttribute.PolicyClasses']['meta_info']
 
 
-                    class NewStyleAffinities(object):
+                    class NewStyleAffinityAffinityTypes(object):
                         """
                         Tunnel new style affinity attributes table
                         
-                        .. attribute:: new_style_affinity
+                        .. attribute:: new_style_affinity_affinity_type
                         
                         	Tunnel new style affinity attribute
-                        	**type**\: list of  :py:class:`NewStyleAffinity <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.AutoMeshAttributes.AutoMeshAttribute.NewStyleAffinities.NewStyleAffinity>`
+                        	**type**\: list of  :py:class:`NewStyleAffinityAffinityType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.AutoMeshAttributes.AutoMeshAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityType>`
+                        
+                        .. attribute:: new_style_affinity_affinity_type_affinity1
+                        
+                        	Tunnel new style affinity attribute
+                        	**type**\: list of  :py:class:`NewStyleAffinityAffinityTypeAffinity1 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.AutoMeshAttributes.AutoMeshAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1>`
+                        
+                        .. attribute:: new_style_affinity_affinity_type_affinity1_affinity2
+                        
+                        	Tunnel new style affinity attribute
+                        	**type**\: list of  :py:class:`NewStyleAffinityAffinityTypeAffinity1Affinity2 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.AutoMeshAttributes.AutoMeshAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2>`
+                        
+                        .. attribute:: new_style_affinity_affinity_type_affinity1_affinity2_affinity3
+                        
+                        	Tunnel new style affinity attribute
+                        	**type**\: list of  :py:class:`NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.AutoMeshAttributes.AutoMeshAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3>`
+                        
+                        .. attribute:: new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4
+                        
+                        	Tunnel new style affinity attribute
+                        	**type**\: list of  :py:class:`NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.AutoMeshAttributes.AutoMeshAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4>`
+                        
+                        .. attribute:: new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5
+                        
+                        	Tunnel new style affinity attribute
+                        	**type**\: list of  :py:class:`NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.AutoMeshAttributes.AutoMeshAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5>`
+                        
+                        .. attribute:: new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5_affinity6
+                        
+                        	Tunnel new style affinity attribute
+                        	**type**\: list of  :py:class:`NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.AutoMeshAttributes.AutoMeshAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6>`
+                        
+                        .. attribute:: new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5_affinity6_affinity7
+                        
+                        	Tunnel new style affinity attribute
+                        	**type**\: list of  :py:class:`NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.AutoMeshAttributes.AutoMeshAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7>`
+                        
+                        .. attribute:: new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5_affinity6_affinity7_affinity8
+                        
+                        	Tunnel new style affinity attribute
+                        	**type**\: list of  :py:class:`NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.AutoMeshAttributes.AutoMeshAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8>`
+                        
+                        .. attribute:: new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5_affinity6_affinity7_affinity8_affinity9
+                        
+                        	Tunnel new style affinity attribute
+                        	**type**\: list of  :py:class:`NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.AutoMeshAttributes.AutoMeshAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9>`
+                        
+                        .. attribute:: new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5_affinity6_affinity7_affinity8_affinity9_affinity10
+                        
+                        	Tunnel new style affinity attribute
+                        	**type**\: list of  :py:class:`NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9Affinity10 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.AutoMeshAttributes.AutoMeshAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9Affinity10>`
                         
                         
 
@@ -8654,12 +18353,1097 @@ class MplsTe(object):
 
                         def __init__(self):
                             self.parent = None
-                            self.new_style_affinity = YList()
-                            self.new_style_affinity.parent = self
-                            self.new_style_affinity.name = 'new_style_affinity'
+                            self.new_style_affinity_affinity_type = YList()
+                            self.new_style_affinity_affinity_type.parent = self
+                            self.new_style_affinity_affinity_type.name = 'new_style_affinity_affinity_type'
+                            self.new_style_affinity_affinity_type_affinity1 = YList()
+                            self.new_style_affinity_affinity_type_affinity1.parent = self
+                            self.new_style_affinity_affinity_type_affinity1.name = 'new_style_affinity_affinity_type_affinity1'
+                            self.new_style_affinity_affinity_type_affinity1_affinity2 = YList()
+                            self.new_style_affinity_affinity_type_affinity1_affinity2.parent = self
+                            self.new_style_affinity_affinity_type_affinity1_affinity2.name = 'new_style_affinity_affinity_type_affinity1_affinity2'
+                            self.new_style_affinity_affinity_type_affinity1_affinity2_affinity3 = YList()
+                            self.new_style_affinity_affinity_type_affinity1_affinity2_affinity3.parent = self
+                            self.new_style_affinity_affinity_type_affinity1_affinity2_affinity3.name = 'new_style_affinity_affinity_type_affinity1_affinity2_affinity3'
+                            self.new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4 = YList()
+                            self.new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4.parent = self
+                            self.new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4.name = 'new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4'
+                            self.new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5 = YList()
+                            self.new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5.parent = self
+                            self.new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5.name = 'new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5'
+                            self.new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5_affinity6 = YList()
+                            self.new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5_affinity6.parent = self
+                            self.new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5_affinity6.name = 'new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5_affinity6'
+                            self.new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5_affinity6_affinity7 = YList()
+                            self.new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5_affinity6_affinity7.parent = self
+                            self.new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5_affinity6_affinity7.name = 'new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5_affinity6_affinity7'
+                            self.new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5_affinity6_affinity7_affinity8 = YList()
+                            self.new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5_affinity6_affinity7_affinity8.parent = self
+                            self.new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5_affinity6_affinity7_affinity8.name = 'new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5_affinity6_affinity7_affinity8'
+                            self.new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5_affinity6_affinity7_affinity8_affinity9 = YList()
+                            self.new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5_affinity6_affinity7_affinity8_affinity9.parent = self
+                            self.new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5_affinity6_affinity7_affinity8_affinity9.name = 'new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5_affinity6_affinity7_affinity8_affinity9'
+                            self.new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5_affinity6_affinity7_affinity8_affinity9_affinity10 = YList()
+                            self.new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5_affinity6_affinity7_affinity8_affinity9_affinity10.parent = self
+                            self.new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5_affinity6_affinity7_affinity8_affinity9_affinity10.name = 'new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5_affinity6_affinity7_affinity8_affinity9_affinity10'
 
 
-                        class NewStyleAffinity(object):
+                        class NewStyleAffinityAffinityType(object):
+                            """
+                            Tunnel new style affinity attribute
+                            
+                            .. attribute:: affinity_type  <key>
+                            
+                            	The type of the affinity entry
+                            	**type**\:  :py:class:`MplsTeTunnelAffinityEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeTunnelAffinityEnum>`
+                            
+                            
+
+                            """
+
+                            _prefix = 'mpls-te-cfg'
+                            _revision = '2015-11-09'
+
+                            def __init__(self):
+                                self.parent = None
+                                self.affinity_type = None
+
+                            @property
+                            def _common_path(self):
+                                if self.parent is None:
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
+                                if self.affinity_type is None:
+                                    raise YPYModelError('Key property affinity_type is None')
+
+                                return self.parent._common_path +'/Cisco-IOS-XR-mpls-te-cfg:new-style-affinity-affinity-type[Cisco-IOS-XR-mpls-te-cfg:affinity-type = ' + str(self.affinity_type) + ']'
+
+                            def is_config(self):
+                                ''' Returns True if this instance represents config data else returns False '''
+                                return True
+
+                            def _has_data(self):
+                                if not self.is_config():
+                                    return False
+                                if self.affinity_type is not None:
+                                    return True
+
+                                return False
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+                                return meta._meta_table['MplsTe.GlobalAttributes.AttributeSet.AutoMeshAttributes.AutoMeshAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityType']['meta_info']
+
+
+                        class NewStyleAffinityAffinityTypeAffinity1(object):
+                            """
+                            Tunnel new style affinity attribute
+                            
+                            .. attribute:: affinity1  <key>
+                            
+                            	The name of the first affinity
+                            	**type**\:  str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
+                            
+                            .. attribute:: affinity_type  <key>
+                            
+                            	The type of the affinity entry
+                            	**type**\:  :py:class:`MplsTeTunnelAffinityEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeTunnelAffinityEnum>`
+                            
+                            
+
+                            """
+
+                            _prefix = 'mpls-te-cfg'
+                            _revision = '2015-11-09'
+
+                            def __init__(self):
+                                self.parent = None
+                                self.affinity1 = None
+                                self.affinity_type = None
+
+                            @property
+                            def _common_path(self):
+                                if self.parent is None:
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
+                                if self.affinity1 is None:
+                                    raise YPYModelError('Key property affinity1 is None')
+                                if self.affinity_type is None:
+                                    raise YPYModelError('Key property affinity_type is None')
+
+                                return self.parent._common_path +'/Cisco-IOS-XR-mpls-te-cfg:new-style-affinity-affinity-type-affinity1[Cisco-IOS-XR-mpls-te-cfg:affinity1 = ' + str(self.affinity1) + '][Cisco-IOS-XR-mpls-te-cfg:affinity-type = ' + str(self.affinity_type) + ']'
+
+                            def is_config(self):
+                                ''' Returns True if this instance represents config data else returns False '''
+                                return True
+
+                            def _has_data(self):
+                                if not self.is_config():
+                                    return False
+                                if self.affinity1 is not None:
+                                    return True
+
+                                if self.affinity_type is not None:
+                                    return True
+
+                                return False
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+                                return meta._meta_table['MplsTe.GlobalAttributes.AttributeSet.AutoMeshAttributes.AutoMeshAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1']['meta_info']
+
+
+                        class NewStyleAffinityAffinityTypeAffinity1Affinity2(object):
+                            """
+                            Tunnel new style affinity attribute
+                            
+                            .. attribute:: affinity1  <key>
+                            
+                            	The name of the first affinity
+                            	**type**\:  str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
+                            
+                            .. attribute:: affinity2  <key>
+                            
+                            	The name of the second affinity
+                            	**type**\:  str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
+                            
+                            .. attribute:: affinity_type  <key>
+                            
+                            	The type of the affinity entry
+                            	**type**\:  :py:class:`MplsTeTunnelAffinityEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeTunnelAffinityEnum>`
+                            
+                            
+
+                            """
+
+                            _prefix = 'mpls-te-cfg'
+                            _revision = '2015-11-09'
+
+                            def __init__(self):
+                                self.parent = None
+                                self.affinity1 = None
+                                self.affinity2 = None
+                                self.affinity_type = None
+
+                            @property
+                            def _common_path(self):
+                                if self.parent is None:
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
+                                if self.affinity1 is None:
+                                    raise YPYModelError('Key property affinity1 is None')
+                                if self.affinity2 is None:
+                                    raise YPYModelError('Key property affinity2 is None')
+                                if self.affinity_type is None:
+                                    raise YPYModelError('Key property affinity_type is None')
+
+                                return self.parent._common_path +'/Cisco-IOS-XR-mpls-te-cfg:new-style-affinity-affinity-type-affinity1-affinity2[Cisco-IOS-XR-mpls-te-cfg:affinity1 = ' + str(self.affinity1) + '][Cisco-IOS-XR-mpls-te-cfg:affinity2 = ' + str(self.affinity2) + '][Cisco-IOS-XR-mpls-te-cfg:affinity-type = ' + str(self.affinity_type) + ']'
+
+                            def is_config(self):
+                                ''' Returns True if this instance represents config data else returns False '''
+                                return True
+
+                            def _has_data(self):
+                                if not self.is_config():
+                                    return False
+                                if self.affinity1 is not None:
+                                    return True
+
+                                if self.affinity2 is not None:
+                                    return True
+
+                                if self.affinity_type is not None:
+                                    return True
+
+                                return False
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+                                return meta._meta_table['MplsTe.GlobalAttributes.AttributeSet.AutoMeshAttributes.AutoMeshAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2']['meta_info']
+
+
+                        class NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3(object):
+                            """
+                            Tunnel new style affinity attribute
+                            
+                            .. attribute:: affinity1  <key>
+                            
+                            	The name of the first affinity
+                            	**type**\:  str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
+                            
+                            .. attribute:: affinity2  <key>
+                            
+                            	The name of the second affinity
+                            	**type**\:  str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
+                            
+                            .. attribute:: affinity3  <key>
+                            
+                            	The name of the third affinity
+                            	**type**\:  str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
+                            
+                            .. attribute:: affinity_type  <key>
+                            
+                            	The type of the affinity entry
+                            	**type**\:  :py:class:`MplsTeTunnelAffinityEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeTunnelAffinityEnum>`
+                            
+                            
+
+                            """
+
+                            _prefix = 'mpls-te-cfg'
+                            _revision = '2015-11-09'
+
+                            def __init__(self):
+                                self.parent = None
+                                self.affinity1 = None
+                                self.affinity2 = None
+                                self.affinity3 = None
+                                self.affinity_type = None
+
+                            @property
+                            def _common_path(self):
+                                if self.parent is None:
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
+                                if self.affinity1 is None:
+                                    raise YPYModelError('Key property affinity1 is None')
+                                if self.affinity2 is None:
+                                    raise YPYModelError('Key property affinity2 is None')
+                                if self.affinity3 is None:
+                                    raise YPYModelError('Key property affinity3 is None')
+                                if self.affinity_type is None:
+                                    raise YPYModelError('Key property affinity_type is None')
+
+                                return self.parent._common_path +'/Cisco-IOS-XR-mpls-te-cfg:new-style-affinity-affinity-type-affinity1-affinity2-affinity3[Cisco-IOS-XR-mpls-te-cfg:affinity1 = ' + str(self.affinity1) + '][Cisco-IOS-XR-mpls-te-cfg:affinity2 = ' + str(self.affinity2) + '][Cisco-IOS-XR-mpls-te-cfg:affinity3 = ' + str(self.affinity3) + '][Cisco-IOS-XR-mpls-te-cfg:affinity-type = ' + str(self.affinity_type) + ']'
+
+                            def is_config(self):
+                                ''' Returns True if this instance represents config data else returns False '''
+                                return True
+
+                            def _has_data(self):
+                                if not self.is_config():
+                                    return False
+                                if self.affinity1 is not None:
+                                    return True
+
+                                if self.affinity2 is not None:
+                                    return True
+
+                                if self.affinity3 is not None:
+                                    return True
+
+                                if self.affinity_type is not None:
+                                    return True
+
+                                return False
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+                                return meta._meta_table['MplsTe.GlobalAttributes.AttributeSet.AutoMeshAttributes.AutoMeshAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3']['meta_info']
+
+
+                        class NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4(object):
+                            """
+                            Tunnel new style affinity attribute
+                            
+                            .. attribute:: affinity1  <key>
+                            
+                            	The name of the first affinity
+                            	**type**\:  str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
+                            
+                            .. attribute:: affinity2  <key>
+                            
+                            	The name of the second affinity
+                            	**type**\:  str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
+                            
+                            .. attribute:: affinity3  <key>
+                            
+                            	The name of the third affinity
+                            	**type**\:  str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
+                            
+                            .. attribute:: affinity4  <key>
+                            
+                            	The name of the fourth affinity
+                            	**type**\:  str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
+                            
+                            .. attribute:: affinity_type  <key>
+                            
+                            	The type of the affinity entry
+                            	**type**\:  :py:class:`MplsTeTunnelAffinityEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeTunnelAffinityEnum>`
+                            
+                            
+
+                            """
+
+                            _prefix = 'mpls-te-cfg'
+                            _revision = '2015-11-09'
+
+                            def __init__(self):
+                                self.parent = None
+                                self.affinity1 = None
+                                self.affinity2 = None
+                                self.affinity3 = None
+                                self.affinity4 = None
+                                self.affinity_type = None
+
+                            @property
+                            def _common_path(self):
+                                if self.parent is None:
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
+                                if self.affinity1 is None:
+                                    raise YPYModelError('Key property affinity1 is None')
+                                if self.affinity2 is None:
+                                    raise YPYModelError('Key property affinity2 is None')
+                                if self.affinity3 is None:
+                                    raise YPYModelError('Key property affinity3 is None')
+                                if self.affinity4 is None:
+                                    raise YPYModelError('Key property affinity4 is None')
+                                if self.affinity_type is None:
+                                    raise YPYModelError('Key property affinity_type is None')
+
+                                return self.parent._common_path +'/Cisco-IOS-XR-mpls-te-cfg:new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4[Cisco-IOS-XR-mpls-te-cfg:affinity1 = ' + str(self.affinity1) + '][Cisco-IOS-XR-mpls-te-cfg:affinity2 = ' + str(self.affinity2) + '][Cisco-IOS-XR-mpls-te-cfg:affinity3 = ' + str(self.affinity3) + '][Cisco-IOS-XR-mpls-te-cfg:affinity4 = ' + str(self.affinity4) + '][Cisco-IOS-XR-mpls-te-cfg:affinity-type = ' + str(self.affinity_type) + ']'
+
+                            def is_config(self):
+                                ''' Returns True if this instance represents config data else returns False '''
+                                return True
+
+                            def _has_data(self):
+                                if not self.is_config():
+                                    return False
+                                if self.affinity1 is not None:
+                                    return True
+
+                                if self.affinity2 is not None:
+                                    return True
+
+                                if self.affinity3 is not None:
+                                    return True
+
+                                if self.affinity4 is not None:
+                                    return True
+
+                                if self.affinity_type is not None:
+                                    return True
+
+                                return False
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+                                return meta._meta_table['MplsTe.GlobalAttributes.AttributeSet.AutoMeshAttributes.AutoMeshAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4']['meta_info']
+
+
+                        class NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5(object):
+                            """
+                            Tunnel new style affinity attribute
+                            
+                            .. attribute:: affinity1  <key>
+                            
+                            	The name of the first affinity
+                            	**type**\:  str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
+                            
+                            .. attribute:: affinity2  <key>
+                            
+                            	The name of the second affinity
+                            	**type**\:  str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
+                            
+                            .. attribute:: affinity3  <key>
+                            
+                            	The name of the third affinity
+                            	**type**\:  str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
+                            
+                            .. attribute:: affinity4  <key>
+                            
+                            	The name of the fourth affinity
+                            	**type**\:  str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
+                            
+                            .. attribute:: affinity5  <key>
+                            
+                            	The name of the fifth affinity
+                            	**type**\:  str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
+                            
+                            .. attribute:: affinity_type  <key>
+                            
+                            	The type of the affinity entry
+                            	**type**\:  :py:class:`MplsTeTunnelAffinityEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeTunnelAffinityEnum>`
+                            
+                            
+
+                            """
+
+                            _prefix = 'mpls-te-cfg'
+                            _revision = '2015-11-09'
+
+                            def __init__(self):
+                                self.parent = None
+                                self.affinity1 = None
+                                self.affinity2 = None
+                                self.affinity3 = None
+                                self.affinity4 = None
+                                self.affinity5 = None
+                                self.affinity_type = None
+
+                            @property
+                            def _common_path(self):
+                                if self.parent is None:
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
+                                if self.affinity1 is None:
+                                    raise YPYModelError('Key property affinity1 is None')
+                                if self.affinity2 is None:
+                                    raise YPYModelError('Key property affinity2 is None')
+                                if self.affinity3 is None:
+                                    raise YPYModelError('Key property affinity3 is None')
+                                if self.affinity4 is None:
+                                    raise YPYModelError('Key property affinity4 is None')
+                                if self.affinity5 is None:
+                                    raise YPYModelError('Key property affinity5 is None')
+                                if self.affinity_type is None:
+                                    raise YPYModelError('Key property affinity_type is None')
+
+                                return self.parent._common_path +'/Cisco-IOS-XR-mpls-te-cfg:new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5[Cisco-IOS-XR-mpls-te-cfg:affinity1 = ' + str(self.affinity1) + '][Cisco-IOS-XR-mpls-te-cfg:affinity2 = ' + str(self.affinity2) + '][Cisco-IOS-XR-mpls-te-cfg:affinity3 = ' + str(self.affinity3) + '][Cisco-IOS-XR-mpls-te-cfg:affinity4 = ' + str(self.affinity4) + '][Cisco-IOS-XR-mpls-te-cfg:affinity5 = ' + str(self.affinity5) + '][Cisco-IOS-XR-mpls-te-cfg:affinity-type = ' + str(self.affinity_type) + ']'
+
+                            def is_config(self):
+                                ''' Returns True if this instance represents config data else returns False '''
+                                return True
+
+                            def _has_data(self):
+                                if not self.is_config():
+                                    return False
+                                if self.affinity1 is not None:
+                                    return True
+
+                                if self.affinity2 is not None:
+                                    return True
+
+                                if self.affinity3 is not None:
+                                    return True
+
+                                if self.affinity4 is not None:
+                                    return True
+
+                                if self.affinity5 is not None:
+                                    return True
+
+                                if self.affinity_type is not None:
+                                    return True
+
+                                return False
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+                                return meta._meta_table['MplsTe.GlobalAttributes.AttributeSet.AutoMeshAttributes.AutoMeshAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5']['meta_info']
+
+
+                        class NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6(object):
+                            """
+                            Tunnel new style affinity attribute
+                            
+                            .. attribute:: affinity1  <key>
+                            
+                            	The name of the first affinity
+                            	**type**\:  str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
+                            
+                            .. attribute:: affinity2  <key>
+                            
+                            	The name of the second affinity
+                            	**type**\:  str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
+                            
+                            .. attribute:: affinity3  <key>
+                            
+                            	The name of the third affinity
+                            	**type**\:  str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
+                            
+                            .. attribute:: affinity4  <key>
+                            
+                            	The name of the fourth affinity
+                            	**type**\:  str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
+                            
+                            .. attribute:: affinity5  <key>
+                            
+                            	The name of the fifth affinity
+                            	**type**\:  str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
+                            
+                            .. attribute:: affinity6  <key>
+                            
+                            	The name of the sixth affinity
+                            	**type**\:  str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
+                            
+                            .. attribute:: affinity_type  <key>
+                            
+                            	The type of the affinity entry
+                            	**type**\:  :py:class:`MplsTeTunnelAffinityEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeTunnelAffinityEnum>`
+                            
+                            
+
+                            """
+
+                            _prefix = 'mpls-te-cfg'
+                            _revision = '2015-11-09'
+
+                            def __init__(self):
+                                self.parent = None
+                                self.affinity1 = None
+                                self.affinity2 = None
+                                self.affinity3 = None
+                                self.affinity4 = None
+                                self.affinity5 = None
+                                self.affinity6 = None
+                                self.affinity_type = None
+
+                            @property
+                            def _common_path(self):
+                                if self.parent is None:
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
+                                if self.affinity1 is None:
+                                    raise YPYModelError('Key property affinity1 is None')
+                                if self.affinity2 is None:
+                                    raise YPYModelError('Key property affinity2 is None')
+                                if self.affinity3 is None:
+                                    raise YPYModelError('Key property affinity3 is None')
+                                if self.affinity4 is None:
+                                    raise YPYModelError('Key property affinity4 is None')
+                                if self.affinity5 is None:
+                                    raise YPYModelError('Key property affinity5 is None')
+                                if self.affinity6 is None:
+                                    raise YPYModelError('Key property affinity6 is None')
+                                if self.affinity_type is None:
+                                    raise YPYModelError('Key property affinity_type is None')
+
+                                return self.parent._common_path +'/Cisco-IOS-XR-mpls-te-cfg:new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5-affinity6[Cisco-IOS-XR-mpls-te-cfg:affinity1 = ' + str(self.affinity1) + '][Cisco-IOS-XR-mpls-te-cfg:affinity2 = ' + str(self.affinity2) + '][Cisco-IOS-XR-mpls-te-cfg:affinity3 = ' + str(self.affinity3) + '][Cisco-IOS-XR-mpls-te-cfg:affinity4 = ' + str(self.affinity4) + '][Cisco-IOS-XR-mpls-te-cfg:affinity5 = ' + str(self.affinity5) + '][Cisco-IOS-XR-mpls-te-cfg:affinity6 = ' + str(self.affinity6) + '][Cisco-IOS-XR-mpls-te-cfg:affinity-type = ' + str(self.affinity_type) + ']'
+
+                            def is_config(self):
+                                ''' Returns True if this instance represents config data else returns False '''
+                                return True
+
+                            def _has_data(self):
+                                if not self.is_config():
+                                    return False
+                                if self.affinity1 is not None:
+                                    return True
+
+                                if self.affinity2 is not None:
+                                    return True
+
+                                if self.affinity3 is not None:
+                                    return True
+
+                                if self.affinity4 is not None:
+                                    return True
+
+                                if self.affinity5 is not None:
+                                    return True
+
+                                if self.affinity6 is not None:
+                                    return True
+
+                                if self.affinity_type is not None:
+                                    return True
+
+                                return False
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+                                return meta._meta_table['MplsTe.GlobalAttributes.AttributeSet.AutoMeshAttributes.AutoMeshAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6']['meta_info']
+
+
+                        class NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7(object):
+                            """
+                            Tunnel new style affinity attribute
+                            
+                            .. attribute:: affinity1  <key>
+                            
+                            	The name of the first affinity
+                            	**type**\:  str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
+                            
+                            .. attribute:: affinity2  <key>
+                            
+                            	The name of the second affinity
+                            	**type**\:  str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
+                            
+                            .. attribute:: affinity3  <key>
+                            
+                            	The name of the third affinity
+                            	**type**\:  str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
+                            
+                            .. attribute:: affinity4  <key>
+                            
+                            	The name of the fourth affinity
+                            	**type**\:  str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
+                            
+                            .. attribute:: affinity5  <key>
+                            
+                            	The name of the fifth affinity
+                            	**type**\:  str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
+                            
+                            .. attribute:: affinity6  <key>
+                            
+                            	The name of the sixth affinity
+                            	**type**\:  str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
+                            
+                            .. attribute:: affinity7  <key>
+                            
+                            	The name of the seventh affinity
+                            	**type**\:  str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
+                            
+                            .. attribute:: affinity_type  <key>
+                            
+                            	The type of the affinity entry
+                            	**type**\:  :py:class:`MplsTeTunnelAffinityEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeTunnelAffinityEnum>`
+                            
+                            
+
+                            """
+
+                            _prefix = 'mpls-te-cfg'
+                            _revision = '2015-11-09'
+
+                            def __init__(self):
+                                self.parent = None
+                                self.affinity1 = None
+                                self.affinity2 = None
+                                self.affinity3 = None
+                                self.affinity4 = None
+                                self.affinity5 = None
+                                self.affinity6 = None
+                                self.affinity7 = None
+                                self.affinity_type = None
+
+                            @property
+                            def _common_path(self):
+                                if self.parent is None:
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
+                                if self.affinity1 is None:
+                                    raise YPYModelError('Key property affinity1 is None')
+                                if self.affinity2 is None:
+                                    raise YPYModelError('Key property affinity2 is None')
+                                if self.affinity3 is None:
+                                    raise YPYModelError('Key property affinity3 is None')
+                                if self.affinity4 is None:
+                                    raise YPYModelError('Key property affinity4 is None')
+                                if self.affinity5 is None:
+                                    raise YPYModelError('Key property affinity5 is None')
+                                if self.affinity6 is None:
+                                    raise YPYModelError('Key property affinity6 is None')
+                                if self.affinity7 is None:
+                                    raise YPYModelError('Key property affinity7 is None')
+                                if self.affinity_type is None:
+                                    raise YPYModelError('Key property affinity_type is None')
+
+                                return self.parent._common_path +'/Cisco-IOS-XR-mpls-te-cfg:new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5-affinity6-affinity7[Cisco-IOS-XR-mpls-te-cfg:affinity1 = ' + str(self.affinity1) + '][Cisco-IOS-XR-mpls-te-cfg:affinity2 = ' + str(self.affinity2) + '][Cisco-IOS-XR-mpls-te-cfg:affinity3 = ' + str(self.affinity3) + '][Cisco-IOS-XR-mpls-te-cfg:affinity4 = ' + str(self.affinity4) + '][Cisco-IOS-XR-mpls-te-cfg:affinity5 = ' + str(self.affinity5) + '][Cisco-IOS-XR-mpls-te-cfg:affinity6 = ' + str(self.affinity6) + '][Cisco-IOS-XR-mpls-te-cfg:affinity7 = ' + str(self.affinity7) + '][Cisco-IOS-XR-mpls-te-cfg:affinity-type = ' + str(self.affinity_type) + ']'
+
+                            def is_config(self):
+                                ''' Returns True if this instance represents config data else returns False '''
+                                return True
+
+                            def _has_data(self):
+                                if not self.is_config():
+                                    return False
+                                if self.affinity1 is not None:
+                                    return True
+
+                                if self.affinity2 is not None:
+                                    return True
+
+                                if self.affinity3 is not None:
+                                    return True
+
+                                if self.affinity4 is not None:
+                                    return True
+
+                                if self.affinity5 is not None:
+                                    return True
+
+                                if self.affinity6 is not None:
+                                    return True
+
+                                if self.affinity7 is not None:
+                                    return True
+
+                                if self.affinity_type is not None:
+                                    return True
+
+                                return False
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+                                return meta._meta_table['MplsTe.GlobalAttributes.AttributeSet.AutoMeshAttributes.AutoMeshAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7']['meta_info']
+
+
+                        class NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8(object):
+                            """
+                            Tunnel new style affinity attribute
+                            
+                            .. attribute:: affinity1  <key>
+                            
+                            	The name of the first affinity
+                            	**type**\:  str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
+                            
+                            .. attribute:: affinity2  <key>
+                            
+                            	The name of the second affinity
+                            	**type**\:  str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
+                            
+                            .. attribute:: affinity3  <key>
+                            
+                            	The name of the third affinity
+                            	**type**\:  str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
+                            
+                            .. attribute:: affinity4  <key>
+                            
+                            	The name of the fourth affinity
+                            	**type**\:  str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
+                            
+                            .. attribute:: affinity5  <key>
+                            
+                            	The name of the fifth affinity
+                            	**type**\:  str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
+                            
+                            .. attribute:: affinity6  <key>
+                            
+                            	The name of the sixth affinity
+                            	**type**\:  str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
+                            
+                            .. attribute:: affinity7  <key>
+                            
+                            	The name of the seventh affinity
+                            	**type**\:  str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
+                            
+                            .. attribute:: affinity8  <key>
+                            
+                            	The name of the eighth affinity
+                            	**type**\:  str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
+                            
+                            .. attribute:: affinity_type  <key>
+                            
+                            	The type of the affinity entry
+                            	**type**\:  :py:class:`MplsTeTunnelAffinityEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeTunnelAffinityEnum>`
+                            
+                            
+
+                            """
+
+                            _prefix = 'mpls-te-cfg'
+                            _revision = '2015-11-09'
+
+                            def __init__(self):
+                                self.parent = None
+                                self.affinity1 = None
+                                self.affinity2 = None
+                                self.affinity3 = None
+                                self.affinity4 = None
+                                self.affinity5 = None
+                                self.affinity6 = None
+                                self.affinity7 = None
+                                self.affinity8 = None
+                                self.affinity_type = None
+
+                            @property
+                            def _common_path(self):
+                                if self.parent is None:
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
+                                if self.affinity1 is None:
+                                    raise YPYModelError('Key property affinity1 is None')
+                                if self.affinity2 is None:
+                                    raise YPYModelError('Key property affinity2 is None')
+                                if self.affinity3 is None:
+                                    raise YPYModelError('Key property affinity3 is None')
+                                if self.affinity4 is None:
+                                    raise YPYModelError('Key property affinity4 is None')
+                                if self.affinity5 is None:
+                                    raise YPYModelError('Key property affinity5 is None')
+                                if self.affinity6 is None:
+                                    raise YPYModelError('Key property affinity6 is None')
+                                if self.affinity7 is None:
+                                    raise YPYModelError('Key property affinity7 is None')
+                                if self.affinity8 is None:
+                                    raise YPYModelError('Key property affinity8 is None')
+                                if self.affinity_type is None:
+                                    raise YPYModelError('Key property affinity_type is None')
+
+                                return self.parent._common_path +'/Cisco-IOS-XR-mpls-te-cfg:new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5-affinity6-affinity7-affinity8[Cisco-IOS-XR-mpls-te-cfg:affinity1 = ' + str(self.affinity1) + '][Cisco-IOS-XR-mpls-te-cfg:affinity2 = ' + str(self.affinity2) + '][Cisco-IOS-XR-mpls-te-cfg:affinity3 = ' + str(self.affinity3) + '][Cisco-IOS-XR-mpls-te-cfg:affinity4 = ' + str(self.affinity4) + '][Cisco-IOS-XR-mpls-te-cfg:affinity5 = ' + str(self.affinity5) + '][Cisco-IOS-XR-mpls-te-cfg:affinity6 = ' + str(self.affinity6) + '][Cisco-IOS-XR-mpls-te-cfg:affinity7 = ' + str(self.affinity7) + '][Cisco-IOS-XR-mpls-te-cfg:affinity8 = ' + str(self.affinity8) + '][Cisco-IOS-XR-mpls-te-cfg:affinity-type = ' + str(self.affinity_type) + ']'
+
+                            def is_config(self):
+                                ''' Returns True if this instance represents config data else returns False '''
+                                return True
+
+                            def _has_data(self):
+                                if not self.is_config():
+                                    return False
+                                if self.affinity1 is not None:
+                                    return True
+
+                                if self.affinity2 is not None:
+                                    return True
+
+                                if self.affinity3 is not None:
+                                    return True
+
+                                if self.affinity4 is not None:
+                                    return True
+
+                                if self.affinity5 is not None:
+                                    return True
+
+                                if self.affinity6 is not None:
+                                    return True
+
+                                if self.affinity7 is not None:
+                                    return True
+
+                                if self.affinity8 is not None:
+                                    return True
+
+                                if self.affinity_type is not None:
+                                    return True
+
+                                return False
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+                                return meta._meta_table['MplsTe.GlobalAttributes.AttributeSet.AutoMeshAttributes.AutoMeshAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8']['meta_info']
+
+
+                        class NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9(object):
+                            """
+                            Tunnel new style affinity attribute
+                            
+                            .. attribute:: affinity1  <key>
+                            
+                            	The name of the first affinity
+                            	**type**\:  str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
+                            
+                            .. attribute:: affinity2  <key>
+                            
+                            	The name of the second affinity
+                            	**type**\:  str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
+                            
+                            .. attribute:: affinity3  <key>
+                            
+                            	The name of the third affinity
+                            	**type**\:  str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
+                            
+                            .. attribute:: affinity4  <key>
+                            
+                            	The name of the fourth affinity
+                            	**type**\:  str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
+                            
+                            .. attribute:: affinity5  <key>
+                            
+                            	The name of the fifth affinity
+                            	**type**\:  str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
+                            
+                            .. attribute:: affinity6  <key>
+                            
+                            	The name of the sixth affinity
+                            	**type**\:  str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
+                            
+                            .. attribute:: affinity7  <key>
+                            
+                            	The name of the seventh affinity
+                            	**type**\:  str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
+                            
+                            .. attribute:: affinity8  <key>
+                            
+                            	The name of the eighth affinity
+                            	**type**\:  str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
+                            
+                            .. attribute:: affinity9  <key>
+                            
+                            	The name of the nineth affinity
+                            	**type**\:  str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
+                            
+                            .. attribute:: affinity_type  <key>
+                            
+                            	The type of the affinity entry
+                            	**type**\:  :py:class:`MplsTeTunnelAffinityEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeTunnelAffinityEnum>`
+                            
+                            
+
+                            """
+
+                            _prefix = 'mpls-te-cfg'
+                            _revision = '2015-11-09'
+
+                            def __init__(self):
+                                self.parent = None
+                                self.affinity1 = None
+                                self.affinity2 = None
+                                self.affinity3 = None
+                                self.affinity4 = None
+                                self.affinity5 = None
+                                self.affinity6 = None
+                                self.affinity7 = None
+                                self.affinity8 = None
+                                self.affinity9 = None
+                                self.affinity_type = None
+
+                            @property
+                            def _common_path(self):
+                                if self.parent is None:
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
+                                if self.affinity1 is None:
+                                    raise YPYModelError('Key property affinity1 is None')
+                                if self.affinity2 is None:
+                                    raise YPYModelError('Key property affinity2 is None')
+                                if self.affinity3 is None:
+                                    raise YPYModelError('Key property affinity3 is None')
+                                if self.affinity4 is None:
+                                    raise YPYModelError('Key property affinity4 is None')
+                                if self.affinity5 is None:
+                                    raise YPYModelError('Key property affinity5 is None')
+                                if self.affinity6 is None:
+                                    raise YPYModelError('Key property affinity6 is None')
+                                if self.affinity7 is None:
+                                    raise YPYModelError('Key property affinity7 is None')
+                                if self.affinity8 is None:
+                                    raise YPYModelError('Key property affinity8 is None')
+                                if self.affinity9 is None:
+                                    raise YPYModelError('Key property affinity9 is None')
+                                if self.affinity_type is None:
+                                    raise YPYModelError('Key property affinity_type is None')
+
+                                return self.parent._common_path +'/Cisco-IOS-XR-mpls-te-cfg:new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5-affinity6-affinity7-affinity8-affinity9[Cisco-IOS-XR-mpls-te-cfg:affinity1 = ' + str(self.affinity1) + '][Cisco-IOS-XR-mpls-te-cfg:affinity2 = ' + str(self.affinity2) + '][Cisco-IOS-XR-mpls-te-cfg:affinity3 = ' + str(self.affinity3) + '][Cisco-IOS-XR-mpls-te-cfg:affinity4 = ' + str(self.affinity4) + '][Cisco-IOS-XR-mpls-te-cfg:affinity5 = ' + str(self.affinity5) + '][Cisco-IOS-XR-mpls-te-cfg:affinity6 = ' + str(self.affinity6) + '][Cisco-IOS-XR-mpls-te-cfg:affinity7 = ' + str(self.affinity7) + '][Cisco-IOS-XR-mpls-te-cfg:affinity8 = ' + str(self.affinity8) + '][Cisco-IOS-XR-mpls-te-cfg:affinity9 = ' + str(self.affinity9) + '][Cisco-IOS-XR-mpls-te-cfg:affinity-type = ' + str(self.affinity_type) + ']'
+
+                            def is_config(self):
+                                ''' Returns True if this instance represents config data else returns False '''
+                                return True
+
+                            def _has_data(self):
+                                if not self.is_config():
+                                    return False
+                                if self.affinity1 is not None:
+                                    return True
+
+                                if self.affinity2 is not None:
+                                    return True
+
+                                if self.affinity3 is not None:
+                                    return True
+
+                                if self.affinity4 is not None:
+                                    return True
+
+                                if self.affinity5 is not None:
+                                    return True
+
+                                if self.affinity6 is not None:
+                                    return True
+
+                                if self.affinity7 is not None:
+                                    return True
+
+                                if self.affinity8 is not None:
+                                    return True
+
+                                if self.affinity9 is not None:
+                                    return True
+
+                                if self.affinity_type is not None:
+                                    return True
+
+                                return False
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+                                return meta._meta_table['MplsTe.GlobalAttributes.AttributeSet.AutoMeshAttributes.AutoMeshAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9']['meta_info']
+
+
+                        class NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9Affinity10(object):
                             """
                             Tunnel new style affinity attribute
                             
@@ -8786,7 +19570,7 @@ class MplsTe(object):
                                 if self.affinity_type is None:
                                     raise YPYModelError('Key property affinity_type is None')
 
-                                return self.parent._common_path +'/Cisco-IOS-XR-mpls-te-cfg:new-style-affinity[Cisco-IOS-XR-mpls-te-cfg:affinity1 = ' + str(self.affinity1) + '][Cisco-IOS-XR-mpls-te-cfg:affinity10 = ' + str(self.affinity10) + '][Cisco-IOS-XR-mpls-te-cfg:affinity2 = ' + str(self.affinity2) + '][Cisco-IOS-XR-mpls-te-cfg:affinity3 = ' + str(self.affinity3) + '][Cisco-IOS-XR-mpls-te-cfg:affinity4 = ' + str(self.affinity4) + '][Cisco-IOS-XR-mpls-te-cfg:affinity5 = ' + str(self.affinity5) + '][Cisco-IOS-XR-mpls-te-cfg:affinity6 = ' + str(self.affinity6) + '][Cisco-IOS-XR-mpls-te-cfg:affinity7 = ' + str(self.affinity7) + '][Cisco-IOS-XR-mpls-te-cfg:affinity8 = ' + str(self.affinity8) + '][Cisco-IOS-XR-mpls-te-cfg:affinity9 = ' + str(self.affinity9) + '][Cisco-IOS-XR-mpls-te-cfg:affinity-type = ' + str(self.affinity_type) + ']'
+                                return self.parent._common_path +'/Cisco-IOS-XR-mpls-te-cfg:new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5-affinity6-affinity7-affinity8-affinity9-affinity10[Cisco-IOS-XR-mpls-te-cfg:affinity1 = ' + str(self.affinity1) + '][Cisco-IOS-XR-mpls-te-cfg:affinity10 = ' + str(self.affinity10) + '][Cisco-IOS-XR-mpls-te-cfg:affinity2 = ' + str(self.affinity2) + '][Cisco-IOS-XR-mpls-te-cfg:affinity3 = ' + str(self.affinity3) + '][Cisco-IOS-XR-mpls-te-cfg:affinity4 = ' + str(self.affinity4) + '][Cisco-IOS-XR-mpls-te-cfg:affinity5 = ' + str(self.affinity5) + '][Cisco-IOS-XR-mpls-te-cfg:affinity6 = ' + str(self.affinity6) + '][Cisco-IOS-XR-mpls-te-cfg:affinity7 = ' + str(self.affinity7) + '][Cisco-IOS-XR-mpls-te-cfg:affinity8 = ' + str(self.affinity8) + '][Cisco-IOS-XR-mpls-te-cfg:affinity9 = ' + str(self.affinity9) + '][Cisco-IOS-XR-mpls-te-cfg:affinity-type = ' + str(self.affinity_type) + ']'
 
                             def is_config(self):
                                 ''' Returns True if this instance represents config data else returns False '''
@@ -8833,14 +19617,14 @@ class MplsTe(object):
                             @staticmethod
                             def _meta_info():
                                 from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
-                                return meta._meta_table['MplsTe.GlobalAttributes.AttributeSet.AutoMeshAttributes.AutoMeshAttribute.NewStyleAffinities.NewStyleAffinity']['meta_info']
+                                return meta._meta_table['MplsTe.GlobalAttributes.AttributeSet.AutoMeshAttributes.AutoMeshAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9Affinity10']['meta_info']
 
                         @property
                         def _common_path(self):
                             if self.parent is None:
                                 raise YPYModelError('parent is not set . Cannot derive path.')
 
-                            return self.parent._common_path +'/Cisco-IOS-XR-mpls-te-cfg:new-style-affinities'
+                            return self.parent._common_path +'/Cisco-IOS-XR-mpls-te-cfg:new-style-affinity-affinity-types'
 
                         def is_config(self):
                             ''' Returns True if this instance represents config data else returns False '''
@@ -8849,8 +19633,58 @@ class MplsTe(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.new_style_affinity is not None:
-                                for child_ref in self.new_style_affinity:
+                            if self.new_style_affinity_affinity_type is not None:
+                                for child_ref in self.new_style_affinity_affinity_type:
+                                    if child_ref._has_data():
+                                        return True
+
+                            if self.new_style_affinity_affinity_type_affinity1 is not None:
+                                for child_ref in self.new_style_affinity_affinity_type_affinity1:
+                                    if child_ref._has_data():
+                                        return True
+
+                            if self.new_style_affinity_affinity_type_affinity1_affinity2 is not None:
+                                for child_ref in self.new_style_affinity_affinity_type_affinity1_affinity2:
+                                    if child_ref._has_data():
+                                        return True
+
+                            if self.new_style_affinity_affinity_type_affinity1_affinity2_affinity3 is not None:
+                                for child_ref in self.new_style_affinity_affinity_type_affinity1_affinity2_affinity3:
+                                    if child_ref._has_data():
+                                        return True
+
+                            if self.new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4 is not None:
+                                for child_ref in self.new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4:
+                                    if child_ref._has_data():
+                                        return True
+
+                            if self.new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5 is not None:
+                                for child_ref in self.new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5:
+                                    if child_ref._has_data():
+                                        return True
+
+                            if self.new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5_affinity6 is not None:
+                                for child_ref in self.new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5_affinity6:
+                                    if child_ref._has_data():
+                                        return True
+
+                            if self.new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5_affinity6_affinity7 is not None:
+                                for child_ref in self.new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5_affinity6_affinity7:
+                                    if child_ref._has_data():
+                                        return True
+
+                            if self.new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5_affinity6_affinity7_affinity8 is not None:
+                                for child_ref in self.new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5_affinity6_affinity7_affinity8:
+                                    if child_ref._has_data():
+                                        return True
+
+                            if self.new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5_affinity6_affinity7_affinity8_affinity9 is not None:
+                                for child_ref in self.new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5_affinity6_affinity7_affinity8_affinity9:
+                                    if child_ref._has_data():
+                                        return True
+
+                            if self.new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5_affinity6_affinity7_affinity8_affinity9_affinity10 is not None:
+                                for child_ref in self.new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5_affinity6_affinity7_affinity8_affinity9_affinity10:
                                     if child_ref._has_data():
                                         return True
 
@@ -8859,7 +19693,7 @@ class MplsTe(object):
                         @staticmethod
                         def _meta_info():
                             from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
-                            return meta._meta_table['MplsTe.GlobalAttributes.AttributeSet.AutoMeshAttributes.AutoMeshAttribute.NewStyleAffinities']['meta_info']
+                            return meta._meta_table['MplsTe.GlobalAttributes.AttributeSet.AutoMeshAttributes.AutoMeshAttribute.NewStyleAffinityAffinityTypes']['meta_info']
 
 
                     class FastReroute(object):
@@ -8980,7 +19814,10 @@ class MplsTe(object):
                         if self.load_share is not None:
                             return True
 
-                        if self.new_style_affinities is not None and self.new_style_affinities._has_data():
+                        if self.new_style_affinity_affinity_types is not None and self.new_style_affinity_affinity_types._has_data():
+                            return True
+
+                        if self.path_selection is not None and self.path_selection._has_data():
                             return True
 
                         if self.policy_classes is not None and self.policy_classes._has_data():
@@ -9071,6 +19908,11 @@ class MplsTe(object):
                     	Path diversity
                     	**type**\:  :py:class:`PathDiversity <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.XroAttributes.XroAttribute.PathDiversity>`
                     
+                    .. attribute:: path_selection
+                    
+                    	Configure path selection properties
+                    	**type**\:  :py:class:`PathSelection <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.XroAttributes.XroAttribute.PathSelection>`
+                    
                     
 
                     """
@@ -9084,6 +19926,8 @@ class MplsTe(object):
                         self.enable = None
                         self.path_diversity = MplsTe.GlobalAttributes.AttributeSet.XroAttributes.XroAttribute.PathDiversity()
                         self.path_diversity.parent = self
+                        self.path_selection = MplsTe.GlobalAttributes.AttributeSet.XroAttributes.XroAttribute.PathSelection()
+                        self.path_selection.parent = self
 
 
                     class PathDiversity(object):
@@ -9458,6 +20302,51 @@ class MplsTe(object):
                             from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
                             return meta._meta_table['MplsTe.GlobalAttributes.AttributeSet.XroAttributes.XroAttribute.PathDiversity']['meta_info']
 
+
+                    class PathSelection(object):
+                        """
+                        Configure path selection properties
+                        
+                        .. attribute:: enable
+                        
+                        	Enable path selection
+                        	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                        
+                        
+
+                        """
+
+                        _prefix = 'mpls-te-cfg'
+                        _revision = '2015-11-09'
+
+                        def __init__(self):
+                            self.parent = None
+                            self.enable = None
+
+                        @property
+                        def _common_path(self):
+                            if self.parent is None:
+                                raise YPYModelError('parent is not set . Cannot derive path.')
+
+                            return self.parent._common_path +'/Cisco-IOS-XR-mpls-te-cfg:path-selection'
+
+                        def is_config(self):
+                            ''' Returns True if this instance represents config data else returns False '''
+                            return True
+
+                        def _has_data(self):
+                            if not self.is_config():
+                                return False
+                            if self.enable is not None:
+                                return True
+
+                            return False
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+                            return meta._meta_table['MplsTe.GlobalAttributes.AttributeSet.XroAttributes.XroAttribute.PathSelection']['meta_info']
+
                     @property
                     def _common_path(self):
                         if self.attribute_set_name is None:
@@ -9479,6 +20368,9 @@ class MplsTe(object):
                             return True
 
                         if self.path_diversity is not None and self.path_diversity._has_data():
+                            return True
+
+                        if self.path_selection is not None and self.path_selection._has_data():
                             return True
 
                         return False
@@ -9591,7 +20483,7 @@ class MplsTe(object):
                 	Specify BFD over LSP tail minimum interval
                 	**type**\:  int
                 
-                	**range:** 100..30000
+                	**range:** 50..30000
                 
                 .. attribute:: multiplier
                 
@@ -9806,6 +20698,11 @@ class MplsTe(object):
             
             	**range:** 5..100
             
+            .. attribute:: segment_routing
+            
+            	PCE segment routing capability
+            	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+            
             .. attribute:: speaker_entity_id
             
             	PCE speaker entity identifier
@@ -9843,6 +20740,7 @@ class MplsTe(object):
                 self.precedence = None
                 self.reoptimize_period = None
                 self.request_timeout = None
+                self.segment_routing = None
                 self.speaker_entity_id = None
                 self.timer = MplsTe.GlobalAttributes.PceAttributes.Timer()
                 self.timer.parent = self
@@ -10312,6 +21210,9 @@ class MplsTe(object):
                 if self.request_timeout is not None:
                     return True
 
+                if self.segment_routing is not None:
+                    return True
+
                 if self.speaker_entity_id is not None:
                     return True
 
@@ -10333,7 +21234,7 @@ class MplsTe(object):
             .. attribute:: enable
             
             	This object controls whether soft preemption is enabled. This object must be set before setting any other objects under the SoftPreemption class
-            	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+            	**type**\:  bool
             
             .. attribute:: frr_rewrite
             
@@ -10387,60 +21288,6 @@ class MplsTe(object):
             def _meta_info():
                 from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
                 return meta._meta_table['MplsTe.GlobalAttributes.SoftPreemption']['meta_info']
-
-
-        class PathInvalidation(object):
-            """
-            Path invalidation configuration for all tunnels
-            
-            .. attribute:: path_invalidation_action
-            
-            	Path Invalidation Action
-            	**type**\:  :py:class:`PathInvalidationActionEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.PathInvalidationActionEnum>`
-            
-            .. attribute:: path_invalidation_timeout
-            
-            	Path Invalidation Timeout
-            	**type**\:  int
-            
-            	**range:** 0..60000
-            
-            
-
-            """
-
-            _prefix = 'mpls-te-cfg'
-            _revision = '2015-11-09'
-
-            def __init__(self):
-                self.parent = None
-                self.path_invalidation_action = None
-                self.path_invalidation_timeout = None
-
-            @property
-            def _common_path(self):
-
-                return '/Cisco-IOS-XR-mpls-te-cfg:mpls-te/Cisco-IOS-XR-mpls-te-cfg:global-attributes/Cisco-IOS-XR-mpls-te-cfg:path-invalidation'
-
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
-                return True
-
-            def _has_data(self):
-                if not self.is_config():
-                    return False
-                if self.path_invalidation_action is not None:
-                    return True
-
-                if self.path_invalidation_timeout is not None:
-                    return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
-                return meta._meta_table['MplsTe.GlobalAttributes.PathInvalidation']['meta_info']
 
 
         class FastReroute(object):
@@ -10543,25 +21390,51 @@ class MplsTe(object):
                 return meta._meta_table['MplsTe.GlobalAttributes.FastReroute']['meta_info']
 
 
-        class PathSelectionIgnoreOverloadRole(object):
+        class PathSelection(object):
             """
-            Path selection to ignore overload node during
-            CSPF
+            Path selection configuration
             
-            .. attribute:: head
+            .. attribute:: cost_limit
             
-            	Set if the OL\-bit is to be applied to tunnel heads
+            	Path selection cost limit configuration for all tunnels
+            	**type**\:  int
+            
+            	**range:** 1..4294967295
+            
+            .. attribute:: ignore_overload_role
+            
+            	Path selection to ignore overload node during CSPF
+            	**type**\:  :py:class:`IgnoreOverloadRole <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.PathSelection.IgnoreOverloadRole>`
+            
+            .. attribute:: invalidation
+            
+            	Path invalidation configuration for all tunnels
+            	**type**\:  :py:class:`Invalidation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.PathSelection.Invalidation>`
+            
+            .. attribute:: loose_affinities
+            
+            	Path selection Loose ERO Affinity Class configuration
+            	**type**\:  :py:class:`LooseAffinities <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.PathSelection.LooseAffinities>`
+            
+            .. attribute:: loose_domain_match
+            
+            	Use only the IGP instance of the incoming interface
             	**type**\:  bool
             
-            .. attribute:: mid
+            .. attribute:: loose_metrics
             
-            	Set if the OL\-bit is to be applied to tunnel midpoints
-            	**type**\:  bool
+            	Path selection Loose ERO Metric Class configuration
+            	**type**\:  :py:class:`LooseMetrics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.PathSelection.LooseMetrics>`
             
-            .. attribute:: tail
+            .. attribute:: metric
             
-            	Set if the OL\-bit is to be applied to tunnel tails
-            	**type**\:  bool
+            	Metric to use in path calculation
+            	**type**\:  :py:class:`MplsTePathSelectionMetricEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTePathSelectionMetricEnum>`
+            
+            .. attribute:: tiebreaker
+            
+            	CSPF tiebreaker to use in path calculation
+            	**type**\:  :py:class:`MplsTePathSelectionTiebreakerEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTePathSelectionTiebreakerEnum>`
             
             
 
@@ -10572,14 +21445,364 @@ class MplsTe(object):
 
             def __init__(self):
                 self.parent = None
-                self.head = None
-                self.mid = None
-                self.tail = None
+                self.cost_limit = None
+                self.ignore_overload_role = MplsTe.GlobalAttributes.PathSelection.IgnoreOverloadRole()
+                self.ignore_overload_role.parent = self
+                self.invalidation = MplsTe.GlobalAttributes.PathSelection.Invalidation()
+                self.invalidation.parent = self
+                self.loose_affinities = MplsTe.GlobalAttributes.PathSelection.LooseAffinities()
+                self.loose_affinities.parent = self
+                self.loose_domain_match = None
+                self.loose_metrics = MplsTe.GlobalAttributes.PathSelection.LooseMetrics()
+                self.loose_metrics.parent = self
+                self.metric = None
+                self.tiebreaker = None
+
+
+            class LooseMetrics(object):
+                """
+                Path selection Loose ERO Metric Class
+                configuration
+                
+                .. attribute:: loose_metric
+                
+                	Path selection Loose ERO Metric configuration
+                	**type**\: list of  :py:class:`LooseMetric <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.PathSelection.LooseMetrics.LooseMetric>`
+                
+                
+
+                """
+
+                _prefix = 'mpls-te-cfg'
+                _revision = '2015-11-09'
+
+                def __init__(self):
+                    self.parent = None
+                    self.loose_metric = YList()
+                    self.loose_metric.parent = self
+                    self.loose_metric.name = 'loose_metric'
+
+
+                class LooseMetric(object):
+                    """
+                    Path selection Loose ERO Metric configuration
+                    
+                    .. attribute:: class_type  <key>
+                    
+                    	Path Selection class Type
+                    	**type**\:  int
+                    
+                    	**range:** 0..7
+                    
+                    .. attribute:: metric_type
+                    
+                    	Metric to use for ERO Expansion
+                    	**type**\:  :py:class:`MplsTePathSelectionMetricEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTePathSelectionMetricEnum>`
+                    
+                    	**mandatory**\: True
+                    
+                    
+
+                    """
+
+                    _prefix = 'mpls-te-cfg'
+                    _revision = '2015-11-09'
+
+                    def __init__(self):
+                        self.parent = None
+                        self.class_type = None
+                        self.metric_type = None
+
+                    @property
+                    def _common_path(self):
+                        if self.class_type is None:
+                            raise YPYModelError('Key property class_type is None')
+
+                        return '/Cisco-IOS-XR-mpls-te-cfg:mpls-te/Cisco-IOS-XR-mpls-te-cfg:global-attributes/Cisco-IOS-XR-mpls-te-cfg:path-selection/Cisco-IOS-XR-mpls-te-cfg:loose-metrics/Cisco-IOS-XR-mpls-te-cfg:loose-metric[Cisco-IOS-XR-mpls-te-cfg:class-type = ' + str(self.class_type) + ']'
+
+                    def is_config(self):
+                        ''' Returns True if this instance represents config data else returns False '''
+                        return True
+
+                    def _has_data(self):
+                        if not self.is_config():
+                            return False
+                        if self.class_type is not None:
+                            return True
+
+                        if self.metric_type is not None:
+                            return True
+
+                        return False
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+                        return meta._meta_table['MplsTe.GlobalAttributes.PathSelection.LooseMetrics.LooseMetric']['meta_info']
+
+                @property
+                def _common_path(self):
+
+                    return '/Cisco-IOS-XR-mpls-te-cfg:mpls-te/Cisco-IOS-XR-mpls-te-cfg:global-attributes/Cisco-IOS-XR-mpls-te-cfg:path-selection/Cisco-IOS-XR-mpls-te-cfg:loose-metrics'
+
+                def is_config(self):
+                    ''' Returns True if this instance represents config data else returns False '''
+                    return True
+
+                def _has_data(self):
+                    if not self.is_config():
+                        return False
+                    if self.loose_metric is not None:
+                        for child_ref in self.loose_metric:
+                            if child_ref._has_data():
+                                return True
+
+                    return False
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+                    return meta._meta_table['MplsTe.GlobalAttributes.PathSelection.LooseMetrics']['meta_info']
+
+
+            class Invalidation(object):
+                """
+                Path invalidation configuration for all
+                tunnels
+                
+                .. attribute:: path_invalidation_action
+                
+                	Path Invalidation Action
+                	**type**\:  :py:class:`PathInvalidationActionEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.PathInvalidationActionEnum>`
+                
+                .. attribute:: path_invalidation_timeout
+                
+                	Path Invalidation Timeout
+                	**type**\:  int
+                
+                	**range:** 0..60000
+                
+                
+
+                """
+
+                _prefix = 'mpls-te-cfg'
+                _revision = '2015-11-09'
+
+                def __init__(self):
+                    self.parent = None
+                    self.path_invalidation_action = None
+                    self.path_invalidation_timeout = None
+
+                @property
+                def _common_path(self):
+
+                    return '/Cisco-IOS-XR-mpls-te-cfg:mpls-te/Cisco-IOS-XR-mpls-te-cfg:global-attributes/Cisco-IOS-XR-mpls-te-cfg:path-selection/Cisco-IOS-XR-mpls-te-cfg:invalidation'
+
+                def is_config(self):
+                    ''' Returns True if this instance represents config data else returns False '''
+                    return True
+
+                def _has_data(self):
+                    if not self.is_config():
+                        return False
+                    if self.path_invalidation_action is not None:
+                        return True
+
+                    if self.path_invalidation_timeout is not None:
+                        return True
+
+                    return False
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+                    return meta._meta_table['MplsTe.GlobalAttributes.PathSelection.Invalidation']['meta_info']
+
+
+            class IgnoreOverloadRole(object):
+                """
+                Path selection to ignore overload node during
+                CSPF
+                
+                .. attribute:: head
+                
+                	Set if the OL\-bit is to be applied to tunnel heads
+                	**type**\:  bool
+                
+                .. attribute:: mid
+                
+                	Set if the OL\-bit is to be applied to tunnel midpoints
+                	**type**\:  bool
+                
+                .. attribute:: tail
+                
+                	Set if the OL\-bit is to be applied to tunnel tails
+                	**type**\:  bool
+                
+                
+
+                """
+
+                _prefix = 'mpls-te-cfg'
+                _revision = '2015-11-09'
+
+                def __init__(self):
+                    self.parent = None
+                    self.head = None
+                    self.mid = None
+                    self.tail = None
+
+                @property
+                def _common_path(self):
+
+                    return '/Cisco-IOS-XR-mpls-te-cfg:mpls-te/Cisco-IOS-XR-mpls-te-cfg:global-attributes/Cisco-IOS-XR-mpls-te-cfg:path-selection/Cisco-IOS-XR-mpls-te-cfg:ignore-overload-role'
+
+                def is_config(self):
+                    ''' Returns True if this instance represents config data else returns False '''
+                    return True
+
+                def _has_data(self):
+                    if not self.is_config():
+                        return False
+                    if self.head is not None:
+                        return True
+
+                    if self.mid is not None:
+                        return True
+
+                    if self.tail is not None:
+                        return True
+
+                    return False
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+                    return meta._meta_table['MplsTe.GlobalAttributes.PathSelection.IgnoreOverloadRole']['meta_info']
+
+
+            class LooseAffinities(object):
+                """
+                Path selection Loose ERO Affinity Class
+                configuration
+                
+                .. attribute:: loose_affinity
+                
+                	Path selection Loose ERO Affinity configuration
+                	**type**\: list of  :py:class:`LooseAffinity <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.PathSelection.LooseAffinities.LooseAffinity>`
+                
+                
+
+                """
+
+                _prefix = 'mpls-te-cfg'
+                _revision = '2015-11-09'
+
+                def __init__(self):
+                    self.parent = None
+                    self.loose_affinity = YList()
+                    self.loose_affinity.parent = self
+                    self.loose_affinity.name = 'loose_affinity'
+
+
+                class LooseAffinity(object):
+                    """
+                    Path selection Loose ERO Affinity
+                    configuration
+                    
+                    .. attribute:: class_type  <key>
+                    
+                    	Path Selection class Type
+                    	**type**\:  int
+                    
+                    	**range:** 0..7
+                    
+                    .. attribute:: affinity
+                    
+                    	Affinity flags
+                    	**type**\:  str
+                    
+                    	**pattern:** [0\-9a\-fA\-F]{1,8}
+                    
+                    .. attribute:: mask
+                    
+                    	Affinity mask
+                    	**type**\:  str
+                    
+                    	**pattern:** [0\-9a\-fA\-F]{1,8}
+                    
+                    
+
+                    """
+
+                    _prefix = 'mpls-te-cfg'
+                    _revision = '2015-11-09'
+
+                    def __init__(self):
+                        self.parent = None
+                        self.class_type = None
+                        self.affinity = None
+                        self.mask = None
+
+                    @property
+                    def _common_path(self):
+                        if self.class_type is None:
+                            raise YPYModelError('Key property class_type is None')
+
+                        return '/Cisco-IOS-XR-mpls-te-cfg:mpls-te/Cisco-IOS-XR-mpls-te-cfg:global-attributes/Cisco-IOS-XR-mpls-te-cfg:path-selection/Cisco-IOS-XR-mpls-te-cfg:loose-affinities/Cisco-IOS-XR-mpls-te-cfg:loose-affinity[Cisco-IOS-XR-mpls-te-cfg:class-type = ' + str(self.class_type) + ']'
+
+                    def is_config(self):
+                        ''' Returns True if this instance represents config data else returns False '''
+                        return True
+
+                    def _has_data(self):
+                        if not self.is_config():
+                            return False
+                        if self.class_type is not None:
+                            return True
+
+                        if self.affinity is not None:
+                            return True
+
+                        if self.mask is not None:
+                            return True
+
+                        return False
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+                        return meta._meta_table['MplsTe.GlobalAttributes.PathSelection.LooseAffinities.LooseAffinity']['meta_info']
+
+                @property
+                def _common_path(self):
+
+                    return '/Cisco-IOS-XR-mpls-te-cfg:mpls-te/Cisco-IOS-XR-mpls-te-cfg:global-attributes/Cisco-IOS-XR-mpls-te-cfg:path-selection/Cisco-IOS-XR-mpls-te-cfg:loose-affinities'
+
+                def is_config(self):
+                    ''' Returns True if this instance represents config data else returns False '''
+                    return True
+
+                def _has_data(self):
+                    if not self.is_config():
+                        return False
+                    if self.loose_affinity is not None:
+                        for child_ref in self.loose_affinity:
+                            if child_ref._has_data():
+                                return True
+
+                    return False
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+                    return meta._meta_table['MplsTe.GlobalAttributes.PathSelection.LooseAffinities']['meta_info']
 
             @property
             def _common_path(self):
 
-                return '/Cisco-IOS-XR-mpls-te-cfg:mpls-te/Cisco-IOS-XR-mpls-te-cfg:global-attributes/Cisco-IOS-XR-mpls-te-cfg:path-selection-ignore-overload-role'
+                return '/Cisco-IOS-XR-mpls-te-cfg:mpls-te/Cisco-IOS-XR-mpls-te-cfg:global-attributes/Cisco-IOS-XR-mpls-te-cfg:path-selection'
 
             def is_config(self):
                 ''' Returns True if this instance represents config data else returns False '''
@@ -10588,13 +21811,28 @@ class MplsTe(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.head is not None:
+                if self.cost_limit is not None:
                     return True
 
-                if self.mid is not None:
+                if self.ignore_overload_role is not None and self.ignore_overload_role._has_data():
                     return True
 
-                if self.tail is not None:
+                if self.invalidation is not None and self.invalidation._has_data():
+                    return True
+
+                if self.loose_affinities is not None and self.loose_affinities._has_data():
+                    return True
+
+                if self.loose_domain_match is not None:
+                    return True
+
+                if self.loose_metrics is not None and self.loose_metrics._has_data():
+                    return True
+
+                if self.metric is not None:
+                    return True
+
+                if self.tiebreaker is not None:
                     return True
 
                 return False
@@ -10602,7 +21840,7 @@ class MplsTe(object):
             @staticmethod
             def _meta_info():
                 from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
-                return meta._meta_table['MplsTe.GlobalAttributes.PathSelectionIgnoreOverloadRole']['meta_info']
+                return meta._meta_table['MplsTe.GlobalAttributes.PathSelection']['meta_info']
 
 
         class AffinityMappings(object):
@@ -10763,6 +22001,9 @@ class MplsTe(object):
             if self.graceful_preemption_on_bandwidth_reduction is not None:
                 return True
 
+            if self.hardware_out_of_resource is not None and self.hardware_out_of_resource._has_data():
+                return True
+
             if self.link_holddown_timer is not None:
                 return True
 
@@ -10799,28 +22040,10 @@ class MplsTe(object):
             if self.mib is not None and self.mib._has_data():
                 return True
 
-            if self.path_invalidation is not None and self.path_invalidation._has_data():
-                return True
-
-            if self.path_selection_cost_limit is not None:
+            if self.path_selection is not None and self.path_selection._has_data():
                 return True
 
             if self.path_selection_ignore_overload is not None:
-                return True
-
-            if self.path_selection_ignore_overload_role is not None and self.path_selection_ignore_overload_role._has_data():
-                return True
-
-            if self.path_selection_loose_affinities is not None and self.path_selection_loose_affinities._has_data():
-                return True
-
-            if self.path_selection_loose_metrics is not None and self.path_selection_loose_metrics._has_data():
-                return True
-
-            if self.path_selection_metric is not None:
-                return True
-
-            if self.path_selection_tiebreaker is not None:
                 return True
 
             if self.pce_attributes is not None and self.pce_attributes._has_data():
@@ -12118,7 +23341,7 @@ class MplsTe(object):
             	Interface name
             	**type**\:  str
             
-            	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+            	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
             
             .. attribute:: global_attributes
             
@@ -13040,6 +24263,11 @@ class MplsTe(object):
                 	Configure MPLS TE backup tunnels for this interface
                 	**type**\:  :py:class:`BackupPaths <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.Interfaces.Interface.GlobalAttributes.BackupPaths>`
                 
+                .. attribute:: backup_tunnels
+                
+                	Configure MPLS TE backup tunnels for this interface
+                	**type**\:  :py:class:`BackupTunnels <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.Interfaces.Interface.GlobalAttributes.BackupTunnels>`
+                
                 
 
                 """
@@ -13053,6 +24281,107 @@ class MplsTe(object):
                     self.auto_tunnel.parent = self
                     self.backup_paths = MplsTe.Interfaces.Interface.GlobalAttributes.BackupPaths()
                     self.backup_paths.parent = self
+                    self.backup_tunnels = MplsTe.Interfaces.Interface.GlobalAttributes.BackupTunnels()
+                    self.backup_tunnels.parent = self
+
+
+                class BackupTunnels(object):
+                    """
+                    Configure MPLS TE backup tunnels for this
+                    interface
+                    
+                    .. attribute:: backup_tunnel
+                    
+                    	Tunnel name
+                    	**type**\: list of  :py:class:`BackupTunnel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.Interfaces.Interface.GlobalAttributes.BackupTunnels.BackupTunnel>`
+                    
+                    
+
+                    """
+
+                    _prefix = 'mpls-te-cfg'
+                    _revision = '2015-11-09'
+
+                    def __init__(self):
+                        self.parent = None
+                        self.backup_tunnel = YList()
+                        self.backup_tunnel.parent = self
+                        self.backup_tunnel.name = 'backup_tunnel'
+
+
+                    class BackupTunnel(object):
+                        """
+                        Tunnel name
+                        
+                        .. attribute:: tunnel_name  <key>
+                        
+                        	Tunnel name
+                        	**type**\:  str
+                        
+                        	**range:** 0..59
+                        
+                        
+
+                        """
+
+                        _prefix = 'mpls-te-cfg'
+                        _revision = '2015-11-09'
+
+                        def __init__(self):
+                            self.parent = None
+                            self.tunnel_name = None
+
+                        @property
+                        def _common_path(self):
+                            if self.parent is None:
+                                raise YPYModelError('parent is not set . Cannot derive path.')
+                            if self.tunnel_name is None:
+                                raise YPYModelError('Key property tunnel_name is None')
+
+                            return self.parent._common_path +'/Cisco-IOS-XR-mpls-te-cfg:backup-tunnel[Cisco-IOS-XR-mpls-te-cfg:tunnel-name = ' + str(self.tunnel_name) + ']'
+
+                        def is_config(self):
+                            ''' Returns True if this instance represents config data else returns False '''
+                            return True
+
+                        def _has_data(self):
+                            if not self.is_config():
+                                return False
+                            if self.tunnel_name is not None:
+                                return True
+
+                            return False
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+                            return meta._meta_table['MplsTe.Interfaces.Interface.GlobalAttributes.BackupTunnels.BackupTunnel']['meta_info']
+
+                    @property
+                    def _common_path(self):
+                        if self.parent is None:
+                            raise YPYModelError('parent is not set . Cannot derive path.')
+
+                        return self.parent._common_path +'/Cisco-IOS-XR-mpls-te-cfg:backup-tunnels'
+
+                    def is_config(self):
+                        ''' Returns True if this instance represents config data else returns False '''
+                        return True
+
+                    def _has_data(self):
+                        if not self.is_config():
+                            return False
+                        if self.backup_tunnel is not None:
+                            for child_ref in self.backup_tunnel:
+                                if child_ref._has_data():
+                                    return True
+
+                        return False
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+                        return meta._meta_table['MplsTe.Interfaces.Interface.GlobalAttributes.BackupTunnels']['meta_info']
 
 
                 class AutoTunnel(object):
@@ -13339,6 +24668,9 @@ class MplsTe(object):
                     if self.backup_paths is not None and self.backup_paths._has_data():
                         return True
 
+                    if self.backup_tunnels is not None and self.backup_tunnels._has_data():
+                        return True
+
                     return False
 
                 @staticmethod
@@ -13413,6 +24745,11 @@ class MplsTe(object):
         	Enable MPLS Traffic Engineering GMPLS\-NNI
         	**type**\:  :py:class:`Empty <ydk.types.Empty>`
         
+        .. attribute:: path_selection_metric
+        
+        	Path selection configuration for all gmpls nni tunnels
+        	**type**\:  :py:class:`MplsTePathSelectionMetricEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTePathSelectionMetricEnum>`
+        
         .. attribute:: topology_instances
         
         	GMPLS\-NNI topology instance table
@@ -13433,6 +24770,7 @@ class MplsTe(object):
         def __init__(self):
             self.parent = None
             self.enable_gmpls_nni = None
+            self.path_selection_metric = None
             self.topology_instances = MplsTe.GmplsNni.TopologyInstances()
             self.topology_instances.parent = self
             self.tunnel_heads = MplsTe.GmplsNni.TunnelHeads()
@@ -13575,7 +24913,7 @@ class MplsTe(object):
                             	Controller name
                             	**type**\:  str
                             
-                            	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+                            	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
                             
                             .. attribute:: admin_weight
                             
@@ -13583,6 +24921,13 @@ class MplsTe(object):
                             	**type**\:  int
                             
                             	**range:** 0..65535
+                            
+                            .. attribute:: delay
+                            
+                            	Set link delay for the interface
+                            	**type**\:  int
+                            
+                            	**range:** 1..16777215
                             
                             .. attribute:: enable
                             
@@ -13605,6 +24950,7 @@ class MplsTe(object):
                                 self.parent = None
                                 self.controller_name = None
                                 self.admin_weight = None
+                                self.delay = None
                                 self.enable = None
                                 self.tti_mode = MplsTe.GmplsNni.TopologyInstances.TopologyInstance.OspfInt.Controllers.Controller.TtiMode()
                                 self.tti_mode.parent = self
@@ -13686,6 +25032,9 @@ class MplsTe(object):
                                     return True
 
                                 if self.admin_weight is not None:
+                                    return True
+
+                                if self.delay is not None:
                                     return True
 
                                 if self.enable is not None:
@@ -13819,7 +25168,7 @@ class MplsTe(object):
                             	Controller name
                             	**type**\:  str
                             
-                            	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+                            	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
                             
                             .. attribute:: admin_weight
                             
@@ -13827,6 +25176,13 @@ class MplsTe(object):
                             	**type**\:  int
                             
                             	**range:** 0..65535
+                            
+                            .. attribute:: delay
+                            
+                            	Set link delay for the interface
+                            	**type**\:  int
+                            
+                            	**range:** 1..16777215
                             
                             .. attribute:: enable
                             
@@ -13849,6 +25205,7 @@ class MplsTe(object):
                                 self.parent = None
                                 self.controller_name = None
                                 self.admin_weight = None
+                                self.delay = None
                                 self.enable = None
                                 self.tti_mode = MplsTe.GmplsNni.TopologyInstances.TopologyInstance.OspfipAddr.Controllers.Controller.TtiMode()
                                 self.tti_mode.parent = self
@@ -13930,6 +25287,9 @@ class MplsTe(object):
                                     return True
 
                                 if self.admin_weight is not None:
+                                    return True
+
+                                if self.delay is not None:
                                     return True
 
                                 if self.enable is not None:
@@ -14112,7 +25472,9 @@ class MplsTe(object):
                 .. attribute:: destination
                 
                 	The existence of this configuration indicates the destination has been set for the tunnel
-                	**type**\:  :py:class:`Destination <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GmplsNni.TunnelHeads.TunnelHead.Destination>`
+                	**type**\:  str
+                
+                	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                 
                 .. attribute:: enable
                 
@@ -14136,10 +25498,20 @@ class MplsTe(object):
                 
                 	**range:** 0..64
                 
+                .. attribute:: path_selection_metric
+                
+                	Path selection configuration for this specific tunnel
+                	**type**\:  :py:class:`MplsTePathSelectionMetricEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTePathSelectionMetricEnum>`
+                
                 .. attribute:: payload
                 
                 	The existence of this configuration indicates the Payload type have been set for the tunnel
                 	**type**\:  :py:class:`OtnPayloadEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.OtnPayloadEnum>`
+                
+                .. attribute:: protection_switching
+                
+                	The configuration for a GMPLS NNI tunnel protection switch
+                	**type**\:  :py:class:`ProtectionSwitching <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GmplsNni.TunnelHeads.TunnelHead.ProtectionSwitching>`
                 
                 .. attribute:: record_route
                 
@@ -14189,15 +25561,17 @@ class MplsTe(object):
                     self.parent = None
                     self.tunnel_id = None
                     self.current_lsp_shutdown = None
-                    self.destination = MplsTe.GmplsNni.TunnelHeads.TunnelHead.Destination()
-                    self.destination.parent = self
+                    self.destination = None
                     self.enable = None
                     self.logging = MplsTe.GmplsNni.TunnelHeads.TunnelHead.Logging()
                     self.logging.parent = self
                     self.path_options = MplsTe.GmplsNni.TunnelHeads.TunnelHead.PathOptions()
                     self.path_options.parent = self
                     self.path_protection_attribute_set_profile = None
+                    self.path_selection_metric = None
                     self.payload = None
+                    self.protection_switching = MplsTe.GmplsNni.TunnelHeads.TunnelHead.ProtectionSwitching()
+                    self.protection_switching.parent = self
                     self.record_route = None
                     self.restore_lsp_shutdown = None
                     self.shutdown = None
@@ -14276,29 +25650,15 @@ class MplsTe(object):
                         return meta._meta_table['MplsTe.GmplsNni.TunnelHeads.TunnelHead.SignalledBandwidth']['meta_info']
 
 
-                class Destination(object):
+                class ProtectionSwitching(object):
                     """
-                    The existence of this configuration indicates
-                    the destination has been set for the tunnel
+                    The configuration for a GMPLS NNI tunnel
+                    protection switch
                     
-                    .. attribute:: destination
+                    .. attribute:: lockout
                     
-                    	IPV4 tunnel destination
-                    	**type**\:  str
-                    
-                    	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
-                    
-                    .. attribute:: destination_type
-                    
-                    	Destination type whether it is unicast or unnumbered
-                    	**type**\:  :py:class:`OtnDestinationEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.OtnDestinationEnum>`
-                    
-                    .. attribute:: interface_if_index
-                    
-                    	Interface index of port
-                    	**type**\:  int
-                    
-                    	**range:** \-2147483648..2147483647
+                    	The configuration is used to prevent switch over for a particular path type in tunnel
+                    	**type**\:  :py:class:`OtnProtectionSwitchLockoutEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.OtnProtectionSwitchLockoutEnum>`
                     
                     
 
@@ -14309,16 +25669,14 @@ class MplsTe(object):
 
                     def __init__(self):
                         self.parent = None
-                        self.destination = None
-                        self.destination_type = None
-                        self.interface_if_index = None
+                        self.lockout = None
 
                     @property
                     def _common_path(self):
                         if self.parent is None:
                             raise YPYModelError('parent is not set . Cannot derive path.')
 
-                        return self.parent._common_path +'/Cisco-IOS-XR-mpls-te-cfg:destination'
+                        return self.parent._common_path +'/Cisco-IOS-XR-mpls-te-cfg:protection-switching'
 
                     def is_config(self):
                         ''' Returns True if this instance represents config data else returns False '''
@@ -14327,13 +25685,7 @@ class MplsTe(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.destination is not None:
-                            return True
-
-                        if self.destination_type is not None:
-                            return True
-
-                        if self.interface_if_index is not None:
+                        if self.lockout is not None:
                             return True
 
                         return False
@@ -14341,7 +25693,7 @@ class MplsTe(object):
                     @staticmethod
                     def _meta_info():
                         from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
-                        return meta._meta_table['MplsTe.GmplsNni.TunnelHeads.TunnelHead.Destination']['meta_info']
+                        return meta._meta_table['MplsTe.GmplsNni.TunnelHeads.TunnelHead.ProtectionSwitching']['meta_info']
 
 
                 class Logging(object):
@@ -14353,9 +25705,19 @@ class MplsTe(object):
                     	Log all tunnel messages for changes in Active LSP
                     	**type**\:  :py:class:`Empty <ydk.types.Empty>`
                     
+                    .. attribute:: homepath_state_message
+                    
+                    	Log all messages for changes in state of Homepath of Working LSP
+                    	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                    
                     .. attribute:: insufficient_bw_message
                     
                     	Log tunnel messages for insufficient bandwidth
+                    	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                    
+                    .. attribute:: path_change_message
+                    
+                    	Log all tunnel messages for changes in path\-change
                     	**type**\:  :py:class:`Empty <ydk.types.Empty>`
                     
                     .. attribute:: signalling_state_message
@@ -14368,6 +25730,11 @@ class MplsTe(object):
                     	Log all tunnel messages for static cross\-connect messages
                     	**type**\:  :py:class:`Empty <ydk.types.Empty>`
                     
+                    .. attribute:: tunnel_state_message
+                    
+                    	Log all tunnel messages for changes in tunnel\-state
+                    	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                    
                     
 
                     """
@@ -14378,9 +25745,12 @@ class MplsTe(object):
                     def __init__(self):
                         self.parent = None
                         self.active_lsp_message = None
+                        self.homepath_state_message = None
                         self.insufficient_bw_message = None
+                        self.path_change_message = None
                         self.signalling_state_message = None
                         self.static_cross_connect_message = None
+                        self.tunnel_state_message = None
 
                     @property
                     def _common_path(self):
@@ -14399,13 +25769,22 @@ class MplsTe(object):
                         if self.active_lsp_message is not None:
                             return True
 
+                        if self.homepath_state_message is not None:
+                            return True
+
                         if self.insufficient_bw_message is not None:
+                            return True
+
+                        if self.path_change_message is not None:
                             return True
 
                         if self.signalling_state_message is not None:
                             return True
 
                         if self.static_cross_connect_message is not None:
+                            return True
+
+                        if self.tunnel_state_message is not None:
                             return True
 
                         return False
@@ -14488,6 +25867,20 @@ class MplsTe(object):
                         
                         	**range:** 1..1000
                         
+                        .. attribute:: xro_attribute_set_name
+                        
+                        	The name of the XRO attribute set to be used for this path\-option
+                        	**type**\:  str
+                        
+                        	**range:** 0..64
+                        
+                        .. attribute:: xro_type
+                        
+                        	The route\-exclusion type
+                        	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                        
+                        	**mandatory**\: True
+                        
                         
 
                         """
@@ -14504,6 +25897,8 @@ class MplsTe(object):
                             self.path_type = None
                             self.protected_by_preference_level = None
                             self.restore_by_preference_level = None
+                            self.xro_attribute_set_name = None
+                            self.xro_type = None
 
                         @property
                         def _common_path(self):
@@ -14540,6 +25935,12 @@ class MplsTe(object):
                                 return True
 
                             if self.restore_by_preference_level is not None:
+                                return True
+
+                            if self.xro_attribute_set_name is not None:
+                                return True
+
+                            if self.xro_type is not None:
                                 return True
 
                             return False
@@ -14589,22 +25990,12 @@ class MplsTe(object):
                     
                     	**range:** \-2147483648..2147483647
                     
-                    .. attribute:: egress_type
-                    
-                    	Egress type whether it is xconnect or terminated
-                    	**type**\:  :py:class:`OtnStaticUniEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.OtnStaticUniEnum>`
-                    
                     .. attribute:: ingress_controller_name
                     
                     	Name of  ingress controller
                     	**type**\:  str
                     
                     	**range:** 0..255
-                    
-                    .. attribute:: ingress_type
-                    
-                    	Ingress type whether it is xconnect or terminated
-                    	**type**\:  :py:class:`OtnStaticUniEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.OtnStaticUniEnum>`
                     
                     
 
@@ -14616,9 +26007,7 @@ class MplsTe(object):
                     def __init__(self):
                         self.parent = None
                         self.egress_controller_if_index = None
-                        self.egress_type = None
                         self.ingress_controller_name = None
-                        self.ingress_type = None
 
                     @property
                     def _common_path(self):
@@ -14637,13 +26026,7 @@ class MplsTe(object):
                         if self.egress_controller_if_index is not None:
                             return True
 
-                        if self.egress_type is not None:
-                            return True
-
                         if self.ingress_controller_name is not None:
-                            return True
-
-                        if self.ingress_type is not None:
                             return True
 
                         return False
@@ -14673,7 +26056,7 @@ class MplsTe(object):
                     if self.current_lsp_shutdown is not None:
                         return True
 
-                    if self.destination is not None and self.destination._has_data():
+                    if self.destination is not None:
                         return True
 
                     if self.enable is not None:
@@ -14688,7 +26071,13 @@ class MplsTe(object):
                     if self.path_protection_attribute_set_profile is not None:
                         return True
 
+                    if self.path_selection_metric is not None:
+                        return True
+
                     if self.payload is not None:
+                        return True
+
+                    if self.protection_switching is not None and self.protection_switching._has_data():
                         return True
 
                     if self.record_route is not None:
@@ -14756,6 +26145,9 @@ class MplsTe(object):
             if not self.is_config():
                 return False
             if self.enable_gmpls_nni is not None:
+                return True
+
+            if self.path_selection_metric is not None:
                 return True
 
             if self.topology_instances is not None and self.topology_instances._has_data():
@@ -15002,6 +26394,9 @@ class MplsTe(object):
             return True
 
         if self.lcac is not None and self.lcac._has_data():
+            return True
+
+        if self.named_tunnels is not None and self.named_tunnels._has_data():
             return True
 
         if self.transport_profile is not None and self.transport_profile._has_data():

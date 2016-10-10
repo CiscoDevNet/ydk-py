@@ -14,32 +14,11 @@ from ydk.errors import YPYError, YPYModelError
 from ydk.providers._importer import _yang_ns
 
 _meta_table = {
-    'CardResetReasonEnum' : _MetaInfoEnum('CardResetReasonEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper',
+    'SensorStatusEnum' : _MetaInfoEnum('SensorStatusEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper',
         {
-            'reset-unknown':'RESET_UNKNOWN',
-            'power-up':'POWER_UP',
-            'parity-error':'PARITY_ERROR',
-            'clear-config-reset':'CLEAR_CONFIG_RESET',
-            'manual-reset':'MANUAL_RESET',
-            'watch-dog-timeout-reset':'WATCH_DOG_TIMEOUT_RESET',
-            'resource-overflow-reset':'RESOURCE_OVERFLOW_RESET',
-            'missing-task-reset':'MISSING_TASK_RESET',
-            'low-voltage-reset':'LOW_VOLTAGE_RESET',
-            'controller-reset':'CONTROLLER_RESET',
-            'system-reset':'SYSTEM_RESET',
-            'switchover-reset':'SWITCHOVER_RESET',
-            'upgrade-reset':'UPGRADE_RESET',
-            'downgrade-reset':'DOWNGRADE_RESET',
-            'cache-error-reset':'CACHE_ERROR_RESET',
-            'device-driver-reset':'DEVICE_DRIVER_RESET',
-            'software-exception-reset':'SOFTWARE_EXCEPTION_RESET',
-            'restore-config-reset':'RESTORE_CONFIG_RESET',
-            'abort-rev-reset':'ABORT_REV_RESET',
-            'burn-boot-reset':'BURN_BOOT_RESET',
-            'standby-cd-healthier-reset':'STANDBY_CD_HEALTHIER_RESET',
-            'non-native-config-clear-reset':'NON_NATIVE_CONFIG_CLEAR_RESET',
-            'memory-protection-error-reset':'MEMORY_PROTECTION_ERROR_RESET',
-            'card-reset-reason-max':'CARD_RESET_REASON_MAX',
+            'ok':'OK',
+            'unavailable':'UNAVAILABLE',
+            'non-operational':'NON_OPERATIONAL',
         }, 'Cisco-IOS-XR-invmgr-oper', _yang_ns._namespaces['Cisco-IOS-XR-invmgr-oper']),
     'ThresholdSeverityEnum' : _MetaInfoEnum('ThresholdSeverityEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper',
         {
@@ -102,12 +81,6 @@ _meta_table = {
             'rpm':'RPM',
             'dbm':'DBM',
         }, 'Cisco-IOS-XR-invmgr-oper', _yang_ns._namespaces['Cisco-IOS-XR-invmgr-oper']),
-    'SensorStatusEnum' : _MetaInfoEnum('SensorStatusEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper',
-        {
-            'ok':'OK',
-            'unavailable':'UNAVAILABLE',
-            'non-operational':'NON_OPERATIONAL',
-        }, 'Cisco-IOS-XR-invmgr-oper', _yang_ns._namespaces['Cisco-IOS-XR-invmgr-oper']),
     'ThresholdRelationEnum' : _MetaInfoEnum('ThresholdRelationEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper',
         {
             'less-than':'LESS_THAN',
@@ -131,19 +104,19 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('card-type', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                enumeration of the card type
                 ''',
                 'card_type',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('node-administrative-state', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                node admin state: shutdown or not
                 ''',
                 'node_administrative_state',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('node-monitor-state', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                node is monitored by a manager or left
                 unmonitored
                 ''',
@@ -156,7 +129,7 @@ _meta_table = {
                 'node_operational_state',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('power-administrative-state', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                power admin state: up or down
                 ''',
                 'power_administrative_state',
@@ -173,20 +146,20 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('age-time-stamp', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Age of the sensor value; set to the current time
                 if directly access the value from sensor
                 ''',
                 'age_time_stamp',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('alarm-type', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates threshold violation
                 ''',
                 'alarm_type',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('data-type', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Sensor data type enums
                 ''',
                 'data_type',
@@ -198,31 +171,31 @@ _meta_table = {
                 'device_description',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('device-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Identifier for this device
                 ''',
                 'device_id',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('field-validity-bitmap', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Sensor valid bitmap
                 ''',
                 'field_validity_bitmap',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('precision', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Sensor precision range
                 ''',
                 'precision',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('scale', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Sensor scale enums
                 ''',
                 'scale',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('status', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Sensor operation state enums
                 ''',
                 'status',
@@ -234,14 +207,14 @@ _meta_table = {
                 'units',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('update-rate', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Sensor value update rate;set to 0 if sensor
                 value is updated and evaluated immediately
                 ''',
                 'update_rate',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Current reading of sensor
                 ''',
                 'value',
@@ -258,13 +231,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('power-group-available-current', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                available current
                 ''',
                 'power_group_available_current',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('power-group-drawn-current', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                drawn current
                 ''',
                 'power_group_drawn_current',
@@ -276,7 +249,7 @@ _meta_table = {
                 'power_group_power_units',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('power-group-redundancy-mode', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                redundancy mode
                 ''',
                 'power_group_redundancy_mode',
@@ -312,7 +285,7 @@ _meta_table = {
                 'threshold_severity',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-value', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Value of the configured threshold
                 ''',
                 'threshold_value',
@@ -376,7 +349,7 @@ _meta_table = {
                 'units',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('update-rate', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Sensor value update rate; set to 0 if sensor
                 value is updated and evaluated immediately
                 ''',
@@ -470,20 +443,20 @@ _meta_table = {
                 'threshold_notification_enabled',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-relation', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates relation between sensor value and
                 threshold
                 ''',
                 'threshold_relation',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-severity', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates minor, major, critical severities
                 ''',
                 'threshold_severity',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Value of the configured threshold
                 ''',
                 'threshold_value',
@@ -531,20 +504,20 @@ _meta_table = {
                 'threshold_notification_enabled',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-relation', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates relation between sensor value and
                 threshold
                 ''',
                 'threshold_relation',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-severity', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates minor, major, critical severities
                 ''',
                 'threshold_severity',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Value of the configured threshold
                 ''',
                 'threshold_value',
@@ -592,20 +565,20 @@ _meta_table = {
                 'threshold_notification_enabled',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-relation', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates relation between sensor value and
                 threshold
                 ''',
                 'threshold_relation',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-severity', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates minor, major, critical severities
                 ''',
                 'threshold_severity',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Value of the configured threshold
                 ''',
                 'threshold_value',
@@ -653,20 +626,20 @@ _meta_table = {
                 'threshold_notification_enabled',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-relation', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates relation between sensor value and
                 threshold
                 ''',
                 'threshold_relation',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-severity', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates minor, major, critical severities
                 ''',
                 'threshold_severity',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Value of the configured threshold
                 ''',
                 'threshold_value',
@@ -714,20 +687,20 @@ _meta_table = {
                 'threshold_notification_enabled',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-relation', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates relation between sensor value and
                 threshold
                 ''',
                 'threshold_relation',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-severity', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates minor, major, critical severities
                 ''',
                 'threshold_severity',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Value of the configured threshold
                 ''',
                 'threshold_value',
@@ -775,20 +748,20 @@ _meta_table = {
                 'threshold_notification_enabled',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-relation', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates relation between sensor value and
                 threshold
                 ''',
                 'threshold_relation',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-severity', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates minor, major, critical severities
                 ''',
                 'threshold_severity',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Value of the configured threshold
                 ''',
                 'threshold_value',
@@ -869,13 +842,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('time-in-nano-seconds', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Time Value in Nano-seconds
                 ''',
                 'time_in_nano_seconds',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('time-in-seconds', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Time Value in Seconds
                 ''',
                 'time_in_seconds',
@@ -892,13 +865,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('time-in-nano-seconds', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Time Value in Nano-seconds
                 ''',
                 'time_in_nano_seconds',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('time-in-seconds', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Time Value in Seconds
                 ''',
                 'time_in_seconds',
@@ -915,26 +888,26 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('card-administrative-state', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                card admin state: shutdown or not
                 ''',
                 'card_administrative_state',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('card-monitor-state', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                card is monitored by a manager or left
                 unmonitored
                 ''',
                 'card_monitor_state',
                 'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('card-operational-state', REFERENCE_ENUM_CLASS, 'InvCardStateEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper', 'InvCardStateEnum', 
-                [], [], 
+            _MetaInfoClassMember('card-operational-state', ATTRIBUTE, 'int' , None, None, 
+                [('-2147483648', '2147483647')], [], 
                 '''                card operation state
                 ''',
                 'card_operational_state',
                 'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('card-reset-reason', REFERENCE_ENUM_CLASS, 'CardResetReasonEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper', 'CardResetReasonEnum', 
-                [], [], 
+            _MetaInfoClassMember('card-reset-reason', ATTRIBUTE, 'int' , None, None, 
+                [('-2147483648', '2147483647')], [], 
                 '''                card reset reason enum
                 ''',
                 'card_reset_reason',
@@ -952,19 +925,19 @@ _meta_table = {
                 'last_operational_state_change',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('power-administrative-state', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                power admin state: up or down
                 ''',
                 'power_administrative_state',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('power-current-measurement', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                power current: not implemented
                 ''',
                 'power_current_measurement',
                 'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('power-operational-state', REFERENCE_ENUM_CLASS, 'InvCardStateEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper', 'InvCardStateEnum', 
-                [], [], 
+            _MetaInfoClassMember('power-operational-state', ATTRIBUTE, 'int' , None, None, 
+                [('-2147483648', '2147483647')], [], 
                 '''                Power operation state
                 ''',
                 'power_operational_state',
@@ -993,7 +966,7 @@ _meta_table = {
                 'asset_id_str',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('asset-identification', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                asset Identification
                 ''',
                 'asset_identification',
@@ -1011,7 +984,7 @@ _meta_table = {
                 'chip_hardware_revision',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('composite-class-code', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Major&minor class of the entity
                 ''',
                 'composite_class_code',
@@ -1054,7 +1027,7 @@ _meta_table = {
                 'is_field_replaceable_unit',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('manufacturer-asset-tags', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Manufacture Asset Tags
                 ''',
                 'manufacturer_asset_tags',
@@ -1066,7 +1039,7 @@ _meta_table = {
                 'manufacturer_name',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('memory-size', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Size of memory associated with 						the entity
                 where applicable
                 ''',
@@ -1085,20 +1058,20 @@ _meta_table = {
                 'name',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('new-deviation-number', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                integer value for New Deviation Number 0x88
                 ''',
                 'new_deviation_number',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('physical-layer-interface-module-type', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                integer value for plim type if     applicable to
                 this entity
                 ''',
                 'physical_layer_interface_module_type',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('redundancystate', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                integer value for Redundancy State if    
                 applicable to this entity
                 ''',
@@ -1540,13 +1513,13 @@ _meta_table = {
                 'eeprom',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('has-eeprom', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                use eeprom instead of opaque data
                 ''',
                 'has_eeprom',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('inv-card-type', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                Inventory card type
                 ''',
                 'inv_card_type',
@@ -1558,7 +1531,7 @@ _meta_table = {
                 'opaque_data',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('opaque-data-size', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                size of the EEPROM hex data
                 ''',
                 'opaque_data_size',
@@ -1611,13 +1584,13 @@ _meta_table = {
                 'inv_eeprom_info',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('module-done', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Inventory EDM Module Done Tuple
                 ''',
                 'module_done',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('node-id', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Node ID Tuple
                 ''',
                 'node_id',
@@ -1641,13 +1614,13 @@ _meta_table = {
                 'threshold',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('vm-done', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                VM Done Tuple
                 ''',
                 'vm_done',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('vm-node-id', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                VM Node ID Tuple
                 ''',
                 'vm_node_id',
@@ -1704,19 +1677,19 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('card-type', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                enumeration of the card type
                 ''',
                 'card_type',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('node-administrative-state', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                node admin state: shutdown or not
                 ''',
                 'node_administrative_state',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('node-monitor-state', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                node is monitored by a manager or left
                 unmonitored
                 ''',
@@ -1729,7 +1702,7 @@ _meta_table = {
                 'node_operational_state',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('power-administrative-state', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                power admin state: up or down
                 ''',
                 'power_administrative_state',
@@ -1746,20 +1719,20 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('age-time-stamp', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Age of the sensor value; set to the current time
                 if directly access the value from sensor
                 ''',
                 'age_time_stamp',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('alarm-type', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates threshold violation
                 ''',
                 'alarm_type',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('data-type', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Sensor data type enums
                 ''',
                 'data_type',
@@ -1771,31 +1744,31 @@ _meta_table = {
                 'device_description',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('device-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Identifier for this device
                 ''',
                 'device_id',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('field-validity-bitmap', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Sensor valid bitmap
                 ''',
                 'field_validity_bitmap',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('precision', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Sensor precision range
                 ''',
                 'precision',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('scale', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Sensor scale enums
                 ''',
                 'scale',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('status', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Sensor operation state enums
                 ''',
                 'status',
@@ -1807,14 +1780,14 @@ _meta_table = {
                 'units',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('update-rate', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Sensor value update rate;set to 0 if sensor
                 value is updated and evaluated immediately
                 ''',
                 'update_rate',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Current reading of sensor
                 ''',
                 'value',
@@ -1831,13 +1804,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('power-group-available-current', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                available current
                 ''',
                 'power_group_available_current',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('power-group-drawn-current', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                drawn current
                 ''',
                 'power_group_drawn_current',
@@ -1849,7 +1822,7 @@ _meta_table = {
                 'power_group_power_units',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('power-group-redundancy-mode', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                redundancy mode
                 ''',
                 'power_group_redundancy_mode',
@@ -1885,7 +1858,7 @@ _meta_table = {
                 'threshold_severity',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-value', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Value of the configured threshold
                 ''',
                 'threshold_value',
@@ -1949,7 +1922,7 @@ _meta_table = {
                 'units',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('update-rate', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Sensor value update rate; set to 0 if sensor
                 value is updated and evaluated immediately
                 ''',
@@ -2043,20 +2016,20 @@ _meta_table = {
                 'threshold_notification_enabled',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-relation', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates relation between sensor value and
                 threshold
                 ''',
                 'threshold_relation',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-severity', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates minor, major, critical severities
                 ''',
                 'threshold_severity',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Value of the configured threshold
                 ''',
                 'threshold_value',
@@ -2104,20 +2077,20 @@ _meta_table = {
                 'threshold_notification_enabled',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-relation', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates relation between sensor value and
                 threshold
                 ''',
                 'threshold_relation',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-severity', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates minor, major, critical severities
                 ''',
                 'threshold_severity',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Value of the configured threshold
                 ''',
                 'threshold_value',
@@ -2165,20 +2138,20 @@ _meta_table = {
                 'threshold_notification_enabled',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-relation', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates relation between sensor value and
                 threshold
                 ''',
                 'threshold_relation',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-severity', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates minor, major, critical severities
                 ''',
                 'threshold_severity',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Value of the configured threshold
                 ''',
                 'threshold_value',
@@ -2226,20 +2199,20 @@ _meta_table = {
                 'threshold_notification_enabled',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-relation', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates relation between sensor value and
                 threshold
                 ''',
                 'threshold_relation',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-severity', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates minor, major, critical severities
                 ''',
                 'threshold_severity',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Value of the configured threshold
                 ''',
                 'threshold_value',
@@ -2287,20 +2260,20 @@ _meta_table = {
                 'threshold_notification_enabled',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-relation', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates relation between sensor value and
                 threshold
                 ''',
                 'threshold_relation',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-severity', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates minor, major, critical severities
                 ''',
                 'threshold_severity',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Value of the configured threshold
                 ''',
                 'threshold_value',
@@ -2348,20 +2321,20 @@ _meta_table = {
                 'threshold_notification_enabled',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-relation', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates relation between sensor value and
                 threshold
                 ''',
                 'threshold_relation',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-severity', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates minor, major, critical severities
                 ''',
                 'threshold_severity',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Value of the configured threshold
                 ''',
                 'threshold_value',
@@ -2442,13 +2415,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('time-in-nano-seconds', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Time Value in Nano-seconds
                 ''',
                 'time_in_nano_seconds',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('time-in-seconds', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Time Value in Seconds
                 ''',
                 'time_in_seconds',
@@ -2465,13 +2438,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('time-in-nano-seconds', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Time Value in Nano-seconds
                 ''',
                 'time_in_nano_seconds',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('time-in-seconds', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Time Value in Seconds
                 ''',
                 'time_in_seconds',
@@ -2488,26 +2461,26 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('card-administrative-state', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                card admin state: shutdown or not
                 ''',
                 'card_administrative_state',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('card-monitor-state', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                card is monitored by a manager or left
                 unmonitored
                 ''',
                 'card_monitor_state',
                 'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('card-operational-state', REFERENCE_ENUM_CLASS, 'InvCardStateEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper', 'InvCardStateEnum', 
-                [], [], 
+            _MetaInfoClassMember('card-operational-state', ATTRIBUTE, 'int' , None, None, 
+                [('-2147483648', '2147483647')], [], 
                 '''                card operation state
                 ''',
                 'card_operational_state',
                 'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('card-reset-reason', REFERENCE_ENUM_CLASS, 'CardResetReasonEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper', 'CardResetReasonEnum', 
-                [], [], 
+            _MetaInfoClassMember('card-reset-reason', ATTRIBUTE, 'int' , None, None, 
+                [('-2147483648', '2147483647')], [], 
                 '''                card reset reason enum
                 ''',
                 'card_reset_reason',
@@ -2525,19 +2498,19 @@ _meta_table = {
                 'last_operational_state_change',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('power-administrative-state', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                power admin state: up or down
                 ''',
                 'power_administrative_state',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('power-current-measurement', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                power current: not implemented
                 ''',
                 'power_current_measurement',
                 'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('power-operational-state', REFERENCE_ENUM_CLASS, 'InvCardStateEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper', 'InvCardStateEnum', 
-                [], [], 
+            _MetaInfoClassMember('power-operational-state', ATTRIBUTE, 'int' , None, None, 
+                [('-2147483648', '2147483647')], [], 
                 '''                Power operation state
                 ''',
                 'power_operational_state',
@@ -2566,7 +2539,7 @@ _meta_table = {
                 'asset_id_str',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('asset-identification', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                asset Identification
                 ''',
                 'asset_identification',
@@ -2584,7 +2557,7 @@ _meta_table = {
                 'chip_hardware_revision',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('composite-class-code', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Major&minor class of the entity
                 ''',
                 'composite_class_code',
@@ -2627,7 +2600,7 @@ _meta_table = {
                 'is_field_replaceable_unit',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('manufacturer-asset-tags', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Manufacture Asset Tags
                 ''',
                 'manufacturer_asset_tags',
@@ -2639,7 +2612,7 @@ _meta_table = {
                 'manufacturer_name',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('memory-size', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Size of memory associated with 						the entity
                 where applicable
                 ''',
@@ -2658,20 +2631,20 @@ _meta_table = {
                 'name',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('new-deviation-number', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                integer value for New Deviation Number 0x88
                 ''',
                 'new_deviation_number',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('physical-layer-interface-module-type', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                integer value for plim type if     applicable to
                 this entity
                 ''',
                 'physical_layer_interface_module_type',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('redundancystate', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                integer value for Redundancy State if    
                 applicable to this entity
                 ''',
@@ -3113,13 +3086,13 @@ _meta_table = {
                 'eeprom',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('has-eeprom', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                use eeprom instead of opaque data
                 ''',
                 'has_eeprom',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('inv-card-type', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                Inventory card type
                 ''',
                 'inv_card_type',
@@ -3131,7 +3104,7 @@ _meta_table = {
                 'opaque_data',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('opaque-data-size', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                size of the EEPROM hex data
                 ''',
                 'opaque_data_size',
@@ -3184,13 +3157,13 @@ _meta_table = {
                 'inv_eeprom_info',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('module-done', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Inventory EDM Module Done Tuple
                 ''',
                 'module_done',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('node-id', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Node ID Tuple
                 ''',
                 'node_id',
@@ -3214,13 +3187,13 @@ _meta_table = {
                 'threshold',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('vm-done', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                VM Done Tuple
                 ''',
                 'vm_done',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('vm-node-id', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                VM Node ID Tuple
                 ''',
                 'vm_node_id',
@@ -3283,19 +3256,19 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('card-type', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                enumeration of the card type
                 ''',
                 'card_type',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('node-administrative-state', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                node admin state: shutdown or not
                 ''',
                 'node_administrative_state',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('node-monitor-state', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                node is monitored by a manager or left
                 unmonitored
                 ''',
@@ -3308,7 +3281,7 @@ _meta_table = {
                 'node_operational_state',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('power-administrative-state', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                power admin state: up or down
                 ''',
                 'power_administrative_state',
@@ -3325,20 +3298,20 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('age-time-stamp', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Age of the sensor value; set to the current time
                 if directly access the value from sensor
                 ''',
                 'age_time_stamp',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('alarm-type', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates threshold violation
                 ''',
                 'alarm_type',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('data-type', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Sensor data type enums
                 ''',
                 'data_type',
@@ -3350,31 +3323,31 @@ _meta_table = {
                 'device_description',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('device-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Identifier for this device
                 ''',
                 'device_id',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('field-validity-bitmap', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Sensor valid bitmap
                 ''',
                 'field_validity_bitmap',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('precision', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Sensor precision range
                 ''',
                 'precision',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('scale', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Sensor scale enums
                 ''',
                 'scale',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('status', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Sensor operation state enums
                 ''',
                 'status',
@@ -3386,14 +3359,14 @@ _meta_table = {
                 'units',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('update-rate', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Sensor value update rate;set to 0 if sensor
                 value is updated and evaluated immediately
                 ''',
                 'update_rate',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Current reading of sensor
                 ''',
                 'value',
@@ -3410,13 +3383,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('power-group-available-current', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                available current
                 ''',
                 'power_group_available_current',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('power-group-drawn-current', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                drawn current
                 ''',
                 'power_group_drawn_current',
@@ -3428,7 +3401,7 @@ _meta_table = {
                 'power_group_power_units',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('power-group-redundancy-mode', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                redundancy mode
                 ''',
                 'power_group_redundancy_mode',
@@ -3464,7 +3437,7 @@ _meta_table = {
                 'threshold_severity',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-value', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Value of the configured threshold
                 ''',
                 'threshold_value',
@@ -3528,7 +3501,7 @@ _meta_table = {
                 'units',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('update-rate', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Sensor value update rate; set to 0 if sensor
                 value is updated and evaluated immediately
                 ''',
@@ -3622,20 +3595,20 @@ _meta_table = {
                 'threshold_notification_enabled',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-relation', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates relation between sensor value and
                 threshold
                 ''',
                 'threshold_relation',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-severity', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates minor, major, critical severities
                 ''',
                 'threshold_severity',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Value of the configured threshold
                 ''',
                 'threshold_value',
@@ -3683,20 +3656,20 @@ _meta_table = {
                 'threshold_notification_enabled',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-relation', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates relation between sensor value and
                 threshold
                 ''',
                 'threshold_relation',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-severity', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates minor, major, critical severities
                 ''',
                 'threshold_severity',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Value of the configured threshold
                 ''',
                 'threshold_value',
@@ -3744,20 +3717,20 @@ _meta_table = {
                 'threshold_notification_enabled',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-relation', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates relation between sensor value and
                 threshold
                 ''',
                 'threshold_relation',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-severity', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates minor, major, critical severities
                 ''',
                 'threshold_severity',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Value of the configured threshold
                 ''',
                 'threshold_value',
@@ -3805,20 +3778,20 @@ _meta_table = {
                 'threshold_notification_enabled',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-relation', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates relation between sensor value and
                 threshold
                 ''',
                 'threshold_relation',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-severity', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates minor, major, critical severities
                 ''',
                 'threshold_severity',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Value of the configured threshold
                 ''',
                 'threshold_value',
@@ -3866,20 +3839,20 @@ _meta_table = {
                 'threshold_notification_enabled',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-relation', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates relation between sensor value and
                 threshold
                 ''',
                 'threshold_relation',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-severity', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates minor, major, critical severities
                 ''',
                 'threshold_severity',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Value of the configured threshold
                 ''',
                 'threshold_value',
@@ -3927,20 +3900,20 @@ _meta_table = {
                 'threshold_notification_enabled',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-relation', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates relation between sensor value and
                 threshold
                 ''',
                 'threshold_relation',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-severity', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates minor, major, critical severities
                 ''',
                 'threshold_severity',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Value of the configured threshold
                 ''',
                 'threshold_value',
@@ -4021,13 +3994,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('time-in-nano-seconds', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Time Value in Nano-seconds
                 ''',
                 'time_in_nano_seconds',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('time-in-seconds', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Time Value in Seconds
                 ''',
                 'time_in_seconds',
@@ -4044,13 +4017,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('time-in-nano-seconds', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Time Value in Nano-seconds
                 ''',
                 'time_in_nano_seconds',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('time-in-seconds', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Time Value in Seconds
                 ''',
                 'time_in_seconds',
@@ -4067,26 +4040,26 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('card-administrative-state', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                card admin state: shutdown or not
                 ''',
                 'card_administrative_state',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('card-monitor-state', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                card is monitored by a manager or left
                 unmonitored
                 ''',
                 'card_monitor_state',
                 'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('card-operational-state', REFERENCE_ENUM_CLASS, 'InvCardStateEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper', 'InvCardStateEnum', 
-                [], [], 
+            _MetaInfoClassMember('card-operational-state', ATTRIBUTE, 'int' , None, None, 
+                [('-2147483648', '2147483647')], [], 
                 '''                card operation state
                 ''',
                 'card_operational_state',
                 'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('card-reset-reason', REFERENCE_ENUM_CLASS, 'CardResetReasonEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper', 'CardResetReasonEnum', 
-                [], [], 
+            _MetaInfoClassMember('card-reset-reason', ATTRIBUTE, 'int' , None, None, 
+                [('-2147483648', '2147483647')], [], 
                 '''                card reset reason enum
                 ''',
                 'card_reset_reason',
@@ -4104,19 +4077,19 @@ _meta_table = {
                 'last_operational_state_change',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('power-administrative-state', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                power admin state: up or down
                 ''',
                 'power_administrative_state',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('power-current-measurement', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                power current: not implemented
                 ''',
                 'power_current_measurement',
                 'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('power-operational-state', REFERENCE_ENUM_CLASS, 'InvCardStateEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper', 'InvCardStateEnum', 
-                [], [], 
+            _MetaInfoClassMember('power-operational-state', ATTRIBUTE, 'int' , None, None, 
+                [('-2147483648', '2147483647')], [], 
                 '''                Power operation state
                 ''',
                 'power_operational_state',
@@ -4145,7 +4118,7 @@ _meta_table = {
                 'asset_id_str',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('asset-identification', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                asset Identification
                 ''',
                 'asset_identification',
@@ -4163,7 +4136,7 @@ _meta_table = {
                 'chip_hardware_revision',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('composite-class-code', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Major&minor class of the entity
                 ''',
                 'composite_class_code',
@@ -4206,7 +4179,7 @@ _meta_table = {
                 'is_field_replaceable_unit',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('manufacturer-asset-tags', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Manufacture Asset Tags
                 ''',
                 'manufacturer_asset_tags',
@@ -4218,7 +4191,7 @@ _meta_table = {
                 'manufacturer_name',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('memory-size', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Size of memory associated with 						the entity
                 where applicable
                 ''',
@@ -4237,20 +4210,20 @@ _meta_table = {
                 'name',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('new-deviation-number', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                integer value for New Deviation Number 0x88
                 ''',
                 'new_deviation_number',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('physical-layer-interface-module-type', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                integer value for plim type if     applicable to
                 this entity
                 ''',
                 'physical_layer_interface_module_type',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('redundancystate', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                integer value for Redundancy State if    
                 applicable to this entity
                 ''',
@@ -4692,13 +4665,13 @@ _meta_table = {
                 'eeprom',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('has-eeprom', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                use eeprom instead of opaque data
                 ''',
                 'has_eeprom',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('inv-card-type', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                Inventory card type
                 ''',
                 'inv_card_type',
@@ -4710,7 +4683,7 @@ _meta_table = {
                 'opaque_data',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('opaque-data-size', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                size of the EEPROM hex data
                 ''',
                 'opaque_data_size',
@@ -4763,13 +4736,13 @@ _meta_table = {
                 'inv_eeprom_info',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('module-done', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Inventory EDM Module Done Tuple
                 ''',
                 'module_done',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('node-id', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Node ID Tuple
                 ''',
                 'node_id',
@@ -4793,13 +4766,13 @@ _meta_table = {
                 'threshold',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('vm-done', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                VM Done Tuple
                 ''',
                 'vm_done',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('vm-node-id', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                VM Node ID Tuple
                 ''',
                 'vm_node_id',
@@ -4862,19 +4835,19 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('card-type', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                enumeration of the card type
                 ''',
                 'card_type',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('node-administrative-state', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                node admin state: shutdown or not
                 ''',
                 'node_administrative_state',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('node-monitor-state', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                node is monitored by a manager or left
                 unmonitored
                 ''',
@@ -4887,7 +4860,7 @@ _meta_table = {
                 'node_operational_state',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('power-administrative-state', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                power admin state: up or down
                 ''',
                 'power_administrative_state',
@@ -4904,20 +4877,20 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('age-time-stamp', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Age of the sensor value; set to the current time
                 if directly access the value from sensor
                 ''',
                 'age_time_stamp',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('alarm-type', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates threshold violation
                 ''',
                 'alarm_type',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('data-type', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Sensor data type enums
                 ''',
                 'data_type',
@@ -4929,31 +4902,31 @@ _meta_table = {
                 'device_description',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('device-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Identifier for this device
                 ''',
                 'device_id',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('field-validity-bitmap', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Sensor valid bitmap
                 ''',
                 'field_validity_bitmap',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('precision', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Sensor precision range
                 ''',
                 'precision',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('scale', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Sensor scale enums
                 ''',
                 'scale',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('status', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Sensor operation state enums
                 ''',
                 'status',
@@ -4965,14 +4938,14 @@ _meta_table = {
                 'units',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('update-rate', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Sensor value update rate;set to 0 if sensor
                 value is updated and evaluated immediately
                 ''',
                 'update_rate',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Current reading of sensor
                 ''',
                 'value',
@@ -4989,13 +4962,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('power-group-available-current', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                available current
                 ''',
                 'power_group_available_current',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('power-group-drawn-current', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                drawn current
                 ''',
                 'power_group_drawn_current',
@@ -5007,7 +4980,7 @@ _meta_table = {
                 'power_group_power_units',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('power-group-redundancy-mode', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                redundancy mode
                 ''',
                 'power_group_redundancy_mode',
@@ -5043,7 +5016,7 @@ _meta_table = {
                 'threshold_severity',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-value', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Value of the configured threshold
                 ''',
                 'threshold_value',
@@ -5107,7 +5080,7 @@ _meta_table = {
                 'units',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('update-rate', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Sensor value update rate; set to 0 if sensor
                 value is updated and evaluated immediately
                 ''',
@@ -5201,20 +5174,20 @@ _meta_table = {
                 'threshold_notification_enabled',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-relation', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates relation between sensor value and
                 threshold
                 ''',
                 'threshold_relation',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-severity', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates minor, major, critical severities
                 ''',
                 'threshold_severity',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Value of the configured threshold
                 ''',
                 'threshold_value',
@@ -5262,20 +5235,20 @@ _meta_table = {
                 'threshold_notification_enabled',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-relation', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates relation between sensor value and
                 threshold
                 ''',
                 'threshold_relation',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-severity', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates minor, major, critical severities
                 ''',
                 'threshold_severity',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Value of the configured threshold
                 ''',
                 'threshold_value',
@@ -5323,20 +5296,20 @@ _meta_table = {
                 'threshold_notification_enabled',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-relation', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates relation between sensor value and
                 threshold
                 ''',
                 'threshold_relation',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-severity', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates minor, major, critical severities
                 ''',
                 'threshold_severity',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Value of the configured threshold
                 ''',
                 'threshold_value',
@@ -5384,20 +5357,20 @@ _meta_table = {
                 'threshold_notification_enabled',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-relation', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates relation between sensor value and
                 threshold
                 ''',
                 'threshold_relation',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-severity', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates minor, major, critical severities
                 ''',
                 'threshold_severity',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Value of the configured threshold
                 ''',
                 'threshold_value',
@@ -5445,20 +5418,20 @@ _meta_table = {
                 'threshold_notification_enabled',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-relation', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates relation between sensor value and
                 threshold
                 ''',
                 'threshold_relation',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-severity', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates minor, major, critical severities
                 ''',
                 'threshold_severity',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Value of the configured threshold
                 ''',
                 'threshold_value',
@@ -5506,20 +5479,20 @@ _meta_table = {
                 'threshold_notification_enabled',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-relation', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates relation between sensor value and
                 threshold
                 ''',
                 'threshold_relation',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-severity', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates minor, major, critical severities
                 ''',
                 'threshold_severity',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Value of the configured threshold
                 ''',
                 'threshold_value',
@@ -5600,13 +5573,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('time-in-nano-seconds', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Time Value in Nano-seconds
                 ''',
                 'time_in_nano_seconds',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('time-in-seconds', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Time Value in Seconds
                 ''',
                 'time_in_seconds',
@@ -5623,13 +5596,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('time-in-nano-seconds', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Time Value in Nano-seconds
                 ''',
                 'time_in_nano_seconds',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('time-in-seconds', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Time Value in Seconds
                 ''',
                 'time_in_seconds',
@@ -5646,26 +5619,26 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('card-administrative-state', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                card admin state: shutdown or not
                 ''',
                 'card_administrative_state',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('card-monitor-state', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                card is monitored by a manager or left
                 unmonitored
                 ''',
                 'card_monitor_state',
                 'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('card-operational-state', REFERENCE_ENUM_CLASS, 'InvCardStateEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper', 'InvCardStateEnum', 
-                [], [], 
+            _MetaInfoClassMember('card-operational-state', ATTRIBUTE, 'int' , None, None, 
+                [('-2147483648', '2147483647')], [], 
                 '''                card operation state
                 ''',
                 'card_operational_state',
                 'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('card-reset-reason', REFERENCE_ENUM_CLASS, 'CardResetReasonEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper', 'CardResetReasonEnum', 
-                [], [], 
+            _MetaInfoClassMember('card-reset-reason', ATTRIBUTE, 'int' , None, None, 
+                [('-2147483648', '2147483647')], [], 
                 '''                card reset reason enum
                 ''',
                 'card_reset_reason',
@@ -5683,19 +5656,19 @@ _meta_table = {
                 'last_operational_state_change',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('power-administrative-state', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                power admin state: up or down
                 ''',
                 'power_administrative_state',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('power-current-measurement', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                power current: not implemented
                 ''',
                 'power_current_measurement',
                 'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('power-operational-state', REFERENCE_ENUM_CLASS, 'InvCardStateEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper', 'InvCardStateEnum', 
-                [], [], 
+            _MetaInfoClassMember('power-operational-state', ATTRIBUTE, 'int' , None, None, 
+                [('-2147483648', '2147483647')], [], 
                 '''                Power operation state
                 ''',
                 'power_operational_state',
@@ -5724,7 +5697,7 @@ _meta_table = {
                 'asset_id_str',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('asset-identification', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                asset Identification
                 ''',
                 'asset_identification',
@@ -5742,7 +5715,7 @@ _meta_table = {
                 'chip_hardware_revision',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('composite-class-code', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Major&minor class of the entity
                 ''',
                 'composite_class_code',
@@ -5785,7 +5758,7 @@ _meta_table = {
                 'is_field_replaceable_unit',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('manufacturer-asset-tags', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Manufacture Asset Tags
                 ''',
                 'manufacturer_asset_tags',
@@ -5797,7 +5770,7 @@ _meta_table = {
                 'manufacturer_name',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('memory-size', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Size of memory associated with 						the entity
                 where applicable
                 ''',
@@ -5816,20 +5789,20 @@ _meta_table = {
                 'name',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('new-deviation-number', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                integer value for New Deviation Number 0x88
                 ''',
                 'new_deviation_number',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('physical-layer-interface-module-type', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                integer value for plim type if     applicable to
                 this entity
                 ''',
                 'physical_layer_interface_module_type',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('redundancystate', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                integer value for Redundancy State if    
                 applicable to this entity
                 ''',
@@ -6271,13 +6244,13 @@ _meta_table = {
                 'eeprom',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('has-eeprom', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                use eeprom instead of opaque data
                 ''',
                 'has_eeprom',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('inv-card-type', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                Inventory card type
                 ''',
                 'inv_card_type',
@@ -6289,7 +6262,7 @@ _meta_table = {
                 'opaque_data',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('opaque-data-size', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                size of the EEPROM hex data
                 ''',
                 'opaque_data_size',
@@ -6342,13 +6315,13 @@ _meta_table = {
                 'inv_eeprom_info',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('module-done', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Inventory EDM Module Done Tuple
                 ''',
                 'module_done',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('node-id', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Node ID Tuple
                 ''',
                 'node_id',
@@ -6372,13 +6345,13 @@ _meta_table = {
                 'threshold',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('vm-done', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                VM Done Tuple
                 ''',
                 'vm_done',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('vm-node-id', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                VM Node ID Tuple
                 ''',
                 'vm_node_id',
@@ -6441,19 +6414,19 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('card-type', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                enumeration of the card type
                 ''',
                 'card_type',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('node-administrative-state', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                node admin state: shutdown or not
                 ''',
                 'node_administrative_state',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('node-monitor-state', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                node is monitored by a manager or left
                 unmonitored
                 ''',
@@ -6466,7 +6439,7 @@ _meta_table = {
                 'node_operational_state',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('power-administrative-state', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                power admin state: up or down
                 ''',
                 'power_administrative_state',
@@ -6483,20 +6456,20 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('age-time-stamp', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Age of the sensor value; set to the current time
                 if directly access the value from sensor
                 ''',
                 'age_time_stamp',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('alarm-type', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates threshold violation
                 ''',
                 'alarm_type',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('data-type', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Sensor data type enums
                 ''',
                 'data_type',
@@ -6508,31 +6481,31 @@ _meta_table = {
                 'device_description',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('device-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Identifier for this device
                 ''',
                 'device_id',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('field-validity-bitmap', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Sensor valid bitmap
                 ''',
                 'field_validity_bitmap',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('precision', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Sensor precision range
                 ''',
                 'precision',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('scale', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Sensor scale enums
                 ''',
                 'scale',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('status', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Sensor operation state enums
                 ''',
                 'status',
@@ -6544,14 +6517,14 @@ _meta_table = {
                 'units',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('update-rate', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Sensor value update rate;set to 0 if sensor
                 value is updated and evaluated immediately
                 ''',
                 'update_rate',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Current reading of sensor
                 ''',
                 'value',
@@ -6568,13 +6541,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('power-group-available-current', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                available current
                 ''',
                 'power_group_available_current',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('power-group-drawn-current', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                drawn current
                 ''',
                 'power_group_drawn_current',
@@ -6586,7 +6559,7 @@ _meta_table = {
                 'power_group_power_units',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('power-group-redundancy-mode', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                redundancy mode
                 ''',
                 'power_group_redundancy_mode',
@@ -6622,7 +6595,7 @@ _meta_table = {
                 'threshold_severity',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-value', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Value of the configured threshold
                 ''',
                 'threshold_value',
@@ -6686,7 +6659,7 @@ _meta_table = {
                 'units',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('update-rate', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Sensor value update rate; set to 0 if sensor
                 value is updated and evaluated immediately
                 ''',
@@ -6780,20 +6753,20 @@ _meta_table = {
                 'threshold_notification_enabled',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-relation', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates relation between sensor value and
                 threshold
                 ''',
                 'threshold_relation',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-severity', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates minor, major, critical severities
                 ''',
                 'threshold_severity',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Value of the configured threshold
                 ''',
                 'threshold_value',
@@ -6841,20 +6814,20 @@ _meta_table = {
                 'threshold_notification_enabled',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-relation', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates relation between sensor value and
                 threshold
                 ''',
                 'threshold_relation',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-severity', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates minor, major, critical severities
                 ''',
                 'threshold_severity',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Value of the configured threshold
                 ''',
                 'threshold_value',
@@ -6902,20 +6875,20 @@ _meta_table = {
                 'threshold_notification_enabled',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-relation', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates relation between sensor value and
                 threshold
                 ''',
                 'threshold_relation',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-severity', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates minor, major, critical severities
                 ''',
                 'threshold_severity',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Value of the configured threshold
                 ''',
                 'threshold_value',
@@ -6963,20 +6936,20 @@ _meta_table = {
                 'threshold_notification_enabled',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-relation', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates relation between sensor value and
                 threshold
                 ''',
                 'threshold_relation',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-severity', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates minor, major, critical severities
                 ''',
                 'threshold_severity',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Value of the configured threshold
                 ''',
                 'threshold_value',
@@ -7024,20 +6997,20 @@ _meta_table = {
                 'threshold_notification_enabled',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-relation', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates relation between sensor value and
                 threshold
                 ''',
                 'threshold_relation',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-severity', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates minor, major, critical severities
                 ''',
                 'threshold_severity',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Value of the configured threshold
                 ''',
                 'threshold_value',
@@ -7085,20 +7058,20 @@ _meta_table = {
                 'threshold_notification_enabled',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-relation', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates relation between sensor value and
                 threshold
                 ''',
                 'threshold_relation',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-severity', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates minor, major, critical severities
                 ''',
                 'threshold_severity',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Value of the configured threshold
                 ''',
                 'threshold_value',
@@ -7179,13 +7152,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('time-in-nano-seconds', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Time Value in Nano-seconds
                 ''',
                 'time_in_nano_seconds',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('time-in-seconds', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Time Value in Seconds
                 ''',
                 'time_in_seconds',
@@ -7202,13 +7175,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('time-in-nano-seconds', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Time Value in Nano-seconds
                 ''',
                 'time_in_nano_seconds',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('time-in-seconds', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Time Value in Seconds
                 ''',
                 'time_in_seconds',
@@ -7225,26 +7198,26 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('card-administrative-state', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                card admin state: shutdown or not
                 ''',
                 'card_administrative_state',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('card-monitor-state', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                card is monitored by a manager or left
                 unmonitored
                 ''',
                 'card_monitor_state',
                 'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('card-operational-state', REFERENCE_ENUM_CLASS, 'InvCardStateEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper', 'InvCardStateEnum', 
-                [], [], 
+            _MetaInfoClassMember('card-operational-state', ATTRIBUTE, 'int' , None, None, 
+                [('-2147483648', '2147483647')], [], 
                 '''                card operation state
                 ''',
                 'card_operational_state',
                 'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('card-reset-reason', REFERENCE_ENUM_CLASS, 'CardResetReasonEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper', 'CardResetReasonEnum', 
-                [], [], 
+            _MetaInfoClassMember('card-reset-reason', ATTRIBUTE, 'int' , None, None, 
+                [('-2147483648', '2147483647')], [], 
                 '''                card reset reason enum
                 ''',
                 'card_reset_reason',
@@ -7262,19 +7235,19 @@ _meta_table = {
                 'last_operational_state_change',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('power-administrative-state', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                power admin state: up or down
                 ''',
                 'power_administrative_state',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('power-current-measurement', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                power current: not implemented
                 ''',
                 'power_current_measurement',
                 'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('power-operational-state', REFERENCE_ENUM_CLASS, 'InvCardStateEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper', 'InvCardStateEnum', 
-                [], [], 
+            _MetaInfoClassMember('power-operational-state', ATTRIBUTE, 'int' , None, None, 
+                [('-2147483648', '2147483647')], [], 
                 '''                Power operation state
                 ''',
                 'power_operational_state',
@@ -7303,7 +7276,7 @@ _meta_table = {
                 'asset_id_str',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('asset-identification', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                asset Identification
                 ''',
                 'asset_identification',
@@ -7321,7 +7294,7 @@ _meta_table = {
                 'chip_hardware_revision',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('composite-class-code', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Major&minor class of the entity
                 ''',
                 'composite_class_code',
@@ -7364,7 +7337,7 @@ _meta_table = {
                 'is_field_replaceable_unit',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('manufacturer-asset-tags', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Manufacture Asset Tags
                 ''',
                 'manufacturer_asset_tags',
@@ -7376,7 +7349,7 @@ _meta_table = {
                 'manufacturer_name',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('memory-size', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Size of memory associated with 						the entity
                 where applicable
                 ''',
@@ -7395,20 +7368,20 @@ _meta_table = {
                 'name',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('new-deviation-number', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                integer value for New Deviation Number 0x88
                 ''',
                 'new_deviation_number',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('physical-layer-interface-module-type', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                integer value for plim type if     applicable to
                 this entity
                 ''',
                 'physical_layer_interface_module_type',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('redundancystate', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                integer value for Redundancy State if    
                 applicable to this entity
                 ''',
@@ -7850,13 +7823,13 @@ _meta_table = {
                 'eeprom',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('has-eeprom', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                use eeprom instead of opaque data
                 ''',
                 'has_eeprom',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('inv-card-type', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                Inventory card type
                 ''',
                 'inv_card_type',
@@ -7868,7 +7841,7 @@ _meta_table = {
                 'opaque_data',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('opaque-data-size', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                size of the EEPROM hex data
                 ''',
                 'opaque_data_size',
@@ -7921,13 +7894,13 @@ _meta_table = {
                 'inv_eeprom_info',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('module-done', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Inventory EDM Module Done Tuple
                 ''',
                 'module_done',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('node-id', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Node ID Tuple
                 ''',
                 'node_id',
@@ -7951,13 +7924,13 @@ _meta_table = {
                 'threshold',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('vm-done', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                VM Done Tuple
                 ''',
                 'vm_done',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('vm-node-id', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                VM Node ID Tuple
                 ''',
                 'vm_node_id',
@@ -8020,19 +7993,19 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('card-type', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                enumeration of the card type
                 ''',
                 'card_type',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('node-administrative-state', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                node admin state: shutdown or not
                 ''',
                 'node_administrative_state',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('node-monitor-state', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                node is monitored by a manager or left
                 unmonitored
                 ''',
@@ -8045,7 +8018,7 @@ _meta_table = {
                 'node_operational_state',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('power-administrative-state', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                power admin state: up or down
                 ''',
                 'power_administrative_state',
@@ -8062,20 +8035,20 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('age-time-stamp', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Age of the sensor value; set to the current time
                 if directly access the value from sensor
                 ''',
                 'age_time_stamp',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('alarm-type', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates threshold violation
                 ''',
                 'alarm_type',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('data-type', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Sensor data type enums
                 ''',
                 'data_type',
@@ -8087,31 +8060,31 @@ _meta_table = {
                 'device_description',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('device-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Identifier for this device
                 ''',
                 'device_id',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('field-validity-bitmap', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Sensor valid bitmap
                 ''',
                 'field_validity_bitmap',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('precision', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Sensor precision range
                 ''',
                 'precision',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('scale', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Sensor scale enums
                 ''',
                 'scale',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('status', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Sensor operation state enums
                 ''',
                 'status',
@@ -8123,14 +8096,14 @@ _meta_table = {
                 'units',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('update-rate', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Sensor value update rate;set to 0 if sensor
                 value is updated and evaluated immediately
                 ''',
                 'update_rate',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Current reading of sensor
                 ''',
                 'value',
@@ -8147,13 +8120,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('power-group-available-current', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                available current
                 ''',
                 'power_group_available_current',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('power-group-drawn-current', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                drawn current
                 ''',
                 'power_group_drawn_current',
@@ -8165,7 +8138,7 @@ _meta_table = {
                 'power_group_power_units',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('power-group-redundancy-mode', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                redundancy mode
                 ''',
                 'power_group_redundancy_mode',
@@ -8201,7 +8174,7 @@ _meta_table = {
                 'threshold_severity',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-value', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Value of the configured threshold
                 ''',
                 'threshold_value',
@@ -8265,7 +8238,7 @@ _meta_table = {
                 'units',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('update-rate', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Sensor value update rate; set to 0 if sensor
                 value is updated and evaluated immediately
                 ''',
@@ -8359,20 +8332,20 @@ _meta_table = {
                 'threshold_notification_enabled',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-relation', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates relation between sensor value and
                 threshold
                 ''',
                 'threshold_relation',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-severity', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates minor, major, critical severities
                 ''',
                 'threshold_severity',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Value of the configured threshold
                 ''',
                 'threshold_value',
@@ -8420,20 +8393,20 @@ _meta_table = {
                 'threshold_notification_enabled',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-relation', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates relation between sensor value and
                 threshold
                 ''',
                 'threshold_relation',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-severity', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates minor, major, critical severities
                 ''',
                 'threshold_severity',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Value of the configured threshold
                 ''',
                 'threshold_value',
@@ -8481,20 +8454,20 @@ _meta_table = {
                 'threshold_notification_enabled',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-relation', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates relation between sensor value and
                 threshold
                 ''',
                 'threshold_relation',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-severity', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates minor, major, critical severities
                 ''',
                 'threshold_severity',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Value of the configured threshold
                 ''',
                 'threshold_value',
@@ -8542,20 +8515,20 @@ _meta_table = {
                 'threshold_notification_enabled',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-relation', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates relation between sensor value and
                 threshold
                 ''',
                 'threshold_relation',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-severity', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates minor, major, critical severities
                 ''',
                 'threshold_severity',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Value of the configured threshold
                 ''',
                 'threshold_value',
@@ -8603,20 +8576,20 @@ _meta_table = {
                 'threshold_notification_enabled',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-relation', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates relation between sensor value and
                 threshold
                 ''',
                 'threshold_relation',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-severity', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates minor, major, critical severities
                 ''',
                 'threshold_severity',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Value of the configured threshold
                 ''',
                 'threshold_value',
@@ -8664,20 +8637,20 @@ _meta_table = {
                 'threshold_notification_enabled',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-relation', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates relation between sensor value and
                 threshold
                 ''',
                 'threshold_relation',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-severity', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates minor, major, critical severities
                 ''',
                 'threshold_severity',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Value of the configured threshold
                 ''',
                 'threshold_value',
@@ -8758,13 +8731,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('time-in-nano-seconds', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Time Value in Nano-seconds
                 ''',
                 'time_in_nano_seconds',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('time-in-seconds', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Time Value in Seconds
                 ''',
                 'time_in_seconds',
@@ -8781,13 +8754,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('time-in-nano-seconds', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Time Value in Nano-seconds
                 ''',
                 'time_in_nano_seconds',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('time-in-seconds', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Time Value in Seconds
                 ''',
                 'time_in_seconds',
@@ -8804,26 +8777,26 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('card-administrative-state', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                card admin state: shutdown or not
                 ''',
                 'card_administrative_state',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('card-monitor-state', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                card is monitored by a manager or left
                 unmonitored
                 ''',
                 'card_monitor_state',
                 'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('card-operational-state', REFERENCE_ENUM_CLASS, 'InvCardStateEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper', 'InvCardStateEnum', 
-                [], [], 
+            _MetaInfoClassMember('card-operational-state', ATTRIBUTE, 'int' , None, None, 
+                [('-2147483648', '2147483647')], [], 
                 '''                card operation state
                 ''',
                 'card_operational_state',
                 'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('card-reset-reason', REFERENCE_ENUM_CLASS, 'CardResetReasonEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper', 'CardResetReasonEnum', 
-                [], [], 
+            _MetaInfoClassMember('card-reset-reason', ATTRIBUTE, 'int' , None, None, 
+                [('-2147483648', '2147483647')], [], 
                 '''                card reset reason enum
                 ''',
                 'card_reset_reason',
@@ -8841,19 +8814,19 @@ _meta_table = {
                 'last_operational_state_change',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('power-administrative-state', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                power admin state: up or down
                 ''',
                 'power_administrative_state',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('power-current-measurement', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                power current: not implemented
                 ''',
                 'power_current_measurement',
                 'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('power-operational-state', REFERENCE_ENUM_CLASS, 'InvCardStateEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper', 'InvCardStateEnum', 
-                [], [], 
+            _MetaInfoClassMember('power-operational-state', ATTRIBUTE, 'int' , None, None, 
+                [('-2147483648', '2147483647')], [], 
                 '''                Power operation state
                 ''',
                 'power_operational_state',
@@ -8882,7 +8855,7 @@ _meta_table = {
                 'asset_id_str',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('asset-identification', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                asset Identification
                 ''',
                 'asset_identification',
@@ -8900,7 +8873,7 @@ _meta_table = {
                 'chip_hardware_revision',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('composite-class-code', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Major&minor class of the entity
                 ''',
                 'composite_class_code',
@@ -8943,7 +8916,7 @@ _meta_table = {
                 'is_field_replaceable_unit',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('manufacturer-asset-tags', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Manufacture Asset Tags
                 ''',
                 'manufacturer_asset_tags',
@@ -8955,7 +8928,7 @@ _meta_table = {
                 'manufacturer_name',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('memory-size', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Size of memory associated with 						the entity
                 where applicable
                 ''',
@@ -8974,20 +8947,20 @@ _meta_table = {
                 'name',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('new-deviation-number', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                integer value for New Deviation Number 0x88
                 ''',
                 'new_deviation_number',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('physical-layer-interface-module-type', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                integer value for plim type if     applicable to
                 this entity
                 ''',
                 'physical_layer_interface_module_type',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('redundancystate', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                integer value for Redundancy State if    
                 applicable to this entity
                 ''',
@@ -9429,13 +9402,13 @@ _meta_table = {
                 'eeprom',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('has-eeprom', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                use eeprom instead of opaque data
                 ''',
                 'has_eeprom',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('inv-card-type', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                Inventory card type
                 ''',
                 'inv_card_type',
@@ -9447,7 +9420,7 @@ _meta_table = {
                 'opaque_data',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('opaque-data-size', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                size of the EEPROM hex data
                 ''',
                 'opaque_data_size',
@@ -9500,13 +9473,13 @@ _meta_table = {
                 'inv_eeprom_info',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('module-done', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Inventory EDM Module Done Tuple
                 ''',
                 'module_done',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('node-id', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Node ID Tuple
                 ''',
                 'node_id',
@@ -9530,13 +9503,13 @@ _meta_table = {
                 'threshold',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('vm-done', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                VM Done Tuple
                 ''',
                 'vm_done',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('vm-node-id', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                VM Node ID Tuple
                 ''',
                 'vm_node_id',
@@ -9599,19 +9572,19 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('card-type', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                enumeration of the card type
                 ''',
                 'card_type',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('node-administrative-state', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                node admin state: shutdown or not
                 ''',
                 'node_administrative_state',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('node-monitor-state', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                node is monitored by a manager or left
                 unmonitored
                 ''',
@@ -9624,7 +9597,7 @@ _meta_table = {
                 'node_operational_state',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('power-administrative-state', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                power admin state: up or down
                 ''',
                 'power_administrative_state',
@@ -9641,20 +9614,20 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('age-time-stamp', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Age of the sensor value; set to the current time
                 if directly access the value from sensor
                 ''',
                 'age_time_stamp',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('alarm-type', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates threshold violation
                 ''',
                 'alarm_type',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('data-type', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Sensor data type enums
                 ''',
                 'data_type',
@@ -9666,31 +9639,31 @@ _meta_table = {
                 'device_description',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('device-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Identifier for this device
                 ''',
                 'device_id',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('field-validity-bitmap', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Sensor valid bitmap
                 ''',
                 'field_validity_bitmap',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('precision', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Sensor precision range
                 ''',
                 'precision',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('scale', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Sensor scale enums
                 ''',
                 'scale',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('status', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Sensor operation state enums
                 ''',
                 'status',
@@ -9702,14 +9675,14 @@ _meta_table = {
                 'units',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('update-rate', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Sensor value update rate;set to 0 if sensor
                 value is updated and evaluated immediately
                 ''',
                 'update_rate',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Current reading of sensor
                 ''',
                 'value',
@@ -9726,13 +9699,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('power-group-available-current', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                available current
                 ''',
                 'power_group_available_current',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('power-group-drawn-current', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                drawn current
                 ''',
                 'power_group_drawn_current',
@@ -9744,7 +9717,7 @@ _meta_table = {
                 'power_group_power_units',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('power-group-redundancy-mode', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                redundancy mode
                 ''',
                 'power_group_redundancy_mode',
@@ -9780,7 +9753,7 @@ _meta_table = {
                 'threshold_severity',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-value', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Value of the configured threshold
                 ''',
                 'threshold_value',
@@ -9844,7 +9817,7 @@ _meta_table = {
                 'units',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('update-rate', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Sensor value update rate; set to 0 if sensor
                 value is updated and evaluated immediately
                 ''',
@@ -9938,20 +9911,20 @@ _meta_table = {
                 'threshold_notification_enabled',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-relation', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates relation between sensor value and
                 threshold
                 ''',
                 'threshold_relation',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-severity', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates minor, major, critical severities
                 ''',
                 'threshold_severity',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Value of the configured threshold
                 ''',
                 'threshold_value',
@@ -9999,20 +9972,20 @@ _meta_table = {
                 'threshold_notification_enabled',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-relation', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates relation between sensor value and
                 threshold
                 ''',
                 'threshold_relation',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-severity', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates minor, major, critical severities
                 ''',
                 'threshold_severity',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Value of the configured threshold
                 ''',
                 'threshold_value',
@@ -10060,20 +10033,20 @@ _meta_table = {
                 'threshold_notification_enabled',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-relation', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates relation between sensor value and
                 threshold
                 ''',
                 'threshold_relation',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-severity', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates minor, major, critical severities
                 ''',
                 'threshold_severity',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Value of the configured threshold
                 ''',
                 'threshold_value',
@@ -10121,20 +10094,20 @@ _meta_table = {
                 'threshold_notification_enabled',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-relation', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates relation between sensor value and
                 threshold
                 ''',
                 'threshold_relation',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-severity', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates minor, major, critical severities
                 ''',
                 'threshold_severity',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Value of the configured threshold
                 ''',
                 'threshold_value',
@@ -10182,20 +10155,20 @@ _meta_table = {
                 'threshold_notification_enabled',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-relation', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates relation between sensor value and
                 threshold
                 ''',
                 'threshold_relation',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-severity', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates minor, major, critical severities
                 ''',
                 'threshold_severity',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Value of the configured threshold
                 ''',
                 'threshold_value',
@@ -10243,20 +10216,20 @@ _meta_table = {
                 'threshold_notification_enabled',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-relation', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates relation between sensor value and
                 threshold
                 ''',
                 'threshold_relation',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-severity', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates minor, major, critical severities
                 ''',
                 'threshold_severity',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Value of the configured threshold
                 ''',
                 'threshold_value',
@@ -10337,13 +10310,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('time-in-nano-seconds', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Time Value in Nano-seconds
                 ''',
                 'time_in_nano_seconds',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('time-in-seconds', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Time Value in Seconds
                 ''',
                 'time_in_seconds',
@@ -10360,13 +10333,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('time-in-nano-seconds', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Time Value in Nano-seconds
                 ''',
                 'time_in_nano_seconds',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('time-in-seconds', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Time Value in Seconds
                 ''',
                 'time_in_seconds',
@@ -10383,26 +10356,26 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('card-administrative-state', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                card admin state: shutdown or not
                 ''',
                 'card_administrative_state',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('card-monitor-state', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                card is monitored by a manager or left
                 unmonitored
                 ''',
                 'card_monitor_state',
                 'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('card-operational-state', REFERENCE_ENUM_CLASS, 'InvCardStateEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper', 'InvCardStateEnum', 
-                [], [], 
+            _MetaInfoClassMember('card-operational-state', ATTRIBUTE, 'int' , None, None, 
+                [('-2147483648', '2147483647')], [], 
                 '''                card operation state
                 ''',
                 'card_operational_state',
                 'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('card-reset-reason', REFERENCE_ENUM_CLASS, 'CardResetReasonEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper', 'CardResetReasonEnum', 
-                [], [], 
+            _MetaInfoClassMember('card-reset-reason', ATTRIBUTE, 'int' , None, None, 
+                [('-2147483648', '2147483647')], [], 
                 '''                card reset reason enum
                 ''',
                 'card_reset_reason',
@@ -10420,19 +10393,19 @@ _meta_table = {
                 'last_operational_state_change',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('power-administrative-state', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                power admin state: up or down
                 ''',
                 'power_administrative_state',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('power-current-measurement', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                power current: not implemented
                 ''',
                 'power_current_measurement',
                 'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('power-operational-state', REFERENCE_ENUM_CLASS, 'InvCardStateEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper', 'InvCardStateEnum', 
-                [], [], 
+            _MetaInfoClassMember('power-operational-state', ATTRIBUTE, 'int' , None, None, 
+                [('-2147483648', '2147483647')], [], 
                 '''                Power operation state
                 ''',
                 'power_operational_state',
@@ -10461,7 +10434,7 @@ _meta_table = {
                 'asset_id_str',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('asset-identification', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                asset Identification
                 ''',
                 'asset_identification',
@@ -10479,7 +10452,7 @@ _meta_table = {
                 'chip_hardware_revision',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('composite-class-code', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Major&minor class of the entity
                 ''',
                 'composite_class_code',
@@ -10522,7 +10495,7 @@ _meta_table = {
                 'is_field_replaceable_unit',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('manufacturer-asset-tags', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Manufacture Asset Tags
                 ''',
                 'manufacturer_asset_tags',
@@ -10534,7 +10507,7 @@ _meta_table = {
                 'manufacturer_name',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('memory-size', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Size of memory associated with 						the entity
                 where applicable
                 ''',
@@ -10553,20 +10526,20 @@ _meta_table = {
                 'name',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('new-deviation-number', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                integer value for New Deviation Number 0x88
                 ''',
                 'new_deviation_number',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('physical-layer-interface-module-type', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                integer value for plim type if     applicable to
                 this entity
                 ''',
                 'physical_layer_interface_module_type',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('redundancystate', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                integer value for Redundancy State if    
                 applicable to this entity
                 ''',
@@ -11008,13 +10981,13 @@ _meta_table = {
                 'eeprom',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('has-eeprom', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                use eeprom instead of opaque data
                 ''',
                 'has_eeprom',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('inv-card-type', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                Inventory card type
                 ''',
                 'inv_card_type',
@@ -11026,7 +10999,7 @@ _meta_table = {
                 'opaque_data',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('opaque-data-size', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                size of the EEPROM hex data
                 ''',
                 'opaque_data_size',
@@ -11079,13 +11052,13 @@ _meta_table = {
                 'inv_eeprom_info',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('module-done', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Inventory EDM Module Done Tuple
                 ''',
                 'module_done',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('node-id', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Node ID Tuple
                 ''',
                 'node_id',
@@ -11109,13 +11082,13 @@ _meta_table = {
                 'threshold',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('vm-done', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                VM Done Tuple
                 ''',
                 'vm_done',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('vm-node-id', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                VM Node ID Tuple
                 ''',
                 'vm_node_id',
@@ -11178,19 +11151,19 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('card-type', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                enumeration of the card type
                 ''',
                 'card_type',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('node-administrative-state', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                node admin state: shutdown or not
                 ''',
                 'node_administrative_state',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('node-monitor-state', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                node is monitored by a manager or left
                 unmonitored
                 ''',
@@ -11203,7 +11176,7 @@ _meta_table = {
                 'node_operational_state',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('power-administrative-state', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                power admin state: up or down
                 ''',
                 'power_administrative_state',
@@ -11220,20 +11193,20 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('age-time-stamp', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Age of the sensor value; set to the current time
                 if directly access the value from sensor
                 ''',
                 'age_time_stamp',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('alarm-type', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates threshold violation
                 ''',
                 'alarm_type',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('data-type', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Sensor data type enums
                 ''',
                 'data_type',
@@ -11245,31 +11218,31 @@ _meta_table = {
                 'device_description',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('device-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Identifier for this device
                 ''',
                 'device_id',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('field-validity-bitmap', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Sensor valid bitmap
                 ''',
                 'field_validity_bitmap',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('precision', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Sensor precision range
                 ''',
                 'precision',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('scale', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Sensor scale enums
                 ''',
                 'scale',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('status', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Sensor operation state enums
                 ''',
                 'status',
@@ -11281,14 +11254,14 @@ _meta_table = {
                 'units',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('update-rate', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Sensor value update rate;set to 0 if sensor
                 value is updated and evaluated immediately
                 ''',
                 'update_rate',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Current reading of sensor
                 ''',
                 'value',
@@ -11305,13 +11278,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('power-group-available-current', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                available current
                 ''',
                 'power_group_available_current',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('power-group-drawn-current', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                drawn current
                 ''',
                 'power_group_drawn_current',
@@ -11323,7 +11296,7 @@ _meta_table = {
                 'power_group_power_units',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('power-group-redundancy-mode', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                redundancy mode
                 ''',
                 'power_group_redundancy_mode',
@@ -11359,7 +11332,7 @@ _meta_table = {
                 'threshold_severity',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-value', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Value of the configured threshold
                 ''',
                 'threshold_value',
@@ -11423,7 +11396,7 @@ _meta_table = {
                 'units',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('update-rate', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Sensor value update rate; set to 0 if sensor
                 value is updated and evaluated immediately
                 ''',
@@ -11517,20 +11490,20 @@ _meta_table = {
                 'threshold_notification_enabled',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-relation', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates relation between sensor value and
                 threshold
                 ''',
                 'threshold_relation',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-severity', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates minor, major, critical severities
                 ''',
                 'threshold_severity',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Value of the configured threshold
                 ''',
                 'threshold_value',
@@ -11578,20 +11551,20 @@ _meta_table = {
                 'threshold_notification_enabled',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-relation', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates relation between sensor value and
                 threshold
                 ''',
                 'threshold_relation',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-severity', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates minor, major, critical severities
                 ''',
                 'threshold_severity',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Value of the configured threshold
                 ''',
                 'threshold_value',
@@ -11639,20 +11612,20 @@ _meta_table = {
                 'threshold_notification_enabled',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-relation', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates relation between sensor value and
                 threshold
                 ''',
                 'threshold_relation',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-severity', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates minor, major, critical severities
                 ''',
                 'threshold_severity',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Value of the configured threshold
                 ''',
                 'threshold_value',
@@ -11700,20 +11673,20 @@ _meta_table = {
                 'threshold_notification_enabled',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-relation', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates relation between sensor value and
                 threshold
                 ''',
                 'threshold_relation',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-severity', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates minor, major, critical severities
                 ''',
                 'threshold_severity',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Value of the configured threshold
                 ''',
                 'threshold_value',
@@ -11761,20 +11734,20 @@ _meta_table = {
                 'threshold_notification_enabled',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-relation', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates relation between sensor value and
                 threshold
                 ''',
                 'threshold_relation',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-severity', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates minor, major, critical severities
                 ''',
                 'threshold_severity',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Value of the configured threshold
                 ''',
                 'threshold_value',
@@ -11822,20 +11795,20 @@ _meta_table = {
                 'threshold_notification_enabled',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-relation', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates relation between sensor value and
                 threshold
                 ''',
                 'threshold_relation',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-severity', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates minor, major, critical severities
                 ''',
                 'threshold_severity',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Value of the configured threshold
                 ''',
                 'threshold_value',
@@ -11916,13 +11889,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('time-in-nano-seconds', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Time Value in Nano-seconds
                 ''',
                 'time_in_nano_seconds',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('time-in-seconds', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Time Value in Seconds
                 ''',
                 'time_in_seconds',
@@ -11939,13 +11912,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('time-in-nano-seconds', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Time Value in Nano-seconds
                 ''',
                 'time_in_nano_seconds',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('time-in-seconds', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Time Value in Seconds
                 ''',
                 'time_in_seconds',
@@ -11962,26 +11935,26 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('card-administrative-state', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                card admin state: shutdown or not
                 ''',
                 'card_administrative_state',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('card-monitor-state', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                card is monitored by a manager or left
                 unmonitored
                 ''',
                 'card_monitor_state',
                 'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('card-operational-state', REFERENCE_ENUM_CLASS, 'InvCardStateEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper', 'InvCardStateEnum', 
-                [], [], 
+            _MetaInfoClassMember('card-operational-state', ATTRIBUTE, 'int' , None, None, 
+                [('-2147483648', '2147483647')], [], 
                 '''                card operation state
                 ''',
                 'card_operational_state',
                 'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('card-reset-reason', REFERENCE_ENUM_CLASS, 'CardResetReasonEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper', 'CardResetReasonEnum', 
-                [], [], 
+            _MetaInfoClassMember('card-reset-reason', ATTRIBUTE, 'int' , None, None, 
+                [('-2147483648', '2147483647')], [], 
                 '''                card reset reason enum
                 ''',
                 'card_reset_reason',
@@ -11999,19 +11972,19 @@ _meta_table = {
                 'last_operational_state_change',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('power-administrative-state', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                power admin state: up or down
                 ''',
                 'power_administrative_state',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('power-current-measurement', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                power current: not implemented
                 ''',
                 'power_current_measurement',
                 'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('power-operational-state', REFERENCE_ENUM_CLASS, 'InvCardStateEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper', 'InvCardStateEnum', 
-                [], [], 
+            _MetaInfoClassMember('power-operational-state', ATTRIBUTE, 'int' , None, None, 
+                [('-2147483648', '2147483647')], [], 
                 '''                Power operation state
                 ''',
                 'power_operational_state',
@@ -12040,7 +12013,7 @@ _meta_table = {
                 'asset_id_str',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('asset-identification', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                asset Identification
                 ''',
                 'asset_identification',
@@ -12058,7 +12031,7 @@ _meta_table = {
                 'chip_hardware_revision',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('composite-class-code', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Major&minor class of the entity
                 ''',
                 'composite_class_code',
@@ -12101,7 +12074,7 @@ _meta_table = {
                 'is_field_replaceable_unit',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('manufacturer-asset-tags', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Manufacture Asset Tags
                 ''',
                 'manufacturer_asset_tags',
@@ -12113,7 +12086,7 @@ _meta_table = {
                 'manufacturer_name',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('memory-size', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Size of memory associated with 						the entity
                 where applicable
                 ''',
@@ -12132,20 +12105,20 @@ _meta_table = {
                 'name',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('new-deviation-number', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                integer value for New Deviation Number 0x88
                 ''',
                 'new_deviation_number',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('physical-layer-interface-module-type', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                integer value for plim type if     applicable to
                 this entity
                 ''',
                 'physical_layer_interface_module_type',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('redundancystate', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                integer value for Redundancy State if    
                 applicable to this entity
                 ''',
@@ -12587,13 +12560,13 @@ _meta_table = {
                 'eeprom',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('has-eeprom', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                use eeprom instead of opaque data
                 ''',
                 'has_eeprom',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('inv-card-type', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                Inventory card type
                 ''',
                 'inv_card_type',
@@ -12605,7 +12578,7 @@ _meta_table = {
                 'opaque_data',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('opaque-data-size', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                size of the EEPROM hex data
                 ''',
                 'opaque_data_size',
@@ -12658,13 +12631,13 @@ _meta_table = {
                 'inv_eeprom_info',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('module-done', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Inventory EDM Module Done Tuple
                 ''',
                 'module_done',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('node-id', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Node ID Tuple
                 ''',
                 'node_id',
@@ -12688,13 +12661,13 @@ _meta_table = {
                 'threshold',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('vm-done', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                VM Done Tuple
                 ''',
                 'vm_done',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('vm-node-id', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                VM Node ID Tuple
                 ''',
                 'vm_node_id',
@@ -12757,19 +12730,19 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('card-type', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                enumeration of the card type
                 ''',
                 'card_type',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('node-administrative-state', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                node admin state: shutdown or not
                 ''',
                 'node_administrative_state',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('node-monitor-state', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                node is monitored by a manager or left
                 unmonitored
                 ''',
@@ -12782,7 +12755,7 @@ _meta_table = {
                 'node_operational_state',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('power-administrative-state', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                power admin state: up or down
                 ''',
                 'power_administrative_state',
@@ -12799,20 +12772,20 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('age-time-stamp', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Age of the sensor value; set to the current time
                 if directly access the value from sensor
                 ''',
                 'age_time_stamp',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('alarm-type', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates threshold violation
                 ''',
                 'alarm_type',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('data-type', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Sensor data type enums
                 ''',
                 'data_type',
@@ -12824,31 +12797,31 @@ _meta_table = {
                 'device_description',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('device-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Identifier for this device
                 ''',
                 'device_id',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('field-validity-bitmap', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Sensor valid bitmap
                 ''',
                 'field_validity_bitmap',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('precision', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Sensor precision range
                 ''',
                 'precision',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('scale', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Sensor scale enums
                 ''',
                 'scale',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('status', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Sensor operation state enums
                 ''',
                 'status',
@@ -12860,14 +12833,14 @@ _meta_table = {
                 'units',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('update-rate', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Sensor value update rate;set to 0 if sensor
                 value is updated and evaluated immediately
                 ''',
                 'update_rate',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Current reading of sensor
                 ''',
                 'value',
@@ -12884,13 +12857,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('power-group-available-current', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                available current
                 ''',
                 'power_group_available_current',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('power-group-drawn-current', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                drawn current
                 ''',
                 'power_group_drawn_current',
@@ -12902,7 +12875,7 @@ _meta_table = {
                 'power_group_power_units',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('power-group-redundancy-mode', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                redundancy mode
                 ''',
                 'power_group_redundancy_mode',
@@ -12938,7 +12911,7 @@ _meta_table = {
                 'threshold_severity',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-value', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Value of the configured threshold
                 ''',
                 'threshold_value',
@@ -13002,7 +12975,7 @@ _meta_table = {
                 'units',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('update-rate', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Sensor value update rate; set to 0 if sensor
                 value is updated and evaluated immediately
                 ''',
@@ -13096,20 +13069,20 @@ _meta_table = {
                 'threshold_notification_enabled',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-relation', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates relation between sensor value and
                 threshold
                 ''',
                 'threshold_relation',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-severity', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates minor, major, critical severities
                 ''',
                 'threshold_severity',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Value of the configured threshold
                 ''',
                 'threshold_value',
@@ -13157,20 +13130,20 @@ _meta_table = {
                 'threshold_notification_enabled',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-relation', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates relation between sensor value and
                 threshold
                 ''',
                 'threshold_relation',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-severity', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates minor, major, critical severities
                 ''',
                 'threshold_severity',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Value of the configured threshold
                 ''',
                 'threshold_value',
@@ -13218,20 +13191,20 @@ _meta_table = {
                 'threshold_notification_enabled',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-relation', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates relation between sensor value and
                 threshold
                 ''',
                 'threshold_relation',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-severity', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates minor, major, critical severities
                 ''',
                 'threshold_severity',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Value of the configured threshold
                 ''',
                 'threshold_value',
@@ -13279,20 +13252,20 @@ _meta_table = {
                 'threshold_notification_enabled',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-relation', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates relation between sensor value and
                 threshold
                 ''',
                 'threshold_relation',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-severity', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates minor, major, critical severities
                 ''',
                 'threshold_severity',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Value of the configured threshold
                 ''',
                 'threshold_value',
@@ -13340,20 +13313,20 @@ _meta_table = {
                 'threshold_notification_enabled',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-relation', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates relation between sensor value and
                 threshold
                 ''',
                 'threshold_relation',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-severity', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates minor, major, critical severities
                 ''',
                 'threshold_severity',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Value of the configured threshold
                 ''',
                 'threshold_value',
@@ -13401,20 +13374,20 @@ _meta_table = {
                 'threshold_notification_enabled',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-relation', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates relation between sensor value and
                 threshold
                 ''',
                 'threshold_relation',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-severity', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates minor, major, critical severities
                 ''',
                 'threshold_severity',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Value of the configured threshold
                 ''',
                 'threshold_value',
@@ -13495,13 +13468,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('time-in-nano-seconds', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Time Value in Nano-seconds
                 ''',
                 'time_in_nano_seconds',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('time-in-seconds', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Time Value in Seconds
                 ''',
                 'time_in_seconds',
@@ -13518,13 +13491,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('time-in-nano-seconds', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Time Value in Nano-seconds
                 ''',
                 'time_in_nano_seconds',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('time-in-seconds', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Time Value in Seconds
                 ''',
                 'time_in_seconds',
@@ -13541,26 +13514,26 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('card-administrative-state', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                card admin state: shutdown or not
                 ''',
                 'card_administrative_state',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('card-monitor-state', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                card is monitored by a manager or left
                 unmonitored
                 ''',
                 'card_monitor_state',
                 'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('card-operational-state', REFERENCE_ENUM_CLASS, 'InvCardStateEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper', 'InvCardStateEnum', 
-                [], [], 
+            _MetaInfoClassMember('card-operational-state', ATTRIBUTE, 'int' , None, None, 
+                [('-2147483648', '2147483647')], [], 
                 '''                card operation state
                 ''',
                 'card_operational_state',
                 'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('card-reset-reason', REFERENCE_ENUM_CLASS, 'CardResetReasonEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper', 'CardResetReasonEnum', 
-                [], [], 
+            _MetaInfoClassMember('card-reset-reason', ATTRIBUTE, 'int' , None, None, 
+                [('-2147483648', '2147483647')], [], 
                 '''                card reset reason enum
                 ''',
                 'card_reset_reason',
@@ -13578,19 +13551,19 @@ _meta_table = {
                 'last_operational_state_change',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('power-administrative-state', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                power admin state: up or down
                 ''',
                 'power_administrative_state',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('power-current-measurement', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                power current: not implemented
                 ''',
                 'power_current_measurement',
                 'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('power-operational-state', REFERENCE_ENUM_CLASS, 'InvCardStateEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper', 'InvCardStateEnum', 
-                [], [], 
+            _MetaInfoClassMember('power-operational-state', ATTRIBUTE, 'int' , None, None, 
+                [('-2147483648', '2147483647')], [], 
                 '''                Power operation state
                 ''',
                 'power_operational_state',
@@ -13619,7 +13592,7 @@ _meta_table = {
                 'asset_id_str',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('asset-identification', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                asset Identification
                 ''',
                 'asset_identification',
@@ -13637,7 +13610,7 @@ _meta_table = {
                 'chip_hardware_revision',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('composite-class-code', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Major&minor class of the entity
                 ''',
                 'composite_class_code',
@@ -13680,7 +13653,7 @@ _meta_table = {
                 'is_field_replaceable_unit',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('manufacturer-asset-tags', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Manufacture Asset Tags
                 ''',
                 'manufacturer_asset_tags',
@@ -13692,7 +13665,7 @@ _meta_table = {
                 'manufacturer_name',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('memory-size', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Size of memory associated with 						the entity
                 where applicable
                 ''',
@@ -13711,20 +13684,20 @@ _meta_table = {
                 'name',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('new-deviation-number', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                integer value for New Deviation Number 0x88
                 ''',
                 'new_deviation_number',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('physical-layer-interface-module-type', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                integer value for plim type if     applicable to
                 this entity
                 ''',
                 'physical_layer_interface_module_type',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('redundancystate', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                integer value for Redundancy State if    
                 applicable to this entity
                 ''',
@@ -14166,13 +14139,13 @@ _meta_table = {
                 'eeprom',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('has-eeprom', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                use eeprom instead of opaque data
                 ''',
                 'has_eeprom',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('inv-card-type', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                Inventory card type
                 ''',
                 'inv_card_type',
@@ -14184,7 +14157,7 @@ _meta_table = {
                 'opaque_data',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('opaque-data-size', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                size of the EEPROM hex data
                 ''',
                 'opaque_data_size',
@@ -14237,13 +14210,13 @@ _meta_table = {
                 'inv_eeprom_info',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('module-done', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Inventory EDM Module Done Tuple
                 ''',
                 'module_done',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('node-id', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Node ID Tuple
                 ''',
                 'node_id',
@@ -14267,13 +14240,13 @@ _meta_table = {
                 'threshold',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('vm-done', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                VM Done Tuple
                 ''',
                 'vm_done',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('vm-node-id', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                VM Node ID Tuple
                 ''',
                 'vm_node_id',
@@ -14336,19 +14309,19 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('card-type', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                enumeration of the card type
                 ''',
                 'card_type',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('node-administrative-state', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                node admin state: shutdown or not
                 ''',
                 'node_administrative_state',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('node-monitor-state', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                node is monitored by a manager or left
                 unmonitored
                 ''',
@@ -14361,7 +14334,7 @@ _meta_table = {
                 'node_operational_state',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('power-administrative-state', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                power admin state: up or down
                 ''',
                 'power_administrative_state',
@@ -14378,20 +14351,20 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('age-time-stamp', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Age of the sensor value; set to the current time
                 if directly access the value from sensor
                 ''',
                 'age_time_stamp',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('alarm-type', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates threshold violation
                 ''',
                 'alarm_type',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('data-type', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Sensor data type enums
                 ''',
                 'data_type',
@@ -14403,31 +14376,31 @@ _meta_table = {
                 'device_description',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('device-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Identifier for this device
                 ''',
                 'device_id',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('field-validity-bitmap', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Sensor valid bitmap
                 ''',
                 'field_validity_bitmap',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('precision', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Sensor precision range
                 ''',
                 'precision',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('scale', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Sensor scale enums
                 ''',
                 'scale',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('status', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Sensor operation state enums
                 ''',
                 'status',
@@ -14439,14 +14412,14 @@ _meta_table = {
                 'units',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('update-rate', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Sensor value update rate;set to 0 if sensor
                 value is updated and evaluated immediately
                 ''',
                 'update_rate',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Current reading of sensor
                 ''',
                 'value',
@@ -14463,13 +14436,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('power-group-available-current', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                available current
                 ''',
                 'power_group_available_current',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('power-group-drawn-current', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                drawn current
                 ''',
                 'power_group_drawn_current',
@@ -14481,7 +14454,7 @@ _meta_table = {
                 'power_group_power_units',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('power-group-redundancy-mode', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                redundancy mode
                 ''',
                 'power_group_redundancy_mode',
@@ -14517,7 +14490,7 @@ _meta_table = {
                 'threshold_severity',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-value', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Value of the configured threshold
                 ''',
                 'threshold_value',
@@ -14581,7 +14554,7 @@ _meta_table = {
                 'units',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('update-rate', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Sensor value update rate; set to 0 if sensor
                 value is updated and evaluated immediately
                 ''',
@@ -14675,20 +14648,20 @@ _meta_table = {
                 'threshold_notification_enabled',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-relation', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates relation between sensor value and
                 threshold
                 ''',
                 'threshold_relation',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-severity', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates minor, major, critical severities
                 ''',
                 'threshold_severity',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Value of the configured threshold
                 ''',
                 'threshold_value',
@@ -14736,20 +14709,20 @@ _meta_table = {
                 'threshold_notification_enabled',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-relation', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates relation between sensor value and
                 threshold
                 ''',
                 'threshold_relation',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-severity', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates minor, major, critical severities
                 ''',
                 'threshold_severity',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Value of the configured threshold
                 ''',
                 'threshold_value',
@@ -14797,20 +14770,20 @@ _meta_table = {
                 'threshold_notification_enabled',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-relation', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates relation between sensor value and
                 threshold
                 ''',
                 'threshold_relation',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-severity', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates minor, major, critical severities
                 ''',
                 'threshold_severity',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Value of the configured threshold
                 ''',
                 'threshold_value',
@@ -14858,20 +14831,20 @@ _meta_table = {
                 'threshold_notification_enabled',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-relation', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates relation between sensor value and
                 threshold
                 ''',
                 'threshold_relation',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-severity', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates minor, major, critical severities
                 ''',
                 'threshold_severity',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Value of the configured threshold
                 ''',
                 'threshold_value',
@@ -14919,20 +14892,20 @@ _meta_table = {
                 'threshold_notification_enabled',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-relation', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates relation between sensor value and
                 threshold
                 ''',
                 'threshold_relation',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-severity', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates minor, major, critical severities
                 ''',
                 'threshold_severity',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Value of the configured threshold
                 ''',
                 'threshold_value',
@@ -14980,20 +14953,20 @@ _meta_table = {
                 'threshold_notification_enabled',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-relation', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates relation between sensor value and
                 threshold
                 ''',
                 'threshold_relation',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-severity', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates minor, major, critical severities
                 ''',
                 'threshold_severity',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Value of the configured threshold
                 ''',
                 'threshold_value',
@@ -15074,13 +15047,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('time-in-nano-seconds', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Time Value in Nano-seconds
                 ''',
                 'time_in_nano_seconds',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('time-in-seconds', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Time Value in Seconds
                 ''',
                 'time_in_seconds',
@@ -15097,13 +15070,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('time-in-nano-seconds', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Time Value in Nano-seconds
                 ''',
                 'time_in_nano_seconds',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('time-in-seconds', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Time Value in Seconds
                 ''',
                 'time_in_seconds',
@@ -15120,26 +15093,26 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('card-administrative-state', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                card admin state: shutdown or not
                 ''',
                 'card_administrative_state',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('card-monitor-state', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                card is monitored by a manager or left
                 unmonitored
                 ''',
                 'card_monitor_state',
                 'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('card-operational-state', REFERENCE_ENUM_CLASS, 'InvCardStateEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper', 'InvCardStateEnum', 
-                [], [], 
+            _MetaInfoClassMember('card-operational-state', ATTRIBUTE, 'int' , None, None, 
+                [('-2147483648', '2147483647')], [], 
                 '''                card operation state
                 ''',
                 'card_operational_state',
                 'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('card-reset-reason', REFERENCE_ENUM_CLASS, 'CardResetReasonEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper', 'CardResetReasonEnum', 
-                [], [], 
+            _MetaInfoClassMember('card-reset-reason', ATTRIBUTE, 'int' , None, None, 
+                [('-2147483648', '2147483647')], [], 
                 '''                card reset reason enum
                 ''',
                 'card_reset_reason',
@@ -15157,19 +15130,19 @@ _meta_table = {
                 'last_operational_state_change',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('power-administrative-state', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                power admin state: up or down
                 ''',
                 'power_administrative_state',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('power-current-measurement', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                power current: not implemented
                 ''',
                 'power_current_measurement',
                 'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('power-operational-state', REFERENCE_ENUM_CLASS, 'InvCardStateEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper', 'InvCardStateEnum', 
-                [], [], 
+            _MetaInfoClassMember('power-operational-state', ATTRIBUTE, 'int' , None, None, 
+                [('-2147483648', '2147483647')], [], 
                 '''                Power operation state
                 ''',
                 'power_operational_state',
@@ -15198,7 +15171,7 @@ _meta_table = {
                 'asset_id_str',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('asset-identification', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                asset Identification
                 ''',
                 'asset_identification',
@@ -15216,7 +15189,7 @@ _meta_table = {
                 'chip_hardware_revision',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('composite-class-code', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Major&minor class of the entity
                 ''',
                 'composite_class_code',
@@ -15259,7 +15232,7 @@ _meta_table = {
                 'is_field_replaceable_unit',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('manufacturer-asset-tags', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Manufacture Asset Tags
                 ''',
                 'manufacturer_asset_tags',
@@ -15271,7 +15244,7 @@ _meta_table = {
                 'manufacturer_name',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('memory-size', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Size of memory associated with 						the entity
                 where applicable
                 ''',
@@ -15290,20 +15263,20 @@ _meta_table = {
                 'name',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('new-deviation-number', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                integer value for New Deviation Number 0x88
                 ''',
                 'new_deviation_number',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('physical-layer-interface-module-type', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                integer value for plim type if     applicable to
                 this entity
                 ''',
                 'physical_layer_interface_module_type',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('redundancystate', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                integer value for Redundancy State if    
                 applicable to this entity
                 ''',
@@ -15745,13 +15718,13 @@ _meta_table = {
                 'eeprom',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('has-eeprom', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                use eeprom instead of opaque data
                 ''',
                 'has_eeprom',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('inv-card-type', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                Inventory card type
                 ''',
                 'inv_card_type',
@@ -15763,7 +15736,7 @@ _meta_table = {
                 'opaque_data',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('opaque-data-size', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                size of the EEPROM hex data
                 ''',
                 'opaque_data_size',
@@ -15816,13 +15789,13 @@ _meta_table = {
                 'inv_eeprom_info',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('module-done', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Inventory EDM Module Done Tuple
                 ''',
                 'module_done',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('node-id', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Node ID Tuple
                 ''',
                 'node_id',
@@ -15846,13 +15819,13 @@ _meta_table = {
                 'threshold',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('vm-done', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                VM Done Tuple
                 ''',
                 'vm_done',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('vm-node-id', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                VM Node ID Tuple
                 ''',
                 'vm_node_id',
@@ -15915,19 +15888,19 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('card-type', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                enumeration of the card type
                 ''',
                 'card_type',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('node-administrative-state', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                node admin state: shutdown or not
                 ''',
                 'node_administrative_state',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('node-monitor-state', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                node is monitored by a manager or left
                 unmonitored
                 ''',
@@ -15940,7 +15913,7 @@ _meta_table = {
                 'node_operational_state',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('power-administrative-state', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                power admin state: up or down
                 ''',
                 'power_administrative_state',
@@ -15957,20 +15930,20 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('age-time-stamp', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Age of the sensor value; set to the current time
                 if directly access the value from sensor
                 ''',
                 'age_time_stamp',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('alarm-type', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates threshold violation
                 ''',
                 'alarm_type',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('data-type', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Sensor data type enums
                 ''',
                 'data_type',
@@ -15982,31 +15955,31 @@ _meta_table = {
                 'device_description',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('device-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Identifier for this device
                 ''',
                 'device_id',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('field-validity-bitmap', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Sensor valid bitmap
                 ''',
                 'field_validity_bitmap',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('precision', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Sensor precision range
                 ''',
                 'precision',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('scale', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Sensor scale enums
                 ''',
                 'scale',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('status', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Sensor operation state enums
                 ''',
                 'status',
@@ -16018,14 +15991,14 @@ _meta_table = {
                 'units',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('update-rate', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Sensor value update rate;set to 0 if sensor
                 value is updated and evaluated immediately
                 ''',
                 'update_rate',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Current reading of sensor
                 ''',
                 'value',
@@ -16042,13 +16015,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('power-group-available-current', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                available current
                 ''',
                 'power_group_available_current',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('power-group-drawn-current', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                drawn current
                 ''',
                 'power_group_drawn_current',
@@ -16060,7 +16033,7 @@ _meta_table = {
                 'power_group_power_units',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('power-group-redundancy-mode', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                redundancy mode
                 ''',
                 'power_group_redundancy_mode',
@@ -16096,7 +16069,7 @@ _meta_table = {
                 'threshold_severity',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-value', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Value of the configured threshold
                 ''',
                 'threshold_value',
@@ -16160,7 +16133,7 @@ _meta_table = {
                 'units',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('update-rate', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Sensor value update rate; set to 0 if sensor
                 value is updated and evaluated immediately
                 ''',
@@ -16254,20 +16227,20 @@ _meta_table = {
                 'threshold_notification_enabled',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-relation', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates relation between sensor value and
                 threshold
                 ''',
                 'threshold_relation',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-severity', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates minor, major, critical severities
                 ''',
                 'threshold_severity',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Value of the configured threshold
                 ''',
                 'threshold_value',
@@ -16315,20 +16288,20 @@ _meta_table = {
                 'threshold_notification_enabled',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-relation', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates relation between sensor value and
                 threshold
                 ''',
                 'threshold_relation',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-severity', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates minor, major, critical severities
                 ''',
                 'threshold_severity',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Value of the configured threshold
                 ''',
                 'threshold_value',
@@ -16376,20 +16349,20 @@ _meta_table = {
                 'threshold_notification_enabled',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-relation', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates relation between sensor value and
                 threshold
                 ''',
                 'threshold_relation',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-severity', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates minor, major, critical severities
                 ''',
                 'threshold_severity',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Value of the configured threshold
                 ''',
                 'threshold_value',
@@ -16437,20 +16410,20 @@ _meta_table = {
                 'threshold_notification_enabled',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-relation', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates relation between sensor value and
                 threshold
                 ''',
                 'threshold_relation',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-severity', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates minor, major, critical severities
                 ''',
                 'threshold_severity',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Value of the configured threshold
                 ''',
                 'threshold_value',
@@ -16498,20 +16471,20 @@ _meta_table = {
                 'threshold_notification_enabled',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-relation', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates relation between sensor value and
                 threshold
                 ''',
                 'threshold_relation',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-severity', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates minor, major, critical severities
                 ''',
                 'threshold_severity',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Value of the configured threshold
                 ''',
                 'threshold_value',
@@ -16559,20 +16532,20 @@ _meta_table = {
                 'threshold_notification_enabled',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-relation', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates relation between sensor value and
                 threshold
                 ''',
                 'threshold_relation',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-severity', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates minor, major, critical severities
                 ''',
                 'threshold_severity',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Value of the configured threshold
                 ''',
                 'threshold_value',
@@ -16653,13 +16626,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('time-in-nano-seconds', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Time Value in Nano-seconds
                 ''',
                 'time_in_nano_seconds',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('time-in-seconds', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Time Value in Seconds
                 ''',
                 'time_in_seconds',
@@ -16676,13 +16649,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('time-in-nano-seconds', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Time Value in Nano-seconds
                 ''',
                 'time_in_nano_seconds',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('time-in-seconds', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Time Value in Seconds
                 ''',
                 'time_in_seconds',
@@ -16699,26 +16672,26 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('card-administrative-state', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                card admin state: shutdown or not
                 ''',
                 'card_administrative_state',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('card-monitor-state', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                card is monitored by a manager or left
                 unmonitored
                 ''',
                 'card_monitor_state',
                 'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('card-operational-state', REFERENCE_ENUM_CLASS, 'InvCardStateEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper', 'InvCardStateEnum', 
-                [], [], 
+            _MetaInfoClassMember('card-operational-state', ATTRIBUTE, 'int' , None, None, 
+                [('-2147483648', '2147483647')], [], 
                 '''                card operation state
                 ''',
                 'card_operational_state',
                 'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('card-reset-reason', REFERENCE_ENUM_CLASS, 'CardResetReasonEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper', 'CardResetReasonEnum', 
-                [], [], 
+            _MetaInfoClassMember('card-reset-reason', ATTRIBUTE, 'int' , None, None, 
+                [('-2147483648', '2147483647')], [], 
                 '''                card reset reason enum
                 ''',
                 'card_reset_reason',
@@ -16736,19 +16709,19 @@ _meta_table = {
                 'last_operational_state_change',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('power-administrative-state', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                power admin state: up or down
                 ''',
                 'power_administrative_state',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('power-current-measurement', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                power current: not implemented
                 ''',
                 'power_current_measurement',
                 'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('power-operational-state', REFERENCE_ENUM_CLASS, 'InvCardStateEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper', 'InvCardStateEnum', 
-                [], [], 
+            _MetaInfoClassMember('power-operational-state', ATTRIBUTE, 'int' , None, None, 
+                [('-2147483648', '2147483647')], [], 
                 '''                Power operation state
                 ''',
                 'power_operational_state',
@@ -16777,7 +16750,7 @@ _meta_table = {
                 'asset_id_str',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('asset-identification', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                asset Identification
                 ''',
                 'asset_identification',
@@ -16795,7 +16768,7 @@ _meta_table = {
                 'chip_hardware_revision',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('composite-class-code', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Major&minor class of the entity
                 ''',
                 'composite_class_code',
@@ -16838,7 +16811,7 @@ _meta_table = {
                 'is_field_replaceable_unit',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('manufacturer-asset-tags', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Manufacture Asset Tags
                 ''',
                 'manufacturer_asset_tags',
@@ -16850,7 +16823,7 @@ _meta_table = {
                 'manufacturer_name',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('memory-size', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Size of memory associated with 						the entity
                 where applicable
                 ''',
@@ -16869,20 +16842,20 @@ _meta_table = {
                 'name',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('new-deviation-number', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                integer value for New Deviation Number 0x88
                 ''',
                 'new_deviation_number',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('physical-layer-interface-module-type', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                integer value for plim type if     applicable to
                 this entity
                 ''',
                 'physical_layer_interface_module_type',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('redundancystate', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                integer value for Redundancy State if    
                 applicable to this entity
                 ''',
@@ -17324,13 +17297,13 @@ _meta_table = {
                 'eeprom',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('has-eeprom', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                use eeprom instead of opaque data
                 ''',
                 'has_eeprom',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('inv-card-type', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                Inventory card type
                 ''',
                 'inv_card_type',
@@ -17342,7 +17315,7 @@ _meta_table = {
                 'opaque_data',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('opaque-data-size', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                size of the EEPROM hex data
                 ''',
                 'opaque_data_size',
@@ -17395,13 +17368,13 @@ _meta_table = {
                 'inv_eeprom_info',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('module-done', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Inventory EDM Module Done Tuple
                 ''',
                 'module_done',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('node-id', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Node ID Tuple
                 ''',
                 'node_id',
@@ -17425,13 +17398,13 @@ _meta_table = {
                 'threshold',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('vm-done', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                VM Done Tuple
                 ''',
                 'vm_done',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('vm-node-id', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                VM Node ID Tuple
                 ''',
                 'vm_node_id',
@@ -17494,19 +17467,19 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('card-type', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                enumeration of the card type
                 ''',
                 'card_type',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('node-administrative-state', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                node admin state: shutdown or not
                 ''',
                 'node_administrative_state',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('node-monitor-state', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                node is monitored by a manager or left
                 unmonitored
                 ''',
@@ -17519,7 +17492,7 @@ _meta_table = {
                 'node_operational_state',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('power-administrative-state', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                power admin state: up or down
                 ''',
                 'power_administrative_state',
@@ -17536,20 +17509,20 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('age-time-stamp', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Age of the sensor value; set to the current time
                 if directly access the value from sensor
                 ''',
                 'age_time_stamp',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('alarm-type', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates threshold violation
                 ''',
                 'alarm_type',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('data-type', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Sensor data type enums
                 ''',
                 'data_type',
@@ -17561,31 +17534,31 @@ _meta_table = {
                 'device_description',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('device-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Identifier for this device
                 ''',
                 'device_id',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('field-validity-bitmap', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Sensor valid bitmap
                 ''',
                 'field_validity_bitmap',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('precision', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Sensor precision range
                 ''',
                 'precision',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('scale', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Sensor scale enums
                 ''',
                 'scale',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('status', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Sensor operation state enums
                 ''',
                 'status',
@@ -17597,14 +17570,14 @@ _meta_table = {
                 'units',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('update-rate', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Sensor value update rate;set to 0 if sensor
                 value is updated and evaluated immediately
                 ''',
                 'update_rate',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Current reading of sensor
                 ''',
                 'value',
@@ -17621,13 +17594,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('power-group-available-current', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                available current
                 ''',
                 'power_group_available_current',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('power-group-drawn-current', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                drawn current
                 ''',
                 'power_group_drawn_current',
@@ -17639,7 +17612,7 @@ _meta_table = {
                 'power_group_power_units',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('power-group-redundancy-mode', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                redundancy mode
                 ''',
                 'power_group_redundancy_mode',
@@ -17675,7 +17648,7 @@ _meta_table = {
                 'threshold_severity',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-value', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Value of the configured threshold
                 ''',
                 'threshold_value',
@@ -17739,7 +17712,7 @@ _meta_table = {
                 'units',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('update-rate', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Sensor value update rate; set to 0 if sensor
                 value is updated and evaluated immediately
                 ''',
@@ -17833,20 +17806,20 @@ _meta_table = {
                 'threshold_notification_enabled',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-relation', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates relation between sensor value and
                 threshold
                 ''',
                 'threshold_relation',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-severity', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates minor, major, critical severities
                 ''',
                 'threshold_severity',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Value of the configured threshold
                 ''',
                 'threshold_value',
@@ -17894,20 +17867,20 @@ _meta_table = {
                 'threshold_notification_enabled',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-relation', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates relation between sensor value and
                 threshold
                 ''',
                 'threshold_relation',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-severity', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates minor, major, critical severities
                 ''',
                 'threshold_severity',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Value of the configured threshold
                 ''',
                 'threshold_value',
@@ -17955,20 +17928,20 @@ _meta_table = {
                 'threshold_notification_enabled',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-relation', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates relation between sensor value and
                 threshold
                 ''',
                 'threshold_relation',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-severity', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates minor, major, critical severities
                 ''',
                 'threshold_severity',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Value of the configured threshold
                 ''',
                 'threshold_value',
@@ -18016,20 +17989,20 @@ _meta_table = {
                 'threshold_notification_enabled',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-relation', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates relation between sensor value and
                 threshold
                 ''',
                 'threshold_relation',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-severity', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates minor, major, critical severities
                 ''',
                 'threshold_severity',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Value of the configured threshold
                 ''',
                 'threshold_value',
@@ -18077,20 +18050,20 @@ _meta_table = {
                 'threshold_notification_enabled',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-relation', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates relation between sensor value and
                 threshold
                 ''',
                 'threshold_relation',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-severity', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates minor, major, critical severities
                 ''',
                 'threshold_severity',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Value of the configured threshold
                 ''',
                 'threshold_value',
@@ -18138,20 +18111,20 @@ _meta_table = {
                 'threshold_notification_enabled',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-relation', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates relation between sensor value and
                 threshold
                 ''',
                 'threshold_relation',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-severity', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates minor, major, critical severities
                 ''',
                 'threshold_severity',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Value of the configured threshold
                 ''',
                 'threshold_value',
@@ -18232,13 +18205,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('time-in-nano-seconds', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Time Value in Nano-seconds
                 ''',
                 'time_in_nano_seconds',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('time-in-seconds', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Time Value in Seconds
                 ''',
                 'time_in_seconds',
@@ -18255,13 +18228,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('time-in-nano-seconds', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Time Value in Nano-seconds
                 ''',
                 'time_in_nano_seconds',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('time-in-seconds', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Time Value in Seconds
                 ''',
                 'time_in_seconds',
@@ -18278,26 +18251,26 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('card-administrative-state', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                card admin state: shutdown or not
                 ''',
                 'card_administrative_state',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('card-monitor-state', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                card is monitored by a manager or left
                 unmonitored
                 ''',
                 'card_monitor_state',
                 'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('card-operational-state', REFERENCE_ENUM_CLASS, 'InvCardStateEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper', 'InvCardStateEnum', 
-                [], [], 
+            _MetaInfoClassMember('card-operational-state', ATTRIBUTE, 'int' , None, None, 
+                [('-2147483648', '2147483647')], [], 
                 '''                card operation state
                 ''',
                 'card_operational_state',
                 'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('card-reset-reason', REFERENCE_ENUM_CLASS, 'CardResetReasonEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper', 'CardResetReasonEnum', 
-                [], [], 
+            _MetaInfoClassMember('card-reset-reason', ATTRIBUTE, 'int' , None, None, 
+                [('-2147483648', '2147483647')], [], 
                 '''                card reset reason enum
                 ''',
                 'card_reset_reason',
@@ -18315,19 +18288,19 @@ _meta_table = {
                 'last_operational_state_change',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('power-administrative-state', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                power admin state: up or down
                 ''',
                 'power_administrative_state',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('power-current-measurement', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                power current: not implemented
                 ''',
                 'power_current_measurement',
                 'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('power-operational-state', REFERENCE_ENUM_CLASS, 'InvCardStateEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper', 'InvCardStateEnum', 
-                [], [], 
+            _MetaInfoClassMember('power-operational-state', ATTRIBUTE, 'int' , None, None, 
+                [('-2147483648', '2147483647')], [], 
                 '''                Power operation state
                 ''',
                 'power_operational_state',
@@ -18356,7 +18329,7 @@ _meta_table = {
                 'asset_id_str',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('asset-identification', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                asset Identification
                 ''',
                 'asset_identification',
@@ -18374,7 +18347,7 @@ _meta_table = {
                 'chip_hardware_revision',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('composite-class-code', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Major&minor class of the entity
                 ''',
                 'composite_class_code',
@@ -18417,7 +18390,7 @@ _meta_table = {
                 'is_field_replaceable_unit',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('manufacturer-asset-tags', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Manufacture Asset Tags
                 ''',
                 'manufacturer_asset_tags',
@@ -18429,7 +18402,7 @@ _meta_table = {
                 'manufacturer_name',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('memory-size', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Size of memory associated with 						the entity
                 where applicable
                 ''',
@@ -18448,20 +18421,20 @@ _meta_table = {
                 'name',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('new-deviation-number', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                integer value for New Deviation Number 0x88
                 ''',
                 'new_deviation_number',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('physical-layer-interface-module-type', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                integer value for plim type if     applicable to
                 this entity
                 ''',
                 'physical_layer_interface_module_type',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('redundancystate', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                integer value for Redundancy State if    
                 applicable to this entity
                 ''',
@@ -18903,13 +18876,13 @@ _meta_table = {
                 'eeprom',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('has-eeprom', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                use eeprom instead of opaque data
                 ''',
                 'has_eeprom',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('inv-card-type', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                Inventory card type
                 ''',
                 'inv_card_type',
@@ -18921,7 +18894,7 @@ _meta_table = {
                 'opaque_data',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('opaque-data-size', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                size of the EEPROM hex data
                 ''',
                 'opaque_data_size',
@@ -18974,13 +18947,13 @@ _meta_table = {
                 'inv_eeprom_info',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('module-done', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Inventory EDM Module Done Tuple
                 ''',
                 'module_done',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('node-id', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Node ID Tuple
                 ''',
                 'node_id',
@@ -19004,13 +18977,13 @@ _meta_table = {
                 'threshold',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('vm-done', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                VM Done Tuple
                 ''',
                 'vm_done',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('vm-node-id', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                VM Node ID Tuple
                 ''',
                 'vm_node_id',
@@ -19073,19 +19046,19 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('card-type', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                enumeration of the card type
                 ''',
                 'card_type',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('node-administrative-state', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                node admin state: shutdown or not
                 ''',
                 'node_administrative_state',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('node-monitor-state', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                node is monitored by a manager or left
                 unmonitored
                 ''',
@@ -19098,7 +19071,7 @@ _meta_table = {
                 'node_operational_state',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('power-administrative-state', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                power admin state: up or down
                 ''',
                 'power_administrative_state',
@@ -19115,20 +19088,20 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('age-time-stamp', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Age of the sensor value; set to the current time
                 if directly access the value from sensor
                 ''',
                 'age_time_stamp',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('alarm-type', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates threshold violation
                 ''',
                 'alarm_type',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('data-type', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Sensor data type enums
                 ''',
                 'data_type',
@@ -19140,31 +19113,31 @@ _meta_table = {
                 'device_description',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('device-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Identifier for this device
                 ''',
                 'device_id',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('field-validity-bitmap', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Sensor valid bitmap
                 ''',
                 'field_validity_bitmap',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('precision', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Sensor precision range
                 ''',
                 'precision',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('scale', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Sensor scale enums
                 ''',
                 'scale',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('status', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Sensor operation state enums
                 ''',
                 'status',
@@ -19176,14 +19149,14 @@ _meta_table = {
                 'units',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('update-rate', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Sensor value update rate;set to 0 if sensor
                 value is updated and evaluated immediately
                 ''',
                 'update_rate',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Current reading of sensor
                 ''',
                 'value',
@@ -19200,13 +19173,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('power-group-available-current', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                available current
                 ''',
                 'power_group_available_current',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('power-group-drawn-current', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                drawn current
                 ''',
                 'power_group_drawn_current',
@@ -19218,7 +19191,7 @@ _meta_table = {
                 'power_group_power_units',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('power-group-redundancy-mode', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                redundancy mode
                 ''',
                 'power_group_redundancy_mode',
@@ -19254,7 +19227,7 @@ _meta_table = {
                 'threshold_severity',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-value', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Value of the configured threshold
                 ''',
                 'threshold_value',
@@ -19318,7 +19291,7 @@ _meta_table = {
                 'units',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('update-rate', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Sensor value update rate; set to 0 if sensor
                 value is updated and evaluated immediately
                 ''',
@@ -19412,20 +19385,20 @@ _meta_table = {
                 'threshold_notification_enabled',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-relation', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates relation between sensor value and
                 threshold
                 ''',
                 'threshold_relation',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-severity', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates minor, major, critical severities
                 ''',
                 'threshold_severity',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Value of the configured threshold
                 ''',
                 'threshold_value',
@@ -19473,20 +19446,20 @@ _meta_table = {
                 'threshold_notification_enabled',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-relation', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates relation between sensor value and
                 threshold
                 ''',
                 'threshold_relation',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-severity', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates minor, major, critical severities
                 ''',
                 'threshold_severity',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Value of the configured threshold
                 ''',
                 'threshold_value',
@@ -19534,20 +19507,20 @@ _meta_table = {
                 'threshold_notification_enabled',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-relation', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates relation between sensor value and
                 threshold
                 ''',
                 'threshold_relation',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-severity', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates minor, major, critical severities
                 ''',
                 'threshold_severity',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Value of the configured threshold
                 ''',
                 'threshold_value',
@@ -19595,20 +19568,20 @@ _meta_table = {
                 'threshold_notification_enabled',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-relation', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates relation between sensor value and
                 threshold
                 ''',
                 'threshold_relation',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-severity', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates minor, major, critical severities
                 ''',
                 'threshold_severity',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Value of the configured threshold
                 ''',
                 'threshold_value',
@@ -19656,20 +19629,20 @@ _meta_table = {
                 'threshold_notification_enabled',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-relation', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates relation between sensor value and
                 threshold
                 ''',
                 'threshold_relation',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-severity', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates minor, major, critical severities
                 ''',
                 'threshold_severity',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Value of the configured threshold
                 ''',
                 'threshold_value',
@@ -19717,20 +19690,20 @@ _meta_table = {
                 'threshold_notification_enabled',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-relation', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates relation between sensor value and
                 threshold
                 ''',
                 'threshold_relation',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-severity', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates minor, major, critical severities
                 ''',
                 'threshold_severity',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Value of the configured threshold
                 ''',
                 'threshold_value',
@@ -19811,13 +19784,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('time-in-nano-seconds', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Time Value in Nano-seconds
                 ''',
                 'time_in_nano_seconds',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('time-in-seconds', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Time Value in Seconds
                 ''',
                 'time_in_seconds',
@@ -19834,13 +19807,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('time-in-nano-seconds', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Time Value in Nano-seconds
                 ''',
                 'time_in_nano_seconds',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('time-in-seconds', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Time Value in Seconds
                 ''',
                 'time_in_seconds',
@@ -19857,26 +19830,26 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('card-administrative-state', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                card admin state: shutdown or not
                 ''',
                 'card_administrative_state',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('card-monitor-state', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                card is monitored by a manager or left
                 unmonitored
                 ''',
                 'card_monitor_state',
                 'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('card-operational-state', REFERENCE_ENUM_CLASS, 'InvCardStateEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper', 'InvCardStateEnum', 
-                [], [], 
+            _MetaInfoClassMember('card-operational-state', ATTRIBUTE, 'int' , None, None, 
+                [('-2147483648', '2147483647')], [], 
                 '''                card operation state
                 ''',
                 'card_operational_state',
                 'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('card-reset-reason', REFERENCE_ENUM_CLASS, 'CardResetReasonEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper', 'CardResetReasonEnum', 
-                [], [], 
+            _MetaInfoClassMember('card-reset-reason', ATTRIBUTE, 'int' , None, None, 
+                [('-2147483648', '2147483647')], [], 
                 '''                card reset reason enum
                 ''',
                 'card_reset_reason',
@@ -19894,19 +19867,19 @@ _meta_table = {
                 'last_operational_state_change',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('power-administrative-state', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                power admin state: up or down
                 ''',
                 'power_administrative_state',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('power-current-measurement', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                power current: not implemented
                 ''',
                 'power_current_measurement',
                 'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('power-operational-state', REFERENCE_ENUM_CLASS, 'InvCardStateEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper', 'InvCardStateEnum', 
-                [], [], 
+            _MetaInfoClassMember('power-operational-state', ATTRIBUTE, 'int' , None, None, 
+                [('-2147483648', '2147483647')], [], 
                 '''                Power operation state
                 ''',
                 'power_operational_state',
@@ -19935,7 +19908,7 @@ _meta_table = {
                 'asset_id_str',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('asset-identification', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                asset Identification
                 ''',
                 'asset_identification',
@@ -19953,7 +19926,7 @@ _meta_table = {
                 'chip_hardware_revision',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('composite-class-code', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Major&minor class of the entity
                 ''',
                 'composite_class_code',
@@ -19996,7 +19969,7 @@ _meta_table = {
                 'is_field_replaceable_unit',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('manufacturer-asset-tags', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Manufacture Asset Tags
                 ''',
                 'manufacturer_asset_tags',
@@ -20008,7 +19981,7 @@ _meta_table = {
                 'manufacturer_name',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('memory-size', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Size of memory associated with 						the entity
                 where applicable
                 ''',
@@ -20027,20 +20000,20 @@ _meta_table = {
                 'name',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('new-deviation-number', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                integer value for New Deviation Number 0x88
                 ''',
                 'new_deviation_number',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('physical-layer-interface-module-type', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                integer value for plim type if     applicable to
                 this entity
                 ''',
                 'physical_layer_interface_module_type',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('redundancystate', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                integer value for Redundancy State if    
                 applicable to this entity
                 ''',
@@ -20482,13 +20455,13 @@ _meta_table = {
                 'eeprom',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('has-eeprom', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                use eeprom instead of opaque data
                 ''',
                 'has_eeprom',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('inv-card-type', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                Inventory card type
                 ''',
                 'inv_card_type',
@@ -20500,7 +20473,7 @@ _meta_table = {
                 'opaque_data',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('opaque-data-size', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                size of the EEPROM hex data
                 ''',
                 'opaque_data_size',
@@ -20553,13 +20526,13 @@ _meta_table = {
                 'inv_eeprom_info',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('module-done', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Inventory EDM Module Done Tuple
                 ''',
                 'module_done',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('node-id', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Node ID Tuple
                 ''',
                 'node_id',
@@ -20583,13 +20556,13 @@ _meta_table = {
                 'threshold',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('vm-done', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                VM Done Tuple
                 ''',
                 'vm_done',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('vm-node-id', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                VM Node ID Tuple
                 ''',
                 'vm_node_id',
@@ -20646,19 +20619,19 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('card-type', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                enumeration of the card type
                 ''',
                 'card_type',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('node-administrative-state', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                node admin state: shutdown or not
                 ''',
                 'node_administrative_state',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('node-monitor-state', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                node is monitored by a manager or left
                 unmonitored
                 ''',
@@ -20671,7 +20644,7 @@ _meta_table = {
                 'node_operational_state',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('power-administrative-state', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                power admin state: up or down
                 ''',
                 'power_administrative_state',
@@ -20688,20 +20661,20 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('age-time-stamp', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Age of the sensor value; set to the current time
                 if directly access the value from sensor
                 ''',
                 'age_time_stamp',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('alarm-type', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates threshold violation
                 ''',
                 'alarm_type',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('data-type', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Sensor data type enums
                 ''',
                 'data_type',
@@ -20713,31 +20686,31 @@ _meta_table = {
                 'device_description',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('device-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Identifier for this device
                 ''',
                 'device_id',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('field-validity-bitmap', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Sensor valid bitmap
                 ''',
                 'field_validity_bitmap',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('precision', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Sensor precision range
                 ''',
                 'precision',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('scale', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Sensor scale enums
                 ''',
                 'scale',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('status', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Sensor operation state enums
                 ''',
                 'status',
@@ -20749,14 +20722,14 @@ _meta_table = {
                 'units',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('update-rate', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Sensor value update rate;set to 0 if sensor
                 value is updated and evaluated immediately
                 ''',
                 'update_rate',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Current reading of sensor
                 ''',
                 'value',
@@ -20773,13 +20746,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('power-group-available-current', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                available current
                 ''',
                 'power_group_available_current',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('power-group-drawn-current', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                drawn current
                 ''',
                 'power_group_drawn_current',
@@ -20791,7 +20764,7 @@ _meta_table = {
                 'power_group_power_units',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('power-group-redundancy-mode', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                redundancy mode
                 ''',
                 'power_group_redundancy_mode',
@@ -20827,7 +20800,7 @@ _meta_table = {
                 'threshold_severity',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-value', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Value of the configured threshold
                 ''',
                 'threshold_value',
@@ -20891,7 +20864,7 @@ _meta_table = {
                 'units',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('update-rate', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Sensor value update rate; set to 0 if sensor
                 value is updated and evaluated immediately
                 ''',
@@ -20985,20 +20958,20 @@ _meta_table = {
                 'threshold_notification_enabled',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-relation', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates relation between sensor value and
                 threshold
                 ''',
                 'threshold_relation',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-severity', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates minor, major, critical severities
                 ''',
                 'threshold_severity',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Value of the configured threshold
                 ''',
                 'threshold_value',
@@ -21046,20 +21019,20 @@ _meta_table = {
                 'threshold_notification_enabled',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-relation', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates relation between sensor value and
                 threshold
                 ''',
                 'threshold_relation',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-severity', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates minor, major, critical severities
                 ''',
                 'threshold_severity',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Value of the configured threshold
                 ''',
                 'threshold_value',
@@ -21107,20 +21080,20 @@ _meta_table = {
                 'threshold_notification_enabled',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-relation', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates relation between sensor value and
                 threshold
                 ''',
                 'threshold_relation',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-severity', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates minor, major, critical severities
                 ''',
                 'threshold_severity',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Value of the configured threshold
                 ''',
                 'threshold_value',
@@ -21168,20 +21141,20 @@ _meta_table = {
                 'threshold_notification_enabled',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-relation', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates relation between sensor value and
                 threshold
                 ''',
                 'threshold_relation',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-severity', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates minor, major, critical severities
                 ''',
                 'threshold_severity',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Value of the configured threshold
                 ''',
                 'threshold_value',
@@ -21229,20 +21202,20 @@ _meta_table = {
                 'threshold_notification_enabled',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-relation', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates relation between sensor value and
                 threshold
                 ''',
                 'threshold_relation',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-severity', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates minor, major, critical severities
                 ''',
                 'threshold_severity',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Value of the configured threshold
                 ''',
                 'threshold_value',
@@ -21290,20 +21263,20 @@ _meta_table = {
                 'threshold_notification_enabled',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-relation', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates relation between sensor value and
                 threshold
                 ''',
                 'threshold_relation',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-severity', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates minor, major, critical severities
                 ''',
                 'threshold_severity',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Value of the configured threshold
                 ''',
                 'threshold_value',
@@ -21384,13 +21357,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('time-in-nano-seconds', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Time Value in Nano-seconds
                 ''',
                 'time_in_nano_seconds',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('time-in-seconds', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Time Value in Seconds
                 ''',
                 'time_in_seconds',
@@ -21407,13 +21380,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('time-in-nano-seconds', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Time Value in Nano-seconds
                 ''',
                 'time_in_nano_seconds',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('time-in-seconds', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Time Value in Seconds
                 ''',
                 'time_in_seconds',
@@ -21430,26 +21403,26 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('card-administrative-state', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                card admin state: shutdown or not
                 ''',
                 'card_administrative_state',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('card-monitor-state', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                card is monitored by a manager or left
                 unmonitored
                 ''',
                 'card_monitor_state',
                 'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('card-operational-state', REFERENCE_ENUM_CLASS, 'InvCardStateEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper', 'InvCardStateEnum', 
-                [], [], 
+            _MetaInfoClassMember('card-operational-state', ATTRIBUTE, 'int' , None, None, 
+                [('-2147483648', '2147483647')], [], 
                 '''                card operation state
                 ''',
                 'card_operational_state',
                 'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('card-reset-reason', REFERENCE_ENUM_CLASS, 'CardResetReasonEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper', 'CardResetReasonEnum', 
-                [], [], 
+            _MetaInfoClassMember('card-reset-reason', ATTRIBUTE, 'int' , None, None, 
+                [('-2147483648', '2147483647')], [], 
                 '''                card reset reason enum
                 ''',
                 'card_reset_reason',
@@ -21467,19 +21440,19 @@ _meta_table = {
                 'last_operational_state_change',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('power-administrative-state', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                power admin state: up or down
                 ''',
                 'power_administrative_state',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('power-current-measurement', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                power current: not implemented
                 ''',
                 'power_current_measurement',
                 'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('power-operational-state', REFERENCE_ENUM_CLASS, 'InvCardStateEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper', 'InvCardStateEnum', 
-                [], [], 
+            _MetaInfoClassMember('power-operational-state', ATTRIBUTE, 'int' , None, None, 
+                [('-2147483648', '2147483647')], [], 
                 '''                Power operation state
                 ''',
                 'power_operational_state',
@@ -21508,7 +21481,7 @@ _meta_table = {
                 'asset_id_str',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('asset-identification', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                asset Identification
                 ''',
                 'asset_identification',
@@ -21526,7 +21499,7 @@ _meta_table = {
                 'chip_hardware_revision',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('composite-class-code', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Major&minor class of the entity
                 ''',
                 'composite_class_code',
@@ -21569,7 +21542,7 @@ _meta_table = {
                 'is_field_replaceable_unit',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('manufacturer-asset-tags', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Manufacture Asset Tags
                 ''',
                 'manufacturer_asset_tags',
@@ -21581,7 +21554,7 @@ _meta_table = {
                 'manufacturer_name',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('memory-size', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Size of memory associated with 						the entity
                 where applicable
                 ''',
@@ -21600,20 +21573,20 @@ _meta_table = {
                 'name',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('new-deviation-number', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                integer value for New Deviation Number 0x88
                 ''',
                 'new_deviation_number',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('physical-layer-interface-module-type', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                integer value for plim type if     applicable to
                 this entity
                 ''',
                 'physical_layer_interface_module_type',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('redundancystate', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                integer value for Redundancy State if    
                 applicable to this entity
                 ''',
@@ -22055,13 +22028,13 @@ _meta_table = {
                 'eeprom',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('has-eeprom', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                use eeprom instead of opaque data
                 ''',
                 'has_eeprom',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('inv-card-type', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                Inventory card type
                 ''',
                 'inv_card_type',
@@ -22073,7 +22046,7 @@ _meta_table = {
                 'opaque_data',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('opaque-data-size', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                size of the EEPROM hex data
                 ''',
                 'opaque_data_size',
@@ -22126,13 +22099,13 @@ _meta_table = {
                 'inv_eeprom_info',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('module-done', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Inventory EDM Module Done Tuple
                 ''',
                 'module_done',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('node-id', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Node ID Tuple
                 ''',
                 'node_id',
@@ -22156,13 +22129,13 @@ _meta_table = {
                 'threshold',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('vm-done', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                VM Done Tuple
                 ''',
                 'vm_done',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('vm-node-id', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                VM Node ID Tuple
                 ''',
                 'vm_node_id',
@@ -22225,19 +22198,19 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('card-type', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                enumeration of the card type
                 ''',
                 'card_type',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('node-administrative-state', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                node admin state: shutdown or not
                 ''',
                 'node_administrative_state',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('node-monitor-state', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                node is monitored by a manager or left
                 unmonitored
                 ''',
@@ -22250,7 +22223,7 @@ _meta_table = {
                 'node_operational_state',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('power-administrative-state', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                power admin state: up or down
                 ''',
                 'power_administrative_state',
@@ -22267,20 +22240,20 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('age-time-stamp', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Age of the sensor value; set to the current time
                 if directly access the value from sensor
                 ''',
                 'age_time_stamp',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('alarm-type', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates threshold violation
                 ''',
                 'alarm_type',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('data-type', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Sensor data type enums
                 ''',
                 'data_type',
@@ -22292,31 +22265,31 @@ _meta_table = {
                 'device_description',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('device-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Identifier for this device
                 ''',
                 'device_id',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('field-validity-bitmap', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Sensor valid bitmap
                 ''',
                 'field_validity_bitmap',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('precision', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Sensor precision range
                 ''',
                 'precision',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('scale', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Sensor scale enums
                 ''',
                 'scale',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('status', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Sensor operation state enums
                 ''',
                 'status',
@@ -22328,14 +22301,14 @@ _meta_table = {
                 'units',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('update-rate', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Sensor value update rate;set to 0 if sensor
                 value is updated and evaluated immediately
                 ''',
                 'update_rate',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Current reading of sensor
                 ''',
                 'value',
@@ -22352,13 +22325,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('power-group-available-current', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                available current
                 ''',
                 'power_group_available_current',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('power-group-drawn-current', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                drawn current
                 ''',
                 'power_group_drawn_current',
@@ -22370,7 +22343,7 @@ _meta_table = {
                 'power_group_power_units',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('power-group-redundancy-mode', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                redundancy mode
                 ''',
                 'power_group_redundancy_mode',
@@ -22406,7 +22379,7 @@ _meta_table = {
                 'threshold_severity',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-value', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Value of the configured threshold
                 ''',
                 'threshold_value',
@@ -22470,7 +22443,7 @@ _meta_table = {
                 'units',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('update-rate', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Sensor value update rate; set to 0 if sensor
                 value is updated and evaluated immediately
                 ''',
@@ -22564,20 +22537,20 @@ _meta_table = {
                 'threshold_notification_enabled',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-relation', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates relation between sensor value and
                 threshold
                 ''',
                 'threshold_relation',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-severity', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates minor, major, critical severities
                 ''',
                 'threshold_severity',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Value of the configured threshold
                 ''',
                 'threshold_value',
@@ -22625,20 +22598,20 @@ _meta_table = {
                 'threshold_notification_enabled',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-relation', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates relation between sensor value and
                 threshold
                 ''',
                 'threshold_relation',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-severity', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates minor, major, critical severities
                 ''',
                 'threshold_severity',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Value of the configured threshold
                 ''',
                 'threshold_value',
@@ -22686,20 +22659,20 @@ _meta_table = {
                 'threshold_notification_enabled',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-relation', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates relation between sensor value and
                 threshold
                 ''',
                 'threshold_relation',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-severity', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates minor, major, critical severities
                 ''',
                 'threshold_severity',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Value of the configured threshold
                 ''',
                 'threshold_value',
@@ -22747,20 +22720,20 @@ _meta_table = {
                 'threshold_notification_enabled',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-relation', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates relation between sensor value and
                 threshold
                 ''',
                 'threshold_relation',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-severity', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates minor, major, critical severities
                 ''',
                 'threshold_severity',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Value of the configured threshold
                 ''',
                 'threshold_value',
@@ -22808,20 +22781,20 @@ _meta_table = {
                 'threshold_notification_enabled',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-relation', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates relation between sensor value and
                 threshold
                 ''',
                 'threshold_relation',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-severity', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates minor, major, critical severities
                 ''',
                 'threshold_severity',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Value of the configured threshold
                 ''',
                 'threshold_value',
@@ -22869,20 +22842,20 @@ _meta_table = {
                 'threshold_notification_enabled',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-relation', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates relation between sensor value and
                 threshold
                 ''',
                 'threshold_relation',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-severity', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates minor, major, critical severities
                 ''',
                 'threshold_severity',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Value of the configured threshold
                 ''',
                 'threshold_value',
@@ -22963,13 +22936,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('time-in-nano-seconds', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Time Value in Nano-seconds
                 ''',
                 'time_in_nano_seconds',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('time-in-seconds', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Time Value in Seconds
                 ''',
                 'time_in_seconds',
@@ -22986,13 +22959,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('time-in-nano-seconds', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Time Value in Nano-seconds
                 ''',
                 'time_in_nano_seconds',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('time-in-seconds', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Time Value in Seconds
                 ''',
                 'time_in_seconds',
@@ -23009,26 +22982,26 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('card-administrative-state', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                card admin state: shutdown or not
                 ''',
                 'card_administrative_state',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('card-monitor-state', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                card is monitored by a manager or left
                 unmonitored
                 ''',
                 'card_monitor_state',
                 'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('card-operational-state', REFERENCE_ENUM_CLASS, 'InvCardStateEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper', 'InvCardStateEnum', 
-                [], [], 
+            _MetaInfoClassMember('card-operational-state', ATTRIBUTE, 'int' , None, None, 
+                [('-2147483648', '2147483647')], [], 
                 '''                card operation state
                 ''',
                 'card_operational_state',
                 'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('card-reset-reason', REFERENCE_ENUM_CLASS, 'CardResetReasonEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper', 'CardResetReasonEnum', 
-                [], [], 
+            _MetaInfoClassMember('card-reset-reason', ATTRIBUTE, 'int' , None, None, 
+                [('-2147483648', '2147483647')], [], 
                 '''                card reset reason enum
                 ''',
                 'card_reset_reason',
@@ -23046,19 +23019,19 @@ _meta_table = {
                 'last_operational_state_change',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('power-administrative-state', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                power admin state: up or down
                 ''',
                 'power_administrative_state',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('power-current-measurement', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                power current: not implemented
                 ''',
                 'power_current_measurement',
                 'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('power-operational-state', REFERENCE_ENUM_CLASS, 'InvCardStateEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper', 'InvCardStateEnum', 
-                [], [], 
+            _MetaInfoClassMember('power-operational-state', ATTRIBUTE, 'int' , None, None, 
+                [('-2147483648', '2147483647')], [], 
                 '''                Power operation state
                 ''',
                 'power_operational_state',
@@ -23087,7 +23060,7 @@ _meta_table = {
                 'asset_id_str',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('asset-identification', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                asset Identification
                 ''',
                 'asset_identification',
@@ -23105,7 +23078,7 @@ _meta_table = {
                 'chip_hardware_revision',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('composite-class-code', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Major&minor class of the entity
                 ''',
                 'composite_class_code',
@@ -23148,7 +23121,7 @@ _meta_table = {
                 'is_field_replaceable_unit',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('manufacturer-asset-tags', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Manufacture Asset Tags
                 ''',
                 'manufacturer_asset_tags',
@@ -23160,7 +23133,7 @@ _meta_table = {
                 'manufacturer_name',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('memory-size', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Size of memory associated with 						the entity
                 where applicable
                 ''',
@@ -23179,20 +23152,20 @@ _meta_table = {
                 'name',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('new-deviation-number', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                integer value for New Deviation Number 0x88
                 ''',
                 'new_deviation_number',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('physical-layer-interface-module-type', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                integer value for plim type if     applicable to
                 this entity
                 ''',
                 'physical_layer_interface_module_type',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('redundancystate', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                integer value for Redundancy State if    
                 applicable to this entity
                 ''',
@@ -23634,13 +23607,13 @@ _meta_table = {
                 'eeprom',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('has-eeprom', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                use eeprom instead of opaque data
                 ''',
                 'has_eeprom',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('inv-card-type', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                Inventory card type
                 ''',
                 'inv_card_type',
@@ -23652,7 +23625,7 @@ _meta_table = {
                 'opaque_data',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('opaque-data-size', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                size of the EEPROM hex data
                 ''',
                 'opaque_data_size',
@@ -23705,13 +23678,13 @@ _meta_table = {
                 'inv_eeprom_info',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('module-done', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Inventory EDM Module Done Tuple
                 ''',
                 'module_done',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('node-id', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Node ID Tuple
                 ''',
                 'node_id',
@@ -23735,13 +23708,13 @@ _meta_table = {
                 'threshold',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('vm-done', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                VM Done Tuple
                 ''',
                 'vm_done',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('vm-node-id', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                VM Node ID Tuple
                 ''',
                 'vm_node_id',
@@ -23804,19 +23777,19 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('card-type', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                enumeration of the card type
                 ''',
                 'card_type',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('node-administrative-state', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                node admin state: shutdown or not
                 ''',
                 'node_administrative_state',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('node-monitor-state', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                node is monitored by a manager or left
                 unmonitored
                 ''',
@@ -23829,7 +23802,7 @@ _meta_table = {
                 'node_operational_state',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('power-administrative-state', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                power admin state: up or down
                 ''',
                 'power_administrative_state',
@@ -23846,20 +23819,20 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('age-time-stamp', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Age of the sensor value; set to the current time
                 if directly access the value from sensor
                 ''',
                 'age_time_stamp',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('alarm-type', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates threshold violation
                 ''',
                 'alarm_type',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('data-type', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Sensor data type enums
                 ''',
                 'data_type',
@@ -23871,31 +23844,31 @@ _meta_table = {
                 'device_description',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('device-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Identifier for this device
                 ''',
                 'device_id',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('field-validity-bitmap', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Sensor valid bitmap
                 ''',
                 'field_validity_bitmap',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('precision', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Sensor precision range
                 ''',
                 'precision',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('scale', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Sensor scale enums
                 ''',
                 'scale',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('status', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Sensor operation state enums
                 ''',
                 'status',
@@ -23907,14 +23880,14 @@ _meta_table = {
                 'units',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('update-rate', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Sensor value update rate;set to 0 if sensor
                 value is updated and evaluated immediately
                 ''',
                 'update_rate',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Current reading of sensor
                 ''',
                 'value',
@@ -23931,13 +23904,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('power-group-available-current', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                available current
                 ''',
                 'power_group_available_current',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('power-group-drawn-current', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                drawn current
                 ''',
                 'power_group_drawn_current',
@@ -23949,7 +23922,7 @@ _meta_table = {
                 'power_group_power_units',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('power-group-redundancy-mode', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                redundancy mode
                 ''',
                 'power_group_redundancy_mode',
@@ -23985,7 +23958,7 @@ _meta_table = {
                 'threshold_severity',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-value', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Value of the configured threshold
                 ''',
                 'threshold_value',
@@ -24049,7 +24022,7 @@ _meta_table = {
                 'units',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('update-rate', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Sensor value update rate; set to 0 if sensor
                 value is updated and evaluated immediately
                 ''',
@@ -24143,20 +24116,20 @@ _meta_table = {
                 'threshold_notification_enabled',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-relation', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates relation between sensor value and
                 threshold
                 ''',
                 'threshold_relation',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-severity', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates minor, major, critical severities
                 ''',
                 'threshold_severity',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Value of the configured threshold
                 ''',
                 'threshold_value',
@@ -24204,20 +24177,20 @@ _meta_table = {
                 'threshold_notification_enabled',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-relation', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates relation between sensor value and
                 threshold
                 ''',
                 'threshold_relation',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-severity', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates minor, major, critical severities
                 ''',
                 'threshold_severity',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Value of the configured threshold
                 ''',
                 'threshold_value',
@@ -24265,20 +24238,20 @@ _meta_table = {
                 'threshold_notification_enabled',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-relation', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates relation between sensor value and
                 threshold
                 ''',
                 'threshold_relation',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-severity', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates minor, major, critical severities
                 ''',
                 'threshold_severity',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Value of the configured threshold
                 ''',
                 'threshold_value',
@@ -24326,20 +24299,20 @@ _meta_table = {
                 'threshold_notification_enabled',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-relation', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates relation between sensor value and
                 threshold
                 ''',
                 'threshold_relation',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-severity', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates minor, major, critical severities
                 ''',
                 'threshold_severity',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Value of the configured threshold
                 ''',
                 'threshold_value',
@@ -24387,20 +24360,20 @@ _meta_table = {
                 'threshold_notification_enabled',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-relation', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates relation between sensor value and
                 threshold
                 ''',
                 'threshold_relation',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-severity', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates minor, major, critical severities
                 ''',
                 'threshold_severity',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Value of the configured threshold
                 ''',
                 'threshold_value',
@@ -24448,20 +24421,20 @@ _meta_table = {
                 'threshold_notification_enabled',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-relation', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates relation between sensor value and
                 threshold
                 ''',
                 'threshold_relation',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-severity', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates minor, major, critical severities
                 ''',
                 'threshold_severity',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Value of the configured threshold
                 ''',
                 'threshold_value',
@@ -24542,13 +24515,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('time-in-nano-seconds', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Time Value in Nano-seconds
                 ''',
                 'time_in_nano_seconds',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('time-in-seconds', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Time Value in Seconds
                 ''',
                 'time_in_seconds',
@@ -24565,13 +24538,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('time-in-nano-seconds', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Time Value in Nano-seconds
                 ''',
                 'time_in_nano_seconds',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('time-in-seconds', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Time Value in Seconds
                 ''',
                 'time_in_seconds',
@@ -24588,26 +24561,26 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('card-administrative-state', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                card admin state: shutdown or not
                 ''',
                 'card_administrative_state',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('card-monitor-state', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                card is monitored by a manager or left
                 unmonitored
                 ''',
                 'card_monitor_state',
                 'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('card-operational-state', REFERENCE_ENUM_CLASS, 'InvCardStateEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper', 'InvCardStateEnum', 
-                [], [], 
+            _MetaInfoClassMember('card-operational-state', ATTRIBUTE, 'int' , None, None, 
+                [('-2147483648', '2147483647')], [], 
                 '''                card operation state
                 ''',
                 'card_operational_state',
                 'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('card-reset-reason', REFERENCE_ENUM_CLASS, 'CardResetReasonEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper', 'CardResetReasonEnum', 
-                [], [], 
+            _MetaInfoClassMember('card-reset-reason', ATTRIBUTE, 'int' , None, None, 
+                [('-2147483648', '2147483647')], [], 
                 '''                card reset reason enum
                 ''',
                 'card_reset_reason',
@@ -24625,19 +24598,19 @@ _meta_table = {
                 'last_operational_state_change',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('power-administrative-state', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                power admin state: up or down
                 ''',
                 'power_administrative_state',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('power-current-measurement', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                power current: not implemented
                 ''',
                 'power_current_measurement',
                 'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('power-operational-state', REFERENCE_ENUM_CLASS, 'InvCardStateEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper', 'InvCardStateEnum', 
-                [], [], 
+            _MetaInfoClassMember('power-operational-state', ATTRIBUTE, 'int' , None, None, 
+                [('-2147483648', '2147483647')], [], 
                 '''                Power operation state
                 ''',
                 'power_operational_state',
@@ -24666,7 +24639,7 @@ _meta_table = {
                 'asset_id_str',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('asset-identification', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                asset Identification
                 ''',
                 'asset_identification',
@@ -24684,7 +24657,7 @@ _meta_table = {
                 'chip_hardware_revision',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('composite-class-code', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Major&minor class of the entity
                 ''',
                 'composite_class_code',
@@ -24727,7 +24700,7 @@ _meta_table = {
                 'is_field_replaceable_unit',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('manufacturer-asset-tags', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Manufacture Asset Tags
                 ''',
                 'manufacturer_asset_tags',
@@ -24739,7 +24712,7 @@ _meta_table = {
                 'manufacturer_name',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('memory-size', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Size of memory associated with 						the entity
                 where applicable
                 ''',
@@ -24758,20 +24731,20 @@ _meta_table = {
                 'name',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('new-deviation-number', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                integer value for New Deviation Number 0x88
                 ''',
                 'new_deviation_number',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('physical-layer-interface-module-type', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                integer value for plim type if     applicable to
                 this entity
                 ''',
                 'physical_layer_interface_module_type',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('redundancystate', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                integer value for Redundancy State if    
                 applicable to this entity
                 ''',
@@ -25213,13 +25186,13 @@ _meta_table = {
                 'eeprom',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('has-eeprom', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                use eeprom instead of opaque data
                 ''',
                 'has_eeprom',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('inv-card-type', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                Inventory card type
                 ''',
                 'inv_card_type',
@@ -25231,7 +25204,7 @@ _meta_table = {
                 'opaque_data',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('opaque-data-size', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                size of the EEPROM hex data
                 ''',
                 'opaque_data_size',
@@ -25284,13 +25257,13 @@ _meta_table = {
                 'inv_eeprom_info',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('module-done', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Inventory EDM Module Done Tuple
                 ''',
                 'module_done',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('node-id', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Node ID Tuple
                 ''',
                 'node_id',
@@ -25314,13 +25287,13 @@ _meta_table = {
                 'threshold',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('vm-done', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                VM Done Tuple
                 ''',
                 'vm_done',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('vm-node-id', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                VM Node ID Tuple
                 ''',
                 'vm_node_id',
@@ -25383,19 +25356,19 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('card-type', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                enumeration of the card type
                 ''',
                 'card_type',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('node-administrative-state', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                node admin state: shutdown or not
                 ''',
                 'node_administrative_state',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('node-monitor-state', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                node is monitored by a manager or left
                 unmonitored
                 ''',
@@ -25408,7 +25381,7 @@ _meta_table = {
                 'node_operational_state',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('power-administrative-state', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                power admin state: up or down
                 ''',
                 'power_administrative_state',
@@ -25425,20 +25398,20 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('age-time-stamp', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Age of the sensor value; set to the current time
                 if directly access the value from sensor
                 ''',
                 'age_time_stamp',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('alarm-type', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates threshold violation
                 ''',
                 'alarm_type',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('data-type', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Sensor data type enums
                 ''',
                 'data_type',
@@ -25450,31 +25423,31 @@ _meta_table = {
                 'device_description',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('device-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Identifier for this device
                 ''',
                 'device_id',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('field-validity-bitmap', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Sensor valid bitmap
                 ''',
                 'field_validity_bitmap',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('precision', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Sensor precision range
                 ''',
                 'precision',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('scale', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Sensor scale enums
                 ''',
                 'scale',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('status', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Sensor operation state enums
                 ''',
                 'status',
@@ -25486,14 +25459,14 @@ _meta_table = {
                 'units',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('update-rate', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Sensor value update rate;set to 0 if sensor
                 value is updated and evaluated immediately
                 ''',
                 'update_rate',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Current reading of sensor
                 ''',
                 'value',
@@ -25510,13 +25483,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('power-group-available-current', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                available current
                 ''',
                 'power_group_available_current',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('power-group-drawn-current', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                drawn current
                 ''',
                 'power_group_drawn_current',
@@ -25528,7 +25501,7 @@ _meta_table = {
                 'power_group_power_units',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('power-group-redundancy-mode', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                redundancy mode
                 ''',
                 'power_group_redundancy_mode',
@@ -25564,7 +25537,7 @@ _meta_table = {
                 'threshold_severity',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-value', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Value of the configured threshold
                 ''',
                 'threshold_value',
@@ -25628,7 +25601,7 @@ _meta_table = {
                 'units',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('update-rate', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Sensor value update rate; set to 0 if sensor
                 value is updated and evaluated immediately
                 ''',
@@ -25722,20 +25695,20 @@ _meta_table = {
                 'threshold_notification_enabled',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-relation', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates relation between sensor value and
                 threshold
                 ''',
                 'threshold_relation',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-severity', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates minor, major, critical severities
                 ''',
                 'threshold_severity',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Value of the configured threshold
                 ''',
                 'threshold_value',
@@ -25783,20 +25756,20 @@ _meta_table = {
                 'threshold_notification_enabled',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-relation', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates relation between sensor value and
                 threshold
                 ''',
                 'threshold_relation',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-severity', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates minor, major, critical severities
                 ''',
                 'threshold_severity',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Value of the configured threshold
                 ''',
                 'threshold_value',
@@ -25844,20 +25817,20 @@ _meta_table = {
                 'threshold_notification_enabled',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-relation', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates relation between sensor value and
                 threshold
                 ''',
                 'threshold_relation',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-severity', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates minor, major, critical severities
                 ''',
                 'threshold_severity',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Value of the configured threshold
                 ''',
                 'threshold_value',
@@ -25905,20 +25878,20 @@ _meta_table = {
                 'threshold_notification_enabled',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-relation', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates relation between sensor value and
                 threshold
                 ''',
                 'threshold_relation',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-severity', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates minor, major, critical severities
                 ''',
                 'threshold_severity',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Value of the configured threshold
                 ''',
                 'threshold_value',
@@ -25966,20 +25939,20 @@ _meta_table = {
                 'threshold_notification_enabled',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-relation', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates relation between sensor value and
                 threshold
                 ''',
                 'threshold_relation',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-severity', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates minor, major, critical severities
                 ''',
                 'threshold_severity',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Value of the configured threshold
                 ''',
                 'threshold_value',
@@ -26027,20 +26000,20 @@ _meta_table = {
                 'threshold_notification_enabled',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-relation', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates relation between sensor value and
                 threshold
                 ''',
                 'threshold_relation',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-severity', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates minor, major, critical severities
                 ''',
                 'threshold_severity',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Value of the configured threshold
                 ''',
                 'threshold_value',
@@ -26121,13 +26094,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('time-in-nano-seconds', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Time Value in Nano-seconds
                 ''',
                 'time_in_nano_seconds',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('time-in-seconds', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Time Value in Seconds
                 ''',
                 'time_in_seconds',
@@ -26144,13 +26117,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('time-in-nano-seconds', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Time Value in Nano-seconds
                 ''',
                 'time_in_nano_seconds',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('time-in-seconds', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Time Value in Seconds
                 ''',
                 'time_in_seconds',
@@ -26167,26 +26140,26 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('card-administrative-state', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                card admin state: shutdown or not
                 ''',
                 'card_administrative_state',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('card-monitor-state', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                card is monitored by a manager or left
                 unmonitored
                 ''',
                 'card_monitor_state',
                 'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('card-operational-state', REFERENCE_ENUM_CLASS, 'InvCardStateEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper', 'InvCardStateEnum', 
-                [], [], 
+            _MetaInfoClassMember('card-operational-state', ATTRIBUTE, 'int' , None, None, 
+                [('-2147483648', '2147483647')], [], 
                 '''                card operation state
                 ''',
                 'card_operational_state',
                 'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('card-reset-reason', REFERENCE_ENUM_CLASS, 'CardResetReasonEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper', 'CardResetReasonEnum', 
-                [], [], 
+            _MetaInfoClassMember('card-reset-reason', ATTRIBUTE, 'int' , None, None, 
+                [('-2147483648', '2147483647')], [], 
                 '''                card reset reason enum
                 ''',
                 'card_reset_reason',
@@ -26204,19 +26177,19 @@ _meta_table = {
                 'last_operational_state_change',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('power-administrative-state', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                power admin state: up or down
                 ''',
                 'power_administrative_state',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('power-current-measurement', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                power current: not implemented
                 ''',
                 'power_current_measurement',
                 'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('power-operational-state', REFERENCE_ENUM_CLASS, 'InvCardStateEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper', 'InvCardStateEnum', 
-                [], [], 
+            _MetaInfoClassMember('power-operational-state', ATTRIBUTE, 'int' , None, None, 
+                [('-2147483648', '2147483647')], [], 
                 '''                Power operation state
                 ''',
                 'power_operational_state',
@@ -26245,7 +26218,7 @@ _meta_table = {
                 'asset_id_str',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('asset-identification', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                asset Identification
                 ''',
                 'asset_identification',
@@ -26263,7 +26236,7 @@ _meta_table = {
                 'chip_hardware_revision',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('composite-class-code', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Major&minor class of the entity
                 ''',
                 'composite_class_code',
@@ -26306,7 +26279,7 @@ _meta_table = {
                 'is_field_replaceable_unit',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('manufacturer-asset-tags', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Manufacture Asset Tags
                 ''',
                 'manufacturer_asset_tags',
@@ -26318,7 +26291,7 @@ _meta_table = {
                 'manufacturer_name',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('memory-size', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Size of memory associated with 						the entity
                 where applicable
                 ''',
@@ -26337,20 +26310,20 @@ _meta_table = {
                 'name',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('new-deviation-number', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                integer value for New Deviation Number 0x88
                 ''',
                 'new_deviation_number',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('physical-layer-interface-module-type', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                integer value for plim type if     applicable to
                 this entity
                 ''',
                 'physical_layer_interface_module_type',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('redundancystate', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                integer value for Redundancy State if    
                 applicable to this entity
                 ''',
@@ -26792,13 +26765,13 @@ _meta_table = {
                 'eeprom',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('has-eeprom', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                use eeprom instead of opaque data
                 ''',
                 'has_eeprom',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('inv-card-type', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                Inventory card type
                 ''',
                 'inv_card_type',
@@ -26810,7 +26783,7 @@ _meta_table = {
                 'opaque_data',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('opaque-data-size', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                size of the EEPROM hex data
                 ''',
                 'opaque_data_size',
@@ -26863,13 +26836,13 @@ _meta_table = {
                 'inv_eeprom_info',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('module-done', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Inventory EDM Module Done Tuple
                 ''',
                 'module_done',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('node-id', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Node ID Tuple
                 ''',
                 'node_id',
@@ -26893,13 +26866,13 @@ _meta_table = {
                 'threshold',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('vm-done', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                VM Done Tuple
                 ''',
                 'vm_done',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('vm-node-id', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                VM Node ID Tuple
                 ''',
                 'vm_node_id',
@@ -26962,19 +26935,19 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('card-type', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                enumeration of the card type
                 ''',
                 'card_type',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('node-administrative-state', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                node admin state: shutdown or not
                 ''',
                 'node_administrative_state',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('node-monitor-state', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                node is monitored by a manager or left
                 unmonitored
                 ''',
@@ -26987,7 +26960,7 @@ _meta_table = {
                 'node_operational_state',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('power-administrative-state', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                power admin state: up or down
                 ''',
                 'power_administrative_state',
@@ -27004,20 +26977,20 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('age-time-stamp', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Age of the sensor value; set to the current time
                 if directly access the value from sensor
                 ''',
                 'age_time_stamp',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('alarm-type', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates threshold violation
                 ''',
                 'alarm_type',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('data-type', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Sensor data type enums
                 ''',
                 'data_type',
@@ -27029,31 +27002,31 @@ _meta_table = {
                 'device_description',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('device-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Identifier for this device
                 ''',
                 'device_id',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('field-validity-bitmap', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Sensor valid bitmap
                 ''',
                 'field_validity_bitmap',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('precision', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Sensor precision range
                 ''',
                 'precision',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('scale', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Sensor scale enums
                 ''',
                 'scale',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('status', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Sensor operation state enums
                 ''',
                 'status',
@@ -27065,14 +27038,14 @@ _meta_table = {
                 'units',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('update-rate', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Sensor value update rate;set to 0 if sensor
                 value is updated and evaluated immediately
                 ''',
                 'update_rate',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Current reading of sensor
                 ''',
                 'value',
@@ -27089,13 +27062,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('power-group-available-current', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                available current
                 ''',
                 'power_group_available_current',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('power-group-drawn-current', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                drawn current
                 ''',
                 'power_group_drawn_current',
@@ -27107,7 +27080,7 @@ _meta_table = {
                 'power_group_power_units',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('power-group-redundancy-mode', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                redundancy mode
                 ''',
                 'power_group_redundancy_mode',
@@ -27143,7 +27116,7 @@ _meta_table = {
                 'threshold_severity',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-value', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Value of the configured threshold
                 ''',
                 'threshold_value',
@@ -27207,7 +27180,7 @@ _meta_table = {
                 'units',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('update-rate', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Sensor value update rate; set to 0 if sensor
                 value is updated and evaluated immediately
                 ''',
@@ -27301,20 +27274,20 @@ _meta_table = {
                 'threshold_notification_enabled',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-relation', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates relation between sensor value and
                 threshold
                 ''',
                 'threshold_relation',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-severity', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates minor, major, critical severities
                 ''',
                 'threshold_severity',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Value of the configured threshold
                 ''',
                 'threshold_value',
@@ -27362,20 +27335,20 @@ _meta_table = {
                 'threshold_notification_enabled',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-relation', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates relation between sensor value and
                 threshold
                 ''',
                 'threshold_relation',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-severity', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates minor, major, critical severities
                 ''',
                 'threshold_severity',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Value of the configured threshold
                 ''',
                 'threshold_value',
@@ -27423,20 +27396,20 @@ _meta_table = {
                 'threshold_notification_enabled',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-relation', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates relation between sensor value and
                 threshold
                 ''',
                 'threshold_relation',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-severity', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates minor, major, critical severities
                 ''',
                 'threshold_severity',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Value of the configured threshold
                 ''',
                 'threshold_value',
@@ -27484,20 +27457,20 @@ _meta_table = {
                 'threshold_notification_enabled',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-relation', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates relation between sensor value and
                 threshold
                 ''',
                 'threshold_relation',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-severity', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates minor, major, critical severities
                 ''',
                 'threshold_severity',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Value of the configured threshold
                 ''',
                 'threshold_value',
@@ -27545,20 +27518,20 @@ _meta_table = {
                 'threshold_notification_enabled',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-relation', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates relation between sensor value and
                 threshold
                 ''',
                 'threshold_relation',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-severity', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates minor, major, critical severities
                 ''',
                 'threshold_severity',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Value of the configured threshold
                 ''',
                 'threshold_value',
@@ -27606,20 +27579,20 @@ _meta_table = {
                 'threshold_notification_enabled',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-relation', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates relation between sensor value and
                 threshold
                 ''',
                 'threshold_relation',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-severity', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates minor, major, critical severities
                 ''',
                 'threshold_severity',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Value of the configured threshold
                 ''',
                 'threshold_value',
@@ -27700,13 +27673,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('time-in-nano-seconds', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Time Value in Nano-seconds
                 ''',
                 'time_in_nano_seconds',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('time-in-seconds', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Time Value in Seconds
                 ''',
                 'time_in_seconds',
@@ -27723,13 +27696,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('time-in-nano-seconds', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Time Value in Nano-seconds
                 ''',
                 'time_in_nano_seconds',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('time-in-seconds', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Time Value in Seconds
                 ''',
                 'time_in_seconds',
@@ -27746,26 +27719,26 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('card-administrative-state', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                card admin state: shutdown or not
                 ''',
                 'card_administrative_state',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('card-monitor-state', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                card is monitored by a manager or left
                 unmonitored
                 ''',
                 'card_monitor_state',
                 'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('card-operational-state', REFERENCE_ENUM_CLASS, 'InvCardStateEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper', 'InvCardStateEnum', 
-                [], [], 
+            _MetaInfoClassMember('card-operational-state', ATTRIBUTE, 'int' , None, None, 
+                [('-2147483648', '2147483647')], [], 
                 '''                card operation state
                 ''',
                 'card_operational_state',
                 'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('card-reset-reason', REFERENCE_ENUM_CLASS, 'CardResetReasonEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper', 'CardResetReasonEnum', 
-                [], [], 
+            _MetaInfoClassMember('card-reset-reason', ATTRIBUTE, 'int' , None, None, 
+                [('-2147483648', '2147483647')], [], 
                 '''                card reset reason enum
                 ''',
                 'card_reset_reason',
@@ -27783,19 +27756,19 @@ _meta_table = {
                 'last_operational_state_change',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('power-administrative-state', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                power admin state: up or down
                 ''',
                 'power_administrative_state',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('power-current-measurement', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                power current: not implemented
                 ''',
                 'power_current_measurement',
                 'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('power-operational-state', REFERENCE_ENUM_CLASS, 'InvCardStateEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper', 'InvCardStateEnum', 
-                [], [], 
+            _MetaInfoClassMember('power-operational-state', ATTRIBUTE, 'int' , None, None, 
+                [('-2147483648', '2147483647')], [], 
                 '''                Power operation state
                 ''',
                 'power_operational_state',
@@ -27824,7 +27797,7 @@ _meta_table = {
                 'asset_id_str',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('asset-identification', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                asset Identification
                 ''',
                 'asset_identification',
@@ -27842,7 +27815,7 @@ _meta_table = {
                 'chip_hardware_revision',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('composite-class-code', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Major&minor class of the entity
                 ''',
                 'composite_class_code',
@@ -27885,7 +27858,7 @@ _meta_table = {
                 'is_field_replaceable_unit',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('manufacturer-asset-tags', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Manufacture Asset Tags
                 ''',
                 'manufacturer_asset_tags',
@@ -27897,7 +27870,7 @@ _meta_table = {
                 'manufacturer_name',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('memory-size', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Size of memory associated with 						the entity
                 where applicable
                 ''',
@@ -27916,20 +27889,20 @@ _meta_table = {
                 'name',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('new-deviation-number', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                integer value for New Deviation Number 0x88
                 ''',
                 'new_deviation_number',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('physical-layer-interface-module-type', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                integer value for plim type if     applicable to
                 this entity
                 ''',
                 'physical_layer_interface_module_type',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('redundancystate', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                integer value for Redundancy State if    
                 applicable to this entity
                 ''',
@@ -28371,13 +28344,13 @@ _meta_table = {
                 'eeprom',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('has-eeprom', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                use eeprom instead of opaque data
                 ''',
                 'has_eeprom',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('inv-card-type', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                Inventory card type
                 ''',
                 'inv_card_type',
@@ -28389,7 +28362,7 @@ _meta_table = {
                 'opaque_data',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('opaque-data-size', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                size of the EEPROM hex data
                 ''',
                 'opaque_data_size',
@@ -28442,13 +28415,13 @@ _meta_table = {
                 'inv_eeprom_info',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('module-done', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Inventory EDM Module Done Tuple
                 ''',
                 'module_done',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('node-id', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Node ID Tuple
                 ''',
                 'node_id',
@@ -28472,13 +28445,13 @@ _meta_table = {
                 'threshold',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('vm-done', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                VM Done Tuple
                 ''',
                 'vm_done',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('vm-node-id', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                VM Node ID Tuple
                 ''',
                 'vm_node_id',
@@ -28541,19 +28514,19 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('card-type', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                enumeration of the card type
                 ''',
                 'card_type',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('node-administrative-state', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                node admin state: shutdown or not
                 ''',
                 'node_administrative_state',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('node-monitor-state', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                node is monitored by a manager or left
                 unmonitored
                 ''',
@@ -28566,7 +28539,7 @@ _meta_table = {
                 'node_operational_state',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('power-administrative-state', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                power admin state: up or down
                 ''',
                 'power_administrative_state',
@@ -28583,20 +28556,20 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('age-time-stamp', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Age of the sensor value; set to the current time
                 if directly access the value from sensor
                 ''',
                 'age_time_stamp',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('alarm-type', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates threshold violation
                 ''',
                 'alarm_type',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('data-type', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Sensor data type enums
                 ''',
                 'data_type',
@@ -28608,31 +28581,31 @@ _meta_table = {
                 'device_description',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('device-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Identifier for this device
                 ''',
                 'device_id',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('field-validity-bitmap', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Sensor valid bitmap
                 ''',
                 'field_validity_bitmap',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('precision', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Sensor precision range
                 ''',
                 'precision',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('scale', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Sensor scale enums
                 ''',
                 'scale',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('status', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Sensor operation state enums
                 ''',
                 'status',
@@ -28644,14 +28617,14 @@ _meta_table = {
                 'units',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('update-rate', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Sensor value update rate;set to 0 if sensor
                 value is updated and evaluated immediately
                 ''',
                 'update_rate',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Current reading of sensor
                 ''',
                 'value',
@@ -28668,13 +28641,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('power-group-available-current', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                available current
                 ''',
                 'power_group_available_current',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('power-group-drawn-current', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                drawn current
                 ''',
                 'power_group_drawn_current',
@@ -28686,7 +28659,7 @@ _meta_table = {
                 'power_group_power_units',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('power-group-redundancy-mode', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                redundancy mode
                 ''',
                 'power_group_redundancy_mode',
@@ -28722,7 +28695,7 @@ _meta_table = {
                 'threshold_severity',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-value', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Value of the configured threshold
                 ''',
                 'threshold_value',
@@ -28786,7 +28759,7 @@ _meta_table = {
                 'units',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('update-rate', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Sensor value update rate; set to 0 if sensor
                 value is updated and evaluated immediately
                 ''',
@@ -28880,20 +28853,20 @@ _meta_table = {
                 'threshold_notification_enabled',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-relation', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates relation between sensor value and
                 threshold
                 ''',
                 'threshold_relation',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-severity', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates minor, major, critical severities
                 ''',
                 'threshold_severity',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Value of the configured threshold
                 ''',
                 'threshold_value',
@@ -28941,20 +28914,20 @@ _meta_table = {
                 'threshold_notification_enabled',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-relation', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates relation between sensor value and
                 threshold
                 ''',
                 'threshold_relation',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-severity', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates minor, major, critical severities
                 ''',
                 'threshold_severity',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Value of the configured threshold
                 ''',
                 'threshold_value',
@@ -29002,20 +28975,20 @@ _meta_table = {
                 'threshold_notification_enabled',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-relation', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates relation between sensor value and
                 threshold
                 ''',
                 'threshold_relation',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-severity', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates minor, major, critical severities
                 ''',
                 'threshold_severity',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Value of the configured threshold
                 ''',
                 'threshold_value',
@@ -29063,20 +29036,20 @@ _meta_table = {
                 'threshold_notification_enabled',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-relation', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates relation between sensor value and
                 threshold
                 ''',
                 'threshold_relation',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-severity', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates minor, major, critical severities
                 ''',
                 'threshold_severity',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Value of the configured threshold
                 ''',
                 'threshold_value',
@@ -29124,20 +29097,20 @@ _meta_table = {
                 'threshold_notification_enabled',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-relation', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates relation between sensor value and
                 threshold
                 ''',
                 'threshold_relation',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-severity', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates minor, major, critical severities
                 ''',
                 'threshold_severity',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Value of the configured threshold
                 ''',
                 'threshold_value',
@@ -29185,20 +29158,20 @@ _meta_table = {
                 'threshold_notification_enabled',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-relation', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates relation between sensor value and
                 threshold
                 ''',
                 'threshold_relation',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-severity', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates minor, major, critical severities
                 ''',
                 'threshold_severity',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Value of the configured threshold
                 ''',
                 'threshold_value',
@@ -29279,13 +29252,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('time-in-nano-seconds', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Time Value in Nano-seconds
                 ''',
                 'time_in_nano_seconds',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('time-in-seconds', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Time Value in Seconds
                 ''',
                 'time_in_seconds',
@@ -29302,13 +29275,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('time-in-nano-seconds', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Time Value in Nano-seconds
                 ''',
                 'time_in_nano_seconds',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('time-in-seconds', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Time Value in Seconds
                 ''',
                 'time_in_seconds',
@@ -29325,26 +29298,26 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('card-administrative-state', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                card admin state: shutdown or not
                 ''',
                 'card_administrative_state',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('card-monitor-state', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                card is monitored by a manager or left
                 unmonitored
                 ''',
                 'card_monitor_state',
                 'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('card-operational-state', REFERENCE_ENUM_CLASS, 'InvCardStateEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper', 'InvCardStateEnum', 
-                [], [], 
+            _MetaInfoClassMember('card-operational-state', ATTRIBUTE, 'int' , None, None, 
+                [('-2147483648', '2147483647')], [], 
                 '''                card operation state
                 ''',
                 'card_operational_state',
                 'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('card-reset-reason', REFERENCE_ENUM_CLASS, 'CardResetReasonEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper', 'CardResetReasonEnum', 
-                [], [], 
+            _MetaInfoClassMember('card-reset-reason', ATTRIBUTE, 'int' , None, None, 
+                [('-2147483648', '2147483647')], [], 
                 '''                card reset reason enum
                 ''',
                 'card_reset_reason',
@@ -29362,19 +29335,19 @@ _meta_table = {
                 'last_operational_state_change',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('power-administrative-state', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                power admin state: up or down
                 ''',
                 'power_administrative_state',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('power-current-measurement', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                power current: not implemented
                 ''',
                 'power_current_measurement',
                 'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('power-operational-state', REFERENCE_ENUM_CLASS, 'InvCardStateEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper', 'InvCardStateEnum', 
-                [], [], 
+            _MetaInfoClassMember('power-operational-state', ATTRIBUTE, 'int' , None, None, 
+                [('-2147483648', '2147483647')], [], 
                 '''                Power operation state
                 ''',
                 'power_operational_state',
@@ -29403,7 +29376,7 @@ _meta_table = {
                 'asset_id_str',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('asset-identification', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                asset Identification
                 ''',
                 'asset_identification',
@@ -29421,7 +29394,7 @@ _meta_table = {
                 'chip_hardware_revision',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('composite-class-code', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Major&minor class of the entity
                 ''',
                 'composite_class_code',
@@ -29464,7 +29437,7 @@ _meta_table = {
                 'is_field_replaceable_unit',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('manufacturer-asset-tags', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Manufacture Asset Tags
                 ''',
                 'manufacturer_asset_tags',
@@ -29476,7 +29449,7 @@ _meta_table = {
                 'manufacturer_name',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('memory-size', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Size of memory associated with 						the entity
                 where applicable
                 ''',
@@ -29495,20 +29468,20 @@ _meta_table = {
                 'name',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('new-deviation-number', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                integer value for New Deviation Number 0x88
                 ''',
                 'new_deviation_number',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('physical-layer-interface-module-type', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                integer value for plim type if     applicable to
                 this entity
                 ''',
                 'physical_layer_interface_module_type',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('redundancystate', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                integer value for Redundancy State if    
                 applicable to this entity
                 ''',
@@ -29950,13 +29923,13 @@ _meta_table = {
                 'eeprom',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('has-eeprom', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                use eeprom instead of opaque data
                 ''',
                 'has_eeprom',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('inv-card-type', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                Inventory card type
                 ''',
                 'inv_card_type',
@@ -29968,7 +29941,7 @@ _meta_table = {
                 'opaque_data',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('opaque-data-size', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                size of the EEPROM hex data
                 ''',
                 'opaque_data_size',
@@ -30021,13 +29994,13 @@ _meta_table = {
                 'inv_eeprom_info',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('module-done', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Inventory EDM Module Done Tuple
                 ''',
                 'module_done',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('node-id', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Node ID Tuple
                 ''',
                 'node_id',
@@ -30051,13 +30024,13 @@ _meta_table = {
                 'threshold',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('vm-done', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                VM Done Tuple
                 ''',
                 'vm_done',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('vm-node-id', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                VM Node ID Tuple
                 ''',
                 'vm_node_id',
@@ -30120,19 +30093,19 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('card-type', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                enumeration of the card type
                 ''',
                 'card_type',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('node-administrative-state', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                node admin state: shutdown or not
                 ''',
                 'node_administrative_state',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('node-monitor-state', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                node is monitored by a manager or left
                 unmonitored
                 ''',
@@ -30145,7 +30118,7 @@ _meta_table = {
                 'node_operational_state',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('power-administrative-state', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                power admin state: up or down
                 ''',
                 'power_administrative_state',
@@ -30162,20 +30135,20 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('age-time-stamp', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Age of the sensor value; set to the current time
                 if directly access the value from sensor
                 ''',
                 'age_time_stamp',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('alarm-type', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates threshold violation
                 ''',
                 'alarm_type',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('data-type', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Sensor data type enums
                 ''',
                 'data_type',
@@ -30187,31 +30160,31 @@ _meta_table = {
                 'device_description',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('device-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Identifier for this device
                 ''',
                 'device_id',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('field-validity-bitmap', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Sensor valid bitmap
                 ''',
                 'field_validity_bitmap',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('precision', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Sensor precision range
                 ''',
                 'precision',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('scale', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Sensor scale enums
                 ''',
                 'scale',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('status', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Sensor operation state enums
                 ''',
                 'status',
@@ -30223,14 +30196,14 @@ _meta_table = {
                 'units',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('update-rate', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Sensor value update rate;set to 0 if sensor
                 value is updated and evaluated immediately
                 ''',
                 'update_rate',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Current reading of sensor
                 ''',
                 'value',
@@ -30247,13 +30220,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('power-group-available-current', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                available current
                 ''',
                 'power_group_available_current',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('power-group-drawn-current', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                drawn current
                 ''',
                 'power_group_drawn_current',
@@ -30265,7 +30238,7 @@ _meta_table = {
                 'power_group_power_units',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('power-group-redundancy-mode', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                redundancy mode
                 ''',
                 'power_group_redundancy_mode',
@@ -30301,7 +30274,7 @@ _meta_table = {
                 'threshold_severity',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-value', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Value of the configured threshold
                 ''',
                 'threshold_value',
@@ -30365,7 +30338,7 @@ _meta_table = {
                 'units',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('update-rate', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Sensor value update rate; set to 0 if sensor
                 value is updated and evaluated immediately
                 ''',
@@ -30459,20 +30432,20 @@ _meta_table = {
                 'threshold_notification_enabled',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-relation', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates relation between sensor value and
                 threshold
                 ''',
                 'threshold_relation',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-severity', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates minor, major, critical severities
                 ''',
                 'threshold_severity',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Value of the configured threshold
                 ''',
                 'threshold_value',
@@ -30520,20 +30493,20 @@ _meta_table = {
                 'threshold_notification_enabled',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-relation', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates relation between sensor value and
                 threshold
                 ''',
                 'threshold_relation',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-severity', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates minor, major, critical severities
                 ''',
                 'threshold_severity',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Value of the configured threshold
                 ''',
                 'threshold_value',
@@ -30581,20 +30554,20 @@ _meta_table = {
                 'threshold_notification_enabled',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-relation', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates relation between sensor value and
                 threshold
                 ''',
                 'threshold_relation',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-severity', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates minor, major, critical severities
                 ''',
                 'threshold_severity',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Value of the configured threshold
                 ''',
                 'threshold_value',
@@ -30642,20 +30615,20 @@ _meta_table = {
                 'threshold_notification_enabled',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-relation', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates relation between sensor value and
                 threshold
                 ''',
                 'threshold_relation',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-severity', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates minor, major, critical severities
                 ''',
                 'threshold_severity',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Value of the configured threshold
                 ''',
                 'threshold_value',
@@ -30703,20 +30676,20 @@ _meta_table = {
                 'threshold_notification_enabled',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-relation', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates relation between sensor value and
                 threshold
                 ''',
                 'threshold_relation',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-severity', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates minor, major, critical severities
                 ''',
                 'threshold_severity',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Value of the configured threshold
                 ''',
                 'threshold_value',
@@ -30764,20 +30737,20 @@ _meta_table = {
                 'threshold_notification_enabled',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-relation', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates relation between sensor value and
                 threshold
                 ''',
                 'threshold_relation',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-severity', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates minor, major, critical severities
                 ''',
                 'threshold_severity',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Value of the configured threshold
                 ''',
                 'threshold_value',
@@ -30858,13 +30831,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('time-in-nano-seconds', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Time Value in Nano-seconds
                 ''',
                 'time_in_nano_seconds',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('time-in-seconds', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Time Value in Seconds
                 ''',
                 'time_in_seconds',
@@ -30881,13 +30854,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('time-in-nano-seconds', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Time Value in Nano-seconds
                 ''',
                 'time_in_nano_seconds',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('time-in-seconds', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Time Value in Seconds
                 ''',
                 'time_in_seconds',
@@ -30904,26 +30877,26 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('card-administrative-state', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                card admin state: shutdown or not
                 ''',
                 'card_administrative_state',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('card-monitor-state', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                card is monitored by a manager or left
                 unmonitored
                 ''',
                 'card_monitor_state',
                 'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('card-operational-state', REFERENCE_ENUM_CLASS, 'InvCardStateEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper', 'InvCardStateEnum', 
-                [], [], 
+            _MetaInfoClassMember('card-operational-state', ATTRIBUTE, 'int' , None, None, 
+                [('-2147483648', '2147483647')], [], 
                 '''                card operation state
                 ''',
                 'card_operational_state',
                 'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('card-reset-reason', REFERENCE_ENUM_CLASS, 'CardResetReasonEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper', 'CardResetReasonEnum', 
-                [], [], 
+            _MetaInfoClassMember('card-reset-reason', ATTRIBUTE, 'int' , None, None, 
+                [('-2147483648', '2147483647')], [], 
                 '''                card reset reason enum
                 ''',
                 'card_reset_reason',
@@ -30941,19 +30914,19 @@ _meta_table = {
                 'last_operational_state_change',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('power-administrative-state', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                power admin state: up or down
                 ''',
                 'power_administrative_state',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('power-current-measurement', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                power current: not implemented
                 ''',
                 'power_current_measurement',
                 'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('power-operational-state', REFERENCE_ENUM_CLASS, 'InvCardStateEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper', 'InvCardStateEnum', 
-                [], [], 
+            _MetaInfoClassMember('power-operational-state', ATTRIBUTE, 'int' , None, None, 
+                [('-2147483648', '2147483647')], [], 
                 '''                Power operation state
                 ''',
                 'power_operational_state',
@@ -30982,7 +30955,7 @@ _meta_table = {
                 'asset_id_str',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('asset-identification', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                asset Identification
                 ''',
                 'asset_identification',
@@ -31000,7 +30973,7 @@ _meta_table = {
                 'chip_hardware_revision',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('composite-class-code', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Major&minor class of the entity
                 ''',
                 'composite_class_code',
@@ -31043,7 +31016,7 @@ _meta_table = {
                 'is_field_replaceable_unit',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('manufacturer-asset-tags', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Manufacture Asset Tags
                 ''',
                 'manufacturer_asset_tags',
@@ -31055,7 +31028,7 @@ _meta_table = {
                 'manufacturer_name',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('memory-size', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Size of memory associated with 						the entity
                 where applicable
                 ''',
@@ -31074,20 +31047,20 @@ _meta_table = {
                 'name',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('new-deviation-number', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                integer value for New Deviation Number 0x88
                 ''',
                 'new_deviation_number',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('physical-layer-interface-module-type', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                integer value for plim type if     applicable to
                 this entity
                 ''',
                 'physical_layer_interface_module_type',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('redundancystate', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                integer value for Redundancy State if    
                 applicable to this entity
                 ''',
@@ -31529,13 +31502,13 @@ _meta_table = {
                 'eeprom',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('has-eeprom', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                use eeprom instead of opaque data
                 ''',
                 'has_eeprom',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('inv-card-type', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                Inventory card type
                 ''',
                 'inv_card_type',
@@ -31547,7 +31520,7 @@ _meta_table = {
                 'opaque_data',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('opaque-data-size', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                size of the EEPROM hex data
                 ''',
                 'opaque_data_size',
@@ -31600,13 +31573,13 @@ _meta_table = {
                 'inv_eeprom_info',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('module-done', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Inventory EDM Module Done Tuple
                 ''',
                 'module_done',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('node-id', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Node ID Tuple
                 ''',
                 'node_id',
@@ -31630,13 +31603,13 @@ _meta_table = {
                 'threshold',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('vm-done', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                VM Done Tuple
                 ''',
                 'vm_done',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('vm-node-id', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                VM Node ID Tuple
                 ''',
                 'vm_node_id',
@@ -31699,19 +31672,19 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('card-type', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                enumeration of the card type
                 ''',
                 'card_type',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('node-administrative-state', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                node admin state: shutdown or not
                 ''',
                 'node_administrative_state',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('node-monitor-state', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                node is monitored by a manager or left
                 unmonitored
                 ''',
@@ -31724,7 +31697,7 @@ _meta_table = {
                 'node_operational_state',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('power-administrative-state', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                power admin state: up or down
                 ''',
                 'power_administrative_state',
@@ -31741,20 +31714,20 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('age-time-stamp', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Age of the sensor value; set to the current time
                 if directly access the value from sensor
                 ''',
                 'age_time_stamp',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('alarm-type', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates threshold violation
                 ''',
                 'alarm_type',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('data-type', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Sensor data type enums
                 ''',
                 'data_type',
@@ -31766,31 +31739,31 @@ _meta_table = {
                 'device_description',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('device-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Identifier for this device
                 ''',
                 'device_id',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('field-validity-bitmap', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Sensor valid bitmap
                 ''',
                 'field_validity_bitmap',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('precision', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Sensor precision range
                 ''',
                 'precision',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('scale', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Sensor scale enums
                 ''',
                 'scale',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('status', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Sensor operation state enums
                 ''',
                 'status',
@@ -31802,14 +31775,14 @@ _meta_table = {
                 'units',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('update-rate', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Sensor value update rate;set to 0 if sensor
                 value is updated and evaluated immediately
                 ''',
                 'update_rate',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Current reading of sensor
                 ''',
                 'value',
@@ -31826,13 +31799,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('power-group-available-current', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                available current
                 ''',
                 'power_group_available_current',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('power-group-drawn-current', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                drawn current
                 ''',
                 'power_group_drawn_current',
@@ -31844,7 +31817,7 @@ _meta_table = {
                 'power_group_power_units',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('power-group-redundancy-mode', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                redundancy mode
                 ''',
                 'power_group_redundancy_mode',
@@ -31880,7 +31853,7 @@ _meta_table = {
                 'threshold_severity',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-value', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Value of the configured threshold
                 ''',
                 'threshold_value',
@@ -31944,7 +31917,7 @@ _meta_table = {
                 'units',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('update-rate', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Sensor value update rate; set to 0 if sensor
                 value is updated and evaluated immediately
                 ''',
@@ -32038,20 +32011,20 @@ _meta_table = {
                 'threshold_notification_enabled',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-relation', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates relation between sensor value and
                 threshold
                 ''',
                 'threshold_relation',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-severity', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates minor, major, critical severities
                 ''',
                 'threshold_severity',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Value of the configured threshold
                 ''',
                 'threshold_value',
@@ -32099,20 +32072,20 @@ _meta_table = {
                 'threshold_notification_enabled',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-relation', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates relation between sensor value and
                 threshold
                 ''',
                 'threshold_relation',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-severity', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates minor, major, critical severities
                 ''',
                 'threshold_severity',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Value of the configured threshold
                 ''',
                 'threshold_value',
@@ -32160,20 +32133,20 @@ _meta_table = {
                 'threshold_notification_enabled',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-relation', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates relation between sensor value and
                 threshold
                 ''',
                 'threshold_relation',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-severity', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates minor, major, critical severities
                 ''',
                 'threshold_severity',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Value of the configured threshold
                 ''',
                 'threshold_value',
@@ -32221,20 +32194,20 @@ _meta_table = {
                 'threshold_notification_enabled',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-relation', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates relation between sensor value and
                 threshold
                 ''',
                 'threshold_relation',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-severity', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates minor, major, critical severities
                 ''',
                 'threshold_severity',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Value of the configured threshold
                 ''',
                 'threshold_value',
@@ -32282,20 +32255,20 @@ _meta_table = {
                 'threshold_notification_enabled',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-relation', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates relation between sensor value and
                 threshold
                 ''',
                 'threshold_relation',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-severity', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates minor, major, critical severities
                 ''',
                 'threshold_severity',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Value of the configured threshold
                 ''',
                 'threshold_value',
@@ -32343,20 +32316,20 @@ _meta_table = {
                 'threshold_notification_enabled',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-relation', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates relation between sensor value and
                 threshold
                 ''',
                 'threshold_relation',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-severity', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates minor, major, critical severities
                 ''',
                 'threshold_severity',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Value of the configured threshold
                 ''',
                 'threshold_value',
@@ -32437,13 +32410,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('time-in-nano-seconds', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Time Value in Nano-seconds
                 ''',
                 'time_in_nano_seconds',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('time-in-seconds', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Time Value in Seconds
                 ''',
                 'time_in_seconds',
@@ -32460,13 +32433,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('time-in-nano-seconds', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Time Value in Nano-seconds
                 ''',
                 'time_in_nano_seconds',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('time-in-seconds', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Time Value in Seconds
                 ''',
                 'time_in_seconds',
@@ -32483,26 +32456,26 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('card-administrative-state', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                card admin state: shutdown or not
                 ''',
                 'card_administrative_state',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('card-monitor-state', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                card is monitored by a manager or left
                 unmonitored
                 ''',
                 'card_monitor_state',
                 'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('card-operational-state', REFERENCE_ENUM_CLASS, 'InvCardStateEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper', 'InvCardStateEnum', 
-                [], [], 
+            _MetaInfoClassMember('card-operational-state', ATTRIBUTE, 'int' , None, None, 
+                [('-2147483648', '2147483647')], [], 
                 '''                card operation state
                 ''',
                 'card_operational_state',
                 'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('card-reset-reason', REFERENCE_ENUM_CLASS, 'CardResetReasonEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper', 'CardResetReasonEnum', 
-                [], [], 
+            _MetaInfoClassMember('card-reset-reason', ATTRIBUTE, 'int' , None, None, 
+                [('-2147483648', '2147483647')], [], 
                 '''                card reset reason enum
                 ''',
                 'card_reset_reason',
@@ -32520,19 +32493,19 @@ _meta_table = {
                 'last_operational_state_change',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('power-administrative-state', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                power admin state: up or down
                 ''',
                 'power_administrative_state',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('power-current-measurement', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                power current: not implemented
                 ''',
                 'power_current_measurement',
                 'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('power-operational-state', REFERENCE_ENUM_CLASS, 'InvCardStateEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper', 'InvCardStateEnum', 
-                [], [], 
+            _MetaInfoClassMember('power-operational-state', ATTRIBUTE, 'int' , None, None, 
+                [('-2147483648', '2147483647')], [], 
                 '''                Power operation state
                 ''',
                 'power_operational_state',
@@ -32561,7 +32534,7 @@ _meta_table = {
                 'asset_id_str',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('asset-identification', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                asset Identification
                 ''',
                 'asset_identification',
@@ -32579,7 +32552,7 @@ _meta_table = {
                 'chip_hardware_revision',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('composite-class-code', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Major&minor class of the entity
                 ''',
                 'composite_class_code',
@@ -32622,7 +32595,7 @@ _meta_table = {
                 'is_field_replaceable_unit',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('manufacturer-asset-tags', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Manufacture Asset Tags
                 ''',
                 'manufacturer_asset_tags',
@@ -32634,7 +32607,7 @@ _meta_table = {
                 'manufacturer_name',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('memory-size', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Size of memory associated with 						the entity
                 where applicable
                 ''',
@@ -32653,20 +32626,20 @@ _meta_table = {
                 'name',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('new-deviation-number', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                integer value for New Deviation Number 0x88
                 ''',
                 'new_deviation_number',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('physical-layer-interface-module-type', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                integer value for plim type if     applicable to
                 this entity
                 ''',
                 'physical_layer_interface_module_type',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('redundancystate', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                integer value for Redundancy State if    
                 applicable to this entity
                 ''',
@@ -33108,13 +33081,13 @@ _meta_table = {
                 'eeprom',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('has-eeprom', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                use eeprom instead of opaque data
                 ''',
                 'has_eeprom',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('inv-card-type', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                Inventory card type
                 ''',
                 'inv_card_type',
@@ -33126,7 +33099,7 @@ _meta_table = {
                 'opaque_data',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('opaque-data-size', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                size of the EEPROM hex data
                 ''',
                 'opaque_data_size',
@@ -33179,13 +33152,13 @@ _meta_table = {
                 'inv_eeprom_info',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('module-done', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Inventory EDM Module Done Tuple
                 ''',
                 'module_done',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('node-id', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Node ID Tuple
                 ''',
                 'node_id',
@@ -33209,13 +33182,13 @@ _meta_table = {
                 'threshold',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('vm-done', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                VM Done Tuple
                 ''',
                 'vm_done',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('vm-node-id', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                VM Node ID Tuple
                 ''',
                 'vm_node_id',
@@ -33278,19 +33251,19 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('card-type', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                enumeration of the card type
                 ''',
                 'card_type',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('node-administrative-state', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                node admin state: shutdown or not
                 ''',
                 'node_administrative_state',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('node-monitor-state', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                node is monitored by a manager or left
                 unmonitored
                 ''',
@@ -33303,7 +33276,7 @@ _meta_table = {
                 'node_operational_state',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('power-administrative-state', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                power admin state: up or down
                 ''',
                 'power_administrative_state',
@@ -33320,20 +33293,20 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('age-time-stamp', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Age of the sensor value; set to the current time
                 if directly access the value from sensor
                 ''',
                 'age_time_stamp',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('alarm-type', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates threshold violation
                 ''',
                 'alarm_type',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('data-type', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Sensor data type enums
                 ''',
                 'data_type',
@@ -33345,31 +33318,31 @@ _meta_table = {
                 'device_description',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('device-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Identifier for this device
                 ''',
                 'device_id',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('field-validity-bitmap', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Sensor valid bitmap
                 ''',
                 'field_validity_bitmap',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('precision', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Sensor precision range
                 ''',
                 'precision',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('scale', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Sensor scale enums
                 ''',
                 'scale',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('status', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Sensor operation state enums
                 ''',
                 'status',
@@ -33381,14 +33354,14 @@ _meta_table = {
                 'units',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('update-rate', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Sensor value update rate;set to 0 if sensor
                 value is updated and evaluated immediately
                 ''',
                 'update_rate',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Current reading of sensor
                 ''',
                 'value',
@@ -33405,13 +33378,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('power-group-available-current', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                available current
                 ''',
                 'power_group_available_current',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('power-group-drawn-current', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                drawn current
                 ''',
                 'power_group_drawn_current',
@@ -33423,7 +33396,7 @@ _meta_table = {
                 'power_group_power_units',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('power-group-redundancy-mode', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                redundancy mode
                 ''',
                 'power_group_redundancy_mode',
@@ -33459,7 +33432,7 @@ _meta_table = {
                 'threshold_severity',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-value', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Value of the configured threshold
                 ''',
                 'threshold_value',
@@ -33523,7 +33496,7 @@ _meta_table = {
                 'units',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('update-rate', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Sensor value update rate; set to 0 if sensor
                 value is updated and evaluated immediately
                 ''',
@@ -33617,20 +33590,20 @@ _meta_table = {
                 'threshold_notification_enabled',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-relation', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates relation between sensor value and
                 threshold
                 ''',
                 'threshold_relation',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-severity', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates minor, major, critical severities
                 ''',
                 'threshold_severity',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Value of the configured threshold
                 ''',
                 'threshold_value',
@@ -33678,20 +33651,20 @@ _meta_table = {
                 'threshold_notification_enabled',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-relation', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates relation between sensor value and
                 threshold
                 ''',
                 'threshold_relation',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-severity', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates minor, major, critical severities
                 ''',
                 'threshold_severity',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Value of the configured threshold
                 ''',
                 'threshold_value',
@@ -33739,20 +33712,20 @@ _meta_table = {
                 'threshold_notification_enabled',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-relation', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates relation between sensor value and
                 threshold
                 ''',
                 'threshold_relation',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-severity', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates minor, major, critical severities
                 ''',
                 'threshold_severity',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Value of the configured threshold
                 ''',
                 'threshold_value',
@@ -33800,20 +33773,20 @@ _meta_table = {
                 'threshold_notification_enabled',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-relation', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates relation between sensor value and
                 threshold
                 ''',
                 'threshold_relation',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-severity', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates minor, major, critical severities
                 ''',
                 'threshold_severity',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Value of the configured threshold
                 ''',
                 'threshold_value',
@@ -33861,20 +33834,20 @@ _meta_table = {
                 'threshold_notification_enabled',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-relation', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates relation between sensor value and
                 threshold
                 ''',
                 'threshold_relation',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-severity', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates minor, major, critical severities
                 ''',
                 'threshold_severity',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Value of the configured threshold
                 ''',
                 'threshold_value',
@@ -33922,20 +33895,20 @@ _meta_table = {
                 'threshold_notification_enabled',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-relation', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates relation between sensor value and
                 threshold
                 ''',
                 'threshold_relation',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-severity', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates minor, major, critical severities
                 ''',
                 'threshold_severity',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Value of the configured threshold
                 ''',
                 'threshold_value',
@@ -34016,13 +33989,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('time-in-nano-seconds', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Time Value in Nano-seconds
                 ''',
                 'time_in_nano_seconds',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('time-in-seconds', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Time Value in Seconds
                 ''',
                 'time_in_seconds',
@@ -34039,13 +34012,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('time-in-nano-seconds', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Time Value in Nano-seconds
                 ''',
                 'time_in_nano_seconds',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('time-in-seconds', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Time Value in Seconds
                 ''',
                 'time_in_seconds',
@@ -34062,26 +34035,26 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('card-administrative-state', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                card admin state: shutdown or not
                 ''',
                 'card_administrative_state',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('card-monitor-state', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                card is monitored by a manager or left
                 unmonitored
                 ''',
                 'card_monitor_state',
                 'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('card-operational-state', REFERENCE_ENUM_CLASS, 'InvCardStateEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper', 'InvCardStateEnum', 
-                [], [], 
+            _MetaInfoClassMember('card-operational-state', ATTRIBUTE, 'int' , None, None, 
+                [('-2147483648', '2147483647')], [], 
                 '''                card operation state
                 ''',
                 'card_operational_state',
                 'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('card-reset-reason', REFERENCE_ENUM_CLASS, 'CardResetReasonEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper', 'CardResetReasonEnum', 
-                [], [], 
+            _MetaInfoClassMember('card-reset-reason', ATTRIBUTE, 'int' , None, None, 
+                [('-2147483648', '2147483647')], [], 
                 '''                card reset reason enum
                 ''',
                 'card_reset_reason',
@@ -34099,19 +34072,19 @@ _meta_table = {
                 'last_operational_state_change',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('power-administrative-state', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                power admin state: up or down
                 ''',
                 'power_administrative_state',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('power-current-measurement', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                power current: not implemented
                 ''',
                 'power_current_measurement',
                 'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('power-operational-state', REFERENCE_ENUM_CLASS, 'InvCardStateEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper', 'InvCardStateEnum', 
-                [], [], 
+            _MetaInfoClassMember('power-operational-state', ATTRIBUTE, 'int' , None, None, 
+                [('-2147483648', '2147483647')], [], 
                 '''                Power operation state
                 ''',
                 'power_operational_state',
@@ -34140,7 +34113,7 @@ _meta_table = {
                 'asset_id_str',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('asset-identification', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                asset Identification
                 ''',
                 'asset_identification',
@@ -34158,7 +34131,7 @@ _meta_table = {
                 'chip_hardware_revision',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('composite-class-code', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Major&minor class of the entity
                 ''',
                 'composite_class_code',
@@ -34201,7 +34174,7 @@ _meta_table = {
                 'is_field_replaceable_unit',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('manufacturer-asset-tags', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Manufacture Asset Tags
                 ''',
                 'manufacturer_asset_tags',
@@ -34213,7 +34186,7 @@ _meta_table = {
                 'manufacturer_name',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('memory-size', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Size of memory associated with 						the entity
                 where applicable
                 ''',
@@ -34232,20 +34205,20 @@ _meta_table = {
                 'name',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('new-deviation-number', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                integer value for New Deviation Number 0x88
                 ''',
                 'new_deviation_number',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('physical-layer-interface-module-type', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                integer value for plim type if     applicable to
                 this entity
                 ''',
                 'physical_layer_interface_module_type',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('redundancystate', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                integer value for Redundancy State if    
                 applicable to this entity
                 ''',
@@ -34687,13 +34660,13 @@ _meta_table = {
                 'eeprom',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('has-eeprom', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                use eeprom instead of opaque data
                 ''',
                 'has_eeprom',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('inv-card-type', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                Inventory card type
                 ''',
                 'inv_card_type',
@@ -34705,7 +34678,7 @@ _meta_table = {
                 'opaque_data',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('opaque-data-size', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                size of the EEPROM hex data
                 ''',
                 'opaque_data_size',
@@ -34758,13 +34731,13 @@ _meta_table = {
                 'inv_eeprom_info',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('module-done', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Inventory EDM Module Done Tuple
                 ''',
                 'module_done',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('node-id', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Node ID Tuple
                 ''',
                 'node_id',
@@ -34788,13 +34761,13 @@ _meta_table = {
                 'threshold',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('vm-done', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                VM Done Tuple
                 ''',
                 'vm_done',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('vm-node-id', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                VM Node ID Tuple
                 ''',
                 'vm_node_id',
@@ -34857,19 +34830,19 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('card-type', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                enumeration of the card type
                 ''',
                 'card_type',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('node-administrative-state', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                node admin state: shutdown or not
                 ''',
                 'node_administrative_state',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('node-monitor-state', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                node is monitored by a manager or left
                 unmonitored
                 ''',
@@ -34882,7 +34855,7 @@ _meta_table = {
                 'node_operational_state',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('power-administrative-state', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                power admin state: up or down
                 ''',
                 'power_administrative_state',
@@ -34899,20 +34872,20 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('age-time-stamp', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Age of the sensor value; set to the current time
                 if directly access the value from sensor
                 ''',
                 'age_time_stamp',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('alarm-type', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates threshold violation
                 ''',
                 'alarm_type',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('data-type', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Sensor data type enums
                 ''',
                 'data_type',
@@ -34924,31 +34897,31 @@ _meta_table = {
                 'device_description',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('device-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Identifier for this device
                 ''',
                 'device_id',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('field-validity-bitmap', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Sensor valid bitmap
                 ''',
                 'field_validity_bitmap',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('precision', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Sensor precision range
                 ''',
                 'precision',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('scale', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Sensor scale enums
                 ''',
                 'scale',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('status', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Sensor operation state enums
                 ''',
                 'status',
@@ -34960,14 +34933,14 @@ _meta_table = {
                 'units',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('update-rate', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Sensor value update rate;set to 0 if sensor
                 value is updated and evaluated immediately
                 ''',
                 'update_rate',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Current reading of sensor
                 ''',
                 'value',
@@ -34984,13 +34957,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('power-group-available-current', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                available current
                 ''',
                 'power_group_available_current',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('power-group-drawn-current', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                drawn current
                 ''',
                 'power_group_drawn_current',
@@ -35002,7 +34975,7 @@ _meta_table = {
                 'power_group_power_units',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('power-group-redundancy-mode', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                redundancy mode
                 ''',
                 'power_group_redundancy_mode',
@@ -35038,7 +35011,7 @@ _meta_table = {
                 'threshold_severity',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-value', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Value of the configured threshold
                 ''',
                 'threshold_value',
@@ -35102,7 +35075,7 @@ _meta_table = {
                 'units',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('update-rate', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Sensor value update rate; set to 0 if sensor
                 value is updated and evaluated immediately
                 ''',
@@ -35196,20 +35169,20 @@ _meta_table = {
                 'threshold_notification_enabled',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-relation', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates relation between sensor value and
                 threshold
                 ''',
                 'threshold_relation',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-severity', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates minor, major, critical severities
                 ''',
                 'threshold_severity',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Value of the configured threshold
                 ''',
                 'threshold_value',
@@ -35257,20 +35230,20 @@ _meta_table = {
                 'threshold_notification_enabled',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-relation', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates relation between sensor value and
                 threshold
                 ''',
                 'threshold_relation',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-severity', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates minor, major, critical severities
                 ''',
                 'threshold_severity',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Value of the configured threshold
                 ''',
                 'threshold_value',
@@ -35318,20 +35291,20 @@ _meta_table = {
                 'threshold_notification_enabled',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-relation', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates relation between sensor value and
                 threshold
                 ''',
                 'threshold_relation',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-severity', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates minor, major, critical severities
                 ''',
                 'threshold_severity',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Value of the configured threshold
                 ''',
                 'threshold_value',
@@ -35379,20 +35352,20 @@ _meta_table = {
                 'threshold_notification_enabled',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-relation', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates relation between sensor value and
                 threshold
                 ''',
                 'threshold_relation',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-severity', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates minor, major, critical severities
                 ''',
                 'threshold_severity',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Value of the configured threshold
                 ''',
                 'threshold_value',
@@ -35440,20 +35413,20 @@ _meta_table = {
                 'threshold_notification_enabled',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-relation', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates relation between sensor value and
                 threshold
                 ''',
                 'threshold_relation',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-severity', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates minor, major, critical severities
                 ''',
                 'threshold_severity',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Value of the configured threshold
                 ''',
                 'threshold_value',
@@ -35501,20 +35474,20 @@ _meta_table = {
                 'threshold_notification_enabled',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-relation', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates relation between sensor value and
                 threshold
                 ''',
                 'threshold_relation',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-severity', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates minor, major, critical severities
                 ''',
                 'threshold_severity',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Value of the configured threshold
                 ''',
                 'threshold_value',
@@ -35595,13 +35568,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('time-in-nano-seconds', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Time Value in Nano-seconds
                 ''',
                 'time_in_nano_seconds',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('time-in-seconds', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Time Value in Seconds
                 ''',
                 'time_in_seconds',
@@ -35618,13 +35591,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('time-in-nano-seconds', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Time Value in Nano-seconds
                 ''',
                 'time_in_nano_seconds',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('time-in-seconds', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Time Value in Seconds
                 ''',
                 'time_in_seconds',
@@ -35641,26 +35614,26 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('card-administrative-state', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                card admin state: shutdown or not
                 ''',
                 'card_administrative_state',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('card-monitor-state', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                card is monitored by a manager or left
                 unmonitored
                 ''',
                 'card_monitor_state',
                 'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('card-operational-state', REFERENCE_ENUM_CLASS, 'InvCardStateEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper', 'InvCardStateEnum', 
-                [], [], 
+            _MetaInfoClassMember('card-operational-state', ATTRIBUTE, 'int' , None, None, 
+                [('-2147483648', '2147483647')], [], 
                 '''                card operation state
                 ''',
                 'card_operational_state',
                 'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('card-reset-reason', REFERENCE_ENUM_CLASS, 'CardResetReasonEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper', 'CardResetReasonEnum', 
-                [], [], 
+            _MetaInfoClassMember('card-reset-reason', ATTRIBUTE, 'int' , None, None, 
+                [('-2147483648', '2147483647')], [], 
                 '''                card reset reason enum
                 ''',
                 'card_reset_reason',
@@ -35678,19 +35651,19 @@ _meta_table = {
                 'last_operational_state_change',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('power-administrative-state', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                power admin state: up or down
                 ''',
                 'power_administrative_state',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('power-current-measurement', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                power current: not implemented
                 ''',
                 'power_current_measurement',
                 'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('power-operational-state', REFERENCE_ENUM_CLASS, 'InvCardStateEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper', 'InvCardStateEnum', 
-                [], [], 
+            _MetaInfoClassMember('power-operational-state', ATTRIBUTE, 'int' , None, None, 
+                [('-2147483648', '2147483647')], [], 
                 '''                Power operation state
                 ''',
                 'power_operational_state',
@@ -35719,7 +35692,7 @@ _meta_table = {
                 'asset_id_str',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('asset-identification', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                asset Identification
                 ''',
                 'asset_identification',
@@ -35737,7 +35710,7 @@ _meta_table = {
                 'chip_hardware_revision',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('composite-class-code', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Major&minor class of the entity
                 ''',
                 'composite_class_code',
@@ -35780,7 +35753,7 @@ _meta_table = {
                 'is_field_replaceable_unit',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('manufacturer-asset-tags', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Manufacture Asset Tags
                 ''',
                 'manufacturer_asset_tags',
@@ -35792,7 +35765,7 @@ _meta_table = {
                 'manufacturer_name',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('memory-size', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Size of memory associated with 						the entity
                 where applicable
                 ''',
@@ -35811,20 +35784,20 @@ _meta_table = {
                 'name',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('new-deviation-number', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                integer value for New Deviation Number 0x88
                 ''',
                 'new_deviation_number',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('physical-layer-interface-module-type', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                integer value for plim type if     applicable to
                 this entity
                 ''',
                 'physical_layer_interface_module_type',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('redundancystate', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                integer value for Redundancy State if    
                 applicable to this entity
                 ''',
@@ -36266,13 +36239,13 @@ _meta_table = {
                 'eeprom',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('has-eeprom', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                use eeprom instead of opaque data
                 ''',
                 'has_eeprom',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('inv-card-type', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                Inventory card type
                 ''',
                 'inv_card_type',
@@ -36284,7 +36257,7 @@ _meta_table = {
                 'opaque_data',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('opaque-data-size', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                size of the EEPROM hex data
                 ''',
                 'opaque_data_size',
@@ -36337,13 +36310,13 @@ _meta_table = {
                 'inv_eeprom_info',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('module-done', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Inventory EDM Module Done Tuple
                 ''',
                 'module_done',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('node-id', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Node ID Tuple
                 ''',
                 'node_id',
@@ -36367,13 +36340,13 @@ _meta_table = {
                 'threshold',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('vm-done', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                VM Done Tuple
                 ''',
                 'vm_done',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('vm-node-id', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                VM Node ID Tuple
                 ''',
                 'vm_node_id',
@@ -36436,19 +36409,19 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('card-type', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                enumeration of the card type
                 ''',
                 'card_type',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('node-administrative-state', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                node admin state: shutdown or not
                 ''',
                 'node_administrative_state',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('node-monitor-state', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                node is monitored by a manager or left
                 unmonitored
                 ''',
@@ -36461,7 +36434,7 @@ _meta_table = {
                 'node_operational_state',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('power-administrative-state', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                power admin state: up or down
                 ''',
                 'power_administrative_state',
@@ -36478,20 +36451,20 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('age-time-stamp', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Age of the sensor value; set to the current time
                 if directly access the value from sensor
                 ''',
                 'age_time_stamp',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('alarm-type', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates threshold violation
                 ''',
                 'alarm_type',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('data-type', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Sensor data type enums
                 ''',
                 'data_type',
@@ -36503,31 +36476,31 @@ _meta_table = {
                 'device_description',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('device-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Identifier for this device
                 ''',
                 'device_id',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('field-validity-bitmap', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Sensor valid bitmap
                 ''',
                 'field_validity_bitmap',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('precision', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Sensor precision range
                 ''',
                 'precision',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('scale', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Sensor scale enums
                 ''',
                 'scale',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('status', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Sensor operation state enums
                 ''',
                 'status',
@@ -36539,14 +36512,14 @@ _meta_table = {
                 'units',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('update-rate', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Sensor value update rate;set to 0 if sensor
                 value is updated and evaluated immediately
                 ''',
                 'update_rate',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Current reading of sensor
                 ''',
                 'value',
@@ -36563,13 +36536,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('power-group-available-current', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                available current
                 ''',
                 'power_group_available_current',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('power-group-drawn-current', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                drawn current
                 ''',
                 'power_group_drawn_current',
@@ -36581,7 +36554,7 @@ _meta_table = {
                 'power_group_power_units',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('power-group-redundancy-mode', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                redundancy mode
                 ''',
                 'power_group_redundancy_mode',
@@ -36617,7 +36590,7 @@ _meta_table = {
                 'threshold_severity',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-value', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Value of the configured threshold
                 ''',
                 'threshold_value',
@@ -36681,7 +36654,7 @@ _meta_table = {
                 'units',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('update-rate', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Sensor value update rate; set to 0 if sensor
                 value is updated and evaluated immediately
                 ''',
@@ -36775,20 +36748,20 @@ _meta_table = {
                 'threshold_notification_enabled',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-relation', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates relation between sensor value and
                 threshold
                 ''',
                 'threshold_relation',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-severity', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates minor, major, critical severities
                 ''',
                 'threshold_severity',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Value of the configured threshold
                 ''',
                 'threshold_value',
@@ -36836,20 +36809,20 @@ _meta_table = {
                 'threshold_notification_enabled',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-relation', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates relation between sensor value and
                 threshold
                 ''',
                 'threshold_relation',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-severity', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates minor, major, critical severities
                 ''',
                 'threshold_severity',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Value of the configured threshold
                 ''',
                 'threshold_value',
@@ -36897,20 +36870,20 @@ _meta_table = {
                 'threshold_notification_enabled',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-relation', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates relation between sensor value and
                 threshold
                 ''',
                 'threshold_relation',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-severity', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates minor, major, critical severities
                 ''',
                 'threshold_severity',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Value of the configured threshold
                 ''',
                 'threshold_value',
@@ -36958,20 +36931,20 @@ _meta_table = {
                 'threshold_notification_enabled',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-relation', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates relation between sensor value and
                 threshold
                 ''',
                 'threshold_relation',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-severity', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates minor, major, critical severities
                 ''',
                 'threshold_severity',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Value of the configured threshold
                 ''',
                 'threshold_value',
@@ -37019,20 +36992,20 @@ _meta_table = {
                 'threshold_notification_enabled',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-relation', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates relation between sensor value and
                 threshold
                 ''',
                 'threshold_relation',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-severity', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates minor, major, critical severities
                 ''',
                 'threshold_severity',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Value of the configured threshold
                 ''',
                 'threshold_value',
@@ -37080,20 +37053,20 @@ _meta_table = {
                 'threshold_notification_enabled',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-relation', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates relation between sensor value and
                 threshold
                 ''',
                 'threshold_relation',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-severity', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates minor, major, critical severities
                 ''',
                 'threshold_severity',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Value of the configured threshold
                 ''',
                 'threshold_value',
@@ -37174,13 +37147,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('time-in-nano-seconds', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Time Value in Nano-seconds
                 ''',
                 'time_in_nano_seconds',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('time-in-seconds', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Time Value in Seconds
                 ''',
                 'time_in_seconds',
@@ -37197,13 +37170,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('time-in-nano-seconds', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Time Value in Nano-seconds
                 ''',
                 'time_in_nano_seconds',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('time-in-seconds', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Time Value in Seconds
                 ''',
                 'time_in_seconds',
@@ -37220,26 +37193,26 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('card-administrative-state', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                card admin state: shutdown or not
                 ''',
                 'card_administrative_state',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('card-monitor-state', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                card is monitored by a manager or left
                 unmonitored
                 ''',
                 'card_monitor_state',
                 'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('card-operational-state', REFERENCE_ENUM_CLASS, 'InvCardStateEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper', 'InvCardStateEnum', 
-                [], [], 
+            _MetaInfoClassMember('card-operational-state', ATTRIBUTE, 'int' , None, None, 
+                [('-2147483648', '2147483647')], [], 
                 '''                card operation state
                 ''',
                 'card_operational_state',
                 'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('card-reset-reason', REFERENCE_ENUM_CLASS, 'CardResetReasonEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper', 'CardResetReasonEnum', 
-                [], [], 
+            _MetaInfoClassMember('card-reset-reason', ATTRIBUTE, 'int' , None, None, 
+                [('-2147483648', '2147483647')], [], 
                 '''                card reset reason enum
                 ''',
                 'card_reset_reason',
@@ -37257,19 +37230,19 @@ _meta_table = {
                 'last_operational_state_change',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('power-administrative-state', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                power admin state: up or down
                 ''',
                 'power_administrative_state',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('power-current-measurement', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                power current: not implemented
                 ''',
                 'power_current_measurement',
                 'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('power-operational-state', REFERENCE_ENUM_CLASS, 'InvCardStateEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper', 'InvCardStateEnum', 
-                [], [], 
+            _MetaInfoClassMember('power-operational-state', ATTRIBUTE, 'int' , None, None, 
+                [('-2147483648', '2147483647')], [], 
                 '''                Power operation state
                 ''',
                 'power_operational_state',
@@ -37298,7 +37271,7 @@ _meta_table = {
                 'asset_id_str',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('asset-identification', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                asset Identification
                 ''',
                 'asset_identification',
@@ -37316,7 +37289,7 @@ _meta_table = {
                 'chip_hardware_revision',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('composite-class-code', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Major&minor class of the entity
                 ''',
                 'composite_class_code',
@@ -37359,7 +37332,7 @@ _meta_table = {
                 'is_field_replaceable_unit',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('manufacturer-asset-tags', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Manufacture Asset Tags
                 ''',
                 'manufacturer_asset_tags',
@@ -37371,7 +37344,7 @@ _meta_table = {
                 'manufacturer_name',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('memory-size', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Size of memory associated with 						the entity
                 where applicable
                 ''',
@@ -37390,20 +37363,20 @@ _meta_table = {
                 'name',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('new-deviation-number', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                integer value for New Deviation Number 0x88
                 ''',
                 'new_deviation_number',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('physical-layer-interface-module-type', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                integer value for plim type if     applicable to
                 this entity
                 ''',
                 'physical_layer_interface_module_type',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('redundancystate', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                integer value for Redundancy State if    
                 applicable to this entity
                 ''',
@@ -37845,13 +37818,13 @@ _meta_table = {
                 'eeprom',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('has-eeprom', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                use eeprom instead of opaque data
                 ''',
                 'has_eeprom',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('inv-card-type', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                Inventory card type
                 ''',
                 'inv_card_type',
@@ -37863,7 +37836,7 @@ _meta_table = {
                 'opaque_data',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('opaque-data-size', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                size of the EEPROM hex data
                 ''',
                 'opaque_data_size',
@@ -37916,13 +37889,13 @@ _meta_table = {
                 'inv_eeprom_info',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('module-done', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Inventory EDM Module Done Tuple
                 ''',
                 'module_done',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('node-id', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Node ID Tuple
                 ''',
                 'node_id',
@@ -37946,13 +37919,13 @@ _meta_table = {
                 'threshold',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('vm-done', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                VM Done Tuple
                 ''',
                 'vm_done',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('vm-node-id', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                VM Node ID Tuple
                 ''',
                 'vm_node_id',
@@ -38015,19 +37988,19 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('card-type', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                enumeration of the card type
                 ''',
                 'card_type',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('node-administrative-state', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                node admin state: shutdown or not
                 ''',
                 'node_administrative_state',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('node-monitor-state', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                node is monitored by a manager or left
                 unmonitored
                 ''',
@@ -38040,7 +38013,7 @@ _meta_table = {
                 'node_operational_state',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('power-administrative-state', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                power admin state: up or down
                 ''',
                 'power_administrative_state',
@@ -38057,20 +38030,20 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('age-time-stamp', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Age of the sensor value; set to the current time
                 if directly access the value from sensor
                 ''',
                 'age_time_stamp',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('alarm-type', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates threshold violation
                 ''',
                 'alarm_type',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('data-type', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Sensor data type enums
                 ''',
                 'data_type',
@@ -38082,31 +38055,31 @@ _meta_table = {
                 'device_description',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('device-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Identifier for this device
                 ''',
                 'device_id',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('field-validity-bitmap', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Sensor valid bitmap
                 ''',
                 'field_validity_bitmap',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('precision', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Sensor precision range
                 ''',
                 'precision',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('scale', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Sensor scale enums
                 ''',
                 'scale',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('status', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Sensor operation state enums
                 ''',
                 'status',
@@ -38118,14 +38091,14 @@ _meta_table = {
                 'units',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('update-rate', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Sensor value update rate;set to 0 if sensor
                 value is updated and evaluated immediately
                 ''',
                 'update_rate',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Current reading of sensor
                 ''',
                 'value',
@@ -38142,13 +38115,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('power-group-available-current', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                available current
                 ''',
                 'power_group_available_current',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('power-group-drawn-current', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                drawn current
                 ''',
                 'power_group_drawn_current',
@@ -38160,7 +38133,7 @@ _meta_table = {
                 'power_group_power_units',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('power-group-redundancy-mode', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                redundancy mode
                 ''',
                 'power_group_redundancy_mode',
@@ -38196,7 +38169,7 @@ _meta_table = {
                 'threshold_severity',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-value', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Value of the configured threshold
                 ''',
                 'threshold_value',
@@ -38260,7 +38233,7 @@ _meta_table = {
                 'units',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('update-rate', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Sensor value update rate; set to 0 if sensor
                 value is updated and evaluated immediately
                 ''',
@@ -38354,20 +38327,20 @@ _meta_table = {
                 'threshold_notification_enabled',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-relation', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates relation between sensor value and
                 threshold
                 ''',
                 'threshold_relation',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-severity', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates minor, major, critical severities
                 ''',
                 'threshold_severity',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Value of the configured threshold
                 ''',
                 'threshold_value',
@@ -38415,20 +38388,20 @@ _meta_table = {
                 'threshold_notification_enabled',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-relation', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates relation between sensor value and
                 threshold
                 ''',
                 'threshold_relation',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-severity', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates minor, major, critical severities
                 ''',
                 'threshold_severity',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Value of the configured threshold
                 ''',
                 'threshold_value',
@@ -38476,20 +38449,20 @@ _meta_table = {
                 'threshold_notification_enabled',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-relation', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates relation between sensor value and
                 threshold
                 ''',
                 'threshold_relation',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-severity', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates minor, major, critical severities
                 ''',
                 'threshold_severity',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Value of the configured threshold
                 ''',
                 'threshold_value',
@@ -38537,20 +38510,20 @@ _meta_table = {
                 'threshold_notification_enabled',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-relation', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates relation between sensor value and
                 threshold
                 ''',
                 'threshold_relation',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-severity', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates minor, major, critical severities
                 ''',
                 'threshold_severity',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Value of the configured threshold
                 ''',
                 'threshold_value',
@@ -38598,20 +38571,20 @@ _meta_table = {
                 'threshold_notification_enabled',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-relation', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates relation between sensor value and
                 threshold
                 ''',
                 'threshold_relation',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-severity', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates minor, major, critical severities
                 ''',
                 'threshold_severity',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Value of the configured threshold
                 ''',
                 'threshold_value',
@@ -38659,20 +38632,20 @@ _meta_table = {
                 'threshold_notification_enabled',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-relation', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates relation between sensor value and
                 threshold
                 ''',
                 'threshold_relation',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-severity', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates minor, major, critical severities
                 ''',
                 'threshold_severity',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Value of the configured threshold
                 ''',
                 'threshold_value',
@@ -38753,13 +38726,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('time-in-nano-seconds', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Time Value in Nano-seconds
                 ''',
                 'time_in_nano_seconds',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('time-in-seconds', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Time Value in Seconds
                 ''',
                 'time_in_seconds',
@@ -38776,13 +38749,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('time-in-nano-seconds', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Time Value in Nano-seconds
                 ''',
                 'time_in_nano_seconds',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('time-in-seconds', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Time Value in Seconds
                 ''',
                 'time_in_seconds',
@@ -38799,26 +38772,26 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('card-administrative-state', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                card admin state: shutdown or not
                 ''',
                 'card_administrative_state',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('card-monitor-state', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                card is monitored by a manager or left
                 unmonitored
                 ''',
                 'card_monitor_state',
                 'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('card-operational-state', REFERENCE_ENUM_CLASS, 'InvCardStateEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper', 'InvCardStateEnum', 
-                [], [], 
+            _MetaInfoClassMember('card-operational-state', ATTRIBUTE, 'int' , None, None, 
+                [('-2147483648', '2147483647')], [], 
                 '''                card operation state
                 ''',
                 'card_operational_state',
                 'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('card-reset-reason', REFERENCE_ENUM_CLASS, 'CardResetReasonEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper', 'CardResetReasonEnum', 
-                [], [], 
+            _MetaInfoClassMember('card-reset-reason', ATTRIBUTE, 'int' , None, None, 
+                [('-2147483648', '2147483647')], [], 
                 '''                card reset reason enum
                 ''',
                 'card_reset_reason',
@@ -38836,19 +38809,19 @@ _meta_table = {
                 'last_operational_state_change',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('power-administrative-state', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                power admin state: up or down
                 ''',
                 'power_administrative_state',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('power-current-measurement', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                power current: not implemented
                 ''',
                 'power_current_measurement',
                 'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('power-operational-state', REFERENCE_ENUM_CLASS, 'InvCardStateEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper', 'InvCardStateEnum', 
-                [], [], 
+            _MetaInfoClassMember('power-operational-state', ATTRIBUTE, 'int' , None, None, 
+                [('-2147483648', '2147483647')], [], 
                 '''                Power operation state
                 ''',
                 'power_operational_state',
@@ -38877,7 +38850,7 @@ _meta_table = {
                 'asset_id_str',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('asset-identification', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                asset Identification
                 ''',
                 'asset_identification',
@@ -38895,7 +38868,7 @@ _meta_table = {
                 'chip_hardware_revision',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('composite-class-code', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Major&minor class of the entity
                 ''',
                 'composite_class_code',
@@ -38938,7 +38911,7 @@ _meta_table = {
                 'is_field_replaceable_unit',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('manufacturer-asset-tags', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Manufacture Asset Tags
                 ''',
                 'manufacturer_asset_tags',
@@ -38950,7 +38923,7 @@ _meta_table = {
                 'manufacturer_name',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('memory-size', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Size of memory associated with 						the entity
                 where applicable
                 ''',
@@ -38969,20 +38942,20 @@ _meta_table = {
                 'name',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('new-deviation-number', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                integer value for New Deviation Number 0x88
                 ''',
                 'new_deviation_number',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('physical-layer-interface-module-type', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                integer value for plim type if     applicable to
                 this entity
                 ''',
                 'physical_layer_interface_module_type',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('redundancystate', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                integer value for Redundancy State if    
                 applicable to this entity
                 ''',
@@ -39424,13 +39397,13 @@ _meta_table = {
                 'eeprom',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('has-eeprom', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                use eeprom instead of opaque data
                 ''',
                 'has_eeprom',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('inv-card-type', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                Inventory card type
                 ''',
                 'inv_card_type',
@@ -39442,7 +39415,7 @@ _meta_table = {
                 'opaque_data',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('opaque-data-size', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                size of the EEPROM hex data
                 ''',
                 'opaque_data_size',
@@ -39495,13 +39468,13 @@ _meta_table = {
                 'inv_eeprom_info',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('module-done', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Inventory EDM Module Done Tuple
                 ''',
                 'module_done',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('node-id', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Node ID Tuple
                 ''',
                 'node_id',
@@ -39525,13 +39498,13 @@ _meta_table = {
                 'threshold',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('vm-done', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                VM Done Tuple
                 ''',
                 'vm_done',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('vm-node-id', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                VM Node ID Tuple
                 ''',
                 'vm_node_id',
@@ -39588,19 +39561,19 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('card-type', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                enumeration of the card type
                 ''',
                 'card_type',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('node-administrative-state', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                node admin state: shutdown or not
                 ''',
                 'node_administrative_state',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('node-monitor-state', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                node is monitored by a manager or left
                 unmonitored
                 ''',
@@ -39613,7 +39586,7 @@ _meta_table = {
                 'node_operational_state',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('power-administrative-state', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                power admin state: up or down
                 ''',
                 'power_administrative_state',
@@ -39630,20 +39603,20 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('age-time-stamp', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Age of the sensor value; set to the current time
                 if directly access the value from sensor
                 ''',
                 'age_time_stamp',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('alarm-type', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates threshold violation
                 ''',
                 'alarm_type',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('data-type', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Sensor data type enums
                 ''',
                 'data_type',
@@ -39655,31 +39628,31 @@ _meta_table = {
                 'device_description',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('device-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Identifier for this device
                 ''',
                 'device_id',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('field-validity-bitmap', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Sensor valid bitmap
                 ''',
                 'field_validity_bitmap',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('precision', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Sensor precision range
                 ''',
                 'precision',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('scale', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Sensor scale enums
                 ''',
                 'scale',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('status', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Sensor operation state enums
                 ''',
                 'status',
@@ -39691,14 +39664,14 @@ _meta_table = {
                 'units',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('update-rate', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Sensor value update rate;set to 0 if sensor
                 value is updated and evaluated immediately
                 ''',
                 'update_rate',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Current reading of sensor
                 ''',
                 'value',
@@ -39715,13 +39688,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('power-group-available-current', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                available current
                 ''',
                 'power_group_available_current',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('power-group-drawn-current', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                drawn current
                 ''',
                 'power_group_drawn_current',
@@ -39733,7 +39706,7 @@ _meta_table = {
                 'power_group_power_units',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('power-group-redundancy-mode', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                redundancy mode
                 ''',
                 'power_group_redundancy_mode',
@@ -39769,7 +39742,7 @@ _meta_table = {
                 'threshold_severity',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-value', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Value of the configured threshold
                 ''',
                 'threshold_value',
@@ -39833,7 +39806,7 @@ _meta_table = {
                 'units',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('update-rate', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Sensor value update rate; set to 0 if sensor
                 value is updated and evaluated immediately
                 ''',
@@ -39927,20 +39900,20 @@ _meta_table = {
                 'threshold_notification_enabled',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-relation', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates relation between sensor value and
                 threshold
                 ''',
                 'threshold_relation',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-severity', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates minor, major, critical severities
                 ''',
                 'threshold_severity',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Value of the configured threshold
                 ''',
                 'threshold_value',
@@ -39988,20 +39961,20 @@ _meta_table = {
                 'threshold_notification_enabled',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-relation', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates relation between sensor value and
                 threshold
                 ''',
                 'threshold_relation',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-severity', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates minor, major, critical severities
                 ''',
                 'threshold_severity',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Value of the configured threshold
                 ''',
                 'threshold_value',
@@ -40049,20 +40022,20 @@ _meta_table = {
                 'threshold_notification_enabled',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-relation', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates relation between sensor value and
                 threshold
                 ''',
                 'threshold_relation',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-severity', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates minor, major, critical severities
                 ''',
                 'threshold_severity',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Value of the configured threshold
                 ''',
                 'threshold_value',
@@ -40110,20 +40083,20 @@ _meta_table = {
                 'threshold_notification_enabled',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-relation', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates relation between sensor value and
                 threshold
                 ''',
                 'threshold_relation',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-severity', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates minor, major, critical severities
                 ''',
                 'threshold_severity',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Value of the configured threshold
                 ''',
                 'threshold_value',
@@ -40171,20 +40144,20 @@ _meta_table = {
                 'threshold_notification_enabled',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-relation', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates relation between sensor value and
                 threshold
                 ''',
                 'threshold_relation',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-severity', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates minor, major, critical severities
                 ''',
                 'threshold_severity',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Value of the configured threshold
                 ''',
                 'threshold_value',
@@ -40232,20 +40205,20 @@ _meta_table = {
                 'threshold_notification_enabled',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-relation', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates relation between sensor value and
                 threshold
                 ''',
                 'threshold_relation',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-severity', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates minor, major, critical severities
                 ''',
                 'threshold_severity',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Value of the configured threshold
                 ''',
                 'threshold_value',
@@ -40326,13 +40299,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('time-in-nano-seconds', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Time Value in Nano-seconds
                 ''',
                 'time_in_nano_seconds',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('time-in-seconds', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Time Value in Seconds
                 ''',
                 'time_in_seconds',
@@ -40349,13 +40322,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('time-in-nano-seconds', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Time Value in Nano-seconds
                 ''',
                 'time_in_nano_seconds',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('time-in-seconds', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Time Value in Seconds
                 ''',
                 'time_in_seconds',
@@ -40372,26 +40345,26 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('card-administrative-state', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                card admin state: shutdown or not
                 ''',
                 'card_administrative_state',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('card-monitor-state', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                card is monitored by a manager or left
                 unmonitored
                 ''',
                 'card_monitor_state',
                 'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('card-operational-state', REFERENCE_ENUM_CLASS, 'InvCardStateEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper', 'InvCardStateEnum', 
-                [], [], 
+            _MetaInfoClassMember('card-operational-state', ATTRIBUTE, 'int' , None, None, 
+                [('-2147483648', '2147483647')], [], 
                 '''                card operation state
                 ''',
                 'card_operational_state',
                 'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('card-reset-reason', REFERENCE_ENUM_CLASS, 'CardResetReasonEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper', 'CardResetReasonEnum', 
-                [], [], 
+            _MetaInfoClassMember('card-reset-reason', ATTRIBUTE, 'int' , None, None, 
+                [('-2147483648', '2147483647')], [], 
                 '''                card reset reason enum
                 ''',
                 'card_reset_reason',
@@ -40409,19 +40382,19 @@ _meta_table = {
                 'last_operational_state_change',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('power-administrative-state', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                power admin state: up or down
                 ''',
                 'power_administrative_state',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('power-current-measurement', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                power current: not implemented
                 ''',
                 'power_current_measurement',
                 'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('power-operational-state', REFERENCE_ENUM_CLASS, 'InvCardStateEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper', 'InvCardStateEnum', 
-                [], [], 
+            _MetaInfoClassMember('power-operational-state', ATTRIBUTE, 'int' , None, None, 
+                [('-2147483648', '2147483647')], [], 
                 '''                Power operation state
                 ''',
                 'power_operational_state',
@@ -40450,7 +40423,7 @@ _meta_table = {
                 'asset_id_str',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('asset-identification', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                asset Identification
                 ''',
                 'asset_identification',
@@ -40468,7 +40441,7 @@ _meta_table = {
                 'chip_hardware_revision',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('composite-class-code', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Major&minor class of the entity
                 ''',
                 'composite_class_code',
@@ -40511,7 +40484,7 @@ _meta_table = {
                 'is_field_replaceable_unit',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('manufacturer-asset-tags', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Manufacture Asset Tags
                 ''',
                 'manufacturer_asset_tags',
@@ -40523,7 +40496,7 @@ _meta_table = {
                 'manufacturer_name',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('memory-size', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Size of memory associated with 						the entity
                 where applicable
                 ''',
@@ -40542,20 +40515,20 @@ _meta_table = {
                 'name',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('new-deviation-number', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                integer value for New Deviation Number 0x88
                 ''',
                 'new_deviation_number',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('physical-layer-interface-module-type', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                integer value for plim type if     applicable to
                 this entity
                 ''',
                 'physical_layer_interface_module_type',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('redundancystate', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                integer value for Redundancy State if    
                 applicable to this entity
                 ''',
@@ -40997,13 +40970,13 @@ _meta_table = {
                 'eeprom',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('has-eeprom', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                use eeprom instead of opaque data
                 ''',
                 'has_eeprom',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('inv-card-type', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                Inventory card type
                 ''',
                 'inv_card_type',
@@ -41015,7 +40988,7 @@ _meta_table = {
                 'opaque_data',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('opaque-data-size', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                size of the EEPROM hex data
                 ''',
                 'opaque_data_size',
@@ -41068,13 +41041,13 @@ _meta_table = {
                 'inv_eeprom_info',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('module-done', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Inventory EDM Module Done Tuple
                 ''',
                 'module_done',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('node-id', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Node ID Tuple
                 ''',
                 'node_id',
@@ -41098,13 +41071,13 @@ _meta_table = {
                 'threshold',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('vm-done', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                VM Done Tuple
                 ''',
                 'vm_done',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('vm-node-id', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                VM Node ID Tuple
                 ''',
                 'vm_node_id',
@@ -41167,19 +41140,19 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('card-type', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                enumeration of the card type
                 ''',
                 'card_type',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('node-administrative-state', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                node admin state: shutdown or not
                 ''',
                 'node_administrative_state',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('node-monitor-state', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                node is monitored by a manager or left
                 unmonitored
                 ''',
@@ -41192,7 +41165,7 @@ _meta_table = {
                 'node_operational_state',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('power-administrative-state', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                power admin state: up or down
                 ''',
                 'power_administrative_state',
@@ -41209,20 +41182,20 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('age-time-stamp', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Age of the sensor value; set to the current time
                 if directly access the value from sensor
                 ''',
                 'age_time_stamp',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('alarm-type', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates threshold violation
                 ''',
                 'alarm_type',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('data-type', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Sensor data type enums
                 ''',
                 'data_type',
@@ -41234,31 +41207,31 @@ _meta_table = {
                 'device_description',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('device-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Identifier for this device
                 ''',
                 'device_id',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('field-validity-bitmap', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Sensor valid bitmap
                 ''',
                 'field_validity_bitmap',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('precision', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Sensor precision range
                 ''',
                 'precision',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('scale', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Sensor scale enums
                 ''',
                 'scale',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('status', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Sensor operation state enums
                 ''',
                 'status',
@@ -41270,14 +41243,14 @@ _meta_table = {
                 'units',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('update-rate', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Sensor value update rate;set to 0 if sensor
                 value is updated and evaluated immediately
                 ''',
                 'update_rate',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Current reading of sensor
                 ''',
                 'value',
@@ -41294,13 +41267,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('power-group-available-current', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                available current
                 ''',
                 'power_group_available_current',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('power-group-drawn-current', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                drawn current
                 ''',
                 'power_group_drawn_current',
@@ -41312,7 +41285,7 @@ _meta_table = {
                 'power_group_power_units',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('power-group-redundancy-mode', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                redundancy mode
                 ''',
                 'power_group_redundancy_mode',
@@ -41348,7 +41321,7 @@ _meta_table = {
                 'threshold_severity',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-value', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Value of the configured threshold
                 ''',
                 'threshold_value',
@@ -41412,7 +41385,7 @@ _meta_table = {
                 'units',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('update-rate', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Sensor value update rate; set to 0 if sensor
                 value is updated and evaluated immediately
                 ''',
@@ -41506,20 +41479,20 @@ _meta_table = {
                 'threshold_notification_enabled',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-relation', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates relation between sensor value and
                 threshold
                 ''',
                 'threshold_relation',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-severity', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates minor, major, critical severities
                 ''',
                 'threshold_severity',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Value of the configured threshold
                 ''',
                 'threshold_value',
@@ -41567,20 +41540,20 @@ _meta_table = {
                 'threshold_notification_enabled',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-relation', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates relation between sensor value and
                 threshold
                 ''',
                 'threshold_relation',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-severity', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates minor, major, critical severities
                 ''',
                 'threshold_severity',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Value of the configured threshold
                 ''',
                 'threshold_value',
@@ -41628,20 +41601,20 @@ _meta_table = {
                 'threshold_notification_enabled',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-relation', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates relation between sensor value and
                 threshold
                 ''',
                 'threshold_relation',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-severity', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates minor, major, critical severities
                 ''',
                 'threshold_severity',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Value of the configured threshold
                 ''',
                 'threshold_value',
@@ -41689,20 +41662,20 @@ _meta_table = {
                 'threshold_notification_enabled',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-relation', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates relation between sensor value and
                 threshold
                 ''',
                 'threshold_relation',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-severity', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates minor, major, critical severities
                 ''',
                 'threshold_severity',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Value of the configured threshold
                 ''',
                 'threshold_value',
@@ -41750,20 +41723,20 @@ _meta_table = {
                 'threshold_notification_enabled',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-relation', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates relation between sensor value and
                 threshold
                 ''',
                 'threshold_relation',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-severity', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates minor, major, critical severities
                 ''',
                 'threshold_severity',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Value of the configured threshold
                 ''',
                 'threshold_value',
@@ -41811,20 +41784,20 @@ _meta_table = {
                 'threshold_notification_enabled',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-relation', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates relation between sensor value and
                 threshold
                 ''',
                 'threshold_relation',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-severity', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates minor, major, critical severities
                 ''',
                 'threshold_severity',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Value of the configured threshold
                 ''',
                 'threshold_value',
@@ -41905,13 +41878,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('time-in-nano-seconds', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Time Value in Nano-seconds
                 ''',
                 'time_in_nano_seconds',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('time-in-seconds', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Time Value in Seconds
                 ''',
                 'time_in_seconds',
@@ -41928,13 +41901,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('time-in-nano-seconds', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Time Value in Nano-seconds
                 ''',
                 'time_in_nano_seconds',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('time-in-seconds', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Time Value in Seconds
                 ''',
                 'time_in_seconds',
@@ -41951,26 +41924,26 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('card-administrative-state', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                card admin state: shutdown or not
                 ''',
                 'card_administrative_state',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('card-monitor-state', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                card is monitored by a manager or left
                 unmonitored
                 ''',
                 'card_monitor_state',
                 'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('card-operational-state', REFERENCE_ENUM_CLASS, 'InvCardStateEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper', 'InvCardStateEnum', 
-                [], [], 
+            _MetaInfoClassMember('card-operational-state', ATTRIBUTE, 'int' , None, None, 
+                [('-2147483648', '2147483647')], [], 
                 '''                card operation state
                 ''',
                 'card_operational_state',
                 'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('card-reset-reason', REFERENCE_ENUM_CLASS, 'CardResetReasonEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper', 'CardResetReasonEnum', 
-                [], [], 
+            _MetaInfoClassMember('card-reset-reason', ATTRIBUTE, 'int' , None, None, 
+                [('-2147483648', '2147483647')], [], 
                 '''                card reset reason enum
                 ''',
                 'card_reset_reason',
@@ -41988,19 +41961,19 @@ _meta_table = {
                 'last_operational_state_change',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('power-administrative-state', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                power admin state: up or down
                 ''',
                 'power_administrative_state',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('power-current-measurement', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                power current: not implemented
                 ''',
                 'power_current_measurement',
                 'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('power-operational-state', REFERENCE_ENUM_CLASS, 'InvCardStateEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper', 'InvCardStateEnum', 
-                [], [], 
+            _MetaInfoClassMember('power-operational-state', ATTRIBUTE, 'int' , None, None, 
+                [('-2147483648', '2147483647')], [], 
                 '''                Power operation state
                 ''',
                 'power_operational_state',
@@ -42029,7 +42002,7 @@ _meta_table = {
                 'asset_id_str',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('asset-identification', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                asset Identification
                 ''',
                 'asset_identification',
@@ -42047,7 +42020,7 @@ _meta_table = {
                 'chip_hardware_revision',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('composite-class-code', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Major&minor class of the entity
                 ''',
                 'composite_class_code',
@@ -42090,7 +42063,7 @@ _meta_table = {
                 'is_field_replaceable_unit',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('manufacturer-asset-tags', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Manufacture Asset Tags
                 ''',
                 'manufacturer_asset_tags',
@@ -42102,7 +42075,7 @@ _meta_table = {
                 'manufacturer_name',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('memory-size', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Size of memory associated with 						the entity
                 where applicable
                 ''',
@@ -42121,20 +42094,20 @@ _meta_table = {
                 'name',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('new-deviation-number', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                integer value for New Deviation Number 0x88
                 ''',
                 'new_deviation_number',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('physical-layer-interface-module-type', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                integer value for plim type if     applicable to
                 this entity
                 ''',
                 'physical_layer_interface_module_type',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('redundancystate', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                integer value for Redundancy State if    
                 applicable to this entity
                 ''',
@@ -42576,13 +42549,13 @@ _meta_table = {
                 'eeprom',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('has-eeprom', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                use eeprom instead of opaque data
                 ''',
                 'has_eeprom',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('inv-card-type', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                Inventory card type
                 ''',
                 'inv_card_type',
@@ -42594,7 +42567,7 @@ _meta_table = {
                 'opaque_data',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('opaque-data-size', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                size of the EEPROM hex data
                 ''',
                 'opaque_data_size',
@@ -42647,13 +42620,13 @@ _meta_table = {
                 'inv_eeprom_info',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('module-done', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Inventory EDM Module Done Tuple
                 ''',
                 'module_done',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('node-id', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Node ID Tuple
                 ''',
                 'node_id',
@@ -42677,13 +42650,13 @@ _meta_table = {
                 'threshold',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('vm-done', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                VM Done Tuple
                 ''',
                 'vm_done',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('vm-node-id', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                VM Node ID Tuple
                 ''',
                 'vm_node_id',
@@ -42746,19 +42719,19 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('card-type', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                enumeration of the card type
                 ''',
                 'card_type',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('node-administrative-state', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                node admin state: shutdown or not
                 ''',
                 'node_administrative_state',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('node-monitor-state', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                node is monitored by a manager or left
                 unmonitored
                 ''',
@@ -42771,7 +42744,7 @@ _meta_table = {
                 'node_operational_state',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('power-administrative-state', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                power admin state: up or down
                 ''',
                 'power_administrative_state',
@@ -42788,20 +42761,20 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('age-time-stamp', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Age of the sensor value; set to the current time
                 if directly access the value from sensor
                 ''',
                 'age_time_stamp',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('alarm-type', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates threshold violation
                 ''',
                 'alarm_type',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('data-type', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Sensor data type enums
                 ''',
                 'data_type',
@@ -42813,31 +42786,31 @@ _meta_table = {
                 'device_description',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('device-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Identifier for this device
                 ''',
                 'device_id',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('field-validity-bitmap', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Sensor valid bitmap
                 ''',
                 'field_validity_bitmap',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('precision', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Sensor precision range
                 ''',
                 'precision',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('scale', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Sensor scale enums
                 ''',
                 'scale',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('status', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Sensor operation state enums
                 ''',
                 'status',
@@ -42849,14 +42822,14 @@ _meta_table = {
                 'units',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('update-rate', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Sensor value update rate;set to 0 if sensor
                 value is updated and evaluated immediately
                 ''',
                 'update_rate',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Current reading of sensor
                 ''',
                 'value',
@@ -42873,13 +42846,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('power-group-available-current', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                available current
                 ''',
                 'power_group_available_current',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('power-group-drawn-current', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                drawn current
                 ''',
                 'power_group_drawn_current',
@@ -42891,7 +42864,7 @@ _meta_table = {
                 'power_group_power_units',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('power-group-redundancy-mode', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                redundancy mode
                 ''',
                 'power_group_redundancy_mode',
@@ -42927,7 +42900,7 @@ _meta_table = {
                 'threshold_severity',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-value', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Value of the configured threshold
                 ''',
                 'threshold_value',
@@ -42991,7 +42964,7 @@ _meta_table = {
                 'units',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('update-rate', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Sensor value update rate; set to 0 if sensor
                 value is updated and evaluated immediately
                 ''',
@@ -43085,20 +43058,20 @@ _meta_table = {
                 'threshold_notification_enabled',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-relation', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates relation between sensor value and
                 threshold
                 ''',
                 'threshold_relation',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-severity', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates minor, major, critical severities
                 ''',
                 'threshold_severity',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Value of the configured threshold
                 ''',
                 'threshold_value',
@@ -43146,20 +43119,20 @@ _meta_table = {
                 'threshold_notification_enabled',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-relation', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates relation between sensor value and
                 threshold
                 ''',
                 'threshold_relation',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-severity', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates minor, major, critical severities
                 ''',
                 'threshold_severity',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Value of the configured threshold
                 ''',
                 'threshold_value',
@@ -43207,20 +43180,20 @@ _meta_table = {
                 'threshold_notification_enabled',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-relation', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates relation between sensor value and
                 threshold
                 ''',
                 'threshold_relation',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-severity', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates minor, major, critical severities
                 ''',
                 'threshold_severity',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Value of the configured threshold
                 ''',
                 'threshold_value',
@@ -43268,20 +43241,20 @@ _meta_table = {
                 'threshold_notification_enabled',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-relation', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates relation between sensor value and
                 threshold
                 ''',
                 'threshold_relation',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-severity', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates minor, major, critical severities
                 ''',
                 'threshold_severity',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Value of the configured threshold
                 ''',
                 'threshold_value',
@@ -43329,20 +43302,20 @@ _meta_table = {
                 'threshold_notification_enabled',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-relation', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates relation between sensor value and
                 threshold
                 ''',
                 'threshold_relation',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-severity', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates minor, major, critical severities
                 ''',
                 'threshold_severity',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Value of the configured threshold
                 ''',
                 'threshold_value',
@@ -43390,20 +43363,20 @@ _meta_table = {
                 'threshold_notification_enabled',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-relation', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates relation between sensor value and
                 threshold
                 ''',
                 'threshold_relation',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-severity', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates minor, major, critical severities
                 ''',
                 'threshold_severity',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Value of the configured threshold
                 ''',
                 'threshold_value',
@@ -43484,13 +43457,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('time-in-nano-seconds', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Time Value in Nano-seconds
                 ''',
                 'time_in_nano_seconds',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('time-in-seconds', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Time Value in Seconds
                 ''',
                 'time_in_seconds',
@@ -43507,13 +43480,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('time-in-nano-seconds', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Time Value in Nano-seconds
                 ''',
                 'time_in_nano_seconds',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('time-in-seconds', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Time Value in Seconds
                 ''',
                 'time_in_seconds',
@@ -43530,26 +43503,26 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('card-administrative-state', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                card admin state: shutdown or not
                 ''',
                 'card_administrative_state',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('card-monitor-state', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                card is monitored by a manager or left
                 unmonitored
                 ''',
                 'card_monitor_state',
                 'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('card-operational-state', REFERENCE_ENUM_CLASS, 'InvCardStateEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper', 'InvCardStateEnum', 
-                [], [], 
+            _MetaInfoClassMember('card-operational-state', ATTRIBUTE, 'int' , None, None, 
+                [('-2147483648', '2147483647')], [], 
                 '''                card operation state
                 ''',
                 'card_operational_state',
                 'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('card-reset-reason', REFERENCE_ENUM_CLASS, 'CardResetReasonEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper', 'CardResetReasonEnum', 
-                [], [], 
+            _MetaInfoClassMember('card-reset-reason', ATTRIBUTE, 'int' , None, None, 
+                [('-2147483648', '2147483647')], [], 
                 '''                card reset reason enum
                 ''',
                 'card_reset_reason',
@@ -43567,19 +43540,19 @@ _meta_table = {
                 'last_operational_state_change',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('power-administrative-state', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                power admin state: up or down
                 ''',
                 'power_administrative_state',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('power-current-measurement', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                power current: not implemented
                 ''',
                 'power_current_measurement',
                 'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('power-operational-state', REFERENCE_ENUM_CLASS, 'InvCardStateEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper', 'InvCardStateEnum', 
-                [], [], 
+            _MetaInfoClassMember('power-operational-state', ATTRIBUTE, 'int' , None, None, 
+                [('-2147483648', '2147483647')], [], 
                 '''                Power operation state
                 ''',
                 'power_operational_state',
@@ -43608,7 +43581,7 @@ _meta_table = {
                 'asset_id_str',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('asset-identification', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                asset Identification
                 ''',
                 'asset_identification',
@@ -43626,7 +43599,7 @@ _meta_table = {
                 'chip_hardware_revision',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('composite-class-code', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Major&minor class of the entity
                 ''',
                 'composite_class_code',
@@ -43669,7 +43642,7 @@ _meta_table = {
                 'is_field_replaceable_unit',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('manufacturer-asset-tags', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Manufacture Asset Tags
                 ''',
                 'manufacturer_asset_tags',
@@ -43681,7 +43654,7 @@ _meta_table = {
                 'manufacturer_name',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('memory-size', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Size of memory associated with 						the entity
                 where applicable
                 ''',
@@ -43700,20 +43673,20 @@ _meta_table = {
                 'name',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('new-deviation-number', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                integer value for New Deviation Number 0x88
                 ''',
                 'new_deviation_number',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('physical-layer-interface-module-type', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                integer value for plim type if     applicable to
                 this entity
                 ''',
                 'physical_layer_interface_module_type',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('redundancystate', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                integer value for Redundancy State if    
                 applicable to this entity
                 ''',
@@ -44155,13 +44128,13 @@ _meta_table = {
                 'eeprom',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('has-eeprom', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                use eeprom instead of opaque data
                 ''',
                 'has_eeprom',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('inv-card-type', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                Inventory card type
                 ''',
                 'inv_card_type',
@@ -44173,7 +44146,7 @@ _meta_table = {
                 'opaque_data',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('opaque-data-size', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                size of the EEPROM hex data
                 ''',
                 'opaque_data_size',
@@ -44226,13 +44199,13 @@ _meta_table = {
                 'inv_eeprom_info',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('module-done', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Inventory EDM Module Done Tuple
                 ''',
                 'module_done',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('node-id', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Node ID Tuple
                 ''',
                 'node_id',
@@ -44256,13 +44229,13 @@ _meta_table = {
                 'threshold',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('vm-done', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                VM Done Tuple
                 ''',
                 'vm_done',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('vm-node-id', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                VM Node ID Tuple
                 ''',
                 'vm_node_id',
@@ -44325,19 +44298,19 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('card-type', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                enumeration of the card type
                 ''',
                 'card_type',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('node-administrative-state', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                node admin state: shutdown or not
                 ''',
                 'node_administrative_state',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('node-monitor-state', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                node is monitored by a manager or left
                 unmonitored
                 ''',
@@ -44350,7 +44323,7 @@ _meta_table = {
                 'node_operational_state',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('power-administrative-state', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                power admin state: up or down
                 ''',
                 'power_administrative_state',
@@ -44367,20 +44340,20 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('age-time-stamp', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Age of the sensor value; set to the current time
                 if directly access the value from sensor
                 ''',
                 'age_time_stamp',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('alarm-type', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates threshold violation
                 ''',
                 'alarm_type',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('data-type', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Sensor data type enums
                 ''',
                 'data_type',
@@ -44392,31 +44365,31 @@ _meta_table = {
                 'device_description',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('device-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Identifier for this device
                 ''',
                 'device_id',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('field-validity-bitmap', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Sensor valid bitmap
                 ''',
                 'field_validity_bitmap',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('precision', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Sensor precision range
                 ''',
                 'precision',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('scale', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Sensor scale enums
                 ''',
                 'scale',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('status', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Sensor operation state enums
                 ''',
                 'status',
@@ -44428,14 +44401,14 @@ _meta_table = {
                 'units',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('update-rate', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Sensor value update rate;set to 0 if sensor
                 value is updated and evaluated immediately
                 ''',
                 'update_rate',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Current reading of sensor
                 ''',
                 'value',
@@ -44452,13 +44425,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('power-group-available-current', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                available current
                 ''',
                 'power_group_available_current',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('power-group-drawn-current', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                drawn current
                 ''',
                 'power_group_drawn_current',
@@ -44470,7 +44443,7 @@ _meta_table = {
                 'power_group_power_units',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('power-group-redundancy-mode', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                redundancy mode
                 ''',
                 'power_group_redundancy_mode',
@@ -44506,7 +44479,7 @@ _meta_table = {
                 'threshold_severity',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-value', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Value of the configured threshold
                 ''',
                 'threshold_value',
@@ -44570,7 +44543,7 @@ _meta_table = {
                 'units',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('update-rate', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Sensor value update rate; set to 0 if sensor
                 value is updated and evaluated immediately
                 ''',
@@ -44664,20 +44637,20 @@ _meta_table = {
                 'threshold_notification_enabled',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-relation', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates relation between sensor value and
                 threshold
                 ''',
                 'threshold_relation',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-severity', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates minor, major, critical severities
                 ''',
                 'threshold_severity',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Value of the configured threshold
                 ''',
                 'threshold_value',
@@ -44725,20 +44698,20 @@ _meta_table = {
                 'threshold_notification_enabled',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-relation', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates relation between sensor value and
                 threshold
                 ''',
                 'threshold_relation',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-severity', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates minor, major, critical severities
                 ''',
                 'threshold_severity',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Value of the configured threshold
                 ''',
                 'threshold_value',
@@ -44786,20 +44759,20 @@ _meta_table = {
                 'threshold_notification_enabled',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-relation', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates relation between sensor value and
                 threshold
                 ''',
                 'threshold_relation',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-severity', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates minor, major, critical severities
                 ''',
                 'threshold_severity',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Value of the configured threshold
                 ''',
                 'threshold_value',
@@ -44847,20 +44820,20 @@ _meta_table = {
                 'threshold_notification_enabled',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-relation', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates relation between sensor value and
                 threshold
                 ''',
                 'threshold_relation',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-severity', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates minor, major, critical severities
                 ''',
                 'threshold_severity',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Value of the configured threshold
                 ''',
                 'threshold_value',
@@ -44908,20 +44881,20 @@ _meta_table = {
                 'threshold_notification_enabled',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-relation', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates relation between sensor value and
                 threshold
                 ''',
                 'threshold_relation',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-severity', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates minor, major, critical severities
                 ''',
                 'threshold_severity',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Value of the configured threshold
                 ''',
                 'threshold_value',
@@ -44969,20 +44942,20 @@ _meta_table = {
                 'threshold_notification_enabled',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-relation', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates relation between sensor value and
                 threshold
                 ''',
                 'threshold_relation',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-severity', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates minor, major, critical severities
                 ''',
                 'threshold_severity',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Value of the configured threshold
                 ''',
                 'threshold_value',
@@ -45063,13 +45036,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('time-in-nano-seconds', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Time Value in Nano-seconds
                 ''',
                 'time_in_nano_seconds',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('time-in-seconds', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Time Value in Seconds
                 ''',
                 'time_in_seconds',
@@ -45086,13 +45059,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('time-in-nano-seconds', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Time Value in Nano-seconds
                 ''',
                 'time_in_nano_seconds',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('time-in-seconds', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Time Value in Seconds
                 ''',
                 'time_in_seconds',
@@ -45109,26 +45082,26 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('card-administrative-state', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                card admin state: shutdown or not
                 ''',
                 'card_administrative_state',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('card-monitor-state', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                card is monitored by a manager or left
                 unmonitored
                 ''',
                 'card_monitor_state',
                 'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('card-operational-state', REFERENCE_ENUM_CLASS, 'InvCardStateEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper', 'InvCardStateEnum', 
-                [], [], 
+            _MetaInfoClassMember('card-operational-state', ATTRIBUTE, 'int' , None, None, 
+                [('-2147483648', '2147483647')], [], 
                 '''                card operation state
                 ''',
                 'card_operational_state',
                 'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('card-reset-reason', REFERENCE_ENUM_CLASS, 'CardResetReasonEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper', 'CardResetReasonEnum', 
-                [], [], 
+            _MetaInfoClassMember('card-reset-reason', ATTRIBUTE, 'int' , None, None, 
+                [('-2147483648', '2147483647')], [], 
                 '''                card reset reason enum
                 ''',
                 'card_reset_reason',
@@ -45146,19 +45119,19 @@ _meta_table = {
                 'last_operational_state_change',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('power-administrative-state', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                power admin state: up or down
                 ''',
                 'power_administrative_state',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('power-current-measurement', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                power current: not implemented
                 ''',
                 'power_current_measurement',
                 'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('power-operational-state', REFERENCE_ENUM_CLASS, 'InvCardStateEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper', 'InvCardStateEnum', 
-                [], [], 
+            _MetaInfoClassMember('power-operational-state', ATTRIBUTE, 'int' , None, None, 
+                [('-2147483648', '2147483647')], [], 
                 '''                Power operation state
                 ''',
                 'power_operational_state',
@@ -45187,7 +45160,7 @@ _meta_table = {
                 'asset_id_str',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('asset-identification', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                asset Identification
                 ''',
                 'asset_identification',
@@ -45205,7 +45178,7 @@ _meta_table = {
                 'chip_hardware_revision',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('composite-class-code', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Major&minor class of the entity
                 ''',
                 'composite_class_code',
@@ -45248,7 +45221,7 @@ _meta_table = {
                 'is_field_replaceable_unit',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('manufacturer-asset-tags', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Manufacture Asset Tags
                 ''',
                 'manufacturer_asset_tags',
@@ -45260,7 +45233,7 @@ _meta_table = {
                 'manufacturer_name',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('memory-size', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Size of memory associated with 						the entity
                 where applicable
                 ''',
@@ -45279,20 +45252,20 @@ _meta_table = {
                 'name',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('new-deviation-number', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                integer value for New Deviation Number 0x88
                 ''',
                 'new_deviation_number',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('physical-layer-interface-module-type', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                integer value for plim type if     applicable to
                 this entity
                 ''',
                 'physical_layer_interface_module_type',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('redundancystate', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                integer value for Redundancy State if    
                 applicable to this entity
                 ''',
@@ -45734,13 +45707,13 @@ _meta_table = {
                 'eeprom',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('has-eeprom', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                use eeprom instead of opaque data
                 ''',
                 'has_eeprom',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('inv-card-type', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                Inventory card type
                 ''',
                 'inv_card_type',
@@ -45752,7 +45725,7 @@ _meta_table = {
                 'opaque_data',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('opaque-data-size', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                size of the EEPROM hex data
                 ''',
                 'opaque_data_size',
@@ -45805,13 +45778,13 @@ _meta_table = {
                 'inv_eeprom_info',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('module-done', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Inventory EDM Module Done Tuple
                 ''',
                 'module_done',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('node-id', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Node ID Tuple
                 ''',
                 'node_id',
@@ -45835,13 +45808,13 @@ _meta_table = {
                 'threshold',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('vm-done', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                VM Done Tuple
                 ''',
                 'vm_done',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('vm-node-id', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                VM Node ID Tuple
                 ''',
                 'vm_node_id',
@@ -45904,19 +45877,19 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('card-type', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                enumeration of the card type
                 ''',
                 'card_type',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('node-administrative-state', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                node admin state: shutdown or not
                 ''',
                 'node_administrative_state',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('node-monitor-state', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                node is monitored by a manager or left
                 unmonitored
                 ''',
@@ -45929,7 +45902,7 @@ _meta_table = {
                 'node_operational_state',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('power-administrative-state', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                power admin state: up or down
                 ''',
                 'power_administrative_state',
@@ -45946,20 +45919,20 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('age-time-stamp', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Age of the sensor value; set to the current time
                 if directly access the value from sensor
                 ''',
                 'age_time_stamp',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('alarm-type', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates threshold violation
                 ''',
                 'alarm_type',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('data-type', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Sensor data type enums
                 ''',
                 'data_type',
@@ -45971,31 +45944,31 @@ _meta_table = {
                 'device_description',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('device-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Identifier for this device
                 ''',
                 'device_id',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('field-validity-bitmap', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Sensor valid bitmap
                 ''',
                 'field_validity_bitmap',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('precision', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Sensor precision range
                 ''',
                 'precision',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('scale', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Sensor scale enums
                 ''',
                 'scale',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('status', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Sensor operation state enums
                 ''',
                 'status',
@@ -46007,14 +45980,14 @@ _meta_table = {
                 'units',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('update-rate', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Sensor value update rate;set to 0 if sensor
                 value is updated and evaluated immediately
                 ''',
                 'update_rate',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Current reading of sensor
                 ''',
                 'value',
@@ -46031,13 +46004,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('power-group-available-current', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                available current
                 ''',
                 'power_group_available_current',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('power-group-drawn-current', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                drawn current
                 ''',
                 'power_group_drawn_current',
@@ -46049,7 +46022,7 @@ _meta_table = {
                 'power_group_power_units',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('power-group-redundancy-mode', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                redundancy mode
                 ''',
                 'power_group_redundancy_mode',
@@ -46085,7 +46058,7 @@ _meta_table = {
                 'threshold_severity',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-value', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Value of the configured threshold
                 ''',
                 'threshold_value',
@@ -46149,7 +46122,7 @@ _meta_table = {
                 'units',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('update-rate', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Sensor value update rate; set to 0 if sensor
                 value is updated and evaluated immediately
                 ''',
@@ -46243,20 +46216,20 @@ _meta_table = {
                 'threshold_notification_enabled',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-relation', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates relation between sensor value and
                 threshold
                 ''',
                 'threshold_relation',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-severity', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates minor, major, critical severities
                 ''',
                 'threshold_severity',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Value of the configured threshold
                 ''',
                 'threshold_value',
@@ -46304,20 +46277,20 @@ _meta_table = {
                 'threshold_notification_enabled',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-relation', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates relation between sensor value and
                 threshold
                 ''',
                 'threshold_relation',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-severity', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates minor, major, critical severities
                 ''',
                 'threshold_severity',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Value of the configured threshold
                 ''',
                 'threshold_value',
@@ -46365,20 +46338,20 @@ _meta_table = {
                 'threshold_notification_enabled',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-relation', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates relation between sensor value and
                 threshold
                 ''',
                 'threshold_relation',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-severity', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates minor, major, critical severities
                 ''',
                 'threshold_severity',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Value of the configured threshold
                 ''',
                 'threshold_value',
@@ -46426,20 +46399,20 @@ _meta_table = {
                 'threshold_notification_enabled',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-relation', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates relation between sensor value and
                 threshold
                 ''',
                 'threshold_relation',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-severity', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates minor, major, critical severities
                 ''',
                 'threshold_severity',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Value of the configured threshold
                 ''',
                 'threshold_value',
@@ -46487,20 +46460,20 @@ _meta_table = {
                 'threshold_notification_enabled',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-relation', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates relation between sensor value and
                 threshold
                 ''',
                 'threshold_relation',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-severity', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates minor, major, critical severities
                 ''',
                 'threshold_severity',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Value of the configured threshold
                 ''',
                 'threshold_value',
@@ -46548,20 +46521,20 @@ _meta_table = {
                 'threshold_notification_enabled',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-relation', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates relation between sensor value and
                 threshold
                 ''',
                 'threshold_relation',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-severity', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates minor, major, critical severities
                 ''',
                 'threshold_severity',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Value of the configured threshold
                 ''',
                 'threshold_value',
@@ -46642,13 +46615,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('time-in-nano-seconds', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Time Value in Nano-seconds
                 ''',
                 'time_in_nano_seconds',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('time-in-seconds', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Time Value in Seconds
                 ''',
                 'time_in_seconds',
@@ -46665,13 +46638,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('time-in-nano-seconds', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Time Value in Nano-seconds
                 ''',
                 'time_in_nano_seconds',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('time-in-seconds', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Time Value in Seconds
                 ''',
                 'time_in_seconds',
@@ -46688,26 +46661,26 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('card-administrative-state', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                card admin state: shutdown or not
                 ''',
                 'card_administrative_state',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('card-monitor-state', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                card is monitored by a manager or left
                 unmonitored
                 ''',
                 'card_monitor_state',
                 'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('card-operational-state', REFERENCE_ENUM_CLASS, 'InvCardStateEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper', 'InvCardStateEnum', 
-                [], [], 
+            _MetaInfoClassMember('card-operational-state', ATTRIBUTE, 'int' , None, None, 
+                [('-2147483648', '2147483647')], [], 
                 '''                card operation state
                 ''',
                 'card_operational_state',
                 'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('card-reset-reason', REFERENCE_ENUM_CLASS, 'CardResetReasonEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper', 'CardResetReasonEnum', 
-                [], [], 
+            _MetaInfoClassMember('card-reset-reason', ATTRIBUTE, 'int' , None, None, 
+                [('-2147483648', '2147483647')], [], 
                 '''                card reset reason enum
                 ''',
                 'card_reset_reason',
@@ -46725,19 +46698,19 @@ _meta_table = {
                 'last_operational_state_change',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('power-administrative-state', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                power admin state: up or down
                 ''',
                 'power_administrative_state',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('power-current-measurement', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                power current: not implemented
                 ''',
                 'power_current_measurement',
                 'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('power-operational-state', REFERENCE_ENUM_CLASS, 'InvCardStateEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper', 'InvCardStateEnum', 
-                [], [], 
+            _MetaInfoClassMember('power-operational-state', ATTRIBUTE, 'int' , None, None, 
+                [('-2147483648', '2147483647')], [], 
                 '''                Power operation state
                 ''',
                 'power_operational_state',
@@ -46766,7 +46739,7 @@ _meta_table = {
                 'asset_id_str',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('asset-identification', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                asset Identification
                 ''',
                 'asset_identification',
@@ -46784,7 +46757,7 @@ _meta_table = {
                 'chip_hardware_revision',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('composite-class-code', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Major&minor class of the entity
                 ''',
                 'composite_class_code',
@@ -46827,7 +46800,7 @@ _meta_table = {
                 'is_field_replaceable_unit',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('manufacturer-asset-tags', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Manufacture Asset Tags
                 ''',
                 'manufacturer_asset_tags',
@@ -46839,7 +46812,7 @@ _meta_table = {
                 'manufacturer_name',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('memory-size', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Size of memory associated with 						the entity
                 where applicable
                 ''',
@@ -46858,20 +46831,20 @@ _meta_table = {
                 'name',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('new-deviation-number', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                integer value for New Deviation Number 0x88
                 ''',
                 'new_deviation_number',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('physical-layer-interface-module-type', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                integer value for plim type if     applicable to
                 this entity
                 ''',
                 'physical_layer_interface_module_type',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('redundancystate', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                integer value for Redundancy State if    
                 applicable to this entity
                 ''',
@@ -47313,13 +47286,13 @@ _meta_table = {
                 'eeprom',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('has-eeprom', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                use eeprom instead of opaque data
                 ''',
                 'has_eeprom',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('inv-card-type', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                Inventory card type
                 ''',
                 'inv_card_type',
@@ -47331,7 +47304,7 @@ _meta_table = {
                 'opaque_data',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('opaque-data-size', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                size of the EEPROM hex data
                 ''',
                 'opaque_data_size',
@@ -47384,13 +47357,13 @@ _meta_table = {
                 'inv_eeprom_info',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('module-done', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Inventory EDM Module Done Tuple
                 ''',
                 'module_done',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('node-id', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Node ID Tuple
                 ''',
                 'node_id',
@@ -47414,13 +47387,13 @@ _meta_table = {
                 'threshold',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('vm-done', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                VM Done Tuple
                 ''',
                 'vm_done',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('vm-node-id', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                VM Node ID Tuple
                 ''',
                 'vm_node_id',
@@ -47483,19 +47456,19 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('card-type', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                enumeration of the card type
                 ''',
                 'card_type',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('node-administrative-state', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                node admin state: shutdown or not
                 ''',
                 'node_administrative_state',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('node-monitor-state', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                node is monitored by a manager or left
                 unmonitored
                 ''',
@@ -47508,7 +47481,7 @@ _meta_table = {
                 'node_operational_state',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('power-administrative-state', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                power admin state: up or down
                 ''',
                 'power_administrative_state',
@@ -47525,20 +47498,20 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('age-time-stamp', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Age of the sensor value; set to the current time
                 if directly access the value from sensor
                 ''',
                 'age_time_stamp',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('alarm-type', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates threshold violation
                 ''',
                 'alarm_type',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('data-type', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Sensor data type enums
                 ''',
                 'data_type',
@@ -47550,31 +47523,31 @@ _meta_table = {
                 'device_description',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('device-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Identifier for this device
                 ''',
                 'device_id',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('field-validity-bitmap', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Sensor valid bitmap
                 ''',
                 'field_validity_bitmap',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('precision', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Sensor precision range
                 ''',
                 'precision',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('scale', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Sensor scale enums
                 ''',
                 'scale',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('status', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Sensor operation state enums
                 ''',
                 'status',
@@ -47586,14 +47559,14 @@ _meta_table = {
                 'units',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('update-rate', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Sensor value update rate;set to 0 if sensor
                 value is updated and evaluated immediately
                 ''',
                 'update_rate',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Current reading of sensor
                 ''',
                 'value',
@@ -47610,13 +47583,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('power-group-available-current', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                available current
                 ''',
                 'power_group_available_current',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('power-group-drawn-current', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                drawn current
                 ''',
                 'power_group_drawn_current',
@@ -47628,7 +47601,7 @@ _meta_table = {
                 'power_group_power_units',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('power-group-redundancy-mode', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                redundancy mode
                 ''',
                 'power_group_redundancy_mode',
@@ -47664,7 +47637,7 @@ _meta_table = {
                 'threshold_severity',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-value', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Value of the configured threshold
                 ''',
                 'threshold_value',
@@ -47728,7 +47701,7 @@ _meta_table = {
                 'units',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('update-rate', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Sensor value update rate; set to 0 if sensor
                 value is updated and evaluated immediately
                 ''',
@@ -47822,20 +47795,20 @@ _meta_table = {
                 'threshold_notification_enabled',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-relation', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates relation between sensor value and
                 threshold
                 ''',
                 'threshold_relation',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-severity', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates minor, major, critical severities
                 ''',
                 'threshold_severity',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Value of the configured threshold
                 ''',
                 'threshold_value',
@@ -47883,20 +47856,20 @@ _meta_table = {
                 'threshold_notification_enabled',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-relation', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates relation between sensor value and
                 threshold
                 ''',
                 'threshold_relation',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-severity', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates minor, major, critical severities
                 ''',
                 'threshold_severity',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Value of the configured threshold
                 ''',
                 'threshold_value',
@@ -47944,20 +47917,20 @@ _meta_table = {
                 'threshold_notification_enabled',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-relation', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates relation between sensor value and
                 threshold
                 ''',
                 'threshold_relation',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-severity', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates minor, major, critical severities
                 ''',
                 'threshold_severity',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Value of the configured threshold
                 ''',
                 'threshold_value',
@@ -48005,20 +47978,20 @@ _meta_table = {
                 'threshold_notification_enabled',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-relation', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates relation between sensor value and
                 threshold
                 ''',
                 'threshold_relation',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-severity', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates minor, major, critical severities
                 ''',
                 'threshold_severity',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Value of the configured threshold
                 ''',
                 'threshold_value',
@@ -48066,20 +48039,20 @@ _meta_table = {
                 'threshold_notification_enabled',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-relation', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates relation between sensor value and
                 threshold
                 ''',
                 'threshold_relation',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-severity', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates minor, major, critical severities
                 ''',
                 'threshold_severity',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Value of the configured threshold
                 ''',
                 'threshold_value',
@@ -48127,20 +48100,20 @@ _meta_table = {
                 'threshold_notification_enabled',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-relation', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates relation between sensor value and
                 threshold
                 ''',
                 'threshold_relation',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-severity', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates minor, major, critical severities
                 ''',
                 'threshold_severity',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Value of the configured threshold
                 ''',
                 'threshold_value',
@@ -48221,13 +48194,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('time-in-nano-seconds', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Time Value in Nano-seconds
                 ''',
                 'time_in_nano_seconds',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('time-in-seconds', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Time Value in Seconds
                 ''',
                 'time_in_seconds',
@@ -48244,13 +48217,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('time-in-nano-seconds', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Time Value in Nano-seconds
                 ''',
                 'time_in_nano_seconds',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('time-in-seconds', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Time Value in Seconds
                 ''',
                 'time_in_seconds',
@@ -48267,26 +48240,26 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('card-administrative-state', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                card admin state: shutdown or not
                 ''',
                 'card_administrative_state',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('card-monitor-state', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                card is monitored by a manager or left
                 unmonitored
                 ''',
                 'card_monitor_state',
                 'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('card-operational-state', REFERENCE_ENUM_CLASS, 'InvCardStateEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper', 'InvCardStateEnum', 
-                [], [], 
+            _MetaInfoClassMember('card-operational-state', ATTRIBUTE, 'int' , None, None, 
+                [('-2147483648', '2147483647')], [], 
                 '''                card operation state
                 ''',
                 'card_operational_state',
                 'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('card-reset-reason', REFERENCE_ENUM_CLASS, 'CardResetReasonEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper', 'CardResetReasonEnum', 
-                [], [], 
+            _MetaInfoClassMember('card-reset-reason', ATTRIBUTE, 'int' , None, None, 
+                [('-2147483648', '2147483647')], [], 
                 '''                card reset reason enum
                 ''',
                 'card_reset_reason',
@@ -48304,19 +48277,19 @@ _meta_table = {
                 'last_operational_state_change',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('power-administrative-state', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                power admin state: up or down
                 ''',
                 'power_administrative_state',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('power-current-measurement', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                power current: not implemented
                 ''',
                 'power_current_measurement',
                 'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('power-operational-state', REFERENCE_ENUM_CLASS, 'InvCardStateEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper', 'InvCardStateEnum', 
-                [], [], 
+            _MetaInfoClassMember('power-operational-state', ATTRIBUTE, 'int' , None, None, 
+                [('-2147483648', '2147483647')], [], 
                 '''                Power operation state
                 ''',
                 'power_operational_state',
@@ -48345,7 +48318,7 @@ _meta_table = {
                 'asset_id_str',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('asset-identification', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                asset Identification
                 ''',
                 'asset_identification',
@@ -48363,7 +48336,7 @@ _meta_table = {
                 'chip_hardware_revision',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('composite-class-code', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Major&minor class of the entity
                 ''',
                 'composite_class_code',
@@ -48406,7 +48379,7 @@ _meta_table = {
                 'is_field_replaceable_unit',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('manufacturer-asset-tags', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Manufacture Asset Tags
                 ''',
                 'manufacturer_asset_tags',
@@ -48418,7 +48391,7 @@ _meta_table = {
                 'manufacturer_name',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('memory-size', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Size of memory associated with 						the entity
                 where applicable
                 ''',
@@ -48437,20 +48410,20 @@ _meta_table = {
                 'name',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('new-deviation-number', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                integer value for New Deviation Number 0x88
                 ''',
                 'new_deviation_number',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('physical-layer-interface-module-type', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                integer value for plim type if     applicable to
                 this entity
                 ''',
                 'physical_layer_interface_module_type',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('redundancystate', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                integer value for Redundancy State if    
                 applicable to this entity
                 ''',
@@ -48892,13 +48865,13 @@ _meta_table = {
                 'eeprom',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('has-eeprom', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                use eeprom instead of opaque data
                 ''',
                 'has_eeprom',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('inv-card-type', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                Inventory card type
                 ''',
                 'inv_card_type',
@@ -48910,7 +48883,7 @@ _meta_table = {
                 'opaque_data',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('opaque-data-size', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                size of the EEPROM hex data
                 ''',
                 'opaque_data_size',
@@ -48963,13 +48936,13 @@ _meta_table = {
                 'inv_eeprom_info',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('module-done', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Inventory EDM Module Done Tuple
                 ''',
                 'module_done',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('node-id', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Node ID Tuple
                 ''',
                 'node_id',
@@ -48993,13 +48966,13 @@ _meta_table = {
                 'threshold',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('vm-done', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                VM Done Tuple
                 ''',
                 'vm_done',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('vm-node-id', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                VM Node ID Tuple
                 ''',
                 'vm_node_id',
@@ -49062,19 +49035,19 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('card-type', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                enumeration of the card type
                 ''',
                 'card_type',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('node-administrative-state', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                node admin state: shutdown or not
                 ''',
                 'node_administrative_state',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('node-monitor-state', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                node is monitored by a manager or left
                 unmonitored
                 ''',
@@ -49087,7 +49060,7 @@ _meta_table = {
                 'node_operational_state',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('power-administrative-state', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                power admin state: up or down
                 ''',
                 'power_administrative_state',
@@ -49104,20 +49077,20 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('age-time-stamp', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Age of the sensor value; set to the current time
                 if directly access the value from sensor
                 ''',
                 'age_time_stamp',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('alarm-type', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates threshold violation
                 ''',
                 'alarm_type',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('data-type', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Sensor data type enums
                 ''',
                 'data_type',
@@ -49129,31 +49102,31 @@ _meta_table = {
                 'device_description',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('device-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Identifier for this device
                 ''',
                 'device_id',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('field-validity-bitmap', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Sensor valid bitmap
                 ''',
                 'field_validity_bitmap',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('precision', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Sensor precision range
                 ''',
                 'precision',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('scale', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Sensor scale enums
                 ''',
                 'scale',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('status', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Sensor operation state enums
                 ''',
                 'status',
@@ -49165,14 +49138,14 @@ _meta_table = {
                 'units',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('update-rate', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Sensor value update rate;set to 0 if sensor
                 value is updated and evaluated immediately
                 ''',
                 'update_rate',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Current reading of sensor
                 ''',
                 'value',
@@ -49189,13 +49162,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('power-group-available-current', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                available current
                 ''',
                 'power_group_available_current',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('power-group-drawn-current', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                drawn current
                 ''',
                 'power_group_drawn_current',
@@ -49207,7 +49180,7 @@ _meta_table = {
                 'power_group_power_units',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('power-group-redundancy-mode', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                redundancy mode
                 ''',
                 'power_group_redundancy_mode',
@@ -49243,7 +49216,7 @@ _meta_table = {
                 'threshold_severity',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-value', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Value of the configured threshold
                 ''',
                 'threshold_value',
@@ -49307,7 +49280,7 @@ _meta_table = {
                 'units',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('update-rate', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Sensor value update rate; set to 0 if sensor
                 value is updated and evaluated immediately
                 ''',
@@ -49401,20 +49374,20 @@ _meta_table = {
                 'threshold_notification_enabled',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-relation', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates relation between sensor value and
                 threshold
                 ''',
                 'threshold_relation',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-severity', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates minor, major, critical severities
                 ''',
                 'threshold_severity',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Value of the configured threshold
                 ''',
                 'threshold_value',
@@ -49462,20 +49435,20 @@ _meta_table = {
                 'threshold_notification_enabled',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-relation', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates relation between sensor value and
                 threshold
                 ''',
                 'threshold_relation',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-severity', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates minor, major, critical severities
                 ''',
                 'threshold_severity',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Value of the configured threshold
                 ''',
                 'threshold_value',
@@ -49523,20 +49496,20 @@ _meta_table = {
                 'threshold_notification_enabled',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-relation', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates relation between sensor value and
                 threshold
                 ''',
                 'threshold_relation',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-severity', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates minor, major, critical severities
                 ''',
                 'threshold_severity',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Value of the configured threshold
                 ''',
                 'threshold_value',
@@ -49584,20 +49557,20 @@ _meta_table = {
                 'threshold_notification_enabled',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-relation', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates relation between sensor value and
                 threshold
                 ''',
                 'threshold_relation',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-severity', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates minor, major, critical severities
                 ''',
                 'threshold_severity',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Value of the configured threshold
                 ''',
                 'threshold_value',
@@ -49645,20 +49618,20 @@ _meta_table = {
                 'threshold_notification_enabled',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-relation', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates relation between sensor value and
                 threshold
                 ''',
                 'threshold_relation',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-severity', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates minor, major, critical severities
                 ''',
                 'threshold_severity',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Value of the configured threshold
                 ''',
                 'threshold_value',
@@ -49706,20 +49679,20 @@ _meta_table = {
                 'threshold_notification_enabled',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-relation', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates relation between sensor value and
                 threshold
                 ''',
                 'threshold_relation',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-severity', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates minor, major, critical severities
                 ''',
                 'threshold_severity',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Value of the configured threshold
                 ''',
                 'threshold_value',
@@ -49800,13 +49773,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('time-in-nano-seconds', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Time Value in Nano-seconds
                 ''',
                 'time_in_nano_seconds',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('time-in-seconds', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Time Value in Seconds
                 ''',
                 'time_in_seconds',
@@ -49823,13 +49796,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('time-in-nano-seconds', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Time Value in Nano-seconds
                 ''',
                 'time_in_nano_seconds',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('time-in-seconds', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Time Value in Seconds
                 ''',
                 'time_in_seconds',
@@ -49846,26 +49819,26 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('card-administrative-state', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                card admin state: shutdown or not
                 ''',
                 'card_administrative_state',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('card-monitor-state', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                card is monitored by a manager or left
                 unmonitored
                 ''',
                 'card_monitor_state',
                 'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('card-operational-state', REFERENCE_ENUM_CLASS, 'InvCardStateEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper', 'InvCardStateEnum', 
-                [], [], 
+            _MetaInfoClassMember('card-operational-state', ATTRIBUTE, 'int' , None, None, 
+                [('-2147483648', '2147483647')], [], 
                 '''                card operation state
                 ''',
                 'card_operational_state',
                 'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('card-reset-reason', REFERENCE_ENUM_CLASS, 'CardResetReasonEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper', 'CardResetReasonEnum', 
-                [], [], 
+            _MetaInfoClassMember('card-reset-reason', ATTRIBUTE, 'int' , None, None, 
+                [('-2147483648', '2147483647')], [], 
                 '''                card reset reason enum
                 ''',
                 'card_reset_reason',
@@ -49883,19 +49856,19 @@ _meta_table = {
                 'last_operational_state_change',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('power-administrative-state', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                power admin state: up or down
                 ''',
                 'power_administrative_state',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('power-current-measurement', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                power current: not implemented
                 ''',
                 'power_current_measurement',
                 'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('power-operational-state', REFERENCE_ENUM_CLASS, 'InvCardStateEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper', 'InvCardStateEnum', 
-                [], [], 
+            _MetaInfoClassMember('power-operational-state', ATTRIBUTE, 'int' , None, None, 
+                [('-2147483648', '2147483647')], [], 
                 '''                Power operation state
                 ''',
                 'power_operational_state',
@@ -49924,7 +49897,7 @@ _meta_table = {
                 'asset_id_str',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('asset-identification', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                asset Identification
                 ''',
                 'asset_identification',
@@ -49942,7 +49915,7 @@ _meta_table = {
                 'chip_hardware_revision',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('composite-class-code', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Major&minor class of the entity
                 ''',
                 'composite_class_code',
@@ -49985,7 +49958,7 @@ _meta_table = {
                 'is_field_replaceable_unit',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('manufacturer-asset-tags', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Manufacture Asset Tags
                 ''',
                 'manufacturer_asset_tags',
@@ -49997,7 +49970,7 @@ _meta_table = {
                 'manufacturer_name',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('memory-size', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Size of memory associated with 						the entity
                 where applicable
                 ''',
@@ -50016,20 +49989,20 @@ _meta_table = {
                 'name',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('new-deviation-number', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                integer value for New Deviation Number 0x88
                 ''',
                 'new_deviation_number',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('physical-layer-interface-module-type', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                integer value for plim type if     applicable to
                 this entity
                 ''',
                 'physical_layer_interface_module_type',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('redundancystate', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                integer value for Redundancy State if    
                 applicable to this entity
                 ''',
@@ -50471,13 +50444,13 @@ _meta_table = {
                 'eeprom',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('has-eeprom', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                use eeprom instead of opaque data
                 ''',
                 'has_eeprom',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('inv-card-type', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                Inventory card type
                 ''',
                 'inv_card_type',
@@ -50489,7 +50462,7 @@ _meta_table = {
                 'opaque_data',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('opaque-data-size', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                size of the EEPROM hex data
                 ''',
                 'opaque_data_size',
@@ -50542,13 +50515,13 @@ _meta_table = {
                 'inv_eeprom_info',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('module-done', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Inventory EDM Module Done Tuple
                 ''',
                 'module_done',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('node-id', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Node ID Tuple
                 ''',
                 'node_id',
@@ -50572,13 +50545,13 @@ _meta_table = {
                 'threshold',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('vm-done', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                VM Done Tuple
                 ''',
                 'vm_done',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('vm-node-id', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                VM Node ID Tuple
                 ''',
                 'vm_node_id',
@@ -50641,19 +50614,19 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('card-type', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                enumeration of the card type
                 ''',
                 'card_type',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('node-administrative-state', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                node admin state: shutdown or not
                 ''',
                 'node_administrative_state',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('node-monitor-state', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                node is monitored by a manager or left
                 unmonitored
                 ''',
@@ -50666,7 +50639,7 @@ _meta_table = {
                 'node_operational_state',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('power-administrative-state', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                power admin state: up or down
                 ''',
                 'power_administrative_state',
@@ -50683,20 +50656,20 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('age-time-stamp', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Age of the sensor value; set to the current time
                 if directly access the value from sensor
                 ''',
                 'age_time_stamp',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('alarm-type', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates threshold violation
                 ''',
                 'alarm_type',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('data-type', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Sensor data type enums
                 ''',
                 'data_type',
@@ -50708,31 +50681,31 @@ _meta_table = {
                 'device_description',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('device-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Identifier for this device
                 ''',
                 'device_id',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('field-validity-bitmap', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Sensor valid bitmap
                 ''',
                 'field_validity_bitmap',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('precision', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Sensor precision range
                 ''',
                 'precision',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('scale', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Sensor scale enums
                 ''',
                 'scale',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('status', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Sensor operation state enums
                 ''',
                 'status',
@@ -50744,14 +50717,14 @@ _meta_table = {
                 'units',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('update-rate', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Sensor value update rate;set to 0 if sensor
                 value is updated and evaluated immediately
                 ''',
                 'update_rate',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Current reading of sensor
                 ''',
                 'value',
@@ -50768,13 +50741,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('power-group-available-current', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                available current
                 ''',
                 'power_group_available_current',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('power-group-drawn-current', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                drawn current
                 ''',
                 'power_group_drawn_current',
@@ -50786,7 +50759,7 @@ _meta_table = {
                 'power_group_power_units',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('power-group-redundancy-mode', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                redundancy mode
                 ''',
                 'power_group_redundancy_mode',
@@ -50822,7 +50795,7 @@ _meta_table = {
                 'threshold_severity',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-value', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Value of the configured threshold
                 ''',
                 'threshold_value',
@@ -50886,7 +50859,7 @@ _meta_table = {
                 'units',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('update-rate', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Sensor value update rate; set to 0 if sensor
                 value is updated and evaluated immediately
                 ''',
@@ -50980,20 +50953,20 @@ _meta_table = {
                 'threshold_notification_enabled',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-relation', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates relation between sensor value and
                 threshold
                 ''',
                 'threshold_relation',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-severity', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates minor, major, critical severities
                 ''',
                 'threshold_severity',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Value of the configured threshold
                 ''',
                 'threshold_value',
@@ -51041,20 +51014,20 @@ _meta_table = {
                 'threshold_notification_enabled',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-relation', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates relation between sensor value and
                 threshold
                 ''',
                 'threshold_relation',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-severity', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates minor, major, critical severities
                 ''',
                 'threshold_severity',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Value of the configured threshold
                 ''',
                 'threshold_value',
@@ -51102,20 +51075,20 @@ _meta_table = {
                 'threshold_notification_enabled',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-relation', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates relation between sensor value and
                 threshold
                 ''',
                 'threshold_relation',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-severity', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates minor, major, critical severities
                 ''',
                 'threshold_severity',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Value of the configured threshold
                 ''',
                 'threshold_value',
@@ -51163,20 +51136,20 @@ _meta_table = {
                 'threshold_notification_enabled',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-relation', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates relation between sensor value and
                 threshold
                 ''',
                 'threshold_relation',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-severity', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates minor, major, critical severities
                 ''',
                 'threshold_severity',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Value of the configured threshold
                 ''',
                 'threshold_value',
@@ -51224,20 +51197,20 @@ _meta_table = {
                 'threshold_notification_enabled',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-relation', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates relation between sensor value and
                 threshold
                 ''',
                 'threshold_relation',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-severity', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates minor, major, critical severities
                 ''',
                 'threshold_severity',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Value of the configured threshold
                 ''',
                 'threshold_value',
@@ -51285,20 +51258,20 @@ _meta_table = {
                 'threshold_notification_enabled',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-relation', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates relation between sensor value and
                 threshold
                 ''',
                 'threshold_relation',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-severity', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates minor, major, critical severities
                 ''',
                 'threshold_severity',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Value of the configured threshold
                 ''',
                 'threshold_value',
@@ -51379,13 +51352,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('time-in-nano-seconds', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Time Value in Nano-seconds
                 ''',
                 'time_in_nano_seconds',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('time-in-seconds', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Time Value in Seconds
                 ''',
                 'time_in_seconds',
@@ -51402,13 +51375,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('time-in-nano-seconds', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Time Value in Nano-seconds
                 ''',
                 'time_in_nano_seconds',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('time-in-seconds', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Time Value in Seconds
                 ''',
                 'time_in_seconds',
@@ -51425,26 +51398,26 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('card-administrative-state', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                card admin state: shutdown or not
                 ''',
                 'card_administrative_state',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('card-monitor-state', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                card is monitored by a manager or left
                 unmonitored
                 ''',
                 'card_monitor_state',
                 'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('card-operational-state', REFERENCE_ENUM_CLASS, 'InvCardStateEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper', 'InvCardStateEnum', 
-                [], [], 
+            _MetaInfoClassMember('card-operational-state', ATTRIBUTE, 'int' , None, None, 
+                [('-2147483648', '2147483647')], [], 
                 '''                card operation state
                 ''',
                 'card_operational_state',
                 'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('card-reset-reason', REFERENCE_ENUM_CLASS, 'CardResetReasonEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper', 'CardResetReasonEnum', 
-                [], [], 
+            _MetaInfoClassMember('card-reset-reason', ATTRIBUTE, 'int' , None, None, 
+                [('-2147483648', '2147483647')], [], 
                 '''                card reset reason enum
                 ''',
                 'card_reset_reason',
@@ -51462,19 +51435,19 @@ _meta_table = {
                 'last_operational_state_change',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('power-administrative-state', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                power admin state: up or down
                 ''',
                 'power_administrative_state',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('power-current-measurement', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                power current: not implemented
                 ''',
                 'power_current_measurement',
                 'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('power-operational-state', REFERENCE_ENUM_CLASS, 'InvCardStateEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper', 'InvCardStateEnum', 
-                [], [], 
+            _MetaInfoClassMember('power-operational-state', ATTRIBUTE, 'int' , None, None, 
+                [('-2147483648', '2147483647')], [], 
                 '''                Power operation state
                 ''',
                 'power_operational_state',
@@ -51503,7 +51476,7 @@ _meta_table = {
                 'asset_id_str',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('asset-identification', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                asset Identification
                 ''',
                 'asset_identification',
@@ -51521,7 +51494,7 @@ _meta_table = {
                 'chip_hardware_revision',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('composite-class-code', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Major&minor class of the entity
                 ''',
                 'composite_class_code',
@@ -51564,7 +51537,7 @@ _meta_table = {
                 'is_field_replaceable_unit',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('manufacturer-asset-tags', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Manufacture Asset Tags
                 ''',
                 'manufacturer_asset_tags',
@@ -51576,7 +51549,7 @@ _meta_table = {
                 'manufacturer_name',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('memory-size', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Size of memory associated with 						the entity
                 where applicable
                 ''',
@@ -51595,20 +51568,20 @@ _meta_table = {
                 'name',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('new-deviation-number', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                integer value for New Deviation Number 0x88
                 ''',
                 'new_deviation_number',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('physical-layer-interface-module-type', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                integer value for plim type if     applicable to
                 this entity
                 ''',
                 'physical_layer_interface_module_type',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('redundancystate', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                integer value for Redundancy State if    
                 applicable to this entity
                 ''',
@@ -52050,13 +52023,13 @@ _meta_table = {
                 'eeprom',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('has-eeprom', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                use eeprom instead of opaque data
                 ''',
                 'has_eeprom',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('inv-card-type', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                Inventory card type
                 ''',
                 'inv_card_type',
@@ -52068,7 +52041,7 @@ _meta_table = {
                 'opaque_data',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('opaque-data-size', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                size of the EEPROM hex data
                 ''',
                 'opaque_data_size',
@@ -52121,13 +52094,13 @@ _meta_table = {
                 'inv_eeprom_info',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('module-done', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Inventory EDM Module Done Tuple
                 ''',
                 'module_done',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('node-id', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Node ID Tuple
                 ''',
                 'node_id',
@@ -52151,13 +52124,13 @@ _meta_table = {
                 'threshold',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('vm-done', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                VM Done Tuple
                 ''',
                 'vm_done',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('vm-node-id', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                VM Node ID Tuple
                 ''',
                 'vm_node_id',
@@ -52220,19 +52193,19 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('card-type', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                enumeration of the card type
                 ''',
                 'card_type',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('node-administrative-state', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                node admin state: shutdown or not
                 ''',
                 'node_administrative_state',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('node-monitor-state', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                node is monitored by a manager or left
                 unmonitored
                 ''',
@@ -52245,7 +52218,7 @@ _meta_table = {
                 'node_operational_state',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('power-administrative-state', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                power admin state: up or down
                 ''',
                 'power_administrative_state',
@@ -52262,20 +52235,20 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('age-time-stamp', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Age of the sensor value; set to the current time
                 if directly access the value from sensor
                 ''',
                 'age_time_stamp',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('alarm-type', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates threshold violation
                 ''',
                 'alarm_type',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('data-type', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Sensor data type enums
                 ''',
                 'data_type',
@@ -52287,31 +52260,31 @@ _meta_table = {
                 'device_description',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('device-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Identifier for this device
                 ''',
                 'device_id',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('field-validity-bitmap', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Sensor valid bitmap
                 ''',
                 'field_validity_bitmap',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('precision', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Sensor precision range
                 ''',
                 'precision',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('scale', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Sensor scale enums
                 ''',
                 'scale',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('status', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Sensor operation state enums
                 ''',
                 'status',
@@ -52323,14 +52296,14 @@ _meta_table = {
                 'units',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('update-rate', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Sensor value update rate;set to 0 if sensor
                 value is updated and evaluated immediately
                 ''',
                 'update_rate',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Current reading of sensor
                 ''',
                 'value',
@@ -52347,13 +52320,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('power-group-available-current', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                available current
                 ''',
                 'power_group_available_current',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('power-group-drawn-current', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                drawn current
                 ''',
                 'power_group_drawn_current',
@@ -52365,7 +52338,7 @@ _meta_table = {
                 'power_group_power_units',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('power-group-redundancy-mode', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                redundancy mode
                 ''',
                 'power_group_redundancy_mode',
@@ -52401,7 +52374,7 @@ _meta_table = {
                 'threshold_severity',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-value', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Value of the configured threshold
                 ''',
                 'threshold_value',
@@ -52465,7 +52438,7 @@ _meta_table = {
                 'units',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('update-rate', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Sensor value update rate; set to 0 if sensor
                 value is updated and evaluated immediately
                 ''',
@@ -52559,20 +52532,20 @@ _meta_table = {
                 'threshold_notification_enabled',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-relation', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates relation between sensor value and
                 threshold
                 ''',
                 'threshold_relation',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-severity', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates minor, major, critical severities
                 ''',
                 'threshold_severity',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Value of the configured threshold
                 ''',
                 'threshold_value',
@@ -52620,20 +52593,20 @@ _meta_table = {
                 'threshold_notification_enabled',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-relation', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates relation between sensor value and
                 threshold
                 ''',
                 'threshold_relation',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-severity', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates minor, major, critical severities
                 ''',
                 'threshold_severity',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Value of the configured threshold
                 ''',
                 'threshold_value',
@@ -52681,20 +52654,20 @@ _meta_table = {
                 'threshold_notification_enabled',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-relation', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates relation between sensor value and
                 threshold
                 ''',
                 'threshold_relation',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-severity', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates minor, major, critical severities
                 ''',
                 'threshold_severity',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Value of the configured threshold
                 ''',
                 'threshold_value',
@@ -52742,20 +52715,20 @@ _meta_table = {
                 'threshold_notification_enabled',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-relation', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates relation between sensor value and
                 threshold
                 ''',
                 'threshold_relation',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-severity', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates minor, major, critical severities
                 ''',
                 'threshold_severity',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Value of the configured threshold
                 ''',
                 'threshold_value',
@@ -52803,20 +52776,20 @@ _meta_table = {
                 'threshold_notification_enabled',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-relation', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates relation between sensor value and
                 threshold
                 ''',
                 'threshold_relation',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-severity', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates minor, major, critical severities
                 ''',
                 'threshold_severity',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Value of the configured threshold
                 ''',
                 'threshold_value',
@@ -52864,20 +52837,20 @@ _meta_table = {
                 'threshold_notification_enabled',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-relation', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates relation between sensor value and
                 threshold
                 ''',
                 'threshold_relation',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-severity', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates minor, major, critical severities
                 ''',
                 'threshold_severity',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Value of the configured threshold
                 ''',
                 'threshold_value',
@@ -52958,13 +52931,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('time-in-nano-seconds', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Time Value in Nano-seconds
                 ''',
                 'time_in_nano_seconds',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('time-in-seconds', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Time Value in Seconds
                 ''',
                 'time_in_seconds',
@@ -52981,13 +52954,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('time-in-nano-seconds', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Time Value in Nano-seconds
                 ''',
                 'time_in_nano_seconds',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('time-in-seconds', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Time Value in Seconds
                 ''',
                 'time_in_seconds',
@@ -53004,26 +52977,26 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('card-administrative-state', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                card admin state: shutdown or not
                 ''',
                 'card_administrative_state',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('card-monitor-state', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                card is monitored by a manager or left
                 unmonitored
                 ''',
                 'card_monitor_state',
                 'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('card-operational-state', REFERENCE_ENUM_CLASS, 'InvCardStateEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper', 'InvCardStateEnum', 
-                [], [], 
+            _MetaInfoClassMember('card-operational-state', ATTRIBUTE, 'int' , None, None, 
+                [('-2147483648', '2147483647')], [], 
                 '''                card operation state
                 ''',
                 'card_operational_state',
                 'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('card-reset-reason', REFERENCE_ENUM_CLASS, 'CardResetReasonEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper', 'CardResetReasonEnum', 
-                [], [], 
+            _MetaInfoClassMember('card-reset-reason', ATTRIBUTE, 'int' , None, None, 
+                [('-2147483648', '2147483647')], [], 
                 '''                card reset reason enum
                 ''',
                 'card_reset_reason',
@@ -53041,19 +53014,19 @@ _meta_table = {
                 'last_operational_state_change',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('power-administrative-state', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                power admin state: up or down
                 ''',
                 'power_administrative_state',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('power-current-measurement', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                power current: not implemented
                 ''',
                 'power_current_measurement',
                 'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('power-operational-state', REFERENCE_ENUM_CLASS, 'InvCardStateEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper', 'InvCardStateEnum', 
-                [], [], 
+            _MetaInfoClassMember('power-operational-state', ATTRIBUTE, 'int' , None, None, 
+                [('-2147483648', '2147483647')], [], 
                 '''                Power operation state
                 ''',
                 'power_operational_state',
@@ -53082,7 +53055,7 @@ _meta_table = {
                 'asset_id_str',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('asset-identification', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                asset Identification
                 ''',
                 'asset_identification',
@@ -53100,7 +53073,7 @@ _meta_table = {
                 'chip_hardware_revision',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('composite-class-code', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Major&minor class of the entity
                 ''',
                 'composite_class_code',
@@ -53143,7 +53116,7 @@ _meta_table = {
                 'is_field_replaceable_unit',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('manufacturer-asset-tags', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Manufacture Asset Tags
                 ''',
                 'manufacturer_asset_tags',
@@ -53155,7 +53128,7 @@ _meta_table = {
                 'manufacturer_name',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('memory-size', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Size of memory associated with 						the entity
                 where applicable
                 ''',
@@ -53174,20 +53147,20 @@ _meta_table = {
                 'name',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('new-deviation-number', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                integer value for New Deviation Number 0x88
                 ''',
                 'new_deviation_number',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('physical-layer-interface-module-type', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                integer value for plim type if     applicable to
                 this entity
                 ''',
                 'physical_layer_interface_module_type',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('redundancystate', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                integer value for Redundancy State if    
                 applicable to this entity
                 ''',
@@ -53629,13 +53602,13 @@ _meta_table = {
                 'eeprom',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('has-eeprom', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                use eeprom instead of opaque data
                 ''',
                 'has_eeprom',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('inv-card-type', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                Inventory card type
                 ''',
                 'inv_card_type',
@@ -53647,7 +53620,7 @@ _meta_table = {
                 'opaque_data',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('opaque-data-size', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                size of the EEPROM hex data
                 ''',
                 'opaque_data_size',
@@ -53700,13 +53673,13 @@ _meta_table = {
                 'inv_eeprom_info',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('module-done', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Inventory EDM Module Done Tuple
                 ''',
                 'module_done',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('node-id', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Node ID Tuple
                 ''',
                 'node_id',
@@ -53730,13 +53703,13 @@ _meta_table = {
                 'threshold',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('vm-done', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                VM Done Tuple
                 ''',
                 'vm_done',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('vm-node-id', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                VM Node ID Tuple
                 ''',
                 'vm_node_id',
@@ -53799,19 +53772,19 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('card-type', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                enumeration of the card type
                 ''',
                 'card_type',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('node-administrative-state', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                node admin state: shutdown or not
                 ''',
                 'node_administrative_state',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('node-monitor-state', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                node is monitored by a manager or left
                 unmonitored
                 ''',
@@ -53824,7 +53797,7 @@ _meta_table = {
                 'node_operational_state',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('power-administrative-state', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                power admin state: up or down
                 ''',
                 'power_administrative_state',
@@ -53841,20 +53814,20 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('age-time-stamp', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Age of the sensor value; set to the current time
                 if directly access the value from sensor
                 ''',
                 'age_time_stamp',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('alarm-type', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates threshold violation
                 ''',
                 'alarm_type',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('data-type', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Sensor data type enums
                 ''',
                 'data_type',
@@ -53866,31 +53839,31 @@ _meta_table = {
                 'device_description',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('device-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Identifier for this device
                 ''',
                 'device_id',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('field-validity-bitmap', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Sensor valid bitmap
                 ''',
                 'field_validity_bitmap',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('precision', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Sensor precision range
                 ''',
                 'precision',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('scale', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Sensor scale enums
                 ''',
                 'scale',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('status', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Sensor operation state enums
                 ''',
                 'status',
@@ -53902,14 +53875,14 @@ _meta_table = {
                 'units',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('update-rate', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Sensor value update rate;set to 0 if sensor
                 value is updated and evaluated immediately
                 ''',
                 'update_rate',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Current reading of sensor
                 ''',
                 'value',
@@ -53926,13 +53899,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('power-group-available-current', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                available current
                 ''',
                 'power_group_available_current',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('power-group-drawn-current', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                drawn current
                 ''',
                 'power_group_drawn_current',
@@ -53944,7 +53917,7 @@ _meta_table = {
                 'power_group_power_units',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('power-group-redundancy-mode', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                redundancy mode
                 ''',
                 'power_group_redundancy_mode',
@@ -53980,7 +53953,7 @@ _meta_table = {
                 'threshold_severity',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-value', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Value of the configured threshold
                 ''',
                 'threshold_value',
@@ -54044,7 +54017,7 @@ _meta_table = {
                 'units',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('update-rate', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Sensor value update rate; set to 0 if sensor
                 value is updated and evaluated immediately
                 ''',
@@ -54138,20 +54111,20 @@ _meta_table = {
                 'threshold_notification_enabled',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-relation', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates relation between sensor value and
                 threshold
                 ''',
                 'threshold_relation',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-severity', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates minor, major, critical severities
                 ''',
                 'threshold_severity',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Value of the configured threshold
                 ''',
                 'threshold_value',
@@ -54199,20 +54172,20 @@ _meta_table = {
                 'threshold_notification_enabled',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-relation', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates relation between sensor value and
                 threshold
                 ''',
                 'threshold_relation',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-severity', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates minor, major, critical severities
                 ''',
                 'threshold_severity',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Value of the configured threshold
                 ''',
                 'threshold_value',
@@ -54260,20 +54233,20 @@ _meta_table = {
                 'threshold_notification_enabled',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-relation', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates relation between sensor value and
                 threshold
                 ''',
                 'threshold_relation',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-severity', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates minor, major, critical severities
                 ''',
                 'threshold_severity',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Value of the configured threshold
                 ''',
                 'threshold_value',
@@ -54321,20 +54294,20 @@ _meta_table = {
                 'threshold_notification_enabled',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-relation', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates relation between sensor value and
                 threshold
                 ''',
                 'threshold_relation',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-severity', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates minor, major, critical severities
                 ''',
                 'threshold_severity',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Value of the configured threshold
                 ''',
                 'threshold_value',
@@ -54382,20 +54355,20 @@ _meta_table = {
                 'threshold_notification_enabled',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-relation', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates relation between sensor value and
                 threshold
                 ''',
                 'threshold_relation',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-severity', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates minor, major, critical severities
                 ''',
                 'threshold_severity',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Value of the configured threshold
                 ''',
                 'threshold_value',
@@ -54443,20 +54416,20 @@ _meta_table = {
                 'threshold_notification_enabled',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-relation', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates relation between sensor value and
                 threshold
                 ''',
                 'threshold_relation',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-severity', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates minor, major, critical severities
                 ''',
                 'threshold_severity',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Value of the configured threshold
                 ''',
                 'threshold_value',
@@ -54537,13 +54510,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('time-in-nano-seconds', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Time Value in Nano-seconds
                 ''',
                 'time_in_nano_seconds',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('time-in-seconds', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Time Value in Seconds
                 ''',
                 'time_in_seconds',
@@ -54560,13 +54533,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('time-in-nano-seconds', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Time Value in Nano-seconds
                 ''',
                 'time_in_nano_seconds',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('time-in-seconds', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Time Value in Seconds
                 ''',
                 'time_in_seconds',
@@ -54583,26 +54556,26 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('card-administrative-state', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                card admin state: shutdown or not
                 ''',
                 'card_administrative_state',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('card-monitor-state', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                card is monitored by a manager or left
                 unmonitored
                 ''',
                 'card_monitor_state',
                 'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('card-operational-state', REFERENCE_ENUM_CLASS, 'InvCardStateEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper', 'InvCardStateEnum', 
-                [], [], 
+            _MetaInfoClassMember('card-operational-state', ATTRIBUTE, 'int' , None, None, 
+                [('-2147483648', '2147483647')], [], 
                 '''                card operation state
                 ''',
                 'card_operational_state',
                 'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('card-reset-reason', REFERENCE_ENUM_CLASS, 'CardResetReasonEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper', 'CardResetReasonEnum', 
-                [], [], 
+            _MetaInfoClassMember('card-reset-reason', ATTRIBUTE, 'int' , None, None, 
+                [('-2147483648', '2147483647')], [], 
                 '''                card reset reason enum
                 ''',
                 'card_reset_reason',
@@ -54620,19 +54593,19 @@ _meta_table = {
                 'last_operational_state_change',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('power-administrative-state', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                power admin state: up or down
                 ''',
                 'power_administrative_state',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('power-current-measurement', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                power current: not implemented
                 ''',
                 'power_current_measurement',
                 'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('power-operational-state', REFERENCE_ENUM_CLASS, 'InvCardStateEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper', 'InvCardStateEnum', 
-                [], [], 
+            _MetaInfoClassMember('power-operational-state', ATTRIBUTE, 'int' , None, None, 
+                [('-2147483648', '2147483647')], [], 
                 '''                Power operation state
                 ''',
                 'power_operational_state',
@@ -54661,7 +54634,7 @@ _meta_table = {
                 'asset_id_str',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('asset-identification', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                asset Identification
                 ''',
                 'asset_identification',
@@ -54679,7 +54652,7 @@ _meta_table = {
                 'chip_hardware_revision',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('composite-class-code', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Major&minor class of the entity
                 ''',
                 'composite_class_code',
@@ -54722,7 +54695,7 @@ _meta_table = {
                 'is_field_replaceable_unit',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('manufacturer-asset-tags', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Manufacture Asset Tags
                 ''',
                 'manufacturer_asset_tags',
@@ -54734,7 +54707,7 @@ _meta_table = {
                 'manufacturer_name',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('memory-size', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Size of memory associated with 						the entity
                 where applicable
                 ''',
@@ -54753,20 +54726,20 @@ _meta_table = {
                 'name',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('new-deviation-number', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                integer value for New Deviation Number 0x88
                 ''',
                 'new_deviation_number',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('physical-layer-interface-module-type', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                integer value for plim type if     applicable to
                 this entity
                 ''',
                 'physical_layer_interface_module_type',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('redundancystate', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                integer value for Redundancy State if    
                 applicable to this entity
                 ''',
@@ -55208,13 +55181,13 @@ _meta_table = {
                 'eeprom',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('has-eeprom', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                use eeprom instead of opaque data
                 ''',
                 'has_eeprom',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('inv-card-type', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                Inventory card type
                 ''',
                 'inv_card_type',
@@ -55226,7 +55199,7 @@ _meta_table = {
                 'opaque_data',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('opaque-data-size', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                size of the EEPROM hex data
                 ''',
                 'opaque_data_size',
@@ -55279,13 +55252,13 @@ _meta_table = {
                 'inv_eeprom_info',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('module-done', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Inventory EDM Module Done Tuple
                 ''',
                 'module_done',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('node-id', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Node ID Tuple
                 ''',
                 'node_id',
@@ -55309,13 +55282,13 @@ _meta_table = {
                 'threshold',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('vm-done', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                VM Done Tuple
                 ''',
                 'vm_done',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('vm-node-id', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                VM Node ID Tuple
                 ''',
                 'vm_node_id',
@@ -55378,19 +55351,19 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('card-type', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                enumeration of the card type
                 ''',
                 'card_type',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('node-administrative-state', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                node admin state: shutdown or not
                 ''',
                 'node_administrative_state',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('node-monitor-state', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                node is monitored by a manager or left
                 unmonitored
                 ''',
@@ -55403,7 +55376,7 @@ _meta_table = {
                 'node_operational_state',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('power-administrative-state', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                power admin state: up or down
                 ''',
                 'power_administrative_state',
@@ -55420,20 +55393,20 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('age-time-stamp', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Age of the sensor value; set to the current time
                 if directly access the value from sensor
                 ''',
                 'age_time_stamp',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('alarm-type', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates threshold violation
                 ''',
                 'alarm_type',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('data-type', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Sensor data type enums
                 ''',
                 'data_type',
@@ -55445,31 +55418,31 @@ _meta_table = {
                 'device_description',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('device-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Identifier for this device
                 ''',
                 'device_id',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('field-validity-bitmap', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Sensor valid bitmap
                 ''',
                 'field_validity_bitmap',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('precision', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Sensor precision range
                 ''',
                 'precision',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('scale', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Sensor scale enums
                 ''',
                 'scale',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('status', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Sensor operation state enums
                 ''',
                 'status',
@@ -55481,14 +55454,14 @@ _meta_table = {
                 'units',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('update-rate', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Sensor value update rate;set to 0 if sensor
                 value is updated and evaluated immediately
                 ''',
                 'update_rate',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Current reading of sensor
                 ''',
                 'value',
@@ -55505,13 +55478,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('power-group-available-current', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                available current
                 ''',
                 'power_group_available_current',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('power-group-drawn-current', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                drawn current
                 ''',
                 'power_group_drawn_current',
@@ -55523,7 +55496,7 @@ _meta_table = {
                 'power_group_power_units',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('power-group-redundancy-mode', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                redundancy mode
                 ''',
                 'power_group_redundancy_mode',
@@ -55559,7 +55532,7 @@ _meta_table = {
                 'threshold_severity',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-value', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Value of the configured threshold
                 ''',
                 'threshold_value',
@@ -55623,7 +55596,7 @@ _meta_table = {
                 'units',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('update-rate', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Sensor value update rate; set to 0 if sensor
                 value is updated and evaluated immediately
                 ''',
@@ -55717,20 +55690,20 @@ _meta_table = {
                 'threshold_notification_enabled',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-relation', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates relation between sensor value and
                 threshold
                 ''',
                 'threshold_relation',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-severity', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates minor, major, critical severities
                 ''',
                 'threshold_severity',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Value of the configured threshold
                 ''',
                 'threshold_value',
@@ -55778,20 +55751,20 @@ _meta_table = {
                 'threshold_notification_enabled',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-relation', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates relation between sensor value and
                 threshold
                 ''',
                 'threshold_relation',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-severity', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates minor, major, critical severities
                 ''',
                 'threshold_severity',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Value of the configured threshold
                 ''',
                 'threshold_value',
@@ -55839,20 +55812,20 @@ _meta_table = {
                 'threshold_notification_enabled',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-relation', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates relation between sensor value and
                 threshold
                 ''',
                 'threshold_relation',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-severity', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates minor, major, critical severities
                 ''',
                 'threshold_severity',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Value of the configured threshold
                 ''',
                 'threshold_value',
@@ -55900,20 +55873,20 @@ _meta_table = {
                 'threshold_notification_enabled',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-relation', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates relation between sensor value and
                 threshold
                 ''',
                 'threshold_relation',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-severity', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates minor, major, critical severities
                 ''',
                 'threshold_severity',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Value of the configured threshold
                 ''',
                 'threshold_value',
@@ -55961,20 +55934,20 @@ _meta_table = {
                 'threshold_notification_enabled',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-relation', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates relation between sensor value and
                 threshold
                 ''',
                 'threshold_relation',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-severity', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates minor, major, critical severities
                 ''',
                 'threshold_severity',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Value of the configured threshold
                 ''',
                 'threshold_value',
@@ -56022,20 +55995,20 @@ _meta_table = {
                 'threshold_notification_enabled',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-relation', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates relation between sensor value and
                 threshold
                 ''',
                 'threshold_relation',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-severity', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates minor, major, critical severities
                 ''',
                 'threshold_severity',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Value of the configured threshold
                 ''',
                 'threshold_value',
@@ -56116,13 +56089,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('time-in-nano-seconds', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Time Value in Nano-seconds
                 ''',
                 'time_in_nano_seconds',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('time-in-seconds', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Time Value in Seconds
                 ''',
                 'time_in_seconds',
@@ -56139,13 +56112,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('time-in-nano-seconds', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Time Value in Nano-seconds
                 ''',
                 'time_in_nano_seconds',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('time-in-seconds', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Time Value in Seconds
                 ''',
                 'time_in_seconds',
@@ -56162,26 +56135,26 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('card-administrative-state', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                card admin state: shutdown or not
                 ''',
                 'card_administrative_state',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('card-monitor-state', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                card is monitored by a manager or left
                 unmonitored
                 ''',
                 'card_monitor_state',
                 'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('card-operational-state', REFERENCE_ENUM_CLASS, 'InvCardStateEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper', 'InvCardStateEnum', 
-                [], [], 
+            _MetaInfoClassMember('card-operational-state', ATTRIBUTE, 'int' , None, None, 
+                [('-2147483648', '2147483647')], [], 
                 '''                card operation state
                 ''',
                 'card_operational_state',
                 'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('card-reset-reason', REFERENCE_ENUM_CLASS, 'CardResetReasonEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper', 'CardResetReasonEnum', 
-                [], [], 
+            _MetaInfoClassMember('card-reset-reason', ATTRIBUTE, 'int' , None, None, 
+                [('-2147483648', '2147483647')], [], 
                 '''                card reset reason enum
                 ''',
                 'card_reset_reason',
@@ -56199,19 +56172,19 @@ _meta_table = {
                 'last_operational_state_change',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('power-administrative-state', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                power admin state: up or down
                 ''',
                 'power_administrative_state',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('power-current-measurement', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                power current: not implemented
                 ''',
                 'power_current_measurement',
                 'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('power-operational-state', REFERENCE_ENUM_CLASS, 'InvCardStateEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper', 'InvCardStateEnum', 
-                [], [], 
+            _MetaInfoClassMember('power-operational-state', ATTRIBUTE, 'int' , None, None, 
+                [('-2147483648', '2147483647')], [], 
                 '''                Power operation state
                 ''',
                 'power_operational_state',
@@ -56240,7 +56213,7 @@ _meta_table = {
                 'asset_id_str',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('asset-identification', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                asset Identification
                 ''',
                 'asset_identification',
@@ -56258,7 +56231,7 @@ _meta_table = {
                 'chip_hardware_revision',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('composite-class-code', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Major&minor class of the entity
                 ''',
                 'composite_class_code',
@@ -56301,7 +56274,7 @@ _meta_table = {
                 'is_field_replaceable_unit',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('manufacturer-asset-tags', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Manufacture Asset Tags
                 ''',
                 'manufacturer_asset_tags',
@@ -56313,7 +56286,7 @@ _meta_table = {
                 'manufacturer_name',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('memory-size', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Size of memory associated with 						the entity
                 where applicable
                 ''',
@@ -56332,20 +56305,20 @@ _meta_table = {
                 'name',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('new-deviation-number', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                integer value for New Deviation Number 0x88
                 ''',
                 'new_deviation_number',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('physical-layer-interface-module-type', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                integer value for plim type if     applicable to
                 this entity
                 ''',
                 'physical_layer_interface_module_type',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('redundancystate', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                integer value for Redundancy State if    
                 applicable to this entity
                 ''',
@@ -56787,13 +56760,13 @@ _meta_table = {
                 'eeprom',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('has-eeprom', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                use eeprom instead of opaque data
                 ''',
                 'has_eeprom',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('inv-card-type', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                Inventory card type
                 ''',
                 'inv_card_type',
@@ -56805,7 +56778,7 @@ _meta_table = {
                 'opaque_data',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('opaque-data-size', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                size of the EEPROM hex data
                 ''',
                 'opaque_data_size',
@@ -56858,13 +56831,13 @@ _meta_table = {
                 'inv_eeprom_info',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('module-done', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Inventory EDM Module Done Tuple
                 ''',
                 'module_done',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('node-id', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Node ID Tuple
                 ''',
                 'node_id',
@@ -56888,13 +56861,13 @@ _meta_table = {
                 'threshold',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('vm-done', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                VM Done Tuple
                 ''',
                 'vm_done',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('vm-node-id', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                VM Node ID Tuple
                 ''',
                 'vm_node_id',
@@ -56957,19 +56930,19 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('card-type', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                enumeration of the card type
                 ''',
                 'card_type',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('node-administrative-state', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                node admin state: shutdown or not
                 ''',
                 'node_administrative_state',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('node-monitor-state', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                node is monitored by a manager or left
                 unmonitored
                 ''',
@@ -56982,7 +56955,7 @@ _meta_table = {
                 'node_operational_state',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('power-administrative-state', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                power admin state: up or down
                 ''',
                 'power_administrative_state',
@@ -56999,20 +56972,20 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('age-time-stamp', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Age of the sensor value; set to the current time
                 if directly access the value from sensor
                 ''',
                 'age_time_stamp',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('alarm-type', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates threshold violation
                 ''',
                 'alarm_type',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('data-type', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Sensor data type enums
                 ''',
                 'data_type',
@@ -57024,31 +56997,31 @@ _meta_table = {
                 'device_description',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('device-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Identifier for this device
                 ''',
                 'device_id',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('field-validity-bitmap', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Sensor valid bitmap
                 ''',
                 'field_validity_bitmap',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('precision', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Sensor precision range
                 ''',
                 'precision',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('scale', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Sensor scale enums
                 ''',
                 'scale',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('status', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Sensor operation state enums
                 ''',
                 'status',
@@ -57060,14 +57033,14 @@ _meta_table = {
                 'units',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('update-rate', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Sensor value update rate;set to 0 if sensor
                 value is updated and evaluated immediately
                 ''',
                 'update_rate',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Current reading of sensor
                 ''',
                 'value',
@@ -57084,13 +57057,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('power-group-available-current', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                available current
                 ''',
                 'power_group_available_current',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('power-group-drawn-current', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                drawn current
                 ''',
                 'power_group_drawn_current',
@@ -57102,7 +57075,7 @@ _meta_table = {
                 'power_group_power_units',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('power-group-redundancy-mode', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                redundancy mode
                 ''',
                 'power_group_redundancy_mode',
@@ -57138,7 +57111,7 @@ _meta_table = {
                 'threshold_severity',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-value', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Value of the configured threshold
                 ''',
                 'threshold_value',
@@ -57202,7 +57175,7 @@ _meta_table = {
                 'units',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('update-rate', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Sensor value update rate; set to 0 if sensor
                 value is updated and evaluated immediately
                 ''',
@@ -57296,20 +57269,20 @@ _meta_table = {
                 'threshold_notification_enabled',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-relation', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates relation between sensor value and
                 threshold
                 ''',
                 'threshold_relation',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-severity', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates minor, major, critical severities
                 ''',
                 'threshold_severity',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Value of the configured threshold
                 ''',
                 'threshold_value',
@@ -57357,20 +57330,20 @@ _meta_table = {
                 'threshold_notification_enabled',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-relation', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates relation between sensor value and
                 threshold
                 ''',
                 'threshold_relation',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-severity', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates minor, major, critical severities
                 ''',
                 'threshold_severity',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Value of the configured threshold
                 ''',
                 'threshold_value',
@@ -57418,20 +57391,20 @@ _meta_table = {
                 'threshold_notification_enabled',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-relation', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates relation between sensor value and
                 threshold
                 ''',
                 'threshold_relation',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-severity', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates minor, major, critical severities
                 ''',
                 'threshold_severity',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Value of the configured threshold
                 ''',
                 'threshold_value',
@@ -57479,20 +57452,20 @@ _meta_table = {
                 'threshold_notification_enabled',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-relation', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates relation between sensor value and
                 threshold
                 ''',
                 'threshold_relation',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-severity', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates minor, major, critical severities
                 ''',
                 'threshold_severity',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Value of the configured threshold
                 ''',
                 'threshold_value',
@@ -57540,20 +57513,20 @@ _meta_table = {
                 'threshold_notification_enabled',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-relation', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates relation between sensor value and
                 threshold
                 ''',
                 'threshold_relation',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-severity', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates minor, major, critical severities
                 ''',
                 'threshold_severity',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Value of the configured threshold
                 ''',
                 'threshold_value',
@@ -57601,20 +57574,20 @@ _meta_table = {
                 'threshold_notification_enabled',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-relation', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates relation between sensor value and
                 threshold
                 ''',
                 'threshold_relation',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-severity', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Indicates minor, major, critical severities
                 ''',
                 'threshold_severity',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('threshold-value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Value of the configured threshold
                 ''',
                 'threshold_value',
@@ -57695,13 +57668,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('time-in-nano-seconds', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Time Value in Nano-seconds
                 ''',
                 'time_in_nano_seconds',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('time-in-seconds', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Time Value in Seconds
                 ''',
                 'time_in_seconds',
@@ -57718,13 +57691,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('time-in-nano-seconds', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Time Value in Nano-seconds
                 ''',
                 'time_in_nano_seconds',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('time-in-seconds', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Time Value in Seconds
                 ''',
                 'time_in_seconds',
@@ -57741,26 +57714,26 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('card-administrative-state', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                card admin state: shutdown or not
                 ''',
                 'card_administrative_state',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('card-monitor-state', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                card is monitored by a manager or left
                 unmonitored
                 ''',
                 'card_monitor_state',
                 'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('card-operational-state', REFERENCE_ENUM_CLASS, 'InvCardStateEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper', 'InvCardStateEnum', 
-                [], [], 
+            _MetaInfoClassMember('card-operational-state', ATTRIBUTE, 'int' , None, None, 
+                [('-2147483648', '2147483647')], [], 
                 '''                card operation state
                 ''',
                 'card_operational_state',
                 'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('card-reset-reason', REFERENCE_ENUM_CLASS, 'CardResetReasonEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper', 'CardResetReasonEnum', 
-                [], [], 
+            _MetaInfoClassMember('card-reset-reason', ATTRIBUTE, 'int' , None, None, 
+                [('-2147483648', '2147483647')], [], 
                 '''                card reset reason enum
                 ''',
                 'card_reset_reason',
@@ -57778,19 +57751,19 @@ _meta_table = {
                 'last_operational_state_change',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('power-administrative-state', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                power admin state: up or down
                 ''',
                 'power_administrative_state',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('power-current-measurement', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                power current: not implemented
                 ''',
                 'power_current_measurement',
                 'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('power-operational-state', REFERENCE_ENUM_CLASS, 'InvCardStateEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper', 'InvCardStateEnum', 
-                [], [], 
+            _MetaInfoClassMember('power-operational-state', ATTRIBUTE, 'int' , None, None, 
+                [('-2147483648', '2147483647')], [], 
                 '''                Power operation state
                 ''',
                 'power_operational_state',
@@ -57819,7 +57792,7 @@ _meta_table = {
                 'asset_id_str',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('asset-identification', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                asset Identification
                 ''',
                 'asset_identification',
@@ -57837,7 +57810,7 @@ _meta_table = {
                 'chip_hardware_revision',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('composite-class-code', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Major&minor class of the entity
                 ''',
                 'composite_class_code',
@@ -57880,7 +57853,7 @@ _meta_table = {
                 'is_field_replaceable_unit',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('manufacturer-asset-tags', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Manufacture Asset Tags
                 ''',
                 'manufacturer_asset_tags',
@@ -57892,7 +57865,7 @@ _meta_table = {
                 'manufacturer_name',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('memory-size', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Size of memory associated with 						the entity
                 where applicable
                 ''',
@@ -57911,20 +57884,20 @@ _meta_table = {
                 'name',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('new-deviation-number', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                integer value for New Deviation Number 0x88
                 ''',
                 'new_deviation_number',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('physical-layer-interface-module-type', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                integer value for plim type if     applicable to
                 this entity
                 ''',
                 'physical_layer_interface_module_type',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('redundancystate', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                integer value for Redundancy State if    
                 applicable to this entity
                 ''',
@@ -58366,13 +58339,13 @@ _meta_table = {
                 'eeprom',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('has-eeprom', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                use eeprom instead of opaque data
                 ''',
                 'has_eeprom',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('inv-card-type', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                Inventory card type
                 ''',
                 'inv_card_type',
@@ -58384,7 +58357,7 @@ _meta_table = {
                 'opaque_data',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('opaque-data-size', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                size of the EEPROM hex data
                 ''',
                 'opaque_data_size',
@@ -58437,13 +58410,13 @@ _meta_table = {
                 'inv_eeprom_info',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('module-done', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Inventory EDM Module Done Tuple
                 ''',
                 'module_done',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('node-id', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Node ID Tuple
                 ''',
                 'node_id',
@@ -58467,13 +58440,13 @@ _meta_table = {
                 'threshold',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('vm-done', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                VM Done Tuple
                 ''',
                 'vm_done',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('vm-node-id', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                VM Node ID Tuple
                 ''',
                 'vm_node_id',

@@ -205,6 +205,7 @@ _meta_table = {
             'im-attr-flow-control-off':'IM_ATTR_FLOW_CONTROL_OFF',
             'im-attr-flow-control-on':'IM_ATTR_FLOW_CONTROL_ON',
             'im-attr-flow-control-not-sup':'IM_ATTR_FLOW_CONTROL_NOT_SUP',
+            'im-attr-flow-control-priority':'IM_ATTR_FLOW_CONTROL_PRIORITY',
         }, 'Cisco-IOS-XR-pfi-im-cmd-oper', _yang_ns._namespaces['Cisco-IOS-XR-pfi-im-cmd-oper']),
     'StatsIdEnum' : _MetaInfoEnum('StatsIdEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper',
         {
@@ -310,6 +311,10 @@ _meta_table = {
             'bm-mbr-state-reason-bundle-error-disabled':'BM_MBR_STATE_REASON_BUNDLE_ERROR_DISABLED',
             'bm-mbr-state-reason-bundle-efd-disabled':'BM_MBR_STATE_REASON_BUNDLE_EFD_DISABLED',
             'bm-mbr-state-reason-singleton-pe-isolated':'BM_MBR_STATE_REASON_SINGLETON_PE_ISOLATED',
+            'bm-mbr-state-reason-bfd-ipv6-starting':'BM_MBR_STATE_REASON_BFD_IPV6_STARTING',
+            'bm-mbr-state-reason-bfd-ipv6-down':'BM_MBR_STATE_REASON_BFD_IPV6_DOWN',
+            'bm-mbr-state-reason-bfd-ipv6-nbr-unconfig':'BM_MBR_STATE_REASON_BFD_IPV6_NBR_UNCONFIG',
+            'bm-mbr-state-reason-timer-running':'BM_MBR_STATE_REASON_TIMER_RUNNING',
             'bm-mbr-state-reason-count':'BM_MBR_STATE_REASON_COUNT',
         }, 'Cisco-IOS-XR-pfi-im-cmd-oper', _yang_ns._namespaces['Cisco-IOS-XR-pfi-im-cmd-oper']),
     'BmSeverityEnum' : _MetaInfoEnum('BmSeverityEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper',
@@ -767,6 +772,26 @@ _meta_table = {
             'im-attr-media-100gbase-er4l':'IM_ATTR_MEDIA_100GBASE_ER4L',
             'im-attr-media-100gbase-sr4':'IM_ATTR_MEDIA_100GBASE_SR4',
             'im-attr-media-40gbase-sr-bd':'IM_ATTR_MEDIA_40GBASE_SR_BD',
+            'im-attr-media-25gbase-cr':'IM_ATTR_MEDIA_25GBASE_CR',
+            'im-attr-media-25gbase-cr-s':'IM_ATTR_MEDIA_25GBASE_CR_S',
+            'im-attr-media-25gbase-kr':'IM_ATTR_MEDIA_25GBASE_KR',
+            'im-attr-media-25gbase-kr-s':'IM_ATTR_MEDIA_25GBASE_KR_S',
+            'im-attr-media-25gbase-r':'IM_ATTR_MEDIA_25GBASE_R',
+            'im-attr-media-25gbase-sr':'IM_ATTR_MEDIA_25GBASE_SR',
+            'im-attr-media-25gbase-dwdm':'IM_ATTR_MEDIA_25GBASE_DWDM',
+            'im-attr-media-25gbase-dwdm-tunable':'IM_ATTR_MEDIA_25GBASE_DWDM_TUNABLE',
+            'im-attr-media-25gbase-cwdm':'IM_ATTR_MEDIA_25GBASE_CWDM',
+            'im-attr-media-25gbase-cwdm-tunable':'IM_ATTR_MEDIA_25GBASE_CWDM_TUNABLE',
+            'im-attr-media-100gbase-psm4':'IM_ATTR_MEDIA_100GBASE_PSM4',
+            'im-attr-media-100gbase-er10':'IM_ATTR_MEDIA_100GBASE_ER10',
+            'im-attr-media-100gbase-er10l':'IM_ATTR_MEDIA_100GBASE_ER10L',
+            'im-attr-media-100gbase-acc':'IM_ATTR_MEDIA_100GBASE_ACC',
+            'im-attr-media-100gbase-aoc':'IM_ATTR_MEDIA_100GBASE_AOC',
+            'im-attr-media-100gbase-cwdm4':'IM_ATTR_MEDIA_100GBASE_CWDM4',
+            'im-attr-media-40gbase-psm4':'IM_ATTR_MEDIA_40GBASE_PSM4',
+            'im-attr-media-100gbase-cr4':'IM_ATTR_MEDIA_100GBASE_CR4',
+            'im-attr-media-100gbase-act-loop':'IM_ATTR_MEDIA_100GBASE_ACT_LOOP',
+            'im-attr-media-100gbase-pas-loop':'IM_ATTR_MEDIA_100GBASE_PAS_LOOP',
         }, 'Cisco-IOS-XR-pfi-im-cmd-oper', _yang_ns._namespaces['Cisco-IOS-XR-pfi-im-cmd-oper']),
     'SrpMgmtSrrNodeStateEnum' : _MetaInfoEnum('SrpMgmtSrrNodeStateEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper',
         {
@@ -779,7 +804,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('half-life', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Configured decay half life in mins
                 ''',
                 'half_life',
@@ -791,37 +816,37 @@ _meta_table = {
                 'is_suppressed_enabled',
                 'Cisco-IOS-XR-pfi-im-cmd-oper', False),
             _MetaInfoClassMember('maximum-suppress-time', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Maximum suppress time in mins
                 ''',
                 'maximum_suppress_time',
                 'Cisco-IOS-XR-pfi-im-cmd-oper', False),
             _MetaInfoClassMember('penalty', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Dampening penalty of the interface
                 ''',
                 'penalty',
                 'Cisco-IOS-XR-pfi-im-cmd-oper', False),
             _MetaInfoClassMember('restart-penalty', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Configured restart penalty
                 ''',
                 'restart_penalty',
                 'Cisco-IOS-XR-pfi-im-cmd-oper', False),
             _MetaInfoClassMember('reuse-threshold', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Configured reuse threshold
                 ''',
                 'reuse_threshold',
                 'Cisco-IOS-XR-pfi-im-cmd-oper', False),
             _MetaInfoClassMember('seconds-remaining', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Remaining period of suppression in secs
                 ''',
                 'seconds_remaining',
                 'Cisco-IOS-XR-pfi-im-cmd-oper', False),
             _MetaInfoClassMember('suppress-threshold', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Value of suppress threshold
                 ''',
                 'suppress_threshold',
@@ -872,13 +897,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('carrier-delay-down', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Carrier delay on state down (ms)
                 ''',
                 'carrier_delay_down',
                 'Cisco-IOS-XR-pfi-im-cmd-oper', False),
             _MetaInfoClassMember('carrier-delay-up', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Carrier delay on state up (ms)
                 ''',
                 'carrier_delay_up',
@@ -902,7 +927,7 @@ _meta_table = {
                 'arp_is_learning_disabled',
                 'Cisco-IOS-XR-pfi-im-cmd-oper', False),
             _MetaInfoClassMember('arp-timeout', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                ARP timeout in seconds. Only valid if
                 'ARPIsLearningDisabled' is 'false'
                 ''',
@@ -932,7 +957,7 @@ _meta_table = {
                 'ip_address',
                 'Cisco-IOS-XR-pfi-im-cmd-oper', False),
             _MetaInfoClassMember('subnet-mask-length', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Interface subnet mask length
                 ''',
                 'subnet_mask_length',
@@ -949,13 +974,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('enquiries-received', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of enquiry messages received
                 ''',
                 'enquiries_received',
                 'Cisco-IOS-XR-pfi-im-cmd-oper', False),
             _MetaInfoClassMember('enquiries-sent', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of enquiry messages sent
                 ''',
                 'enquiries_sent',
@@ -1005,31 +1030,31 @@ _meta_table = {
                 'lmi_type',
                 'Cisco-IOS-XR-pfi-im-cmd-oper', False),
             _MetaInfoClassMember('lmidlci', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                LMI DLCI
                 ''',
                 'lmidlci',
                 'Cisco-IOS-XR-pfi-im-cmd-oper', False),
             _MetaInfoClassMember('status-received', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of status messages received
                 ''',
                 'status_received',
                 'Cisco-IOS-XR-pfi-im-cmd-oper', False),
             _MetaInfoClassMember('status-sent', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of status messages sent
                 ''',
                 'status_sent',
                 'Cisco-IOS-XR-pfi-im-cmd-oper', False),
             _MetaInfoClassMember('update-status-received', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of update status messages received
                 ''',
                 'update_status_received',
                 'Cisco-IOS-XR-pfi-im-cmd-oper', False),
             _MetaInfoClassMember('update-status-sent', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of update status messages sent
                 ''',
                 'update_status_sent',
@@ -1046,13 +1071,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('outer-tag', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                Outer tag value
                 ''',
                 'outer_tag',
                 'Cisco-IOS-XR-pfi-im-cmd-oper', False),
             _MetaInfoClassMember('second-tag', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                Second tag value
                 ''',
                 'second_tag',
@@ -1075,7 +1100,7 @@ _meta_table = {
                 'ethertype',
                 'Cisco-IOS-XR-pfi-im-cmd-oper', False),
             _MetaInfoClassMember('vlan-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                VLAN Id
                 ''',
                 'vlan_id',
@@ -1109,13 +1134,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('vlan-id-high', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                VLAN ID High
                 ''',
                 'vlan_id_high',
                 'Cisco-IOS-XR-pfi-im-cmd-oper', False),
             _MetaInfoClassMember('vlan-id-low', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                VLAN ID Low
                 ''',
                 'vlan_id_low',
@@ -1167,7 +1192,7 @@ _meta_table = {
                 'ethertype',
                 'Cisco-IOS-XR-pfi-im-cmd-oper', False),
             _MetaInfoClassMember('vlan-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                VLAN Id
                 ''',
                 'vlan_id',
@@ -1190,21 +1215,21 @@ _meta_table = {
                 'destination_mac_match',
                 'Cisco-IOS-XR-pfi-im-cmd-oper', False),
             _MetaInfoClassMember('is-exact-match', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Whether the packet must match the encapsulation
                 exactly, with no further inner tags
                 ''',
                 'is_exact_match',
                 'Cisco-IOS-XR-pfi-im-cmd-oper', False),
             _MetaInfoClassMember('is-native-preserving', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Whether the native VLAN is customer-tag
                 preserving
                 ''',
                 'is_native_preserving',
                 'Cisco-IOS-XR-pfi-im-cmd-oper', False),
             _MetaInfoClassMember('is-native-vlan', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Whether this represents the native VLAN on the
                 port
                 ''',
@@ -1235,7 +1260,7 @@ _meta_table = {
                 'source_mac_match',
                 'Cisco-IOS-XR-pfi-im-cmd-oper', False),
             _MetaInfoClassMember('tags-popped', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                Number of tags popped on ingress
                 ''',
                 'tags_popped',
@@ -1258,13 +1283,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('outer-tag', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                Outer tag value
                 ''',
                 'outer_tag',
                 'Cisco-IOS-XR-pfi-im-cmd-oper', False),
             _MetaInfoClassMember('second-tag', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                Second tag value
                 ''',
                 'second_tag',
@@ -1287,31 +1312,31 @@ _meta_table = {
                 'dot1ad_dot1q_stack',
                 'Cisco-IOS-XR-pfi-im-cmd-oper', False),
             _MetaInfoClassMember('dot1ad-native-tag', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                802.1ad native tag value
                 ''',
                 'dot1ad_native_tag',
                 'Cisco-IOS-XR-pfi-im-cmd-oper', False),
             _MetaInfoClassMember('dot1ad-outer-tag', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                802.1ad Outer tag value
                 ''',
                 'dot1ad_outer_tag',
                 'Cisco-IOS-XR-pfi-im-cmd-oper', False),
             _MetaInfoClassMember('dot1ad-tag', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                802.1ad tag value
                 ''',
                 'dot1ad_tag',
                 'Cisco-IOS-XR-pfi-im-cmd-oper', False),
             _MetaInfoClassMember('native-tag', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                Native tag value
                 ''',
                 'native_tag',
                 'Cisco-IOS-XR-pfi-im-cmd-oper', False),
             _MetaInfoClassMember('outer-tag', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                Outer tag value
                 ''',
                 'outer_tag',
@@ -1329,7 +1354,7 @@ _meta_table = {
                 'stack',
                 'Cisco-IOS-XR-pfi-im-cmd-oper', False),
             _MetaInfoClassMember('tag', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                Tag value
                 ''',
                 'tag',
@@ -1392,25 +1417,25 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('is-loopback-detected', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Loopback detected
                 ''',
                 'is_loopback_detected',
                 'Cisco-IOS-XR-pfi-im-cmd-oper', False),
             _MetaInfoClassMember('is-mp-bundle-member', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                MP Bundle Member
                 ''',
                 'is_mp_bundle_member',
                 'Cisco-IOS-XR-pfi-im-cmd-oper', False),
             _MetaInfoClassMember('is-multilink-open', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Is Multilink Open
                 ''',
                 'is_multilink_open',
                 'Cisco-IOS-XR-pfi-im-cmd-oper', False),
             _MetaInfoClassMember('keepalive-period', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Keepalive value
                 ''',
                 'keepalive_period',
@@ -1480,7 +1505,7 @@ _meta_table = {
                 'current_state',
                 'Cisco-IOS-XR-pfi-im-cmd-oper', False),
             _MetaInfoClassMember('debounced-delay', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Debounce delay
                 ''',
                 'debounced_delay',
@@ -1497,8 +1522,8 @@ _meta_table = {
                 ''',
                 'reported_state',
                 'Cisco-IOS-XR-pfi-im-cmd-oper', False),
-            _MetaInfoClassMember('stable-time', ATTRIBUTE, 'long' , None, None, 
-                [(0, 18446744073709551615L)], [], 
+            _MetaInfoClassMember('stable-time', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
                 '''                Stable time
                 ''',
                 'stable_time',
@@ -1527,7 +1552,7 @@ _meta_table = {
                 'asserted_failure',
                 'Cisco-IOS-XR-pfi-im-cmd-oper', False),
             _MetaInfoClassMember('delay-keep-alive-trigger', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of milliseconds to wait after an L1
                 failure is detected before triggering an L2 wrap
                 ''',
@@ -1540,7 +1565,7 @@ _meta_table = {
                 'mac_address',
                 'Cisco-IOS-XR-pfi-im-cmd-oper', False),
             _MetaInfoClassMember('packet-sent-timer', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                SRP IPS packet send interval in seconds
                 ''',
                 'packet_sent_timer',
@@ -1564,7 +1589,7 @@ _meta_table = {
                 'rx_neighbor_mac_address',
                 'Cisco-IOS-XR-pfi-im-cmd-oper', False),
             _MetaInfoClassMember('rx-packet-test', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Test for existence of an RX packet
                 ''',
                 'rx_packet_test',
@@ -1576,7 +1601,7 @@ _meta_table = {
                 'rx_path_type',
                 'Cisco-IOS-XR-pfi-im-cmd-oper', False),
             _MetaInfoClassMember('rx-ttl', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Time to live for received message
                 ''',
                 'rx_ttl',
@@ -1588,7 +1613,7 @@ _meta_table = {
                 'self_detected_request',
                 'Cisco-IOS-XR-pfi-im-cmd-oper', False),
             _MetaInfoClassMember('send-timer-time-remaining', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Time in seconds remaining until next send of an
                 IPS request
                 ''',
@@ -1607,7 +1632,7 @@ _meta_table = {
                 'tx_neighbor_mac_address',
                 'Cisco-IOS-XR-pfi-im-cmd-oper', False),
             _MetaInfoClassMember('tx-packet-test', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Test for existence of a TX packet
                 ''',
                 'tx_packet_test',
@@ -1619,7 +1644,7 @@ _meta_table = {
                 'tx_path_type',
                 'Cisco-IOS-XR-pfi-im-cmd-oper', False),
             _MetaInfoClassMember('tx-ttl', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Time to live for transmitted message
                 ''',
                 'tx_ttl',
@@ -1631,7 +1656,7 @@ _meta_table = {
                 'wrap_state',
                 'Cisco-IOS-XR-pfi-im-cmd-oper', False),
             _MetaInfoClassMember('wtr-timer-remaining', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Time in seconds until wrap removal
                 ''',
                 'wtr_timer_remaining',
@@ -1654,7 +1679,7 @@ _meta_table = {
                 'current_state',
                 'Cisco-IOS-XR-pfi-im-cmd-oper', False),
             _MetaInfoClassMember('debounced-delay', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Debounce delay
                 ''',
                 'debounced_delay',
@@ -1671,8 +1696,8 @@ _meta_table = {
                 ''',
                 'reported_state',
                 'Cisco-IOS-XR-pfi-im-cmd-oper', False),
-            _MetaInfoClassMember('stable-time', ATTRIBUTE, 'long' , None, None, 
-                [(0, 18446744073709551615L)], [], 
+            _MetaInfoClassMember('stable-time', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
                 '''                Stable time
                 ''',
                 'stable_time',
@@ -1701,7 +1726,7 @@ _meta_table = {
                 'asserted_failure',
                 'Cisco-IOS-XR-pfi-im-cmd-oper', False),
             _MetaInfoClassMember('delay-keep-alive-trigger', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of milliseconds to wait after an L1
                 failure is detected before triggering an L2 wrap
                 ''',
@@ -1714,7 +1739,7 @@ _meta_table = {
                 'mac_address',
                 'Cisco-IOS-XR-pfi-im-cmd-oper', False),
             _MetaInfoClassMember('packet-sent-timer', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                SRP IPS packet send interval in seconds
                 ''',
                 'packet_sent_timer',
@@ -1738,7 +1763,7 @@ _meta_table = {
                 'rx_neighbor_mac_address',
                 'Cisco-IOS-XR-pfi-im-cmd-oper', False),
             _MetaInfoClassMember('rx-packet-test', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Test for existence of an RX packet
                 ''',
                 'rx_packet_test',
@@ -1750,7 +1775,7 @@ _meta_table = {
                 'rx_path_type',
                 'Cisco-IOS-XR-pfi-im-cmd-oper', False),
             _MetaInfoClassMember('rx-ttl', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Time to live for received message
                 ''',
                 'rx_ttl',
@@ -1762,7 +1787,7 @@ _meta_table = {
                 'self_detected_request',
                 'Cisco-IOS-XR-pfi-im-cmd-oper', False),
             _MetaInfoClassMember('send-timer-time-remaining', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Time in seconds remaining until next send of an
                 IPS request
                 ''',
@@ -1781,7 +1806,7 @@ _meta_table = {
                 'tx_neighbor_mac_address',
                 'Cisco-IOS-XR-pfi-im-cmd-oper', False),
             _MetaInfoClassMember('tx-packet-test', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Test for existence of a TX packet
                 ''',
                 'tx_packet_test',
@@ -1793,7 +1818,7 @@ _meta_table = {
                 'tx_path_type',
                 'Cisco-IOS-XR-pfi-im-cmd-oper', False),
             _MetaInfoClassMember('tx-ttl', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Time to live for transmitted message
                 ''',
                 'tx_ttl',
@@ -1805,7 +1830,7 @@ _meta_table = {
                 'wrap_state',
                 'Cisco-IOS-XR-pfi-im-cmd-oper', False),
             _MetaInfoClassMember('wtr-timer-remaining', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Time in seconds until wrap removal
                 ''',
                 'wtr_timer_remaining',
@@ -1822,7 +1847,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('is-inter-card-bus-enabled', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Inter card bus enabled
                 ''',
                 'is_inter_card_bus_enabled',
@@ -1846,7 +1871,7 @@ _meta_table = {
                 'side_b',
                 'Cisco-IOS-XR-pfi-im-cmd-oper', False),
             _MetaInfoClassMember('wtr-timer-period', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                IPS Wait To Restore period in seconds
                 ''',
                 'wtr_timer_period',
@@ -1863,7 +1888,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('is-admin-down', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Is the interfaceadministratively down
                 ''',
                 'is_admin_down',
@@ -1886,7 +1911,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('hop-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                Outer-ring hops to reach this node
                 ''',
                 'hop_count',
@@ -1898,13 +1923,13 @@ _meta_table = {
                 'ipv4_address',
                 'Cisco-IOS-XR-pfi-im-cmd-oper', False),
             _MetaInfoClassMember('is-srr-supported', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                SRR protocol supported
                 ''',
                 'is_srr_supported',
                 'Cisco-IOS-XR-pfi-im-cmd-oper', False),
             _MetaInfoClassMember('is-wrapped', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Wrap state
                 ''',
                 'is_wrapped',
@@ -1933,13 +1958,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('next-topology-packet-delay', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Time remaining until next topo pkt sent
                 ''',
                 'next_topology_packet_delay',
                 'Cisco-IOS-XR-pfi-im-cmd-oper', False),
             _MetaInfoClassMember('number-of-nodes-on-ring', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                Number of nodes on ring
                 ''',
                 'number_of_nodes_on_ring',
@@ -1951,19 +1976,19 @@ _meta_table = {
                 'ring_node',
                 'Cisco-IOS-XR-pfi-im-cmd-oper', False),
             _MetaInfoClassMember('time-since-last-topology-change', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Time since last topology change
                 ''',
                 'time_since_last_topology_change',
                 'Cisco-IOS-XR-pfi-im-cmd-oper', False),
             _MetaInfoClassMember('time-since-last-topology-packet-received', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Time since last topo pkt was received
                 ''',
                 'time_since_last_topology_packet_received',
                 'Cisco-IOS-XR-pfi-im-cmd-oper', False),
             _MetaInfoClassMember('topology-timer', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                How often a topology pkt is sent
                 ''',
                 'topology_timer',
@@ -1980,7 +2005,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('is-admin-down', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Is the interfaceadministratively down
                 ''',
                 'is_admin_down',
@@ -2009,13 +2034,13 @@ _meta_table = {
                 'inner_failure',
                 'Cisco-IOS-XR-pfi-im-cmd-oper', False),
             _MetaInfoClassMember('is-last-announce-received', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Announce last received ?
                 ''',
                 'is_last_announce_received',
                 'Cisco-IOS-XR-pfi-im-cmd-oper', False),
             _MetaInfoClassMember('last-announce-received-time', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Announce last received
                 ''',
                 'last_announce_received_time',
@@ -2039,7 +2064,7 @@ _meta_table = {
                 'outer_failure',
                 'Cisco-IOS-XR-pfi-im-cmd-oper', False),
             _MetaInfoClassMember('srr-entry-exits', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Does the SRR information exist for this node
                 ''',
                 'srr_entry_exits',
@@ -2062,13 +2087,13 @@ _meta_table = {
                 'inner_failure',
                 'Cisco-IOS-XR-pfi-im-cmd-oper', False),
             _MetaInfoClassMember('is-last-announce-received', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Announce last received ?
                 ''',
                 'is_last_announce_received',
                 'Cisco-IOS-XR-pfi-im-cmd-oper', False),
             _MetaInfoClassMember('last-announce-received-time', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Announce last received
                 ''',
                 'last_announce_received_time',
@@ -2092,7 +2117,7 @@ _meta_table = {
                 'outer_failure',
                 'Cisco-IOS-XR-pfi-im-cmd-oper', False),
             _MetaInfoClassMember('srr-entry-exits', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Does the SRR information exist for this node
                 ''',
                 'srr_entry_exits',
@@ -2115,31 +2140,31 @@ _meta_table = {
                 'inner_fail_type',
                 'Cisco-IOS-XR-pfi-im-cmd-oper', False),
             _MetaInfoClassMember('is-announce', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Is announcing enabled
                 ''',
                 'is_announce',
                 'Cisco-IOS-XR-pfi-im-cmd-oper', False),
             _MetaInfoClassMember('is-inner-ring-in-use', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                 Is the inner ring in use
                 ''',
                 'is_inner_ring_in_use',
                 'Cisco-IOS-XR-pfi-im-cmd-oper', False),
             _MetaInfoClassMember('is-outer-ring-in-use', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Is the outer ring in use
                 ''',
                 'is_outer_ring_in_use',
                 'Cisco-IOS-XR-pfi-im-cmd-oper', False),
             _MetaInfoClassMember('is-wrong-version-received', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Wrong version recieved
                 ''',
                 'is_wrong_version_received',
                 'Cisco-IOS-XR-pfi-im-cmd-oper', False),
             _MetaInfoClassMember('last-wrong-version-receive-time', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Time that last wrong version message recieved
                 ''',
                 'last_wrong_version_receive_time',
@@ -2151,7 +2176,7 @@ _meta_table = {
                 'mac_address',
                 'Cisco-IOS-XR-pfi-im-cmd-oper', False),
             _MetaInfoClassMember('next-srr-packet-send-time', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Time remaining in seconds to next SRR packet
                 send
                 ''',
@@ -2182,38 +2207,38 @@ _meta_table = {
                 'outer_fail_type',
                 'Cisco-IOS-XR-pfi-im-cmd-oper', False),
             _MetaInfoClassMember('packet-send-timer', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                SRR packet send timer interval in seconds
                 ''',
                 'packet_send_timer',
                 'Cisco-IOS-XR-pfi-im-cmd-oper', False),
             _MetaInfoClassMember('single-ring-bw', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Single ring bandwidth Mbps
                 ''',
                 'single_ring_bw',
                 'Cisco-IOS-XR-pfi-im-cmd-oper', False),
             _MetaInfoClassMember('version-number', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Version number
                 ''',
                 'version_number',
                 'Cisco-IOS-XR-pfi-im-cmd-oper', False),
             _MetaInfoClassMember('wtr-time', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                SRR Wait To Restore interval delay in seconds
                 ''',
                 'wtr_time',
                 'Cisco-IOS-XR-pfi-im-cmd-oper', False),
             _MetaInfoClassMember('wtr-timer-remaining-inner-ring', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Time remaining in seconds until next inner ring
                 wrap removal
                 ''',
                 'wtr_timer_remaining_inner_ring',
                 'Cisco-IOS-XR-pfi-im-cmd-oper', False),
             _MetaInfoClassMember('wtr-timer-remaining-outer-ring', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Time remaining in seconds until next outer ring
                 wrap removal
                 ''',
@@ -2231,13 +2256,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('is-admin-down', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Is the interfaceadministratively down
                 ''',
                 'is_admin_down',
                 'Cisco-IOS-XR-pfi-im-cmd-oper', False),
             _MetaInfoClassMember('is-srr-enabled', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                SRR enabled
                 ''',
                 'is_srr_enabled',
@@ -2260,7 +2285,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('min-priority-value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                Minimum SRP priority for high-priority transmit
                 queue
                 ''',
@@ -2278,7 +2303,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('is-admin-down', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Is the interfaceadministratively down
                 ''',
                 'is_admin_down',
@@ -2336,25 +2361,25 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('bit-rate-received', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Received bit rate
                 ''',
                 'bit_rate_received',
                 'Cisco-IOS-XR-pfi-im-cmd-oper', False),
             _MetaInfoClassMember('bit-rate-sent', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Sent bit rate
                 ''',
                 'bit_rate_sent',
                 'Cisco-IOS-XR-pfi-im-cmd-oper', False),
             _MetaInfoClassMember('packet-rate-received', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Received packet rate
                 ''',
                 'packet_rate_received',
                 'Cisco-IOS-XR-pfi-im-cmd-oper', False),
             _MetaInfoClassMember('packet-rate-sent', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Sent packet rate
                 ''',
                 'packet_rate_sent',
@@ -2371,25 +2396,25 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('bit-rate-received', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Received bit rate
                 ''',
                 'bit_rate_received',
                 'Cisco-IOS-XR-pfi-im-cmd-oper', False),
             _MetaInfoClassMember('bit-rate-sent', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Sent bit rate
                 ''',
                 'bit_rate_sent',
                 'Cisco-IOS-XR-pfi-im-cmd-oper', False),
             _MetaInfoClassMember('packet-rate-received', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Received packet rate
                 ''',
                 'packet_rate_received',
                 'Cisco-IOS-XR-pfi-im-cmd-oper', False),
             _MetaInfoClassMember('packet-rate-sent', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Sent packet rate
                 ''',
                 'packet_rate_sent',
@@ -2406,55 +2431,55 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('crc-errors', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Input CRC errors
                 ''',
                 'crc_errors',
                 'Cisco-IOS-XR-pfi-im-cmd-oper', False),
             _MetaInfoClassMember('error-packets-received', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Error packets received
                 ''',
                 'error_packets_received',
                 'Cisco-IOS-XR-pfi-im-cmd-oper', False),
             _MetaInfoClassMember('framer-aborts-received', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Aborts received at framer
                 ''',
                 'framer_aborts_received',
                 'Cisco-IOS-XR-pfi-im-cmd-oper', False),
             _MetaInfoClassMember('framer-giant-packets-received', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Too large packets received at framer
                 ''',
                 'framer_giant_packets_received',
                 'Cisco-IOS-XR-pfi-im-cmd-oper', False),
             _MetaInfoClassMember('framer-runt-packets-received', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Too small packets received at framer
                 ''',
                 'framer_runt_packets_received',
                 'Cisco-IOS-XR-pfi-im-cmd-oper', False),
             _MetaInfoClassMember('input-insufficient-resource-events', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Input insufficient resources events
                 ''',
                 'input_insufficient_resource_events',
                 'Cisco-IOS-XR-pfi-im-cmd-oper', False),
             _MetaInfoClassMember('mac-aborts-received', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Aborts received at MAC/RAC
                 ''',
                 'mac_aborts_received',
                 'Cisco-IOS-XR-pfi-im-cmd-oper', False),
             _MetaInfoClassMember('mac-giant-packets-received', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Too large packets received at MAC/RAC
                 ''',
                 'mac_giant_packets_received',
                 'Cisco-IOS-XR-pfi-im-cmd-oper', False),
             _MetaInfoClassMember('mac-runt-packets-received', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Too small packets received at MAC/RAC
                 ''',
                 'mac_runt_packets_received',
@@ -2471,55 +2496,55 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('crc-errors', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Input CRC errors
                 ''',
                 'crc_errors',
                 'Cisco-IOS-XR-pfi-im-cmd-oper', False),
             _MetaInfoClassMember('error-packets-received', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Error packets received
                 ''',
                 'error_packets_received',
                 'Cisco-IOS-XR-pfi-im-cmd-oper', False),
             _MetaInfoClassMember('framer-aborts-received', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Aborts received at framer
                 ''',
                 'framer_aborts_received',
                 'Cisco-IOS-XR-pfi-im-cmd-oper', False),
             _MetaInfoClassMember('framer-giant-packets-received', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Too large packets received at framer
                 ''',
                 'framer_giant_packets_received',
                 'Cisco-IOS-XR-pfi-im-cmd-oper', False),
             _MetaInfoClassMember('framer-runt-packets-received', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Too small packets received at framer
                 ''',
                 'framer_runt_packets_received',
                 'Cisco-IOS-XR-pfi-im-cmd-oper', False),
             _MetaInfoClassMember('input-insufficient-resource-events', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Input insufficient resources events
                 ''',
                 'input_insufficient_resource_events',
                 'Cisco-IOS-XR-pfi-im-cmd-oper', False),
             _MetaInfoClassMember('mac-aborts-received', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Aborts received at MAC/RAC
                 ''',
                 'mac_aborts_received',
                 'Cisco-IOS-XR-pfi-im-cmd-oper', False),
             _MetaInfoClassMember('mac-giant-packets-received', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Too large packets received at MAC/RAC
                 ''',
                 'mac_giant_packets_received',
                 'Cisco-IOS-XR-pfi-im-cmd-oper', False),
             _MetaInfoClassMember('mac-runt-packets-received', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Too small packets received at MAC/RAC
                 ''',
                 'mac_runt_packets_received',
@@ -2536,7 +2561,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('data-rate-interval', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Data rate interval (5 mins or 30 seconds)
                 ''',
                 'data_rate_interval',
@@ -2606,7 +2631,7 @@ _meta_table = {
                 'destination_ipv4_address',
                 'Cisco-IOS-XR-pfi-im-cmd-oper', False),
             _MetaInfoClassMember('key', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                GRE tunnel key
                 ''',
                 'key',
@@ -2624,7 +2649,7 @@ _meta_table = {
                 'source_name',
                 'Cisco-IOS-XR-pfi-im-cmd-oper', False),
             _MetaInfoClassMember('ttl', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                GRE tunnel TTL
                 ''',
                 'ttl',
@@ -2638,6 +2663,173 @@ _meta_table = {
             ],
             'Cisco-IOS-XR-pfi-im-cmd-oper',
             'tunnel-information',
+            _yang_ns._namespaces['Cisco-IOS-XR-pfi-im-cmd-oper'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper'
+        ),
+    },
+    'Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.BundleInformation.Member.Counters' : {
+        'meta_info' : _MetaInfoClass('Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.BundleInformation.Member.Counters',
+            False, 
+            [
+            _MetaInfoClassMember('defaulted', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                State flag set to Defaulted
+                ''',
+                'defaulted',
+                'Cisco-IOS-XR-pfi-im-cmd-oper', False),
+            _MetaInfoClassMember('excess-lacpd-us-received', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                LACPDUs received that exceed the rate limit
+                ''',
+                'excess_lacpd_us_received',
+                'Cisco-IOS-XR-pfi-im-cmd-oper', False),
+            _MetaInfoClassMember('excess-marker-packets-received', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                Marker packets received that exceed the rate
+                limit
+                ''',
+                'excess_marker_packets_received',
+                'Cisco-IOS-XR-pfi-im-cmd-oper', False),
+            _MetaInfoClassMember('expired', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                State flag set to Expired
+                ''',
+                'expired',
+                'Cisco-IOS-XR-pfi-im-cmd-oper', False),
+            _MetaInfoClassMember('illegal-packets-received', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                Illegal and unknown packets received
+                ''',
+                'illegal_packets_received',
+                'Cisco-IOS-XR-pfi-im-cmd-oper', False),
+            _MetaInfoClassMember('lacpd-us-received', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                LACPDUs received
+                ''',
+                'lacpd_us_received',
+                'Cisco-IOS-XR-pfi-im-cmd-oper', False),
+            _MetaInfoClassMember('lacpd-us-transmitted', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                LACPDUs transmitted
+                ''',
+                'lacpd_us_transmitted',
+                'Cisco-IOS-XR-pfi-im-cmd-oper', False),
+            _MetaInfoClassMember('last-cleared-nsec', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                Last time counters cleared (nsec) (deprecated)
+                ''',
+                'last_cleared_nsec',
+                'Cisco-IOS-XR-pfi-im-cmd-oper', False),
+            _MetaInfoClassMember('last-cleared-sec', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                Last time counters cleared (s) (deprecated)
+                ''',
+                'last_cleared_sec',
+                'Cisco-IOS-XR-pfi-im-cmd-oper', False),
+            _MetaInfoClassMember('marker-packets-received', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                Marker packets received
+                ''',
+                'marker_packets_received',
+                'Cisco-IOS-XR-pfi-im-cmd-oper', False),
+            _MetaInfoClassMember('marker-responses-transmitted', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                Marker response packets transmitted
+                ''',
+                'marker_responses_transmitted',
+                'Cisco-IOS-XR-pfi-im-cmd-oper', False),
+            ],
+            'Cisco-IOS-XR-pfi-im-cmd-oper',
+            'counters',
+            _yang_ns._namespaces['Cisco-IOS-XR-pfi-im-cmd-oper'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper'
+        ),
+    },
+    'Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.BundleInformation.Member.LinkData' : {
+        'meta_info' : _MetaInfoClass('Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.BundleInformation.Member.LinkData',
+            False, 
+            [
+            _MetaInfoClassMember('actor-operational-key', ATTRIBUTE, 'int' , None, None, 
+                [('0', '65535')], [], 
+                '''                Operational key for this port
+                ''',
+                'actor_operational_key',
+                'Cisco-IOS-XR-pfi-im-cmd-oper', False),
+            _MetaInfoClassMember('actor-port-id', ATTRIBUTE, 'int' , None, None, 
+                [('0', '65535')], [], 
+                '''                Port number of this port
+                ''',
+                'actor_port_id',
+                'Cisco-IOS-XR-pfi-im-cmd-oper', False),
+            _MetaInfoClassMember('actor-port-priority', ATTRIBUTE, 'int' , None, None, 
+                [('0', '65535')], [], 
+                '''                Priority of this port
+                ''',
+                'actor_port_priority',
+                'Cisco-IOS-XR-pfi-im-cmd-oper', False),
+            _MetaInfoClassMember('actor-port-state', ATTRIBUTE, 'int' , None, None, 
+                [('0', '255')], [], 
+                '''                LACP state of this port
+                ''',
+                'actor_port_state',
+                'Cisco-IOS-XR-pfi-im-cmd-oper', False),
+            _MetaInfoClassMember('attached-aggregator-id', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                MIB ifindex of attached bundle
+                ''',
+                'attached_aggregator_id',
+                'Cisco-IOS-XR-pfi-im-cmd-oper', False),
+            _MetaInfoClassMember('interface-handle', ATTRIBUTE, 'str' , None, None, 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                '''                Member's interface handle
+                ''',
+                'interface_handle',
+                'Cisco-IOS-XR-pfi-im-cmd-oper', False),
+            _MetaInfoClassMember('partner-operational-key', ATTRIBUTE, 'int' , None, None, 
+                [('0', '65535')], [], 
+                '''                Operational key for partner port
+                ''',
+                'partner_operational_key',
+                'Cisco-IOS-XR-pfi-im-cmd-oper', False),
+            _MetaInfoClassMember('partner-port-id', ATTRIBUTE, 'int' , None, None, 
+                [('0', '65535')], [], 
+                '''                Port number of the partner's port
+                ''',
+                'partner_port_id',
+                'Cisco-IOS-XR-pfi-im-cmd-oper', False),
+            _MetaInfoClassMember('partner-port-priority', ATTRIBUTE, 'int' , None, None, 
+                [('0', '65535')], [], 
+                '''                Priority of the partner's port
+                ''',
+                'partner_port_priority',
+                'Cisco-IOS-XR-pfi-im-cmd-oper', False),
+            _MetaInfoClassMember('partner-port-state', ATTRIBUTE, 'int' , None, None, 
+                [('0', '255')], [], 
+                '''                LACP state of the partner's port
+                ''',
+                'partner_port_state',
+                'Cisco-IOS-XR-pfi-im-cmd-oper', False),
+            _MetaInfoClassMember('partner-system-mac-address', ATTRIBUTE, 'str' , None, None, 
+                [], ['[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'], 
+                '''                MAC Address used to identify the partner system
+                ''',
+                'partner_system_mac_address',
+                'Cisco-IOS-XR-pfi-im-cmd-oper', False),
+            _MetaInfoClassMember('partner-system-priority', ATTRIBUTE, 'int' , None, None, 
+                [('0', '65535')], [], 
+                '''                System priority of partner system
+                ''',
+                'partner_system_priority',
+                'Cisco-IOS-XR-pfi-im-cmd-oper', False),
+            _MetaInfoClassMember('selected-aggregator-id', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                MIB ifindex of selected bundle
+                ''',
+                'selected_aggregator_id',
+                'Cisco-IOS-XR-pfi-im-cmd-oper', False),
+            ],
+            'Cisco-IOS-XR-pfi-im-cmd-oper',
+            'link-data',
             _yang_ns._namespaces['Cisco-IOS-XR-pfi-im-cmd-oper'],
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper'
         ),
@@ -2670,7 +2862,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('error', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Internal value indicating if an error occurred
                 trying to put a link into the desired state
                 ''',
@@ -2736,25 +2928,37 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('bandwidth', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Bandwidth of this member (kbps)
                 ''',
                 'bandwidth',
                 'Cisco-IOS-XR-pfi-im-cmd-oper', False),
+            _MetaInfoClassMember('counters', REFERENCE_CLASS, 'Counters' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper', 'Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.BundleInformation.Member.Counters', 
+                [], [], 
+                '''                Counters data about member link
+                ''',
+                'counters',
+                'Cisco-IOS-XR-pfi-im-cmd-oper', False),
             _MetaInfoClassMember('iccp-node', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Location of member
                 ''',
                 'iccp_node',
                 'Cisco-IOS-XR-pfi-im-cmd-oper', False),
             _MetaInfoClassMember('interface-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Member's interface name
                 ''',
                 'interface_name',
                 'Cisco-IOS-XR-pfi-im-cmd-oper', False),
+            _MetaInfoClassMember('link-data', REFERENCE_CLASS, 'LinkData' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper', 'Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.BundleInformation.Member.LinkData', 
+                [], [], 
+                '''                Lacp data about member link
+                ''',
+                'link_data',
+                'Cisco-IOS-XR-pfi-im-cmd-oper', False),
             _MetaInfoClassMember('link-order-number', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                Member's link order number
                 ''',
                 'link_order_number',
@@ -2784,19 +2988,19 @@ _meta_table = {
                 'member_type',
                 'Cisco-IOS-XR-pfi-im-cmd-oper', False),
             _MetaInfoClassMember('port-number', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                Member's link number
                 ''',
                 'port_number',
                 'Cisco-IOS-XR-pfi-im-cmd-oper', False),
             _MetaInfoClassMember('port-priority', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                The priority of this member
                 ''',
                 'port_priority',
                 'Cisco-IOS-XR-pfi-im-cmd-oper', False),
             _MetaInfoClassMember('underlying-link-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                Member's underlying link ID
                 ''',
                 'underlying_link_id',
@@ -2937,13 +3141,13 @@ _meta_table = {
                 'df_bit_state',
                 'Cisco-IOS-XR-pfi-im-cmd-oper', False),
             _MetaInfoClassMember('keepalive-maximum-retry', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                Keepalive retry
                 ''',
                 'keepalive_maximum_retry',
                 'Cisco-IOS-XR-pfi-im-cmd-oper', False),
             _MetaInfoClassMember('keepalive-period', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                Keepalive period in seconds
                 ''',
                 'keepalive_period',
@@ -2955,7 +3159,7 @@ _meta_table = {
                 'keepalive_state',
                 'Cisco-IOS-XR-pfi-im-cmd-oper', False),
             _MetaInfoClassMember('key', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Key value for GRE Packet
                 ''',
                 'key',
@@ -2985,13 +3189,13 @@ _meta_table = {
                 'tunnel_mode',
                 'Cisco-IOS-XR-pfi-im-cmd-oper', False),
             _MetaInfoClassMember('tunnel-tos', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                GRE tunnel TOS
                 ''',
                 'tunnel_tos',
                 'Cisco-IOS-XR-pfi-im-cmd-oper', False),
             _MetaInfoClassMember('tunnel-ttl', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                GRE tunnel TTL
                 ''',
                 'tunnel_ttl',
@@ -3014,13 +3218,13 @@ _meta_table = {
                 'interface_list_name',
                 'Cisco-IOS-XR-pfi-im-cmd-oper', False),
             _MetaInfoClassMember('internal-label', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Internal Label
                 ''',
                 'internal_label',
                 'Cisco-IOS-XR-pfi-im-cmd-oper', False),
             _MetaInfoClassMember('l2-overhead', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                L2 Overhead
                 ''',
                 'l2_overhead',
@@ -3037,13 +3241,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('dejitter-buffer', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                Dejitter buffer length configuredin milliseconds
                 ''',
                 'dejitter_buffer',
                 'Cisco-IOS-XR-pfi-im-cmd-oper', False),
             _MetaInfoClassMember('framing', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                 If framing is TRUE then the CEM  interface is
                 structure aware ; otherwise it is structure
                 agnostic
@@ -3051,7 +3255,7 @@ _meta_table = {
                 'framing',
                 'Cisco-IOS-XR-pfi-im-cmd-oper', False),
             _MetaInfoClassMember('payload', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                Payload size in bytes configured on CEM
                 interface
                 ''',
@@ -3172,79 +3376,79 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('bandwidth', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Bandwidth (in kbps)
                 ''',
                 'bandwidth',
                 'Cisco-IOS-XR-pfi-im-cmd-oper', False),
-            _MetaInfoClassMember('input-data-rate', ATTRIBUTE, 'long' , None, None, 
-                [(0, 18446744073709551615L)], [], 
+            _MetaInfoClassMember('input-data-rate', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
                 '''                Input data rate in 1000's of bps
                 ''',
                 'input_data_rate',
                 'Cisco-IOS-XR-pfi-im-cmd-oper', False),
             _MetaInfoClassMember('input-load', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                Input load as fraction of 255
                 ''',
                 'input_load',
                 'Cisco-IOS-XR-pfi-im-cmd-oper', False),
-            _MetaInfoClassMember('input-packet-rate', ATTRIBUTE, 'long' , None, None, 
-                [(0, 18446744073709551615L)], [], 
+            _MetaInfoClassMember('input-packet-rate', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
                 '''                Input packets per second
                 ''',
                 'input_packet_rate',
                 'Cisco-IOS-XR-pfi-im-cmd-oper', False),
             _MetaInfoClassMember('load-interval', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of 30-sec intervals less one
                 ''',
                 'load_interval',
                 'Cisco-IOS-XR-pfi-im-cmd-oper', False),
-            _MetaInfoClassMember('output-data-rate', ATTRIBUTE, 'long' , None, None, 
-                [(0, 18446744073709551615L)], [], 
+            _MetaInfoClassMember('output-data-rate', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
                 '''                Output data rate in 1000's of bps
                 ''',
                 'output_data_rate',
                 'Cisco-IOS-XR-pfi-im-cmd-oper', False),
             _MetaInfoClassMember('output-load', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                Output load as fraction of 255
                 ''',
                 'output_load',
                 'Cisco-IOS-XR-pfi-im-cmd-oper', False),
-            _MetaInfoClassMember('output-packet-rate', ATTRIBUTE, 'long' , None, None, 
-                [(0, 18446744073709551615L)], [], 
+            _MetaInfoClassMember('output-packet-rate', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
                 '''                Output packets per second
                 ''',
                 'output_packet_rate',
                 'Cisco-IOS-XR-pfi-im-cmd-oper', False),
-            _MetaInfoClassMember('peak-input-data-rate', ATTRIBUTE, 'long' , None, None, 
-                [(0, 18446744073709551615L)], [], 
+            _MetaInfoClassMember('peak-input-data-rate', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
                 '''                Peak input data rate
                 ''',
                 'peak_input_data_rate',
                 'Cisco-IOS-XR-pfi-im-cmd-oper', False),
-            _MetaInfoClassMember('peak-input-packet-rate', ATTRIBUTE, 'long' , None, None, 
-                [(0, 18446744073709551615L)], [], 
+            _MetaInfoClassMember('peak-input-packet-rate', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
                 '''                Peak input packet rate
                 ''',
                 'peak_input_packet_rate',
                 'Cisco-IOS-XR-pfi-im-cmd-oper', False),
-            _MetaInfoClassMember('peak-output-data-rate', ATTRIBUTE, 'long' , None, None, 
-                [(0, 18446744073709551615L)], [], 
+            _MetaInfoClassMember('peak-output-data-rate', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
                 '''                Peak output data rate
                 ''',
                 'peak_output_data_rate',
                 'Cisco-IOS-XR-pfi-im-cmd-oper', False),
-            _MetaInfoClassMember('peak-output-packet-rate', ATTRIBUTE, 'long' , None, None, 
-                [(0, 18446744073709551615L)], [], 
+            _MetaInfoClassMember('peak-output-packet-rate', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
                 '''                Peak output packet rate
                 ''',
                 'peak_output_packet_rate',
                 'Cisco-IOS-XR-pfi-im-cmd-oper', False),
             _MetaInfoClassMember('reliability', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                Reliability coefficient
                 ''',
                 'reliability',
@@ -3261,219 +3465,219 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('applique', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Applique
                 ''',
                 'applique',
                 'Cisco-IOS-XR-pfi-im-cmd-oper', False),
             _MetaInfoClassMember('availability-flag', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Availability bit mask
                 ''',
                 'availability_flag',
                 'Cisco-IOS-XR-pfi-im-cmd-oper', False),
-            _MetaInfoClassMember('broadcast-packets-received', ATTRIBUTE, 'long' , None, None, 
-                [(0, 18446744073709551615L)], [], 
+            _MetaInfoClassMember('broadcast-packets-received', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
                 '''                Broadcast packets received
                 ''',
                 'broadcast_packets_received',
                 'Cisco-IOS-XR-pfi-im-cmd-oper', False),
-            _MetaInfoClassMember('broadcast-packets-sent', ATTRIBUTE, 'long' , None, None, 
-                [(0, 18446744073709551615L)], [], 
+            _MetaInfoClassMember('broadcast-packets-sent', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
                 '''                Broadcast packets sent
                 ''',
                 'broadcast_packets_sent',
                 'Cisco-IOS-XR-pfi-im-cmd-oper', False),
-            _MetaInfoClassMember('bytes-received', ATTRIBUTE, 'long' , None, None, 
-                [(0, 18446744073709551615L)], [], 
+            _MetaInfoClassMember('bytes-received', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
                 '''                Bytes received
                 ''',
                 'bytes_received',
                 'Cisco-IOS-XR-pfi-im-cmd-oper', False),
-            _MetaInfoClassMember('bytes-sent', ATTRIBUTE, 'long' , None, None, 
-                [(0, 18446744073709551615L)], [], 
+            _MetaInfoClassMember('bytes-sent', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
                 '''                Bytes sent
                 ''',
                 'bytes_sent',
                 'Cisco-IOS-XR-pfi-im-cmd-oper', False),
             _MetaInfoClassMember('carrier-transitions', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Carrier transitions
                 ''',
                 'carrier_transitions',
                 'Cisco-IOS-XR-pfi-im-cmd-oper', False),
             _MetaInfoClassMember('crc-errors', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Input CRC errors
                 ''',
                 'crc_errors',
                 'Cisco-IOS-XR-pfi-im-cmd-oper', False),
             _MetaInfoClassMember('framing-errors-received', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Framing-errors received
                 ''',
                 'framing_errors_received',
                 'Cisco-IOS-XR-pfi-im-cmd-oper', False),
             _MetaInfoClassMember('giant-packets-received', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Received giant packets
                 ''',
                 'giant_packets_received',
                 'Cisco-IOS-XR-pfi-im-cmd-oper', False),
             _MetaInfoClassMember('input-aborts', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Input aborts
                 ''',
                 'input_aborts',
                 'Cisco-IOS-XR-pfi-im-cmd-oper', False),
             _MetaInfoClassMember('input-drops', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Total input drops
                 ''',
                 'input_drops',
                 'Cisco-IOS-XR-pfi-im-cmd-oper', False),
             _MetaInfoClassMember('input-errors', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Total input errors
                 ''',
                 'input_errors',
                 'Cisco-IOS-XR-pfi-im-cmd-oper', False),
             _MetaInfoClassMember('input-ignored-packets', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Input ignored packets
                 ''',
                 'input_ignored_packets',
                 'Cisco-IOS-XR-pfi-im-cmd-oper', False),
             _MetaInfoClassMember('input-overruns', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Input overruns
                 ''',
                 'input_overruns',
                 'Cisco-IOS-XR-pfi-im-cmd-oper', False),
             _MetaInfoClassMember('input-queue-drops', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Input queue drops
                 ''',
                 'input_queue_drops',
                 'Cisco-IOS-XR-pfi-im-cmd-oper', False),
             _MetaInfoClassMember('last-data-time', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Time when counters were last written (in
                 seconds)
                 ''',
                 'last_data_time',
                 'Cisco-IOS-XR-pfi-im-cmd-oper', False),
             _MetaInfoClassMember('last-discontinuity-time', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                SysUpTime when counters were last reset (in
                 seconds)
                 ''',
                 'last_discontinuity_time',
                 'Cisco-IOS-XR-pfi-im-cmd-oper', False),
-            _MetaInfoClassMember('multicast-packets-received', ATTRIBUTE, 'long' , None, None, 
-                [(0, 18446744073709551615L)], [], 
+            _MetaInfoClassMember('multicast-packets-received', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
                 '''                Multicast packets received
                 ''',
                 'multicast_packets_received',
                 'Cisco-IOS-XR-pfi-im-cmd-oper', False),
-            _MetaInfoClassMember('multicast-packets-sent', ATTRIBUTE, 'long' , None, None, 
-                [(0, 18446744073709551615L)], [], 
+            _MetaInfoClassMember('multicast-packets-sent', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
                 '''                Multicast packets sent
                 ''',
                 'multicast_packets_sent',
                 'Cisco-IOS-XR-pfi-im-cmd-oper', False),
             _MetaInfoClassMember('output-buffer-failures', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Output buffer failures
                 ''',
                 'output_buffer_failures',
                 'Cisco-IOS-XR-pfi-im-cmd-oper', False),
             _MetaInfoClassMember('output-buffers-swapped-out', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Output buffers swapped out
                 ''',
                 'output_buffers_swapped_out',
                 'Cisco-IOS-XR-pfi-im-cmd-oper', False),
             _MetaInfoClassMember('output-drops', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Total output drops
                 ''',
                 'output_drops',
                 'Cisco-IOS-XR-pfi-im-cmd-oper', False),
             _MetaInfoClassMember('output-errors', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Total output errors
                 ''',
                 'output_errors',
                 'Cisco-IOS-XR-pfi-im-cmd-oper', False),
             _MetaInfoClassMember('output-queue-drops', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Output queue drops
                 ''',
                 'output_queue_drops',
                 'Cisco-IOS-XR-pfi-im-cmd-oper', False),
             _MetaInfoClassMember('output-underruns', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Output underruns
                 ''',
                 'output_underruns',
                 'Cisco-IOS-XR-pfi-im-cmd-oper', False),
-            _MetaInfoClassMember('packets-received', ATTRIBUTE, 'long' , None, None, 
-                [(0, 18446744073709551615L)], [], 
+            _MetaInfoClassMember('packets-received', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
                 '''                Packets received
                 ''',
                 'packets_received',
                 'Cisco-IOS-XR-pfi-im-cmd-oper', False),
-            _MetaInfoClassMember('packets-sent', ATTRIBUTE, 'long' , None, None, 
-                [(0, 18446744073709551615L)], [], 
+            _MetaInfoClassMember('packets-sent', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
                 '''                Packets sent
                 ''',
                 'packets_sent',
                 'Cisco-IOS-XR-pfi-im-cmd-oper', False),
             _MetaInfoClassMember('parity-packets-received', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Received parity packets
                 ''',
                 'parity_packets_received',
                 'Cisco-IOS-XR-pfi-im-cmd-oper', False),
             _MetaInfoClassMember('resets', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of board resets
                 ''',
                 'resets',
                 'Cisco-IOS-XR-pfi-im-cmd-oper', False),
             _MetaInfoClassMember('runt-packets-received', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Received runt packets
                 ''',
                 'runt_packets_received',
                 'Cisco-IOS-XR-pfi-im-cmd-oper', False),
             _MetaInfoClassMember('seconds-since-last-clear-counters', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of seconds since last clear counters
                 ''',
                 'seconds_since_last_clear_counters',
                 'Cisco-IOS-XR-pfi-im-cmd-oper', False),
             _MetaInfoClassMember('seconds-since-packet-received', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Seconds since packet received
                 ''',
                 'seconds_since_packet_received',
                 'Cisco-IOS-XR-pfi-im-cmd-oper', False),
             _MetaInfoClassMember('seconds-since-packet-sent', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Seconds since packet sent
                 ''',
                 'seconds_since_packet_sent',
                 'Cisco-IOS-XR-pfi-im-cmd-oper', False),
             _MetaInfoClassMember('throttled-packets-received', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Received throttled packets
                 ''',
                 'throttled_packets_received',
                 'Cisco-IOS-XR-pfi-im-cmd-oper', False),
             _MetaInfoClassMember('unknown-protocol-packets-received', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Unknown protocol packets received
                 ''',
                 'unknown_protocol_packets_received',
@@ -3489,100 +3693,100 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Interfaces.InterfaceXr.Interface.InterfaceStatistics.BasicInterfaceStats',
             False, 
             [
-            _MetaInfoClassMember('bytes-received', ATTRIBUTE, 'long' , None, None, 
-                [(0, 18446744073709551615L)], [], 
+            _MetaInfoClassMember('bytes-received', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
                 '''                Bytes received
                 ''',
                 'bytes_received',
                 'Cisco-IOS-XR-pfi-im-cmd-oper', False),
-            _MetaInfoClassMember('bytes-sent', ATTRIBUTE, 'long' , None, None, 
-                [(0, 18446744073709551615L)], [], 
+            _MetaInfoClassMember('bytes-sent', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
                 '''                Bytes sent
                 ''',
                 'bytes_sent',
                 'Cisco-IOS-XR-pfi-im-cmd-oper', False),
             _MetaInfoClassMember('input-drops', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Total input drops
                 ''',
                 'input_drops',
                 'Cisco-IOS-XR-pfi-im-cmd-oper', False),
             _MetaInfoClassMember('input-errors', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Total input errors
                 ''',
                 'input_errors',
                 'Cisco-IOS-XR-pfi-im-cmd-oper', False),
             _MetaInfoClassMember('input-queue-drops', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Input queue drops
                 ''',
                 'input_queue_drops',
                 'Cisco-IOS-XR-pfi-im-cmd-oper', False),
             _MetaInfoClassMember('last-data-time', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Time when counters were last written (in
                 seconds)
                 ''',
                 'last_data_time',
                 'Cisco-IOS-XR-pfi-im-cmd-oper', False),
             _MetaInfoClassMember('last-discontinuity-time', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                SysUpTime when counters were last reset (in
                 seconds)
                 ''',
                 'last_discontinuity_time',
                 'Cisco-IOS-XR-pfi-im-cmd-oper', False),
             _MetaInfoClassMember('output-drops', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Total output drops
                 ''',
                 'output_drops',
                 'Cisco-IOS-XR-pfi-im-cmd-oper', False),
             _MetaInfoClassMember('output-errors', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Total output errors
                 ''',
                 'output_errors',
                 'Cisco-IOS-XR-pfi-im-cmd-oper', False),
             _MetaInfoClassMember('output-queue-drops', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Output queue drops
                 ''',
                 'output_queue_drops',
                 'Cisco-IOS-XR-pfi-im-cmd-oper', False),
-            _MetaInfoClassMember('packets-received', ATTRIBUTE, 'long' , None, None, 
-                [(0, 18446744073709551615L)], [], 
+            _MetaInfoClassMember('packets-received', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
                 '''                Packets received
                 ''',
                 'packets_received',
                 'Cisco-IOS-XR-pfi-im-cmd-oper', False),
-            _MetaInfoClassMember('packets-sent', ATTRIBUTE, 'long' , None, None, 
-                [(0, 18446744073709551615L)], [], 
+            _MetaInfoClassMember('packets-sent', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
                 '''                Packets sent
                 ''',
                 'packets_sent',
                 'Cisco-IOS-XR-pfi-im-cmd-oper', False),
             _MetaInfoClassMember('seconds-since-last-clear-counters', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of seconds since last clear counters
                 ''',
                 'seconds_since_last_clear_counters',
                 'Cisco-IOS-XR-pfi-im-cmd-oper', False),
             _MetaInfoClassMember('seconds-since-packet-received', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Seconds since packet received
                 ''',
                 'seconds_since_packet_received',
                 'Cisco-IOS-XR-pfi-im-cmd-oper', False),
             _MetaInfoClassMember('seconds-since-packet-sent', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Seconds since packet sent
                 ''',
                 'seconds_since_packet_sent',
                 'Cisco-IOS-XR-pfi-im-cmd-oper', False),
             _MetaInfoClassMember('unknown-protocol-packets-received', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Unknown protocol packets received
                 ''',
                 'unknown_protocol_packets_received',
@@ -3628,13 +3832,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('feature-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Feature ID
                 ''',
                 'feature_id',
                 'Cisco-IOS-XR-pfi-im-cmd-oper', False),
             _MetaInfoClassMember('id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                ID
                 ''',
                 'id',
@@ -3646,7 +3850,7 @@ _meta_table = {
                 'id_type',
                 'Cisco-IOS-XR-pfi-im-cmd-oper', False),
             _MetaInfoClassMember('interface-handle', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Interface Handle
                 ''',
                 'interface_handle',
@@ -3658,7 +3862,7 @@ _meta_table = {
                 'node_id',
                 'Cisco-IOS-XR-pfi-im-cmd-oper', False),
             _MetaInfoClassMember('unused', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Unused
                 ''',
                 'unused',
@@ -3675,7 +3879,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                count
                 ''',
                 'count',
@@ -3704,7 +3908,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                count
                 ''',
                 'count',
@@ -3780,7 +3984,7 @@ _meta_table = {
                 'stats_id',
                 'Cisco-IOS-XR-pfi-im-cmd-oper', False),
             _MetaInfoClassMember('stats-type', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Stats type value
                 ''',
                 'stats_type',
@@ -3814,7 +4018,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('interface-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                The name of the interface
                 ''',
                 'interface_name',
@@ -3826,7 +4030,7 @@ _meta_table = {
                 'arp_information',
                 'Cisco-IOS-XR-pfi-im-cmd-oper', False),
             _MetaInfoClassMember('bandwidth', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Interface bandwidth (Kb/s)
                 ''',
                 'bandwidth',
@@ -3844,7 +4048,7 @@ _meta_table = {
                 'carrier_delay',
                 'Cisco-IOS-XR-pfi-im-cmd-oper', False),
             _MetaInfoClassMember('crc-length', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Cyclic Redundancy Check length
                 ''',
                 'crc_length',
@@ -3897,6 +4101,13 @@ _meta_table = {
                 ''',
                 'hardware_type_string',
                 'Cisco-IOS-XR-pfi-im-cmd-oper', False),
+            _MetaInfoClassMember('if-index', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                This is not supposed to be used. It is a dummy
+                attribute to support ifindex for OC model
+                ''',
+                'if_index',
+                'Cisco-IOS-XR-pfi-im-cmd-oper', False),
             _MetaInfoClassMember('in-flow-control', REFERENCE_ENUM_CLASS, 'ImAttrFlowControlEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper', 'ImAttrFlowControlEnum', 
                 [], [], 
                 '''                Input flow control configuration
@@ -3904,7 +4115,7 @@ _meta_table = {
                 'in_flow_control',
                 'Cisco-IOS-XR-pfi-im-cmd-oper', False),
             _MetaInfoClassMember('interface-handle', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Interface
                 ''',
                 'interface_handle',
@@ -3970,7 +4181,7 @@ _meta_table = {
                 'is_scramble_enabled',
                 'Cisco-IOS-XR-pfi-im-cmd-oper', False),
             _MetaInfoClassMember('keepalive', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Interface keepalive time (s)
                 ''',
                 'keepalive',
@@ -3982,7 +4193,7 @@ _meta_table = {
                 'l2_interface_statistics',
                 'Cisco-IOS-XR-pfi-im-cmd-oper', False),
             _MetaInfoClassMember('last-state-transition-time', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                The time elasped after the last state transition
                 ''',
                 'last_state_transition_time',
@@ -4012,7 +4223,7 @@ _meta_table = {
                 'mac_address',
                 'Cisco-IOS-XR-pfi-im-cmd-oper', False),
             _MetaInfoClassMember('max-bandwidth', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Maximum Interface bandwidth (Kb/s)
                 ''',
                 'max_bandwidth',
@@ -4024,7 +4235,7 @@ _meta_table = {
                 'media_type',
                 'Cisco-IOS-XR-pfi-im-cmd-oper', False),
             _MetaInfoClassMember('mtu', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                MTU in bytes
                 ''',
                 'mtu',
@@ -4042,13 +4253,13 @@ _meta_table = {
                 'out_flow_control',
                 'Cisco-IOS-XR-pfi-im-cmd-oper', False),
             _MetaInfoClassMember('parent-interface-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Parent interface
                 ''',
                 'parent_interface_name',
                 'Cisco-IOS-XR-pfi-im-cmd-oper', False),
             _MetaInfoClassMember('speed', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Interface speed (Kb/s)
                 ''',
                 'speed',
@@ -4060,7 +4271,7 @@ _meta_table = {
                 'state',
                 'Cisco-IOS-XR-pfi-im-cmd-oper', False),
             _MetaInfoClassMember('state-transition-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                The number of times the state has changed
                 ''',
                 'state_transition_count',
@@ -4101,25 +4312,25 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('admin-down-interface-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of interfaces in an ADMINDOWN state
                 ''',
                 'admin_down_interface_count',
                 'Cisco-IOS-XR-pfi-im-cmd-oper', False),
             _MetaInfoClassMember('down-interface-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of interfaces in DOWN state
                 ''',
                 'down_interface_count',
                 'Cisco-IOS-XR-pfi-im-cmd-oper', False),
             _MetaInfoClassMember('interface-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of interfaces
                 ''',
                 'interface_count',
                 'Cisco-IOS-XR-pfi-im-cmd-oper', False),
             _MetaInfoClassMember('up-interface-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of interfaces in UP state
                 ''',
                 'up_interface_count',
@@ -4136,25 +4347,25 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('admin-down-interface-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of interfaces in an ADMINDOWN state
                 ''',
                 'admin_down_interface_count',
                 'Cisco-IOS-XR-pfi-im-cmd-oper', False),
             _MetaInfoClassMember('down-interface-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of interfaces in DOWN state
                 ''',
                 'down_interface_count',
                 'Cisco-IOS-XR-pfi-im-cmd-oper', False),
             _MetaInfoClassMember('interface-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of interfaces
                 ''',
                 'interface_count',
                 'Cisco-IOS-XR-pfi-im-cmd-oper', False),
             _MetaInfoClassMember('up-interface-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of interfaces in UP state
                 ''',
                 'up_interface_count',
@@ -4270,7 +4481,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('interface-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                The name of the interface
                 ''',
                 'interface_name',
@@ -4290,7 +4501,7 @@ _meta_table = {
                 'actual_state',
                 'Cisco-IOS-XR-pfi-im-cmd-oper', False),
             _MetaInfoClassMember('bandwidth', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Interface bandwidth (Kb/s)
                 ''',
                 'bandwidth',
@@ -4308,7 +4519,7 @@ _meta_table = {
                 'encapsulation_type_string',
                 'Cisco-IOS-XR-pfi-im-cmd-oper', False),
             _MetaInfoClassMember('interface', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Interface
                 ''',
                 'interface',
@@ -4326,13 +4537,13 @@ _meta_table = {
                 'line_state',
                 'Cisco-IOS-XR-pfi-im-cmd-oper', False),
             _MetaInfoClassMember('mtu', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                MTU in bytes
                 ''',
                 'mtu',
                 'Cisco-IOS-XR-pfi-im-cmd-oper', False),
             _MetaInfoClassMember('parent-interface', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Parent Interface
                 ''',
                 'parent_interface',
@@ -4344,7 +4555,7 @@ _meta_table = {
                 'state',
                 'Cisco-IOS-XR-pfi-im-cmd-oper', False),
             _MetaInfoClassMember('sub-interface-mtu-overhead', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Subif MTU overhead
                 ''',
                 'sub_interface_mtu_overhead',
@@ -4385,25 +4596,25 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('admin-down-interface-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of interfaces in an ADMINDOWN state
                 ''',
                 'admin_down_interface_count',
                 'Cisco-IOS-XR-pfi-im-cmd-oper', False),
             _MetaInfoClassMember('down-interface-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of interfaces in DOWN state
                 ''',
                 'down_interface_count',
                 'Cisco-IOS-XR-pfi-im-cmd-oper', False),
             _MetaInfoClassMember('interface-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of interfaces
                 ''',
                 'interface_count',
                 'Cisco-IOS-XR-pfi-im-cmd-oper', False),
             _MetaInfoClassMember('up-interface-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of interfaces in UP state
                 ''',
                 'up_interface_count',
@@ -4420,25 +4631,25 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('admin-down-interface-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of interfaces in an ADMINDOWN state
                 ''',
                 'admin_down_interface_count',
                 'Cisco-IOS-XR-pfi-im-cmd-oper', False),
             _MetaInfoClassMember('down-interface-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of interfaces in DOWN state
                 ''',
                 'down_interface_count',
                 'Cisco-IOS-XR-pfi-im-cmd-oper', False),
             _MetaInfoClassMember('interface-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of interfaces
                 ''',
                 'interface_count',
                 'Cisco-IOS-XR-pfi-im-cmd-oper', False),
             _MetaInfoClassMember('up-interface-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of interfaces in UP state
                 ''',
                 'up_interface_count',
@@ -4507,7 +4718,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('interface-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                The name of the interface
                 ''',
                 'interface_name',
@@ -4519,7 +4730,7 @@ _meta_table = {
                 'description',
                 'Cisco-IOS-XR-pfi-im-cmd-oper', False),
             _MetaInfoClassMember('interface', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Interface
                 ''',
                 'interface',
@@ -4567,25 +4778,25 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('admin-down-interface-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of interfaces in an ADMINDOWN state
                 ''',
                 'admin_down_interface_count',
                 'Cisco-IOS-XR-pfi-im-cmd-oper', False),
             _MetaInfoClassMember('down-interface-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of interfaces in DOWN state
                 ''',
                 'down_interface_count',
                 'Cisco-IOS-XR-pfi-im-cmd-oper', False),
             _MetaInfoClassMember('interface-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of interfaces
                 ''',
                 'interface_count',
                 'Cisco-IOS-XR-pfi-im-cmd-oper', False),
             _MetaInfoClassMember('up-interface-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of interfaces in UP state
                 ''',
                 'up_interface_count',
@@ -4602,25 +4813,25 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('admin-down-interface-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of interfaces in an ADMINDOWN state
                 ''',
                 'admin_down_interface_count',
                 'Cisco-IOS-XR-pfi-im-cmd-oper', False),
             _MetaInfoClassMember('down-interface-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of interfaces in DOWN state
                 ''',
                 'down_interface_count',
                 'Cisco-IOS-XR-pfi-im-cmd-oper', False),
             _MetaInfoClassMember('interface-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of interfaces
                 ''',
                 'interface_count',
                 'Cisco-IOS-XR-pfi-im-cmd-oper', False),
             _MetaInfoClassMember('up-interface-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of interfaces in UP state
                 ''',
                 'up_interface_count',
@@ -4769,6 +4980,8 @@ _meta_table['Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInform
 _meta_table['Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpInformation']['meta_info'].parent =_meta_table['Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation']['meta_info']
 _meta_table['Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpStatistics']['meta_info'].parent =_meta_table['Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation']['meta_info']
 _meta_table['Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.BundleInformation.Member.MemberMuxData.MemberMuxStateReasonData']['meta_info'].parent =_meta_table['Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.BundleInformation.Member.MemberMuxData']['meta_info']
+_meta_table['Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.BundleInformation.Member.Counters']['meta_info'].parent =_meta_table['Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.BundleInformation.Member']['meta_info']
+_meta_table['Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.BundleInformation.Member.LinkData']['meta_info'].parent =_meta_table['Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.BundleInformation.Member']['meta_info']
 _meta_table['Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.BundleInformation.Member.MemberMuxData']['meta_info'].parent =_meta_table['Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.BundleInformation.Member']['meta_info']
 _meta_table['Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.BundleInformation.Member.MacAddress']['meta_info'].parent =_meta_table['Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.BundleInformation.Member']['meta_info']
 _meta_table['Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.BundleInformation.Member']['meta_info'].parent =_meta_table['Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.BundleInformation']['meta_info']

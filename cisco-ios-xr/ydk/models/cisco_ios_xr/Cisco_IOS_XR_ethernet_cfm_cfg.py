@@ -7,11 +7,10 @@ This YANG module augments the
   Cisco\-IOS\-XR\-ifmgr\-cfg,
   Cisco\-IOS\-XR\-l2\-eth\-infra\-cfg,
   Cisco\-IOS\-XR\-snmp\-agent\-cfg,
-  Cisco\-IOS\-XR\-infra\-sla\-cfg,
-  Cisco\-IOS\-XR\-icpe\-infra\-cfg
+  Cisco\-IOS\-XR\-infra\-sla\-cfg
 modules with configuration data.
 
-Copyright (c) 2013\-2015 by Cisco Systems, Inc.
+Copyright (c) 2013\-2016 by Cisco Systems, Inc.
 All rights reserved.
 
 """

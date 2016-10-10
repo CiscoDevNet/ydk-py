@@ -21,7 +21,6 @@
 
 """
 
-
 class ServiceProvider(object):
     """Base class for Service Providers"""
     def close(self):

@@ -36,13 +36,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('ondemand-operation-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                ID of the ondemand operation
                 ''',
                 'ondemand_operation_id',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
             _MetaInfoClassMember('probe-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                Total number of probes sent during the operation
                 ''',
                 'probe_count',
@@ -88,20 +88,20 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('schedule-duration', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Duration of a probe for the operation in seconds
                 ''',
                 'schedule_duration',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
             _MetaInfoClassMember('schedule-interval', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Interval between the start times of consecutive
                 probes,  in seconds.
                 ''',
                 'schedule_interval',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
             _MetaInfoClassMember('start-time', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Start time of the first probe, in seconds since
                 the Unix Epoch
                 ''',
@@ -126,14 +126,14 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('bins-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                Total number of bins into which to aggregate. 0
                 if no aggregation.
                 ''',
                 'bins_count',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
             _MetaInfoClassMember('bins-width', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                Width of each bin into which to aggregate. 0 if
                 no aggregation. For SLM, the units of this value
                 are in single units of percent; for LMM they are
@@ -143,7 +143,7 @@ _meta_table = {
                 'bins_width',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
             _MetaInfoClassMember('bucket-size', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                Size of buckets into which measurements are
                 collected
                 ''',
@@ -156,7 +156,7 @@ _meta_table = {
                 'bucket_size_unit',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
             _MetaInfoClassMember('buckets-archive', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Maximum number of buckets to store in memory
                 ''',
                 'buckets_archive',
@@ -180,13 +180,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                The total number of results in the bin
                 ''',
                 'count',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
             _MetaInfoClassMember('lower-bound', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Lower bound (inclusive) of the bin, in
                 milliseconds or single units of percent. This
                 field is not used for LMM measurements
@@ -194,7 +194,7 @@ _meta_table = {
                 'lower_bound',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
             _MetaInfoClassMember('lower-bound-tenths', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Lower bound (inclusive) of the bin, in tenths of
                 percent. This field is only used for LMM
                 measurements
@@ -202,14 +202,14 @@ _meta_table = {
                 'lower_bound_tenths',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
             _MetaInfoClassMember('sum', ATTRIBUTE, 'int' , None, None, 
-                [(-9223372036854775808, 9223372036854775807)], [], 
+                [('-9223372036854775808', '9223372036854775807')], [], 
                 '''                The sum of the results in the bin, in
                 microseconds or millionths of a percent
                 ''',
                 'sum',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
             _MetaInfoClassMember('upper-bound', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Upper bound (exclusive) of the bin, in
                 milliseconds or single units of percent. This
                 field is not used for LMM measurements
@@ -217,7 +217,7 @@ _meta_table = {
                 'upper_bound',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
             _MetaInfoClassMember('upper-bound-tenths', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Upper bound (exclusive) of the bin, in tenths of
                 percent. This field is only used for LMM
                 measurements
@@ -259,14 +259,14 @@ _meta_table = {
                 'corrupt',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
             _MetaInfoClassMember('frames-lost', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                For FLR measurements, the number of frames lost,
                 if available
                 ''',
                 'frames_lost',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
             _MetaInfoClassMember('frames-sent', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                For FLR measurements, the number of frames sent,
                 if available
                 ''',
@@ -288,7 +288,7 @@ _meta_table = {
                 'out_of_order',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
             _MetaInfoClassMember('result', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                The result (in microseconds or millionths of a
                 percent) of the sample, if available
                 ''',
@@ -301,7 +301,7 @@ _meta_table = {
                 'sent',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
             _MetaInfoClassMember('sent-at', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                The time (in milliseconds relative to the start
                 time of the bucket) that the sample was sent at
                 ''',
@@ -371,7 +371,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('average', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Mean of the results in the probe, in
                 microseconds or millionths of a percent
                 ''',
@@ -384,75 +384,75 @@ _meta_table = {
                 'contents',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
             _MetaInfoClassMember('corrupt', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of corrupt packets in the probe
                 ''',
                 'corrupt',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
             _MetaInfoClassMember('data-lost-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                The number of data packets lost across the
                 bucket, used in the calculation of overall FLR.
                 ''',
                 'data_lost_count',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
             _MetaInfoClassMember('data-sent-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                The number of data packets sent across the
                 bucket, used in the calculation of overall FLR.
                 ''',
                 'data_sent_count',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
             _MetaInfoClassMember('duplicates', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of duplicate packets received in the
                 probe
                 ''',
                 'duplicates',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
             _MetaInfoClassMember('duration', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Length of time for which the bucket is being
                 filled in seconds
                 ''',
                 'duration',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
             _MetaInfoClassMember('lost', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of lost packets in the probe
                 ''',
                 'lost',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
             _MetaInfoClassMember('maximum', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Overall minimum result in the probe, in
                 microseconds or millionths of a percent
                 ''',
                 'maximum',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
             _MetaInfoClassMember('minimum', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Overall minimum result in the probe, in
                 microseconds or millionths of a percent
                 ''',
                 'minimum',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
             _MetaInfoClassMember('out-of-order', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of packets recieved out-of-order in the
                 probe
                 ''',
                 'out_of_order',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
             _MetaInfoClassMember('overall-flr', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Frame Loss Ratio across the whole bucket, in
                 millionths of a percent
                 ''',
                 'overall_flr',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
             _MetaInfoClassMember('premature-reason', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                If the probe ended prematurely, the error that
                 caused a probe to end
                 ''',
@@ -467,26 +467,26 @@ _meta_table = {
                 'premature_reason_string',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
             _MetaInfoClassMember('result-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                The count of samples collected in the bucket.
                 ''',
                 'result_count',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
             _MetaInfoClassMember('sent', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of packets sent in the probe
                 ''',
                 'sent',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
             _MetaInfoClassMember('standard-deviation', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Standard deviation of the results in the probe,
                 in microseconds or millionths of a percent
                 ''',
                 'standard_deviation',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
             _MetaInfoClassMember('start-at', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Absolute time that the bucket started being
                 filled at
                 ''',
@@ -577,14 +577,14 @@ _meta_table = {
                 'suspect_start_mid_bucket',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
             _MetaInfoClassMember('time-of-maximum', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Absolute time that the maximum value was
                 recorded
                 ''',
                 'time_of_maximum',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
             _MetaInfoClassMember('time-of-minimum', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Absolute time that the minimum value was
                 recorded
                 ''',
@@ -643,14 +643,14 @@ _meta_table = {
                 'domain_name',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
             _MetaInfoClassMember('flr-calculation-interval', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Interval between FLR calculations for SLM, in
                 milliseconds
                 ''',
                 'flr_calculation_interval',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
             _MetaInfoClassMember('interface-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Interface name
                 ''',
                 'interface_name',
@@ -664,14 +664,14 @@ _meta_table = {
                 'mac_address',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
             _MetaInfoClassMember('mep-id', ATTRIBUTE, 'int' , None, None, 
-                [(1, 8191)], [], 
+                [('1', '8191')], [], 
                 '''                MEP ID in the range 1 to 8191. Either MEP ID
                 or MAC address must be specified.
                 ''',
                 'mep_id',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
             _MetaInfoClassMember('operation-id', ATTRIBUTE, 'int' , None, None, 
-                [(1, 4294967295)], [], 
+                [('1', '4294967295')], [], 
                 '''                Operation ID
                 ''',
                 'operation_id',
@@ -730,13 +730,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('packet-pad-size', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                Size that packets are being padded to
                 ''',
                 'packet_pad_size',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
             _MetaInfoClassMember('test-pattern-pad-hex-string', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Hex string that is used in the packet padding
                 ''',
                 'test_pattern_pad_hex_string',
@@ -760,7 +760,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('cos', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                3-bit COS priority value applied to packets
                 ''',
                 'cos',
@@ -783,20 +783,20 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('schedule-duration', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Duration of a probe for the operation in seconds
                 ''',
                 'schedule_duration',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
             _MetaInfoClassMember('schedule-interval', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Interval between the start times of consecutive
                 probes,  in seconds.
                 ''',
                 'schedule_interval',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
             _MetaInfoClassMember('start-time', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Start time of the first probe, in seconds since
                 the Unix Epoch
                 ''',
@@ -821,14 +821,14 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('bins-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                Total number of bins into which to aggregate. 0
                 if no aggregation.
                 ''',
                 'bins_count',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
             _MetaInfoClassMember('bins-width', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                Width of each bin into which to aggregate. 0 if
                 no aggregation. For SLM, the units of this value
                 are in single units of percent; for LMM they are
@@ -838,7 +838,7 @@ _meta_table = {
                 'bins_width',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
             _MetaInfoClassMember('bucket-size', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                Size of buckets into which measurements are
                 collected
                 ''',
@@ -851,7 +851,7 @@ _meta_table = {
                 'bucket_size_unit',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
             _MetaInfoClassMember('buckets-archive', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Maximum number of buckets to store in memory
                 ''',
                 'buckets_archive',
@@ -875,7 +875,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('current-buckets-archive', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of valid buckets currently in the buckets
                 archive
                 ''',
@@ -899,27 +899,27 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('bursts-per-probe', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of bursts sent per probe
                 ''',
                 'bursts_per_probe',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
             _MetaInfoClassMember('flr-calculation-interval', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Interval between FLR calculations for SLM, in
                 milliseconds
                 ''',
                 'flr_calculation_interval',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
             _MetaInfoClassMember('inter-burst-interval', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Interval between bursts within a probe in
                 milliseconds
                 ''',
                 'inter_burst_interval',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
             _MetaInfoClassMember('inter-packet-interval', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                Interval between packets within a burst in
                 milliseconds
                 ''',
@@ -945,7 +945,7 @@ _meta_table = {
                 'packet_padding',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
             _MetaInfoClassMember('packets-per-burst', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                Number of packets sent per burst
                 ''',
                 'packets_per_burst',
@@ -992,13 +992,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('ondemand-operation-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                ID of the ondemand operation
                 ''',
                 'ondemand_operation_id',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
             _MetaInfoClassMember('probe-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                Total number of probes sent during the operation
                 ''',
                 'probe_count',
@@ -1062,13 +1062,13 @@ _meta_table = {
                 'domain_name',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
             _MetaInfoClassMember('interface-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Interface name
                 ''',
                 'interface_name',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
             _MetaInfoClassMember('last-run', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Time that the last probe for the operation was
                 run, NULL if never run.
                 ''',
@@ -1083,7 +1083,7 @@ _meta_table = {
                 'mac_address',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
             _MetaInfoClassMember('mep-id', ATTRIBUTE, 'int' , None, None, 
-                [(1, 8191)], [], 
+                [('1', '8191')], [], 
                 '''                MEP ID in the range 1 to 8191. Either MEP ID
                 or MAC address must be specified.
                 ''',
@@ -1154,13 +1154,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('ondemand-operation-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                ID of the ondemand operation
                 ''',
                 'ondemand_operation_id',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
             _MetaInfoClassMember('probe-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                Total number of probes sent during the operation
                 ''',
                 'probe_count',
@@ -1206,20 +1206,20 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('schedule-duration', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Duration of a probe for the operation in seconds
                 ''',
                 'schedule_duration',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
             _MetaInfoClassMember('schedule-interval', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Interval between the start times of consecutive
                 probes,  in seconds.
                 ''',
                 'schedule_interval',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
             _MetaInfoClassMember('start-time', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Start time of the first probe, in seconds since
                 the Unix Epoch
                 ''',
@@ -1244,14 +1244,14 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('bins-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                Total number of bins into which to aggregate. 0
                 if no aggregation.
                 ''',
                 'bins_count',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
             _MetaInfoClassMember('bins-width', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                Width of each bin into which to aggregate. 0 if
                 no aggregation. For SLM, the units of this value
                 are in single units of percent; for LMM they are
@@ -1261,7 +1261,7 @@ _meta_table = {
                 'bins_width',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
             _MetaInfoClassMember('bucket-size', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                Size of buckets into which measurements are
                 collected
                 ''',
@@ -1274,7 +1274,7 @@ _meta_table = {
                 'bucket_size_unit',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
             _MetaInfoClassMember('buckets-archive', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Maximum number of buckets to store in memory
                 ''',
                 'buckets_archive',
@@ -1298,13 +1298,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                The total number of results in the bin
                 ''',
                 'count',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
             _MetaInfoClassMember('lower-bound', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Lower bound (inclusive) of the bin, in
                 milliseconds or single units of percent. This
                 field is not used for LMM measurements
@@ -1312,7 +1312,7 @@ _meta_table = {
                 'lower_bound',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
             _MetaInfoClassMember('lower-bound-tenths', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Lower bound (inclusive) of the bin, in tenths of
                 percent. This field is only used for LMM
                 measurements
@@ -1320,14 +1320,14 @@ _meta_table = {
                 'lower_bound_tenths',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
             _MetaInfoClassMember('sum', ATTRIBUTE, 'int' , None, None, 
-                [(-9223372036854775808, 9223372036854775807)], [], 
+                [('-9223372036854775808', '9223372036854775807')], [], 
                 '''                The sum of the results in the bin, in
                 microseconds or millionths of a percent
                 ''',
                 'sum',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
             _MetaInfoClassMember('upper-bound', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Upper bound (exclusive) of the bin, in
                 milliseconds or single units of percent. This
                 field is not used for LMM measurements
@@ -1335,7 +1335,7 @@ _meta_table = {
                 'upper_bound',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
             _MetaInfoClassMember('upper-bound-tenths', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Upper bound (exclusive) of the bin, in tenths of
                 percent. This field is only used for LMM
                 measurements
@@ -1377,14 +1377,14 @@ _meta_table = {
                 'corrupt',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
             _MetaInfoClassMember('frames-lost', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                For FLR measurements, the number of frames lost,
                 if available
                 ''',
                 'frames_lost',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
             _MetaInfoClassMember('frames-sent', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                For FLR measurements, the number of frames sent,
                 if available
                 ''',
@@ -1406,7 +1406,7 @@ _meta_table = {
                 'out_of_order',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
             _MetaInfoClassMember('result', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                The result (in microseconds or millionths of a
                 percent) of the sample, if available
                 ''',
@@ -1419,7 +1419,7 @@ _meta_table = {
                 'sent',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
             _MetaInfoClassMember('sent-at', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                The time (in milliseconds relative to the start
                 time of the bucket) that the sample was sent at
                 ''',
@@ -1489,7 +1489,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('average', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Mean of the results in the probe, in
                 microseconds or millionths of a percent
                 ''',
@@ -1502,75 +1502,75 @@ _meta_table = {
                 'contents',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
             _MetaInfoClassMember('corrupt', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of corrupt packets in the probe
                 ''',
                 'corrupt',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
             _MetaInfoClassMember('data-lost-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                The number of data packets lost across the
                 bucket, used in the calculation of overall FLR.
                 ''',
                 'data_lost_count',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
             _MetaInfoClassMember('data-sent-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                The number of data packets sent across the
                 bucket, used in the calculation of overall FLR.
                 ''',
                 'data_sent_count',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
             _MetaInfoClassMember('duplicates', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of duplicate packets received in the
                 probe
                 ''',
                 'duplicates',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
             _MetaInfoClassMember('duration', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Length of time for which the bucket is being
                 filled in seconds
                 ''',
                 'duration',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
             _MetaInfoClassMember('lost', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of lost packets in the probe
                 ''',
                 'lost',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
             _MetaInfoClassMember('maximum', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Overall minimum result in the probe, in
                 microseconds or millionths of a percent
                 ''',
                 'maximum',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
             _MetaInfoClassMember('minimum', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Overall minimum result in the probe, in
                 microseconds or millionths of a percent
                 ''',
                 'minimum',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
             _MetaInfoClassMember('out-of-order', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of packets recieved out-of-order in the
                 probe
                 ''',
                 'out_of_order',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
             _MetaInfoClassMember('overall-flr', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Frame Loss Ratio across the whole bucket, in
                 millionths of a percent
                 ''',
                 'overall_flr',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
             _MetaInfoClassMember('premature-reason', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                If the probe ended prematurely, the error that
                 caused a probe to end
                 ''',
@@ -1585,26 +1585,26 @@ _meta_table = {
                 'premature_reason_string',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
             _MetaInfoClassMember('result-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                The count of samples collected in the bucket.
                 ''',
                 'result_count',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
             _MetaInfoClassMember('sent', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of packets sent in the probe
                 ''',
                 'sent',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
             _MetaInfoClassMember('standard-deviation', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Standard deviation of the results in the probe,
                 in microseconds or millionths of a percent
                 ''',
                 'standard_deviation',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
             _MetaInfoClassMember('start-at', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Absolute time that the bucket started being
                 filled at
                 ''',
@@ -1695,14 +1695,14 @@ _meta_table = {
                 'suspect_start_mid_bucket',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
             _MetaInfoClassMember('time-of-maximum', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Absolute time that the maximum value was
                 recorded
                 ''',
                 'time_of_maximum',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
             _MetaInfoClassMember('time-of-minimum', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Absolute time that the minimum value was
                 recorded
                 ''',
@@ -1761,14 +1761,14 @@ _meta_table = {
                 'domain_name',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
             _MetaInfoClassMember('flr-calculation-interval', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Interval between FLR calculations for SLM, in
                 milliseconds
                 ''',
                 'flr_calculation_interval',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
             _MetaInfoClassMember('interface-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Interface name
                 ''',
                 'interface_name',
@@ -1782,7 +1782,7 @@ _meta_table = {
                 'mac_address',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
             _MetaInfoClassMember('mep-id', ATTRIBUTE, 'int' , None, None, 
-                [(1, 8191)], [], 
+                [('1', '8191')], [], 
                 '''                MEP ID in the range 1 to 8191. Either MEP ID
                 or MAC address must be specified.
                 ''',
@@ -1865,13 +1865,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('ondemand-operation-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                ID of the ondemand operation
                 ''',
                 'ondemand_operation_id',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
             _MetaInfoClassMember('probe-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                Total number of probes sent during the operation
                 ''',
                 'probe_count',
@@ -1917,20 +1917,20 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('schedule-duration', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Duration of a probe for the operation in seconds
                 ''',
                 'schedule_duration',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
             _MetaInfoClassMember('schedule-interval', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Interval between the start times of consecutive
                 probes,  in seconds.
                 ''',
                 'schedule_interval',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
             _MetaInfoClassMember('start-time', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Start time of the first probe, in seconds since
                 the Unix Epoch
                 ''',
@@ -1955,14 +1955,14 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('bins-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                Total number of bins into which to aggregate. 0
                 if no aggregation.
                 ''',
                 'bins_count',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
             _MetaInfoClassMember('bins-width', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                Width of each bin into which to aggregate. 0 if
                 no aggregation. For SLM, the units of this value
                 are in single units of percent; for LMM they are
@@ -1972,7 +1972,7 @@ _meta_table = {
                 'bins_width',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
             _MetaInfoClassMember('bucket-size', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                Size of buckets into which measurements are
                 collected
                 ''',
@@ -1985,7 +1985,7 @@ _meta_table = {
                 'bucket_size_unit',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
             _MetaInfoClassMember('buckets-archive', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Maximum number of buckets to store in memory
                 ''',
                 'buckets_archive',
@@ -2009,13 +2009,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                The total number of results in the bin
                 ''',
                 'count',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
             _MetaInfoClassMember('lower-bound', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Lower bound (inclusive) of the bin, in
                 milliseconds or single units of percent. This
                 field is not used for LMM measurements
@@ -2023,7 +2023,7 @@ _meta_table = {
                 'lower_bound',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
             _MetaInfoClassMember('lower-bound-tenths', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Lower bound (inclusive) of the bin, in tenths of
                 percent. This field is only used for LMM
                 measurements
@@ -2031,14 +2031,14 @@ _meta_table = {
                 'lower_bound_tenths',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
             _MetaInfoClassMember('sum', ATTRIBUTE, 'int' , None, None, 
-                [(-9223372036854775808, 9223372036854775807)], [], 
+                [('-9223372036854775808', '9223372036854775807')], [], 
                 '''                The sum of the results in the bin, in
                 microseconds or millionths of a percent
                 ''',
                 'sum',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
             _MetaInfoClassMember('upper-bound', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Upper bound (exclusive) of the bin, in
                 milliseconds or single units of percent. This
                 field is not used for LMM measurements
@@ -2046,7 +2046,7 @@ _meta_table = {
                 'upper_bound',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
             _MetaInfoClassMember('upper-bound-tenths', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Upper bound (exclusive) of the bin, in tenths of
                 percent. This field is only used for LMM
                 measurements
@@ -2088,14 +2088,14 @@ _meta_table = {
                 'corrupt',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
             _MetaInfoClassMember('frames-lost', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                For FLR measurements, the number of frames lost,
                 if available
                 ''',
                 'frames_lost',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
             _MetaInfoClassMember('frames-sent', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                For FLR measurements, the number of frames sent,
                 if available
                 ''',
@@ -2117,7 +2117,7 @@ _meta_table = {
                 'out_of_order',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
             _MetaInfoClassMember('result', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                The result (in microseconds or millionths of a
                 percent) of the sample, if available
                 ''',
@@ -2130,7 +2130,7 @@ _meta_table = {
                 'sent',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
             _MetaInfoClassMember('sent-at', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                The time (in milliseconds relative to the start
                 time of the bucket) that the sample was sent at
                 ''',
@@ -2200,7 +2200,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('average', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Mean of the results in the probe, in
                 microseconds or millionths of a percent
                 ''',
@@ -2213,75 +2213,75 @@ _meta_table = {
                 'contents',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
             _MetaInfoClassMember('corrupt', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of corrupt packets in the probe
                 ''',
                 'corrupt',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
             _MetaInfoClassMember('data-lost-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                The number of data packets lost across the
                 bucket, used in the calculation of overall FLR.
                 ''',
                 'data_lost_count',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
             _MetaInfoClassMember('data-sent-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                The number of data packets sent across the
                 bucket, used in the calculation of overall FLR.
                 ''',
                 'data_sent_count',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
             _MetaInfoClassMember('duplicates', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of duplicate packets received in the
                 probe
                 ''',
                 'duplicates',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
             _MetaInfoClassMember('duration', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Length of time for which the bucket is being
                 filled in seconds
                 ''',
                 'duration',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
             _MetaInfoClassMember('lost', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of lost packets in the probe
                 ''',
                 'lost',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
             _MetaInfoClassMember('maximum', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Overall minimum result in the probe, in
                 microseconds or millionths of a percent
                 ''',
                 'maximum',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
             _MetaInfoClassMember('minimum', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Overall minimum result in the probe, in
                 microseconds or millionths of a percent
                 ''',
                 'minimum',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
             _MetaInfoClassMember('out-of-order', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of packets recieved out-of-order in the
                 probe
                 ''',
                 'out_of_order',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
             _MetaInfoClassMember('overall-flr', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Frame Loss Ratio across the whole bucket, in
                 millionths of a percent
                 ''',
                 'overall_flr',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
             _MetaInfoClassMember('premature-reason', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                If the probe ended prematurely, the error that
                 caused a probe to end
                 ''',
@@ -2296,26 +2296,26 @@ _meta_table = {
                 'premature_reason_string',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
             _MetaInfoClassMember('result-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                The count of samples collected in the bucket.
                 ''',
                 'result_count',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
             _MetaInfoClassMember('sent', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of packets sent in the probe
                 ''',
                 'sent',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
             _MetaInfoClassMember('standard-deviation', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Standard deviation of the results in the probe,
                 in microseconds or millionths of a percent
                 ''',
                 'standard_deviation',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
             _MetaInfoClassMember('start-at', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Absolute time that the bucket started being
                 filled at
                 ''',
@@ -2406,14 +2406,14 @@ _meta_table = {
                 'suspect_start_mid_bucket',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
             _MetaInfoClassMember('time-of-maximum', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Absolute time that the maximum value was
                 recorded
                 ''',
                 'time_of_maximum',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
             _MetaInfoClassMember('time-of-minimum', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Absolute time that the minimum value was
                 recorded
                 ''',
@@ -2472,14 +2472,14 @@ _meta_table = {
                 'domain_name',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
             _MetaInfoClassMember('flr-calculation-interval', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Interval between FLR calculations for SLM, in
                 milliseconds
                 ''',
                 'flr_calculation_interval',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
             _MetaInfoClassMember('interface-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Interface name
                 ''',
                 'interface_name',
@@ -2493,14 +2493,14 @@ _meta_table = {
                 'mac_address',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
             _MetaInfoClassMember('mep-id', ATTRIBUTE, 'int' , None, None, 
-                [(1, 8191)], [], 
+                [('1', '8191')], [], 
                 '''                MEP ID in the range 1 to 8191. Either MEP ID
                 or MAC address must be specified.
                 ''',
                 'mep_id',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
             _MetaInfoClassMember('operation-id', ATTRIBUTE, 'int' , None, None, 
-                [(1, 4294967295)], [], 
+                [('1', '4294967295')], [], 
                 '''                Operation ID
                 ''',
                 'operation_id',
@@ -2579,7 +2579,7 @@ _meta_table = {
                 'error_string',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
             _MetaInfoClassMember('interface-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Interface name
                 ''',
                 'interface_name',
@@ -2591,7 +2591,7 @@ _meta_table = {
                 'mac_address',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
             _MetaInfoClassMember('mep-id', ATTRIBUTE, 'int' , None, None, 
-                [(1, 8191)], [], 
+                [('1', '8191')], [], 
                 '''                MEP ID in the range 1 to 8191
                 ''',
                 'mep_id',
@@ -2758,13 +2758,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('packet-pad-size', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                Size that packets are being padded to
                 ''',
                 'packet_pad_size',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
             _MetaInfoClassMember('test-pattern-pad-hex-string', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Hex string that is used in the packet padding
                 ''',
                 'test_pattern_pad_hex_string',
@@ -2788,7 +2788,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('cos', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                3-bit COS priority value applied to packets
                 ''',
                 'cos',
@@ -2811,20 +2811,20 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('schedule-duration', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Duration of a probe for the operation in seconds
                 ''',
                 'schedule_duration',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
             _MetaInfoClassMember('schedule-interval', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Interval between the start times of consecutive
                 probes,  in seconds.
                 ''',
                 'schedule_interval',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
             _MetaInfoClassMember('start-time', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Start time of the first probe, in seconds since
                 the Unix Epoch
                 ''',
@@ -2849,14 +2849,14 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('bins-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                Total number of bins into which to aggregate. 0
                 if no aggregation.
                 ''',
                 'bins_count',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
             _MetaInfoClassMember('bins-width', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                Width of each bin into which to aggregate. 0 if
                 no aggregation. For SLM, the units of this value
                 are in single units of percent; for LMM they are
@@ -2866,7 +2866,7 @@ _meta_table = {
                 'bins_width',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
             _MetaInfoClassMember('bucket-size', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                Size of buckets into which measurements are
                 collected
                 ''',
@@ -2879,7 +2879,7 @@ _meta_table = {
                 'bucket_size_unit',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
             _MetaInfoClassMember('buckets-archive', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Maximum number of buckets to store in memory
                 ''',
                 'buckets_archive',
@@ -2903,7 +2903,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('current-buckets-archive', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of valid buckets currently in the buckets
                 archive
                 ''',
@@ -2927,27 +2927,27 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('bursts-per-probe', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of bursts sent per probe
                 ''',
                 'bursts_per_probe',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
             _MetaInfoClassMember('flr-calculation-interval', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Interval between FLR calculations for SLM, in
                 milliseconds
                 ''',
                 'flr_calculation_interval',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
             _MetaInfoClassMember('inter-burst-interval', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Interval between bursts within a probe in
                 milliseconds
                 ''',
                 'inter_burst_interval',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
             _MetaInfoClassMember('inter-packet-interval', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                Interval between packets within a burst in
                 milliseconds
                 ''',
@@ -2973,7 +2973,7 @@ _meta_table = {
                 'packet_padding',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
             _MetaInfoClassMember('packets-per-burst', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                Number of packets sent per burst
                 ''',
                 'packets_per_burst',
@@ -3020,13 +3020,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('ondemand-operation-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                ID of the ondemand operation
                 ''',
                 'ondemand_operation_id',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
             _MetaInfoClassMember('probe-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                Total number of probes sent during the operation
                 ''',
                 'probe_count',
@@ -3090,13 +3090,13 @@ _meta_table = {
                 'domain_name',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
             _MetaInfoClassMember('interface-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Interface name
                 ''',
                 'interface_name',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
             _MetaInfoClassMember('last-run', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Time that the last probe for the operation was
                 run, NULL if never run.
                 ''',
@@ -3111,14 +3111,14 @@ _meta_table = {
                 'mac_address',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
             _MetaInfoClassMember('mep-id', ATTRIBUTE, 'int' , None, None, 
-                [(1, 8191)], [], 
+                [('1', '8191')], [], 
                 '''                MEP ID in the range 1 to 8191. Either MEP ID
                 or MAC address must be specified.
                 ''',
                 'mep_id',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
             _MetaInfoClassMember('operation-id', ATTRIBUTE, 'int' , None, None, 
-                [(1, 4294967295)], [], 
+                [('1', '4294967295')], [], 
                 '''                Operation ID
                 ''',
                 'operation_id',
@@ -3183,13 +3183,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('ondemand-operation-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                ID of the ondemand operation
                 ''',
                 'ondemand_operation_id',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
             _MetaInfoClassMember('probe-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                Total number of probes sent during the operation
                 ''',
                 'probe_count',
@@ -3235,20 +3235,20 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('schedule-duration', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Duration of a probe for the operation in seconds
                 ''',
                 'schedule_duration',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
             _MetaInfoClassMember('schedule-interval', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Interval between the start times of consecutive
                 probes,  in seconds.
                 ''',
                 'schedule_interval',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
             _MetaInfoClassMember('start-time', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Start time of the first probe, in seconds since
                 the Unix Epoch
                 ''',
@@ -3273,14 +3273,14 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('bins-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                Total number of bins into which to aggregate. 0
                 if no aggregation.
                 ''',
                 'bins_count',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
             _MetaInfoClassMember('bins-width', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                Width of each bin into which to aggregate. 0 if
                 no aggregation. For SLM, the units of this value
                 are in single units of percent; for LMM they are
@@ -3290,7 +3290,7 @@ _meta_table = {
                 'bins_width',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
             _MetaInfoClassMember('bucket-size', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                Size of buckets into which measurements are
                 collected
                 ''',
@@ -3303,7 +3303,7 @@ _meta_table = {
                 'bucket_size_unit',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
             _MetaInfoClassMember('buckets-archive', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Maximum number of buckets to store in memory
                 ''',
                 'buckets_archive',
@@ -3327,13 +3327,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                The total number of results in the bin
                 ''',
                 'count',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
             _MetaInfoClassMember('lower-bound', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Lower bound (inclusive) of the bin, in
                 milliseconds or single units of percent. This
                 field is not used for LMM measurements
@@ -3341,7 +3341,7 @@ _meta_table = {
                 'lower_bound',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
             _MetaInfoClassMember('lower-bound-tenths', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Lower bound (inclusive) of the bin, in tenths of
                 percent. This field is only used for LMM
                 measurements
@@ -3349,14 +3349,14 @@ _meta_table = {
                 'lower_bound_tenths',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
             _MetaInfoClassMember('sum', ATTRIBUTE, 'int' , None, None, 
-                [(-9223372036854775808, 9223372036854775807)], [], 
+                [('-9223372036854775808', '9223372036854775807')], [], 
                 '''                The sum of the results in the bin, in
                 microseconds or millionths of a percent
                 ''',
                 'sum',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
             _MetaInfoClassMember('upper-bound', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Upper bound (exclusive) of the bin, in
                 milliseconds or single units of percent. This
                 field is not used for LMM measurements
@@ -3364,7 +3364,7 @@ _meta_table = {
                 'upper_bound',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
             _MetaInfoClassMember('upper-bound-tenths', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Upper bound (exclusive) of the bin, in tenths of
                 percent. This field is only used for LMM
                 measurements
@@ -3406,14 +3406,14 @@ _meta_table = {
                 'corrupt',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
             _MetaInfoClassMember('frames-lost', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                For FLR measurements, the number of frames lost,
                 if available
                 ''',
                 'frames_lost',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
             _MetaInfoClassMember('frames-sent', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                For FLR measurements, the number of frames sent,
                 if available
                 ''',
@@ -3435,7 +3435,7 @@ _meta_table = {
                 'out_of_order',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
             _MetaInfoClassMember('result', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                The result (in microseconds or millionths of a
                 percent) of the sample, if available
                 ''',
@@ -3448,7 +3448,7 @@ _meta_table = {
                 'sent',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
             _MetaInfoClassMember('sent-at', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                The time (in milliseconds relative to the start
                 time of the bucket) that the sample was sent at
                 ''',
@@ -3518,7 +3518,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('average', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Mean of the results in the probe, in
                 microseconds or millionths of a percent
                 ''',
@@ -3531,75 +3531,75 @@ _meta_table = {
                 'contents',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
             _MetaInfoClassMember('corrupt', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of corrupt packets in the probe
                 ''',
                 'corrupt',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
             _MetaInfoClassMember('data-lost-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                The number of data packets lost across the
                 bucket, used in the calculation of overall FLR.
                 ''',
                 'data_lost_count',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
             _MetaInfoClassMember('data-sent-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                The number of data packets sent across the
                 bucket, used in the calculation of overall FLR.
                 ''',
                 'data_sent_count',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
             _MetaInfoClassMember('duplicates', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of duplicate packets received in the
                 probe
                 ''',
                 'duplicates',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
             _MetaInfoClassMember('duration', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Length of time for which the bucket is being
                 filled in seconds
                 ''',
                 'duration',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
             _MetaInfoClassMember('lost', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of lost packets in the probe
                 ''',
                 'lost',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
             _MetaInfoClassMember('maximum', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Overall minimum result in the probe, in
                 microseconds or millionths of a percent
                 ''',
                 'maximum',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
             _MetaInfoClassMember('minimum', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Overall minimum result in the probe, in
                 microseconds or millionths of a percent
                 ''',
                 'minimum',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
             _MetaInfoClassMember('out-of-order', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of packets recieved out-of-order in the
                 probe
                 ''',
                 'out_of_order',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
             _MetaInfoClassMember('overall-flr', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Frame Loss Ratio across the whole bucket, in
                 millionths of a percent
                 ''',
                 'overall_flr',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
             _MetaInfoClassMember('premature-reason', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                If the probe ended prematurely, the error that
                 caused a probe to end
                 ''',
@@ -3614,26 +3614,26 @@ _meta_table = {
                 'premature_reason_string',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
             _MetaInfoClassMember('result-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                The count of samples collected in the bucket.
                 ''',
                 'result_count',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
             _MetaInfoClassMember('sent', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of packets sent in the probe
                 ''',
                 'sent',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
             _MetaInfoClassMember('standard-deviation', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Standard deviation of the results in the probe,
                 in microseconds or millionths of a percent
                 ''',
                 'standard_deviation',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
             _MetaInfoClassMember('start-at', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Absolute time that the bucket started being
                 filled at
                 ''',
@@ -3724,14 +3724,14 @@ _meta_table = {
                 'suspect_start_mid_bucket',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
             _MetaInfoClassMember('time-of-maximum', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Absolute time that the maximum value was
                 recorded
                 ''',
                 'time_of_maximum',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
             _MetaInfoClassMember('time-of-minimum', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Absolute time that the minimum value was
                 recorded
                 ''',
@@ -3790,14 +3790,14 @@ _meta_table = {
                 'domain_name',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
             _MetaInfoClassMember('flr-calculation-interval', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Interval between FLR calculations for SLM, in
                 milliseconds
                 ''',
                 'flr_calculation_interval',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
             _MetaInfoClassMember('interface-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Interface name
                 ''',
                 'interface_name',
@@ -3811,7 +3811,7 @@ _meta_table = {
                 'mac_address',
                 'Cisco-IOS-XR-ethernet-cfm-oper', False),
             _MetaInfoClassMember('mep-id', ATTRIBUTE, 'int' , None, None, 
-                [(1, 8191)], [], 
+                [('1', '8191')], [], 
                 '''                MEP ID in the range 1 to 8191. Either MEP ID
                 or MAC address must be specified.
                 ''',

@@ -19,25 +19,25 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('job-id', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Job Id
                 ''',
                 'job_id',
                 'Cisco-IOS-XR-nto-misc-shprocmem-oper', True),
             _MetaInfoClassMember('data-seg-size', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Data Segment Size
                 ''',
                 'data_seg_size',
                 'Cisco-IOS-XR-nto-misc-shprocmem-oper', False),
             _MetaInfoClassMember('jid', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Job ID
                 ''',
                 'jid',
                 'Cisco-IOS-XR-nto-misc-shprocmem-oper', False),
             _MetaInfoClassMember('malloc-size', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Malloced Memory Size
                 ''',
                 'malloc_size',
@@ -49,13 +49,13 @@ _meta_table = {
                 'name',
                 'Cisco-IOS-XR-nto-misc-shprocmem-oper', False),
             _MetaInfoClassMember('stack-seg-size', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Stack Segment Size
                 ''',
                 'stack_seg_size',
                 'Cisco-IOS-XR-nto-misc-shprocmem-oper', False),
             _MetaInfoClassMember('text-seg-size', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Text Segment Size
                 ''',
                 'text_seg_size',

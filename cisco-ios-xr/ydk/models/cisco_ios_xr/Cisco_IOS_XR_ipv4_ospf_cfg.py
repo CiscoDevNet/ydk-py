@@ -11,7 +11,7 @@ This YANG module augments the
   Cisco\-IOS\-XR\-snmp\-agent\-cfg
 module with configuration data.
 
-Copyright (c) 2013\-2015 by Cisco Systems, Inc.
+Copyright (c) 2013\-2016 by Cisco Systems, Inc.
 All rights reserved.
 
 """
@@ -415,6 +415,63 @@ class OspfFastRerouteTiebreakersEnum(Enum):
         return meta._meta_table['OspfFastRerouteTiebreakersEnum']
 
 
+class OspfFastRerouteTiebreakersIntfEnum(Enum):
+    """
+    OspfFastRerouteTiebreakersIntfEnum
+
+    Ospf fast reroute tiebreakers intf
+
+    .. data:: DOWNSTREAM = 0
+
+    	Downstream
+
+    .. data:: LINE_CARD_DISJOINT = 1
+
+    	LC Disjoint
+
+    .. data:: LOWEST_METRIC = 2
+
+    	Lowest metric
+
+    .. data:: NODE_PROTECT = 3
+
+    	Node protection
+
+    .. data:: PRIMARY_PATH = 4
+
+    	Primary path
+
+    .. data:: SECONDARY_PATH = 5
+
+    	Secondar path
+
+    .. data:: SRLG_DISJOINT = 6
+
+    	SRLG
+
+    """
+
+    DOWNSTREAM = 0
+
+    LINE_CARD_DISJOINT = 1
+
+    LOWEST_METRIC = 2
+
+    NODE_PROTECT = 3
+
+    PRIMARY_PATH = 4
+
+    SECONDARY_PATH = 5
+
+    SRLG_DISJOINT = 6
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_ospf_cfg as meta
+        return meta._meta_table['OspfFastRerouteTiebreakersIntfEnum']
+
+
 class OspfFrrRlfaTunnelEnum(Enum):
     """
     OspfFrrRlfaTunnelEnum
@@ -614,6 +671,66 @@ class OspfNetworkEnum(Enum):
     def _meta_info():
         from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_ospf_cfg as meta
         return meta._meta_table['OspfNetworkEnum']
+
+
+class OspfProcFastRerouteEnum(Enum):
+    """
+    OspfProcFastRerouteEnum
+
+    Ospf proc fast reroute
+
+    .. data:: NONE = 0
+
+    	None
+
+    .. data:: PER_LINK = 1
+
+    	Per link
+
+    .. data:: PER_PREFIX = 2
+
+    	Per prefix
+
+    """
+
+    NONE = 0
+
+    PER_LINK = 1
+
+    PER_PREFIX = 2
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_ospf_cfg as meta
+        return meta._meta_table['OspfProcFastRerouteEnum']
+
+
+class OspfProcFrrRlfaTunnelEnum(Enum):
+    """
+    OspfProcFrrRlfaTunnelEnum
+
+    Ospf proc frr rlfa tunnel
+
+    .. data:: NONE = 0
+
+    	Disabled
+
+    .. data:: MPLS_LDP = 1
+
+    	MPLS LDP
+
+    """
+
+    NONE = 0
+
+    MPLS_LDP = 1
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_ospf_cfg as meta
+        return meta._meta_table['OspfProcFrrRlfaTunnelEnum']
 
 
 class OspfRedistLsaEnum(Enum):
@@ -987,7 +1104,7 @@ class Ospf(object):
             	Name for this OSPF process
             	**type**\:  str
             
-            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
+            	**range:** 0..32
             
             .. attribute:: default_vrf
             
@@ -2986,6 +3103,11 @@ class Ospf(object):
                         	When enabled, prevent sending HELLO packets over link
                         	**type**\:  bool
                         
+                        .. attribute:: prefix_suppression_primary
+                        
+                        	Enable/Disable prefix suppression for primary addresses
+                        	**type**\:  bool
+                        
                         .. attribute:: prefix_suppression_secondary
                         
                         	Enable/Disable prefix suppression for secondary addresses
@@ -3072,6 +3194,7 @@ class Ospf(object):
                             self.network_type = None
                             self.packet_size = None
                             self.passive = None
+                            self.prefix_suppression_primary = None
                             self.prefix_suppression_secondary = None
                             self.priority = None
                             self.retransmit_interval = None
@@ -3154,6 +3277,674 @@ class Ospf(object):
                             def _meta_info():
                                 from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_ospf_cfg as meta
                                 return meta._meta_table['Ospf.Processes.Process.Vrfs.Vrf.ProcessScope.Srgb']['meta_info']
+
+
+                        class FastReroute(object):
+                            """
+                            Fast\-reroute configuration
+                            
+                            .. attribute:: fast_reroute_enable
+                            
+                            	Enable/Disable Fast\-reroute per\-link or per\-prefix
+                            	**type**\:  :py:class:`OspfProcFastRerouteEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_cfg.OspfProcFastRerouteEnum>`
+                            
+                            .. attribute:: per_link
+                            
+                            	Fast\-reroute per\-link configuration
+                            	**type**\:  :py:class:`PerLink <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_cfg.Ospf.Processes.Process.Vrfs.Vrf.ProcessScope.FastReroute.PerLink>`
+                            
+                            .. attribute:: per_prefix
+                            
+                            	Fast\-reroute per\-prefix configuration
+                            	**type**\:  :py:class:`PerPrefix <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_cfg.Ospf.Processes.Process.Vrfs.Vrf.ProcessScope.FastReroute.PerPrefix>`
+                            
+                            
+
+                            """
+
+                            _prefix = 'ipv4-ospf-cfg'
+                            _revision = '2015-11-09'
+
+                            def __init__(self):
+                                self.parent = None
+                                self.fast_reroute_enable = None
+                                self.per_link = Ospf.Processes.Process.Vrfs.Vrf.ProcessScope.FastReroute.PerLink()
+                                self.per_link.parent = self
+                                self.per_prefix = Ospf.Processes.Process.Vrfs.Vrf.ProcessScope.FastReroute.PerPrefix()
+                                self.per_prefix.parent = self
+
+
+                            class PerLink(object):
+                                """
+                                Fast\-reroute per\-link configuration
+                                
+                                .. attribute:: candidate_interfaces
+                                
+                                	Fast\-reroute per\-link/per\-prefix candidate interface configuration
+                                	**type**\:  :py:class:`CandidateInterfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_cfg.Ospf.Processes.Process.Vrfs.Vrf.ProcessScope.FastReroute.PerLink.CandidateInterfaces>`
+                                
+                                .. attribute:: exclude_interfaces
+                                
+                                	Fast\-reroute per\-link/per\-prefix or UCMP exclude interface configuration
+                                	**type**\:  :py:class:`ExcludeInterfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_cfg.Ospf.Processes.Process.Vrfs.Vrf.ProcessScope.FastReroute.PerLink.ExcludeInterfaces>`
+                                
+                                .. attribute:: fast_reroute_use_candidate_only
+                                
+                                	Use only interfaces on the candidate list as a backup path
+                                	**type**\:  bool
+                                
+                                
+
+                                """
+
+                                _prefix = 'ipv4-ospf-cfg'
+                                _revision = '2015-11-09'
+
+                                def __init__(self):
+                                    self.parent = None
+                                    self.candidate_interfaces = Ospf.Processes.Process.Vrfs.Vrf.ProcessScope.FastReroute.PerLink.CandidateInterfaces()
+                                    self.candidate_interfaces.parent = self
+                                    self.exclude_interfaces = Ospf.Processes.Process.Vrfs.Vrf.ProcessScope.FastReroute.PerLink.ExcludeInterfaces()
+                                    self.exclude_interfaces.parent = self
+                                    self.fast_reroute_use_candidate_only = None
+
+
+                                class CandidateInterfaces(object):
+                                    """
+                                    Fast\-reroute per\-link/per\-prefix candidate
+                                    interface configuration
+                                    
+                                    .. attribute:: candidate_interface
+                                    
+                                    	Candidate backup interface
+                                    	**type**\: list of  :py:class:`CandidateInterface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_cfg.Ospf.Processes.Process.Vrfs.Vrf.ProcessScope.FastReroute.PerLink.CandidateInterfaces.CandidateInterface>`
+                                    
+                                    
+
+                                    """
+
+                                    _prefix = 'ipv4-ospf-cfg'
+                                    _revision = '2015-11-09'
+
+                                    def __init__(self):
+                                        self.parent = None
+                                        self.candidate_interface = YList()
+                                        self.candidate_interface.parent = self
+                                        self.candidate_interface.name = 'candidate_interface'
+
+
+                                    class CandidateInterface(object):
+                                        """
+                                        Candidate backup interface
+                                        
+                                        .. attribute:: interface_name  <key>
+                                        
+                                        	Interface
+                                        	**type**\:  str
+                                        
+                                        	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+                                        
+                                        
+
+                                        """
+
+                                        _prefix = 'ipv4-ospf-cfg'
+                                        _revision = '2015-11-09'
+
+                                        def __init__(self):
+                                            self.parent = None
+                                            self.interface_name = None
+
+                                        @property
+                                        def _common_path(self):
+                                            if self.parent is None:
+                                                raise YPYModelError('parent is not set . Cannot derive path.')
+                                            if self.interface_name is None:
+                                                raise YPYModelError('Key property interface_name is None')
+
+                                            return self.parent._common_path +'/Cisco-IOS-XR-ipv4-ospf-cfg:candidate-interface[Cisco-IOS-XR-ipv4-ospf-cfg:interface-name = ' + str(self.interface_name) + ']'
+
+                                        def is_config(self):
+                                            ''' Returns True if this instance represents config data else returns False '''
+                                            return True
+
+                                        def _has_data(self):
+                                            if not self.is_config():
+                                                return False
+                                            if self.interface_name is not None:
+                                                return True
+
+                                            return False
+
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_ospf_cfg as meta
+                                            return meta._meta_table['Ospf.Processes.Process.Vrfs.Vrf.ProcessScope.FastReroute.PerLink.CandidateInterfaces.CandidateInterface']['meta_info']
+
+                                    @property
+                                    def _common_path(self):
+                                        if self.parent is None:
+                                            raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                        return self.parent._common_path +'/Cisco-IOS-XR-ipv4-ospf-cfg:candidate-interfaces'
+
+                                    def is_config(self):
+                                        ''' Returns True if this instance represents config data else returns False '''
+                                        return True
+
+                                    def _has_data(self):
+                                        if not self.is_config():
+                                            return False
+                                        if self.candidate_interface is not None:
+                                            for child_ref in self.candidate_interface:
+                                                if child_ref._has_data():
+                                                    return True
+
+                                        return False
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_ospf_cfg as meta
+                                        return meta._meta_table['Ospf.Processes.Process.Vrfs.Vrf.ProcessScope.FastReroute.PerLink.CandidateInterfaces']['meta_info']
+
+
+                                class ExcludeInterfaces(object):
+                                    """
+                                    Fast\-reroute per\-link/per\-prefix or UCMP exclude
+                                    interface configuration
+                                    
+                                    .. attribute:: exclude_interface
+                                    
+                                    	Exclude an interface from becoming a backup or UCMP
+                                    	**type**\: list of  :py:class:`ExcludeInterface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_cfg.Ospf.Processes.Process.Vrfs.Vrf.ProcessScope.FastReroute.PerLink.ExcludeInterfaces.ExcludeInterface>`
+                                    
+                                    
+
+                                    """
+
+                                    _prefix = 'ipv4-ospf-cfg'
+                                    _revision = '2015-11-09'
+
+                                    def __init__(self):
+                                        self.parent = None
+                                        self.exclude_interface = YList()
+                                        self.exclude_interface.parent = self
+                                        self.exclude_interface.name = 'exclude_interface'
+
+
+                                    class ExcludeInterface(object):
+                                        """
+                                        Exclude an interface from becoming a backup or
+                                        UCMP
+                                        
+                                        .. attribute:: interface_name  <key>
+                                        
+                                        	Interface
+                                        	**type**\:  str
+                                        
+                                        	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+                                        
+                                        
+
+                                        """
+
+                                        _prefix = 'ipv4-ospf-cfg'
+                                        _revision = '2015-11-09'
+
+                                        def __init__(self):
+                                            self.parent = None
+                                            self.interface_name = None
+
+                                        @property
+                                        def _common_path(self):
+                                            if self.parent is None:
+                                                raise YPYModelError('parent is not set . Cannot derive path.')
+                                            if self.interface_name is None:
+                                                raise YPYModelError('Key property interface_name is None')
+
+                                            return self.parent._common_path +'/Cisco-IOS-XR-ipv4-ospf-cfg:exclude-interface[Cisco-IOS-XR-ipv4-ospf-cfg:interface-name = ' + str(self.interface_name) + ']'
+
+                                        def is_config(self):
+                                            ''' Returns True if this instance represents config data else returns False '''
+                                            return True
+
+                                        def _has_data(self):
+                                            if not self.is_config():
+                                                return False
+                                            if self.interface_name is not None:
+                                                return True
+
+                                            return False
+
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_ospf_cfg as meta
+                                            return meta._meta_table['Ospf.Processes.Process.Vrfs.Vrf.ProcessScope.FastReroute.PerLink.ExcludeInterfaces.ExcludeInterface']['meta_info']
+
+                                    @property
+                                    def _common_path(self):
+                                        if self.parent is None:
+                                            raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                        return self.parent._common_path +'/Cisco-IOS-XR-ipv4-ospf-cfg:exclude-interfaces'
+
+                                    def is_config(self):
+                                        ''' Returns True if this instance represents config data else returns False '''
+                                        return True
+
+                                    def _has_data(self):
+                                        if not self.is_config():
+                                            return False
+                                        if self.exclude_interface is not None:
+                                            for child_ref in self.exclude_interface:
+                                                if child_ref._has_data():
+                                                    return True
+
+                                        return False
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_ospf_cfg as meta
+                                        return meta._meta_table['Ospf.Processes.Process.Vrfs.Vrf.ProcessScope.FastReroute.PerLink.ExcludeInterfaces']['meta_info']
+
+                                @property
+                                def _common_path(self):
+                                    if self.parent is None:
+                                        raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                    return self.parent._common_path +'/Cisco-IOS-XR-ipv4-ospf-cfg:per-link'
+
+                                def is_config(self):
+                                    ''' Returns True if this instance represents config data else returns False '''
+                                    return True
+
+                                def _has_data(self):
+                                    if not self.is_config():
+                                        return False
+                                    if self.candidate_interfaces is not None and self.candidate_interfaces._has_data():
+                                        return True
+
+                                    if self.exclude_interfaces is not None and self.exclude_interfaces._has_data():
+                                        return True
+
+                                    if self.fast_reroute_use_candidate_only is not None:
+                                        return True
+
+                                    return False
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_ospf_cfg as meta
+                                    return meta._meta_table['Ospf.Processes.Process.Vrfs.Vrf.ProcessScope.FastReroute.PerLink']['meta_info']
+
+
+                            class PerPrefix(object):
+                                """
+                                Fast\-reroute per\-prefix configuration
+                                
+                                .. attribute:: candidate_interfaces
+                                
+                                	Fast\-reroute per\-link/per\-prefix candidate interface configuration
+                                	**type**\:  :py:class:`CandidateInterfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_cfg.Ospf.Processes.Process.Vrfs.Vrf.ProcessScope.FastReroute.PerPrefix.CandidateInterfaces>`
+                                
+                                .. attribute:: exclude_interfaces
+                                
+                                	Fast\-reroute per\-link/per\-prefix or UCMP exclude interface configuration
+                                	**type**\:  :py:class:`ExcludeInterfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_cfg.Ospf.Processes.Process.Vrfs.Vrf.ProcessScope.FastReroute.PerPrefix.ExcludeInterfaces>`
+                                
+                                .. attribute:: fast_reroute_use_candidate_only
+                                
+                                	Use only interfaces on the candidate list as a backup path
+                                	**type**\:  bool
+                                
+                                .. attribute:: remote_lfa
+                                
+                                	Remote LFA configuration
+                                	**type**\:  :py:class:`RemoteLfa <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_cfg.Ospf.Processes.Process.Vrfs.Vrf.ProcessScope.FastReroute.PerPrefix.RemoteLfa>`
+                                
+                                .. attribute:: topology_independent_lfa
+                                
+                                	Topology Independet LFA configuration
+                                	**type**\:  bool
+                                
+                                
+
+                                """
+
+                                _prefix = 'ipv4-ospf-cfg'
+                                _revision = '2015-11-09'
+
+                                def __init__(self):
+                                    self.parent = None
+                                    self.candidate_interfaces = Ospf.Processes.Process.Vrfs.Vrf.ProcessScope.FastReroute.PerPrefix.CandidateInterfaces()
+                                    self.candidate_interfaces.parent = self
+                                    self.exclude_interfaces = Ospf.Processes.Process.Vrfs.Vrf.ProcessScope.FastReroute.PerPrefix.ExcludeInterfaces()
+                                    self.exclude_interfaces.parent = self
+                                    self.fast_reroute_use_candidate_only = None
+                                    self.remote_lfa = Ospf.Processes.Process.Vrfs.Vrf.ProcessScope.FastReroute.PerPrefix.RemoteLfa()
+                                    self.remote_lfa.parent = self
+                                    self.topology_independent_lfa = None
+
+
+                                class RemoteLfa(object):
+                                    """
+                                    Remote LFA configuration
+                                    
+                                    .. attribute:: maximum_cost
+                                    
+                                    	Maximum path cost to remote LFA
+                                    	**type**\:  int
+                                    
+                                    	**range:** 1..4294967295
+                                    
+                                    .. attribute:: tunnel
+                                    
+                                    	Enable/Disable remote LFA computation
+                                    	**type**\:  :py:class:`OspfProcFrrRlfaTunnelEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_cfg.OspfProcFrrRlfaTunnelEnum>`
+                                    
+                                    
+
+                                    """
+
+                                    _prefix = 'ipv4-ospf-cfg'
+                                    _revision = '2015-11-09'
+
+                                    def __init__(self):
+                                        self.parent = None
+                                        self.maximum_cost = None
+                                        self.tunnel = None
+
+                                    @property
+                                    def _common_path(self):
+                                        if self.parent is None:
+                                            raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                        return self.parent._common_path +'/Cisco-IOS-XR-ipv4-ospf-cfg:remote-lfa'
+
+                                    def is_config(self):
+                                        ''' Returns True if this instance represents config data else returns False '''
+                                        return True
+
+                                    def _has_data(self):
+                                        if not self.is_config():
+                                            return False
+                                        if self.maximum_cost is not None:
+                                            return True
+
+                                        if self.tunnel is not None:
+                                            return True
+
+                                        return False
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_ospf_cfg as meta
+                                        return meta._meta_table['Ospf.Processes.Process.Vrfs.Vrf.ProcessScope.FastReroute.PerPrefix.RemoteLfa']['meta_info']
+
+
+                                class CandidateInterfaces(object):
+                                    """
+                                    Fast\-reroute per\-link/per\-prefix candidate
+                                    interface configuration
+                                    
+                                    .. attribute:: candidate_interface
+                                    
+                                    	Candidate backup interface
+                                    	**type**\: list of  :py:class:`CandidateInterface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_cfg.Ospf.Processes.Process.Vrfs.Vrf.ProcessScope.FastReroute.PerPrefix.CandidateInterfaces.CandidateInterface>`
+                                    
+                                    
+
+                                    """
+
+                                    _prefix = 'ipv4-ospf-cfg'
+                                    _revision = '2015-11-09'
+
+                                    def __init__(self):
+                                        self.parent = None
+                                        self.candidate_interface = YList()
+                                        self.candidate_interface.parent = self
+                                        self.candidate_interface.name = 'candidate_interface'
+
+
+                                    class CandidateInterface(object):
+                                        """
+                                        Candidate backup interface
+                                        
+                                        .. attribute:: interface_name  <key>
+                                        
+                                        	Interface
+                                        	**type**\:  str
+                                        
+                                        	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+                                        
+                                        
+
+                                        """
+
+                                        _prefix = 'ipv4-ospf-cfg'
+                                        _revision = '2015-11-09'
+
+                                        def __init__(self):
+                                            self.parent = None
+                                            self.interface_name = None
+
+                                        @property
+                                        def _common_path(self):
+                                            if self.parent is None:
+                                                raise YPYModelError('parent is not set . Cannot derive path.')
+                                            if self.interface_name is None:
+                                                raise YPYModelError('Key property interface_name is None')
+
+                                            return self.parent._common_path +'/Cisco-IOS-XR-ipv4-ospf-cfg:candidate-interface[Cisco-IOS-XR-ipv4-ospf-cfg:interface-name = ' + str(self.interface_name) + ']'
+
+                                        def is_config(self):
+                                            ''' Returns True if this instance represents config data else returns False '''
+                                            return True
+
+                                        def _has_data(self):
+                                            if not self.is_config():
+                                                return False
+                                            if self.interface_name is not None:
+                                                return True
+
+                                            return False
+
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_ospf_cfg as meta
+                                            return meta._meta_table['Ospf.Processes.Process.Vrfs.Vrf.ProcessScope.FastReroute.PerPrefix.CandidateInterfaces.CandidateInterface']['meta_info']
+
+                                    @property
+                                    def _common_path(self):
+                                        if self.parent is None:
+                                            raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                        return self.parent._common_path +'/Cisco-IOS-XR-ipv4-ospf-cfg:candidate-interfaces'
+
+                                    def is_config(self):
+                                        ''' Returns True if this instance represents config data else returns False '''
+                                        return True
+
+                                    def _has_data(self):
+                                        if not self.is_config():
+                                            return False
+                                        if self.candidate_interface is not None:
+                                            for child_ref in self.candidate_interface:
+                                                if child_ref._has_data():
+                                                    return True
+
+                                        return False
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_ospf_cfg as meta
+                                        return meta._meta_table['Ospf.Processes.Process.Vrfs.Vrf.ProcessScope.FastReroute.PerPrefix.CandidateInterfaces']['meta_info']
+
+
+                                class ExcludeInterfaces(object):
+                                    """
+                                    Fast\-reroute per\-link/per\-prefix or UCMP exclude
+                                    interface configuration
+                                    
+                                    .. attribute:: exclude_interface
+                                    
+                                    	Exclude an interface from becoming a backup or UCMP
+                                    	**type**\: list of  :py:class:`ExcludeInterface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_cfg.Ospf.Processes.Process.Vrfs.Vrf.ProcessScope.FastReroute.PerPrefix.ExcludeInterfaces.ExcludeInterface>`
+                                    
+                                    
+
+                                    """
+
+                                    _prefix = 'ipv4-ospf-cfg'
+                                    _revision = '2015-11-09'
+
+                                    def __init__(self):
+                                        self.parent = None
+                                        self.exclude_interface = YList()
+                                        self.exclude_interface.parent = self
+                                        self.exclude_interface.name = 'exclude_interface'
+
+
+                                    class ExcludeInterface(object):
+                                        """
+                                        Exclude an interface from becoming a backup or
+                                        UCMP
+                                        
+                                        .. attribute:: interface_name  <key>
+                                        
+                                        	Interface
+                                        	**type**\:  str
+                                        
+                                        	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+                                        
+                                        
+
+                                        """
+
+                                        _prefix = 'ipv4-ospf-cfg'
+                                        _revision = '2015-11-09'
+
+                                        def __init__(self):
+                                            self.parent = None
+                                            self.interface_name = None
+
+                                        @property
+                                        def _common_path(self):
+                                            if self.parent is None:
+                                                raise YPYModelError('parent is not set . Cannot derive path.')
+                                            if self.interface_name is None:
+                                                raise YPYModelError('Key property interface_name is None')
+
+                                            return self.parent._common_path +'/Cisco-IOS-XR-ipv4-ospf-cfg:exclude-interface[Cisco-IOS-XR-ipv4-ospf-cfg:interface-name = ' + str(self.interface_name) + ']'
+
+                                        def is_config(self):
+                                            ''' Returns True if this instance represents config data else returns False '''
+                                            return True
+
+                                        def _has_data(self):
+                                            if not self.is_config():
+                                                return False
+                                            if self.interface_name is not None:
+                                                return True
+
+                                            return False
+
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_ospf_cfg as meta
+                                            return meta._meta_table['Ospf.Processes.Process.Vrfs.Vrf.ProcessScope.FastReroute.PerPrefix.ExcludeInterfaces.ExcludeInterface']['meta_info']
+
+                                    @property
+                                    def _common_path(self):
+                                        if self.parent is None:
+                                            raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                        return self.parent._common_path +'/Cisco-IOS-XR-ipv4-ospf-cfg:exclude-interfaces'
+
+                                    def is_config(self):
+                                        ''' Returns True if this instance represents config data else returns False '''
+                                        return True
+
+                                    def _has_data(self):
+                                        if not self.is_config():
+                                            return False
+                                        if self.exclude_interface is not None:
+                                            for child_ref in self.exclude_interface:
+                                                if child_ref._has_data():
+                                                    return True
+
+                                        return False
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_ospf_cfg as meta
+                                        return meta._meta_table['Ospf.Processes.Process.Vrfs.Vrf.ProcessScope.FastReroute.PerPrefix.ExcludeInterfaces']['meta_info']
+
+                                @property
+                                def _common_path(self):
+                                    if self.parent is None:
+                                        raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                    return self.parent._common_path +'/Cisco-IOS-XR-ipv4-ospf-cfg:per-prefix'
+
+                                def is_config(self):
+                                    ''' Returns True if this instance represents config data else returns False '''
+                                    return True
+
+                                def _has_data(self):
+                                    if not self.is_config():
+                                        return False
+                                    if self.candidate_interfaces is not None and self.candidate_interfaces._has_data():
+                                        return True
+
+                                    if self.exclude_interfaces is not None and self.exclude_interfaces._has_data():
+                                        return True
+
+                                    if self.fast_reroute_use_candidate_only is not None:
+                                        return True
+
+                                    if self.remote_lfa is not None and self.remote_lfa._has_data():
+                                        return True
+
+                                    if self.topology_independent_lfa is not None:
+                                        return True
+
+                                    return False
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_ospf_cfg as meta
+                                    return meta._meta_table['Ospf.Processes.Process.Vrfs.Vrf.ProcessScope.FastReroute.PerPrefix']['meta_info']
+
+                            @property
+                            def _common_path(self):
+                                if self.parent is None:
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                return self.parent._common_path +'/Cisco-IOS-XR-ipv4-ospf-cfg:fast-reroute'
+
+                            def is_config(self):
+                                ''' Returns True if this instance represents config data else returns False '''
+                                return True
+
+                            def _has_data(self):
+                                if not self.is_config():
+                                    return False
+                                if self.fast_reroute_enable is not None:
+                                    return True
+
+                                if self.per_link is not None and self.per_link._has_data():
+                                    return True
+
+                                if self.per_prefix is not None and self.per_prefix._has_data():
+                                    return True
+
+                                return False
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_ospf_cfg as meta
+                                return meta._meta_table['Ospf.Processes.Process.Vrfs.Vrf.ProcessScope.FastReroute']['meta_info']
 
 
                         class DistributeList(object):
@@ -3634,674 +4425,6 @@ class Ospf(object):
                                 return meta._meta_table['Ospf.Processes.Process.Vrfs.Vrf.ProcessScope.Security']['meta_info']
 
 
-                        class FastReroute(object):
-                            """
-                            Fast\-reroute configuration
-                            
-                            .. attribute:: fast_reroute_enable
-                            
-                            	Enable/Disable Fast\-reroute per\-link or per\-prefix
-                            	**type**\:  :py:class:`OspfFastRerouteEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_cfg.OspfFastRerouteEnum>`
-                            
-                            .. attribute:: per_link
-                            
-                            	Fast\-reroute per\-link configuration
-                            	**type**\:  :py:class:`PerLink <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_cfg.Ospf.Processes.Process.Vrfs.Vrf.ProcessScope.FastReroute.PerLink>`
-                            
-                            .. attribute:: per_prefix
-                            
-                            	Fast\-reroute per\-prefix configuration
-                            	**type**\:  :py:class:`PerPrefix <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_cfg.Ospf.Processes.Process.Vrfs.Vrf.ProcessScope.FastReroute.PerPrefix>`
-                            
-                            
-
-                            """
-
-                            _prefix = 'ipv4-ospf-cfg'
-                            _revision = '2015-11-09'
-
-                            def __init__(self):
-                                self.parent = None
-                                self.fast_reroute_enable = None
-                                self.per_link = Ospf.Processes.Process.Vrfs.Vrf.ProcessScope.FastReroute.PerLink()
-                                self.per_link.parent = self
-                                self.per_prefix = Ospf.Processes.Process.Vrfs.Vrf.ProcessScope.FastReroute.PerPrefix()
-                                self.per_prefix.parent = self
-
-
-                            class PerLink(object):
-                                """
-                                Fast\-reroute per\-link configuration
-                                
-                                .. attribute:: candidate_interfaces
-                                
-                                	Fast\-reroute per\-link/per\-prefix candidate interface configuration
-                                	**type**\:  :py:class:`CandidateInterfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_cfg.Ospf.Processes.Process.Vrfs.Vrf.ProcessScope.FastReroute.PerLink.CandidateInterfaces>`
-                                
-                                .. attribute:: exclude_interfaces
-                                
-                                	Fast\-reroute per\-link/per\-prefix or UCMP exclude interface configuration
-                                	**type**\:  :py:class:`ExcludeInterfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_cfg.Ospf.Processes.Process.Vrfs.Vrf.ProcessScope.FastReroute.PerLink.ExcludeInterfaces>`
-                                
-                                .. attribute:: fast_reroute_use_candidate_only
-                                
-                                	Use only interfaces on the candidate list as a backup path
-                                	**type**\:  bool
-                                
-                                
-
-                                """
-
-                                _prefix = 'ipv4-ospf-cfg'
-                                _revision = '2015-11-09'
-
-                                def __init__(self):
-                                    self.parent = None
-                                    self.candidate_interfaces = Ospf.Processes.Process.Vrfs.Vrf.ProcessScope.FastReroute.PerLink.CandidateInterfaces()
-                                    self.candidate_interfaces.parent = self
-                                    self.exclude_interfaces = Ospf.Processes.Process.Vrfs.Vrf.ProcessScope.FastReroute.PerLink.ExcludeInterfaces()
-                                    self.exclude_interfaces.parent = self
-                                    self.fast_reroute_use_candidate_only = None
-
-
-                                class CandidateInterfaces(object):
-                                    """
-                                    Fast\-reroute per\-link/per\-prefix candidate
-                                    interface configuration
-                                    
-                                    .. attribute:: candidate_interface
-                                    
-                                    	Candidate backup interface
-                                    	**type**\: list of  :py:class:`CandidateInterface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_cfg.Ospf.Processes.Process.Vrfs.Vrf.ProcessScope.FastReroute.PerLink.CandidateInterfaces.CandidateInterface>`
-                                    
-                                    
-
-                                    """
-
-                                    _prefix = 'ipv4-ospf-cfg'
-                                    _revision = '2015-11-09'
-
-                                    def __init__(self):
-                                        self.parent = None
-                                        self.candidate_interface = YList()
-                                        self.candidate_interface.parent = self
-                                        self.candidate_interface.name = 'candidate_interface'
-
-
-                                    class CandidateInterface(object):
-                                        """
-                                        Candidate backup interface
-                                        
-                                        .. attribute:: interface_name  <key>
-                                        
-                                        	Interface
-                                        	**type**\:  str
-                                        
-                                        	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
-                                        
-                                        
-
-                                        """
-
-                                        _prefix = 'ipv4-ospf-cfg'
-                                        _revision = '2015-11-09'
-
-                                        def __init__(self):
-                                            self.parent = None
-                                            self.interface_name = None
-
-                                        @property
-                                        def _common_path(self):
-                                            if self.parent is None:
-                                                raise YPYModelError('parent is not set . Cannot derive path.')
-                                            if self.interface_name is None:
-                                                raise YPYModelError('Key property interface_name is None')
-
-                                            return self.parent._common_path +'/Cisco-IOS-XR-ipv4-ospf-cfg:candidate-interface[Cisco-IOS-XR-ipv4-ospf-cfg:interface-name = ' + str(self.interface_name) + ']'
-
-                                        def is_config(self):
-                                            ''' Returns True if this instance represents config data else returns False '''
-                                            return True
-
-                                        def _has_data(self):
-                                            if not self.is_config():
-                                                return False
-                                            if self.interface_name is not None:
-                                                return True
-
-                                            return False
-
-                                        @staticmethod
-                                        def _meta_info():
-                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_ospf_cfg as meta
-                                            return meta._meta_table['Ospf.Processes.Process.Vrfs.Vrf.ProcessScope.FastReroute.PerLink.CandidateInterfaces.CandidateInterface']['meta_info']
-
-                                    @property
-                                    def _common_path(self):
-                                        if self.parent is None:
-                                            raise YPYModelError('parent is not set . Cannot derive path.')
-
-                                        return self.parent._common_path +'/Cisco-IOS-XR-ipv4-ospf-cfg:candidate-interfaces'
-
-                                    def is_config(self):
-                                        ''' Returns True if this instance represents config data else returns False '''
-                                        return True
-
-                                    def _has_data(self):
-                                        if not self.is_config():
-                                            return False
-                                        if self.candidate_interface is not None:
-                                            for child_ref in self.candidate_interface:
-                                                if child_ref._has_data():
-                                                    return True
-
-                                        return False
-
-                                    @staticmethod
-                                    def _meta_info():
-                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_ospf_cfg as meta
-                                        return meta._meta_table['Ospf.Processes.Process.Vrfs.Vrf.ProcessScope.FastReroute.PerLink.CandidateInterfaces']['meta_info']
-
-
-                                class ExcludeInterfaces(object):
-                                    """
-                                    Fast\-reroute per\-link/per\-prefix or UCMP exclude
-                                    interface configuration
-                                    
-                                    .. attribute:: exclude_interface
-                                    
-                                    	Exclude an interface from becoming a backup or UCMP
-                                    	**type**\: list of  :py:class:`ExcludeInterface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_cfg.Ospf.Processes.Process.Vrfs.Vrf.ProcessScope.FastReroute.PerLink.ExcludeInterfaces.ExcludeInterface>`
-                                    
-                                    
-
-                                    """
-
-                                    _prefix = 'ipv4-ospf-cfg'
-                                    _revision = '2015-11-09'
-
-                                    def __init__(self):
-                                        self.parent = None
-                                        self.exclude_interface = YList()
-                                        self.exclude_interface.parent = self
-                                        self.exclude_interface.name = 'exclude_interface'
-
-
-                                    class ExcludeInterface(object):
-                                        """
-                                        Exclude an interface from becoming a backup or
-                                        UCMP
-                                        
-                                        .. attribute:: interface_name  <key>
-                                        
-                                        	Interface
-                                        	**type**\:  str
-                                        
-                                        	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
-                                        
-                                        
-
-                                        """
-
-                                        _prefix = 'ipv4-ospf-cfg'
-                                        _revision = '2015-11-09'
-
-                                        def __init__(self):
-                                            self.parent = None
-                                            self.interface_name = None
-
-                                        @property
-                                        def _common_path(self):
-                                            if self.parent is None:
-                                                raise YPYModelError('parent is not set . Cannot derive path.')
-                                            if self.interface_name is None:
-                                                raise YPYModelError('Key property interface_name is None')
-
-                                            return self.parent._common_path +'/Cisco-IOS-XR-ipv4-ospf-cfg:exclude-interface[Cisco-IOS-XR-ipv4-ospf-cfg:interface-name = ' + str(self.interface_name) + ']'
-
-                                        def is_config(self):
-                                            ''' Returns True if this instance represents config data else returns False '''
-                                            return True
-
-                                        def _has_data(self):
-                                            if not self.is_config():
-                                                return False
-                                            if self.interface_name is not None:
-                                                return True
-
-                                            return False
-
-                                        @staticmethod
-                                        def _meta_info():
-                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_ospf_cfg as meta
-                                            return meta._meta_table['Ospf.Processes.Process.Vrfs.Vrf.ProcessScope.FastReroute.PerLink.ExcludeInterfaces.ExcludeInterface']['meta_info']
-
-                                    @property
-                                    def _common_path(self):
-                                        if self.parent is None:
-                                            raise YPYModelError('parent is not set . Cannot derive path.')
-
-                                        return self.parent._common_path +'/Cisco-IOS-XR-ipv4-ospf-cfg:exclude-interfaces'
-
-                                    def is_config(self):
-                                        ''' Returns True if this instance represents config data else returns False '''
-                                        return True
-
-                                    def _has_data(self):
-                                        if not self.is_config():
-                                            return False
-                                        if self.exclude_interface is not None:
-                                            for child_ref in self.exclude_interface:
-                                                if child_ref._has_data():
-                                                    return True
-
-                                        return False
-
-                                    @staticmethod
-                                    def _meta_info():
-                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_ospf_cfg as meta
-                                        return meta._meta_table['Ospf.Processes.Process.Vrfs.Vrf.ProcessScope.FastReroute.PerLink.ExcludeInterfaces']['meta_info']
-
-                                @property
-                                def _common_path(self):
-                                    if self.parent is None:
-                                        raise YPYModelError('parent is not set . Cannot derive path.')
-
-                                    return self.parent._common_path +'/Cisco-IOS-XR-ipv4-ospf-cfg:per-link'
-
-                                def is_config(self):
-                                    ''' Returns True if this instance represents config data else returns False '''
-                                    return True
-
-                                def _has_data(self):
-                                    if not self.is_config():
-                                        return False
-                                    if self.candidate_interfaces is not None and self.candidate_interfaces._has_data():
-                                        return True
-
-                                    if self.exclude_interfaces is not None and self.exclude_interfaces._has_data():
-                                        return True
-
-                                    if self.fast_reroute_use_candidate_only is not None:
-                                        return True
-
-                                    return False
-
-                                @staticmethod
-                                def _meta_info():
-                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_ospf_cfg as meta
-                                    return meta._meta_table['Ospf.Processes.Process.Vrfs.Vrf.ProcessScope.FastReroute.PerLink']['meta_info']
-
-
-                            class PerPrefix(object):
-                                """
-                                Fast\-reroute per\-prefix configuration
-                                
-                                .. attribute:: candidate_interfaces
-                                
-                                	Fast\-reroute per\-link/per\-prefix candidate interface configuration
-                                	**type**\:  :py:class:`CandidateInterfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_cfg.Ospf.Processes.Process.Vrfs.Vrf.ProcessScope.FastReroute.PerPrefix.CandidateInterfaces>`
-                                
-                                .. attribute:: exclude_interfaces
-                                
-                                	Fast\-reroute per\-link/per\-prefix or UCMP exclude interface configuration
-                                	**type**\:  :py:class:`ExcludeInterfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_cfg.Ospf.Processes.Process.Vrfs.Vrf.ProcessScope.FastReroute.PerPrefix.ExcludeInterfaces>`
-                                
-                                .. attribute:: fast_reroute_use_candidate_only
-                                
-                                	Use only interfaces on the candidate list as a backup path
-                                	**type**\:  bool
-                                
-                                .. attribute:: remote_lfa
-                                
-                                	Remote LFA configuration
-                                	**type**\:  :py:class:`RemoteLfa <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_cfg.Ospf.Processes.Process.Vrfs.Vrf.ProcessScope.FastReroute.PerPrefix.RemoteLfa>`
-                                
-                                .. attribute:: topology_independent_lfa
-                                
-                                	Topology Independet LFA configuration
-                                	**type**\:  bool
-                                
-                                
-
-                                """
-
-                                _prefix = 'ipv4-ospf-cfg'
-                                _revision = '2015-11-09'
-
-                                def __init__(self):
-                                    self.parent = None
-                                    self.candidate_interfaces = Ospf.Processes.Process.Vrfs.Vrf.ProcessScope.FastReroute.PerPrefix.CandidateInterfaces()
-                                    self.candidate_interfaces.parent = self
-                                    self.exclude_interfaces = Ospf.Processes.Process.Vrfs.Vrf.ProcessScope.FastReroute.PerPrefix.ExcludeInterfaces()
-                                    self.exclude_interfaces.parent = self
-                                    self.fast_reroute_use_candidate_only = None
-                                    self.remote_lfa = Ospf.Processes.Process.Vrfs.Vrf.ProcessScope.FastReroute.PerPrefix.RemoteLfa()
-                                    self.remote_lfa.parent = self
-                                    self.topology_independent_lfa = None
-
-
-                                class RemoteLfa(object):
-                                    """
-                                    Remote LFA configuration
-                                    
-                                    .. attribute:: maximum_cost
-                                    
-                                    	Maximum path cost to remote LFA
-                                    	**type**\:  int
-                                    
-                                    	**range:** 1..4294967295
-                                    
-                                    .. attribute:: tunnel
-                                    
-                                    	Enable/Disable remote LFA computation
-                                    	**type**\:  :py:class:`OspfFrrRlfaTunnelEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_cfg.OspfFrrRlfaTunnelEnum>`
-                                    
-                                    
-
-                                    """
-
-                                    _prefix = 'ipv4-ospf-cfg'
-                                    _revision = '2015-11-09'
-
-                                    def __init__(self):
-                                        self.parent = None
-                                        self.maximum_cost = None
-                                        self.tunnel = None
-
-                                    @property
-                                    def _common_path(self):
-                                        if self.parent is None:
-                                            raise YPYModelError('parent is not set . Cannot derive path.')
-
-                                        return self.parent._common_path +'/Cisco-IOS-XR-ipv4-ospf-cfg:remote-lfa'
-
-                                    def is_config(self):
-                                        ''' Returns True if this instance represents config data else returns False '''
-                                        return True
-
-                                    def _has_data(self):
-                                        if not self.is_config():
-                                            return False
-                                        if self.maximum_cost is not None:
-                                            return True
-
-                                        if self.tunnel is not None:
-                                            return True
-
-                                        return False
-
-                                    @staticmethod
-                                    def _meta_info():
-                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_ospf_cfg as meta
-                                        return meta._meta_table['Ospf.Processes.Process.Vrfs.Vrf.ProcessScope.FastReroute.PerPrefix.RemoteLfa']['meta_info']
-
-
-                                class CandidateInterfaces(object):
-                                    """
-                                    Fast\-reroute per\-link/per\-prefix candidate
-                                    interface configuration
-                                    
-                                    .. attribute:: candidate_interface
-                                    
-                                    	Candidate backup interface
-                                    	**type**\: list of  :py:class:`CandidateInterface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_cfg.Ospf.Processes.Process.Vrfs.Vrf.ProcessScope.FastReroute.PerPrefix.CandidateInterfaces.CandidateInterface>`
-                                    
-                                    
-
-                                    """
-
-                                    _prefix = 'ipv4-ospf-cfg'
-                                    _revision = '2015-11-09'
-
-                                    def __init__(self):
-                                        self.parent = None
-                                        self.candidate_interface = YList()
-                                        self.candidate_interface.parent = self
-                                        self.candidate_interface.name = 'candidate_interface'
-
-
-                                    class CandidateInterface(object):
-                                        """
-                                        Candidate backup interface
-                                        
-                                        .. attribute:: interface_name  <key>
-                                        
-                                        	Interface
-                                        	**type**\:  str
-                                        
-                                        	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
-                                        
-                                        
-
-                                        """
-
-                                        _prefix = 'ipv4-ospf-cfg'
-                                        _revision = '2015-11-09'
-
-                                        def __init__(self):
-                                            self.parent = None
-                                            self.interface_name = None
-
-                                        @property
-                                        def _common_path(self):
-                                            if self.parent is None:
-                                                raise YPYModelError('parent is not set . Cannot derive path.')
-                                            if self.interface_name is None:
-                                                raise YPYModelError('Key property interface_name is None')
-
-                                            return self.parent._common_path +'/Cisco-IOS-XR-ipv4-ospf-cfg:candidate-interface[Cisco-IOS-XR-ipv4-ospf-cfg:interface-name = ' + str(self.interface_name) + ']'
-
-                                        def is_config(self):
-                                            ''' Returns True if this instance represents config data else returns False '''
-                                            return True
-
-                                        def _has_data(self):
-                                            if not self.is_config():
-                                                return False
-                                            if self.interface_name is not None:
-                                                return True
-
-                                            return False
-
-                                        @staticmethod
-                                        def _meta_info():
-                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_ospf_cfg as meta
-                                            return meta._meta_table['Ospf.Processes.Process.Vrfs.Vrf.ProcessScope.FastReroute.PerPrefix.CandidateInterfaces.CandidateInterface']['meta_info']
-
-                                    @property
-                                    def _common_path(self):
-                                        if self.parent is None:
-                                            raise YPYModelError('parent is not set . Cannot derive path.')
-
-                                        return self.parent._common_path +'/Cisco-IOS-XR-ipv4-ospf-cfg:candidate-interfaces'
-
-                                    def is_config(self):
-                                        ''' Returns True if this instance represents config data else returns False '''
-                                        return True
-
-                                    def _has_data(self):
-                                        if not self.is_config():
-                                            return False
-                                        if self.candidate_interface is not None:
-                                            for child_ref in self.candidate_interface:
-                                                if child_ref._has_data():
-                                                    return True
-
-                                        return False
-
-                                    @staticmethod
-                                    def _meta_info():
-                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_ospf_cfg as meta
-                                        return meta._meta_table['Ospf.Processes.Process.Vrfs.Vrf.ProcessScope.FastReroute.PerPrefix.CandidateInterfaces']['meta_info']
-
-
-                                class ExcludeInterfaces(object):
-                                    """
-                                    Fast\-reroute per\-link/per\-prefix or UCMP exclude
-                                    interface configuration
-                                    
-                                    .. attribute:: exclude_interface
-                                    
-                                    	Exclude an interface from becoming a backup or UCMP
-                                    	**type**\: list of  :py:class:`ExcludeInterface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_cfg.Ospf.Processes.Process.Vrfs.Vrf.ProcessScope.FastReroute.PerPrefix.ExcludeInterfaces.ExcludeInterface>`
-                                    
-                                    
-
-                                    """
-
-                                    _prefix = 'ipv4-ospf-cfg'
-                                    _revision = '2015-11-09'
-
-                                    def __init__(self):
-                                        self.parent = None
-                                        self.exclude_interface = YList()
-                                        self.exclude_interface.parent = self
-                                        self.exclude_interface.name = 'exclude_interface'
-
-
-                                    class ExcludeInterface(object):
-                                        """
-                                        Exclude an interface from becoming a backup or
-                                        UCMP
-                                        
-                                        .. attribute:: interface_name  <key>
-                                        
-                                        	Interface
-                                        	**type**\:  str
-                                        
-                                        	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
-                                        
-                                        
-
-                                        """
-
-                                        _prefix = 'ipv4-ospf-cfg'
-                                        _revision = '2015-11-09'
-
-                                        def __init__(self):
-                                            self.parent = None
-                                            self.interface_name = None
-
-                                        @property
-                                        def _common_path(self):
-                                            if self.parent is None:
-                                                raise YPYModelError('parent is not set . Cannot derive path.')
-                                            if self.interface_name is None:
-                                                raise YPYModelError('Key property interface_name is None')
-
-                                            return self.parent._common_path +'/Cisco-IOS-XR-ipv4-ospf-cfg:exclude-interface[Cisco-IOS-XR-ipv4-ospf-cfg:interface-name = ' + str(self.interface_name) + ']'
-
-                                        def is_config(self):
-                                            ''' Returns True if this instance represents config data else returns False '''
-                                            return True
-
-                                        def _has_data(self):
-                                            if not self.is_config():
-                                                return False
-                                            if self.interface_name is not None:
-                                                return True
-
-                                            return False
-
-                                        @staticmethod
-                                        def _meta_info():
-                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_ospf_cfg as meta
-                                            return meta._meta_table['Ospf.Processes.Process.Vrfs.Vrf.ProcessScope.FastReroute.PerPrefix.ExcludeInterfaces.ExcludeInterface']['meta_info']
-
-                                    @property
-                                    def _common_path(self):
-                                        if self.parent is None:
-                                            raise YPYModelError('parent is not set . Cannot derive path.')
-
-                                        return self.parent._common_path +'/Cisco-IOS-XR-ipv4-ospf-cfg:exclude-interfaces'
-
-                                    def is_config(self):
-                                        ''' Returns True if this instance represents config data else returns False '''
-                                        return True
-
-                                    def _has_data(self):
-                                        if not self.is_config():
-                                            return False
-                                        if self.exclude_interface is not None:
-                                            for child_ref in self.exclude_interface:
-                                                if child_ref._has_data():
-                                                    return True
-
-                                        return False
-
-                                    @staticmethod
-                                    def _meta_info():
-                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_ospf_cfg as meta
-                                        return meta._meta_table['Ospf.Processes.Process.Vrfs.Vrf.ProcessScope.FastReroute.PerPrefix.ExcludeInterfaces']['meta_info']
-
-                                @property
-                                def _common_path(self):
-                                    if self.parent is None:
-                                        raise YPYModelError('parent is not set . Cannot derive path.')
-
-                                    return self.parent._common_path +'/Cisco-IOS-XR-ipv4-ospf-cfg:per-prefix'
-
-                                def is_config(self):
-                                    ''' Returns True if this instance represents config data else returns False '''
-                                    return True
-
-                                def _has_data(self):
-                                    if not self.is_config():
-                                        return False
-                                    if self.candidate_interfaces is not None and self.candidate_interfaces._has_data():
-                                        return True
-
-                                    if self.exclude_interfaces is not None and self.exclude_interfaces._has_data():
-                                        return True
-
-                                    if self.fast_reroute_use_candidate_only is not None:
-                                        return True
-
-                                    if self.remote_lfa is not None and self.remote_lfa._has_data():
-                                        return True
-
-                                    if self.topology_independent_lfa is not None:
-                                        return True
-
-                                    return False
-
-                                @staticmethod
-                                def _meta_info():
-                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_ospf_cfg as meta
-                                    return meta._meta_table['Ospf.Processes.Process.Vrfs.Vrf.ProcessScope.FastReroute.PerPrefix']['meta_info']
-
-                            @property
-                            def _common_path(self):
-                                if self.parent is None:
-                                    raise YPYModelError('parent is not set . Cannot derive path.')
-
-                                return self.parent._common_path +'/Cisco-IOS-XR-ipv4-ospf-cfg:fast-reroute'
-
-                            def is_config(self):
-                                ''' Returns True if this instance represents config data else returns False '''
-                                return True
-
-                            def _has_data(self):
-                                if not self.is_config():
-                                    return False
-                                if self.fast_reroute_enable is not None:
-                                    return True
-
-                                if self.per_link is not None and self.per_link._has_data():
-                                    return True
-
-                                if self.per_prefix is not None and self.per_prefix._has_data():
-                                    return True
-
-                                return False
-
-                            @staticmethod
-                            def _meta_info():
-                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_ospf_cfg as meta
-                                return meta._meta_table['Ospf.Processes.Process.Vrfs.Vrf.ProcessScope.FastReroute']['meta_info']
-
-
                         class DeadIntervalMinimal(object):
                             """
                             Interval after which a neighbor is declared dead
@@ -4492,6 +4615,9 @@ class Ospf(object):
                                 return True
 
                             if self.passive is not None:
+                                return True
+
+                            if self.prefix_suppression_primary is not None:
                                 return True
 
                             if self.prefix_suppression_secondary is not None:
@@ -5836,7 +5962,7 @@ class Ospf(object):
                                 	Interface
                                 	**type**\:  str
                                 
-                                	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+                                	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
                                 
                                 
 
@@ -6074,10 +6200,10 @@ class Ospf(object):
                                     
                                     .. attribute:: tiebreaker_index
                                     
-                                    	Index value for a tiebreaker
+                                    	Index value for a tiebreaker, 0 to disable
                                     	**type**\:  int
                                     
-                                    	**range:** 1..255
+                                    	**range:** 0..255
                                     
                                     	**mandatory**\: True
                                     
@@ -8199,6 +8325,11 @@ class Ospf(object):
                                 	When enabled, prevent sending HELLO packets over link
                                 	**type**\:  bool
                                 
+                                .. attribute:: prefix_suppression_primary
+                                
+                                	Enable/Disable prefix suppression for primary addresses
+                                	**type**\:  bool
+                                
                                 .. attribute:: prefix_suppression_secondary
                                 
                                 	Enable/Disable prefix suppression for secondary addresses
@@ -8269,6 +8400,7 @@ class Ospf(object):
                                     self.network_type = None
                                     self.packet_size = None
                                     self.passive = None
+                                    self.prefix_suppression_primary = None
                                     self.prefix_suppression_secondary = None
                                     self.priority = None
                                     self.retransmit_interval = None
@@ -8756,6 +8888,64 @@ class Ospf(object):
                                         return meta._meta_table['Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.AreaScope.Security']['meta_info']
 
 
+                                class DeadIntervalMinimal(object):
+                                    """
+                                    Interval after which a neighbor is declared dead
+                                    
+                                    .. attribute:: interval
+                                    
+                                    	Interval size in seconds after which a neighbor is declared dead
+                                    	**type**\:  int
+                                    
+                                    	**range:** 1..65535
+                                    
+                                    .. attribute:: multiplier
+                                    
+                                    	Number of Hellos in one second
+                                    	**type**\:  int
+                                    
+                                    	**range:** 3..20
+                                    
+                                    
+
+                                    """
+
+                                    _prefix = 'ipv4-ospf-cfg'
+                                    _revision = '2015-11-09'
+
+                                    def __init__(self):
+                                        self.parent = None
+                                        self.interval = None
+                                        self.multiplier = None
+
+                                    @property
+                                    def _common_path(self):
+                                        if self.parent is None:
+                                            raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                        return self.parent._common_path +'/Cisco-IOS-XR-ipv4-ospf-cfg:dead-interval-minimal'
+
+                                    def is_config(self):
+                                        ''' Returns True if this instance represents config data else returns False '''
+                                        return True
+
+                                    def _has_data(self):
+                                        if not self.is_config():
+                                            return False
+                                        if self.interval is not None:
+                                            return True
+
+                                        if self.multiplier is not None:
+                                            return True
+
+                                        return False
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_ospf_cfg as meta
+                                        return meta._meta_table['Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.AreaScope.DeadIntervalMinimal']['meta_info']
+
+
                                 class FastReroute(object):
                                     """
                                     Fast\-reroute configuration
@@ -8772,7 +8962,7 @@ class Ospf(object):
                                     
                                     .. attribute:: per_prefix
                                     
-                                    	Fast\-reroute per\-prefix configuration
+                                    	Fast\-reroute per\-prefix global configuration
                                     	**type**\:  :py:class:`PerPrefix <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_cfg.Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.AreaScope.FastReroute.PerPrefix>`
                                     
                                     
@@ -8859,7 +9049,7 @@ class Ospf(object):
                                                 	Interface
                                                 	**type**\:  str
                                                 
-                                                	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+                                                	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
                                                 
                                                 
 
@@ -8959,7 +9149,7 @@ class Ospf(object):
                                                 	Interface
                                                 	**type**\:  str
                                                 
-                                                	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+                                                	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
                                                 
                                                 
 
@@ -9057,7 +9247,7 @@ class Ospf(object):
 
                                     class PerPrefix(object):
                                         """
-                                        Fast\-reroute per\-prefix configuration
+                                        Fast\-reroute per\-prefix global configuration
                                         
                                         .. attribute:: candidate_interfaces
                                         
@@ -9078,6 +9268,11 @@ class Ospf(object):
                                         
                                         	Remote LFA configuration
                                         	**type**\:  :py:class:`RemoteLfa <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_cfg.Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.AreaScope.FastReroute.PerPrefix.RemoteLfa>`
+                                        
+                                        .. attribute:: tiebreakers
+                                        
+                                        	Fast\-reroute tiebreakers configurations
+                                        	**type**\:  :py:class:`Tiebreakers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_cfg.Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.AreaScope.FastReroute.PerPrefix.Tiebreakers>`
                                         
                                         .. attribute:: topology_independent_lfa
                                         
@@ -9100,6 +9295,8 @@ class Ospf(object):
                                             self.fast_reroute_use_candidate_only = None
                                             self.remote_lfa = Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.AreaScope.FastReroute.PerPrefix.RemoteLfa()
                                             self.remote_lfa.parent = self
+                                            self.tiebreakers = Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.AreaScope.FastReroute.PerPrefix.Tiebreakers()
+                                            self.tiebreakers.parent = self
                                             self.topology_independent_lfa = None
 
 
@@ -9159,6 +9356,115 @@ class Ospf(object):
                                                 return meta._meta_table['Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.AreaScope.FastReroute.PerPrefix.RemoteLfa']['meta_info']
 
 
+                                        class Tiebreakers(object):
+                                            """
+                                            Fast\-reroute tiebreakers configurations
+                                            
+                                            .. attribute:: tiebreaker
+                                            
+                                            	Fast\-reroute tiebreakers configuration
+                                            	**type**\: list of  :py:class:`Tiebreaker <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_cfg.Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.AreaScope.FastReroute.PerPrefix.Tiebreakers.Tiebreaker>`
+                                            
+                                            
+
+                                            """
+
+                                            _prefix = 'ipv4-ospf-cfg'
+                                            _revision = '2015-11-09'
+
+                                            def __init__(self):
+                                                self.parent = None
+                                                self.tiebreaker = YList()
+                                                self.tiebreaker.parent = self
+                                                self.tiebreaker.name = 'tiebreaker'
+
+
+                                            class Tiebreaker(object):
+                                                """
+                                                Fast\-reroute tiebreakers configuration
+                                                
+                                                .. attribute:: tiebreaker_type  <key>
+                                                
+                                                	Tiebreaker type
+                                                	**type**\:  :py:class:`OspfFastRerouteTiebreakersIntfEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_cfg.OspfFastRerouteTiebreakersIntfEnum>`
+                                                
+                                                .. attribute:: tiebreaker_index
+                                                
+                                                	Index value for a tiebreaker, 0 to disable
+                                                	**type**\:  int
+                                                
+                                                	**range:** 0..255
+                                                
+                                                	**mandatory**\: True
+                                                
+                                                
+
+                                                """
+
+                                                _prefix = 'ipv4-ospf-cfg'
+                                                _revision = '2015-11-09'
+
+                                                def __init__(self):
+                                                    self.parent = None
+                                                    self.tiebreaker_type = None
+                                                    self.tiebreaker_index = None
+
+                                                @property
+                                                def _common_path(self):
+                                                    if self.parent is None:
+                                                        raise YPYModelError('parent is not set . Cannot derive path.')
+                                                    if self.tiebreaker_type is None:
+                                                        raise YPYModelError('Key property tiebreaker_type is None')
+
+                                                    return self.parent._common_path +'/Cisco-IOS-XR-ipv4-ospf-cfg:tiebreaker[Cisco-IOS-XR-ipv4-ospf-cfg:tiebreaker-type = ' + str(self.tiebreaker_type) + ']'
+
+                                                def is_config(self):
+                                                    ''' Returns True if this instance represents config data else returns False '''
+                                                    return True
+
+                                                def _has_data(self):
+                                                    if not self.is_config():
+                                                        return False
+                                                    if self.tiebreaker_type is not None:
+                                                        return True
+
+                                                    if self.tiebreaker_index is not None:
+                                                        return True
+
+                                                    return False
+
+                                                @staticmethod
+                                                def _meta_info():
+                                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_ospf_cfg as meta
+                                                    return meta._meta_table['Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.AreaScope.FastReroute.PerPrefix.Tiebreakers.Tiebreaker']['meta_info']
+
+                                            @property
+                                            def _common_path(self):
+                                                if self.parent is None:
+                                                    raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                                return self.parent._common_path +'/Cisco-IOS-XR-ipv4-ospf-cfg:tiebreakers'
+
+                                            def is_config(self):
+                                                ''' Returns True if this instance represents config data else returns False '''
+                                                return True
+
+                                            def _has_data(self):
+                                                if not self.is_config():
+                                                    return False
+                                                if self.tiebreaker is not None:
+                                                    for child_ref in self.tiebreaker:
+                                                        if child_ref._has_data():
+                                                            return True
+
+                                                return False
+
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_ospf_cfg as meta
+                                                return meta._meta_table['Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.AreaScope.FastReroute.PerPrefix.Tiebreakers']['meta_info']
+
+
                                         class CandidateInterfaces(object):
                                             """
                                             Fast\-reroute per\-link/per\-prefix candidate
@@ -9192,7 +9498,7 @@ class Ospf(object):
                                                 	Interface
                                                 	**type**\:  str
                                                 
-                                                	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+                                                	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
                                                 
                                                 
 
@@ -9292,7 +9598,7 @@ class Ospf(object):
                                                 	Interface
                                                 	**type**\:  str
                                                 
-                                                	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+                                                	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
                                                 
                                                 
 
@@ -9383,6 +9689,9 @@ class Ospf(object):
                                             if self.remote_lfa is not None and self.remote_lfa._has_data():
                                                 return True
 
+                                            if self.tiebreakers is not None and self.tiebreakers._has_data():
+                                                return True
+
                                             if self.topology_independent_lfa is not None:
                                                 return True
 
@@ -9422,64 +9731,6 @@ class Ospf(object):
                                     def _meta_info():
                                         from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_ospf_cfg as meta
                                         return meta._meta_table['Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.AreaScope.FastReroute']['meta_info']
-
-
-                                class DeadIntervalMinimal(object):
-                                    """
-                                    Interval after which a neighbor is declared dead
-                                    
-                                    .. attribute:: interval
-                                    
-                                    	Interval size in seconds after which a neighbor is declared dead
-                                    	**type**\:  int
-                                    
-                                    	**range:** 1..65535
-                                    
-                                    .. attribute:: multiplier
-                                    
-                                    	Number of Hellos in one second
-                                    	**type**\:  int
-                                    
-                                    	**range:** 3..20
-                                    
-                                    
-
-                                    """
-
-                                    _prefix = 'ipv4-ospf-cfg'
-                                    _revision = '2015-11-09'
-
-                                    def __init__(self):
-                                        self.parent = None
-                                        self.interval = None
-                                        self.multiplier = None
-
-                                    @property
-                                    def _common_path(self):
-                                        if self.parent is None:
-                                            raise YPYModelError('parent is not set . Cannot derive path.')
-
-                                        return self.parent._common_path +'/Cisco-IOS-XR-ipv4-ospf-cfg:dead-interval-minimal'
-
-                                    def is_config(self):
-                                        ''' Returns True if this instance represents config data else returns False '''
-                                        return True
-
-                                    def _has_data(self):
-                                        if not self.is_config():
-                                            return False
-                                        if self.interval is not None:
-                                            return True
-
-                                        if self.multiplier is not None:
-                                            return True
-
-                                        return False
-
-                                    @staticmethod
-                                    def _meta_info():
-                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_ospf_cfg as meta
-                                        return meta._meta_table['Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.AreaScope.DeadIntervalMinimal']['meta_info']
 
 
                                 class CostFallback(object):
@@ -9613,6 +9864,9 @@ class Ospf(object):
                                     if self.passive is not None:
                                         return True
 
+                                    if self.prefix_suppression_primary is not None:
+                                        return True
+
                                     if self.prefix_suppression_secondary is not None:
                                         return True
 
@@ -9671,7 +9925,7 @@ class Ospf(object):
                                     	Name of Interface to configure
                                     	**type**\:  str
                                     
-                                    	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+                                    	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
                                     
                                     .. attribute:: authentication
                                     
@@ -9789,6 +10043,16 @@ class Ospf(object):
                                     	Prefix SID
                                     	**type**\:  :py:class:`PrefixSid <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_cfg.Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.NameScopes.NameScope.PrefixSid>`
                                     
+                                    .. attribute:: prefix_sid_strict
+                                    
+                                    	Strict Prefix SID
+                                    	**type**\:  :py:class:`PrefixSidStrict <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_cfg.Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.NameScopes.NameScope.PrefixSidStrict>`
+                                    
+                                    .. attribute:: prefix_suppression_primary
+                                    
+                                    	Enable/Disable prefix suppression for primary addresses
+                                    	**type**\:  bool
+                                    
                                     .. attribute:: prefix_suppression_secondary
                                     
                                     	Enable/Disable prefix suppression for secondary addresses
@@ -9868,6 +10132,8 @@ class Ospf(object):
                                         self.packet_size = None
                                         self.passive = None
                                         self.prefix_sid = None
+                                        self.prefix_sid_strict = None
+                                        self.prefix_suppression_primary = None
                                         self.prefix_suppression_secondary = None
                                         self.priority = None
                                         self.retransmit_interval = None
@@ -9885,6 +10151,11 @@ class Ospf(object):
                                         .. attribute:: explicit_null
                                         
                                         	Force Penultimate Hop To Send Explicit\-Null Label
+                                        	**type**\:  bool
+                                        
+                                        .. attribute:: n_flag_clear
+                                        
+                                        	Not a node SID
                                         	**type**\:  bool
                                         
                                         .. attribute:: sid_value
@@ -9921,6 +10192,7 @@ class Ospf(object):
                                             self.parent = None
                                             self._is_presence = True
                                             self.explicit_null = None
+                                            self.n_flag_clear = None
                                             self.sid_value = None
                                             self.type = None
 
@@ -9943,6 +10215,9 @@ class Ospf(object):
                                             if self.explicit_null is not None:
                                                 return True
 
+                                            if self.n_flag_clear is not None:
+                                                return True
+
                                             if self.sid_value is not None:
                                                 return True
 
@@ -9955,6 +10230,94 @@ class Ospf(object):
                                         def _meta_info():
                                             from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_ospf_cfg as meta
                                             return meta._meta_table['Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.NameScopes.NameScope.PrefixSid']['meta_info']
+
+
+                                    class PrefixSidStrict(object):
+                                        """
+                                        Strict Prefix SID
+                                        
+                                        .. attribute:: explicit_null
+                                        
+                                        	Force Penultimate Hop To Send Explicit\-Null Label
+                                        	**type**\:  bool
+                                        
+                                        .. attribute:: n_flag_clear
+                                        
+                                        	Not a node SID
+                                        	**type**\:  bool
+                                        
+                                        .. attribute:: sid_value
+                                        
+                                        	SID value
+                                        	**type**\:  int
+                                        
+                                        	**range:** 0..1048575
+                                        
+                                        	**mandatory**\: True
+                                        
+                                        .. attribute:: type
+                                        
+                                        	OSPF SID Type
+                                        	**type**\:  :py:class:`OspfSidEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_cfg.OspfSidEnum>`
+                                        
+                                        	**mandatory**\: True
+                                        
+                                        .. attribute:: _is_presence
+                                        
+                                        	Is present if this instance represents presence container else not
+                                        	**type**\: bool
+                                        
+                                        
+
+                                        This class is a :ref:`presence class<presence-class>`
+
+                                        """
+
+                                        _prefix = 'ipv4-ospf-cfg'
+                                        _revision = '2015-11-09'
+
+                                        def __init__(self):
+                                            self.parent = None
+                                            self._is_presence = True
+                                            self.explicit_null = None
+                                            self.n_flag_clear = None
+                                            self.sid_value = None
+                                            self.type = None
+
+                                        @property
+                                        def _common_path(self):
+                                            if self.parent is None:
+                                                raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                            return self.parent._common_path +'/Cisco-IOS-XR-ipv4-ospf-cfg:prefix-sid-strict'
+
+                                        def is_config(self):
+                                            ''' Returns True if this instance represents config data else returns False '''
+                                            return True
+
+                                        def _has_data(self):
+                                            if not self.is_config():
+                                                return False
+                                            if self._is_presence:
+                                                return True
+                                            if self.explicit_null is not None:
+                                                return True
+
+                                            if self.n_flag_clear is not None:
+                                                return True
+
+                                            if self.sid_value is not None:
+                                                return True
+
+                                            if self.type is not None:
+                                                return True
+
+                                            return False
+
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_ospf_cfg as meta
+                                            return meta._meta_table['Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.NameScopes.NameScope.PrefixSidStrict']['meta_info']
 
 
                                     class DistributeList(object):
@@ -10435,674 +10798,6 @@ class Ospf(object):
                                             return meta._meta_table['Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.NameScopes.NameScope.Security']['meta_info']
 
 
-                                    class FastReroute(object):
-                                        """
-                                        Fast\-reroute configuration
-                                        
-                                        .. attribute:: fast_reroute_enable
-                                        
-                                        	Enable/Disable Fast\-reroute per\-link or per\-prefix
-                                        	**type**\:  :py:class:`OspfFastRerouteEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_cfg.OspfFastRerouteEnum>`
-                                        
-                                        .. attribute:: per_link
-                                        
-                                        	Fast\-reroute per\-link configuration
-                                        	**type**\:  :py:class:`PerLink <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_cfg.Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.NameScopes.NameScope.FastReroute.PerLink>`
-                                        
-                                        .. attribute:: per_prefix
-                                        
-                                        	Fast\-reroute per\-prefix configuration
-                                        	**type**\:  :py:class:`PerPrefix <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_cfg.Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.NameScopes.NameScope.FastReroute.PerPrefix>`
-                                        
-                                        
-
-                                        """
-
-                                        _prefix = 'ipv4-ospf-cfg'
-                                        _revision = '2015-11-09'
-
-                                        def __init__(self):
-                                            self.parent = None
-                                            self.fast_reroute_enable = None
-                                            self.per_link = Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.NameScopes.NameScope.FastReroute.PerLink()
-                                            self.per_link.parent = self
-                                            self.per_prefix = Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.NameScopes.NameScope.FastReroute.PerPrefix()
-                                            self.per_prefix.parent = self
-
-
-                                        class PerLink(object):
-                                            """
-                                            Fast\-reroute per\-link configuration
-                                            
-                                            .. attribute:: candidate_interfaces
-                                            
-                                            	Fast\-reroute per\-link/per\-prefix candidate interface configuration
-                                            	**type**\:  :py:class:`CandidateInterfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_cfg.Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.NameScopes.NameScope.FastReroute.PerLink.CandidateInterfaces>`
-                                            
-                                            .. attribute:: exclude_interfaces
-                                            
-                                            	Fast\-reroute per\-link/per\-prefix or UCMP exclude interface configuration
-                                            	**type**\:  :py:class:`ExcludeInterfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_cfg.Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.NameScopes.NameScope.FastReroute.PerLink.ExcludeInterfaces>`
-                                            
-                                            .. attribute:: fast_reroute_use_candidate_only
-                                            
-                                            	Use only interfaces on the candidate list as a backup path
-                                            	**type**\:  bool
-                                            
-                                            
-
-                                            """
-
-                                            _prefix = 'ipv4-ospf-cfg'
-                                            _revision = '2015-11-09'
-
-                                            def __init__(self):
-                                                self.parent = None
-                                                self.candidate_interfaces = Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.NameScopes.NameScope.FastReroute.PerLink.CandidateInterfaces()
-                                                self.candidate_interfaces.parent = self
-                                                self.exclude_interfaces = Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.NameScopes.NameScope.FastReroute.PerLink.ExcludeInterfaces()
-                                                self.exclude_interfaces.parent = self
-                                                self.fast_reroute_use_candidate_only = None
-
-
-                                            class CandidateInterfaces(object):
-                                                """
-                                                Fast\-reroute per\-link/per\-prefix candidate
-                                                interface configuration
-                                                
-                                                .. attribute:: candidate_interface
-                                                
-                                                	Candidate backup interface
-                                                	**type**\: list of  :py:class:`CandidateInterface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_cfg.Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.NameScopes.NameScope.FastReroute.PerLink.CandidateInterfaces.CandidateInterface>`
-                                                
-                                                
-
-                                                """
-
-                                                _prefix = 'ipv4-ospf-cfg'
-                                                _revision = '2015-11-09'
-
-                                                def __init__(self):
-                                                    self.parent = None
-                                                    self.candidate_interface = YList()
-                                                    self.candidate_interface.parent = self
-                                                    self.candidate_interface.name = 'candidate_interface'
-
-
-                                                class CandidateInterface(object):
-                                                    """
-                                                    Candidate backup interface
-                                                    
-                                                    .. attribute:: interface_name  <key>
-                                                    
-                                                    	Interface
-                                                    	**type**\:  str
-                                                    
-                                                    	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
-                                                    
-                                                    
-
-                                                    """
-
-                                                    _prefix = 'ipv4-ospf-cfg'
-                                                    _revision = '2015-11-09'
-
-                                                    def __init__(self):
-                                                        self.parent = None
-                                                        self.interface_name = None
-
-                                                    @property
-                                                    def _common_path(self):
-                                                        if self.parent is None:
-                                                            raise YPYModelError('parent is not set . Cannot derive path.')
-                                                        if self.interface_name is None:
-                                                            raise YPYModelError('Key property interface_name is None')
-
-                                                        return self.parent._common_path +'/Cisco-IOS-XR-ipv4-ospf-cfg:candidate-interface[Cisco-IOS-XR-ipv4-ospf-cfg:interface-name = ' + str(self.interface_name) + ']'
-
-                                                    def is_config(self):
-                                                        ''' Returns True if this instance represents config data else returns False '''
-                                                        return True
-
-                                                    def _has_data(self):
-                                                        if not self.is_config():
-                                                            return False
-                                                        if self.interface_name is not None:
-                                                            return True
-
-                                                        return False
-
-                                                    @staticmethod
-                                                    def _meta_info():
-                                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_ospf_cfg as meta
-                                                        return meta._meta_table['Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.NameScopes.NameScope.FastReroute.PerLink.CandidateInterfaces.CandidateInterface']['meta_info']
-
-                                                @property
-                                                def _common_path(self):
-                                                    if self.parent is None:
-                                                        raise YPYModelError('parent is not set . Cannot derive path.')
-
-                                                    return self.parent._common_path +'/Cisco-IOS-XR-ipv4-ospf-cfg:candidate-interfaces'
-
-                                                def is_config(self):
-                                                    ''' Returns True if this instance represents config data else returns False '''
-                                                    return True
-
-                                                def _has_data(self):
-                                                    if not self.is_config():
-                                                        return False
-                                                    if self.candidate_interface is not None:
-                                                        for child_ref in self.candidate_interface:
-                                                            if child_ref._has_data():
-                                                                return True
-
-                                                    return False
-
-                                                @staticmethod
-                                                def _meta_info():
-                                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_ospf_cfg as meta
-                                                    return meta._meta_table['Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.NameScopes.NameScope.FastReroute.PerLink.CandidateInterfaces']['meta_info']
-
-
-                                            class ExcludeInterfaces(object):
-                                                """
-                                                Fast\-reroute per\-link/per\-prefix or UCMP exclude
-                                                interface configuration
-                                                
-                                                .. attribute:: exclude_interface
-                                                
-                                                	Exclude an interface from becoming a backup or UCMP
-                                                	**type**\: list of  :py:class:`ExcludeInterface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_cfg.Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.NameScopes.NameScope.FastReroute.PerLink.ExcludeInterfaces.ExcludeInterface>`
-                                                
-                                                
-
-                                                """
-
-                                                _prefix = 'ipv4-ospf-cfg'
-                                                _revision = '2015-11-09'
-
-                                                def __init__(self):
-                                                    self.parent = None
-                                                    self.exclude_interface = YList()
-                                                    self.exclude_interface.parent = self
-                                                    self.exclude_interface.name = 'exclude_interface'
-
-
-                                                class ExcludeInterface(object):
-                                                    """
-                                                    Exclude an interface from becoming a backup or
-                                                    UCMP
-                                                    
-                                                    .. attribute:: interface_name  <key>
-                                                    
-                                                    	Interface
-                                                    	**type**\:  str
-                                                    
-                                                    	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
-                                                    
-                                                    
-
-                                                    """
-
-                                                    _prefix = 'ipv4-ospf-cfg'
-                                                    _revision = '2015-11-09'
-
-                                                    def __init__(self):
-                                                        self.parent = None
-                                                        self.interface_name = None
-
-                                                    @property
-                                                    def _common_path(self):
-                                                        if self.parent is None:
-                                                            raise YPYModelError('parent is not set . Cannot derive path.')
-                                                        if self.interface_name is None:
-                                                            raise YPYModelError('Key property interface_name is None')
-
-                                                        return self.parent._common_path +'/Cisco-IOS-XR-ipv4-ospf-cfg:exclude-interface[Cisco-IOS-XR-ipv4-ospf-cfg:interface-name = ' + str(self.interface_name) + ']'
-
-                                                    def is_config(self):
-                                                        ''' Returns True if this instance represents config data else returns False '''
-                                                        return True
-
-                                                    def _has_data(self):
-                                                        if not self.is_config():
-                                                            return False
-                                                        if self.interface_name is not None:
-                                                            return True
-
-                                                        return False
-
-                                                    @staticmethod
-                                                    def _meta_info():
-                                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_ospf_cfg as meta
-                                                        return meta._meta_table['Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.NameScopes.NameScope.FastReroute.PerLink.ExcludeInterfaces.ExcludeInterface']['meta_info']
-
-                                                @property
-                                                def _common_path(self):
-                                                    if self.parent is None:
-                                                        raise YPYModelError('parent is not set . Cannot derive path.')
-
-                                                    return self.parent._common_path +'/Cisco-IOS-XR-ipv4-ospf-cfg:exclude-interfaces'
-
-                                                def is_config(self):
-                                                    ''' Returns True if this instance represents config data else returns False '''
-                                                    return True
-
-                                                def _has_data(self):
-                                                    if not self.is_config():
-                                                        return False
-                                                    if self.exclude_interface is not None:
-                                                        for child_ref in self.exclude_interface:
-                                                            if child_ref._has_data():
-                                                                return True
-
-                                                    return False
-
-                                                @staticmethod
-                                                def _meta_info():
-                                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_ospf_cfg as meta
-                                                    return meta._meta_table['Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.NameScopes.NameScope.FastReroute.PerLink.ExcludeInterfaces']['meta_info']
-
-                                            @property
-                                            def _common_path(self):
-                                                if self.parent is None:
-                                                    raise YPYModelError('parent is not set . Cannot derive path.')
-
-                                                return self.parent._common_path +'/Cisco-IOS-XR-ipv4-ospf-cfg:per-link'
-
-                                            def is_config(self):
-                                                ''' Returns True if this instance represents config data else returns False '''
-                                                return True
-
-                                            def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
-                                                if self.candidate_interfaces is not None and self.candidate_interfaces._has_data():
-                                                    return True
-
-                                                if self.exclude_interfaces is not None and self.exclude_interfaces._has_data():
-                                                    return True
-
-                                                if self.fast_reroute_use_candidate_only is not None:
-                                                    return True
-
-                                                return False
-
-                                            @staticmethod
-                                            def _meta_info():
-                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_ospf_cfg as meta
-                                                return meta._meta_table['Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.NameScopes.NameScope.FastReroute.PerLink']['meta_info']
-
-
-                                        class PerPrefix(object):
-                                            """
-                                            Fast\-reroute per\-prefix configuration
-                                            
-                                            .. attribute:: candidate_interfaces
-                                            
-                                            	Fast\-reroute per\-link/per\-prefix candidate interface configuration
-                                            	**type**\:  :py:class:`CandidateInterfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_cfg.Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.NameScopes.NameScope.FastReroute.PerPrefix.CandidateInterfaces>`
-                                            
-                                            .. attribute:: exclude_interfaces
-                                            
-                                            	Fast\-reroute per\-link/per\-prefix or UCMP exclude interface configuration
-                                            	**type**\:  :py:class:`ExcludeInterfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_cfg.Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.NameScopes.NameScope.FastReroute.PerPrefix.ExcludeInterfaces>`
-                                            
-                                            .. attribute:: fast_reroute_use_candidate_only
-                                            
-                                            	Use only interfaces on the candidate list as a backup path
-                                            	**type**\:  bool
-                                            
-                                            .. attribute:: remote_lfa
-                                            
-                                            	Remote LFA configuration
-                                            	**type**\:  :py:class:`RemoteLfa <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_cfg.Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.NameScopes.NameScope.FastReroute.PerPrefix.RemoteLfa>`
-                                            
-                                            .. attribute:: topology_independent_lfa
-                                            
-                                            	Topology Independet LFA configuration
-                                            	**type**\:  bool
-                                            
-                                            
-
-                                            """
-
-                                            _prefix = 'ipv4-ospf-cfg'
-                                            _revision = '2015-11-09'
-
-                                            def __init__(self):
-                                                self.parent = None
-                                                self.candidate_interfaces = Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.NameScopes.NameScope.FastReroute.PerPrefix.CandidateInterfaces()
-                                                self.candidate_interfaces.parent = self
-                                                self.exclude_interfaces = Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.NameScopes.NameScope.FastReroute.PerPrefix.ExcludeInterfaces()
-                                                self.exclude_interfaces.parent = self
-                                                self.fast_reroute_use_candidate_only = None
-                                                self.remote_lfa = Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.NameScopes.NameScope.FastReroute.PerPrefix.RemoteLfa()
-                                                self.remote_lfa.parent = self
-                                                self.topology_independent_lfa = None
-
-
-                                            class RemoteLfa(object):
-                                                """
-                                                Remote LFA configuration
-                                                
-                                                .. attribute:: maximum_cost
-                                                
-                                                	Maximum path cost to remote LFA
-                                                	**type**\:  int
-                                                
-                                                	**range:** 1..4294967295
-                                                
-                                                .. attribute:: tunnel
-                                                
-                                                	Enable/Disable remote LFA computation
-                                                	**type**\:  :py:class:`OspfFrrRlfaTunnelEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_cfg.OspfFrrRlfaTunnelEnum>`
-                                                
-                                                
-
-                                                """
-
-                                                _prefix = 'ipv4-ospf-cfg'
-                                                _revision = '2015-11-09'
-
-                                                def __init__(self):
-                                                    self.parent = None
-                                                    self.maximum_cost = None
-                                                    self.tunnel = None
-
-                                                @property
-                                                def _common_path(self):
-                                                    if self.parent is None:
-                                                        raise YPYModelError('parent is not set . Cannot derive path.')
-
-                                                    return self.parent._common_path +'/Cisco-IOS-XR-ipv4-ospf-cfg:remote-lfa'
-
-                                                def is_config(self):
-                                                    ''' Returns True if this instance represents config data else returns False '''
-                                                    return True
-
-                                                def _has_data(self):
-                                                    if not self.is_config():
-                                                        return False
-                                                    if self.maximum_cost is not None:
-                                                        return True
-
-                                                    if self.tunnel is not None:
-                                                        return True
-
-                                                    return False
-
-                                                @staticmethod
-                                                def _meta_info():
-                                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_ospf_cfg as meta
-                                                    return meta._meta_table['Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.NameScopes.NameScope.FastReroute.PerPrefix.RemoteLfa']['meta_info']
-
-
-                                            class CandidateInterfaces(object):
-                                                """
-                                                Fast\-reroute per\-link/per\-prefix candidate
-                                                interface configuration
-                                                
-                                                .. attribute:: candidate_interface
-                                                
-                                                	Candidate backup interface
-                                                	**type**\: list of  :py:class:`CandidateInterface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_cfg.Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.NameScopes.NameScope.FastReroute.PerPrefix.CandidateInterfaces.CandidateInterface>`
-                                                
-                                                
-
-                                                """
-
-                                                _prefix = 'ipv4-ospf-cfg'
-                                                _revision = '2015-11-09'
-
-                                                def __init__(self):
-                                                    self.parent = None
-                                                    self.candidate_interface = YList()
-                                                    self.candidate_interface.parent = self
-                                                    self.candidate_interface.name = 'candidate_interface'
-
-
-                                                class CandidateInterface(object):
-                                                    """
-                                                    Candidate backup interface
-                                                    
-                                                    .. attribute:: interface_name  <key>
-                                                    
-                                                    	Interface
-                                                    	**type**\:  str
-                                                    
-                                                    	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
-                                                    
-                                                    
-
-                                                    """
-
-                                                    _prefix = 'ipv4-ospf-cfg'
-                                                    _revision = '2015-11-09'
-
-                                                    def __init__(self):
-                                                        self.parent = None
-                                                        self.interface_name = None
-
-                                                    @property
-                                                    def _common_path(self):
-                                                        if self.parent is None:
-                                                            raise YPYModelError('parent is not set . Cannot derive path.')
-                                                        if self.interface_name is None:
-                                                            raise YPYModelError('Key property interface_name is None')
-
-                                                        return self.parent._common_path +'/Cisco-IOS-XR-ipv4-ospf-cfg:candidate-interface[Cisco-IOS-XR-ipv4-ospf-cfg:interface-name = ' + str(self.interface_name) + ']'
-
-                                                    def is_config(self):
-                                                        ''' Returns True if this instance represents config data else returns False '''
-                                                        return True
-
-                                                    def _has_data(self):
-                                                        if not self.is_config():
-                                                            return False
-                                                        if self.interface_name is not None:
-                                                            return True
-
-                                                        return False
-
-                                                    @staticmethod
-                                                    def _meta_info():
-                                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_ospf_cfg as meta
-                                                        return meta._meta_table['Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.NameScopes.NameScope.FastReroute.PerPrefix.CandidateInterfaces.CandidateInterface']['meta_info']
-
-                                                @property
-                                                def _common_path(self):
-                                                    if self.parent is None:
-                                                        raise YPYModelError('parent is not set . Cannot derive path.')
-
-                                                    return self.parent._common_path +'/Cisco-IOS-XR-ipv4-ospf-cfg:candidate-interfaces'
-
-                                                def is_config(self):
-                                                    ''' Returns True if this instance represents config data else returns False '''
-                                                    return True
-
-                                                def _has_data(self):
-                                                    if not self.is_config():
-                                                        return False
-                                                    if self.candidate_interface is not None:
-                                                        for child_ref in self.candidate_interface:
-                                                            if child_ref._has_data():
-                                                                return True
-
-                                                    return False
-
-                                                @staticmethod
-                                                def _meta_info():
-                                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_ospf_cfg as meta
-                                                    return meta._meta_table['Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.NameScopes.NameScope.FastReroute.PerPrefix.CandidateInterfaces']['meta_info']
-
-
-                                            class ExcludeInterfaces(object):
-                                                """
-                                                Fast\-reroute per\-link/per\-prefix or UCMP exclude
-                                                interface configuration
-                                                
-                                                .. attribute:: exclude_interface
-                                                
-                                                	Exclude an interface from becoming a backup or UCMP
-                                                	**type**\: list of  :py:class:`ExcludeInterface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_cfg.Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.NameScopes.NameScope.FastReroute.PerPrefix.ExcludeInterfaces.ExcludeInterface>`
-                                                
-                                                
-
-                                                """
-
-                                                _prefix = 'ipv4-ospf-cfg'
-                                                _revision = '2015-11-09'
-
-                                                def __init__(self):
-                                                    self.parent = None
-                                                    self.exclude_interface = YList()
-                                                    self.exclude_interface.parent = self
-                                                    self.exclude_interface.name = 'exclude_interface'
-
-
-                                                class ExcludeInterface(object):
-                                                    """
-                                                    Exclude an interface from becoming a backup or
-                                                    UCMP
-                                                    
-                                                    .. attribute:: interface_name  <key>
-                                                    
-                                                    	Interface
-                                                    	**type**\:  str
-                                                    
-                                                    	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
-                                                    
-                                                    
-
-                                                    """
-
-                                                    _prefix = 'ipv4-ospf-cfg'
-                                                    _revision = '2015-11-09'
-
-                                                    def __init__(self):
-                                                        self.parent = None
-                                                        self.interface_name = None
-
-                                                    @property
-                                                    def _common_path(self):
-                                                        if self.parent is None:
-                                                            raise YPYModelError('parent is not set . Cannot derive path.')
-                                                        if self.interface_name is None:
-                                                            raise YPYModelError('Key property interface_name is None')
-
-                                                        return self.parent._common_path +'/Cisco-IOS-XR-ipv4-ospf-cfg:exclude-interface[Cisco-IOS-XR-ipv4-ospf-cfg:interface-name = ' + str(self.interface_name) + ']'
-
-                                                    def is_config(self):
-                                                        ''' Returns True if this instance represents config data else returns False '''
-                                                        return True
-
-                                                    def _has_data(self):
-                                                        if not self.is_config():
-                                                            return False
-                                                        if self.interface_name is not None:
-                                                            return True
-
-                                                        return False
-
-                                                    @staticmethod
-                                                    def _meta_info():
-                                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_ospf_cfg as meta
-                                                        return meta._meta_table['Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.NameScopes.NameScope.FastReroute.PerPrefix.ExcludeInterfaces.ExcludeInterface']['meta_info']
-
-                                                @property
-                                                def _common_path(self):
-                                                    if self.parent is None:
-                                                        raise YPYModelError('parent is not set . Cannot derive path.')
-
-                                                    return self.parent._common_path +'/Cisco-IOS-XR-ipv4-ospf-cfg:exclude-interfaces'
-
-                                                def is_config(self):
-                                                    ''' Returns True if this instance represents config data else returns False '''
-                                                    return True
-
-                                                def _has_data(self):
-                                                    if not self.is_config():
-                                                        return False
-                                                    if self.exclude_interface is not None:
-                                                        for child_ref in self.exclude_interface:
-                                                            if child_ref._has_data():
-                                                                return True
-
-                                                    return False
-
-                                                @staticmethod
-                                                def _meta_info():
-                                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_ospf_cfg as meta
-                                                    return meta._meta_table['Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.NameScopes.NameScope.FastReroute.PerPrefix.ExcludeInterfaces']['meta_info']
-
-                                            @property
-                                            def _common_path(self):
-                                                if self.parent is None:
-                                                    raise YPYModelError('parent is not set . Cannot derive path.')
-
-                                                return self.parent._common_path +'/Cisco-IOS-XR-ipv4-ospf-cfg:per-prefix'
-
-                                            def is_config(self):
-                                                ''' Returns True if this instance represents config data else returns False '''
-                                                return True
-
-                                            def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
-                                                if self.candidate_interfaces is not None and self.candidate_interfaces._has_data():
-                                                    return True
-
-                                                if self.exclude_interfaces is not None and self.exclude_interfaces._has_data():
-                                                    return True
-
-                                                if self.fast_reroute_use_candidate_only is not None:
-                                                    return True
-
-                                                if self.remote_lfa is not None and self.remote_lfa._has_data():
-                                                    return True
-
-                                                if self.topology_independent_lfa is not None:
-                                                    return True
-
-                                                return False
-
-                                            @staticmethod
-                                            def _meta_info():
-                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_ospf_cfg as meta
-                                                return meta._meta_table['Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.NameScopes.NameScope.FastReroute.PerPrefix']['meta_info']
-
-                                        @property
-                                        def _common_path(self):
-                                            if self.parent is None:
-                                                raise YPYModelError('parent is not set . Cannot derive path.')
-
-                                            return self.parent._common_path +'/Cisco-IOS-XR-ipv4-ospf-cfg:fast-reroute'
-
-                                        def is_config(self):
-                                            ''' Returns True if this instance represents config data else returns False '''
-                                            return True
-
-                                        def _has_data(self):
-                                            if not self.is_config():
-                                                return False
-                                            if self.fast_reroute_enable is not None:
-                                                return True
-
-                                            if self.per_link is not None and self.per_link._has_data():
-                                                return True
-
-                                            if self.per_prefix is not None and self.per_prefix._has_data():
-                                                return True
-
-                                            return False
-
-                                        @staticmethod
-                                        def _meta_info():
-                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_ospf_cfg as meta
-                                            return meta._meta_table['Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.NameScopes.NameScope.FastReroute']['meta_info']
-
-
                                     class Neighbors(object):
                                         """
                                         Neighbor router configuration information
@@ -11302,6 +10997,793 @@ class Ospf(object):
                                             return meta._meta_table['Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.NameScopes.NameScope.DeadIntervalMinimal']['meta_info']
 
 
+                                    class FastReroute(object):
+                                        """
+                                        Fast\-reroute configuration
+                                        
+                                        .. attribute:: fast_reroute_enable
+                                        
+                                        	Enable/Disable Fast\-reroute per\-link or per\-prefix
+                                        	**type**\:  :py:class:`OspfFastRerouteEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_cfg.OspfFastRerouteEnum>`
+                                        
+                                        .. attribute:: per_link
+                                        
+                                        	Fast\-reroute per\-link configuration
+                                        	**type**\:  :py:class:`PerLink <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_cfg.Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.NameScopes.NameScope.FastReroute.PerLink>`
+                                        
+                                        .. attribute:: per_prefix
+                                        
+                                        	Fast\-reroute per\-prefix global configuration
+                                        	**type**\:  :py:class:`PerPrefix <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_cfg.Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.NameScopes.NameScope.FastReroute.PerPrefix>`
+                                        
+                                        
+
+                                        """
+
+                                        _prefix = 'ipv4-ospf-cfg'
+                                        _revision = '2015-11-09'
+
+                                        def __init__(self):
+                                            self.parent = None
+                                            self.fast_reroute_enable = None
+                                            self.per_link = Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.NameScopes.NameScope.FastReroute.PerLink()
+                                            self.per_link.parent = self
+                                            self.per_prefix = Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.NameScopes.NameScope.FastReroute.PerPrefix()
+                                            self.per_prefix.parent = self
+
+
+                                        class PerLink(object):
+                                            """
+                                            Fast\-reroute per\-link configuration
+                                            
+                                            .. attribute:: candidate_interfaces
+                                            
+                                            	Fast\-reroute per\-link/per\-prefix candidate interface configuration
+                                            	**type**\:  :py:class:`CandidateInterfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_cfg.Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.NameScopes.NameScope.FastReroute.PerLink.CandidateInterfaces>`
+                                            
+                                            .. attribute:: exclude_interfaces
+                                            
+                                            	Fast\-reroute per\-link/per\-prefix or UCMP exclude interface configuration
+                                            	**type**\:  :py:class:`ExcludeInterfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_cfg.Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.NameScopes.NameScope.FastReroute.PerLink.ExcludeInterfaces>`
+                                            
+                                            .. attribute:: fast_reroute_use_candidate_only
+                                            
+                                            	Use only interfaces on the candidate list as a backup path
+                                            	**type**\:  bool
+                                            
+                                            
+
+                                            """
+
+                                            _prefix = 'ipv4-ospf-cfg'
+                                            _revision = '2015-11-09'
+
+                                            def __init__(self):
+                                                self.parent = None
+                                                self.candidate_interfaces = Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.NameScopes.NameScope.FastReroute.PerLink.CandidateInterfaces()
+                                                self.candidate_interfaces.parent = self
+                                                self.exclude_interfaces = Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.NameScopes.NameScope.FastReroute.PerLink.ExcludeInterfaces()
+                                                self.exclude_interfaces.parent = self
+                                                self.fast_reroute_use_candidate_only = None
+
+
+                                            class CandidateInterfaces(object):
+                                                """
+                                                Fast\-reroute per\-link/per\-prefix candidate
+                                                interface configuration
+                                                
+                                                .. attribute:: candidate_interface
+                                                
+                                                	Candidate backup interface
+                                                	**type**\: list of  :py:class:`CandidateInterface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_cfg.Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.NameScopes.NameScope.FastReroute.PerLink.CandidateInterfaces.CandidateInterface>`
+                                                
+                                                
+
+                                                """
+
+                                                _prefix = 'ipv4-ospf-cfg'
+                                                _revision = '2015-11-09'
+
+                                                def __init__(self):
+                                                    self.parent = None
+                                                    self.candidate_interface = YList()
+                                                    self.candidate_interface.parent = self
+                                                    self.candidate_interface.name = 'candidate_interface'
+
+
+                                                class CandidateInterface(object):
+                                                    """
+                                                    Candidate backup interface
+                                                    
+                                                    .. attribute:: interface_name  <key>
+                                                    
+                                                    	Interface
+                                                    	**type**\:  str
+                                                    
+                                                    	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+                                                    
+                                                    
+
+                                                    """
+
+                                                    _prefix = 'ipv4-ospf-cfg'
+                                                    _revision = '2015-11-09'
+
+                                                    def __init__(self):
+                                                        self.parent = None
+                                                        self.interface_name = None
+
+                                                    @property
+                                                    def _common_path(self):
+                                                        if self.parent is None:
+                                                            raise YPYModelError('parent is not set . Cannot derive path.')
+                                                        if self.interface_name is None:
+                                                            raise YPYModelError('Key property interface_name is None')
+
+                                                        return self.parent._common_path +'/Cisco-IOS-XR-ipv4-ospf-cfg:candidate-interface[Cisco-IOS-XR-ipv4-ospf-cfg:interface-name = ' + str(self.interface_name) + ']'
+
+                                                    def is_config(self):
+                                                        ''' Returns True if this instance represents config data else returns False '''
+                                                        return True
+
+                                                    def _has_data(self):
+                                                        if not self.is_config():
+                                                            return False
+                                                        if self.interface_name is not None:
+                                                            return True
+
+                                                        return False
+
+                                                    @staticmethod
+                                                    def _meta_info():
+                                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_ospf_cfg as meta
+                                                        return meta._meta_table['Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.NameScopes.NameScope.FastReroute.PerLink.CandidateInterfaces.CandidateInterface']['meta_info']
+
+                                                @property
+                                                def _common_path(self):
+                                                    if self.parent is None:
+                                                        raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                                    return self.parent._common_path +'/Cisco-IOS-XR-ipv4-ospf-cfg:candidate-interfaces'
+
+                                                def is_config(self):
+                                                    ''' Returns True if this instance represents config data else returns False '''
+                                                    return True
+
+                                                def _has_data(self):
+                                                    if not self.is_config():
+                                                        return False
+                                                    if self.candidate_interface is not None:
+                                                        for child_ref in self.candidate_interface:
+                                                            if child_ref._has_data():
+                                                                return True
+
+                                                    return False
+
+                                                @staticmethod
+                                                def _meta_info():
+                                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_ospf_cfg as meta
+                                                    return meta._meta_table['Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.NameScopes.NameScope.FastReroute.PerLink.CandidateInterfaces']['meta_info']
+
+
+                                            class ExcludeInterfaces(object):
+                                                """
+                                                Fast\-reroute per\-link/per\-prefix or UCMP exclude
+                                                interface configuration
+                                                
+                                                .. attribute:: exclude_interface
+                                                
+                                                	Exclude an interface from becoming a backup or UCMP
+                                                	**type**\: list of  :py:class:`ExcludeInterface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_cfg.Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.NameScopes.NameScope.FastReroute.PerLink.ExcludeInterfaces.ExcludeInterface>`
+                                                
+                                                
+
+                                                """
+
+                                                _prefix = 'ipv4-ospf-cfg'
+                                                _revision = '2015-11-09'
+
+                                                def __init__(self):
+                                                    self.parent = None
+                                                    self.exclude_interface = YList()
+                                                    self.exclude_interface.parent = self
+                                                    self.exclude_interface.name = 'exclude_interface'
+
+
+                                                class ExcludeInterface(object):
+                                                    """
+                                                    Exclude an interface from becoming a backup or
+                                                    UCMP
+                                                    
+                                                    .. attribute:: interface_name  <key>
+                                                    
+                                                    	Interface
+                                                    	**type**\:  str
+                                                    
+                                                    	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+                                                    
+                                                    
+
+                                                    """
+
+                                                    _prefix = 'ipv4-ospf-cfg'
+                                                    _revision = '2015-11-09'
+
+                                                    def __init__(self):
+                                                        self.parent = None
+                                                        self.interface_name = None
+
+                                                    @property
+                                                    def _common_path(self):
+                                                        if self.parent is None:
+                                                            raise YPYModelError('parent is not set . Cannot derive path.')
+                                                        if self.interface_name is None:
+                                                            raise YPYModelError('Key property interface_name is None')
+
+                                                        return self.parent._common_path +'/Cisco-IOS-XR-ipv4-ospf-cfg:exclude-interface[Cisco-IOS-XR-ipv4-ospf-cfg:interface-name = ' + str(self.interface_name) + ']'
+
+                                                    def is_config(self):
+                                                        ''' Returns True if this instance represents config data else returns False '''
+                                                        return True
+
+                                                    def _has_data(self):
+                                                        if not self.is_config():
+                                                            return False
+                                                        if self.interface_name is not None:
+                                                            return True
+
+                                                        return False
+
+                                                    @staticmethod
+                                                    def _meta_info():
+                                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_ospf_cfg as meta
+                                                        return meta._meta_table['Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.NameScopes.NameScope.FastReroute.PerLink.ExcludeInterfaces.ExcludeInterface']['meta_info']
+
+                                                @property
+                                                def _common_path(self):
+                                                    if self.parent is None:
+                                                        raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                                    return self.parent._common_path +'/Cisco-IOS-XR-ipv4-ospf-cfg:exclude-interfaces'
+
+                                                def is_config(self):
+                                                    ''' Returns True if this instance represents config data else returns False '''
+                                                    return True
+
+                                                def _has_data(self):
+                                                    if not self.is_config():
+                                                        return False
+                                                    if self.exclude_interface is not None:
+                                                        for child_ref in self.exclude_interface:
+                                                            if child_ref._has_data():
+                                                                return True
+
+                                                    return False
+
+                                                @staticmethod
+                                                def _meta_info():
+                                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_ospf_cfg as meta
+                                                    return meta._meta_table['Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.NameScopes.NameScope.FastReroute.PerLink.ExcludeInterfaces']['meta_info']
+
+                                            @property
+                                            def _common_path(self):
+                                                if self.parent is None:
+                                                    raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                                return self.parent._common_path +'/Cisco-IOS-XR-ipv4-ospf-cfg:per-link'
+
+                                            def is_config(self):
+                                                ''' Returns True if this instance represents config data else returns False '''
+                                                return True
+
+                                            def _has_data(self):
+                                                if not self.is_config():
+                                                    return False
+                                                if self.candidate_interfaces is not None and self.candidate_interfaces._has_data():
+                                                    return True
+
+                                                if self.exclude_interfaces is not None and self.exclude_interfaces._has_data():
+                                                    return True
+
+                                                if self.fast_reroute_use_candidate_only is not None:
+                                                    return True
+
+                                                return False
+
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_ospf_cfg as meta
+                                                return meta._meta_table['Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.NameScopes.NameScope.FastReroute.PerLink']['meta_info']
+
+
+                                        class PerPrefix(object):
+                                            """
+                                            Fast\-reroute per\-prefix global configuration
+                                            
+                                            .. attribute:: candidate_interfaces
+                                            
+                                            	Fast\-reroute per\-link/per\-prefix candidate interface configuration
+                                            	**type**\:  :py:class:`CandidateInterfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_cfg.Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.NameScopes.NameScope.FastReroute.PerPrefix.CandidateInterfaces>`
+                                            
+                                            .. attribute:: exclude_interfaces
+                                            
+                                            	Fast\-reroute per\-link/per\-prefix or UCMP exclude interface configuration
+                                            	**type**\:  :py:class:`ExcludeInterfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_cfg.Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.NameScopes.NameScope.FastReroute.PerPrefix.ExcludeInterfaces>`
+                                            
+                                            .. attribute:: fast_reroute_use_candidate_only
+                                            
+                                            	Use only interfaces on the candidate list as a backup path
+                                            	**type**\:  bool
+                                            
+                                            .. attribute:: remote_lfa
+                                            
+                                            	Remote LFA configuration
+                                            	**type**\:  :py:class:`RemoteLfa <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_cfg.Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.NameScopes.NameScope.FastReroute.PerPrefix.RemoteLfa>`
+                                            
+                                            .. attribute:: tiebreakers
+                                            
+                                            	Fast\-reroute tiebreakers configurations
+                                            	**type**\:  :py:class:`Tiebreakers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_cfg.Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.NameScopes.NameScope.FastReroute.PerPrefix.Tiebreakers>`
+                                            
+                                            .. attribute:: topology_independent_lfa
+                                            
+                                            	Topology Independet LFA configuration
+                                            	**type**\:  bool
+                                            
+                                            
+
+                                            """
+
+                                            _prefix = 'ipv4-ospf-cfg'
+                                            _revision = '2015-11-09'
+
+                                            def __init__(self):
+                                                self.parent = None
+                                                self.candidate_interfaces = Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.NameScopes.NameScope.FastReroute.PerPrefix.CandidateInterfaces()
+                                                self.candidate_interfaces.parent = self
+                                                self.exclude_interfaces = Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.NameScopes.NameScope.FastReroute.PerPrefix.ExcludeInterfaces()
+                                                self.exclude_interfaces.parent = self
+                                                self.fast_reroute_use_candidate_only = None
+                                                self.remote_lfa = Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.NameScopes.NameScope.FastReroute.PerPrefix.RemoteLfa()
+                                                self.remote_lfa.parent = self
+                                                self.tiebreakers = Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.NameScopes.NameScope.FastReroute.PerPrefix.Tiebreakers()
+                                                self.tiebreakers.parent = self
+                                                self.topology_independent_lfa = None
+
+
+                                            class RemoteLfa(object):
+                                                """
+                                                Remote LFA configuration
+                                                
+                                                .. attribute:: maximum_cost
+                                                
+                                                	Maximum path cost to remote LFA
+                                                	**type**\:  int
+                                                
+                                                	**range:** 1..4294967295
+                                                
+                                                .. attribute:: tunnel
+                                                
+                                                	Enable/Disable remote LFA computation
+                                                	**type**\:  :py:class:`OspfFrrRlfaTunnelEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_cfg.OspfFrrRlfaTunnelEnum>`
+                                                
+                                                
+
+                                                """
+
+                                                _prefix = 'ipv4-ospf-cfg'
+                                                _revision = '2015-11-09'
+
+                                                def __init__(self):
+                                                    self.parent = None
+                                                    self.maximum_cost = None
+                                                    self.tunnel = None
+
+                                                @property
+                                                def _common_path(self):
+                                                    if self.parent is None:
+                                                        raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                                    return self.parent._common_path +'/Cisco-IOS-XR-ipv4-ospf-cfg:remote-lfa'
+
+                                                def is_config(self):
+                                                    ''' Returns True if this instance represents config data else returns False '''
+                                                    return True
+
+                                                def _has_data(self):
+                                                    if not self.is_config():
+                                                        return False
+                                                    if self.maximum_cost is not None:
+                                                        return True
+
+                                                    if self.tunnel is not None:
+                                                        return True
+
+                                                    return False
+
+                                                @staticmethod
+                                                def _meta_info():
+                                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_ospf_cfg as meta
+                                                    return meta._meta_table['Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.NameScopes.NameScope.FastReroute.PerPrefix.RemoteLfa']['meta_info']
+
+
+                                            class Tiebreakers(object):
+                                                """
+                                                Fast\-reroute tiebreakers configurations
+                                                
+                                                .. attribute:: tiebreaker
+                                                
+                                                	Fast\-reroute tiebreakers configuration
+                                                	**type**\: list of  :py:class:`Tiebreaker <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_cfg.Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.NameScopes.NameScope.FastReroute.PerPrefix.Tiebreakers.Tiebreaker>`
+                                                
+                                                
+
+                                                """
+
+                                                _prefix = 'ipv4-ospf-cfg'
+                                                _revision = '2015-11-09'
+
+                                                def __init__(self):
+                                                    self.parent = None
+                                                    self.tiebreaker = YList()
+                                                    self.tiebreaker.parent = self
+                                                    self.tiebreaker.name = 'tiebreaker'
+
+
+                                                class Tiebreaker(object):
+                                                    """
+                                                    Fast\-reroute tiebreakers configuration
+                                                    
+                                                    .. attribute:: tiebreaker_type  <key>
+                                                    
+                                                    	Tiebreaker type
+                                                    	**type**\:  :py:class:`OspfFastRerouteTiebreakersIntfEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_cfg.OspfFastRerouteTiebreakersIntfEnum>`
+                                                    
+                                                    .. attribute:: tiebreaker_index
+                                                    
+                                                    	Index value for a tiebreaker, 0 to disable
+                                                    	**type**\:  int
+                                                    
+                                                    	**range:** 0..255
+                                                    
+                                                    	**mandatory**\: True
+                                                    
+                                                    
+
+                                                    """
+
+                                                    _prefix = 'ipv4-ospf-cfg'
+                                                    _revision = '2015-11-09'
+
+                                                    def __init__(self):
+                                                        self.parent = None
+                                                        self.tiebreaker_type = None
+                                                        self.tiebreaker_index = None
+
+                                                    @property
+                                                    def _common_path(self):
+                                                        if self.parent is None:
+                                                            raise YPYModelError('parent is not set . Cannot derive path.')
+                                                        if self.tiebreaker_type is None:
+                                                            raise YPYModelError('Key property tiebreaker_type is None')
+
+                                                        return self.parent._common_path +'/Cisco-IOS-XR-ipv4-ospf-cfg:tiebreaker[Cisco-IOS-XR-ipv4-ospf-cfg:tiebreaker-type = ' + str(self.tiebreaker_type) + ']'
+
+                                                    def is_config(self):
+                                                        ''' Returns True if this instance represents config data else returns False '''
+                                                        return True
+
+                                                    def _has_data(self):
+                                                        if not self.is_config():
+                                                            return False
+                                                        if self.tiebreaker_type is not None:
+                                                            return True
+
+                                                        if self.tiebreaker_index is not None:
+                                                            return True
+
+                                                        return False
+
+                                                    @staticmethod
+                                                    def _meta_info():
+                                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_ospf_cfg as meta
+                                                        return meta._meta_table['Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.NameScopes.NameScope.FastReroute.PerPrefix.Tiebreakers.Tiebreaker']['meta_info']
+
+                                                @property
+                                                def _common_path(self):
+                                                    if self.parent is None:
+                                                        raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                                    return self.parent._common_path +'/Cisco-IOS-XR-ipv4-ospf-cfg:tiebreakers'
+
+                                                def is_config(self):
+                                                    ''' Returns True if this instance represents config data else returns False '''
+                                                    return True
+
+                                                def _has_data(self):
+                                                    if not self.is_config():
+                                                        return False
+                                                    if self.tiebreaker is not None:
+                                                        for child_ref in self.tiebreaker:
+                                                            if child_ref._has_data():
+                                                                return True
+
+                                                    return False
+
+                                                @staticmethod
+                                                def _meta_info():
+                                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_ospf_cfg as meta
+                                                    return meta._meta_table['Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.NameScopes.NameScope.FastReroute.PerPrefix.Tiebreakers']['meta_info']
+
+
+                                            class CandidateInterfaces(object):
+                                                """
+                                                Fast\-reroute per\-link/per\-prefix candidate
+                                                interface configuration
+                                                
+                                                .. attribute:: candidate_interface
+                                                
+                                                	Candidate backup interface
+                                                	**type**\: list of  :py:class:`CandidateInterface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_cfg.Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.NameScopes.NameScope.FastReroute.PerPrefix.CandidateInterfaces.CandidateInterface>`
+                                                
+                                                
+
+                                                """
+
+                                                _prefix = 'ipv4-ospf-cfg'
+                                                _revision = '2015-11-09'
+
+                                                def __init__(self):
+                                                    self.parent = None
+                                                    self.candidate_interface = YList()
+                                                    self.candidate_interface.parent = self
+                                                    self.candidate_interface.name = 'candidate_interface'
+
+
+                                                class CandidateInterface(object):
+                                                    """
+                                                    Candidate backup interface
+                                                    
+                                                    .. attribute:: interface_name  <key>
+                                                    
+                                                    	Interface
+                                                    	**type**\:  str
+                                                    
+                                                    	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+                                                    
+                                                    
+
+                                                    """
+
+                                                    _prefix = 'ipv4-ospf-cfg'
+                                                    _revision = '2015-11-09'
+
+                                                    def __init__(self):
+                                                        self.parent = None
+                                                        self.interface_name = None
+
+                                                    @property
+                                                    def _common_path(self):
+                                                        if self.parent is None:
+                                                            raise YPYModelError('parent is not set . Cannot derive path.')
+                                                        if self.interface_name is None:
+                                                            raise YPYModelError('Key property interface_name is None')
+
+                                                        return self.parent._common_path +'/Cisco-IOS-XR-ipv4-ospf-cfg:candidate-interface[Cisco-IOS-XR-ipv4-ospf-cfg:interface-name = ' + str(self.interface_name) + ']'
+
+                                                    def is_config(self):
+                                                        ''' Returns True if this instance represents config data else returns False '''
+                                                        return True
+
+                                                    def _has_data(self):
+                                                        if not self.is_config():
+                                                            return False
+                                                        if self.interface_name is not None:
+                                                            return True
+
+                                                        return False
+
+                                                    @staticmethod
+                                                    def _meta_info():
+                                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_ospf_cfg as meta
+                                                        return meta._meta_table['Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.NameScopes.NameScope.FastReroute.PerPrefix.CandidateInterfaces.CandidateInterface']['meta_info']
+
+                                                @property
+                                                def _common_path(self):
+                                                    if self.parent is None:
+                                                        raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                                    return self.parent._common_path +'/Cisco-IOS-XR-ipv4-ospf-cfg:candidate-interfaces'
+
+                                                def is_config(self):
+                                                    ''' Returns True if this instance represents config data else returns False '''
+                                                    return True
+
+                                                def _has_data(self):
+                                                    if not self.is_config():
+                                                        return False
+                                                    if self.candidate_interface is not None:
+                                                        for child_ref in self.candidate_interface:
+                                                            if child_ref._has_data():
+                                                                return True
+
+                                                    return False
+
+                                                @staticmethod
+                                                def _meta_info():
+                                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_ospf_cfg as meta
+                                                    return meta._meta_table['Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.NameScopes.NameScope.FastReroute.PerPrefix.CandidateInterfaces']['meta_info']
+
+
+                                            class ExcludeInterfaces(object):
+                                                """
+                                                Fast\-reroute per\-link/per\-prefix or UCMP exclude
+                                                interface configuration
+                                                
+                                                .. attribute:: exclude_interface
+                                                
+                                                	Exclude an interface from becoming a backup or UCMP
+                                                	**type**\: list of  :py:class:`ExcludeInterface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_cfg.Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.NameScopes.NameScope.FastReroute.PerPrefix.ExcludeInterfaces.ExcludeInterface>`
+                                                
+                                                
+
+                                                """
+
+                                                _prefix = 'ipv4-ospf-cfg'
+                                                _revision = '2015-11-09'
+
+                                                def __init__(self):
+                                                    self.parent = None
+                                                    self.exclude_interface = YList()
+                                                    self.exclude_interface.parent = self
+                                                    self.exclude_interface.name = 'exclude_interface'
+
+
+                                                class ExcludeInterface(object):
+                                                    """
+                                                    Exclude an interface from becoming a backup or
+                                                    UCMP
+                                                    
+                                                    .. attribute:: interface_name  <key>
+                                                    
+                                                    	Interface
+                                                    	**type**\:  str
+                                                    
+                                                    	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+                                                    
+                                                    
+
+                                                    """
+
+                                                    _prefix = 'ipv4-ospf-cfg'
+                                                    _revision = '2015-11-09'
+
+                                                    def __init__(self):
+                                                        self.parent = None
+                                                        self.interface_name = None
+
+                                                    @property
+                                                    def _common_path(self):
+                                                        if self.parent is None:
+                                                            raise YPYModelError('parent is not set . Cannot derive path.')
+                                                        if self.interface_name is None:
+                                                            raise YPYModelError('Key property interface_name is None')
+
+                                                        return self.parent._common_path +'/Cisco-IOS-XR-ipv4-ospf-cfg:exclude-interface[Cisco-IOS-XR-ipv4-ospf-cfg:interface-name = ' + str(self.interface_name) + ']'
+
+                                                    def is_config(self):
+                                                        ''' Returns True if this instance represents config data else returns False '''
+                                                        return True
+
+                                                    def _has_data(self):
+                                                        if not self.is_config():
+                                                            return False
+                                                        if self.interface_name is not None:
+                                                            return True
+
+                                                        return False
+
+                                                    @staticmethod
+                                                    def _meta_info():
+                                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_ospf_cfg as meta
+                                                        return meta._meta_table['Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.NameScopes.NameScope.FastReroute.PerPrefix.ExcludeInterfaces.ExcludeInterface']['meta_info']
+
+                                                @property
+                                                def _common_path(self):
+                                                    if self.parent is None:
+                                                        raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                                    return self.parent._common_path +'/Cisco-IOS-XR-ipv4-ospf-cfg:exclude-interfaces'
+
+                                                def is_config(self):
+                                                    ''' Returns True if this instance represents config data else returns False '''
+                                                    return True
+
+                                                def _has_data(self):
+                                                    if not self.is_config():
+                                                        return False
+                                                    if self.exclude_interface is not None:
+                                                        for child_ref in self.exclude_interface:
+                                                            if child_ref._has_data():
+                                                                return True
+
+                                                    return False
+
+                                                @staticmethod
+                                                def _meta_info():
+                                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_ospf_cfg as meta
+                                                    return meta._meta_table['Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.NameScopes.NameScope.FastReroute.PerPrefix.ExcludeInterfaces']['meta_info']
+
+                                            @property
+                                            def _common_path(self):
+                                                if self.parent is None:
+                                                    raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                                return self.parent._common_path +'/Cisco-IOS-XR-ipv4-ospf-cfg:per-prefix'
+
+                                            def is_config(self):
+                                                ''' Returns True if this instance represents config data else returns False '''
+                                                return True
+
+                                            def _has_data(self):
+                                                if not self.is_config():
+                                                    return False
+                                                if self.candidate_interfaces is not None and self.candidate_interfaces._has_data():
+                                                    return True
+
+                                                if self.exclude_interfaces is not None and self.exclude_interfaces._has_data():
+                                                    return True
+
+                                                if self.fast_reroute_use_candidate_only is not None:
+                                                    return True
+
+                                                if self.remote_lfa is not None and self.remote_lfa._has_data():
+                                                    return True
+
+                                                if self.tiebreakers is not None and self.tiebreakers._has_data():
+                                                    return True
+
+                                                if self.topology_independent_lfa is not None:
+                                                    return True
+
+                                                return False
+
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_ospf_cfg as meta
+                                                return meta._meta_table['Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.NameScopes.NameScope.FastReroute.PerPrefix']['meta_info']
+
+                                        @property
+                                        def _common_path(self):
+                                            if self.parent is None:
+                                                raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                            return self.parent._common_path +'/Cisco-IOS-XR-ipv4-ospf-cfg:fast-reroute'
+
+                                        def is_config(self):
+                                            ''' Returns True if this instance represents config data else returns False '''
+                                            return True
+
+                                        def _has_data(self):
+                                            if not self.is_config():
+                                                return False
+                                            if self.fast_reroute_enable is not None:
+                                                return True
+
+                                            if self.per_link is not None and self.per_link._has_data():
+                                                return True
+
+                                            if self.per_prefix is not None and self.per_prefix._has_data():
+                                                return True
+
+                                            return False
+
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_ospf_cfg as meta
+                                            return meta._meta_table['Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.NameScopes.NameScope.FastReroute']['meta_info']
+
+
                                     class CostFallback(object):
                                         """
                                         Interface fallback cost
@@ -11444,6 +11926,12 @@ class Ospf(object):
                                         if self.prefix_sid is not None and self.prefix_sid._has_data():
                                             return True
 
+                                        if self.prefix_sid_strict is not None and self.prefix_sid_strict._has_data():
+                                            return True
+
+                                        if self.prefix_suppression_primary is not None:
+                                            return True
+
                                         if self.prefix_suppression_secondary is not None:
                                             return True
 
@@ -11531,7 +12019,7 @@ class Ospf(object):
                                     	Name of Multi Area Interface to configure
                                     	**type**\:  str
                                     
-                                    	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+                                    	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
                                     
                                     .. attribute:: authentication
                                     
@@ -11564,6 +12052,11 @@ class Ospf(object):
                                     
                                     	Filter networks intalled to RIB (disable as ACL name means filtering is disabled)
                                     	**type**\:  :py:class:`DistributeList <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_cfg.Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.DistributeList>`
+                                    
+                                    .. attribute:: fast_reroute
+                                    
+                                    	Fast\-reroute configuration
+                                    	**type**\:  :py:class:`FastReroute <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_cfg.Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.FastReroute>`
                                     
                                     .. attribute:: hello_interval
                                     
@@ -11632,6 +12125,8 @@ class Ospf(object):
                                         self.dead_interval_minimal = Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.DeadIntervalMinimal()
                                         self.dead_interval_minimal.parent = self
                                         self.distribute_list = None
+                                        self.fast_reroute = Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.FastReroute()
+                                        self.fast_reroute.parent = self
                                         self.hello_interval = None
                                         self.mtu_ignore = None
                                         self.neighbors = Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.Neighbors()
@@ -12150,6 +12645,793 @@ class Ospf(object):
                                             return meta._meta_table['Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.DeadIntervalMinimal']['meta_info']
 
 
+                                    class FastReroute(object):
+                                        """
+                                        Fast\-reroute configuration
+                                        
+                                        .. attribute:: fast_reroute_enable
+                                        
+                                        	Enable/Disable Fast\-reroute per\-link or per\-prefix
+                                        	**type**\:  :py:class:`OspfFastRerouteEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_cfg.OspfFastRerouteEnum>`
+                                        
+                                        .. attribute:: per_link
+                                        
+                                        	Fast\-reroute per\-link configuration
+                                        	**type**\:  :py:class:`PerLink <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_cfg.Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.FastReroute.PerLink>`
+                                        
+                                        .. attribute:: per_prefix
+                                        
+                                        	Fast\-reroute per\-prefix global configuration
+                                        	**type**\:  :py:class:`PerPrefix <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_cfg.Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.FastReroute.PerPrefix>`
+                                        
+                                        
+
+                                        """
+
+                                        _prefix = 'ipv4-ospf-cfg'
+                                        _revision = '2015-11-09'
+
+                                        def __init__(self):
+                                            self.parent = None
+                                            self.fast_reroute_enable = None
+                                            self.per_link = Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.FastReroute.PerLink()
+                                            self.per_link.parent = self
+                                            self.per_prefix = Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.FastReroute.PerPrefix()
+                                            self.per_prefix.parent = self
+
+
+                                        class PerLink(object):
+                                            """
+                                            Fast\-reroute per\-link configuration
+                                            
+                                            .. attribute:: candidate_interfaces
+                                            
+                                            	Fast\-reroute per\-link/per\-prefix candidate interface configuration
+                                            	**type**\:  :py:class:`CandidateInterfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_cfg.Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.FastReroute.PerLink.CandidateInterfaces>`
+                                            
+                                            .. attribute:: exclude_interfaces
+                                            
+                                            	Fast\-reroute per\-link/per\-prefix or UCMP exclude interface configuration
+                                            	**type**\:  :py:class:`ExcludeInterfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_cfg.Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.FastReroute.PerLink.ExcludeInterfaces>`
+                                            
+                                            .. attribute:: fast_reroute_use_candidate_only
+                                            
+                                            	Use only interfaces on the candidate list as a backup path
+                                            	**type**\:  bool
+                                            
+                                            
+
+                                            """
+
+                                            _prefix = 'ipv4-ospf-cfg'
+                                            _revision = '2015-11-09'
+
+                                            def __init__(self):
+                                                self.parent = None
+                                                self.candidate_interfaces = Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.FastReroute.PerLink.CandidateInterfaces()
+                                                self.candidate_interfaces.parent = self
+                                                self.exclude_interfaces = Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.FastReroute.PerLink.ExcludeInterfaces()
+                                                self.exclude_interfaces.parent = self
+                                                self.fast_reroute_use_candidate_only = None
+
+
+                                            class CandidateInterfaces(object):
+                                                """
+                                                Fast\-reroute per\-link/per\-prefix candidate
+                                                interface configuration
+                                                
+                                                .. attribute:: candidate_interface
+                                                
+                                                	Candidate backup interface
+                                                	**type**\: list of  :py:class:`CandidateInterface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_cfg.Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.FastReroute.PerLink.CandidateInterfaces.CandidateInterface>`
+                                                
+                                                
+
+                                                """
+
+                                                _prefix = 'ipv4-ospf-cfg'
+                                                _revision = '2015-11-09'
+
+                                                def __init__(self):
+                                                    self.parent = None
+                                                    self.candidate_interface = YList()
+                                                    self.candidate_interface.parent = self
+                                                    self.candidate_interface.name = 'candidate_interface'
+
+
+                                                class CandidateInterface(object):
+                                                    """
+                                                    Candidate backup interface
+                                                    
+                                                    .. attribute:: interface_name  <key>
+                                                    
+                                                    	Interface
+                                                    	**type**\:  str
+                                                    
+                                                    	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+                                                    
+                                                    
+
+                                                    """
+
+                                                    _prefix = 'ipv4-ospf-cfg'
+                                                    _revision = '2015-11-09'
+
+                                                    def __init__(self):
+                                                        self.parent = None
+                                                        self.interface_name = None
+
+                                                    @property
+                                                    def _common_path(self):
+                                                        if self.parent is None:
+                                                            raise YPYModelError('parent is not set . Cannot derive path.')
+                                                        if self.interface_name is None:
+                                                            raise YPYModelError('Key property interface_name is None')
+
+                                                        return self.parent._common_path +'/Cisco-IOS-XR-ipv4-ospf-cfg:candidate-interface[Cisco-IOS-XR-ipv4-ospf-cfg:interface-name = ' + str(self.interface_name) + ']'
+
+                                                    def is_config(self):
+                                                        ''' Returns True if this instance represents config data else returns False '''
+                                                        return True
+
+                                                    def _has_data(self):
+                                                        if not self.is_config():
+                                                            return False
+                                                        if self.interface_name is not None:
+                                                            return True
+
+                                                        return False
+
+                                                    @staticmethod
+                                                    def _meta_info():
+                                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_ospf_cfg as meta
+                                                        return meta._meta_table['Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.FastReroute.PerLink.CandidateInterfaces.CandidateInterface']['meta_info']
+
+                                                @property
+                                                def _common_path(self):
+                                                    if self.parent is None:
+                                                        raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                                    return self.parent._common_path +'/Cisco-IOS-XR-ipv4-ospf-cfg:candidate-interfaces'
+
+                                                def is_config(self):
+                                                    ''' Returns True if this instance represents config data else returns False '''
+                                                    return True
+
+                                                def _has_data(self):
+                                                    if not self.is_config():
+                                                        return False
+                                                    if self.candidate_interface is not None:
+                                                        for child_ref in self.candidate_interface:
+                                                            if child_ref._has_data():
+                                                                return True
+
+                                                    return False
+
+                                                @staticmethod
+                                                def _meta_info():
+                                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_ospf_cfg as meta
+                                                    return meta._meta_table['Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.FastReroute.PerLink.CandidateInterfaces']['meta_info']
+
+
+                                            class ExcludeInterfaces(object):
+                                                """
+                                                Fast\-reroute per\-link/per\-prefix or UCMP exclude
+                                                interface configuration
+                                                
+                                                .. attribute:: exclude_interface
+                                                
+                                                	Exclude an interface from becoming a backup or UCMP
+                                                	**type**\: list of  :py:class:`ExcludeInterface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_cfg.Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.FastReroute.PerLink.ExcludeInterfaces.ExcludeInterface>`
+                                                
+                                                
+
+                                                """
+
+                                                _prefix = 'ipv4-ospf-cfg'
+                                                _revision = '2015-11-09'
+
+                                                def __init__(self):
+                                                    self.parent = None
+                                                    self.exclude_interface = YList()
+                                                    self.exclude_interface.parent = self
+                                                    self.exclude_interface.name = 'exclude_interface'
+
+
+                                                class ExcludeInterface(object):
+                                                    """
+                                                    Exclude an interface from becoming a backup or
+                                                    UCMP
+                                                    
+                                                    .. attribute:: interface_name  <key>
+                                                    
+                                                    	Interface
+                                                    	**type**\:  str
+                                                    
+                                                    	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+                                                    
+                                                    
+
+                                                    """
+
+                                                    _prefix = 'ipv4-ospf-cfg'
+                                                    _revision = '2015-11-09'
+
+                                                    def __init__(self):
+                                                        self.parent = None
+                                                        self.interface_name = None
+
+                                                    @property
+                                                    def _common_path(self):
+                                                        if self.parent is None:
+                                                            raise YPYModelError('parent is not set . Cannot derive path.')
+                                                        if self.interface_name is None:
+                                                            raise YPYModelError('Key property interface_name is None')
+
+                                                        return self.parent._common_path +'/Cisco-IOS-XR-ipv4-ospf-cfg:exclude-interface[Cisco-IOS-XR-ipv4-ospf-cfg:interface-name = ' + str(self.interface_name) + ']'
+
+                                                    def is_config(self):
+                                                        ''' Returns True if this instance represents config data else returns False '''
+                                                        return True
+
+                                                    def _has_data(self):
+                                                        if not self.is_config():
+                                                            return False
+                                                        if self.interface_name is not None:
+                                                            return True
+
+                                                        return False
+
+                                                    @staticmethod
+                                                    def _meta_info():
+                                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_ospf_cfg as meta
+                                                        return meta._meta_table['Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.FastReroute.PerLink.ExcludeInterfaces.ExcludeInterface']['meta_info']
+
+                                                @property
+                                                def _common_path(self):
+                                                    if self.parent is None:
+                                                        raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                                    return self.parent._common_path +'/Cisco-IOS-XR-ipv4-ospf-cfg:exclude-interfaces'
+
+                                                def is_config(self):
+                                                    ''' Returns True if this instance represents config data else returns False '''
+                                                    return True
+
+                                                def _has_data(self):
+                                                    if not self.is_config():
+                                                        return False
+                                                    if self.exclude_interface is not None:
+                                                        for child_ref in self.exclude_interface:
+                                                            if child_ref._has_data():
+                                                                return True
+
+                                                    return False
+
+                                                @staticmethod
+                                                def _meta_info():
+                                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_ospf_cfg as meta
+                                                    return meta._meta_table['Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.FastReroute.PerLink.ExcludeInterfaces']['meta_info']
+
+                                            @property
+                                            def _common_path(self):
+                                                if self.parent is None:
+                                                    raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                                return self.parent._common_path +'/Cisco-IOS-XR-ipv4-ospf-cfg:per-link'
+
+                                            def is_config(self):
+                                                ''' Returns True if this instance represents config data else returns False '''
+                                                return True
+
+                                            def _has_data(self):
+                                                if not self.is_config():
+                                                    return False
+                                                if self.candidate_interfaces is not None and self.candidate_interfaces._has_data():
+                                                    return True
+
+                                                if self.exclude_interfaces is not None and self.exclude_interfaces._has_data():
+                                                    return True
+
+                                                if self.fast_reroute_use_candidate_only is not None:
+                                                    return True
+
+                                                return False
+
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_ospf_cfg as meta
+                                                return meta._meta_table['Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.FastReroute.PerLink']['meta_info']
+
+
+                                        class PerPrefix(object):
+                                            """
+                                            Fast\-reroute per\-prefix global configuration
+                                            
+                                            .. attribute:: candidate_interfaces
+                                            
+                                            	Fast\-reroute per\-link/per\-prefix candidate interface configuration
+                                            	**type**\:  :py:class:`CandidateInterfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_cfg.Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.FastReroute.PerPrefix.CandidateInterfaces>`
+                                            
+                                            .. attribute:: exclude_interfaces
+                                            
+                                            	Fast\-reroute per\-link/per\-prefix or UCMP exclude interface configuration
+                                            	**type**\:  :py:class:`ExcludeInterfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_cfg.Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.FastReroute.PerPrefix.ExcludeInterfaces>`
+                                            
+                                            .. attribute:: fast_reroute_use_candidate_only
+                                            
+                                            	Use only interfaces on the candidate list as a backup path
+                                            	**type**\:  bool
+                                            
+                                            .. attribute:: remote_lfa
+                                            
+                                            	Remote LFA configuration
+                                            	**type**\:  :py:class:`RemoteLfa <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_cfg.Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.FastReroute.PerPrefix.RemoteLfa>`
+                                            
+                                            .. attribute:: tiebreakers
+                                            
+                                            	Fast\-reroute tiebreakers configurations
+                                            	**type**\:  :py:class:`Tiebreakers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_cfg.Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.FastReroute.PerPrefix.Tiebreakers>`
+                                            
+                                            .. attribute:: topology_independent_lfa
+                                            
+                                            	Topology Independet LFA configuration
+                                            	**type**\:  bool
+                                            
+                                            
+
+                                            """
+
+                                            _prefix = 'ipv4-ospf-cfg'
+                                            _revision = '2015-11-09'
+
+                                            def __init__(self):
+                                                self.parent = None
+                                                self.candidate_interfaces = Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.FastReroute.PerPrefix.CandidateInterfaces()
+                                                self.candidate_interfaces.parent = self
+                                                self.exclude_interfaces = Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.FastReroute.PerPrefix.ExcludeInterfaces()
+                                                self.exclude_interfaces.parent = self
+                                                self.fast_reroute_use_candidate_only = None
+                                                self.remote_lfa = Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.FastReroute.PerPrefix.RemoteLfa()
+                                                self.remote_lfa.parent = self
+                                                self.tiebreakers = Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.FastReroute.PerPrefix.Tiebreakers()
+                                                self.tiebreakers.parent = self
+                                                self.topology_independent_lfa = None
+
+
+                                            class RemoteLfa(object):
+                                                """
+                                                Remote LFA configuration
+                                                
+                                                .. attribute:: maximum_cost
+                                                
+                                                	Maximum path cost to remote LFA
+                                                	**type**\:  int
+                                                
+                                                	**range:** 1..4294967295
+                                                
+                                                .. attribute:: tunnel
+                                                
+                                                	Enable/Disable remote LFA computation
+                                                	**type**\:  :py:class:`OspfFrrRlfaTunnelEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_cfg.OspfFrrRlfaTunnelEnum>`
+                                                
+                                                
+
+                                                """
+
+                                                _prefix = 'ipv4-ospf-cfg'
+                                                _revision = '2015-11-09'
+
+                                                def __init__(self):
+                                                    self.parent = None
+                                                    self.maximum_cost = None
+                                                    self.tunnel = None
+
+                                                @property
+                                                def _common_path(self):
+                                                    if self.parent is None:
+                                                        raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                                    return self.parent._common_path +'/Cisco-IOS-XR-ipv4-ospf-cfg:remote-lfa'
+
+                                                def is_config(self):
+                                                    ''' Returns True if this instance represents config data else returns False '''
+                                                    return True
+
+                                                def _has_data(self):
+                                                    if not self.is_config():
+                                                        return False
+                                                    if self.maximum_cost is not None:
+                                                        return True
+
+                                                    if self.tunnel is not None:
+                                                        return True
+
+                                                    return False
+
+                                                @staticmethod
+                                                def _meta_info():
+                                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_ospf_cfg as meta
+                                                    return meta._meta_table['Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.FastReroute.PerPrefix.RemoteLfa']['meta_info']
+
+
+                                            class Tiebreakers(object):
+                                                """
+                                                Fast\-reroute tiebreakers configurations
+                                                
+                                                .. attribute:: tiebreaker
+                                                
+                                                	Fast\-reroute tiebreakers configuration
+                                                	**type**\: list of  :py:class:`Tiebreaker <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_cfg.Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.FastReroute.PerPrefix.Tiebreakers.Tiebreaker>`
+                                                
+                                                
+
+                                                """
+
+                                                _prefix = 'ipv4-ospf-cfg'
+                                                _revision = '2015-11-09'
+
+                                                def __init__(self):
+                                                    self.parent = None
+                                                    self.tiebreaker = YList()
+                                                    self.tiebreaker.parent = self
+                                                    self.tiebreaker.name = 'tiebreaker'
+
+
+                                                class Tiebreaker(object):
+                                                    """
+                                                    Fast\-reroute tiebreakers configuration
+                                                    
+                                                    .. attribute:: tiebreaker_type  <key>
+                                                    
+                                                    	Tiebreaker type
+                                                    	**type**\:  :py:class:`OspfFastRerouteTiebreakersIntfEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_cfg.OspfFastRerouteTiebreakersIntfEnum>`
+                                                    
+                                                    .. attribute:: tiebreaker_index
+                                                    
+                                                    	Index value for a tiebreaker, 0 to disable
+                                                    	**type**\:  int
+                                                    
+                                                    	**range:** 0..255
+                                                    
+                                                    	**mandatory**\: True
+                                                    
+                                                    
+
+                                                    """
+
+                                                    _prefix = 'ipv4-ospf-cfg'
+                                                    _revision = '2015-11-09'
+
+                                                    def __init__(self):
+                                                        self.parent = None
+                                                        self.tiebreaker_type = None
+                                                        self.tiebreaker_index = None
+
+                                                    @property
+                                                    def _common_path(self):
+                                                        if self.parent is None:
+                                                            raise YPYModelError('parent is not set . Cannot derive path.')
+                                                        if self.tiebreaker_type is None:
+                                                            raise YPYModelError('Key property tiebreaker_type is None')
+
+                                                        return self.parent._common_path +'/Cisco-IOS-XR-ipv4-ospf-cfg:tiebreaker[Cisco-IOS-XR-ipv4-ospf-cfg:tiebreaker-type = ' + str(self.tiebreaker_type) + ']'
+
+                                                    def is_config(self):
+                                                        ''' Returns True if this instance represents config data else returns False '''
+                                                        return True
+
+                                                    def _has_data(self):
+                                                        if not self.is_config():
+                                                            return False
+                                                        if self.tiebreaker_type is not None:
+                                                            return True
+
+                                                        if self.tiebreaker_index is not None:
+                                                            return True
+
+                                                        return False
+
+                                                    @staticmethod
+                                                    def _meta_info():
+                                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_ospf_cfg as meta
+                                                        return meta._meta_table['Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.FastReroute.PerPrefix.Tiebreakers.Tiebreaker']['meta_info']
+
+                                                @property
+                                                def _common_path(self):
+                                                    if self.parent is None:
+                                                        raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                                    return self.parent._common_path +'/Cisco-IOS-XR-ipv4-ospf-cfg:tiebreakers'
+
+                                                def is_config(self):
+                                                    ''' Returns True if this instance represents config data else returns False '''
+                                                    return True
+
+                                                def _has_data(self):
+                                                    if not self.is_config():
+                                                        return False
+                                                    if self.tiebreaker is not None:
+                                                        for child_ref in self.tiebreaker:
+                                                            if child_ref._has_data():
+                                                                return True
+
+                                                    return False
+
+                                                @staticmethod
+                                                def _meta_info():
+                                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_ospf_cfg as meta
+                                                    return meta._meta_table['Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.FastReroute.PerPrefix.Tiebreakers']['meta_info']
+
+
+                                            class CandidateInterfaces(object):
+                                                """
+                                                Fast\-reroute per\-link/per\-prefix candidate
+                                                interface configuration
+                                                
+                                                .. attribute:: candidate_interface
+                                                
+                                                	Candidate backup interface
+                                                	**type**\: list of  :py:class:`CandidateInterface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_cfg.Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.FastReroute.PerPrefix.CandidateInterfaces.CandidateInterface>`
+                                                
+                                                
+
+                                                """
+
+                                                _prefix = 'ipv4-ospf-cfg'
+                                                _revision = '2015-11-09'
+
+                                                def __init__(self):
+                                                    self.parent = None
+                                                    self.candidate_interface = YList()
+                                                    self.candidate_interface.parent = self
+                                                    self.candidate_interface.name = 'candidate_interface'
+
+
+                                                class CandidateInterface(object):
+                                                    """
+                                                    Candidate backup interface
+                                                    
+                                                    .. attribute:: interface_name  <key>
+                                                    
+                                                    	Interface
+                                                    	**type**\:  str
+                                                    
+                                                    	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+                                                    
+                                                    
+
+                                                    """
+
+                                                    _prefix = 'ipv4-ospf-cfg'
+                                                    _revision = '2015-11-09'
+
+                                                    def __init__(self):
+                                                        self.parent = None
+                                                        self.interface_name = None
+
+                                                    @property
+                                                    def _common_path(self):
+                                                        if self.parent is None:
+                                                            raise YPYModelError('parent is not set . Cannot derive path.')
+                                                        if self.interface_name is None:
+                                                            raise YPYModelError('Key property interface_name is None')
+
+                                                        return self.parent._common_path +'/Cisco-IOS-XR-ipv4-ospf-cfg:candidate-interface[Cisco-IOS-XR-ipv4-ospf-cfg:interface-name = ' + str(self.interface_name) + ']'
+
+                                                    def is_config(self):
+                                                        ''' Returns True if this instance represents config data else returns False '''
+                                                        return True
+
+                                                    def _has_data(self):
+                                                        if not self.is_config():
+                                                            return False
+                                                        if self.interface_name is not None:
+                                                            return True
+
+                                                        return False
+
+                                                    @staticmethod
+                                                    def _meta_info():
+                                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_ospf_cfg as meta
+                                                        return meta._meta_table['Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.FastReroute.PerPrefix.CandidateInterfaces.CandidateInterface']['meta_info']
+
+                                                @property
+                                                def _common_path(self):
+                                                    if self.parent is None:
+                                                        raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                                    return self.parent._common_path +'/Cisco-IOS-XR-ipv4-ospf-cfg:candidate-interfaces'
+
+                                                def is_config(self):
+                                                    ''' Returns True if this instance represents config data else returns False '''
+                                                    return True
+
+                                                def _has_data(self):
+                                                    if not self.is_config():
+                                                        return False
+                                                    if self.candidate_interface is not None:
+                                                        for child_ref in self.candidate_interface:
+                                                            if child_ref._has_data():
+                                                                return True
+
+                                                    return False
+
+                                                @staticmethod
+                                                def _meta_info():
+                                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_ospf_cfg as meta
+                                                    return meta._meta_table['Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.FastReroute.PerPrefix.CandidateInterfaces']['meta_info']
+
+
+                                            class ExcludeInterfaces(object):
+                                                """
+                                                Fast\-reroute per\-link/per\-prefix or UCMP exclude
+                                                interface configuration
+                                                
+                                                .. attribute:: exclude_interface
+                                                
+                                                	Exclude an interface from becoming a backup or UCMP
+                                                	**type**\: list of  :py:class:`ExcludeInterface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_cfg.Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.FastReroute.PerPrefix.ExcludeInterfaces.ExcludeInterface>`
+                                                
+                                                
+
+                                                """
+
+                                                _prefix = 'ipv4-ospf-cfg'
+                                                _revision = '2015-11-09'
+
+                                                def __init__(self):
+                                                    self.parent = None
+                                                    self.exclude_interface = YList()
+                                                    self.exclude_interface.parent = self
+                                                    self.exclude_interface.name = 'exclude_interface'
+
+
+                                                class ExcludeInterface(object):
+                                                    """
+                                                    Exclude an interface from becoming a backup or
+                                                    UCMP
+                                                    
+                                                    .. attribute:: interface_name  <key>
+                                                    
+                                                    	Interface
+                                                    	**type**\:  str
+                                                    
+                                                    	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+                                                    
+                                                    
+
+                                                    """
+
+                                                    _prefix = 'ipv4-ospf-cfg'
+                                                    _revision = '2015-11-09'
+
+                                                    def __init__(self):
+                                                        self.parent = None
+                                                        self.interface_name = None
+
+                                                    @property
+                                                    def _common_path(self):
+                                                        if self.parent is None:
+                                                            raise YPYModelError('parent is not set . Cannot derive path.')
+                                                        if self.interface_name is None:
+                                                            raise YPYModelError('Key property interface_name is None')
+
+                                                        return self.parent._common_path +'/Cisco-IOS-XR-ipv4-ospf-cfg:exclude-interface[Cisco-IOS-XR-ipv4-ospf-cfg:interface-name = ' + str(self.interface_name) + ']'
+
+                                                    def is_config(self):
+                                                        ''' Returns True if this instance represents config data else returns False '''
+                                                        return True
+
+                                                    def _has_data(self):
+                                                        if not self.is_config():
+                                                            return False
+                                                        if self.interface_name is not None:
+                                                            return True
+
+                                                        return False
+
+                                                    @staticmethod
+                                                    def _meta_info():
+                                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_ospf_cfg as meta
+                                                        return meta._meta_table['Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.FastReroute.PerPrefix.ExcludeInterfaces.ExcludeInterface']['meta_info']
+
+                                                @property
+                                                def _common_path(self):
+                                                    if self.parent is None:
+                                                        raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                                    return self.parent._common_path +'/Cisco-IOS-XR-ipv4-ospf-cfg:exclude-interfaces'
+
+                                                def is_config(self):
+                                                    ''' Returns True if this instance represents config data else returns False '''
+                                                    return True
+
+                                                def _has_data(self):
+                                                    if not self.is_config():
+                                                        return False
+                                                    if self.exclude_interface is not None:
+                                                        for child_ref in self.exclude_interface:
+                                                            if child_ref._has_data():
+                                                                return True
+
+                                                    return False
+
+                                                @staticmethod
+                                                def _meta_info():
+                                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_ospf_cfg as meta
+                                                    return meta._meta_table['Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.FastReroute.PerPrefix.ExcludeInterfaces']['meta_info']
+
+                                            @property
+                                            def _common_path(self):
+                                                if self.parent is None:
+                                                    raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                                return self.parent._common_path +'/Cisco-IOS-XR-ipv4-ospf-cfg:per-prefix'
+
+                                            def is_config(self):
+                                                ''' Returns True if this instance represents config data else returns False '''
+                                                return True
+
+                                            def _has_data(self):
+                                                if not self.is_config():
+                                                    return False
+                                                if self.candidate_interfaces is not None and self.candidate_interfaces._has_data():
+                                                    return True
+
+                                                if self.exclude_interfaces is not None and self.exclude_interfaces._has_data():
+                                                    return True
+
+                                                if self.fast_reroute_use_candidate_only is not None:
+                                                    return True
+
+                                                if self.remote_lfa is not None and self.remote_lfa._has_data():
+                                                    return True
+
+                                                if self.tiebreakers is not None and self.tiebreakers._has_data():
+                                                    return True
+
+                                                if self.topology_independent_lfa is not None:
+                                                    return True
+
+                                                return False
+
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_ospf_cfg as meta
+                                                return meta._meta_table['Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.FastReroute.PerPrefix']['meta_info']
+
+                                        @property
+                                        def _common_path(self):
+                                            if self.parent is None:
+                                                raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                            return self.parent._common_path +'/Cisco-IOS-XR-ipv4-ospf-cfg:fast-reroute'
+
+                                        def is_config(self):
+                                            ''' Returns True if this instance represents config data else returns False '''
+                                            return True
+
+                                        def _has_data(self):
+                                            if not self.is_config():
+                                                return False
+                                            if self.fast_reroute_enable is not None:
+                                                return True
+
+                                            if self.per_link is not None and self.per_link._has_data():
+                                                return True
+
+                                            if self.per_prefix is not None and self.per_prefix._has_data():
+                                                return True
+
+                                            return False
+
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_ospf_cfg as meta
+                                            return meta._meta_table['Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.FastReroute']['meta_info']
+
+
                                     class CostFallback(object):
                                         """
                                         Interface fallback cost
@@ -12242,6 +13524,9 @@ class Ospf(object):
                                             return True
 
                                         if self.distribute_list is not None and self.distribute_list._has_data():
+                                            return True
+
+                                        if self.fast_reroute is not None and self.fast_reroute._has_data():
                                             return True
 
                                         if self.hello_interval is not None:
@@ -13775,6 +15060,11 @@ class Ospf(object):
                                 	When enabled, prevent sending HELLO packets over link
                                 	**type**\:  bool
                                 
+                                .. attribute:: prefix_suppression_primary
+                                
+                                	Enable/Disable prefix suppression for primary addresses
+                                	**type**\:  bool
+                                
                                 .. attribute:: prefix_suppression_secondary
                                 
                                 	Enable/Disable prefix suppression for secondary addresses
@@ -13845,6 +15135,7 @@ class Ospf(object):
                                     self.network_type = None
                                     self.packet_size = None
                                     self.passive = None
+                                    self.prefix_suppression_primary = None
                                     self.prefix_suppression_secondary = None
                                     self.priority = None
                                     self.retransmit_interval = None
@@ -14332,6 +15623,64 @@ class Ospf(object):
                                         return meta._meta_table['Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.AreaScope.Security']['meta_info']
 
 
+                                class DeadIntervalMinimal(object):
+                                    """
+                                    Interval after which a neighbor is declared dead
+                                    
+                                    .. attribute:: interval
+                                    
+                                    	Interval size in seconds after which a neighbor is declared dead
+                                    	**type**\:  int
+                                    
+                                    	**range:** 1..65535
+                                    
+                                    .. attribute:: multiplier
+                                    
+                                    	Number of Hellos in one second
+                                    	**type**\:  int
+                                    
+                                    	**range:** 3..20
+                                    
+                                    
+
+                                    """
+
+                                    _prefix = 'ipv4-ospf-cfg'
+                                    _revision = '2015-11-09'
+
+                                    def __init__(self):
+                                        self.parent = None
+                                        self.interval = None
+                                        self.multiplier = None
+
+                                    @property
+                                    def _common_path(self):
+                                        if self.parent is None:
+                                            raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                        return self.parent._common_path +'/Cisco-IOS-XR-ipv4-ospf-cfg:dead-interval-minimal'
+
+                                    def is_config(self):
+                                        ''' Returns True if this instance represents config data else returns False '''
+                                        return True
+
+                                    def _has_data(self):
+                                        if not self.is_config():
+                                            return False
+                                        if self.interval is not None:
+                                            return True
+
+                                        if self.multiplier is not None:
+                                            return True
+
+                                        return False
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_ospf_cfg as meta
+                                        return meta._meta_table['Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.AreaScope.DeadIntervalMinimal']['meta_info']
+
+
                                 class FastReroute(object):
                                     """
                                     Fast\-reroute configuration
@@ -14348,7 +15697,7 @@ class Ospf(object):
                                     
                                     .. attribute:: per_prefix
                                     
-                                    	Fast\-reroute per\-prefix configuration
+                                    	Fast\-reroute per\-prefix global configuration
                                     	**type**\:  :py:class:`PerPrefix <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_cfg.Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.AreaScope.FastReroute.PerPrefix>`
                                     
                                     
@@ -14435,7 +15784,7 @@ class Ospf(object):
                                                 	Interface
                                                 	**type**\:  str
                                                 
-                                                	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+                                                	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
                                                 
                                                 
 
@@ -14535,7 +15884,7 @@ class Ospf(object):
                                                 	Interface
                                                 	**type**\:  str
                                                 
-                                                	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+                                                	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
                                                 
                                                 
 
@@ -14633,7 +15982,7 @@ class Ospf(object):
 
                                     class PerPrefix(object):
                                         """
-                                        Fast\-reroute per\-prefix configuration
+                                        Fast\-reroute per\-prefix global configuration
                                         
                                         .. attribute:: candidate_interfaces
                                         
@@ -14654,6 +16003,11 @@ class Ospf(object):
                                         
                                         	Remote LFA configuration
                                         	**type**\:  :py:class:`RemoteLfa <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_cfg.Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.AreaScope.FastReroute.PerPrefix.RemoteLfa>`
+                                        
+                                        .. attribute:: tiebreakers
+                                        
+                                        	Fast\-reroute tiebreakers configurations
+                                        	**type**\:  :py:class:`Tiebreakers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_cfg.Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.AreaScope.FastReroute.PerPrefix.Tiebreakers>`
                                         
                                         .. attribute:: topology_independent_lfa
                                         
@@ -14676,6 +16030,8 @@ class Ospf(object):
                                             self.fast_reroute_use_candidate_only = None
                                             self.remote_lfa = Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.AreaScope.FastReroute.PerPrefix.RemoteLfa()
                                             self.remote_lfa.parent = self
+                                            self.tiebreakers = Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.AreaScope.FastReroute.PerPrefix.Tiebreakers()
+                                            self.tiebreakers.parent = self
                                             self.topology_independent_lfa = None
 
 
@@ -14735,6 +16091,115 @@ class Ospf(object):
                                                 return meta._meta_table['Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.AreaScope.FastReroute.PerPrefix.RemoteLfa']['meta_info']
 
 
+                                        class Tiebreakers(object):
+                                            """
+                                            Fast\-reroute tiebreakers configurations
+                                            
+                                            .. attribute:: tiebreaker
+                                            
+                                            	Fast\-reroute tiebreakers configuration
+                                            	**type**\: list of  :py:class:`Tiebreaker <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_cfg.Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.AreaScope.FastReroute.PerPrefix.Tiebreakers.Tiebreaker>`
+                                            
+                                            
+
+                                            """
+
+                                            _prefix = 'ipv4-ospf-cfg'
+                                            _revision = '2015-11-09'
+
+                                            def __init__(self):
+                                                self.parent = None
+                                                self.tiebreaker = YList()
+                                                self.tiebreaker.parent = self
+                                                self.tiebreaker.name = 'tiebreaker'
+
+
+                                            class Tiebreaker(object):
+                                                """
+                                                Fast\-reroute tiebreakers configuration
+                                                
+                                                .. attribute:: tiebreaker_type  <key>
+                                                
+                                                	Tiebreaker type
+                                                	**type**\:  :py:class:`OspfFastRerouteTiebreakersIntfEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_cfg.OspfFastRerouteTiebreakersIntfEnum>`
+                                                
+                                                .. attribute:: tiebreaker_index
+                                                
+                                                	Index value for a tiebreaker, 0 to disable
+                                                	**type**\:  int
+                                                
+                                                	**range:** 0..255
+                                                
+                                                	**mandatory**\: True
+                                                
+                                                
+
+                                                """
+
+                                                _prefix = 'ipv4-ospf-cfg'
+                                                _revision = '2015-11-09'
+
+                                                def __init__(self):
+                                                    self.parent = None
+                                                    self.tiebreaker_type = None
+                                                    self.tiebreaker_index = None
+
+                                                @property
+                                                def _common_path(self):
+                                                    if self.parent is None:
+                                                        raise YPYModelError('parent is not set . Cannot derive path.')
+                                                    if self.tiebreaker_type is None:
+                                                        raise YPYModelError('Key property tiebreaker_type is None')
+
+                                                    return self.parent._common_path +'/Cisco-IOS-XR-ipv4-ospf-cfg:tiebreaker[Cisco-IOS-XR-ipv4-ospf-cfg:tiebreaker-type = ' + str(self.tiebreaker_type) + ']'
+
+                                                def is_config(self):
+                                                    ''' Returns True if this instance represents config data else returns False '''
+                                                    return True
+
+                                                def _has_data(self):
+                                                    if not self.is_config():
+                                                        return False
+                                                    if self.tiebreaker_type is not None:
+                                                        return True
+
+                                                    if self.tiebreaker_index is not None:
+                                                        return True
+
+                                                    return False
+
+                                                @staticmethod
+                                                def _meta_info():
+                                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_ospf_cfg as meta
+                                                    return meta._meta_table['Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.AreaScope.FastReroute.PerPrefix.Tiebreakers.Tiebreaker']['meta_info']
+
+                                            @property
+                                            def _common_path(self):
+                                                if self.parent is None:
+                                                    raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                                return self.parent._common_path +'/Cisco-IOS-XR-ipv4-ospf-cfg:tiebreakers'
+
+                                            def is_config(self):
+                                                ''' Returns True if this instance represents config data else returns False '''
+                                                return True
+
+                                            def _has_data(self):
+                                                if not self.is_config():
+                                                    return False
+                                                if self.tiebreaker is not None:
+                                                    for child_ref in self.tiebreaker:
+                                                        if child_ref._has_data():
+                                                            return True
+
+                                                return False
+
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_ospf_cfg as meta
+                                                return meta._meta_table['Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.AreaScope.FastReroute.PerPrefix.Tiebreakers']['meta_info']
+
+
                                         class CandidateInterfaces(object):
                                             """
                                             Fast\-reroute per\-link/per\-prefix candidate
@@ -14768,7 +16233,7 @@ class Ospf(object):
                                                 	Interface
                                                 	**type**\:  str
                                                 
-                                                	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+                                                	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
                                                 
                                                 
 
@@ -14868,7 +16333,7 @@ class Ospf(object):
                                                 	Interface
                                                 	**type**\:  str
                                                 
-                                                	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+                                                	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
                                                 
                                                 
 
@@ -14959,6 +16424,9 @@ class Ospf(object):
                                             if self.remote_lfa is not None and self.remote_lfa._has_data():
                                                 return True
 
+                                            if self.tiebreakers is not None and self.tiebreakers._has_data():
+                                                return True
+
                                             if self.topology_independent_lfa is not None:
                                                 return True
 
@@ -14998,64 +16466,6 @@ class Ospf(object):
                                     def _meta_info():
                                         from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_ospf_cfg as meta
                                         return meta._meta_table['Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.AreaScope.FastReroute']['meta_info']
-
-
-                                class DeadIntervalMinimal(object):
-                                    """
-                                    Interval after which a neighbor is declared dead
-                                    
-                                    .. attribute:: interval
-                                    
-                                    	Interval size in seconds after which a neighbor is declared dead
-                                    	**type**\:  int
-                                    
-                                    	**range:** 1..65535
-                                    
-                                    .. attribute:: multiplier
-                                    
-                                    	Number of Hellos in one second
-                                    	**type**\:  int
-                                    
-                                    	**range:** 3..20
-                                    
-                                    
-
-                                    """
-
-                                    _prefix = 'ipv4-ospf-cfg'
-                                    _revision = '2015-11-09'
-
-                                    def __init__(self):
-                                        self.parent = None
-                                        self.interval = None
-                                        self.multiplier = None
-
-                                    @property
-                                    def _common_path(self):
-                                        if self.parent is None:
-                                            raise YPYModelError('parent is not set . Cannot derive path.')
-
-                                        return self.parent._common_path +'/Cisco-IOS-XR-ipv4-ospf-cfg:dead-interval-minimal'
-
-                                    def is_config(self):
-                                        ''' Returns True if this instance represents config data else returns False '''
-                                        return True
-
-                                    def _has_data(self):
-                                        if not self.is_config():
-                                            return False
-                                        if self.interval is not None:
-                                            return True
-
-                                        if self.multiplier is not None:
-                                            return True
-
-                                        return False
-
-                                    @staticmethod
-                                    def _meta_info():
-                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_ospf_cfg as meta
-                                        return meta._meta_table['Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.AreaScope.DeadIntervalMinimal']['meta_info']
 
 
                                 class CostFallback(object):
@@ -15189,6 +16599,9 @@ class Ospf(object):
                                     if self.passive is not None:
                                         return True
 
+                                    if self.prefix_suppression_primary is not None:
+                                        return True
+
                                     if self.prefix_suppression_secondary is not None:
                                         return True
 
@@ -15247,7 +16660,7 @@ class Ospf(object):
                                     	Name of Interface to configure
                                     	**type**\:  str
                                     
-                                    	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+                                    	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
                                     
                                     .. attribute:: authentication
                                     
@@ -15365,6 +16778,16 @@ class Ospf(object):
                                     	Prefix SID
                                     	**type**\:  :py:class:`PrefixSid <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_cfg.Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.PrefixSid>`
                                     
+                                    .. attribute:: prefix_sid_strict
+                                    
+                                    	Strict Prefix SID
+                                    	**type**\:  :py:class:`PrefixSidStrict <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_cfg.Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.PrefixSidStrict>`
+                                    
+                                    .. attribute:: prefix_suppression_primary
+                                    
+                                    	Enable/Disable prefix suppression for primary addresses
+                                    	**type**\:  bool
+                                    
                                     .. attribute:: prefix_suppression_secondary
                                     
                                     	Enable/Disable prefix suppression for secondary addresses
@@ -15444,6 +16867,8 @@ class Ospf(object):
                                         self.packet_size = None
                                         self.passive = None
                                         self.prefix_sid = None
+                                        self.prefix_sid_strict = None
+                                        self.prefix_suppression_primary = None
                                         self.prefix_suppression_secondary = None
                                         self.priority = None
                                         self.retransmit_interval = None
@@ -15461,6 +16886,11 @@ class Ospf(object):
                                         .. attribute:: explicit_null
                                         
                                         	Force Penultimate Hop To Send Explicit\-Null Label
+                                        	**type**\:  bool
+                                        
+                                        .. attribute:: n_flag_clear
+                                        
+                                        	Not a node SID
                                         	**type**\:  bool
                                         
                                         .. attribute:: sid_value
@@ -15497,6 +16927,7 @@ class Ospf(object):
                                             self.parent = None
                                             self._is_presence = True
                                             self.explicit_null = None
+                                            self.n_flag_clear = None
                                             self.sid_value = None
                                             self.type = None
 
@@ -15519,6 +16950,9 @@ class Ospf(object):
                                             if self.explicit_null is not None:
                                                 return True
 
+                                            if self.n_flag_clear is not None:
+                                                return True
+
                                             if self.sid_value is not None:
                                                 return True
 
@@ -15531,6 +16965,94 @@ class Ospf(object):
                                         def _meta_info():
                                             from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_ospf_cfg as meta
                                             return meta._meta_table['Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.PrefixSid']['meta_info']
+
+
+                                    class PrefixSidStrict(object):
+                                        """
+                                        Strict Prefix SID
+                                        
+                                        .. attribute:: explicit_null
+                                        
+                                        	Force Penultimate Hop To Send Explicit\-Null Label
+                                        	**type**\:  bool
+                                        
+                                        .. attribute:: n_flag_clear
+                                        
+                                        	Not a node SID
+                                        	**type**\:  bool
+                                        
+                                        .. attribute:: sid_value
+                                        
+                                        	SID value
+                                        	**type**\:  int
+                                        
+                                        	**range:** 0..1048575
+                                        
+                                        	**mandatory**\: True
+                                        
+                                        .. attribute:: type
+                                        
+                                        	OSPF SID Type
+                                        	**type**\:  :py:class:`OspfSidEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_cfg.OspfSidEnum>`
+                                        
+                                        	**mandatory**\: True
+                                        
+                                        .. attribute:: _is_presence
+                                        
+                                        	Is present if this instance represents presence container else not
+                                        	**type**\: bool
+                                        
+                                        
+
+                                        This class is a :ref:`presence class<presence-class>`
+
+                                        """
+
+                                        _prefix = 'ipv4-ospf-cfg'
+                                        _revision = '2015-11-09'
+
+                                        def __init__(self):
+                                            self.parent = None
+                                            self._is_presence = True
+                                            self.explicit_null = None
+                                            self.n_flag_clear = None
+                                            self.sid_value = None
+                                            self.type = None
+
+                                        @property
+                                        def _common_path(self):
+                                            if self.parent is None:
+                                                raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                            return self.parent._common_path +'/Cisco-IOS-XR-ipv4-ospf-cfg:prefix-sid-strict'
+
+                                        def is_config(self):
+                                            ''' Returns True if this instance represents config data else returns False '''
+                                            return True
+
+                                        def _has_data(self):
+                                            if not self.is_config():
+                                                return False
+                                            if self._is_presence:
+                                                return True
+                                            if self.explicit_null is not None:
+                                                return True
+
+                                            if self.n_flag_clear is not None:
+                                                return True
+
+                                            if self.sid_value is not None:
+                                                return True
+
+                                            if self.type is not None:
+                                                return True
+
+                                            return False
+
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_ospf_cfg as meta
+                                            return meta._meta_table['Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.PrefixSidStrict']['meta_info']
 
 
                                     class DistributeList(object):
@@ -16011,674 +17533,6 @@ class Ospf(object):
                                             return meta._meta_table['Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.Security']['meta_info']
 
 
-                                    class FastReroute(object):
-                                        """
-                                        Fast\-reroute configuration
-                                        
-                                        .. attribute:: fast_reroute_enable
-                                        
-                                        	Enable/Disable Fast\-reroute per\-link or per\-prefix
-                                        	**type**\:  :py:class:`OspfFastRerouteEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_cfg.OspfFastRerouteEnum>`
-                                        
-                                        .. attribute:: per_link
-                                        
-                                        	Fast\-reroute per\-link configuration
-                                        	**type**\:  :py:class:`PerLink <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_cfg.Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.FastReroute.PerLink>`
-                                        
-                                        .. attribute:: per_prefix
-                                        
-                                        	Fast\-reroute per\-prefix configuration
-                                        	**type**\:  :py:class:`PerPrefix <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_cfg.Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.FastReroute.PerPrefix>`
-                                        
-                                        
-
-                                        """
-
-                                        _prefix = 'ipv4-ospf-cfg'
-                                        _revision = '2015-11-09'
-
-                                        def __init__(self):
-                                            self.parent = None
-                                            self.fast_reroute_enable = None
-                                            self.per_link = Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.FastReroute.PerLink()
-                                            self.per_link.parent = self
-                                            self.per_prefix = Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.FastReroute.PerPrefix()
-                                            self.per_prefix.parent = self
-
-
-                                        class PerLink(object):
-                                            """
-                                            Fast\-reroute per\-link configuration
-                                            
-                                            .. attribute:: candidate_interfaces
-                                            
-                                            	Fast\-reroute per\-link/per\-prefix candidate interface configuration
-                                            	**type**\:  :py:class:`CandidateInterfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_cfg.Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.FastReroute.PerLink.CandidateInterfaces>`
-                                            
-                                            .. attribute:: exclude_interfaces
-                                            
-                                            	Fast\-reroute per\-link/per\-prefix or UCMP exclude interface configuration
-                                            	**type**\:  :py:class:`ExcludeInterfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_cfg.Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.FastReroute.PerLink.ExcludeInterfaces>`
-                                            
-                                            .. attribute:: fast_reroute_use_candidate_only
-                                            
-                                            	Use only interfaces on the candidate list as a backup path
-                                            	**type**\:  bool
-                                            
-                                            
-
-                                            """
-
-                                            _prefix = 'ipv4-ospf-cfg'
-                                            _revision = '2015-11-09'
-
-                                            def __init__(self):
-                                                self.parent = None
-                                                self.candidate_interfaces = Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.FastReroute.PerLink.CandidateInterfaces()
-                                                self.candidate_interfaces.parent = self
-                                                self.exclude_interfaces = Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.FastReroute.PerLink.ExcludeInterfaces()
-                                                self.exclude_interfaces.parent = self
-                                                self.fast_reroute_use_candidate_only = None
-
-
-                                            class CandidateInterfaces(object):
-                                                """
-                                                Fast\-reroute per\-link/per\-prefix candidate
-                                                interface configuration
-                                                
-                                                .. attribute:: candidate_interface
-                                                
-                                                	Candidate backup interface
-                                                	**type**\: list of  :py:class:`CandidateInterface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_cfg.Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.FastReroute.PerLink.CandidateInterfaces.CandidateInterface>`
-                                                
-                                                
-
-                                                """
-
-                                                _prefix = 'ipv4-ospf-cfg'
-                                                _revision = '2015-11-09'
-
-                                                def __init__(self):
-                                                    self.parent = None
-                                                    self.candidate_interface = YList()
-                                                    self.candidate_interface.parent = self
-                                                    self.candidate_interface.name = 'candidate_interface'
-
-
-                                                class CandidateInterface(object):
-                                                    """
-                                                    Candidate backup interface
-                                                    
-                                                    .. attribute:: interface_name  <key>
-                                                    
-                                                    	Interface
-                                                    	**type**\:  str
-                                                    
-                                                    	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
-                                                    
-                                                    
-
-                                                    """
-
-                                                    _prefix = 'ipv4-ospf-cfg'
-                                                    _revision = '2015-11-09'
-
-                                                    def __init__(self):
-                                                        self.parent = None
-                                                        self.interface_name = None
-
-                                                    @property
-                                                    def _common_path(self):
-                                                        if self.parent is None:
-                                                            raise YPYModelError('parent is not set . Cannot derive path.')
-                                                        if self.interface_name is None:
-                                                            raise YPYModelError('Key property interface_name is None')
-
-                                                        return self.parent._common_path +'/Cisco-IOS-XR-ipv4-ospf-cfg:candidate-interface[Cisco-IOS-XR-ipv4-ospf-cfg:interface-name = ' + str(self.interface_name) + ']'
-
-                                                    def is_config(self):
-                                                        ''' Returns True if this instance represents config data else returns False '''
-                                                        return True
-
-                                                    def _has_data(self):
-                                                        if not self.is_config():
-                                                            return False
-                                                        if self.interface_name is not None:
-                                                            return True
-
-                                                        return False
-
-                                                    @staticmethod
-                                                    def _meta_info():
-                                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_ospf_cfg as meta
-                                                        return meta._meta_table['Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.FastReroute.PerLink.CandidateInterfaces.CandidateInterface']['meta_info']
-
-                                                @property
-                                                def _common_path(self):
-                                                    if self.parent is None:
-                                                        raise YPYModelError('parent is not set . Cannot derive path.')
-
-                                                    return self.parent._common_path +'/Cisco-IOS-XR-ipv4-ospf-cfg:candidate-interfaces'
-
-                                                def is_config(self):
-                                                    ''' Returns True if this instance represents config data else returns False '''
-                                                    return True
-
-                                                def _has_data(self):
-                                                    if not self.is_config():
-                                                        return False
-                                                    if self.candidate_interface is not None:
-                                                        for child_ref in self.candidate_interface:
-                                                            if child_ref._has_data():
-                                                                return True
-
-                                                    return False
-
-                                                @staticmethod
-                                                def _meta_info():
-                                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_ospf_cfg as meta
-                                                    return meta._meta_table['Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.FastReroute.PerLink.CandidateInterfaces']['meta_info']
-
-
-                                            class ExcludeInterfaces(object):
-                                                """
-                                                Fast\-reroute per\-link/per\-prefix or UCMP exclude
-                                                interface configuration
-                                                
-                                                .. attribute:: exclude_interface
-                                                
-                                                	Exclude an interface from becoming a backup or UCMP
-                                                	**type**\: list of  :py:class:`ExcludeInterface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_cfg.Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.FastReroute.PerLink.ExcludeInterfaces.ExcludeInterface>`
-                                                
-                                                
-
-                                                """
-
-                                                _prefix = 'ipv4-ospf-cfg'
-                                                _revision = '2015-11-09'
-
-                                                def __init__(self):
-                                                    self.parent = None
-                                                    self.exclude_interface = YList()
-                                                    self.exclude_interface.parent = self
-                                                    self.exclude_interface.name = 'exclude_interface'
-
-
-                                                class ExcludeInterface(object):
-                                                    """
-                                                    Exclude an interface from becoming a backup or
-                                                    UCMP
-                                                    
-                                                    .. attribute:: interface_name  <key>
-                                                    
-                                                    	Interface
-                                                    	**type**\:  str
-                                                    
-                                                    	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
-                                                    
-                                                    
-
-                                                    """
-
-                                                    _prefix = 'ipv4-ospf-cfg'
-                                                    _revision = '2015-11-09'
-
-                                                    def __init__(self):
-                                                        self.parent = None
-                                                        self.interface_name = None
-
-                                                    @property
-                                                    def _common_path(self):
-                                                        if self.parent is None:
-                                                            raise YPYModelError('parent is not set . Cannot derive path.')
-                                                        if self.interface_name is None:
-                                                            raise YPYModelError('Key property interface_name is None')
-
-                                                        return self.parent._common_path +'/Cisco-IOS-XR-ipv4-ospf-cfg:exclude-interface[Cisco-IOS-XR-ipv4-ospf-cfg:interface-name = ' + str(self.interface_name) + ']'
-
-                                                    def is_config(self):
-                                                        ''' Returns True if this instance represents config data else returns False '''
-                                                        return True
-
-                                                    def _has_data(self):
-                                                        if not self.is_config():
-                                                            return False
-                                                        if self.interface_name is not None:
-                                                            return True
-
-                                                        return False
-
-                                                    @staticmethod
-                                                    def _meta_info():
-                                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_ospf_cfg as meta
-                                                        return meta._meta_table['Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.FastReroute.PerLink.ExcludeInterfaces.ExcludeInterface']['meta_info']
-
-                                                @property
-                                                def _common_path(self):
-                                                    if self.parent is None:
-                                                        raise YPYModelError('parent is not set . Cannot derive path.')
-
-                                                    return self.parent._common_path +'/Cisco-IOS-XR-ipv4-ospf-cfg:exclude-interfaces'
-
-                                                def is_config(self):
-                                                    ''' Returns True if this instance represents config data else returns False '''
-                                                    return True
-
-                                                def _has_data(self):
-                                                    if not self.is_config():
-                                                        return False
-                                                    if self.exclude_interface is not None:
-                                                        for child_ref in self.exclude_interface:
-                                                            if child_ref._has_data():
-                                                                return True
-
-                                                    return False
-
-                                                @staticmethod
-                                                def _meta_info():
-                                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_ospf_cfg as meta
-                                                    return meta._meta_table['Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.FastReroute.PerLink.ExcludeInterfaces']['meta_info']
-
-                                            @property
-                                            def _common_path(self):
-                                                if self.parent is None:
-                                                    raise YPYModelError('parent is not set . Cannot derive path.')
-
-                                                return self.parent._common_path +'/Cisco-IOS-XR-ipv4-ospf-cfg:per-link'
-
-                                            def is_config(self):
-                                                ''' Returns True if this instance represents config data else returns False '''
-                                                return True
-
-                                            def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
-                                                if self.candidate_interfaces is not None and self.candidate_interfaces._has_data():
-                                                    return True
-
-                                                if self.exclude_interfaces is not None and self.exclude_interfaces._has_data():
-                                                    return True
-
-                                                if self.fast_reroute_use_candidate_only is not None:
-                                                    return True
-
-                                                return False
-
-                                            @staticmethod
-                                            def _meta_info():
-                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_ospf_cfg as meta
-                                                return meta._meta_table['Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.FastReroute.PerLink']['meta_info']
-
-
-                                        class PerPrefix(object):
-                                            """
-                                            Fast\-reroute per\-prefix configuration
-                                            
-                                            .. attribute:: candidate_interfaces
-                                            
-                                            	Fast\-reroute per\-link/per\-prefix candidate interface configuration
-                                            	**type**\:  :py:class:`CandidateInterfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_cfg.Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.FastReroute.PerPrefix.CandidateInterfaces>`
-                                            
-                                            .. attribute:: exclude_interfaces
-                                            
-                                            	Fast\-reroute per\-link/per\-prefix or UCMP exclude interface configuration
-                                            	**type**\:  :py:class:`ExcludeInterfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_cfg.Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.FastReroute.PerPrefix.ExcludeInterfaces>`
-                                            
-                                            .. attribute:: fast_reroute_use_candidate_only
-                                            
-                                            	Use only interfaces on the candidate list as a backup path
-                                            	**type**\:  bool
-                                            
-                                            .. attribute:: remote_lfa
-                                            
-                                            	Remote LFA configuration
-                                            	**type**\:  :py:class:`RemoteLfa <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_cfg.Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.FastReroute.PerPrefix.RemoteLfa>`
-                                            
-                                            .. attribute:: topology_independent_lfa
-                                            
-                                            	Topology Independet LFA configuration
-                                            	**type**\:  bool
-                                            
-                                            
-
-                                            """
-
-                                            _prefix = 'ipv4-ospf-cfg'
-                                            _revision = '2015-11-09'
-
-                                            def __init__(self):
-                                                self.parent = None
-                                                self.candidate_interfaces = Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.FastReroute.PerPrefix.CandidateInterfaces()
-                                                self.candidate_interfaces.parent = self
-                                                self.exclude_interfaces = Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.FastReroute.PerPrefix.ExcludeInterfaces()
-                                                self.exclude_interfaces.parent = self
-                                                self.fast_reroute_use_candidate_only = None
-                                                self.remote_lfa = Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.FastReroute.PerPrefix.RemoteLfa()
-                                                self.remote_lfa.parent = self
-                                                self.topology_independent_lfa = None
-
-
-                                            class RemoteLfa(object):
-                                                """
-                                                Remote LFA configuration
-                                                
-                                                .. attribute:: maximum_cost
-                                                
-                                                	Maximum path cost to remote LFA
-                                                	**type**\:  int
-                                                
-                                                	**range:** 1..4294967295
-                                                
-                                                .. attribute:: tunnel
-                                                
-                                                	Enable/Disable remote LFA computation
-                                                	**type**\:  :py:class:`OspfFrrRlfaTunnelEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_cfg.OspfFrrRlfaTunnelEnum>`
-                                                
-                                                
-
-                                                """
-
-                                                _prefix = 'ipv4-ospf-cfg'
-                                                _revision = '2015-11-09'
-
-                                                def __init__(self):
-                                                    self.parent = None
-                                                    self.maximum_cost = None
-                                                    self.tunnel = None
-
-                                                @property
-                                                def _common_path(self):
-                                                    if self.parent is None:
-                                                        raise YPYModelError('parent is not set . Cannot derive path.')
-
-                                                    return self.parent._common_path +'/Cisco-IOS-XR-ipv4-ospf-cfg:remote-lfa'
-
-                                                def is_config(self):
-                                                    ''' Returns True if this instance represents config data else returns False '''
-                                                    return True
-
-                                                def _has_data(self):
-                                                    if not self.is_config():
-                                                        return False
-                                                    if self.maximum_cost is not None:
-                                                        return True
-
-                                                    if self.tunnel is not None:
-                                                        return True
-
-                                                    return False
-
-                                                @staticmethod
-                                                def _meta_info():
-                                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_ospf_cfg as meta
-                                                    return meta._meta_table['Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.FastReroute.PerPrefix.RemoteLfa']['meta_info']
-
-
-                                            class CandidateInterfaces(object):
-                                                """
-                                                Fast\-reroute per\-link/per\-prefix candidate
-                                                interface configuration
-                                                
-                                                .. attribute:: candidate_interface
-                                                
-                                                	Candidate backup interface
-                                                	**type**\: list of  :py:class:`CandidateInterface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_cfg.Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.FastReroute.PerPrefix.CandidateInterfaces.CandidateInterface>`
-                                                
-                                                
-
-                                                """
-
-                                                _prefix = 'ipv4-ospf-cfg'
-                                                _revision = '2015-11-09'
-
-                                                def __init__(self):
-                                                    self.parent = None
-                                                    self.candidate_interface = YList()
-                                                    self.candidate_interface.parent = self
-                                                    self.candidate_interface.name = 'candidate_interface'
-
-
-                                                class CandidateInterface(object):
-                                                    """
-                                                    Candidate backup interface
-                                                    
-                                                    .. attribute:: interface_name  <key>
-                                                    
-                                                    	Interface
-                                                    	**type**\:  str
-                                                    
-                                                    	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
-                                                    
-                                                    
-
-                                                    """
-
-                                                    _prefix = 'ipv4-ospf-cfg'
-                                                    _revision = '2015-11-09'
-
-                                                    def __init__(self):
-                                                        self.parent = None
-                                                        self.interface_name = None
-
-                                                    @property
-                                                    def _common_path(self):
-                                                        if self.parent is None:
-                                                            raise YPYModelError('parent is not set . Cannot derive path.')
-                                                        if self.interface_name is None:
-                                                            raise YPYModelError('Key property interface_name is None')
-
-                                                        return self.parent._common_path +'/Cisco-IOS-XR-ipv4-ospf-cfg:candidate-interface[Cisco-IOS-XR-ipv4-ospf-cfg:interface-name = ' + str(self.interface_name) + ']'
-
-                                                    def is_config(self):
-                                                        ''' Returns True if this instance represents config data else returns False '''
-                                                        return True
-
-                                                    def _has_data(self):
-                                                        if not self.is_config():
-                                                            return False
-                                                        if self.interface_name is not None:
-                                                            return True
-
-                                                        return False
-
-                                                    @staticmethod
-                                                    def _meta_info():
-                                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_ospf_cfg as meta
-                                                        return meta._meta_table['Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.FastReroute.PerPrefix.CandidateInterfaces.CandidateInterface']['meta_info']
-
-                                                @property
-                                                def _common_path(self):
-                                                    if self.parent is None:
-                                                        raise YPYModelError('parent is not set . Cannot derive path.')
-
-                                                    return self.parent._common_path +'/Cisco-IOS-XR-ipv4-ospf-cfg:candidate-interfaces'
-
-                                                def is_config(self):
-                                                    ''' Returns True if this instance represents config data else returns False '''
-                                                    return True
-
-                                                def _has_data(self):
-                                                    if not self.is_config():
-                                                        return False
-                                                    if self.candidate_interface is not None:
-                                                        for child_ref in self.candidate_interface:
-                                                            if child_ref._has_data():
-                                                                return True
-
-                                                    return False
-
-                                                @staticmethod
-                                                def _meta_info():
-                                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_ospf_cfg as meta
-                                                    return meta._meta_table['Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.FastReroute.PerPrefix.CandidateInterfaces']['meta_info']
-
-
-                                            class ExcludeInterfaces(object):
-                                                """
-                                                Fast\-reroute per\-link/per\-prefix or UCMP exclude
-                                                interface configuration
-                                                
-                                                .. attribute:: exclude_interface
-                                                
-                                                	Exclude an interface from becoming a backup or UCMP
-                                                	**type**\: list of  :py:class:`ExcludeInterface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_cfg.Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.FastReroute.PerPrefix.ExcludeInterfaces.ExcludeInterface>`
-                                                
-                                                
-
-                                                """
-
-                                                _prefix = 'ipv4-ospf-cfg'
-                                                _revision = '2015-11-09'
-
-                                                def __init__(self):
-                                                    self.parent = None
-                                                    self.exclude_interface = YList()
-                                                    self.exclude_interface.parent = self
-                                                    self.exclude_interface.name = 'exclude_interface'
-
-
-                                                class ExcludeInterface(object):
-                                                    """
-                                                    Exclude an interface from becoming a backup or
-                                                    UCMP
-                                                    
-                                                    .. attribute:: interface_name  <key>
-                                                    
-                                                    	Interface
-                                                    	**type**\:  str
-                                                    
-                                                    	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
-                                                    
-                                                    
-
-                                                    """
-
-                                                    _prefix = 'ipv4-ospf-cfg'
-                                                    _revision = '2015-11-09'
-
-                                                    def __init__(self):
-                                                        self.parent = None
-                                                        self.interface_name = None
-
-                                                    @property
-                                                    def _common_path(self):
-                                                        if self.parent is None:
-                                                            raise YPYModelError('parent is not set . Cannot derive path.')
-                                                        if self.interface_name is None:
-                                                            raise YPYModelError('Key property interface_name is None')
-
-                                                        return self.parent._common_path +'/Cisco-IOS-XR-ipv4-ospf-cfg:exclude-interface[Cisco-IOS-XR-ipv4-ospf-cfg:interface-name = ' + str(self.interface_name) + ']'
-
-                                                    def is_config(self):
-                                                        ''' Returns True if this instance represents config data else returns False '''
-                                                        return True
-
-                                                    def _has_data(self):
-                                                        if not self.is_config():
-                                                            return False
-                                                        if self.interface_name is not None:
-                                                            return True
-
-                                                        return False
-
-                                                    @staticmethod
-                                                    def _meta_info():
-                                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_ospf_cfg as meta
-                                                        return meta._meta_table['Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.FastReroute.PerPrefix.ExcludeInterfaces.ExcludeInterface']['meta_info']
-
-                                                @property
-                                                def _common_path(self):
-                                                    if self.parent is None:
-                                                        raise YPYModelError('parent is not set . Cannot derive path.')
-
-                                                    return self.parent._common_path +'/Cisco-IOS-XR-ipv4-ospf-cfg:exclude-interfaces'
-
-                                                def is_config(self):
-                                                    ''' Returns True if this instance represents config data else returns False '''
-                                                    return True
-
-                                                def _has_data(self):
-                                                    if not self.is_config():
-                                                        return False
-                                                    if self.exclude_interface is not None:
-                                                        for child_ref in self.exclude_interface:
-                                                            if child_ref._has_data():
-                                                                return True
-
-                                                    return False
-
-                                                @staticmethod
-                                                def _meta_info():
-                                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_ospf_cfg as meta
-                                                    return meta._meta_table['Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.FastReroute.PerPrefix.ExcludeInterfaces']['meta_info']
-
-                                            @property
-                                            def _common_path(self):
-                                                if self.parent is None:
-                                                    raise YPYModelError('parent is not set . Cannot derive path.')
-
-                                                return self.parent._common_path +'/Cisco-IOS-XR-ipv4-ospf-cfg:per-prefix'
-
-                                            def is_config(self):
-                                                ''' Returns True if this instance represents config data else returns False '''
-                                                return True
-
-                                            def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
-                                                if self.candidate_interfaces is not None and self.candidate_interfaces._has_data():
-                                                    return True
-
-                                                if self.exclude_interfaces is not None and self.exclude_interfaces._has_data():
-                                                    return True
-
-                                                if self.fast_reroute_use_candidate_only is not None:
-                                                    return True
-
-                                                if self.remote_lfa is not None and self.remote_lfa._has_data():
-                                                    return True
-
-                                                if self.topology_independent_lfa is not None:
-                                                    return True
-
-                                                return False
-
-                                            @staticmethod
-                                            def _meta_info():
-                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_ospf_cfg as meta
-                                                return meta._meta_table['Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.FastReroute.PerPrefix']['meta_info']
-
-                                        @property
-                                        def _common_path(self):
-                                            if self.parent is None:
-                                                raise YPYModelError('parent is not set . Cannot derive path.')
-
-                                            return self.parent._common_path +'/Cisco-IOS-XR-ipv4-ospf-cfg:fast-reroute'
-
-                                        def is_config(self):
-                                            ''' Returns True if this instance represents config data else returns False '''
-                                            return True
-
-                                        def _has_data(self):
-                                            if not self.is_config():
-                                                return False
-                                            if self.fast_reroute_enable is not None:
-                                                return True
-
-                                            if self.per_link is not None and self.per_link._has_data():
-                                                return True
-
-                                            if self.per_prefix is not None and self.per_prefix._has_data():
-                                                return True
-
-                                            return False
-
-                                        @staticmethod
-                                        def _meta_info():
-                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_ospf_cfg as meta
-                                            return meta._meta_table['Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.FastReroute']['meta_info']
-
-
                                     class Neighbors(object):
                                         """
                                         Neighbor router configuration information
@@ -16878,6 +17732,793 @@ class Ospf(object):
                                             return meta._meta_table['Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.DeadIntervalMinimal']['meta_info']
 
 
+                                    class FastReroute(object):
+                                        """
+                                        Fast\-reroute configuration
+                                        
+                                        .. attribute:: fast_reroute_enable
+                                        
+                                        	Enable/Disable Fast\-reroute per\-link or per\-prefix
+                                        	**type**\:  :py:class:`OspfFastRerouteEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_cfg.OspfFastRerouteEnum>`
+                                        
+                                        .. attribute:: per_link
+                                        
+                                        	Fast\-reroute per\-link configuration
+                                        	**type**\:  :py:class:`PerLink <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_cfg.Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.FastReroute.PerLink>`
+                                        
+                                        .. attribute:: per_prefix
+                                        
+                                        	Fast\-reroute per\-prefix global configuration
+                                        	**type**\:  :py:class:`PerPrefix <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_cfg.Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.FastReroute.PerPrefix>`
+                                        
+                                        
+
+                                        """
+
+                                        _prefix = 'ipv4-ospf-cfg'
+                                        _revision = '2015-11-09'
+
+                                        def __init__(self):
+                                            self.parent = None
+                                            self.fast_reroute_enable = None
+                                            self.per_link = Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.FastReroute.PerLink()
+                                            self.per_link.parent = self
+                                            self.per_prefix = Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.FastReroute.PerPrefix()
+                                            self.per_prefix.parent = self
+
+
+                                        class PerLink(object):
+                                            """
+                                            Fast\-reroute per\-link configuration
+                                            
+                                            .. attribute:: candidate_interfaces
+                                            
+                                            	Fast\-reroute per\-link/per\-prefix candidate interface configuration
+                                            	**type**\:  :py:class:`CandidateInterfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_cfg.Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.FastReroute.PerLink.CandidateInterfaces>`
+                                            
+                                            .. attribute:: exclude_interfaces
+                                            
+                                            	Fast\-reroute per\-link/per\-prefix or UCMP exclude interface configuration
+                                            	**type**\:  :py:class:`ExcludeInterfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_cfg.Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.FastReroute.PerLink.ExcludeInterfaces>`
+                                            
+                                            .. attribute:: fast_reroute_use_candidate_only
+                                            
+                                            	Use only interfaces on the candidate list as a backup path
+                                            	**type**\:  bool
+                                            
+                                            
+
+                                            """
+
+                                            _prefix = 'ipv4-ospf-cfg'
+                                            _revision = '2015-11-09'
+
+                                            def __init__(self):
+                                                self.parent = None
+                                                self.candidate_interfaces = Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.FastReroute.PerLink.CandidateInterfaces()
+                                                self.candidate_interfaces.parent = self
+                                                self.exclude_interfaces = Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.FastReroute.PerLink.ExcludeInterfaces()
+                                                self.exclude_interfaces.parent = self
+                                                self.fast_reroute_use_candidate_only = None
+
+
+                                            class CandidateInterfaces(object):
+                                                """
+                                                Fast\-reroute per\-link/per\-prefix candidate
+                                                interface configuration
+                                                
+                                                .. attribute:: candidate_interface
+                                                
+                                                	Candidate backup interface
+                                                	**type**\: list of  :py:class:`CandidateInterface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_cfg.Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.FastReroute.PerLink.CandidateInterfaces.CandidateInterface>`
+                                                
+                                                
+
+                                                """
+
+                                                _prefix = 'ipv4-ospf-cfg'
+                                                _revision = '2015-11-09'
+
+                                                def __init__(self):
+                                                    self.parent = None
+                                                    self.candidate_interface = YList()
+                                                    self.candidate_interface.parent = self
+                                                    self.candidate_interface.name = 'candidate_interface'
+
+
+                                                class CandidateInterface(object):
+                                                    """
+                                                    Candidate backup interface
+                                                    
+                                                    .. attribute:: interface_name  <key>
+                                                    
+                                                    	Interface
+                                                    	**type**\:  str
+                                                    
+                                                    	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+                                                    
+                                                    
+
+                                                    """
+
+                                                    _prefix = 'ipv4-ospf-cfg'
+                                                    _revision = '2015-11-09'
+
+                                                    def __init__(self):
+                                                        self.parent = None
+                                                        self.interface_name = None
+
+                                                    @property
+                                                    def _common_path(self):
+                                                        if self.parent is None:
+                                                            raise YPYModelError('parent is not set . Cannot derive path.')
+                                                        if self.interface_name is None:
+                                                            raise YPYModelError('Key property interface_name is None')
+
+                                                        return self.parent._common_path +'/Cisco-IOS-XR-ipv4-ospf-cfg:candidate-interface[Cisco-IOS-XR-ipv4-ospf-cfg:interface-name = ' + str(self.interface_name) + ']'
+
+                                                    def is_config(self):
+                                                        ''' Returns True if this instance represents config data else returns False '''
+                                                        return True
+
+                                                    def _has_data(self):
+                                                        if not self.is_config():
+                                                            return False
+                                                        if self.interface_name is not None:
+                                                            return True
+
+                                                        return False
+
+                                                    @staticmethod
+                                                    def _meta_info():
+                                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_ospf_cfg as meta
+                                                        return meta._meta_table['Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.FastReroute.PerLink.CandidateInterfaces.CandidateInterface']['meta_info']
+
+                                                @property
+                                                def _common_path(self):
+                                                    if self.parent is None:
+                                                        raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                                    return self.parent._common_path +'/Cisco-IOS-XR-ipv4-ospf-cfg:candidate-interfaces'
+
+                                                def is_config(self):
+                                                    ''' Returns True if this instance represents config data else returns False '''
+                                                    return True
+
+                                                def _has_data(self):
+                                                    if not self.is_config():
+                                                        return False
+                                                    if self.candidate_interface is not None:
+                                                        for child_ref in self.candidate_interface:
+                                                            if child_ref._has_data():
+                                                                return True
+
+                                                    return False
+
+                                                @staticmethod
+                                                def _meta_info():
+                                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_ospf_cfg as meta
+                                                    return meta._meta_table['Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.FastReroute.PerLink.CandidateInterfaces']['meta_info']
+
+
+                                            class ExcludeInterfaces(object):
+                                                """
+                                                Fast\-reroute per\-link/per\-prefix or UCMP exclude
+                                                interface configuration
+                                                
+                                                .. attribute:: exclude_interface
+                                                
+                                                	Exclude an interface from becoming a backup or UCMP
+                                                	**type**\: list of  :py:class:`ExcludeInterface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_cfg.Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.FastReroute.PerLink.ExcludeInterfaces.ExcludeInterface>`
+                                                
+                                                
+
+                                                """
+
+                                                _prefix = 'ipv4-ospf-cfg'
+                                                _revision = '2015-11-09'
+
+                                                def __init__(self):
+                                                    self.parent = None
+                                                    self.exclude_interface = YList()
+                                                    self.exclude_interface.parent = self
+                                                    self.exclude_interface.name = 'exclude_interface'
+
+
+                                                class ExcludeInterface(object):
+                                                    """
+                                                    Exclude an interface from becoming a backup or
+                                                    UCMP
+                                                    
+                                                    .. attribute:: interface_name  <key>
+                                                    
+                                                    	Interface
+                                                    	**type**\:  str
+                                                    
+                                                    	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+                                                    
+                                                    
+
+                                                    """
+
+                                                    _prefix = 'ipv4-ospf-cfg'
+                                                    _revision = '2015-11-09'
+
+                                                    def __init__(self):
+                                                        self.parent = None
+                                                        self.interface_name = None
+
+                                                    @property
+                                                    def _common_path(self):
+                                                        if self.parent is None:
+                                                            raise YPYModelError('parent is not set . Cannot derive path.')
+                                                        if self.interface_name is None:
+                                                            raise YPYModelError('Key property interface_name is None')
+
+                                                        return self.parent._common_path +'/Cisco-IOS-XR-ipv4-ospf-cfg:exclude-interface[Cisco-IOS-XR-ipv4-ospf-cfg:interface-name = ' + str(self.interface_name) + ']'
+
+                                                    def is_config(self):
+                                                        ''' Returns True if this instance represents config data else returns False '''
+                                                        return True
+
+                                                    def _has_data(self):
+                                                        if not self.is_config():
+                                                            return False
+                                                        if self.interface_name is not None:
+                                                            return True
+
+                                                        return False
+
+                                                    @staticmethod
+                                                    def _meta_info():
+                                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_ospf_cfg as meta
+                                                        return meta._meta_table['Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.FastReroute.PerLink.ExcludeInterfaces.ExcludeInterface']['meta_info']
+
+                                                @property
+                                                def _common_path(self):
+                                                    if self.parent is None:
+                                                        raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                                    return self.parent._common_path +'/Cisco-IOS-XR-ipv4-ospf-cfg:exclude-interfaces'
+
+                                                def is_config(self):
+                                                    ''' Returns True if this instance represents config data else returns False '''
+                                                    return True
+
+                                                def _has_data(self):
+                                                    if not self.is_config():
+                                                        return False
+                                                    if self.exclude_interface is not None:
+                                                        for child_ref in self.exclude_interface:
+                                                            if child_ref._has_data():
+                                                                return True
+
+                                                    return False
+
+                                                @staticmethod
+                                                def _meta_info():
+                                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_ospf_cfg as meta
+                                                    return meta._meta_table['Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.FastReroute.PerLink.ExcludeInterfaces']['meta_info']
+
+                                            @property
+                                            def _common_path(self):
+                                                if self.parent is None:
+                                                    raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                                return self.parent._common_path +'/Cisco-IOS-XR-ipv4-ospf-cfg:per-link'
+
+                                            def is_config(self):
+                                                ''' Returns True if this instance represents config data else returns False '''
+                                                return True
+
+                                            def _has_data(self):
+                                                if not self.is_config():
+                                                    return False
+                                                if self.candidate_interfaces is not None and self.candidate_interfaces._has_data():
+                                                    return True
+
+                                                if self.exclude_interfaces is not None and self.exclude_interfaces._has_data():
+                                                    return True
+
+                                                if self.fast_reroute_use_candidate_only is not None:
+                                                    return True
+
+                                                return False
+
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_ospf_cfg as meta
+                                                return meta._meta_table['Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.FastReroute.PerLink']['meta_info']
+
+
+                                        class PerPrefix(object):
+                                            """
+                                            Fast\-reroute per\-prefix global configuration
+                                            
+                                            .. attribute:: candidate_interfaces
+                                            
+                                            	Fast\-reroute per\-link/per\-prefix candidate interface configuration
+                                            	**type**\:  :py:class:`CandidateInterfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_cfg.Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.FastReroute.PerPrefix.CandidateInterfaces>`
+                                            
+                                            .. attribute:: exclude_interfaces
+                                            
+                                            	Fast\-reroute per\-link/per\-prefix or UCMP exclude interface configuration
+                                            	**type**\:  :py:class:`ExcludeInterfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_cfg.Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.FastReroute.PerPrefix.ExcludeInterfaces>`
+                                            
+                                            .. attribute:: fast_reroute_use_candidate_only
+                                            
+                                            	Use only interfaces on the candidate list as a backup path
+                                            	**type**\:  bool
+                                            
+                                            .. attribute:: remote_lfa
+                                            
+                                            	Remote LFA configuration
+                                            	**type**\:  :py:class:`RemoteLfa <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_cfg.Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.FastReroute.PerPrefix.RemoteLfa>`
+                                            
+                                            .. attribute:: tiebreakers
+                                            
+                                            	Fast\-reroute tiebreakers configurations
+                                            	**type**\:  :py:class:`Tiebreakers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_cfg.Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.FastReroute.PerPrefix.Tiebreakers>`
+                                            
+                                            .. attribute:: topology_independent_lfa
+                                            
+                                            	Topology Independet LFA configuration
+                                            	**type**\:  bool
+                                            
+                                            
+
+                                            """
+
+                                            _prefix = 'ipv4-ospf-cfg'
+                                            _revision = '2015-11-09'
+
+                                            def __init__(self):
+                                                self.parent = None
+                                                self.candidate_interfaces = Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.FastReroute.PerPrefix.CandidateInterfaces()
+                                                self.candidate_interfaces.parent = self
+                                                self.exclude_interfaces = Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.FastReroute.PerPrefix.ExcludeInterfaces()
+                                                self.exclude_interfaces.parent = self
+                                                self.fast_reroute_use_candidate_only = None
+                                                self.remote_lfa = Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.FastReroute.PerPrefix.RemoteLfa()
+                                                self.remote_lfa.parent = self
+                                                self.tiebreakers = Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.FastReroute.PerPrefix.Tiebreakers()
+                                                self.tiebreakers.parent = self
+                                                self.topology_independent_lfa = None
+
+
+                                            class RemoteLfa(object):
+                                                """
+                                                Remote LFA configuration
+                                                
+                                                .. attribute:: maximum_cost
+                                                
+                                                	Maximum path cost to remote LFA
+                                                	**type**\:  int
+                                                
+                                                	**range:** 1..4294967295
+                                                
+                                                .. attribute:: tunnel
+                                                
+                                                	Enable/Disable remote LFA computation
+                                                	**type**\:  :py:class:`OspfFrrRlfaTunnelEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_cfg.OspfFrrRlfaTunnelEnum>`
+                                                
+                                                
+
+                                                """
+
+                                                _prefix = 'ipv4-ospf-cfg'
+                                                _revision = '2015-11-09'
+
+                                                def __init__(self):
+                                                    self.parent = None
+                                                    self.maximum_cost = None
+                                                    self.tunnel = None
+
+                                                @property
+                                                def _common_path(self):
+                                                    if self.parent is None:
+                                                        raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                                    return self.parent._common_path +'/Cisco-IOS-XR-ipv4-ospf-cfg:remote-lfa'
+
+                                                def is_config(self):
+                                                    ''' Returns True if this instance represents config data else returns False '''
+                                                    return True
+
+                                                def _has_data(self):
+                                                    if not self.is_config():
+                                                        return False
+                                                    if self.maximum_cost is not None:
+                                                        return True
+
+                                                    if self.tunnel is not None:
+                                                        return True
+
+                                                    return False
+
+                                                @staticmethod
+                                                def _meta_info():
+                                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_ospf_cfg as meta
+                                                    return meta._meta_table['Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.FastReroute.PerPrefix.RemoteLfa']['meta_info']
+
+
+                                            class Tiebreakers(object):
+                                                """
+                                                Fast\-reroute tiebreakers configurations
+                                                
+                                                .. attribute:: tiebreaker
+                                                
+                                                	Fast\-reroute tiebreakers configuration
+                                                	**type**\: list of  :py:class:`Tiebreaker <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_cfg.Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.FastReroute.PerPrefix.Tiebreakers.Tiebreaker>`
+                                                
+                                                
+
+                                                """
+
+                                                _prefix = 'ipv4-ospf-cfg'
+                                                _revision = '2015-11-09'
+
+                                                def __init__(self):
+                                                    self.parent = None
+                                                    self.tiebreaker = YList()
+                                                    self.tiebreaker.parent = self
+                                                    self.tiebreaker.name = 'tiebreaker'
+
+
+                                                class Tiebreaker(object):
+                                                    """
+                                                    Fast\-reroute tiebreakers configuration
+                                                    
+                                                    .. attribute:: tiebreaker_type  <key>
+                                                    
+                                                    	Tiebreaker type
+                                                    	**type**\:  :py:class:`OspfFastRerouteTiebreakersIntfEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_cfg.OspfFastRerouteTiebreakersIntfEnum>`
+                                                    
+                                                    .. attribute:: tiebreaker_index
+                                                    
+                                                    	Index value for a tiebreaker, 0 to disable
+                                                    	**type**\:  int
+                                                    
+                                                    	**range:** 0..255
+                                                    
+                                                    	**mandatory**\: True
+                                                    
+                                                    
+
+                                                    """
+
+                                                    _prefix = 'ipv4-ospf-cfg'
+                                                    _revision = '2015-11-09'
+
+                                                    def __init__(self):
+                                                        self.parent = None
+                                                        self.tiebreaker_type = None
+                                                        self.tiebreaker_index = None
+
+                                                    @property
+                                                    def _common_path(self):
+                                                        if self.parent is None:
+                                                            raise YPYModelError('parent is not set . Cannot derive path.')
+                                                        if self.tiebreaker_type is None:
+                                                            raise YPYModelError('Key property tiebreaker_type is None')
+
+                                                        return self.parent._common_path +'/Cisco-IOS-XR-ipv4-ospf-cfg:tiebreaker[Cisco-IOS-XR-ipv4-ospf-cfg:tiebreaker-type = ' + str(self.tiebreaker_type) + ']'
+
+                                                    def is_config(self):
+                                                        ''' Returns True if this instance represents config data else returns False '''
+                                                        return True
+
+                                                    def _has_data(self):
+                                                        if not self.is_config():
+                                                            return False
+                                                        if self.tiebreaker_type is not None:
+                                                            return True
+
+                                                        if self.tiebreaker_index is not None:
+                                                            return True
+
+                                                        return False
+
+                                                    @staticmethod
+                                                    def _meta_info():
+                                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_ospf_cfg as meta
+                                                        return meta._meta_table['Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.FastReroute.PerPrefix.Tiebreakers.Tiebreaker']['meta_info']
+
+                                                @property
+                                                def _common_path(self):
+                                                    if self.parent is None:
+                                                        raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                                    return self.parent._common_path +'/Cisco-IOS-XR-ipv4-ospf-cfg:tiebreakers'
+
+                                                def is_config(self):
+                                                    ''' Returns True if this instance represents config data else returns False '''
+                                                    return True
+
+                                                def _has_data(self):
+                                                    if not self.is_config():
+                                                        return False
+                                                    if self.tiebreaker is not None:
+                                                        for child_ref in self.tiebreaker:
+                                                            if child_ref._has_data():
+                                                                return True
+
+                                                    return False
+
+                                                @staticmethod
+                                                def _meta_info():
+                                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_ospf_cfg as meta
+                                                    return meta._meta_table['Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.FastReroute.PerPrefix.Tiebreakers']['meta_info']
+
+
+                                            class CandidateInterfaces(object):
+                                                """
+                                                Fast\-reroute per\-link/per\-prefix candidate
+                                                interface configuration
+                                                
+                                                .. attribute:: candidate_interface
+                                                
+                                                	Candidate backup interface
+                                                	**type**\: list of  :py:class:`CandidateInterface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_cfg.Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.FastReroute.PerPrefix.CandidateInterfaces.CandidateInterface>`
+                                                
+                                                
+
+                                                """
+
+                                                _prefix = 'ipv4-ospf-cfg'
+                                                _revision = '2015-11-09'
+
+                                                def __init__(self):
+                                                    self.parent = None
+                                                    self.candidate_interface = YList()
+                                                    self.candidate_interface.parent = self
+                                                    self.candidate_interface.name = 'candidate_interface'
+
+
+                                                class CandidateInterface(object):
+                                                    """
+                                                    Candidate backup interface
+                                                    
+                                                    .. attribute:: interface_name  <key>
+                                                    
+                                                    	Interface
+                                                    	**type**\:  str
+                                                    
+                                                    	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+                                                    
+                                                    
+
+                                                    """
+
+                                                    _prefix = 'ipv4-ospf-cfg'
+                                                    _revision = '2015-11-09'
+
+                                                    def __init__(self):
+                                                        self.parent = None
+                                                        self.interface_name = None
+
+                                                    @property
+                                                    def _common_path(self):
+                                                        if self.parent is None:
+                                                            raise YPYModelError('parent is not set . Cannot derive path.')
+                                                        if self.interface_name is None:
+                                                            raise YPYModelError('Key property interface_name is None')
+
+                                                        return self.parent._common_path +'/Cisco-IOS-XR-ipv4-ospf-cfg:candidate-interface[Cisco-IOS-XR-ipv4-ospf-cfg:interface-name = ' + str(self.interface_name) + ']'
+
+                                                    def is_config(self):
+                                                        ''' Returns True if this instance represents config data else returns False '''
+                                                        return True
+
+                                                    def _has_data(self):
+                                                        if not self.is_config():
+                                                            return False
+                                                        if self.interface_name is not None:
+                                                            return True
+
+                                                        return False
+
+                                                    @staticmethod
+                                                    def _meta_info():
+                                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_ospf_cfg as meta
+                                                        return meta._meta_table['Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.FastReroute.PerPrefix.CandidateInterfaces.CandidateInterface']['meta_info']
+
+                                                @property
+                                                def _common_path(self):
+                                                    if self.parent is None:
+                                                        raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                                    return self.parent._common_path +'/Cisco-IOS-XR-ipv4-ospf-cfg:candidate-interfaces'
+
+                                                def is_config(self):
+                                                    ''' Returns True if this instance represents config data else returns False '''
+                                                    return True
+
+                                                def _has_data(self):
+                                                    if not self.is_config():
+                                                        return False
+                                                    if self.candidate_interface is not None:
+                                                        for child_ref in self.candidate_interface:
+                                                            if child_ref._has_data():
+                                                                return True
+
+                                                    return False
+
+                                                @staticmethod
+                                                def _meta_info():
+                                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_ospf_cfg as meta
+                                                    return meta._meta_table['Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.FastReroute.PerPrefix.CandidateInterfaces']['meta_info']
+
+
+                                            class ExcludeInterfaces(object):
+                                                """
+                                                Fast\-reroute per\-link/per\-prefix or UCMP exclude
+                                                interface configuration
+                                                
+                                                .. attribute:: exclude_interface
+                                                
+                                                	Exclude an interface from becoming a backup or UCMP
+                                                	**type**\: list of  :py:class:`ExcludeInterface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_cfg.Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.FastReroute.PerPrefix.ExcludeInterfaces.ExcludeInterface>`
+                                                
+                                                
+
+                                                """
+
+                                                _prefix = 'ipv4-ospf-cfg'
+                                                _revision = '2015-11-09'
+
+                                                def __init__(self):
+                                                    self.parent = None
+                                                    self.exclude_interface = YList()
+                                                    self.exclude_interface.parent = self
+                                                    self.exclude_interface.name = 'exclude_interface'
+
+
+                                                class ExcludeInterface(object):
+                                                    """
+                                                    Exclude an interface from becoming a backup or
+                                                    UCMP
+                                                    
+                                                    .. attribute:: interface_name  <key>
+                                                    
+                                                    	Interface
+                                                    	**type**\:  str
+                                                    
+                                                    	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+                                                    
+                                                    
+
+                                                    """
+
+                                                    _prefix = 'ipv4-ospf-cfg'
+                                                    _revision = '2015-11-09'
+
+                                                    def __init__(self):
+                                                        self.parent = None
+                                                        self.interface_name = None
+
+                                                    @property
+                                                    def _common_path(self):
+                                                        if self.parent is None:
+                                                            raise YPYModelError('parent is not set . Cannot derive path.')
+                                                        if self.interface_name is None:
+                                                            raise YPYModelError('Key property interface_name is None')
+
+                                                        return self.parent._common_path +'/Cisco-IOS-XR-ipv4-ospf-cfg:exclude-interface[Cisco-IOS-XR-ipv4-ospf-cfg:interface-name = ' + str(self.interface_name) + ']'
+
+                                                    def is_config(self):
+                                                        ''' Returns True if this instance represents config data else returns False '''
+                                                        return True
+
+                                                    def _has_data(self):
+                                                        if not self.is_config():
+                                                            return False
+                                                        if self.interface_name is not None:
+                                                            return True
+
+                                                        return False
+
+                                                    @staticmethod
+                                                    def _meta_info():
+                                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_ospf_cfg as meta
+                                                        return meta._meta_table['Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.FastReroute.PerPrefix.ExcludeInterfaces.ExcludeInterface']['meta_info']
+
+                                                @property
+                                                def _common_path(self):
+                                                    if self.parent is None:
+                                                        raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                                    return self.parent._common_path +'/Cisco-IOS-XR-ipv4-ospf-cfg:exclude-interfaces'
+
+                                                def is_config(self):
+                                                    ''' Returns True if this instance represents config data else returns False '''
+                                                    return True
+
+                                                def _has_data(self):
+                                                    if not self.is_config():
+                                                        return False
+                                                    if self.exclude_interface is not None:
+                                                        for child_ref in self.exclude_interface:
+                                                            if child_ref._has_data():
+                                                                return True
+
+                                                    return False
+
+                                                @staticmethod
+                                                def _meta_info():
+                                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_ospf_cfg as meta
+                                                    return meta._meta_table['Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.FastReroute.PerPrefix.ExcludeInterfaces']['meta_info']
+
+                                            @property
+                                            def _common_path(self):
+                                                if self.parent is None:
+                                                    raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                                return self.parent._common_path +'/Cisco-IOS-XR-ipv4-ospf-cfg:per-prefix'
+
+                                            def is_config(self):
+                                                ''' Returns True if this instance represents config data else returns False '''
+                                                return True
+
+                                            def _has_data(self):
+                                                if not self.is_config():
+                                                    return False
+                                                if self.candidate_interfaces is not None and self.candidate_interfaces._has_data():
+                                                    return True
+
+                                                if self.exclude_interfaces is not None and self.exclude_interfaces._has_data():
+                                                    return True
+
+                                                if self.fast_reroute_use_candidate_only is not None:
+                                                    return True
+
+                                                if self.remote_lfa is not None and self.remote_lfa._has_data():
+                                                    return True
+
+                                                if self.tiebreakers is not None and self.tiebreakers._has_data():
+                                                    return True
+
+                                                if self.topology_independent_lfa is not None:
+                                                    return True
+
+                                                return False
+
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_ospf_cfg as meta
+                                                return meta._meta_table['Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.FastReroute.PerPrefix']['meta_info']
+
+                                        @property
+                                        def _common_path(self):
+                                            if self.parent is None:
+                                                raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                            return self.parent._common_path +'/Cisco-IOS-XR-ipv4-ospf-cfg:fast-reroute'
+
+                                        def is_config(self):
+                                            ''' Returns True if this instance represents config data else returns False '''
+                                            return True
+
+                                        def _has_data(self):
+                                            if not self.is_config():
+                                                return False
+                                            if self.fast_reroute_enable is not None:
+                                                return True
+
+                                            if self.per_link is not None and self.per_link._has_data():
+                                                return True
+
+                                            if self.per_prefix is not None and self.per_prefix._has_data():
+                                                return True
+
+                                            return False
+
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_ospf_cfg as meta
+                                            return meta._meta_table['Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.FastReroute']['meta_info']
+
+
                                     class CostFallback(object):
                                         """
                                         Interface fallback cost
@@ -17020,6 +18661,12 @@ class Ospf(object):
                                         if self.prefix_sid is not None and self.prefix_sid._has_data():
                                             return True
 
+                                        if self.prefix_sid_strict is not None and self.prefix_sid_strict._has_data():
+                                            return True
+
+                                        if self.prefix_suppression_primary is not None:
+                                            return True
+
                                         if self.prefix_suppression_secondary is not None:
                                             return True
 
@@ -17107,7 +18754,7 @@ class Ospf(object):
                                     	Name of Multi Area Interface to configure
                                     	**type**\:  str
                                     
-                                    	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+                                    	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
                                     
                                     .. attribute:: authentication
                                     
@@ -17140,6 +18787,11 @@ class Ospf(object):
                                     
                                     	Filter networks intalled to RIB (disable as ACL name means filtering is disabled)
                                     	**type**\:  :py:class:`DistributeList <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_cfg.Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.DistributeList>`
+                                    
+                                    .. attribute:: fast_reroute
+                                    
+                                    	Fast\-reroute configuration
+                                    	**type**\:  :py:class:`FastReroute <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_cfg.Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.FastReroute>`
                                     
                                     .. attribute:: hello_interval
                                     
@@ -17208,6 +18860,8 @@ class Ospf(object):
                                         self.dead_interval_minimal = Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.DeadIntervalMinimal()
                                         self.dead_interval_minimal.parent = self
                                         self.distribute_list = None
+                                        self.fast_reroute = Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.FastReroute()
+                                        self.fast_reroute.parent = self
                                         self.hello_interval = None
                                         self.mtu_ignore = None
                                         self.neighbors = Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.Neighbors()
@@ -17726,6 +19380,793 @@ class Ospf(object):
                                             return meta._meta_table['Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.DeadIntervalMinimal']['meta_info']
 
 
+                                    class FastReroute(object):
+                                        """
+                                        Fast\-reroute configuration
+                                        
+                                        .. attribute:: fast_reroute_enable
+                                        
+                                        	Enable/Disable Fast\-reroute per\-link or per\-prefix
+                                        	**type**\:  :py:class:`OspfFastRerouteEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_cfg.OspfFastRerouteEnum>`
+                                        
+                                        .. attribute:: per_link
+                                        
+                                        	Fast\-reroute per\-link configuration
+                                        	**type**\:  :py:class:`PerLink <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_cfg.Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.FastReroute.PerLink>`
+                                        
+                                        .. attribute:: per_prefix
+                                        
+                                        	Fast\-reroute per\-prefix global configuration
+                                        	**type**\:  :py:class:`PerPrefix <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_cfg.Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.FastReroute.PerPrefix>`
+                                        
+                                        
+
+                                        """
+
+                                        _prefix = 'ipv4-ospf-cfg'
+                                        _revision = '2015-11-09'
+
+                                        def __init__(self):
+                                            self.parent = None
+                                            self.fast_reroute_enable = None
+                                            self.per_link = Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.FastReroute.PerLink()
+                                            self.per_link.parent = self
+                                            self.per_prefix = Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.FastReroute.PerPrefix()
+                                            self.per_prefix.parent = self
+
+
+                                        class PerLink(object):
+                                            """
+                                            Fast\-reroute per\-link configuration
+                                            
+                                            .. attribute:: candidate_interfaces
+                                            
+                                            	Fast\-reroute per\-link/per\-prefix candidate interface configuration
+                                            	**type**\:  :py:class:`CandidateInterfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_cfg.Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.FastReroute.PerLink.CandidateInterfaces>`
+                                            
+                                            .. attribute:: exclude_interfaces
+                                            
+                                            	Fast\-reroute per\-link/per\-prefix or UCMP exclude interface configuration
+                                            	**type**\:  :py:class:`ExcludeInterfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_cfg.Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.FastReroute.PerLink.ExcludeInterfaces>`
+                                            
+                                            .. attribute:: fast_reroute_use_candidate_only
+                                            
+                                            	Use only interfaces on the candidate list as a backup path
+                                            	**type**\:  bool
+                                            
+                                            
+
+                                            """
+
+                                            _prefix = 'ipv4-ospf-cfg'
+                                            _revision = '2015-11-09'
+
+                                            def __init__(self):
+                                                self.parent = None
+                                                self.candidate_interfaces = Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.FastReroute.PerLink.CandidateInterfaces()
+                                                self.candidate_interfaces.parent = self
+                                                self.exclude_interfaces = Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.FastReroute.PerLink.ExcludeInterfaces()
+                                                self.exclude_interfaces.parent = self
+                                                self.fast_reroute_use_candidate_only = None
+
+
+                                            class CandidateInterfaces(object):
+                                                """
+                                                Fast\-reroute per\-link/per\-prefix candidate
+                                                interface configuration
+                                                
+                                                .. attribute:: candidate_interface
+                                                
+                                                	Candidate backup interface
+                                                	**type**\: list of  :py:class:`CandidateInterface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_cfg.Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.FastReroute.PerLink.CandidateInterfaces.CandidateInterface>`
+                                                
+                                                
+
+                                                """
+
+                                                _prefix = 'ipv4-ospf-cfg'
+                                                _revision = '2015-11-09'
+
+                                                def __init__(self):
+                                                    self.parent = None
+                                                    self.candidate_interface = YList()
+                                                    self.candidate_interface.parent = self
+                                                    self.candidate_interface.name = 'candidate_interface'
+
+
+                                                class CandidateInterface(object):
+                                                    """
+                                                    Candidate backup interface
+                                                    
+                                                    .. attribute:: interface_name  <key>
+                                                    
+                                                    	Interface
+                                                    	**type**\:  str
+                                                    
+                                                    	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+                                                    
+                                                    
+
+                                                    """
+
+                                                    _prefix = 'ipv4-ospf-cfg'
+                                                    _revision = '2015-11-09'
+
+                                                    def __init__(self):
+                                                        self.parent = None
+                                                        self.interface_name = None
+
+                                                    @property
+                                                    def _common_path(self):
+                                                        if self.parent is None:
+                                                            raise YPYModelError('parent is not set . Cannot derive path.')
+                                                        if self.interface_name is None:
+                                                            raise YPYModelError('Key property interface_name is None')
+
+                                                        return self.parent._common_path +'/Cisco-IOS-XR-ipv4-ospf-cfg:candidate-interface[Cisco-IOS-XR-ipv4-ospf-cfg:interface-name = ' + str(self.interface_name) + ']'
+
+                                                    def is_config(self):
+                                                        ''' Returns True if this instance represents config data else returns False '''
+                                                        return True
+
+                                                    def _has_data(self):
+                                                        if not self.is_config():
+                                                            return False
+                                                        if self.interface_name is not None:
+                                                            return True
+
+                                                        return False
+
+                                                    @staticmethod
+                                                    def _meta_info():
+                                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_ospf_cfg as meta
+                                                        return meta._meta_table['Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.FastReroute.PerLink.CandidateInterfaces.CandidateInterface']['meta_info']
+
+                                                @property
+                                                def _common_path(self):
+                                                    if self.parent is None:
+                                                        raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                                    return self.parent._common_path +'/Cisco-IOS-XR-ipv4-ospf-cfg:candidate-interfaces'
+
+                                                def is_config(self):
+                                                    ''' Returns True if this instance represents config data else returns False '''
+                                                    return True
+
+                                                def _has_data(self):
+                                                    if not self.is_config():
+                                                        return False
+                                                    if self.candidate_interface is not None:
+                                                        for child_ref in self.candidate_interface:
+                                                            if child_ref._has_data():
+                                                                return True
+
+                                                    return False
+
+                                                @staticmethod
+                                                def _meta_info():
+                                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_ospf_cfg as meta
+                                                    return meta._meta_table['Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.FastReroute.PerLink.CandidateInterfaces']['meta_info']
+
+
+                                            class ExcludeInterfaces(object):
+                                                """
+                                                Fast\-reroute per\-link/per\-prefix or UCMP exclude
+                                                interface configuration
+                                                
+                                                .. attribute:: exclude_interface
+                                                
+                                                	Exclude an interface from becoming a backup or UCMP
+                                                	**type**\: list of  :py:class:`ExcludeInterface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_cfg.Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.FastReroute.PerLink.ExcludeInterfaces.ExcludeInterface>`
+                                                
+                                                
+
+                                                """
+
+                                                _prefix = 'ipv4-ospf-cfg'
+                                                _revision = '2015-11-09'
+
+                                                def __init__(self):
+                                                    self.parent = None
+                                                    self.exclude_interface = YList()
+                                                    self.exclude_interface.parent = self
+                                                    self.exclude_interface.name = 'exclude_interface'
+
+
+                                                class ExcludeInterface(object):
+                                                    """
+                                                    Exclude an interface from becoming a backup or
+                                                    UCMP
+                                                    
+                                                    .. attribute:: interface_name  <key>
+                                                    
+                                                    	Interface
+                                                    	**type**\:  str
+                                                    
+                                                    	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+                                                    
+                                                    
+
+                                                    """
+
+                                                    _prefix = 'ipv4-ospf-cfg'
+                                                    _revision = '2015-11-09'
+
+                                                    def __init__(self):
+                                                        self.parent = None
+                                                        self.interface_name = None
+
+                                                    @property
+                                                    def _common_path(self):
+                                                        if self.parent is None:
+                                                            raise YPYModelError('parent is not set . Cannot derive path.')
+                                                        if self.interface_name is None:
+                                                            raise YPYModelError('Key property interface_name is None')
+
+                                                        return self.parent._common_path +'/Cisco-IOS-XR-ipv4-ospf-cfg:exclude-interface[Cisco-IOS-XR-ipv4-ospf-cfg:interface-name = ' + str(self.interface_name) + ']'
+
+                                                    def is_config(self):
+                                                        ''' Returns True if this instance represents config data else returns False '''
+                                                        return True
+
+                                                    def _has_data(self):
+                                                        if not self.is_config():
+                                                            return False
+                                                        if self.interface_name is not None:
+                                                            return True
+
+                                                        return False
+
+                                                    @staticmethod
+                                                    def _meta_info():
+                                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_ospf_cfg as meta
+                                                        return meta._meta_table['Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.FastReroute.PerLink.ExcludeInterfaces.ExcludeInterface']['meta_info']
+
+                                                @property
+                                                def _common_path(self):
+                                                    if self.parent is None:
+                                                        raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                                    return self.parent._common_path +'/Cisco-IOS-XR-ipv4-ospf-cfg:exclude-interfaces'
+
+                                                def is_config(self):
+                                                    ''' Returns True if this instance represents config data else returns False '''
+                                                    return True
+
+                                                def _has_data(self):
+                                                    if not self.is_config():
+                                                        return False
+                                                    if self.exclude_interface is not None:
+                                                        for child_ref in self.exclude_interface:
+                                                            if child_ref._has_data():
+                                                                return True
+
+                                                    return False
+
+                                                @staticmethod
+                                                def _meta_info():
+                                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_ospf_cfg as meta
+                                                    return meta._meta_table['Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.FastReroute.PerLink.ExcludeInterfaces']['meta_info']
+
+                                            @property
+                                            def _common_path(self):
+                                                if self.parent is None:
+                                                    raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                                return self.parent._common_path +'/Cisco-IOS-XR-ipv4-ospf-cfg:per-link'
+
+                                            def is_config(self):
+                                                ''' Returns True if this instance represents config data else returns False '''
+                                                return True
+
+                                            def _has_data(self):
+                                                if not self.is_config():
+                                                    return False
+                                                if self.candidate_interfaces is not None and self.candidate_interfaces._has_data():
+                                                    return True
+
+                                                if self.exclude_interfaces is not None and self.exclude_interfaces._has_data():
+                                                    return True
+
+                                                if self.fast_reroute_use_candidate_only is not None:
+                                                    return True
+
+                                                return False
+
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_ospf_cfg as meta
+                                                return meta._meta_table['Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.FastReroute.PerLink']['meta_info']
+
+
+                                        class PerPrefix(object):
+                                            """
+                                            Fast\-reroute per\-prefix global configuration
+                                            
+                                            .. attribute:: candidate_interfaces
+                                            
+                                            	Fast\-reroute per\-link/per\-prefix candidate interface configuration
+                                            	**type**\:  :py:class:`CandidateInterfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_cfg.Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.FastReroute.PerPrefix.CandidateInterfaces>`
+                                            
+                                            .. attribute:: exclude_interfaces
+                                            
+                                            	Fast\-reroute per\-link/per\-prefix or UCMP exclude interface configuration
+                                            	**type**\:  :py:class:`ExcludeInterfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_cfg.Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.FastReroute.PerPrefix.ExcludeInterfaces>`
+                                            
+                                            .. attribute:: fast_reroute_use_candidate_only
+                                            
+                                            	Use only interfaces on the candidate list as a backup path
+                                            	**type**\:  bool
+                                            
+                                            .. attribute:: remote_lfa
+                                            
+                                            	Remote LFA configuration
+                                            	**type**\:  :py:class:`RemoteLfa <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_cfg.Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.FastReroute.PerPrefix.RemoteLfa>`
+                                            
+                                            .. attribute:: tiebreakers
+                                            
+                                            	Fast\-reroute tiebreakers configurations
+                                            	**type**\:  :py:class:`Tiebreakers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_cfg.Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.FastReroute.PerPrefix.Tiebreakers>`
+                                            
+                                            .. attribute:: topology_independent_lfa
+                                            
+                                            	Topology Independet LFA configuration
+                                            	**type**\:  bool
+                                            
+                                            
+
+                                            """
+
+                                            _prefix = 'ipv4-ospf-cfg'
+                                            _revision = '2015-11-09'
+
+                                            def __init__(self):
+                                                self.parent = None
+                                                self.candidate_interfaces = Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.FastReroute.PerPrefix.CandidateInterfaces()
+                                                self.candidate_interfaces.parent = self
+                                                self.exclude_interfaces = Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.FastReroute.PerPrefix.ExcludeInterfaces()
+                                                self.exclude_interfaces.parent = self
+                                                self.fast_reroute_use_candidate_only = None
+                                                self.remote_lfa = Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.FastReroute.PerPrefix.RemoteLfa()
+                                                self.remote_lfa.parent = self
+                                                self.tiebreakers = Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.FastReroute.PerPrefix.Tiebreakers()
+                                                self.tiebreakers.parent = self
+                                                self.topology_independent_lfa = None
+
+
+                                            class RemoteLfa(object):
+                                                """
+                                                Remote LFA configuration
+                                                
+                                                .. attribute:: maximum_cost
+                                                
+                                                	Maximum path cost to remote LFA
+                                                	**type**\:  int
+                                                
+                                                	**range:** 1..4294967295
+                                                
+                                                .. attribute:: tunnel
+                                                
+                                                	Enable/Disable remote LFA computation
+                                                	**type**\:  :py:class:`OspfFrrRlfaTunnelEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_cfg.OspfFrrRlfaTunnelEnum>`
+                                                
+                                                
+
+                                                """
+
+                                                _prefix = 'ipv4-ospf-cfg'
+                                                _revision = '2015-11-09'
+
+                                                def __init__(self):
+                                                    self.parent = None
+                                                    self.maximum_cost = None
+                                                    self.tunnel = None
+
+                                                @property
+                                                def _common_path(self):
+                                                    if self.parent is None:
+                                                        raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                                    return self.parent._common_path +'/Cisco-IOS-XR-ipv4-ospf-cfg:remote-lfa'
+
+                                                def is_config(self):
+                                                    ''' Returns True if this instance represents config data else returns False '''
+                                                    return True
+
+                                                def _has_data(self):
+                                                    if not self.is_config():
+                                                        return False
+                                                    if self.maximum_cost is not None:
+                                                        return True
+
+                                                    if self.tunnel is not None:
+                                                        return True
+
+                                                    return False
+
+                                                @staticmethod
+                                                def _meta_info():
+                                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_ospf_cfg as meta
+                                                    return meta._meta_table['Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.FastReroute.PerPrefix.RemoteLfa']['meta_info']
+
+
+                                            class Tiebreakers(object):
+                                                """
+                                                Fast\-reroute tiebreakers configurations
+                                                
+                                                .. attribute:: tiebreaker
+                                                
+                                                	Fast\-reroute tiebreakers configuration
+                                                	**type**\: list of  :py:class:`Tiebreaker <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_cfg.Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.FastReroute.PerPrefix.Tiebreakers.Tiebreaker>`
+                                                
+                                                
+
+                                                """
+
+                                                _prefix = 'ipv4-ospf-cfg'
+                                                _revision = '2015-11-09'
+
+                                                def __init__(self):
+                                                    self.parent = None
+                                                    self.tiebreaker = YList()
+                                                    self.tiebreaker.parent = self
+                                                    self.tiebreaker.name = 'tiebreaker'
+
+
+                                                class Tiebreaker(object):
+                                                    """
+                                                    Fast\-reroute tiebreakers configuration
+                                                    
+                                                    .. attribute:: tiebreaker_type  <key>
+                                                    
+                                                    	Tiebreaker type
+                                                    	**type**\:  :py:class:`OspfFastRerouteTiebreakersIntfEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_cfg.OspfFastRerouteTiebreakersIntfEnum>`
+                                                    
+                                                    .. attribute:: tiebreaker_index
+                                                    
+                                                    	Index value for a tiebreaker, 0 to disable
+                                                    	**type**\:  int
+                                                    
+                                                    	**range:** 0..255
+                                                    
+                                                    	**mandatory**\: True
+                                                    
+                                                    
+
+                                                    """
+
+                                                    _prefix = 'ipv4-ospf-cfg'
+                                                    _revision = '2015-11-09'
+
+                                                    def __init__(self):
+                                                        self.parent = None
+                                                        self.tiebreaker_type = None
+                                                        self.tiebreaker_index = None
+
+                                                    @property
+                                                    def _common_path(self):
+                                                        if self.parent is None:
+                                                            raise YPYModelError('parent is not set . Cannot derive path.')
+                                                        if self.tiebreaker_type is None:
+                                                            raise YPYModelError('Key property tiebreaker_type is None')
+
+                                                        return self.parent._common_path +'/Cisco-IOS-XR-ipv4-ospf-cfg:tiebreaker[Cisco-IOS-XR-ipv4-ospf-cfg:tiebreaker-type = ' + str(self.tiebreaker_type) + ']'
+
+                                                    def is_config(self):
+                                                        ''' Returns True if this instance represents config data else returns False '''
+                                                        return True
+
+                                                    def _has_data(self):
+                                                        if not self.is_config():
+                                                            return False
+                                                        if self.tiebreaker_type is not None:
+                                                            return True
+
+                                                        if self.tiebreaker_index is not None:
+                                                            return True
+
+                                                        return False
+
+                                                    @staticmethod
+                                                    def _meta_info():
+                                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_ospf_cfg as meta
+                                                        return meta._meta_table['Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.FastReroute.PerPrefix.Tiebreakers.Tiebreaker']['meta_info']
+
+                                                @property
+                                                def _common_path(self):
+                                                    if self.parent is None:
+                                                        raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                                    return self.parent._common_path +'/Cisco-IOS-XR-ipv4-ospf-cfg:tiebreakers'
+
+                                                def is_config(self):
+                                                    ''' Returns True if this instance represents config data else returns False '''
+                                                    return True
+
+                                                def _has_data(self):
+                                                    if not self.is_config():
+                                                        return False
+                                                    if self.tiebreaker is not None:
+                                                        for child_ref in self.tiebreaker:
+                                                            if child_ref._has_data():
+                                                                return True
+
+                                                    return False
+
+                                                @staticmethod
+                                                def _meta_info():
+                                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_ospf_cfg as meta
+                                                    return meta._meta_table['Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.FastReroute.PerPrefix.Tiebreakers']['meta_info']
+
+
+                                            class CandidateInterfaces(object):
+                                                """
+                                                Fast\-reroute per\-link/per\-prefix candidate
+                                                interface configuration
+                                                
+                                                .. attribute:: candidate_interface
+                                                
+                                                	Candidate backup interface
+                                                	**type**\: list of  :py:class:`CandidateInterface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_cfg.Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.FastReroute.PerPrefix.CandidateInterfaces.CandidateInterface>`
+                                                
+                                                
+
+                                                """
+
+                                                _prefix = 'ipv4-ospf-cfg'
+                                                _revision = '2015-11-09'
+
+                                                def __init__(self):
+                                                    self.parent = None
+                                                    self.candidate_interface = YList()
+                                                    self.candidate_interface.parent = self
+                                                    self.candidate_interface.name = 'candidate_interface'
+
+
+                                                class CandidateInterface(object):
+                                                    """
+                                                    Candidate backup interface
+                                                    
+                                                    .. attribute:: interface_name  <key>
+                                                    
+                                                    	Interface
+                                                    	**type**\:  str
+                                                    
+                                                    	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+                                                    
+                                                    
+
+                                                    """
+
+                                                    _prefix = 'ipv4-ospf-cfg'
+                                                    _revision = '2015-11-09'
+
+                                                    def __init__(self):
+                                                        self.parent = None
+                                                        self.interface_name = None
+
+                                                    @property
+                                                    def _common_path(self):
+                                                        if self.parent is None:
+                                                            raise YPYModelError('parent is not set . Cannot derive path.')
+                                                        if self.interface_name is None:
+                                                            raise YPYModelError('Key property interface_name is None')
+
+                                                        return self.parent._common_path +'/Cisco-IOS-XR-ipv4-ospf-cfg:candidate-interface[Cisco-IOS-XR-ipv4-ospf-cfg:interface-name = ' + str(self.interface_name) + ']'
+
+                                                    def is_config(self):
+                                                        ''' Returns True if this instance represents config data else returns False '''
+                                                        return True
+
+                                                    def _has_data(self):
+                                                        if not self.is_config():
+                                                            return False
+                                                        if self.interface_name is not None:
+                                                            return True
+
+                                                        return False
+
+                                                    @staticmethod
+                                                    def _meta_info():
+                                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_ospf_cfg as meta
+                                                        return meta._meta_table['Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.FastReroute.PerPrefix.CandidateInterfaces.CandidateInterface']['meta_info']
+
+                                                @property
+                                                def _common_path(self):
+                                                    if self.parent is None:
+                                                        raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                                    return self.parent._common_path +'/Cisco-IOS-XR-ipv4-ospf-cfg:candidate-interfaces'
+
+                                                def is_config(self):
+                                                    ''' Returns True if this instance represents config data else returns False '''
+                                                    return True
+
+                                                def _has_data(self):
+                                                    if not self.is_config():
+                                                        return False
+                                                    if self.candidate_interface is not None:
+                                                        for child_ref in self.candidate_interface:
+                                                            if child_ref._has_data():
+                                                                return True
+
+                                                    return False
+
+                                                @staticmethod
+                                                def _meta_info():
+                                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_ospf_cfg as meta
+                                                    return meta._meta_table['Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.FastReroute.PerPrefix.CandidateInterfaces']['meta_info']
+
+
+                                            class ExcludeInterfaces(object):
+                                                """
+                                                Fast\-reroute per\-link/per\-prefix or UCMP exclude
+                                                interface configuration
+                                                
+                                                .. attribute:: exclude_interface
+                                                
+                                                	Exclude an interface from becoming a backup or UCMP
+                                                	**type**\: list of  :py:class:`ExcludeInterface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_cfg.Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.FastReroute.PerPrefix.ExcludeInterfaces.ExcludeInterface>`
+                                                
+                                                
+
+                                                """
+
+                                                _prefix = 'ipv4-ospf-cfg'
+                                                _revision = '2015-11-09'
+
+                                                def __init__(self):
+                                                    self.parent = None
+                                                    self.exclude_interface = YList()
+                                                    self.exclude_interface.parent = self
+                                                    self.exclude_interface.name = 'exclude_interface'
+
+
+                                                class ExcludeInterface(object):
+                                                    """
+                                                    Exclude an interface from becoming a backup or
+                                                    UCMP
+                                                    
+                                                    .. attribute:: interface_name  <key>
+                                                    
+                                                    	Interface
+                                                    	**type**\:  str
+                                                    
+                                                    	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+                                                    
+                                                    
+
+                                                    """
+
+                                                    _prefix = 'ipv4-ospf-cfg'
+                                                    _revision = '2015-11-09'
+
+                                                    def __init__(self):
+                                                        self.parent = None
+                                                        self.interface_name = None
+
+                                                    @property
+                                                    def _common_path(self):
+                                                        if self.parent is None:
+                                                            raise YPYModelError('parent is not set . Cannot derive path.')
+                                                        if self.interface_name is None:
+                                                            raise YPYModelError('Key property interface_name is None')
+
+                                                        return self.parent._common_path +'/Cisco-IOS-XR-ipv4-ospf-cfg:exclude-interface[Cisco-IOS-XR-ipv4-ospf-cfg:interface-name = ' + str(self.interface_name) + ']'
+
+                                                    def is_config(self):
+                                                        ''' Returns True if this instance represents config data else returns False '''
+                                                        return True
+
+                                                    def _has_data(self):
+                                                        if not self.is_config():
+                                                            return False
+                                                        if self.interface_name is not None:
+                                                            return True
+
+                                                        return False
+
+                                                    @staticmethod
+                                                    def _meta_info():
+                                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_ospf_cfg as meta
+                                                        return meta._meta_table['Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.FastReroute.PerPrefix.ExcludeInterfaces.ExcludeInterface']['meta_info']
+
+                                                @property
+                                                def _common_path(self):
+                                                    if self.parent is None:
+                                                        raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                                    return self.parent._common_path +'/Cisco-IOS-XR-ipv4-ospf-cfg:exclude-interfaces'
+
+                                                def is_config(self):
+                                                    ''' Returns True if this instance represents config data else returns False '''
+                                                    return True
+
+                                                def _has_data(self):
+                                                    if not self.is_config():
+                                                        return False
+                                                    if self.exclude_interface is not None:
+                                                        for child_ref in self.exclude_interface:
+                                                            if child_ref._has_data():
+                                                                return True
+
+                                                    return False
+
+                                                @staticmethod
+                                                def _meta_info():
+                                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_ospf_cfg as meta
+                                                    return meta._meta_table['Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.FastReroute.PerPrefix.ExcludeInterfaces']['meta_info']
+
+                                            @property
+                                            def _common_path(self):
+                                                if self.parent is None:
+                                                    raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                                return self.parent._common_path +'/Cisco-IOS-XR-ipv4-ospf-cfg:per-prefix'
+
+                                            def is_config(self):
+                                                ''' Returns True if this instance represents config data else returns False '''
+                                                return True
+
+                                            def _has_data(self):
+                                                if not self.is_config():
+                                                    return False
+                                                if self.candidate_interfaces is not None and self.candidate_interfaces._has_data():
+                                                    return True
+
+                                                if self.exclude_interfaces is not None and self.exclude_interfaces._has_data():
+                                                    return True
+
+                                                if self.fast_reroute_use_candidate_only is not None:
+                                                    return True
+
+                                                if self.remote_lfa is not None and self.remote_lfa._has_data():
+                                                    return True
+
+                                                if self.tiebreakers is not None and self.tiebreakers._has_data():
+                                                    return True
+
+                                                if self.topology_independent_lfa is not None:
+                                                    return True
+
+                                                return False
+
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_ospf_cfg as meta
+                                                return meta._meta_table['Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.FastReroute.PerPrefix']['meta_info']
+
+                                        @property
+                                        def _common_path(self):
+                                            if self.parent is None:
+                                                raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                            return self.parent._common_path +'/Cisco-IOS-XR-ipv4-ospf-cfg:fast-reroute'
+
+                                        def is_config(self):
+                                            ''' Returns True if this instance represents config data else returns False '''
+                                            return True
+
+                                        def _has_data(self):
+                                            if not self.is_config():
+                                                return False
+                                            if self.fast_reroute_enable is not None:
+                                                return True
+
+                                            if self.per_link is not None and self.per_link._has_data():
+                                                return True
+
+                                            if self.per_prefix is not None and self.per_prefix._has_data():
+                                                return True
+
+                                            return False
+
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_ospf_cfg as meta
+                                            return meta._meta_table['Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.FastReroute']['meta_info']
+
+
                                     class CostFallback(object):
                                         """
                                         Interface fallback cost
@@ -17818,6 +20259,9 @@ class Ospf(object):
                                             return True
 
                                         if self.distribute_list is not None and self.distribute_list._has_data():
+                                            return True
+
+                                        if self.fast_reroute is not None and self.fast_reroute._has_data():
                                             return True
 
                                         if self.hello_interval is not None:
@@ -18928,6 +21372,11 @@ class Ospf(object):
                     	Prefer segment routing labels over LDP labels
                     	**type**\:  :py:class:`SrPrefer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_cfg.Ospf.Processes.Process.DefaultVrf.SegmentRouting.SrPrefer>`
                     
+                    .. attribute:: strict_spf_disable
+                    
+                    	Strict\-SPF support and SID advertisement
+                    	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                    
                     
 
                     """
@@ -18941,6 +21390,7 @@ class Ospf(object):
                         self.prefix_sid_map_receive_disable = None
                         self.sr_prefer = Ospf.Processes.Process.DefaultVrf.SegmentRouting.SrPrefer()
                         self.sr_prefer.parent = self
+                        self.strict_spf_disable = None
 
 
                     class SrPrefer(object):
@@ -19020,6 +21470,9 @@ class Ospf(object):
                         if self.sr_prefer is not None and self.sr_prefer._has_data():
                             return True
 
+                        if self.strict_spf_disable is not None:
+                            return True
+
                         return False
 
                     @staticmethod
@@ -19093,7 +21546,7 @@ class Ospf(object):
                         	MPLS\-TE stable loopback interface for this OSPF process
                         	**type**\:  str
                         
-                        	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+                        	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
                         
                         
 
@@ -20417,6 +22870,11 @@ class Ospf(object):
                     	When enabled, prevent sending HELLO packets over link
                     	**type**\:  bool
                     
+                    .. attribute:: prefix_suppression_primary
+                    
+                    	Enable/Disable prefix suppression for primary addresses
+                    	**type**\:  bool
+                    
                     .. attribute:: prefix_suppression_secondary
                     
                     	Enable/Disable prefix suppression for secondary addresses
@@ -20503,6 +22961,7 @@ class Ospf(object):
                         self.network_type = None
                         self.packet_size = None
                         self.passive = None
+                        self.prefix_suppression_primary = None
                         self.prefix_suppression_secondary = None
                         self.priority = None
                         self.retransmit_interval = None
@@ -20585,6 +23044,674 @@ class Ospf(object):
                         def _meta_info():
                             from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_ospf_cfg as meta
                             return meta._meta_table['Ospf.Processes.Process.DefaultVrf.ProcessScope.Srgb']['meta_info']
+
+
+                    class FastReroute(object):
+                        """
+                        Fast\-reroute configuration
+                        
+                        .. attribute:: fast_reroute_enable
+                        
+                        	Enable/Disable Fast\-reroute per\-link or per\-prefix
+                        	**type**\:  :py:class:`OspfProcFastRerouteEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_cfg.OspfProcFastRerouteEnum>`
+                        
+                        .. attribute:: per_link
+                        
+                        	Fast\-reroute per\-link configuration
+                        	**type**\:  :py:class:`PerLink <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_cfg.Ospf.Processes.Process.DefaultVrf.ProcessScope.FastReroute.PerLink>`
+                        
+                        .. attribute:: per_prefix
+                        
+                        	Fast\-reroute per\-prefix configuration
+                        	**type**\:  :py:class:`PerPrefix <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_cfg.Ospf.Processes.Process.DefaultVrf.ProcessScope.FastReroute.PerPrefix>`
+                        
+                        
+
+                        """
+
+                        _prefix = 'ipv4-ospf-cfg'
+                        _revision = '2015-11-09'
+
+                        def __init__(self):
+                            self.parent = None
+                            self.fast_reroute_enable = None
+                            self.per_link = Ospf.Processes.Process.DefaultVrf.ProcessScope.FastReroute.PerLink()
+                            self.per_link.parent = self
+                            self.per_prefix = Ospf.Processes.Process.DefaultVrf.ProcessScope.FastReroute.PerPrefix()
+                            self.per_prefix.parent = self
+
+
+                        class PerLink(object):
+                            """
+                            Fast\-reroute per\-link configuration
+                            
+                            .. attribute:: candidate_interfaces
+                            
+                            	Fast\-reroute per\-link/per\-prefix candidate interface configuration
+                            	**type**\:  :py:class:`CandidateInterfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_cfg.Ospf.Processes.Process.DefaultVrf.ProcessScope.FastReroute.PerLink.CandidateInterfaces>`
+                            
+                            .. attribute:: exclude_interfaces
+                            
+                            	Fast\-reroute per\-link/per\-prefix or UCMP exclude interface configuration
+                            	**type**\:  :py:class:`ExcludeInterfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_cfg.Ospf.Processes.Process.DefaultVrf.ProcessScope.FastReroute.PerLink.ExcludeInterfaces>`
+                            
+                            .. attribute:: fast_reroute_use_candidate_only
+                            
+                            	Use only interfaces on the candidate list as a backup path
+                            	**type**\:  bool
+                            
+                            
+
+                            """
+
+                            _prefix = 'ipv4-ospf-cfg'
+                            _revision = '2015-11-09'
+
+                            def __init__(self):
+                                self.parent = None
+                                self.candidate_interfaces = Ospf.Processes.Process.DefaultVrf.ProcessScope.FastReroute.PerLink.CandidateInterfaces()
+                                self.candidate_interfaces.parent = self
+                                self.exclude_interfaces = Ospf.Processes.Process.DefaultVrf.ProcessScope.FastReroute.PerLink.ExcludeInterfaces()
+                                self.exclude_interfaces.parent = self
+                                self.fast_reroute_use_candidate_only = None
+
+
+                            class CandidateInterfaces(object):
+                                """
+                                Fast\-reroute per\-link/per\-prefix candidate
+                                interface configuration
+                                
+                                .. attribute:: candidate_interface
+                                
+                                	Candidate backup interface
+                                	**type**\: list of  :py:class:`CandidateInterface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_cfg.Ospf.Processes.Process.DefaultVrf.ProcessScope.FastReroute.PerLink.CandidateInterfaces.CandidateInterface>`
+                                
+                                
+
+                                """
+
+                                _prefix = 'ipv4-ospf-cfg'
+                                _revision = '2015-11-09'
+
+                                def __init__(self):
+                                    self.parent = None
+                                    self.candidate_interface = YList()
+                                    self.candidate_interface.parent = self
+                                    self.candidate_interface.name = 'candidate_interface'
+
+
+                                class CandidateInterface(object):
+                                    """
+                                    Candidate backup interface
+                                    
+                                    .. attribute:: interface_name  <key>
+                                    
+                                    	Interface
+                                    	**type**\:  str
+                                    
+                                    	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+                                    
+                                    
+
+                                    """
+
+                                    _prefix = 'ipv4-ospf-cfg'
+                                    _revision = '2015-11-09'
+
+                                    def __init__(self):
+                                        self.parent = None
+                                        self.interface_name = None
+
+                                    @property
+                                    def _common_path(self):
+                                        if self.parent is None:
+                                            raise YPYModelError('parent is not set . Cannot derive path.')
+                                        if self.interface_name is None:
+                                            raise YPYModelError('Key property interface_name is None')
+
+                                        return self.parent._common_path +'/Cisco-IOS-XR-ipv4-ospf-cfg:candidate-interface[Cisco-IOS-XR-ipv4-ospf-cfg:interface-name = ' + str(self.interface_name) + ']'
+
+                                    def is_config(self):
+                                        ''' Returns True if this instance represents config data else returns False '''
+                                        return True
+
+                                    def _has_data(self):
+                                        if not self.is_config():
+                                            return False
+                                        if self.interface_name is not None:
+                                            return True
+
+                                        return False
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_ospf_cfg as meta
+                                        return meta._meta_table['Ospf.Processes.Process.DefaultVrf.ProcessScope.FastReroute.PerLink.CandidateInterfaces.CandidateInterface']['meta_info']
+
+                                @property
+                                def _common_path(self):
+                                    if self.parent is None:
+                                        raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                    return self.parent._common_path +'/Cisco-IOS-XR-ipv4-ospf-cfg:candidate-interfaces'
+
+                                def is_config(self):
+                                    ''' Returns True if this instance represents config data else returns False '''
+                                    return True
+
+                                def _has_data(self):
+                                    if not self.is_config():
+                                        return False
+                                    if self.candidate_interface is not None:
+                                        for child_ref in self.candidate_interface:
+                                            if child_ref._has_data():
+                                                return True
+
+                                    return False
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_ospf_cfg as meta
+                                    return meta._meta_table['Ospf.Processes.Process.DefaultVrf.ProcessScope.FastReroute.PerLink.CandidateInterfaces']['meta_info']
+
+
+                            class ExcludeInterfaces(object):
+                                """
+                                Fast\-reroute per\-link/per\-prefix or UCMP exclude
+                                interface configuration
+                                
+                                .. attribute:: exclude_interface
+                                
+                                	Exclude an interface from becoming a backup or UCMP
+                                	**type**\: list of  :py:class:`ExcludeInterface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_cfg.Ospf.Processes.Process.DefaultVrf.ProcessScope.FastReroute.PerLink.ExcludeInterfaces.ExcludeInterface>`
+                                
+                                
+
+                                """
+
+                                _prefix = 'ipv4-ospf-cfg'
+                                _revision = '2015-11-09'
+
+                                def __init__(self):
+                                    self.parent = None
+                                    self.exclude_interface = YList()
+                                    self.exclude_interface.parent = self
+                                    self.exclude_interface.name = 'exclude_interface'
+
+
+                                class ExcludeInterface(object):
+                                    """
+                                    Exclude an interface from becoming a backup or
+                                    UCMP
+                                    
+                                    .. attribute:: interface_name  <key>
+                                    
+                                    	Interface
+                                    	**type**\:  str
+                                    
+                                    	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+                                    
+                                    
+
+                                    """
+
+                                    _prefix = 'ipv4-ospf-cfg'
+                                    _revision = '2015-11-09'
+
+                                    def __init__(self):
+                                        self.parent = None
+                                        self.interface_name = None
+
+                                    @property
+                                    def _common_path(self):
+                                        if self.parent is None:
+                                            raise YPYModelError('parent is not set . Cannot derive path.')
+                                        if self.interface_name is None:
+                                            raise YPYModelError('Key property interface_name is None')
+
+                                        return self.parent._common_path +'/Cisco-IOS-XR-ipv4-ospf-cfg:exclude-interface[Cisco-IOS-XR-ipv4-ospf-cfg:interface-name = ' + str(self.interface_name) + ']'
+
+                                    def is_config(self):
+                                        ''' Returns True if this instance represents config data else returns False '''
+                                        return True
+
+                                    def _has_data(self):
+                                        if not self.is_config():
+                                            return False
+                                        if self.interface_name is not None:
+                                            return True
+
+                                        return False
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_ospf_cfg as meta
+                                        return meta._meta_table['Ospf.Processes.Process.DefaultVrf.ProcessScope.FastReroute.PerLink.ExcludeInterfaces.ExcludeInterface']['meta_info']
+
+                                @property
+                                def _common_path(self):
+                                    if self.parent is None:
+                                        raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                    return self.parent._common_path +'/Cisco-IOS-XR-ipv4-ospf-cfg:exclude-interfaces'
+
+                                def is_config(self):
+                                    ''' Returns True if this instance represents config data else returns False '''
+                                    return True
+
+                                def _has_data(self):
+                                    if not self.is_config():
+                                        return False
+                                    if self.exclude_interface is not None:
+                                        for child_ref in self.exclude_interface:
+                                            if child_ref._has_data():
+                                                return True
+
+                                    return False
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_ospf_cfg as meta
+                                    return meta._meta_table['Ospf.Processes.Process.DefaultVrf.ProcessScope.FastReroute.PerLink.ExcludeInterfaces']['meta_info']
+
+                            @property
+                            def _common_path(self):
+                                if self.parent is None:
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                return self.parent._common_path +'/Cisco-IOS-XR-ipv4-ospf-cfg:per-link'
+
+                            def is_config(self):
+                                ''' Returns True if this instance represents config data else returns False '''
+                                return True
+
+                            def _has_data(self):
+                                if not self.is_config():
+                                    return False
+                                if self.candidate_interfaces is not None and self.candidate_interfaces._has_data():
+                                    return True
+
+                                if self.exclude_interfaces is not None and self.exclude_interfaces._has_data():
+                                    return True
+
+                                if self.fast_reroute_use_candidate_only is not None:
+                                    return True
+
+                                return False
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_ospf_cfg as meta
+                                return meta._meta_table['Ospf.Processes.Process.DefaultVrf.ProcessScope.FastReroute.PerLink']['meta_info']
+
+
+                        class PerPrefix(object):
+                            """
+                            Fast\-reroute per\-prefix configuration
+                            
+                            .. attribute:: candidate_interfaces
+                            
+                            	Fast\-reroute per\-link/per\-prefix candidate interface configuration
+                            	**type**\:  :py:class:`CandidateInterfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_cfg.Ospf.Processes.Process.DefaultVrf.ProcessScope.FastReroute.PerPrefix.CandidateInterfaces>`
+                            
+                            .. attribute:: exclude_interfaces
+                            
+                            	Fast\-reroute per\-link/per\-prefix or UCMP exclude interface configuration
+                            	**type**\:  :py:class:`ExcludeInterfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_cfg.Ospf.Processes.Process.DefaultVrf.ProcessScope.FastReroute.PerPrefix.ExcludeInterfaces>`
+                            
+                            .. attribute:: fast_reroute_use_candidate_only
+                            
+                            	Use only interfaces on the candidate list as a backup path
+                            	**type**\:  bool
+                            
+                            .. attribute:: remote_lfa
+                            
+                            	Remote LFA configuration
+                            	**type**\:  :py:class:`RemoteLfa <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_cfg.Ospf.Processes.Process.DefaultVrf.ProcessScope.FastReroute.PerPrefix.RemoteLfa>`
+                            
+                            .. attribute:: topology_independent_lfa
+                            
+                            	Topology Independet LFA configuration
+                            	**type**\:  bool
+                            
+                            
+
+                            """
+
+                            _prefix = 'ipv4-ospf-cfg'
+                            _revision = '2015-11-09'
+
+                            def __init__(self):
+                                self.parent = None
+                                self.candidate_interfaces = Ospf.Processes.Process.DefaultVrf.ProcessScope.FastReroute.PerPrefix.CandidateInterfaces()
+                                self.candidate_interfaces.parent = self
+                                self.exclude_interfaces = Ospf.Processes.Process.DefaultVrf.ProcessScope.FastReroute.PerPrefix.ExcludeInterfaces()
+                                self.exclude_interfaces.parent = self
+                                self.fast_reroute_use_candidate_only = None
+                                self.remote_lfa = Ospf.Processes.Process.DefaultVrf.ProcessScope.FastReroute.PerPrefix.RemoteLfa()
+                                self.remote_lfa.parent = self
+                                self.topology_independent_lfa = None
+
+
+                            class RemoteLfa(object):
+                                """
+                                Remote LFA configuration
+                                
+                                .. attribute:: maximum_cost
+                                
+                                	Maximum path cost to remote LFA
+                                	**type**\:  int
+                                
+                                	**range:** 1..4294967295
+                                
+                                .. attribute:: tunnel
+                                
+                                	Enable/Disable remote LFA computation
+                                	**type**\:  :py:class:`OspfProcFrrRlfaTunnelEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_cfg.OspfProcFrrRlfaTunnelEnum>`
+                                
+                                
+
+                                """
+
+                                _prefix = 'ipv4-ospf-cfg'
+                                _revision = '2015-11-09'
+
+                                def __init__(self):
+                                    self.parent = None
+                                    self.maximum_cost = None
+                                    self.tunnel = None
+
+                                @property
+                                def _common_path(self):
+                                    if self.parent is None:
+                                        raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                    return self.parent._common_path +'/Cisco-IOS-XR-ipv4-ospf-cfg:remote-lfa'
+
+                                def is_config(self):
+                                    ''' Returns True if this instance represents config data else returns False '''
+                                    return True
+
+                                def _has_data(self):
+                                    if not self.is_config():
+                                        return False
+                                    if self.maximum_cost is not None:
+                                        return True
+
+                                    if self.tunnel is not None:
+                                        return True
+
+                                    return False
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_ospf_cfg as meta
+                                    return meta._meta_table['Ospf.Processes.Process.DefaultVrf.ProcessScope.FastReroute.PerPrefix.RemoteLfa']['meta_info']
+
+
+                            class CandidateInterfaces(object):
+                                """
+                                Fast\-reroute per\-link/per\-prefix candidate
+                                interface configuration
+                                
+                                .. attribute:: candidate_interface
+                                
+                                	Candidate backup interface
+                                	**type**\: list of  :py:class:`CandidateInterface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_cfg.Ospf.Processes.Process.DefaultVrf.ProcessScope.FastReroute.PerPrefix.CandidateInterfaces.CandidateInterface>`
+                                
+                                
+
+                                """
+
+                                _prefix = 'ipv4-ospf-cfg'
+                                _revision = '2015-11-09'
+
+                                def __init__(self):
+                                    self.parent = None
+                                    self.candidate_interface = YList()
+                                    self.candidate_interface.parent = self
+                                    self.candidate_interface.name = 'candidate_interface'
+
+
+                                class CandidateInterface(object):
+                                    """
+                                    Candidate backup interface
+                                    
+                                    .. attribute:: interface_name  <key>
+                                    
+                                    	Interface
+                                    	**type**\:  str
+                                    
+                                    	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+                                    
+                                    
+
+                                    """
+
+                                    _prefix = 'ipv4-ospf-cfg'
+                                    _revision = '2015-11-09'
+
+                                    def __init__(self):
+                                        self.parent = None
+                                        self.interface_name = None
+
+                                    @property
+                                    def _common_path(self):
+                                        if self.parent is None:
+                                            raise YPYModelError('parent is not set . Cannot derive path.')
+                                        if self.interface_name is None:
+                                            raise YPYModelError('Key property interface_name is None')
+
+                                        return self.parent._common_path +'/Cisco-IOS-XR-ipv4-ospf-cfg:candidate-interface[Cisco-IOS-XR-ipv4-ospf-cfg:interface-name = ' + str(self.interface_name) + ']'
+
+                                    def is_config(self):
+                                        ''' Returns True if this instance represents config data else returns False '''
+                                        return True
+
+                                    def _has_data(self):
+                                        if not self.is_config():
+                                            return False
+                                        if self.interface_name is not None:
+                                            return True
+
+                                        return False
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_ospf_cfg as meta
+                                        return meta._meta_table['Ospf.Processes.Process.DefaultVrf.ProcessScope.FastReroute.PerPrefix.CandidateInterfaces.CandidateInterface']['meta_info']
+
+                                @property
+                                def _common_path(self):
+                                    if self.parent is None:
+                                        raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                    return self.parent._common_path +'/Cisco-IOS-XR-ipv4-ospf-cfg:candidate-interfaces'
+
+                                def is_config(self):
+                                    ''' Returns True if this instance represents config data else returns False '''
+                                    return True
+
+                                def _has_data(self):
+                                    if not self.is_config():
+                                        return False
+                                    if self.candidate_interface is not None:
+                                        for child_ref in self.candidate_interface:
+                                            if child_ref._has_data():
+                                                return True
+
+                                    return False
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_ospf_cfg as meta
+                                    return meta._meta_table['Ospf.Processes.Process.DefaultVrf.ProcessScope.FastReroute.PerPrefix.CandidateInterfaces']['meta_info']
+
+
+                            class ExcludeInterfaces(object):
+                                """
+                                Fast\-reroute per\-link/per\-prefix or UCMP exclude
+                                interface configuration
+                                
+                                .. attribute:: exclude_interface
+                                
+                                	Exclude an interface from becoming a backup or UCMP
+                                	**type**\: list of  :py:class:`ExcludeInterface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_cfg.Ospf.Processes.Process.DefaultVrf.ProcessScope.FastReroute.PerPrefix.ExcludeInterfaces.ExcludeInterface>`
+                                
+                                
+
+                                """
+
+                                _prefix = 'ipv4-ospf-cfg'
+                                _revision = '2015-11-09'
+
+                                def __init__(self):
+                                    self.parent = None
+                                    self.exclude_interface = YList()
+                                    self.exclude_interface.parent = self
+                                    self.exclude_interface.name = 'exclude_interface'
+
+
+                                class ExcludeInterface(object):
+                                    """
+                                    Exclude an interface from becoming a backup or
+                                    UCMP
+                                    
+                                    .. attribute:: interface_name  <key>
+                                    
+                                    	Interface
+                                    	**type**\:  str
+                                    
+                                    	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+                                    
+                                    
+
+                                    """
+
+                                    _prefix = 'ipv4-ospf-cfg'
+                                    _revision = '2015-11-09'
+
+                                    def __init__(self):
+                                        self.parent = None
+                                        self.interface_name = None
+
+                                    @property
+                                    def _common_path(self):
+                                        if self.parent is None:
+                                            raise YPYModelError('parent is not set . Cannot derive path.')
+                                        if self.interface_name is None:
+                                            raise YPYModelError('Key property interface_name is None')
+
+                                        return self.parent._common_path +'/Cisco-IOS-XR-ipv4-ospf-cfg:exclude-interface[Cisco-IOS-XR-ipv4-ospf-cfg:interface-name = ' + str(self.interface_name) + ']'
+
+                                    def is_config(self):
+                                        ''' Returns True if this instance represents config data else returns False '''
+                                        return True
+
+                                    def _has_data(self):
+                                        if not self.is_config():
+                                            return False
+                                        if self.interface_name is not None:
+                                            return True
+
+                                        return False
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_ospf_cfg as meta
+                                        return meta._meta_table['Ospf.Processes.Process.DefaultVrf.ProcessScope.FastReroute.PerPrefix.ExcludeInterfaces.ExcludeInterface']['meta_info']
+
+                                @property
+                                def _common_path(self):
+                                    if self.parent is None:
+                                        raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                    return self.parent._common_path +'/Cisco-IOS-XR-ipv4-ospf-cfg:exclude-interfaces'
+
+                                def is_config(self):
+                                    ''' Returns True if this instance represents config data else returns False '''
+                                    return True
+
+                                def _has_data(self):
+                                    if not self.is_config():
+                                        return False
+                                    if self.exclude_interface is not None:
+                                        for child_ref in self.exclude_interface:
+                                            if child_ref._has_data():
+                                                return True
+
+                                    return False
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_ospf_cfg as meta
+                                    return meta._meta_table['Ospf.Processes.Process.DefaultVrf.ProcessScope.FastReroute.PerPrefix.ExcludeInterfaces']['meta_info']
+
+                            @property
+                            def _common_path(self):
+                                if self.parent is None:
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                return self.parent._common_path +'/Cisco-IOS-XR-ipv4-ospf-cfg:per-prefix'
+
+                            def is_config(self):
+                                ''' Returns True if this instance represents config data else returns False '''
+                                return True
+
+                            def _has_data(self):
+                                if not self.is_config():
+                                    return False
+                                if self.candidate_interfaces is not None and self.candidate_interfaces._has_data():
+                                    return True
+
+                                if self.exclude_interfaces is not None and self.exclude_interfaces._has_data():
+                                    return True
+
+                                if self.fast_reroute_use_candidate_only is not None:
+                                    return True
+
+                                if self.remote_lfa is not None and self.remote_lfa._has_data():
+                                    return True
+
+                                if self.topology_independent_lfa is not None:
+                                    return True
+
+                                return False
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_ospf_cfg as meta
+                                return meta._meta_table['Ospf.Processes.Process.DefaultVrf.ProcessScope.FastReroute.PerPrefix']['meta_info']
+
+                        @property
+                        def _common_path(self):
+                            if self.parent is None:
+                                raise YPYModelError('parent is not set . Cannot derive path.')
+
+                            return self.parent._common_path +'/Cisco-IOS-XR-ipv4-ospf-cfg:fast-reroute'
+
+                        def is_config(self):
+                            ''' Returns True if this instance represents config data else returns False '''
+                            return True
+
+                        def _has_data(self):
+                            if not self.is_config():
+                                return False
+                            if self.fast_reroute_enable is not None:
+                                return True
+
+                            if self.per_link is not None and self.per_link._has_data():
+                                return True
+
+                            if self.per_prefix is not None and self.per_prefix._has_data():
+                                return True
+
+                            return False
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_ospf_cfg as meta
+                            return meta._meta_table['Ospf.Processes.Process.DefaultVrf.ProcessScope.FastReroute']['meta_info']
 
 
                     class DistributeList(object):
@@ -21065,674 +24192,6 @@ class Ospf(object):
                             return meta._meta_table['Ospf.Processes.Process.DefaultVrf.ProcessScope.Security']['meta_info']
 
 
-                    class FastReroute(object):
-                        """
-                        Fast\-reroute configuration
-                        
-                        .. attribute:: fast_reroute_enable
-                        
-                        	Enable/Disable Fast\-reroute per\-link or per\-prefix
-                        	**type**\:  :py:class:`OspfFastRerouteEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_cfg.OspfFastRerouteEnum>`
-                        
-                        .. attribute:: per_link
-                        
-                        	Fast\-reroute per\-link configuration
-                        	**type**\:  :py:class:`PerLink <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_cfg.Ospf.Processes.Process.DefaultVrf.ProcessScope.FastReroute.PerLink>`
-                        
-                        .. attribute:: per_prefix
-                        
-                        	Fast\-reroute per\-prefix configuration
-                        	**type**\:  :py:class:`PerPrefix <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_cfg.Ospf.Processes.Process.DefaultVrf.ProcessScope.FastReroute.PerPrefix>`
-                        
-                        
-
-                        """
-
-                        _prefix = 'ipv4-ospf-cfg'
-                        _revision = '2015-11-09'
-
-                        def __init__(self):
-                            self.parent = None
-                            self.fast_reroute_enable = None
-                            self.per_link = Ospf.Processes.Process.DefaultVrf.ProcessScope.FastReroute.PerLink()
-                            self.per_link.parent = self
-                            self.per_prefix = Ospf.Processes.Process.DefaultVrf.ProcessScope.FastReroute.PerPrefix()
-                            self.per_prefix.parent = self
-
-
-                        class PerLink(object):
-                            """
-                            Fast\-reroute per\-link configuration
-                            
-                            .. attribute:: candidate_interfaces
-                            
-                            	Fast\-reroute per\-link/per\-prefix candidate interface configuration
-                            	**type**\:  :py:class:`CandidateInterfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_cfg.Ospf.Processes.Process.DefaultVrf.ProcessScope.FastReroute.PerLink.CandidateInterfaces>`
-                            
-                            .. attribute:: exclude_interfaces
-                            
-                            	Fast\-reroute per\-link/per\-prefix or UCMP exclude interface configuration
-                            	**type**\:  :py:class:`ExcludeInterfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_cfg.Ospf.Processes.Process.DefaultVrf.ProcessScope.FastReroute.PerLink.ExcludeInterfaces>`
-                            
-                            .. attribute:: fast_reroute_use_candidate_only
-                            
-                            	Use only interfaces on the candidate list as a backup path
-                            	**type**\:  bool
-                            
-                            
-
-                            """
-
-                            _prefix = 'ipv4-ospf-cfg'
-                            _revision = '2015-11-09'
-
-                            def __init__(self):
-                                self.parent = None
-                                self.candidate_interfaces = Ospf.Processes.Process.DefaultVrf.ProcessScope.FastReroute.PerLink.CandidateInterfaces()
-                                self.candidate_interfaces.parent = self
-                                self.exclude_interfaces = Ospf.Processes.Process.DefaultVrf.ProcessScope.FastReroute.PerLink.ExcludeInterfaces()
-                                self.exclude_interfaces.parent = self
-                                self.fast_reroute_use_candidate_only = None
-
-
-                            class CandidateInterfaces(object):
-                                """
-                                Fast\-reroute per\-link/per\-prefix candidate
-                                interface configuration
-                                
-                                .. attribute:: candidate_interface
-                                
-                                	Candidate backup interface
-                                	**type**\: list of  :py:class:`CandidateInterface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_cfg.Ospf.Processes.Process.DefaultVrf.ProcessScope.FastReroute.PerLink.CandidateInterfaces.CandidateInterface>`
-                                
-                                
-
-                                """
-
-                                _prefix = 'ipv4-ospf-cfg'
-                                _revision = '2015-11-09'
-
-                                def __init__(self):
-                                    self.parent = None
-                                    self.candidate_interface = YList()
-                                    self.candidate_interface.parent = self
-                                    self.candidate_interface.name = 'candidate_interface'
-
-
-                                class CandidateInterface(object):
-                                    """
-                                    Candidate backup interface
-                                    
-                                    .. attribute:: interface_name  <key>
-                                    
-                                    	Interface
-                                    	**type**\:  str
-                                    
-                                    	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
-                                    
-                                    
-
-                                    """
-
-                                    _prefix = 'ipv4-ospf-cfg'
-                                    _revision = '2015-11-09'
-
-                                    def __init__(self):
-                                        self.parent = None
-                                        self.interface_name = None
-
-                                    @property
-                                    def _common_path(self):
-                                        if self.parent is None:
-                                            raise YPYModelError('parent is not set . Cannot derive path.')
-                                        if self.interface_name is None:
-                                            raise YPYModelError('Key property interface_name is None')
-
-                                        return self.parent._common_path +'/Cisco-IOS-XR-ipv4-ospf-cfg:candidate-interface[Cisco-IOS-XR-ipv4-ospf-cfg:interface-name = ' + str(self.interface_name) + ']'
-
-                                    def is_config(self):
-                                        ''' Returns True if this instance represents config data else returns False '''
-                                        return True
-
-                                    def _has_data(self):
-                                        if not self.is_config():
-                                            return False
-                                        if self.interface_name is not None:
-                                            return True
-
-                                        return False
-
-                                    @staticmethod
-                                    def _meta_info():
-                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_ospf_cfg as meta
-                                        return meta._meta_table['Ospf.Processes.Process.DefaultVrf.ProcessScope.FastReroute.PerLink.CandidateInterfaces.CandidateInterface']['meta_info']
-
-                                @property
-                                def _common_path(self):
-                                    if self.parent is None:
-                                        raise YPYModelError('parent is not set . Cannot derive path.')
-
-                                    return self.parent._common_path +'/Cisco-IOS-XR-ipv4-ospf-cfg:candidate-interfaces'
-
-                                def is_config(self):
-                                    ''' Returns True if this instance represents config data else returns False '''
-                                    return True
-
-                                def _has_data(self):
-                                    if not self.is_config():
-                                        return False
-                                    if self.candidate_interface is not None:
-                                        for child_ref in self.candidate_interface:
-                                            if child_ref._has_data():
-                                                return True
-
-                                    return False
-
-                                @staticmethod
-                                def _meta_info():
-                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_ospf_cfg as meta
-                                    return meta._meta_table['Ospf.Processes.Process.DefaultVrf.ProcessScope.FastReroute.PerLink.CandidateInterfaces']['meta_info']
-
-
-                            class ExcludeInterfaces(object):
-                                """
-                                Fast\-reroute per\-link/per\-prefix or UCMP exclude
-                                interface configuration
-                                
-                                .. attribute:: exclude_interface
-                                
-                                	Exclude an interface from becoming a backup or UCMP
-                                	**type**\: list of  :py:class:`ExcludeInterface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_cfg.Ospf.Processes.Process.DefaultVrf.ProcessScope.FastReroute.PerLink.ExcludeInterfaces.ExcludeInterface>`
-                                
-                                
-
-                                """
-
-                                _prefix = 'ipv4-ospf-cfg'
-                                _revision = '2015-11-09'
-
-                                def __init__(self):
-                                    self.parent = None
-                                    self.exclude_interface = YList()
-                                    self.exclude_interface.parent = self
-                                    self.exclude_interface.name = 'exclude_interface'
-
-
-                                class ExcludeInterface(object):
-                                    """
-                                    Exclude an interface from becoming a backup or
-                                    UCMP
-                                    
-                                    .. attribute:: interface_name  <key>
-                                    
-                                    	Interface
-                                    	**type**\:  str
-                                    
-                                    	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
-                                    
-                                    
-
-                                    """
-
-                                    _prefix = 'ipv4-ospf-cfg'
-                                    _revision = '2015-11-09'
-
-                                    def __init__(self):
-                                        self.parent = None
-                                        self.interface_name = None
-
-                                    @property
-                                    def _common_path(self):
-                                        if self.parent is None:
-                                            raise YPYModelError('parent is not set . Cannot derive path.')
-                                        if self.interface_name is None:
-                                            raise YPYModelError('Key property interface_name is None')
-
-                                        return self.parent._common_path +'/Cisco-IOS-XR-ipv4-ospf-cfg:exclude-interface[Cisco-IOS-XR-ipv4-ospf-cfg:interface-name = ' + str(self.interface_name) + ']'
-
-                                    def is_config(self):
-                                        ''' Returns True if this instance represents config data else returns False '''
-                                        return True
-
-                                    def _has_data(self):
-                                        if not self.is_config():
-                                            return False
-                                        if self.interface_name is not None:
-                                            return True
-
-                                        return False
-
-                                    @staticmethod
-                                    def _meta_info():
-                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_ospf_cfg as meta
-                                        return meta._meta_table['Ospf.Processes.Process.DefaultVrf.ProcessScope.FastReroute.PerLink.ExcludeInterfaces.ExcludeInterface']['meta_info']
-
-                                @property
-                                def _common_path(self):
-                                    if self.parent is None:
-                                        raise YPYModelError('parent is not set . Cannot derive path.')
-
-                                    return self.parent._common_path +'/Cisco-IOS-XR-ipv4-ospf-cfg:exclude-interfaces'
-
-                                def is_config(self):
-                                    ''' Returns True if this instance represents config data else returns False '''
-                                    return True
-
-                                def _has_data(self):
-                                    if not self.is_config():
-                                        return False
-                                    if self.exclude_interface is not None:
-                                        for child_ref in self.exclude_interface:
-                                            if child_ref._has_data():
-                                                return True
-
-                                    return False
-
-                                @staticmethod
-                                def _meta_info():
-                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_ospf_cfg as meta
-                                    return meta._meta_table['Ospf.Processes.Process.DefaultVrf.ProcessScope.FastReroute.PerLink.ExcludeInterfaces']['meta_info']
-
-                            @property
-                            def _common_path(self):
-                                if self.parent is None:
-                                    raise YPYModelError('parent is not set . Cannot derive path.')
-
-                                return self.parent._common_path +'/Cisco-IOS-XR-ipv4-ospf-cfg:per-link'
-
-                            def is_config(self):
-                                ''' Returns True if this instance represents config data else returns False '''
-                                return True
-
-                            def _has_data(self):
-                                if not self.is_config():
-                                    return False
-                                if self.candidate_interfaces is not None and self.candidate_interfaces._has_data():
-                                    return True
-
-                                if self.exclude_interfaces is not None and self.exclude_interfaces._has_data():
-                                    return True
-
-                                if self.fast_reroute_use_candidate_only is not None:
-                                    return True
-
-                                return False
-
-                            @staticmethod
-                            def _meta_info():
-                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_ospf_cfg as meta
-                                return meta._meta_table['Ospf.Processes.Process.DefaultVrf.ProcessScope.FastReroute.PerLink']['meta_info']
-
-
-                        class PerPrefix(object):
-                            """
-                            Fast\-reroute per\-prefix configuration
-                            
-                            .. attribute:: candidate_interfaces
-                            
-                            	Fast\-reroute per\-link/per\-prefix candidate interface configuration
-                            	**type**\:  :py:class:`CandidateInterfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_cfg.Ospf.Processes.Process.DefaultVrf.ProcessScope.FastReroute.PerPrefix.CandidateInterfaces>`
-                            
-                            .. attribute:: exclude_interfaces
-                            
-                            	Fast\-reroute per\-link/per\-prefix or UCMP exclude interface configuration
-                            	**type**\:  :py:class:`ExcludeInterfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_cfg.Ospf.Processes.Process.DefaultVrf.ProcessScope.FastReroute.PerPrefix.ExcludeInterfaces>`
-                            
-                            .. attribute:: fast_reroute_use_candidate_only
-                            
-                            	Use only interfaces on the candidate list as a backup path
-                            	**type**\:  bool
-                            
-                            .. attribute:: remote_lfa
-                            
-                            	Remote LFA configuration
-                            	**type**\:  :py:class:`RemoteLfa <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_cfg.Ospf.Processes.Process.DefaultVrf.ProcessScope.FastReroute.PerPrefix.RemoteLfa>`
-                            
-                            .. attribute:: topology_independent_lfa
-                            
-                            	Topology Independet LFA configuration
-                            	**type**\:  bool
-                            
-                            
-
-                            """
-
-                            _prefix = 'ipv4-ospf-cfg'
-                            _revision = '2015-11-09'
-
-                            def __init__(self):
-                                self.parent = None
-                                self.candidate_interfaces = Ospf.Processes.Process.DefaultVrf.ProcessScope.FastReroute.PerPrefix.CandidateInterfaces()
-                                self.candidate_interfaces.parent = self
-                                self.exclude_interfaces = Ospf.Processes.Process.DefaultVrf.ProcessScope.FastReroute.PerPrefix.ExcludeInterfaces()
-                                self.exclude_interfaces.parent = self
-                                self.fast_reroute_use_candidate_only = None
-                                self.remote_lfa = Ospf.Processes.Process.DefaultVrf.ProcessScope.FastReroute.PerPrefix.RemoteLfa()
-                                self.remote_lfa.parent = self
-                                self.topology_independent_lfa = None
-
-
-                            class RemoteLfa(object):
-                                """
-                                Remote LFA configuration
-                                
-                                .. attribute:: maximum_cost
-                                
-                                	Maximum path cost to remote LFA
-                                	**type**\:  int
-                                
-                                	**range:** 1..4294967295
-                                
-                                .. attribute:: tunnel
-                                
-                                	Enable/Disable remote LFA computation
-                                	**type**\:  :py:class:`OspfFrrRlfaTunnelEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_cfg.OspfFrrRlfaTunnelEnum>`
-                                
-                                
-
-                                """
-
-                                _prefix = 'ipv4-ospf-cfg'
-                                _revision = '2015-11-09'
-
-                                def __init__(self):
-                                    self.parent = None
-                                    self.maximum_cost = None
-                                    self.tunnel = None
-
-                                @property
-                                def _common_path(self):
-                                    if self.parent is None:
-                                        raise YPYModelError('parent is not set . Cannot derive path.')
-
-                                    return self.parent._common_path +'/Cisco-IOS-XR-ipv4-ospf-cfg:remote-lfa'
-
-                                def is_config(self):
-                                    ''' Returns True if this instance represents config data else returns False '''
-                                    return True
-
-                                def _has_data(self):
-                                    if not self.is_config():
-                                        return False
-                                    if self.maximum_cost is not None:
-                                        return True
-
-                                    if self.tunnel is not None:
-                                        return True
-
-                                    return False
-
-                                @staticmethod
-                                def _meta_info():
-                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_ospf_cfg as meta
-                                    return meta._meta_table['Ospf.Processes.Process.DefaultVrf.ProcessScope.FastReroute.PerPrefix.RemoteLfa']['meta_info']
-
-
-                            class CandidateInterfaces(object):
-                                """
-                                Fast\-reroute per\-link/per\-prefix candidate
-                                interface configuration
-                                
-                                .. attribute:: candidate_interface
-                                
-                                	Candidate backup interface
-                                	**type**\: list of  :py:class:`CandidateInterface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_cfg.Ospf.Processes.Process.DefaultVrf.ProcessScope.FastReroute.PerPrefix.CandidateInterfaces.CandidateInterface>`
-                                
-                                
-
-                                """
-
-                                _prefix = 'ipv4-ospf-cfg'
-                                _revision = '2015-11-09'
-
-                                def __init__(self):
-                                    self.parent = None
-                                    self.candidate_interface = YList()
-                                    self.candidate_interface.parent = self
-                                    self.candidate_interface.name = 'candidate_interface'
-
-
-                                class CandidateInterface(object):
-                                    """
-                                    Candidate backup interface
-                                    
-                                    .. attribute:: interface_name  <key>
-                                    
-                                    	Interface
-                                    	**type**\:  str
-                                    
-                                    	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
-                                    
-                                    
-
-                                    """
-
-                                    _prefix = 'ipv4-ospf-cfg'
-                                    _revision = '2015-11-09'
-
-                                    def __init__(self):
-                                        self.parent = None
-                                        self.interface_name = None
-
-                                    @property
-                                    def _common_path(self):
-                                        if self.parent is None:
-                                            raise YPYModelError('parent is not set . Cannot derive path.')
-                                        if self.interface_name is None:
-                                            raise YPYModelError('Key property interface_name is None')
-
-                                        return self.parent._common_path +'/Cisco-IOS-XR-ipv4-ospf-cfg:candidate-interface[Cisco-IOS-XR-ipv4-ospf-cfg:interface-name = ' + str(self.interface_name) + ']'
-
-                                    def is_config(self):
-                                        ''' Returns True if this instance represents config data else returns False '''
-                                        return True
-
-                                    def _has_data(self):
-                                        if not self.is_config():
-                                            return False
-                                        if self.interface_name is not None:
-                                            return True
-
-                                        return False
-
-                                    @staticmethod
-                                    def _meta_info():
-                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_ospf_cfg as meta
-                                        return meta._meta_table['Ospf.Processes.Process.DefaultVrf.ProcessScope.FastReroute.PerPrefix.CandidateInterfaces.CandidateInterface']['meta_info']
-
-                                @property
-                                def _common_path(self):
-                                    if self.parent is None:
-                                        raise YPYModelError('parent is not set . Cannot derive path.')
-
-                                    return self.parent._common_path +'/Cisco-IOS-XR-ipv4-ospf-cfg:candidate-interfaces'
-
-                                def is_config(self):
-                                    ''' Returns True if this instance represents config data else returns False '''
-                                    return True
-
-                                def _has_data(self):
-                                    if not self.is_config():
-                                        return False
-                                    if self.candidate_interface is not None:
-                                        for child_ref in self.candidate_interface:
-                                            if child_ref._has_data():
-                                                return True
-
-                                    return False
-
-                                @staticmethod
-                                def _meta_info():
-                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_ospf_cfg as meta
-                                    return meta._meta_table['Ospf.Processes.Process.DefaultVrf.ProcessScope.FastReroute.PerPrefix.CandidateInterfaces']['meta_info']
-
-
-                            class ExcludeInterfaces(object):
-                                """
-                                Fast\-reroute per\-link/per\-prefix or UCMP exclude
-                                interface configuration
-                                
-                                .. attribute:: exclude_interface
-                                
-                                	Exclude an interface from becoming a backup or UCMP
-                                	**type**\: list of  :py:class:`ExcludeInterface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_cfg.Ospf.Processes.Process.DefaultVrf.ProcessScope.FastReroute.PerPrefix.ExcludeInterfaces.ExcludeInterface>`
-                                
-                                
-
-                                """
-
-                                _prefix = 'ipv4-ospf-cfg'
-                                _revision = '2015-11-09'
-
-                                def __init__(self):
-                                    self.parent = None
-                                    self.exclude_interface = YList()
-                                    self.exclude_interface.parent = self
-                                    self.exclude_interface.name = 'exclude_interface'
-
-
-                                class ExcludeInterface(object):
-                                    """
-                                    Exclude an interface from becoming a backup or
-                                    UCMP
-                                    
-                                    .. attribute:: interface_name  <key>
-                                    
-                                    	Interface
-                                    	**type**\:  str
-                                    
-                                    	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
-                                    
-                                    
-
-                                    """
-
-                                    _prefix = 'ipv4-ospf-cfg'
-                                    _revision = '2015-11-09'
-
-                                    def __init__(self):
-                                        self.parent = None
-                                        self.interface_name = None
-
-                                    @property
-                                    def _common_path(self):
-                                        if self.parent is None:
-                                            raise YPYModelError('parent is not set . Cannot derive path.')
-                                        if self.interface_name is None:
-                                            raise YPYModelError('Key property interface_name is None')
-
-                                        return self.parent._common_path +'/Cisco-IOS-XR-ipv4-ospf-cfg:exclude-interface[Cisco-IOS-XR-ipv4-ospf-cfg:interface-name = ' + str(self.interface_name) + ']'
-
-                                    def is_config(self):
-                                        ''' Returns True if this instance represents config data else returns False '''
-                                        return True
-
-                                    def _has_data(self):
-                                        if not self.is_config():
-                                            return False
-                                        if self.interface_name is not None:
-                                            return True
-
-                                        return False
-
-                                    @staticmethod
-                                    def _meta_info():
-                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_ospf_cfg as meta
-                                        return meta._meta_table['Ospf.Processes.Process.DefaultVrf.ProcessScope.FastReroute.PerPrefix.ExcludeInterfaces.ExcludeInterface']['meta_info']
-
-                                @property
-                                def _common_path(self):
-                                    if self.parent is None:
-                                        raise YPYModelError('parent is not set . Cannot derive path.')
-
-                                    return self.parent._common_path +'/Cisco-IOS-XR-ipv4-ospf-cfg:exclude-interfaces'
-
-                                def is_config(self):
-                                    ''' Returns True if this instance represents config data else returns False '''
-                                    return True
-
-                                def _has_data(self):
-                                    if not self.is_config():
-                                        return False
-                                    if self.exclude_interface is not None:
-                                        for child_ref in self.exclude_interface:
-                                            if child_ref._has_data():
-                                                return True
-
-                                    return False
-
-                                @staticmethod
-                                def _meta_info():
-                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_ospf_cfg as meta
-                                    return meta._meta_table['Ospf.Processes.Process.DefaultVrf.ProcessScope.FastReroute.PerPrefix.ExcludeInterfaces']['meta_info']
-
-                            @property
-                            def _common_path(self):
-                                if self.parent is None:
-                                    raise YPYModelError('parent is not set . Cannot derive path.')
-
-                                return self.parent._common_path +'/Cisco-IOS-XR-ipv4-ospf-cfg:per-prefix'
-
-                            def is_config(self):
-                                ''' Returns True if this instance represents config data else returns False '''
-                                return True
-
-                            def _has_data(self):
-                                if not self.is_config():
-                                    return False
-                                if self.candidate_interfaces is not None and self.candidate_interfaces._has_data():
-                                    return True
-
-                                if self.exclude_interfaces is not None and self.exclude_interfaces._has_data():
-                                    return True
-
-                                if self.fast_reroute_use_candidate_only is not None:
-                                    return True
-
-                                if self.remote_lfa is not None and self.remote_lfa._has_data():
-                                    return True
-
-                                if self.topology_independent_lfa is not None:
-                                    return True
-
-                                return False
-
-                            @staticmethod
-                            def _meta_info():
-                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_ospf_cfg as meta
-                                return meta._meta_table['Ospf.Processes.Process.DefaultVrf.ProcessScope.FastReroute.PerPrefix']['meta_info']
-
-                        @property
-                        def _common_path(self):
-                            if self.parent is None:
-                                raise YPYModelError('parent is not set . Cannot derive path.')
-
-                            return self.parent._common_path +'/Cisco-IOS-XR-ipv4-ospf-cfg:fast-reroute'
-
-                        def is_config(self):
-                            ''' Returns True if this instance represents config data else returns False '''
-                            return True
-
-                        def _has_data(self):
-                            if not self.is_config():
-                                return False
-                            if self.fast_reroute_enable is not None:
-                                return True
-
-                            if self.per_link is not None and self.per_link._has_data():
-                                return True
-
-                            if self.per_prefix is not None and self.per_prefix._has_data():
-                                return True
-
-                            return False
-
-                        @staticmethod
-                        def _meta_info():
-                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_ospf_cfg as meta
-                            return meta._meta_table['Ospf.Processes.Process.DefaultVrf.ProcessScope.FastReroute']['meta_info']
-
-
                     class DeadIntervalMinimal(object):
                         """
                         Interval after which a neighbor is declared dead
@@ -21923,6 +24382,9 @@ class Ospf(object):
                             return True
 
                         if self.passive is not None:
+                            return True
+
+                        if self.prefix_suppression_primary is not None:
                             return True
 
                         if self.prefix_suppression_secondary is not None:
@@ -23267,7 +25729,7 @@ class Ospf(object):
                             	Interface
                             	**type**\:  str
                             
-                            	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+                            	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
                             
                             
 
@@ -23505,10 +25967,10 @@ class Ospf(object):
                                 
                                 .. attribute:: tiebreaker_index
                                 
-                                	Index value for a tiebreaker
+                                	Index value for a tiebreaker, 0 to disable
                                 	**type**\:  int
                                 
-                                	**range:** 1..255
+                                	**range:** 0..255
                                 
                                 	**mandatory**\: True
                                 
@@ -25630,6 +28092,11 @@ class Ospf(object):
                             	When enabled, prevent sending HELLO packets over link
                             	**type**\:  bool
                             
+                            .. attribute:: prefix_suppression_primary
+                            
+                            	Enable/Disable prefix suppression for primary addresses
+                            	**type**\:  bool
+                            
                             .. attribute:: prefix_suppression_secondary
                             
                             	Enable/Disable prefix suppression for secondary addresses
@@ -25700,6 +28167,7 @@ class Ospf(object):
                                 self.network_type = None
                                 self.packet_size = None
                                 self.passive = None
+                                self.prefix_suppression_primary = None
                                 self.prefix_suppression_secondary = None
                                 self.priority = None
                                 self.retransmit_interval = None
@@ -26187,6 +28655,64 @@ class Ospf(object):
                                     return meta._meta_table['Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.AreaScope.Security']['meta_info']
 
 
+                            class DeadIntervalMinimal(object):
+                                """
+                                Interval after which a neighbor is declared dead
+                                
+                                .. attribute:: interval
+                                
+                                	Interval size in seconds after which a neighbor is declared dead
+                                	**type**\:  int
+                                
+                                	**range:** 1..65535
+                                
+                                .. attribute:: multiplier
+                                
+                                	Number of Hellos in one second
+                                	**type**\:  int
+                                
+                                	**range:** 3..20
+                                
+                                
+
+                                """
+
+                                _prefix = 'ipv4-ospf-cfg'
+                                _revision = '2015-11-09'
+
+                                def __init__(self):
+                                    self.parent = None
+                                    self.interval = None
+                                    self.multiplier = None
+
+                                @property
+                                def _common_path(self):
+                                    if self.parent is None:
+                                        raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                    return self.parent._common_path +'/Cisco-IOS-XR-ipv4-ospf-cfg:dead-interval-minimal'
+
+                                def is_config(self):
+                                    ''' Returns True if this instance represents config data else returns False '''
+                                    return True
+
+                                def _has_data(self):
+                                    if not self.is_config():
+                                        return False
+                                    if self.interval is not None:
+                                        return True
+
+                                    if self.multiplier is not None:
+                                        return True
+
+                                    return False
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_ospf_cfg as meta
+                                    return meta._meta_table['Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.AreaScope.DeadIntervalMinimal']['meta_info']
+
+
                             class FastReroute(object):
                                 """
                                 Fast\-reroute configuration
@@ -26203,7 +28729,7 @@ class Ospf(object):
                                 
                                 .. attribute:: per_prefix
                                 
-                                	Fast\-reroute per\-prefix configuration
+                                	Fast\-reroute per\-prefix global configuration
                                 	**type**\:  :py:class:`PerPrefix <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_cfg.Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.AreaScope.FastReroute.PerPrefix>`
                                 
                                 
@@ -26290,7 +28816,7 @@ class Ospf(object):
                                             	Interface
                                             	**type**\:  str
                                             
-                                            	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+                                            	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
                                             
                                             
 
@@ -26390,7 +28916,7 @@ class Ospf(object):
                                             	Interface
                                             	**type**\:  str
                                             
-                                            	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+                                            	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
                                             
                                             
 
@@ -26488,7 +29014,7 @@ class Ospf(object):
 
                                 class PerPrefix(object):
                                     """
-                                    Fast\-reroute per\-prefix configuration
+                                    Fast\-reroute per\-prefix global configuration
                                     
                                     .. attribute:: candidate_interfaces
                                     
@@ -26509,6 +29035,11 @@ class Ospf(object):
                                     
                                     	Remote LFA configuration
                                     	**type**\:  :py:class:`RemoteLfa <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_cfg.Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.AreaScope.FastReroute.PerPrefix.RemoteLfa>`
+                                    
+                                    .. attribute:: tiebreakers
+                                    
+                                    	Fast\-reroute tiebreakers configurations
+                                    	**type**\:  :py:class:`Tiebreakers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_cfg.Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.AreaScope.FastReroute.PerPrefix.Tiebreakers>`
                                     
                                     .. attribute:: topology_independent_lfa
                                     
@@ -26531,6 +29062,8 @@ class Ospf(object):
                                         self.fast_reroute_use_candidate_only = None
                                         self.remote_lfa = Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.AreaScope.FastReroute.PerPrefix.RemoteLfa()
                                         self.remote_lfa.parent = self
+                                        self.tiebreakers = Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.AreaScope.FastReroute.PerPrefix.Tiebreakers()
+                                        self.tiebreakers.parent = self
                                         self.topology_independent_lfa = None
 
 
@@ -26590,6 +29123,115 @@ class Ospf(object):
                                             return meta._meta_table['Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.AreaScope.FastReroute.PerPrefix.RemoteLfa']['meta_info']
 
 
+                                    class Tiebreakers(object):
+                                        """
+                                        Fast\-reroute tiebreakers configurations
+                                        
+                                        .. attribute:: tiebreaker
+                                        
+                                        	Fast\-reroute tiebreakers configuration
+                                        	**type**\: list of  :py:class:`Tiebreaker <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_cfg.Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.AreaScope.FastReroute.PerPrefix.Tiebreakers.Tiebreaker>`
+                                        
+                                        
+
+                                        """
+
+                                        _prefix = 'ipv4-ospf-cfg'
+                                        _revision = '2015-11-09'
+
+                                        def __init__(self):
+                                            self.parent = None
+                                            self.tiebreaker = YList()
+                                            self.tiebreaker.parent = self
+                                            self.tiebreaker.name = 'tiebreaker'
+
+
+                                        class Tiebreaker(object):
+                                            """
+                                            Fast\-reroute tiebreakers configuration
+                                            
+                                            .. attribute:: tiebreaker_type  <key>
+                                            
+                                            	Tiebreaker type
+                                            	**type**\:  :py:class:`OspfFastRerouteTiebreakersIntfEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_cfg.OspfFastRerouteTiebreakersIntfEnum>`
+                                            
+                                            .. attribute:: tiebreaker_index
+                                            
+                                            	Index value for a tiebreaker, 0 to disable
+                                            	**type**\:  int
+                                            
+                                            	**range:** 0..255
+                                            
+                                            	**mandatory**\: True
+                                            
+                                            
+
+                                            """
+
+                                            _prefix = 'ipv4-ospf-cfg'
+                                            _revision = '2015-11-09'
+
+                                            def __init__(self):
+                                                self.parent = None
+                                                self.tiebreaker_type = None
+                                                self.tiebreaker_index = None
+
+                                            @property
+                                            def _common_path(self):
+                                                if self.parent is None:
+                                                    raise YPYModelError('parent is not set . Cannot derive path.')
+                                                if self.tiebreaker_type is None:
+                                                    raise YPYModelError('Key property tiebreaker_type is None')
+
+                                                return self.parent._common_path +'/Cisco-IOS-XR-ipv4-ospf-cfg:tiebreaker[Cisco-IOS-XR-ipv4-ospf-cfg:tiebreaker-type = ' + str(self.tiebreaker_type) + ']'
+
+                                            def is_config(self):
+                                                ''' Returns True if this instance represents config data else returns False '''
+                                                return True
+
+                                            def _has_data(self):
+                                                if not self.is_config():
+                                                    return False
+                                                if self.tiebreaker_type is not None:
+                                                    return True
+
+                                                if self.tiebreaker_index is not None:
+                                                    return True
+
+                                                return False
+
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_ospf_cfg as meta
+                                                return meta._meta_table['Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.AreaScope.FastReroute.PerPrefix.Tiebreakers.Tiebreaker']['meta_info']
+
+                                        @property
+                                        def _common_path(self):
+                                            if self.parent is None:
+                                                raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                            return self.parent._common_path +'/Cisco-IOS-XR-ipv4-ospf-cfg:tiebreakers'
+
+                                        def is_config(self):
+                                            ''' Returns True if this instance represents config data else returns False '''
+                                            return True
+
+                                        def _has_data(self):
+                                            if not self.is_config():
+                                                return False
+                                            if self.tiebreaker is not None:
+                                                for child_ref in self.tiebreaker:
+                                                    if child_ref._has_data():
+                                                        return True
+
+                                            return False
+
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_ospf_cfg as meta
+                                            return meta._meta_table['Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.AreaScope.FastReroute.PerPrefix.Tiebreakers']['meta_info']
+
+
                                     class CandidateInterfaces(object):
                                         """
                                         Fast\-reroute per\-link/per\-prefix candidate
@@ -26623,7 +29265,7 @@ class Ospf(object):
                                             	Interface
                                             	**type**\:  str
                                             
-                                            	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+                                            	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
                                             
                                             
 
@@ -26723,7 +29365,7 @@ class Ospf(object):
                                             	Interface
                                             	**type**\:  str
                                             
-                                            	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+                                            	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
                                             
                                             
 
@@ -26814,6 +29456,9 @@ class Ospf(object):
                                         if self.remote_lfa is not None and self.remote_lfa._has_data():
                                             return True
 
+                                        if self.tiebreakers is not None and self.tiebreakers._has_data():
+                                            return True
+
                                         if self.topology_independent_lfa is not None:
                                             return True
 
@@ -26853,64 +29498,6 @@ class Ospf(object):
                                 def _meta_info():
                                     from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_ospf_cfg as meta
                                     return meta._meta_table['Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.AreaScope.FastReroute']['meta_info']
-
-
-                            class DeadIntervalMinimal(object):
-                                """
-                                Interval after which a neighbor is declared dead
-                                
-                                .. attribute:: interval
-                                
-                                	Interval size in seconds after which a neighbor is declared dead
-                                	**type**\:  int
-                                
-                                	**range:** 1..65535
-                                
-                                .. attribute:: multiplier
-                                
-                                	Number of Hellos in one second
-                                	**type**\:  int
-                                
-                                	**range:** 3..20
-                                
-                                
-
-                                """
-
-                                _prefix = 'ipv4-ospf-cfg'
-                                _revision = '2015-11-09'
-
-                                def __init__(self):
-                                    self.parent = None
-                                    self.interval = None
-                                    self.multiplier = None
-
-                                @property
-                                def _common_path(self):
-                                    if self.parent is None:
-                                        raise YPYModelError('parent is not set . Cannot derive path.')
-
-                                    return self.parent._common_path +'/Cisco-IOS-XR-ipv4-ospf-cfg:dead-interval-minimal'
-
-                                def is_config(self):
-                                    ''' Returns True if this instance represents config data else returns False '''
-                                    return True
-
-                                def _has_data(self):
-                                    if not self.is_config():
-                                        return False
-                                    if self.interval is not None:
-                                        return True
-
-                                    if self.multiplier is not None:
-                                        return True
-
-                                    return False
-
-                                @staticmethod
-                                def _meta_info():
-                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_ospf_cfg as meta
-                                    return meta._meta_table['Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.AreaScope.DeadIntervalMinimal']['meta_info']
 
 
                             class CostFallback(object):
@@ -27044,6 +29631,9 @@ class Ospf(object):
                                 if self.passive is not None:
                                     return True
 
+                                if self.prefix_suppression_primary is not None:
+                                    return True
+
                                 if self.prefix_suppression_secondary is not None:
                                     return True
 
@@ -27102,7 +29692,7 @@ class Ospf(object):
                                 	Name of Interface to configure
                                 	**type**\:  str
                                 
-                                	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+                                	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
                                 
                                 .. attribute:: authentication
                                 
@@ -27220,6 +29810,16 @@ class Ospf(object):
                                 	Prefix SID
                                 	**type**\:  :py:class:`PrefixSid <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_cfg.Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.NameScopes.NameScope.PrefixSid>`
                                 
+                                .. attribute:: prefix_sid_strict
+                                
+                                	Strict Prefix SID
+                                	**type**\:  :py:class:`PrefixSidStrict <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_cfg.Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.NameScopes.NameScope.PrefixSidStrict>`
+                                
+                                .. attribute:: prefix_suppression_primary
+                                
+                                	Enable/Disable prefix suppression for primary addresses
+                                	**type**\:  bool
+                                
                                 .. attribute:: prefix_suppression_secondary
                                 
                                 	Enable/Disable prefix suppression for secondary addresses
@@ -27299,6 +29899,8 @@ class Ospf(object):
                                     self.packet_size = None
                                     self.passive = None
                                     self.prefix_sid = None
+                                    self.prefix_sid_strict = None
+                                    self.prefix_suppression_primary = None
                                     self.prefix_suppression_secondary = None
                                     self.priority = None
                                     self.retransmit_interval = None
@@ -27316,6 +29918,11 @@ class Ospf(object):
                                     .. attribute:: explicit_null
                                     
                                     	Force Penultimate Hop To Send Explicit\-Null Label
+                                    	**type**\:  bool
+                                    
+                                    .. attribute:: n_flag_clear
+                                    
+                                    	Not a node SID
                                     	**type**\:  bool
                                     
                                     .. attribute:: sid_value
@@ -27352,6 +29959,7 @@ class Ospf(object):
                                         self.parent = None
                                         self._is_presence = True
                                         self.explicit_null = None
+                                        self.n_flag_clear = None
                                         self.sid_value = None
                                         self.type = None
 
@@ -27374,6 +29982,9 @@ class Ospf(object):
                                         if self.explicit_null is not None:
                                             return True
 
+                                        if self.n_flag_clear is not None:
+                                            return True
+
                                         if self.sid_value is not None:
                                             return True
 
@@ -27386,6 +29997,94 @@ class Ospf(object):
                                     def _meta_info():
                                         from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_ospf_cfg as meta
                                         return meta._meta_table['Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.NameScopes.NameScope.PrefixSid']['meta_info']
+
+
+                                class PrefixSidStrict(object):
+                                    """
+                                    Strict Prefix SID
+                                    
+                                    .. attribute:: explicit_null
+                                    
+                                    	Force Penultimate Hop To Send Explicit\-Null Label
+                                    	**type**\:  bool
+                                    
+                                    .. attribute:: n_flag_clear
+                                    
+                                    	Not a node SID
+                                    	**type**\:  bool
+                                    
+                                    .. attribute:: sid_value
+                                    
+                                    	SID value
+                                    	**type**\:  int
+                                    
+                                    	**range:** 0..1048575
+                                    
+                                    	**mandatory**\: True
+                                    
+                                    .. attribute:: type
+                                    
+                                    	OSPF SID Type
+                                    	**type**\:  :py:class:`OspfSidEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_cfg.OspfSidEnum>`
+                                    
+                                    	**mandatory**\: True
+                                    
+                                    .. attribute:: _is_presence
+                                    
+                                    	Is present if this instance represents presence container else not
+                                    	**type**\: bool
+                                    
+                                    
+
+                                    This class is a :ref:`presence class<presence-class>`
+
+                                    """
+
+                                    _prefix = 'ipv4-ospf-cfg'
+                                    _revision = '2015-11-09'
+
+                                    def __init__(self):
+                                        self.parent = None
+                                        self._is_presence = True
+                                        self.explicit_null = None
+                                        self.n_flag_clear = None
+                                        self.sid_value = None
+                                        self.type = None
+
+                                    @property
+                                    def _common_path(self):
+                                        if self.parent is None:
+                                            raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                        return self.parent._common_path +'/Cisco-IOS-XR-ipv4-ospf-cfg:prefix-sid-strict'
+
+                                    def is_config(self):
+                                        ''' Returns True if this instance represents config data else returns False '''
+                                        return True
+
+                                    def _has_data(self):
+                                        if not self.is_config():
+                                            return False
+                                        if self._is_presence:
+                                            return True
+                                        if self.explicit_null is not None:
+                                            return True
+
+                                        if self.n_flag_clear is not None:
+                                            return True
+
+                                        if self.sid_value is not None:
+                                            return True
+
+                                        if self.type is not None:
+                                            return True
+
+                                        return False
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_ospf_cfg as meta
+                                        return meta._meta_table['Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.NameScopes.NameScope.PrefixSidStrict']['meta_info']
 
 
                                 class DistributeList(object):
@@ -27866,674 +30565,6 @@ class Ospf(object):
                                         return meta._meta_table['Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.NameScopes.NameScope.Security']['meta_info']
 
 
-                                class FastReroute(object):
-                                    """
-                                    Fast\-reroute configuration
-                                    
-                                    .. attribute:: fast_reroute_enable
-                                    
-                                    	Enable/Disable Fast\-reroute per\-link or per\-prefix
-                                    	**type**\:  :py:class:`OspfFastRerouteEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_cfg.OspfFastRerouteEnum>`
-                                    
-                                    .. attribute:: per_link
-                                    
-                                    	Fast\-reroute per\-link configuration
-                                    	**type**\:  :py:class:`PerLink <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_cfg.Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.NameScopes.NameScope.FastReroute.PerLink>`
-                                    
-                                    .. attribute:: per_prefix
-                                    
-                                    	Fast\-reroute per\-prefix configuration
-                                    	**type**\:  :py:class:`PerPrefix <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_cfg.Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.NameScopes.NameScope.FastReroute.PerPrefix>`
-                                    
-                                    
-
-                                    """
-
-                                    _prefix = 'ipv4-ospf-cfg'
-                                    _revision = '2015-11-09'
-
-                                    def __init__(self):
-                                        self.parent = None
-                                        self.fast_reroute_enable = None
-                                        self.per_link = Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.NameScopes.NameScope.FastReroute.PerLink()
-                                        self.per_link.parent = self
-                                        self.per_prefix = Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.NameScopes.NameScope.FastReroute.PerPrefix()
-                                        self.per_prefix.parent = self
-
-
-                                    class PerLink(object):
-                                        """
-                                        Fast\-reroute per\-link configuration
-                                        
-                                        .. attribute:: candidate_interfaces
-                                        
-                                        	Fast\-reroute per\-link/per\-prefix candidate interface configuration
-                                        	**type**\:  :py:class:`CandidateInterfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_cfg.Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.NameScopes.NameScope.FastReroute.PerLink.CandidateInterfaces>`
-                                        
-                                        .. attribute:: exclude_interfaces
-                                        
-                                        	Fast\-reroute per\-link/per\-prefix or UCMP exclude interface configuration
-                                        	**type**\:  :py:class:`ExcludeInterfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_cfg.Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.NameScopes.NameScope.FastReroute.PerLink.ExcludeInterfaces>`
-                                        
-                                        .. attribute:: fast_reroute_use_candidate_only
-                                        
-                                        	Use only interfaces on the candidate list as a backup path
-                                        	**type**\:  bool
-                                        
-                                        
-
-                                        """
-
-                                        _prefix = 'ipv4-ospf-cfg'
-                                        _revision = '2015-11-09'
-
-                                        def __init__(self):
-                                            self.parent = None
-                                            self.candidate_interfaces = Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.NameScopes.NameScope.FastReroute.PerLink.CandidateInterfaces()
-                                            self.candidate_interfaces.parent = self
-                                            self.exclude_interfaces = Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.NameScopes.NameScope.FastReroute.PerLink.ExcludeInterfaces()
-                                            self.exclude_interfaces.parent = self
-                                            self.fast_reroute_use_candidate_only = None
-
-
-                                        class CandidateInterfaces(object):
-                                            """
-                                            Fast\-reroute per\-link/per\-prefix candidate
-                                            interface configuration
-                                            
-                                            .. attribute:: candidate_interface
-                                            
-                                            	Candidate backup interface
-                                            	**type**\: list of  :py:class:`CandidateInterface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_cfg.Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.NameScopes.NameScope.FastReroute.PerLink.CandidateInterfaces.CandidateInterface>`
-                                            
-                                            
-
-                                            """
-
-                                            _prefix = 'ipv4-ospf-cfg'
-                                            _revision = '2015-11-09'
-
-                                            def __init__(self):
-                                                self.parent = None
-                                                self.candidate_interface = YList()
-                                                self.candidate_interface.parent = self
-                                                self.candidate_interface.name = 'candidate_interface'
-
-
-                                            class CandidateInterface(object):
-                                                """
-                                                Candidate backup interface
-                                                
-                                                .. attribute:: interface_name  <key>
-                                                
-                                                	Interface
-                                                	**type**\:  str
-                                                
-                                                	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
-                                                
-                                                
-
-                                                """
-
-                                                _prefix = 'ipv4-ospf-cfg'
-                                                _revision = '2015-11-09'
-
-                                                def __init__(self):
-                                                    self.parent = None
-                                                    self.interface_name = None
-
-                                                @property
-                                                def _common_path(self):
-                                                    if self.parent is None:
-                                                        raise YPYModelError('parent is not set . Cannot derive path.')
-                                                    if self.interface_name is None:
-                                                        raise YPYModelError('Key property interface_name is None')
-
-                                                    return self.parent._common_path +'/Cisco-IOS-XR-ipv4-ospf-cfg:candidate-interface[Cisco-IOS-XR-ipv4-ospf-cfg:interface-name = ' + str(self.interface_name) + ']'
-
-                                                def is_config(self):
-                                                    ''' Returns True if this instance represents config data else returns False '''
-                                                    return True
-
-                                                def _has_data(self):
-                                                    if not self.is_config():
-                                                        return False
-                                                    if self.interface_name is not None:
-                                                        return True
-
-                                                    return False
-
-                                                @staticmethod
-                                                def _meta_info():
-                                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_ospf_cfg as meta
-                                                    return meta._meta_table['Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.NameScopes.NameScope.FastReroute.PerLink.CandidateInterfaces.CandidateInterface']['meta_info']
-
-                                            @property
-                                            def _common_path(self):
-                                                if self.parent is None:
-                                                    raise YPYModelError('parent is not set . Cannot derive path.')
-
-                                                return self.parent._common_path +'/Cisco-IOS-XR-ipv4-ospf-cfg:candidate-interfaces'
-
-                                            def is_config(self):
-                                                ''' Returns True if this instance represents config data else returns False '''
-                                                return True
-
-                                            def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
-                                                if self.candidate_interface is not None:
-                                                    for child_ref in self.candidate_interface:
-                                                        if child_ref._has_data():
-                                                            return True
-
-                                                return False
-
-                                            @staticmethod
-                                            def _meta_info():
-                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_ospf_cfg as meta
-                                                return meta._meta_table['Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.NameScopes.NameScope.FastReroute.PerLink.CandidateInterfaces']['meta_info']
-
-
-                                        class ExcludeInterfaces(object):
-                                            """
-                                            Fast\-reroute per\-link/per\-prefix or UCMP exclude
-                                            interface configuration
-                                            
-                                            .. attribute:: exclude_interface
-                                            
-                                            	Exclude an interface from becoming a backup or UCMP
-                                            	**type**\: list of  :py:class:`ExcludeInterface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_cfg.Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.NameScopes.NameScope.FastReroute.PerLink.ExcludeInterfaces.ExcludeInterface>`
-                                            
-                                            
-
-                                            """
-
-                                            _prefix = 'ipv4-ospf-cfg'
-                                            _revision = '2015-11-09'
-
-                                            def __init__(self):
-                                                self.parent = None
-                                                self.exclude_interface = YList()
-                                                self.exclude_interface.parent = self
-                                                self.exclude_interface.name = 'exclude_interface'
-
-
-                                            class ExcludeInterface(object):
-                                                """
-                                                Exclude an interface from becoming a backup or
-                                                UCMP
-                                                
-                                                .. attribute:: interface_name  <key>
-                                                
-                                                	Interface
-                                                	**type**\:  str
-                                                
-                                                	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
-                                                
-                                                
-
-                                                """
-
-                                                _prefix = 'ipv4-ospf-cfg'
-                                                _revision = '2015-11-09'
-
-                                                def __init__(self):
-                                                    self.parent = None
-                                                    self.interface_name = None
-
-                                                @property
-                                                def _common_path(self):
-                                                    if self.parent is None:
-                                                        raise YPYModelError('parent is not set . Cannot derive path.')
-                                                    if self.interface_name is None:
-                                                        raise YPYModelError('Key property interface_name is None')
-
-                                                    return self.parent._common_path +'/Cisco-IOS-XR-ipv4-ospf-cfg:exclude-interface[Cisco-IOS-XR-ipv4-ospf-cfg:interface-name = ' + str(self.interface_name) + ']'
-
-                                                def is_config(self):
-                                                    ''' Returns True if this instance represents config data else returns False '''
-                                                    return True
-
-                                                def _has_data(self):
-                                                    if not self.is_config():
-                                                        return False
-                                                    if self.interface_name is not None:
-                                                        return True
-
-                                                    return False
-
-                                                @staticmethod
-                                                def _meta_info():
-                                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_ospf_cfg as meta
-                                                    return meta._meta_table['Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.NameScopes.NameScope.FastReroute.PerLink.ExcludeInterfaces.ExcludeInterface']['meta_info']
-
-                                            @property
-                                            def _common_path(self):
-                                                if self.parent is None:
-                                                    raise YPYModelError('parent is not set . Cannot derive path.')
-
-                                                return self.parent._common_path +'/Cisco-IOS-XR-ipv4-ospf-cfg:exclude-interfaces'
-
-                                            def is_config(self):
-                                                ''' Returns True if this instance represents config data else returns False '''
-                                                return True
-
-                                            def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
-                                                if self.exclude_interface is not None:
-                                                    for child_ref in self.exclude_interface:
-                                                        if child_ref._has_data():
-                                                            return True
-
-                                                return False
-
-                                            @staticmethod
-                                            def _meta_info():
-                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_ospf_cfg as meta
-                                                return meta._meta_table['Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.NameScopes.NameScope.FastReroute.PerLink.ExcludeInterfaces']['meta_info']
-
-                                        @property
-                                        def _common_path(self):
-                                            if self.parent is None:
-                                                raise YPYModelError('parent is not set . Cannot derive path.')
-
-                                            return self.parent._common_path +'/Cisco-IOS-XR-ipv4-ospf-cfg:per-link'
-
-                                        def is_config(self):
-                                            ''' Returns True if this instance represents config data else returns False '''
-                                            return True
-
-                                        def _has_data(self):
-                                            if not self.is_config():
-                                                return False
-                                            if self.candidate_interfaces is not None and self.candidate_interfaces._has_data():
-                                                return True
-
-                                            if self.exclude_interfaces is not None and self.exclude_interfaces._has_data():
-                                                return True
-
-                                            if self.fast_reroute_use_candidate_only is not None:
-                                                return True
-
-                                            return False
-
-                                        @staticmethod
-                                        def _meta_info():
-                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_ospf_cfg as meta
-                                            return meta._meta_table['Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.NameScopes.NameScope.FastReroute.PerLink']['meta_info']
-
-
-                                    class PerPrefix(object):
-                                        """
-                                        Fast\-reroute per\-prefix configuration
-                                        
-                                        .. attribute:: candidate_interfaces
-                                        
-                                        	Fast\-reroute per\-link/per\-prefix candidate interface configuration
-                                        	**type**\:  :py:class:`CandidateInterfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_cfg.Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.NameScopes.NameScope.FastReroute.PerPrefix.CandidateInterfaces>`
-                                        
-                                        .. attribute:: exclude_interfaces
-                                        
-                                        	Fast\-reroute per\-link/per\-prefix or UCMP exclude interface configuration
-                                        	**type**\:  :py:class:`ExcludeInterfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_cfg.Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.NameScopes.NameScope.FastReroute.PerPrefix.ExcludeInterfaces>`
-                                        
-                                        .. attribute:: fast_reroute_use_candidate_only
-                                        
-                                        	Use only interfaces on the candidate list as a backup path
-                                        	**type**\:  bool
-                                        
-                                        .. attribute:: remote_lfa
-                                        
-                                        	Remote LFA configuration
-                                        	**type**\:  :py:class:`RemoteLfa <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_cfg.Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.NameScopes.NameScope.FastReroute.PerPrefix.RemoteLfa>`
-                                        
-                                        .. attribute:: topology_independent_lfa
-                                        
-                                        	Topology Independet LFA configuration
-                                        	**type**\:  bool
-                                        
-                                        
-
-                                        """
-
-                                        _prefix = 'ipv4-ospf-cfg'
-                                        _revision = '2015-11-09'
-
-                                        def __init__(self):
-                                            self.parent = None
-                                            self.candidate_interfaces = Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.NameScopes.NameScope.FastReroute.PerPrefix.CandidateInterfaces()
-                                            self.candidate_interfaces.parent = self
-                                            self.exclude_interfaces = Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.NameScopes.NameScope.FastReroute.PerPrefix.ExcludeInterfaces()
-                                            self.exclude_interfaces.parent = self
-                                            self.fast_reroute_use_candidate_only = None
-                                            self.remote_lfa = Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.NameScopes.NameScope.FastReroute.PerPrefix.RemoteLfa()
-                                            self.remote_lfa.parent = self
-                                            self.topology_independent_lfa = None
-
-
-                                        class RemoteLfa(object):
-                                            """
-                                            Remote LFA configuration
-                                            
-                                            .. attribute:: maximum_cost
-                                            
-                                            	Maximum path cost to remote LFA
-                                            	**type**\:  int
-                                            
-                                            	**range:** 1..4294967295
-                                            
-                                            .. attribute:: tunnel
-                                            
-                                            	Enable/Disable remote LFA computation
-                                            	**type**\:  :py:class:`OspfFrrRlfaTunnelEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_cfg.OspfFrrRlfaTunnelEnum>`
-                                            
-                                            
-
-                                            """
-
-                                            _prefix = 'ipv4-ospf-cfg'
-                                            _revision = '2015-11-09'
-
-                                            def __init__(self):
-                                                self.parent = None
-                                                self.maximum_cost = None
-                                                self.tunnel = None
-
-                                            @property
-                                            def _common_path(self):
-                                                if self.parent is None:
-                                                    raise YPYModelError('parent is not set . Cannot derive path.')
-
-                                                return self.parent._common_path +'/Cisco-IOS-XR-ipv4-ospf-cfg:remote-lfa'
-
-                                            def is_config(self):
-                                                ''' Returns True if this instance represents config data else returns False '''
-                                                return True
-
-                                            def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
-                                                if self.maximum_cost is not None:
-                                                    return True
-
-                                                if self.tunnel is not None:
-                                                    return True
-
-                                                return False
-
-                                            @staticmethod
-                                            def _meta_info():
-                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_ospf_cfg as meta
-                                                return meta._meta_table['Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.NameScopes.NameScope.FastReroute.PerPrefix.RemoteLfa']['meta_info']
-
-
-                                        class CandidateInterfaces(object):
-                                            """
-                                            Fast\-reroute per\-link/per\-prefix candidate
-                                            interface configuration
-                                            
-                                            .. attribute:: candidate_interface
-                                            
-                                            	Candidate backup interface
-                                            	**type**\: list of  :py:class:`CandidateInterface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_cfg.Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.NameScopes.NameScope.FastReroute.PerPrefix.CandidateInterfaces.CandidateInterface>`
-                                            
-                                            
-
-                                            """
-
-                                            _prefix = 'ipv4-ospf-cfg'
-                                            _revision = '2015-11-09'
-
-                                            def __init__(self):
-                                                self.parent = None
-                                                self.candidate_interface = YList()
-                                                self.candidate_interface.parent = self
-                                                self.candidate_interface.name = 'candidate_interface'
-
-
-                                            class CandidateInterface(object):
-                                                """
-                                                Candidate backup interface
-                                                
-                                                .. attribute:: interface_name  <key>
-                                                
-                                                	Interface
-                                                	**type**\:  str
-                                                
-                                                	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
-                                                
-                                                
-
-                                                """
-
-                                                _prefix = 'ipv4-ospf-cfg'
-                                                _revision = '2015-11-09'
-
-                                                def __init__(self):
-                                                    self.parent = None
-                                                    self.interface_name = None
-
-                                                @property
-                                                def _common_path(self):
-                                                    if self.parent is None:
-                                                        raise YPYModelError('parent is not set . Cannot derive path.')
-                                                    if self.interface_name is None:
-                                                        raise YPYModelError('Key property interface_name is None')
-
-                                                    return self.parent._common_path +'/Cisco-IOS-XR-ipv4-ospf-cfg:candidate-interface[Cisco-IOS-XR-ipv4-ospf-cfg:interface-name = ' + str(self.interface_name) + ']'
-
-                                                def is_config(self):
-                                                    ''' Returns True if this instance represents config data else returns False '''
-                                                    return True
-
-                                                def _has_data(self):
-                                                    if not self.is_config():
-                                                        return False
-                                                    if self.interface_name is not None:
-                                                        return True
-
-                                                    return False
-
-                                                @staticmethod
-                                                def _meta_info():
-                                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_ospf_cfg as meta
-                                                    return meta._meta_table['Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.NameScopes.NameScope.FastReroute.PerPrefix.CandidateInterfaces.CandidateInterface']['meta_info']
-
-                                            @property
-                                            def _common_path(self):
-                                                if self.parent is None:
-                                                    raise YPYModelError('parent is not set . Cannot derive path.')
-
-                                                return self.parent._common_path +'/Cisco-IOS-XR-ipv4-ospf-cfg:candidate-interfaces'
-
-                                            def is_config(self):
-                                                ''' Returns True if this instance represents config data else returns False '''
-                                                return True
-
-                                            def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
-                                                if self.candidate_interface is not None:
-                                                    for child_ref in self.candidate_interface:
-                                                        if child_ref._has_data():
-                                                            return True
-
-                                                return False
-
-                                            @staticmethod
-                                            def _meta_info():
-                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_ospf_cfg as meta
-                                                return meta._meta_table['Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.NameScopes.NameScope.FastReroute.PerPrefix.CandidateInterfaces']['meta_info']
-
-
-                                        class ExcludeInterfaces(object):
-                                            """
-                                            Fast\-reroute per\-link/per\-prefix or UCMP exclude
-                                            interface configuration
-                                            
-                                            .. attribute:: exclude_interface
-                                            
-                                            	Exclude an interface from becoming a backup or UCMP
-                                            	**type**\: list of  :py:class:`ExcludeInterface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_cfg.Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.NameScopes.NameScope.FastReroute.PerPrefix.ExcludeInterfaces.ExcludeInterface>`
-                                            
-                                            
-
-                                            """
-
-                                            _prefix = 'ipv4-ospf-cfg'
-                                            _revision = '2015-11-09'
-
-                                            def __init__(self):
-                                                self.parent = None
-                                                self.exclude_interface = YList()
-                                                self.exclude_interface.parent = self
-                                                self.exclude_interface.name = 'exclude_interface'
-
-
-                                            class ExcludeInterface(object):
-                                                """
-                                                Exclude an interface from becoming a backup or
-                                                UCMP
-                                                
-                                                .. attribute:: interface_name  <key>
-                                                
-                                                	Interface
-                                                	**type**\:  str
-                                                
-                                                	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
-                                                
-                                                
-
-                                                """
-
-                                                _prefix = 'ipv4-ospf-cfg'
-                                                _revision = '2015-11-09'
-
-                                                def __init__(self):
-                                                    self.parent = None
-                                                    self.interface_name = None
-
-                                                @property
-                                                def _common_path(self):
-                                                    if self.parent is None:
-                                                        raise YPYModelError('parent is not set . Cannot derive path.')
-                                                    if self.interface_name is None:
-                                                        raise YPYModelError('Key property interface_name is None')
-
-                                                    return self.parent._common_path +'/Cisco-IOS-XR-ipv4-ospf-cfg:exclude-interface[Cisco-IOS-XR-ipv4-ospf-cfg:interface-name = ' + str(self.interface_name) + ']'
-
-                                                def is_config(self):
-                                                    ''' Returns True if this instance represents config data else returns False '''
-                                                    return True
-
-                                                def _has_data(self):
-                                                    if not self.is_config():
-                                                        return False
-                                                    if self.interface_name is not None:
-                                                        return True
-
-                                                    return False
-
-                                                @staticmethod
-                                                def _meta_info():
-                                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_ospf_cfg as meta
-                                                    return meta._meta_table['Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.NameScopes.NameScope.FastReroute.PerPrefix.ExcludeInterfaces.ExcludeInterface']['meta_info']
-
-                                            @property
-                                            def _common_path(self):
-                                                if self.parent is None:
-                                                    raise YPYModelError('parent is not set . Cannot derive path.')
-
-                                                return self.parent._common_path +'/Cisco-IOS-XR-ipv4-ospf-cfg:exclude-interfaces'
-
-                                            def is_config(self):
-                                                ''' Returns True if this instance represents config data else returns False '''
-                                                return True
-
-                                            def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
-                                                if self.exclude_interface is not None:
-                                                    for child_ref in self.exclude_interface:
-                                                        if child_ref._has_data():
-                                                            return True
-
-                                                return False
-
-                                            @staticmethod
-                                            def _meta_info():
-                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_ospf_cfg as meta
-                                                return meta._meta_table['Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.NameScopes.NameScope.FastReroute.PerPrefix.ExcludeInterfaces']['meta_info']
-
-                                        @property
-                                        def _common_path(self):
-                                            if self.parent is None:
-                                                raise YPYModelError('parent is not set . Cannot derive path.')
-
-                                            return self.parent._common_path +'/Cisco-IOS-XR-ipv4-ospf-cfg:per-prefix'
-
-                                        def is_config(self):
-                                            ''' Returns True if this instance represents config data else returns False '''
-                                            return True
-
-                                        def _has_data(self):
-                                            if not self.is_config():
-                                                return False
-                                            if self.candidate_interfaces is not None and self.candidate_interfaces._has_data():
-                                                return True
-
-                                            if self.exclude_interfaces is not None and self.exclude_interfaces._has_data():
-                                                return True
-
-                                            if self.fast_reroute_use_candidate_only is not None:
-                                                return True
-
-                                            if self.remote_lfa is not None and self.remote_lfa._has_data():
-                                                return True
-
-                                            if self.topology_independent_lfa is not None:
-                                                return True
-
-                                            return False
-
-                                        @staticmethod
-                                        def _meta_info():
-                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_ospf_cfg as meta
-                                            return meta._meta_table['Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.NameScopes.NameScope.FastReroute.PerPrefix']['meta_info']
-
-                                    @property
-                                    def _common_path(self):
-                                        if self.parent is None:
-                                            raise YPYModelError('parent is not set . Cannot derive path.')
-
-                                        return self.parent._common_path +'/Cisco-IOS-XR-ipv4-ospf-cfg:fast-reroute'
-
-                                    def is_config(self):
-                                        ''' Returns True if this instance represents config data else returns False '''
-                                        return True
-
-                                    def _has_data(self):
-                                        if not self.is_config():
-                                            return False
-                                        if self.fast_reroute_enable is not None:
-                                            return True
-
-                                        if self.per_link is not None and self.per_link._has_data():
-                                            return True
-
-                                        if self.per_prefix is not None and self.per_prefix._has_data():
-                                            return True
-
-                                        return False
-
-                                    @staticmethod
-                                    def _meta_info():
-                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_ospf_cfg as meta
-                                        return meta._meta_table['Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.NameScopes.NameScope.FastReroute']['meta_info']
-
-
                                 class Neighbors(object):
                                     """
                                     Neighbor router configuration information
@@ -28733,6 +30764,793 @@ class Ospf(object):
                                         return meta._meta_table['Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.NameScopes.NameScope.DeadIntervalMinimal']['meta_info']
 
 
+                                class FastReroute(object):
+                                    """
+                                    Fast\-reroute configuration
+                                    
+                                    .. attribute:: fast_reroute_enable
+                                    
+                                    	Enable/Disable Fast\-reroute per\-link or per\-prefix
+                                    	**type**\:  :py:class:`OspfFastRerouteEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_cfg.OspfFastRerouteEnum>`
+                                    
+                                    .. attribute:: per_link
+                                    
+                                    	Fast\-reroute per\-link configuration
+                                    	**type**\:  :py:class:`PerLink <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_cfg.Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.NameScopes.NameScope.FastReroute.PerLink>`
+                                    
+                                    .. attribute:: per_prefix
+                                    
+                                    	Fast\-reroute per\-prefix global configuration
+                                    	**type**\:  :py:class:`PerPrefix <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_cfg.Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.NameScopes.NameScope.FastReroute.PerPrefix>`
+                                    
+                                    
+
+                                    """
+
+                                    _prefix = 'ipv4-ospf-cfg'
+                                    _revision = '2015-11-09'
+
+                                    def __init__(self):
+                                        self.parent = None
+                                        self.fast_reroute_enable = None
+                                        self.per_link = Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.NameScopes.NameScope.FastReroute.PerLink()
+                                        self.per_link.parent = self
+                                        self.per_prefix = Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.NameScopes.NameScope.FastReroute.PerPrefix()
+                                        self.per_prefix.parent = self
+
+
+                                    class PerLink(object):
+                                        """
+                                        Fast\-reroute per\-link configuration
+                                        
+                                        .. attribute:: candidate_interfaces
+                                        
+                                        	Fast\-reroute per\-link/per\-prefix candidate interface configuration
+                                        	**type**\:  :py:class:`CandidateInterfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_cfg.Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.NameScopes.NameScope.FastReroute.PerLink.CandidateInterfaces>`
+                                        
+                                        .. attribute:: exclude_interfaces
+                                        
+                                        	Fast\-reroute per\-link/per\-prefix or UCMP exclude interface configuration
+                                        	**type**\:  :py:class:`ExcludeInterfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_cfg.Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.NameScopes.NameScope.FastReroute.PerLink.ExcludeInterfaces>`
+                                        
+                                        .. attribute:: fast_reroute_use_candidate_only
+                                        
+                                        	Use only interfaces on the candidate list as a backup path
+                                        	**type**\:  bool
+                                        
+                                        
+
+                                        """
+
+                                        _prefix = 'ipv4-ospf-cfg'
+                                        _revision = '2015-11-09'
+
+                                        def __init__(self):
+                                            self.parent = None
+                                            self.candidate_interfaces = Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.NameScopes.NameScope.FastReroute.PerLink.CandidateInterfaces()
+                                            self.candidate_interfaces.parent = self
+                                            self.exclude_interfaces = Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.NameScopes.NameScope.FastReroute.PerLink.ExcludeInterfaces()
+                                            self.exclude_interfaces.parent = self
+                                            self.fast_reroute_use_candidate_only = None
+
+
+                                        class CandidateInterfaces(object):
+                                            """
+                                            Fast\-reroute per\-link/per\-prefix candidate
+                                            interface configuration
+                                            
+                                            .. attribute:: candidate_interface
+                                            
+                                            	Candidate backup interface
+                                            	**type**\: list of  :py:class:`CandidateInterface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_cfg.Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.NameScopes.NameScope.FastReroute.PerLink.CandidateInterfaces.CandidateInterface>`
+                                            
+                                            
+
+                                            """
+
+                                            _prefix = 'ipv4-ospf-cfg'
+                                            _revision = '2015-11-09'
+
+                                            def __init__(self):
+                                                self.parent = None
+                                                self.candidate_interface = YList()
+                                                self.candidate_interface.parent = self
+                                                self.candidate_interface.name = 'candidate_interface'
+
+
+                                            class CandidateInterface(object):
+                                                """
+                                                Candidate backup interface
+                                                
+                                                .. attribute:: interface_name  <key>
+                                                
+                                                	Interface
+                                                	**type**\:  str
+                                                
+                                                	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+                                                
+                                                
+
+                                                """
+
+                                                _prefix = 'ipv4-ospf-cfg'
+                                                _revision = '2015-11-09'
+
+                                                def __init__(self):
+                                                    self.parent = None
+                                                    self.interface_name = None
+
+                                                @property
+                                                def _common_path(self):
+                                                    if self.parent is None:
+                                                        raise YPYModelError('parent is not set . Cannot derive path.')
+                                                    if self.interface_name is None:
+                                                        raise YPYModelError('Key property interface_name is None')
+
+                                                    return self.parent._common_path +'/Cisco-IOS-XR-ipv4-ospf-cfg:candidate-interface[Cisco-IOS-XR-ipv4-ospf-cfg:interface-name = ' + str(self.interface_name) + ']'
+
+                                                def is_config(self):
+                                                    ''' Returns True if this instance represents config data else returns False '''
+                                                    return True
+
+                                                def _has_data(self):
+                                                    if not self.is_config():
+                                                        return False
+                                                    if self.interface_name is not None:
+                                                        return True
+
+                                                    return False
+
+                                                @staticmethod
+                                                def _meta_info():
+                                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_ospf_cfg as meta
+                                                    return meta._meta_table['Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.NameScopes.NameScope.FastReroute.PerLink.CandidateInterfaces.CandidateInterface']['meta_info']
+
+                                            @property
+                                            def _common_path(self):
+                                                if self.parent is None:
+                                                    raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                                return self.parent._common_path +'/Cisco-IOS-XR-ipv4-ospf-cfg:candidate-interfaces'
+
+                                            def is_config(self):
+                                                ''' Returns True if this instance represents config data else returns False '''
+                                                return True
+
+                                            def _has_data(self):
+                                                if not self.is_config():
+                                                    return False
+                                                if self.candidate_interface is not None:
+                                                    for child_ref in self.candidate_interface:
+                                                        if child_ref._has_data():
+                                                            return True
+
+                                                return False
+
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_ospf_cfg as meta
+                                                return meta._meta_table['Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.NameScopes.NameScope.FastReroute.PerLink.CandidateInterfaces']['meta_info']
+
+
+                                        class ExcludeInterfaces(object):
+                                            """
+                                            Fast\-reroute per\-link/per\-prefix or UCMP exclude
+                                            interface configuration
+                                            
+                                            .. attribute:: exclude_interface
+                                            
+                                            	Exclude an interface from becoming a backup or UCMP
+                                            	**type**\: list of  :py:class:`ExcludeInterface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_cfg.Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.NameScopes.NameScope.FastReroute.PerLink.ExcludeInterfaces.ExcludeInterface>`
+                                            
+                                            
+
+                                            """
+
+                                            _prefix = 'ipv4-ospf-cfg'
+                                            _revision = '2015-11-09'
+
+                                            def __init__(self):
+                                                self.parent = None
+                                                self.exclude_interface = YList()
+                                                self.exclude_interface.parent = self
+                                                self.exclude_interface.name = 'exclude_interface'
+
+
+                                            class ExcludeInterface(object):
+                                                """
+                                                Exclude an interface from becoming a backup or
+                                                UCMP
+                                                
+                                                .. attribute:: interface_name  <key>
+                                                
+                                                	Interface
+                                                	**type**\:  str
+                                                
+                                                	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+                                                
+                                                
+
+                                                """
+
+                                                _prefix = 'ipv4-ospf-cfg'
+                                                _revision = '2015-11-09'
+
+                                                def __init__(self):
+                                                    self.parent = None
+                                                    self.interface_name = None
+
+                                                @property
+                                                def _common_path(self):
+                                                    if self.parent is None:
+                                                        raise YPYModelError('parent is not set . Cannot derive path.')
+                                                    if self.interface_name is None:
+                                                        raise YPYModelError('Key property interface_name is None')
+
+                                                    return self.parent._common_path +'/Cisco-IOS-XR-ipv4-ospf-cfg:exclude-interface[Cisco-IOS-XR-ipv4-ospf-cfg:interface-name = ' + str(self.interface_name) + ']'
+
+                                                def is_config(self):
+                                                    ''' Returns True if this instance represents config data else returns False '''
+                                                    return True
+
+                                                def _has_data(self):
+                                                    if not self.is_config():
+                                                        return False
+                                                    if self.interface_name is not None:
+                                                        return True
+
+                                                    return False
+
+                                                @staticmethod
+                                                def _meta_info():
+                                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_ospf_cfg as meta
+                                                    return meta._meta_table['Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.NameScopes.NameScope.FastReroute.PerLink.ExcludeInterfaces.ExcludeInterface']['meta_info']
+
+                                            @property
+                                            def _common_path(self):
+                                                if self.parent is None:
+                                                    raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                                return self.parent._common_path +'/Cisco-IOS-XR-ipv4-ospf-cfg:exclude-interfaces'
+
+                                            def is_config(self):
+                                                ''' Returns True if this instance represents config data else returns False '''
+                                                return True
+
+                                            def _has_data(self):
+                                                if not self.is_config():
+                                                    return False
+                                                if self.exclude_interface is not None:
+                                                    for child_ref in self.exclude_interface:
+                                                        if child_ref._has_data():
+                                                            return True
+
+                                                return False
+
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_ospf_cfg as meta
+                                                return meta._meta_table['Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.NameScopes.NameScope.FastReroute.PerLink.ExcludeInterfaces']['meta_info']
+
+                                        @property
+                                        def _common_path(self):
+                                            if self.parent is None:
+                                                raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                            return self.parent._common_path +'/Cisco-IOS-XR-ipv4-ospf-cfg:per-link'
+
+                                        def is_config(self):
+                                            ''' Returns True if this instance represents config data else returns False '''
+                                            return True
+
+                                        def _has_data(self):
+                                            if not self.is_config():
+                                                return False
+                                            if self.candidate_interfaces is not None and self.candidate_interfaces._has_data():
+                                                return True
+
+                                            if self.exclude_interfaces is not None and self.exclude_interfaces._has_data():
+                                                return True
+
+                                            if self.fast_reroute_use_candidate_only is not None:
+                                                return True
+
+                                            return False
+
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_ospf_cfg as meta
+                                            return meta._meta_table['Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.NameScopes.NameScope.FastReroute.PerLink']['meta_info']
+
+
+                                    class PerPrefix(object):
+                                        """
+                                        Fast\-reroute per\-prefix global configuration
+                                        
+                                        .. attribute:: candidate_interfaces
+                                        
+                                        	Fast\-reroute per\-link/per\-prefix candidate interface configuration
+                                        	**type**\:  :py:class:`CandidateInterfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_cfg.Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.NameScopes.NameScope.FastReroute.PerPrefix.CandidateInterfaces>`
+                                        
+                                        .. attribute:: exclude_interfaces
+                                        
+                                        	Fast\-reroute per\-link/per\-prefix or UCMP exclude interface configuration
+                                        	**type**\:  :py:class:`ExcludeInterfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_cfg.Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.NameScopes.NameScope.FastReroute.PerPrefix.ExcludeInterfaces>`
+                                        
+                                        .. attribute:: fast_reroute_use_candidate_only
+                                        
+                                        	Use only interfaces on the candidate list as a backup path
+                                        	**type**\:  bool
+                                        
+                                        .. attribute:: remote_lfa
+                                        
+                                        	Remote LFA configuration
+                                        	**type**\:  :py:class:`RemoteLfa <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_cfg.Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.NameScopes.NameScope.FastReroute.PerPrefix.RemoteLfa>`
+                                        
+                                        .. attribute:: tiebreakers
+                                        
+                                        	Fast\-reroute tiebreakers configurations
+                                        	**type**\:  :py:class:`Tiebreakers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_cfg.Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.NameScopes.NameScope.FastReroute.PerPrefix.Tiebreakers>`
+                                        
+                                        .. attribute:: topology_independent_lfa
+                                        
+                                        	Topology Independet LFA configuration
+                                        	**type**\:  bool
+                                        
+                                        
+
+                                        """
+
+                                        _prefix = 'ipv4-ospf-cfg'
+                                        _revision = '2015-11-09'
+
+                                        def __init__(self):
+                                            self.parent = None
+                                            self.candidate_interfaces = Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.NameScopes.NameScope.FastReroute.PerPrefix.CandidateInterfaces()
+                                            self.candidate_interfaces.parent = self
+                                            self.exclude_interfaces = Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.NameScopes.NameScope.FastReroute.PerPrefix.ExcludeInterfaces()
+                                            self.exclude_interfaces.parent = self
+                                            self.fast_reroute_use_candidate_only = None
+                                            self.remote_lfa = Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.NameScopes.NameScope.FastReroute.PerPrefix.RemoteLfa()
+                                            self.remote_lfa.parent = self
+                                            self.tiebreakers = Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.NameScopes.NameScope.FastReroute.PerPrefix.Tiebreakers()
+                                            self.tiebreakers.parent = self
+                                            self.topology_independent_lfa = None
+
+
+                                        class RemoteLfa(object):
+                                            """
+                                            Remote LFA configuration
+                                            
+                                            .. attribute:: maximum_cost
+                                            
+                                            	Maximum path cost to remote LFA
+                                            	**type**\:  int
+                                            
+                                            	**range:** 1..4294967295
+                                            
+                                            .. attribute:: tunnel
+                                            
+                                            	Enable/Disable remote LFA computation
+                                            	**type**\:  :py:class:`OspfFrrRlfaTunnelEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_cfg.OspfFrrRlfaTunnelEnum>`
+                                            
+                                            
+
+                                            """
+
+                                            _prefix = 'ipv4-ospf-cfg'
+                                            _revision = '2015-11-09'
+
+                                            def __init__(self):
+                                                self.parent = None
+                                                self.maximum_cost = None
+                                                self.tunnel = None
+
+                                            @property
+                                            def _common_path(self):
+                                                if self.parent is None:
+                                                    raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                                return self.parent._common_path +'/Cisco-IOS-XR-ipv4-ospf-cfg:remote-lfa'
+
+                                            def is_config(self):
+                                                ''' Returns True if this instance represents config data else returns False '''
+                                                return True
+
+                                            def _has_data(self):
+                                                if not self.is_config():
+                                                    return False
+                                                if self.maximum_cost is not None:
+                                                    return True
+
+                                                if self.tunnel is not None:
+                                                    return True
+
+                                                return False
+
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_ospf_cfg as meta
+                                                return meta._meta_table['Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.NameScopes.NameScope.FastReroute.PerPrefix.RemoteLfa']['meta_info']
+
+
+                                        class Tiebreakers(object):
+                                            """
+                                            Fast\-reroute tiebreakers configurations
+                                            
+                                            .. attribute:: tiebreaker
+                                            
+                                            	Fast\-reroute tiebreakers configuration
+                                            	**type**\: list of  :py:class:`Tiebreaker <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_cfg.Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.NameScopes.NameScope.FastReroute.PerPrefix.Tiebreakers.Tiebreaker>`
+                                            
+                                            
+
+                                            """
+
+                                            _prefix = 'ipv4-ospf-cfg'
+                                            _revision = '2015-11-09'
+
+                                            def __init__(self):
+                                                self.parent = None
+                                                self.tiebreaker = YList()
+                                                self.tiebreaker.parent = self
+                                                self.tiebreaker.name = 'tiebreaker'
+
+
+                                            class Tiebreaker(object):
+                                                """
+                                                Fast\-reroute tiebreakers configuration
+                                                
+                                                .. attribute:: tiebreaker_type  <key>
+                                                
+                                                	Tiebreaker type
+                                                	**type**\:  :py:class:`OspfFastRerouteTiebreakersIntfEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_cfg.OspfFastRerouteTiebreakersIntfEnum>`
+                                                
+                                                .. attribute:: tiebreaker_index
+                                                
+                                                	Index value for a tiebreaker, 0 to disable
+                                                	**type**\:  int
+                                                
+                                                	**range:** 0..255
+                                                
+                                                	**mandatory**\: True
+                                                
+                                                
+
+                                                """
+
+                                                _prefix = 'ipv4-ospf-cfg'
+                                                _revision = '2015-11-09'
+
+                                                def __init__(self):
+                                                    self.parent = None
+                                                    self.tiebreaker_type = None
+                                                    self.tiebreaker_index = None
+
+                                                @property
+                                                def _common_path(self):
+                                                    if self.parent is None:
+                                                        raise YPYModelError('parent is not set . Cannot derive path.')
+                                                    if self.tiebreaker_type is None:
+                                                        raise YPYModelError('Key property tiebreaker_type is None')
+
+                                                    return self.parent._common_path +'/Cisco-IOS-XR-ipv4-ospf-cfg:tiebreaker[Cisco-IOS-XR-ipv4-ospf-cfg:tiebreaker-type = ' + str(self.tiebreaker_type) + ']'
+
+                                                def is_config(self):
+                                                    ''' Returns True if this instance represents config data else returns False '''
+                                                    return True
+
+                                                def _has_data(self):
+                                                    if not self.is_config():
+                                                        return False
+                                                    if self.tiebreaker_type is not None:
+                                                        return True
+
+                                                    if self.tiebreaker_index is not None:
+                                                        return True
+
+                                                    return False
+
+                                                @staticmethod
+                                                def _meta_info():
+                                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_ospf_cfg as meta
+                                                    return meta._meta_table['Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.NameScopes.NameScope.FastReroute.PerPrefix.Tiebreakers.Tiebreaker']['meta_info']
+
+                                            @property
+                                            def _common_path(self):
+                                                if self.parent is None:
+                                                    raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                                return self.parent._common_path +'/Cisco-IOS-XR-ipv4-ospf-cfg:tiebreakers'
+
+                                            def is_config(self):
+                                                ''' Returns True if this instance represents config data else returns False '''
+                                                return True
+
+                                            def _has_data(self):
+                                                if not self.is_config():
+                                                    return False
+                                                if self.tiebreaker is not None:
+                                                    for child_ref in self.tiebreaker:
+                                                        if child_ref._has_data():
+                                                            return True
+
+                                                return False
+
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_ospf_cfg as meta
+                                                return meta._meta_table['Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.NameScopes.NameScope.FastReroute.PerPrefix.Tiebreakers']['meta_info']
+
+
+                                        class CandidateInterfaces(object):
+                                            """
+                                            Fast\-reroute per\-link/per\-prefix candidate
+                                            interface configuration
+                                            
+                                            .. attribute:: candidate_interface
+                                            
+                                            	Candidate backup interface
+                                            	**type**\: list of  :py:class:`CandidateInterface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_cfg.Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.NameScopes.NameScope.FastReroute.PerPrefix.CandidateInterfaces.CandidateInterface>`
+                                            
+                                            
+
+                                            """
+
+                                            _prefix = 'ipv4-ospf-cfg'
+                                            _revision = '2015-11-09'
+
+                                            def __init__(self):
+                                                self.parent = None
+                                                self.candidate_interface = YList()
+                                                self.candidate_interface.parent = self
+                                                self.candidate_interface.name = 'candidate_interface'
+
+
+                                            class CandidateInterface(object):
+                                                """
+                                                Candidate backup interface
+                                                
+                                                .. attribute:: interface_name  <key>
+                                                
+                                                	Interface
+                                                	**type**\:  str
+                                                
+                                                	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+                                                
+                                                
+
+                                                """
+
+                                                _prefix = 'ipv4-ospf-cfg'
+                                                _revision = '2015-11-09'
+
+                                                def __init__(self):
+                                                    self.parent = None
+                                                    self.interface_name = None
+
+                                                @property
+                                                def _common_path(self):
+                                                    if self.parent is None:
+                                                        raise YPYModelError('parent is not set . Cannot derive path.')
+                                                    if self.interface_name is None:
+                                                        raise YPYModelError('Key property interface_name is None')
+
+                                                    return self.parent._common_path +'/Cisco-IOS-XR-ipv4-ospf-cfg:candidate-interface[Cisco-IOS-XR-ipv4-ospf-cfg:interface-name = ' + str(self.interface_name) + ']'
+
+                                                def is_config(self):
+                                                    ''' Returns True if this instance represents config data else returns False '''
+                                                    return True
+
+                                                def _has_data(self):
+                                                    if not self.is_config():
+                                                        return False
+                                                    if self.interface_name is not None:
+                                                        return True
+
+                                                    return False
+
+                                                @staticmethod
+                                                def _meta_info():
+                                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_ospf_cfg as meta
+                                                    return meta._meta_table['Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.NameScopes.NameScope.FastReroute.PerPrefix.CandidateInterfaces.CandidateInterface']['meta_info']
+
+                                            @property
+                                            def _common_path(self):
+                                                if self.parent is None:
+                                                    raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                                return self.parent._common_path +'/Cisco-IOS-XR-ipv4-ospf-cfg:candidate-interfaces'
+
+                                            def is_config(self):
+                                                ''' Returns True if this instance represents config data else returns False '''
+                                                return True
+
+                                            def _has_data(self):
+                                                if not self.is_config():
+                                                    return False
+                                                if self.candidate_interface is not None:
+                                                    for child_ref in self.candidate_interface:
+                                                        if child_ref._has_data():
+                                                            return True
+
+                                                return False
+
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_ospf_cfg as meta
+                                                return meta._meta_table['Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.NameScopes.NameScope.FastReroute.PerPrefix.CandidateInterfaces']['meta_info']
+
+
+                                        class ExcludeInterfaces(object):
+                                            """
+                                            Fast\-reroute per\-link/per\-prefix or UCMP exclude
+                                            interface configuration
+                                            
+                                            .. attribute:: exclude_interface
+                                            
+                                            	Exclude an interface from becoming a backup or UCMP
+                                            	**type**\: list of  :py:class:`ExcludeInterface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_cfg.Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.NameScopes.NameScope.FastReroute.PerPrefix.ExcludeInterfaces.ExcludeInterface>`
+                                            
+                                            
+
+                                            """
+
+                                            _prefix = 'ipv4-ospf-cfg'
+                                            _revision = '2015-11-09'
+
+                                            def __init__(self):
+                                                self.parent = None
+                                                self.exclude_interface = YList()
+                                                self.exclude_interface.parent = self
+                                                self.exclude_interface.name = 'exclude_interface'
+
+
+                                            class ExcludeInterface(object):
+                                                """
+                                                Exclude an interface from becoming a backup or
+                                                UCMP
+                                                
+                                                .. attribute:: interface_name  <key>
+                                                
+                                                	Interface
+                                                	**type**\:  str
+                                                
+                                                	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+                                                
+                                                
+
+                                                """
+
+                                                _prefix = 'ipv4-ospf-cfg'
+                                                _revision = '2015-11-09'
+
+                                                def __init__(self):
+                                                    self.parent = None
+                                                    self.interface_name = None
+
+                                                @property
+                                                def _common_path(self):
+                                                    if self.parent is None:
+                                                        raise YPYModelError('parent is not set . Cannot derive path.')
+                                                    if self.interface_name is None:
+                                                        raise YPYModelError('Key property interface_name is None')
+
+                                                    return self.parent._common_path +'/Cisco-IOS-XR-ipv4-ospf-cfg:exclude-interface[Cisco-IOS-XR-ipv4-ospf-cfg:interface-name = ' + str(self.interface_name) + ']'
+
+                                                def is_config(self):
+                                                    ''' Returns True if this instance represents config data else returns False '''
+                                                    return True
+
+                                                def _has_data(self):
+                                                    if not self.is_config():
+                                                        return False
+                                                    if self.interface_name is not None:
+                                                        return True
+
+                                                    return False
+
+                                                @staticmethod
+                                                def _meta_info():
+                                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_ospf_cfg as meta
+                                                    return meta._meta_table['Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.NameScopes.NameScope.FastReroute.PerPrefix.ExcludeInterfaces.ExcludeInterface']['meta_info']
+
+                                            @property
+                                            def _common_path(self):
+                                                if self.parent is None:
+                                                    raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                                return self.parent._common_path +'/Cisco-IOS-XR-ipv4-ospf-cfg:exclude-interfaces'
+
+                                            def is_config(self):
+                                                ''' Returns True if this instance represents config data else returns False '''
+                                                return True
+
+                                            def _has_data(self):
+                                                if not self.is_config():
+                                                    return False
+                                                if self.exclude_interface is not None:
+                                                    for child_ref in self.exclude_interface:
+                                                        if child_ref._has_data():
+                                                            return True
+
+                                                return False
+
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_ospf_cfg as meta
+                                                return meta._meta_table['Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.NameScopes.NameScope.FastReroute.PerPrefix.ExcludeInterfaces']['meta_info']
+
+                                        @property
+                                        def _common_path(self):
+                                            if self.parent is None:
+                                                raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                            return self.parent._common_path +'/Cisco-IOS-XR-ipv4-ospf-cfg:per-prefix'
+
+                                        def is_config(self):
+                                            ''' Returns True if this instance represents config data else returns False '''
+                                            return True
+
+                                        def _has_data(self):
+                                            if not self.is_config():
+                                                return False
+                                            if self.candidate_interfaces is not None and self.candidate_interfaces._has_data():
+                                                return True
+
+                                            if self.exclude_interfaces is not None and self.exclude_interfaces._has_data():
+                                                return True
+
+                                            if self.fast_reroute_use_candidate_only is not None:
+                                                return True
+
+                                            if self.remote_lfa is not None and self.remote_lfa._has_data():
+                                                return True
+
+                                            if self.tiebreakers is not None and self.tiebreakers._has_data():
+                                                return True
+
+                                            if self.topology_independent_lfa is not None:
+                                                return True
+
+                                            return False
+
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_ospf_cfg as meta
+                                            return meta._meta_table['Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.NameScopes.NameScope.FastReroute.PerPrefix']['meta_info']
+
+                                    @property
+                                    def _common_path(self):
+                                        if self.parent is None:
+                                            raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                        return self.parent._common_path +'/Cisco-IOS-XR-ipv4-ospf-cfg:fast-reroute'
+
+                                    def is_config(self):
+                                        ''' Returns True if this instance represents config data else returns False '''
+                                        return True
+
+                                    def _has_data(self):
+                                        if not self.is_config():
+                                            return False
+                                        if self.fast_reroute_enable is not None:
+                                            return True
+
+                                        if self.per_link is not None and self.per_link._has_data():
+                                            return True
+
+                                        if self.per_prefix is not None and self.per_prefix._has_data():
+                                            return True
+
+                                        return False
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_ospf_cfg as meta
+                                        return meta._meta_table['Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.NameScopes.NameScope.FastReroute']['meta_info']
+
+
                                 class CostFallback(object):
                                     """
                                     Interface fallback cost
@@ -28875,6 +31693,12 @@ class Ospf(object):
                                     if self.prefix_sid is not None and self.prefix_sid._has_data():
                                         return True
 
+                                    if self.prefix_sid_strict is not None and self.prefix_sid_strict._has_data():
+                                        return True
+
+                                    if self.prefix_suppression_primary is not None:
+                                        return True
+
                                     if self.prefix_suppression_secondary is not None:
                                         return True
 
@@ -28962,7 +31786,7 @@ class Ospf(object):
                                 	Name of Multi Area Interface to configure
                                 	**type**\:  str
                                 
-                                	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+                                	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
                                 
                                 .. attribute:: authentication
                                 
@@ -28995,6 +31819,11 @@ class Ospf(object):
                                 
                                 	Filter networks intalled to RIB (disable as ACL name means filtering is disabled)
                                 	**type**\:  :py:class:`DistributeList <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_cfg.Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.DistributeList>`
+                                
+                                .. attribute:: fast_reroute
+                                
+                                	Fast\-reroute configuration
+                                	**type**\:  :py:class:`FastReroute <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_cfg.Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.FastReroute>`
                                 
                                 .. attribute:: hello_interval
                                 
@@ -29063,6 +31892,8 @@ class Ospf(object):
                                     self.dead_interval_minimal = Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.DeadIntervalMinimal()
                                     self.dead_interval_minimal.parent = self
                                     self.distribute_list = None
+                                    self.fast_reroute = Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.FastReroute()
+                                    self.fast_reroute.parent = self
                                     self.hello_interval = None
                                     self.mtu_ignore = None
                                     self.neighbors = Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.Neighbors()
@@ -29581,6 +32412,793 @@ class Ospf(object):
                                         return meta._meta_table['Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.DeadIntervalMinimal']['meta_info']
 
 
+                                class FastReroute(object):
+                                    """
+                                    Fast\-reroute configuration
+                                    
+                                    .. attribute:: fast_reroute_enable
+                                    
+                                    	Enable/Disable Fast\-reroute per\-link or per\-prefix
+                                    	**type**\:  :py:class:`OspfFastRerouteEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_cfg.OspfFastRerouteEnum>`
+                                    
+                                    .. attribute:: per_link
+                                    
+                                    	Fast\-reroute per\-link configuration
+                                    	**type**\:  :py:class:`PerLink <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_cfg.Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.FastReroute.PerLink>`
+                                    
+                                    .. attribute:: per_prefix
+                                    
+                                    	Fast\-reroute per\-prefix global configuration
+                                    	**type**\:  :py:class:`PerPrefix <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_cfg.Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.FastReroute.PerPrefix>`
+                                    
+                                    
+
+                                    """
+
+                                    _prefix = 'ipv4-ospf-cfg'
+                                    _revision = '2015-11-09'
+
+                                    def __init__(self):
+                                        self.parent = None
+                                        self.fast_reroute_enable = None
+                                        self.per_link = Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.FastReroute.PerLink()
+                                        self.per_link.parent = self
+                                        self.per_prefix = Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.FastReroute.PerPrefix()
+                                        self.per_prefix.parent = self
+
+
+                                    class PerLink(object):
+                                        """
+                                        Fast\-reroute per\-link configuration
+                                        
+                                        .. attribute:: candidate_interfaces
+                                        
+                                        	Fast\-reroute per\-link/per\-prefix candidate interface configuration
+                                        	**type**\:  :py:class:`CandidateInterfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_cfg.Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.FastReroute.PerLink.CandidateInterfaces>`
+                                        
+                                        .. attribute:: exclude_interfaces
+                                        
+                                        	Fast\-reroute per\-link/per\-prefix or UCMP exclude interface configuration
+                                        	**type**\:  :py:class:`ExcludeInterfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_cfg.Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.FastReroute.PerLink.ExcludeInterfaces>`
+                                        
+                                        .. attribute:: fast_reroute_use_candidate_only
+                                        
+                                        	Use only interfaces on the candidate list as a backup path
+                                        	**type**\:  bool
+                                        
+                                        
+
+                                        """
+
+                                        _prefix = 'ipv4-ospf-cfg'
+                                        _revision = '2015-11-09'
+
+                                        def __init__(self):
+                                            self.parent = None
+                                            self.candidate_interfaces = Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.FastReroute.PerLink.CandidateInterfaces()
+                                            self.candidate_interfaces.parent = self
+                                            self.exclude_interfaces = Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.FastReroute.PerLink.ExcludeInterfaces()
+                                            self.exclude_interfaces.parent = self
+                                            self.fast_reroute_use_candidate_only = None
+
+
+                                        class CandidateInterfaces(object):
+                                            """
+                                            Fast\-reroute per\-link/per\-prefix candidate
+                                            interface configuration
+                                            
+                                            .. attribute:: candidate_interface
+                                            
+                                            	Candidate backup interface
+                                            	**type**\: list of  :py:class:`CandidateInterface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_cfg.Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.FastReroute.PerLink.CandidateInterfaces.CandidateInterface>`
+                                            
+                                            
+
+                                            """
+
+                                            _prefix = 'ipv4-ospf-cfg'
+                                            _revision = '2015-11-09'
+
+                                            def __init__(self):
+                                                self.parent = None
+                                                self.candidate_interface = YList()
+                                                self.candidate_interface.parent = self
+                                                self.candidate_interface.name = 'candidate_interface'
+
+
+                                            class CandidateInterface(object):
+                                                """
+                                                Candidate backup interface
+                                                
+                                                .. attribute:: interface_name  <key>
+                                                
+                                                	Interface
+                                                	**type**\:  str
+                                                
+                                                	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+                                                
+                                                
+
+                                                """
+
+                                                _prefix = 'ipv4-ospf-cfg'
+                                                _revision = '2015-11-09'
+
+                                                def __init__(self):
+                                                    self.parent = None
+                                                    self.interface_name = None
+
+                                                @property
+                                                def _common_path(self):
+                                                    if self.parent is None:
+                                                        raise YPYModelError('parent is not set . Cannot derive path.')
+                                                    if self.interface_name is None:
+                                                        raise YPYModelError('Key property interface_name is None')
+
+                                                    return self.parent._common_path +'/Cisco-IOS-XR-ipv4-ospf-cfg:candidate-interface[Cisco-IOS-XR-ipv4-ospf-cfg:interface-name = ' + str(self.interface_name) + ']'
+
+                                                def is_config(self):
+                                                    ''' Returns True if this instance represents config data else returns False '''
+                                                    return True
+
+                                                def _has_data(self):
+                                                    if not self.is_config():
+                                                        return False
+                                                    if self.interface_name is not None:
+                                                        return True
+
+                                                    return False
+
+                                                @staticmethod
+                                                def _meta_info():
+                                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_ospf_cfg as meta
+                                                    return meta._meta_table['Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.FastReroute.PerLink.CandidateInterfaces.CandidateInterface']['meta_info']
+
+                                            @property
+                                            def _common_path(self):
+                                                if self.parent is None:
+                                                    raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                                return self.parent._common_path +'/Cisco-IOS-XR-ipv4-ospf-cfg:candidate-interfaces'
+
+                                            def is_config(self):
+                                                ''' Returns True if this instance represents config data else returns False '''
+                                                return True
+
+                                            def _has_data(self):
+                                                if not self.is_config():
+                                                    return False
+                                                if self.candidate_interface is not None:
+                                                    for child_ref in self.candidate_interface:
+                                                        if child_ref._has_data():
+                                                            return True
+
+                                                return False
+
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_ospf_cfg as meta
+                                                return meta._meta_table['Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.FastReroute.PerLink.CandidateInterfaces']['meta_info']
+
+
+                                        class ExcludeInterfaces(object):
+                                            """
+                                            Fast\-reroute per\-link/per\-prefix or UCMP exclude
+                                            interface configuration
+                                            
+                                            .. attribute:: exclude_interface
+                                            
+                                            	Exclude an interface from becoming a backup or UCMP
+                                            	**type**\: list of  :py:class:`ExcludeInterface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_cfg.Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.FastReroute.PerLink.ExcludeInterfaces.ExcludeInterface>`
+                                            
+                                            
+
+                                            """
+
+                                            _prefix = 'ipv4-ospf-cfg'
+                                            _revision = '2015-11-09'
+
+                                            def __init__(self):
+                                                self.parent = None
+                                                self.exclude_interface = YList()
+                                                self.exclude_interface.parent = self
+                                                self.exclude_interface.name = 'exclude_interface'
+
+
+                                            class ExcludeInterface(object):
+                                                """
+                                                Exclude an interface from becoming a backup or
+                                                UCMP
+                                                
+                                                .. attribute:: interface_name  <key>
+                                                
+                                                	Interface
+                                                	**type**\:  str
+                                                
+                                                	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+                                                
+                                                
+
+                                                """
+
+                                                _prefix = 'ipv4-ospf-cfg'
+                                                _revision = '2015-11-09'
+
+                                                def __init__(self):
+                                                    self.parent = None
+                                                    self.interface_name = None
+
+                                                @property
+                                                def _common_path(self):
+                                                    if self.parent is None:
+                                                        raise YPYModelError('parent is not set . Cannot derive path.')
+                                                    if self.interface_name is None:
+                                                        raise YPYModelError('Key property interface_name is None')
+
+                                                    return self.parent._common_path +'/Cisco-IOS-XR-ipv4-ospf-cfg:exclude-interface[Cisco-IOS-XR-ipv4-ospf-cfg:interface-name = ' + str(self.interface_name) + ']'
+
+                                                def is_config(self):
+                                                    ''' Returns True if this instance represents config data else returns False '''
+                                                    return True
+
+                                                def _has_data(self):
+                                                    if not self.is_config():
+                                                        return False
+                                                    if self.interface_name is not None:
+                                                        return True
+
+                                                    return False
+
+                                                @staticmethod
+                                                def _meta_info():
+                                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_ospf_cfg as meta
+                                                    return meta._meta_table['Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.FastReroute.PerLink.ExcludeInterfaces.ExcludeInterface']['meta_info']
+
+                                            @property
+                                            def _common_path(self):
+                                                if self.parent is None:
+                                                    raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                                return self.parent._common_path +'/Cisco-IOS-XR-ipv4-ospf-cfg:exclude-interfaces'
+
+                                            def is_config(self):
+                                                ''' Returns True if this instance represents config data else returns False '''
+                                                return True
+
+                                            def _has_data(self):
+                                                if not self.is_config():
+                                                    return False
+                                                if self.exclude_interface is not None:
+                                                    for child_ref in self.exclude_interface:
+                                                        if child_ref._has_data():
+                                                            return True
+
+                                                return False
+
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_ospf_cfg as meta
+                                                return meta._meta_table['Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.FastReroute.PerLink.ExcludeInterfaces']['meta_info']
+
+                                        @property
+                                        def _common_path(self):
+                                            if self.parent is None:
+                                                raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                            return self.parent._common_path +'/Cisco-IOS-XR-ipv4-ospf-cfg:per-link'
+
+                                        def is_config(self):
+                                            ''' Returns True if this instance represents config data else returns False '''
+                                            return True
+
+                                        def _has_data(self):
+                                            if not self.is_config():
+                                                return False
+                                            if self.candidate_interfaces is not None and self.candidate_interfaces._has_data():
+                                                return True
+
+                                            if self.exclude_interfaces is not None and self.exclude_interfaces._has_data():
+                                                return True
+
+                                            if self.fast_reroute_use_candidate_only is not None:
+                                                return True
+
+                                            return False
+
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_ospf_cfg as meta
+                                            return meta._meta_table['Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.FastReroute.PerLink']['meta_info']
+
+
+                                    class PerPrefix(object):
+                                        """
+                                        Fast\-reroute per\-prefix global configuration
+                                        
+                                        .. attribute:: candidate_interfaces
+                                        
+                                        	Fast\-reroute per\-link/per\-prefix candidate interface configuration
+                                        	**type**\:  :py:class:`CandidateInterfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_cfg.Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.FastReroute.PerPrefix.CandidateInterfaces>`
+                                        
+                                        .. attribute:: exclude_interfaces
+                                        
+                                        	Fast\-reroute per\-link/per\-prefix or UCMP exclude interface configuration
+                                        	**type**\:  :py:class:`ExcludeInterfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_cfg.Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.FastReroute.PerPrefix.ExcludeInterfaces>`
+                                        
+                                        .. attribute:: fast_reroute_use_candidate_only
+                                        
+                                        	Use only interfaces on the candidate list as a backup path
+                                        	**type**\:  bool
+                                        
+                                        .. attribute:: remote_lfa
+                                        
+                                        	Remote LFA configuration
+                                        	**type**\:  :py:class:`RemoteLfa <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_cfg.Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.FastReroute.PerPrefix.RemoteLfa>`
+                                        
+                                        .. attribute:: tiebreakers
+                                        
+                                        	Fast\-reroute tiebreakers configurations
+                                        	**type**\:  :py:class:`Tiebreakers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_cfg.Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.FastReroute.PerPrefix.Tiebreakers>`
+                                        
+                                        .. attribute:: topology_independent_lfa
+                                        
+                                        	Topology Independet LFA configuration
+                                        	**type**\:  bool
+                                        
+                                        
+
+                                        """
+
+                                        _prefix = 'ipv4-ospf-cfg'
+                                        _revision = '2015-11-09'
+
+                                        def __init__(self):
+                                            self.parent = None
+                                            self.candidate_interfaces = Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.FastReroute.PerPrefix.CandidateInterfaces()
+                                            self.candidate_interfaces.parent = self
+                                            self.exclude_interfaces = Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.FastReroute.PerPrefix.ExcludeInterfaces()
+                                            self.exclude_interfaces.parent = self
+                                            self.fast_reroute_use_candidate_only = None
+                                            self.remote_lfa = Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.FastReroute.PerPrefix.RemoteLfa()
+                                            self.remote_lfa.parent = self
+                                            self.tiebreakers = Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.FastReroute.PerPrefix.Tiebreakers()
+                                            self.tiebreakers.parent = self
+                                            self.topology_independent_lfa = None
+
+
+                                        class RemoteLfa(object):
+                                            """
+                                            Remote LFA configuration
+                                            
+                                            .. attribute:: maximum_cost
+                                            
+                                            	Maximum path cost to remote LFA
+                                            	**type**\:  int
+                                            
+                                            	**range:** 1..4294967295
+                                            
+                                            .. attribute:: tunnel
+                                            
+                                            	Enable/Disable remote LFA computation
+                                            	**type**\:  :py:class:`OspfFrrRlfaTunnelEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_cfg.OspfFrrRlfaTunnelEnum>`
+                                            
+                                            
+
+                                            """
+
+                                            _prefix = 'ipv4-ospf-cfg'
+                                            _revision = '2015-11-09'
+
+                                            def __init__(self):
+                                                self.parent = None
+                                                self.maximum_cost = None
+                                                self.tunnel = None
+
+                                            @property
+                                            def _common_path(self):
+                                                if self.parent is None:
+                                                    raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                                return self.parent._common_path +'/Cisco-IOS-XR-ipv4-ospf-cfg:remote-lfa'
+
+                                            def is_config(self):
+                                                ''' Returns True if this instance represents config data else returns False '''
+                                                return True
+
+                                            def _has_data(self):
+                                                if not self.is_config():
+                                                    return False
+                                                if self.maximum_cost is not None:
+                                                    return True
+
+                                                if self.tunnel is not None:
+                                                    return True
+
+                                                return False
+
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_ospf_cfg as meta
+                                                return meta._meta_table['Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.FastReroute.PerPrefix.RemoteLfa']['meta_info']
+
+
+                                        class Tiebreakers(object):
+                                            """
+                                            Fast\-reroute tiebreakers configurations
+                                            
+                                            .. attribute:: tiebreaker
+                                            
+                                            	Fast\-reroute tiebreakers configuration
+                                            	**type**\: list of  :py:class:`Tiebreaker <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_cfg.Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.FastReroute.PerPrefix.Tiebreakers.Tiebreaker>`
+                                            
+                                            
+
+                                            """
+
+                                            _prefix = 'ipv4-ospf-cfg'
+                                            _revision = '2015-11-09'
+
+                                            def __init__(self):
+                                                self.parent = None
+                                                self.tiebreaker = YList()
+                                                self.tiebreaker.parent = self
+                                                self.tiebreaker.name = 'tiebreaker'
+
+
+                                            class Tiebreaker(object):
+                                                """
+                                                Fast\-reroute tiebreakers configuration
+                                                
+                                                .. attribute:: tiebreaker_type  <key>
+                                                
+                                                	Tiebreaker type
+                                                	**type**\:  :py:class:`OspfFastRerouteTiebreakersIntfEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_cfg.OspfFastRerouteTiebreakersIntfEnum>`
+                                                
+                                                .. attribute:: tiebreaker_index
+                                                
+                                                	Index value for a tiebreaker, 0 to disable
+                                                	**type**\:  int
+                                                
+                                                	**range:** 0..255
+                                                
+                                                	**mandatory**\: True
+                                                
+                                                
+
+                                                """
+
+                                                _prefix = 'ipv4-ospf-cfg'
+                                                _revision = '2015-11-09'
+
+                                                def __init__(self):
+                                                    self.parent = None
+                                                    self.tiebreaker_type = None
+                                                    self.tiebreaker_index = None
+
+                                                @property
+                                                def _common_path(self):
+                                                    if self.parent is None:
+                                                        raise YPYModelError('parent is not set . Cannot derive path.')
+                                                    if self.tiebreaker_type is None:
+                                                        raise YPYModelError('Key property tiebreaker_type is None')
+
+                                                    return self.parent._common_path +'/Cisco-IOS-XR-ipv4-ospf-cfg:tiebreaker[Cisco-IOS-XR-ipv4-ospf-cfg:tiebreaker-type = ' + str(self.tiebreaker_type) + ']'
+
+                                                def is_config(self):
+                                                    ''' Returns True if this instance represents config data else returns False '''
+                                                    return True
+
+                                                def _has_data(self):
+                                                    if not self.is_config():
+                                                        return False
+                                                    if self.tiebreaker_type is not None:
+                                                        return True
+
+                                                    if self.tiebreaker_index is not None:
+                                                        return True
+
+                                                    return False
+
+                                                @staticmethod
+                                                def _meta_info():
+                                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_ospf_cfg as meta
+                                                    return meta._meta_table['Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.FastReroute.PerPrefix.Tiebreakers.Tiebreaker']['meta_info']
+
+                                            @property
+                                            def _common_path(self):
+                                                if self.parent is None:
+                                                    raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                                return self.parent._common_path +'/Cisco-IOS-XR-ipv4-ospf-cfg:tiebreakers'
+
+                                            def is_config(self):
+                                                ''' Returns True if this instance represents config data else returns False '''
+                                                return True
+
+                                            def _has_data(self):
+                                                if not self.is_config():
+                                                    return False
+                                                if self.tiebreaker is not None:
+                                                    for child_ref in self.tiebreaker:
+                                                        if child_ref._has_data():
+                                                            return True
+
+                                                return False
+
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_ospf_cfg as meta
+                                                return meta._meta_table['Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.FastReroute.PerPrefix.Tiebreakers']['meta_info']
+
+
+                                        class CandidateInterfaces(object):
+                                            """
+                                            Fast\-reroute per\-link/per\-prefix candidate
+                                            interface configuration
+                                            
+                                            .. attribute:: candidate_interface
+                                            
+                                            	Candidate backup interface
+                                            	**type**\: list of  :py:class:`CandidateInterface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_cfg.Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.FastReroute.PerPrefix.CandidateInterfaces.CandidateInterface>`
+                                            
+                                            
+
+                                            """
+
+                                            _prefix = 'ipv4-ospf-cfg'
+                                            _revision = '2015-11-09'
+
+                                            def __init__(self):
+                                                self.parent = None
+                                                self.candidate_interface = YList()
+                                                self.candidate_interface.parent = self
+                                                self.candidate_interface.name = 'candidate_interface'
+
+
+                                            class CandidateInterface(object):
+                                                """
+                                                Candidate backup interface
+                                                
+                                                .. attribute:: interface_name  <key>
+                                                
+                                                	Interface
+                                                	**type**\:  str
+                                                
+                                                	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+                                                
+                                                
+
+                                                """
+
+                                                _prefix = 'ipv4-ospf-cfg'
+                                                _revision = '2015-11-09'
+
+                                                def __init__(self):
+                                                    self.parent = None
+                                                    self.interface_name = None
+
+                                                @property
+                                                def _common_path(self):
+                                                    if self.parent is None:
+                                                        raise YPYModelError('parent is not set . Cannot derive path.')
+                                                    if self.interface_name is None:
+                                                        raise YPYModelError('Key property interface_name is None')
+
+                                                    return self.parent._common_path +'/Cisco-IOS-XR-ipv4-ospf-cfg:candidate-interface[Cisco-IOS-XR-ipv4-ospf-cfg:interface-name = ' + str(self.interface_name) + ']'
+
+                                                def is_config(self):
+                                                    ''' Returns True if this instance represents config data else returns False '''
+                                                    return True
+
+                                                def _has_data(self):
+                                                    if not self.is_config():
+                                                        return False
+                                                    if self.interface_name is not None:
+                                                        return True
+
+                                                    return False
+
+                                                @staticmethod
+                                                def _meta_info():
+                                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_ospf_cfg as meta
+                                                    return meta._meta_table['Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.FastReroute.PerPrefix.CandidateInterfaces.CandidateInterface']['meta_info']
+
+                                            @property
+                                            def _common_path(self):
+                                                if self.parent is None:
+                                                    raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                                return self.parent._common_path +'/Cisco-IOS-XR-ipv4-ospf-cfg:candidate-interfaces'
+
+                                            def is_config(self):
+                                                ''' Returns True if this instance represents config data else returns False '''
+                                                return True
+
+                                            def _has_data(self):
+                                                if not self.is_config():
+                                                    return False
+                                                if self.candidate_interface is not None:
+                                                    for child_ref in self.candidate_interface:
+                                                        if child_ref._has_data():
+                                                            return True
+
+                                                return False
+
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_ospf_cfg as meta
+                                                return meta._meta_table['Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.FastReroute.PerPrefix.CandidateInterfaces']['meta_info']
+
+
+                                        class ExcludeInterfaces(object):
+                                            """
+                                            Fast\-reroute per\-link/per\-prefix or UCMP exclude
+                                            interface configuration
+                                            
+                                            .. attribute:: exclude_interface
+                                            
+                                            	Exclude an interface from becoming a backup or UCMP
+                                            	**type**\: list of  :py:class:`ExcludeInterface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_cfg.Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.FastReroute.PerPrefix.ExcludeInterfaces.ExcludeInterface>`
+                                            
+                                            
+
+                                            """
+
+                                            _prefix = 'ipv4-ospf-cfg'
+                                            _revision = '2015-11-09'
+
+                                            def __init__(self):
+                                                self.parent = None
+                                                self.exclude_interface = YList()
+                                                self.exclude_interface.parent = self
+                                                self.exclude_interface.name = 'exclude_interface'
+
+
+                                            class ExcludeInterface(object):
+                                                """
+                                                Exclude an interface from becoming a backup or
+                                                UCMP
+                                                
+                                                .. attribute:: interface_name  <key>
+                                                
+                                                	Interface
+                                                	**type**\:  str
+                                                
+                                                	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+                                                
+                                                
+
+                                                """
+
+                                                _prefix = 'ipv4-ospf-cfg'
+                                                _revision = '2015-11-09'
+
+                                                def __init__(self):
+                                                    self.parent = None
+                                                    self.interface_name = None
+
+                                                @property
+                                                def _common_path(self):
+                                                    if self.parent is None:
+                                                        raise YPYModelError('parent is not set . Cannot derive path.')
+                                                    if self.interface_name is None:
+                                                        raise YPYModelError('Key property interface_name is None')
+
+                                                    return self.parent._common_path +'/Cisco-IOS-XR-ipv4-ospf-cfg:exclude-interface[Cisco-IOS-XR-ipv4-ospf-cfg:interface-name = ' + str(self.interface_name) + ']'
+
+                                                def is_config(self):
+                                                    ''' Returns True if this instance represents config data else returns False '''
+                                                    return True
+
+                                                def _has_data(self):
+                                                    if not self.is_config():
+                                                        return False
+                                                    if self.interface_name is not None:
+                                                        return True
+
+                                                    return False
+
+                                                @staticmethod
+                                                def _meta_info():
+                                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_ospf_cfg as meta
+                                                    return meta._meta_table['Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.FastReroute.PerPrefix.ExcludeInterfaces.ExcludeInterface']['meta_info']
+
+                                            @property
+                                            def _common_path(self):
+                                                if self.parent is None:
+                                                    raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                                return self.parent._common_path +'/Cisco-IOS-XR-ipv4-ospf-cfg:exclude-interfaces'
+
+                                            def is_config(self):
+                                                ''' Returns True if this instance represents config data else returns False '''
+                                                return True
+
+                                            def _has_data(self):
+                                                if not self.is_config():
+                                                    return False
+                                                if self.exclude_interface is not None:
+                                                    for child_ref in self.exclude_interface:
+                                                        if child_ref._has_data():
+                                                            return True
+
+                                                return False
+
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_ospf_cfg as meta
+                                                return meta._meta_table['Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.FastReroute.PerPrefix.ExcludeInterfaces']['meta_info']
+
+                                        @property
+                                        def _common_path(self):
+                                            if self.parent is None:
+                                                raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                            return self.parent._common_path +'/Cisco-IOS-XR-ipv4-ospf-cfg:per-prefix'
+
+                                        def is_config(self):
+                                            ''' Returns True if this instance represents config data else returns False '''
+                                            return True
+
+                                        def _has_data(self):
+                                            if not self.is_config():
+                                                return False
+                                            if self.candidate_interfaces is not None and self.candidate_interfaces._has_data():
+                                                return True
+
+                                            if self.exclude_interfaces is not None and self.exclude_interfaces._has_data():
+                                                return True
+
+                                            if self.fast_reroute_use_candidate_only is not None:
+                                                return True
+
+                                            if self.remote_lfa is not None and self.remote_lfa._has_data():
+                                                return True
+
+                                            if self.tiebreakers is not None and self.tiebreakers._has_data():
+                                                return True
+
+                                            if self.topology_independent_lfa is not None:
+                                                return True
+
+                                            return False
+
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_ospf_cfg as meta
+                                            return meta._meta_table['Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.FastReroute.PerPrefix']['meta_info']
+
+                                    @property
+                                    def _common_path(self):
+                                        if self.parent is None:
+                                            raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                        return self.parent._common_path +'/Cisco-IOS-XR-ipv4-ospf-cfg:fast-reroute'
+
+                                    def is_config(self):
+                                        ''' Returns True if this instance represents config data else returns False '''
+                                        return True
+
+                                    def _has_data(self):
+                                        if not self.is_config():
+                                            return False
+                                        if self.fast_reroute_enable is not None:
+                                            return True
+
+                                        if self.per_link is not None and self.per_link._has_data():
+                                            return True
+
+                                        if self.per_prefix is not None and self.per_prefix._has_data():
+                                            return True
+
+                                        return False
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_ospf_cfg as meta
+                                        return meta._meta_table['Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.FastReroute']['meta_info']
+
+
                                 class CostFallback(object):
                                     """
                                     Interface fallback cost
@@ -29673,6 +33291,9 @@ class Ospf(object):
                                         return True
 
                                     if self.distribute_list is not None and self.distribute_list._has_data():
+                                        return True
+
+                                    if self.fast_reroute is not None and self.fast_reroute._has_data():
                                         return True
 
                                     if self.hello_interval is not None:
@@ -31206,6 +34827,11 @@ class Ospf(object):
                             	When enabled, prevent sending HELLO packets over link
                             	**type**\:  bool
                             
+                            .. attribute:: prefix_suppression_primary
+                            
+                            	Enable/Disable prefix suppression for primary addresses
+                            	**type**\:  bool
+                            
                             .. attribute:: prefix_suppression_secondary
                             
                             	Enable/Disable prefix suppression for secondary addresses
@@ -31276,6 +34902,7 @@ class Ospf(object):
                                 self.network_type = None
                                 self.packet_size = None
                                 self.passive = None
+                                self.prefix_suppression_primary = None
                                 self.prefix_suppression_secondary = None
                                 self.priority = None
                                 self.retransmit_interval = None
@@ -31763,6 +35390,64 @@ class Ospf(object):
                                     return meta._meta_table['Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.AreaScope.Security']['meta_info']
 
 
+                            class DeadIntervalMinimal(object):
+                                """
+                                Interval after which a neighbor is declared dead
+                                
+                                .. attribute:: interval
+                                
+                                	Interval size in seconds after which a neighbor is declared dead
+                                	**type**\:  int
+                                
+                                	**range:** 1..65535
+                                
+                                .. attribute:: multiplier
+                                
+                                	Number of Hellos in one second
+                                	**type**\:  int
+                                
+                                	**range:** 3..20
+                                
+                                
+
+                                """
+
+                                _prefix = 'ipv4-ospf-cfg'
+                                _revision = '2015-11-09'
+
+                                def __init__(self):
+                                    self.parent = None
+                                    self.interval = None
+                                    self.multiplier = None
+
+                                @property
+                                def _common_path(self):
+                                    if self.parent is None:
+                                        raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                    return self.parent._common_path +'/Cisco-IOS-XR-ipv4-ospf-cfg:dead-interval-minimal'
+
+                                def is_config(self):
+                                    ''' Returns True if this instance represents config data else returns False '''
+                                    return True
+
+                                def _has_data(self):
+                                    if not self.is_config():
+                                        return False
+                                    if self.interval is not None:
+                                        return True
+
+                                    if self.multiplier is not None:
+                                        return True
+
+                                    return False
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_ospf_cfg as meta
+                                    return meta._meta_table['Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.AreaScope.DeadIntervalMinimal']['meta_info']
+
+
                             class FastReroute(object):
                                 """
                                 Fast\-reroute configuration
@@ -31779,7 +35464,7 @@ class Ospf(object):
                                 
                                 .. attribute:: per_prefix
                                 
-                                	Fast\-reroute per\-prefix configuration
+                                	Fast\-reroute per\-prefix global configuration
                                 	**type**\:  :py:class:`PerPrefix <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_cfg.Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.AreaScope.FastReroute.PerPrefix>`
                                 
                                 
@@ -31866,7 +35551,7 @@ class Ospf(object):
                                             	Interface
                                             	**type**\:  str
                                             
-                                            	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+                                            	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
                                             
                                             
 
@@ -31966,7 +35651,7 @@ class Ospf(object):
                                             	Interface
                                             	**type**\:  str
                                             
-                                            	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+                                            	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
                                             
                                             
 
@@ -32064,7 +35749,7 @@ class Ospf(object):
 
                                 class PerPrefix(object):
                                     """
-                                    Fast\-reroute per\-prefix configuration
+                                    Fast\-reroute per\-prefix global configuration
                                     
                                     .. attribute:: candidate_interfaces
                                     
@@ -32085,6 +35770,11 @@ class Ospf(object):
                                     
                                     	Remote LFA configuration
                                     	**type**\:  :py:class:`RemoteLfa <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_cfg.Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.AreaScope.FastReroute.PerPrefix.RemoteLfa>`
+                                    
+                                    .. attribute:: tiebreakers
+                                    
+                                    	Fast\-reroute tiebreakers configurations
+                                    	**type**\:  :py:class:`Tiebreakers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_cfg.Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.AreaScope.FastReroute.PerPrefix.Tiebreakers>`
                                     
                                     .. attribute:: topology_independent_lfa
                                     
@@ -32107,6 +35797,8 @@ class Ospf(object):
                                         self.fast_reroute_use_candidate_only = None
                                         self.remote_lfa = Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.AreaScope.FastReroute.PerPrefix.RemoteLfa()
                                         self.remote_lfa.parent = self
+                                        self.tiebreakers = Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.AreaScope.FastReroute.PerPrefix.Tiebreakers()
+                                        self.tiebreakers.parent = self
                                         self.topology_independent_lfa = None
 
 
@@ -32166,6 +35858,115 @@ class Ospf(object):
                                             return meta._meta_table['Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.AreaScope.FastReroute.PerPrefix.RemoteLfa']['meta_info']
 
 
+                                    class Tiebreakers(object):
+                                        """
+                                        Fast\-reroute tiebreakers configurations
+                                        
+                                        .. attribute:: tiebreaker
+                                        
+                                        	Fast\-reroute tiebreakers configuration
+                                        	**type**\: list of  :py:class:`Tiebreaker <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_cfg.Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.AreaScope.FastReroute.PerPrefix.Tiebreakers.Tiebreaker>`
+                                        
+                                        
+
+                                        """
+
+                                        _prefix = 'ipv4-ospf-cfg'
+                                        _revision = '2015-11-09'
+
+                                        def __init__(self):
+                                            self.parent = None
+                                            self.tiebreaker = YList()
+                                            self.tiebreaker.parent = self
+                                            self.tiebreaker.name = 'tiebreaker'
+
+
+                                        class Tiebreaker(object):
+                                            """
+                                            Fast\-reroute tiebreakers configuration
+                                            
+                                            .. attribute:: tiebreaker_type  <key>
+                                            
+                                            	Tiebreaker type
+                                            	**type**\:  :py:class:`OspfFastRerouteTiebreakersIntfEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_cfg.OspfFastRerouteTiebreakersIntfEnum>`
+                                            
+                                            .. attribute:: tiebreaker_index
+                                            
+                                            	Index value for a tiebreaker, 0 to disable
+                                            	**type**\:  int
+                                            
+                                            	**range:** 0..255
+                                            
+                                            	**mandatory**\: True
+                                            
+                                            
+
+                                            """
+
+                                            _prefix = 'ipv4-ospf-cfg'
+                                            _revision = '2015-11-09'
+
+                                            def __init__(self):
+                                                self.parent = None
+                                                self.tiebreaker_type = None
+                                                self.tiebreaker_index = None
+
+                                            @property
+                                            def _common_path(self):
+                                                if self.parent is None:
+                                                    raise YPYModelError('parent is not set . Cannot derive path.')
+                                                if self.tiebreaker_type is None:
+                                                    raise YPYModelError('Key property tiebreaker_type is None')
+
+                                                return self.parent._common_path +'/Cisco-IOS-XR-ipv4-ospf-cfg:tiebreaker[Cisco-IOS-XR-ipv4-ospf-cfg:tiebreaker-type = ' + str(self.tiebreaker_type) + ']'
+
+                                            def is_config(self):
+                                                ''' Returns True if this instance represents config data else returns False '''
+                                                return True
+
+                                            def _has_data(self):
+                                                if not self.is_config():
+                                                    return False
+                                                if self.tiebreaker_type is not None:
+                                                    return True
+
+                                                if self.tiebreaker_index is not None:
+                                                    return True
+
+                                                return False
+
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_ospf_cfg as meta
+                                                return meta._meta_table['Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.AreaScope.FastReroute.PerPrefix.Tiebreakers.Tiebreaker']['meta_info']
+
+                                        @property
+                                        def _common_path(self):
+                                            if self.parent is None:
+                                                raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                            return self.parent._common_path +'/Cisco-IOS-XR-ipv4-ospf-cfg:tiebreakers'
+
+                                        def is_config(self):
+                                            ''' Returns True if this instance represents config data else returns False '''
+                                            return True
+
+                                        def _has_data(self):
+                                            if not self.is_config():
+                                                return False
+                                            if self.tiebreaker is not None:
+                                                for child_ref in self.tiebreaker:
+                                                    if child_ref._has_data():
+                                                        return True
+
+                                            return False
+
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_ospf_cfg as meta
+                                            return meta._meta_table['Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.AreaScope.FastReroute.PerPrefix.Tiebreakers']['meta_info']
+
+
                                     class CandidateInterfaces(object):
                                         """
                                         Fast\-reroute per\-link/per\-prefix candidate
@@ -32199,7 +36000,7 @@ class Ospf(object):
                                             	Interface
                                             	**type**\:  str
                                             
-                                            	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+                                            	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
                                             
                                             
 
@@ -32299,7 +36100,7 @@ class Ospf(object):
                                             	Interface
                                             	**type**\:  str
                                             
-                                            	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+                                            	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
                                             
                                             
 
@@ -32390,6 +36191,9 @@ class Ospf(object):
                                         if self.remote_lfa is not None and self.remote_lfa._has_data():
                                             return True
 
+                                        if self.tiebreakers is not None and self.tiebreakers._has_data():
+                                            return True
+
                                         if self.topology_independent_lfa is not None:
                                             return True
 
@@ -32429,64 +36233,6 @@ class Ospf(object):
                                 def _meta_info():
                                     from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_ospf_cfg as meta
                                     return meta._meta_table['Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.AreaScope.FastReroute']['meta_info']
-
-
-                            class DeadIntervalMinimal(object):
-                                """
-                                Interval after which a neighbor is declared dead
-                                
-                                .. attribute:: interval
-                                
-                                	Interval size in seconds after which a neighbor is declared dead
-                                	**type**\:  int
-                                
-                                	**range:** 1..65535
-                                
-                                .. attribute:: multiplier
-                                
-                                	Number of Hellos in one second
-                                	**type**\:  int
-                                
-                                	**range:** 3..20
-                                
-                                
-
-                                """
-
-                                _prefix = 'ipv4-ospf-cfg'
-                                _revision = '2015-11-09'
-
-                                def __init__(self):
-                                    self.parent = None
-                                    self.interval = None
-                                    self.multiplier = None
-
-                                @property
-                                def _common_path(self):
-                                    if self.parent is None:
-                                        raise YPYModelError('parent is not set . Cannot derive path.')
-
-                                    return self.parent._common_path +'/Cisco-IOS-XR-ipv4-ospf-cfg:dead-interval-minimal'
-
-                                def is_config(self):
-                                    ''' Returns True if this instance represents config data else returns False '''
-                                    return True
-
-                                def _has_data(self):
-                                    if not self.is_config():
-                                        return False
-                                    if self.interval is not None:
-                                        return True
-
-                                    if self.multiplier is not None:
-                                        return True
-
-                                    return False
-
-                                @staticmethod
-                                def _meta_info():
-                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_ospf_cfg as meta
-                                    return meta._meta_table['Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.AreaScope.DeadIntervalMinimal']['meta_info']
 
 
                             class CostFallback(object):
@@ -32620,6 +36366,9 @@ class Ospf(object):
                                 if self.passive is not None:
                                     return True
 
+                                if self.prefix_suppression_primary is not None:
+                                    return True
+
                                 if self.prefix_suppression_secondary is not None:
                                     return True
 
@@ -32678,7 +36427,7 @@ class Ospf(object):
                                 	Name of Interface to configure
                                 	**type**\:  str
                                 
-                                	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+                                	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
                                 
                                 .. attribute:: authentication
                                 
@@ -32796,6 +36545,16 @@ class Ospf(object):
                                 	Prefix SID
                                 	**type**\:  :py:class:`PrefixSid <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_cfg.Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.PrefixSid>`
                                 
+                                .. attribute:: prefix_sid_strict
+                                
+                                	Strict Prefix SID
+                                	**type**\:  :py:class:`PrefixSidStrict <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_cfg.Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.PrefixSidStrict>`
+                                
+                                .. attribute:: prefix_suppression_primary
+                                
+                                	Enable/Disable prefix suppression for primary addresses
+                                	**type**\:  bool
+                                
                                 .. attribute:: prefix_suppression_secondary
                                 
                                 	Enable/Disable prefix suppression for secondary addresses
@@ -32875,6 +36634,8 @@ class Ospf(object):
                                     self.packet_size = None
                                     self.passive = None
                                     self.prefix_sid = None
+                                    self.prefix_sid_strict = None
+                                    self.prefix_suppression_primary = None
                                     self.prefix_suppression_secondary = None
                                     self.priority = None
                                     self.retransmit_interval = None
@@ -32892,6 +36653,11 @@ class Ospf(object):
                                     .. attribute:: explicit_null
                                     
                                     	Force Penultimate Hop To Send Explicit\-Null Label
+                                    	**type**\:  bool
+                                    
+                                    .. attribute:: n_flag_clear
+                                    
+                                    	Not a node SID
                                     	**type**\:  bool
                                     
                                     .. attribute:: sid_value
@@ -32928,6 +36694,7 @@ class Ospf(object):
                                         self.parent = None
                                         self._is_presence = True
                                         self.explicit_null = None
+                                        self.n_flag_clear = None
                                         self.sid_value = None
                                         self.type = None
 
@@ -32950,6 +36717,9 @@ class Ospf(object):
                                         if self.explicit_null is not None:
                                             return True
 
+                                        if self.n_flag_clear is not None:
+                                            return True
+
                                         if self.sid_value is not None:
                                             return True
 
@@ -32962,6 +36732,94 @@ class Ospf(object):
                                     def _meta_info():
                                         from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_ospf_cfg as meta
                                         return meta._meta_table['Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.PrefixSid']['meta_info']
+
+
+                                class PrefixSidStrict(object):
+                                    """
+                                    Strict Prefix SID
+                                    
+                                    .. attribute:: explicit_null
+                                    
+                                    	Force Penultimate Hop To Send Explicit\-Null Label
+                                    	**type**\:  bool
+                                    
+                                    .. attribute:: n_flag_clear
+                                    
+                                    	Not a node SID
+                                    	**type**\:  bool
+                                    
+                                    .. attribute:: sid_value
+                                    
+                                    	SID value
+                                    	**type**\:  int
+                                    
+                                    	**range:** 0..1048575
+                                    
+                                    	**mandatory**\: True
+                                    
+                                    .. attribute:: type
+                                    
+                                    	OSPF SID Type
+                                    	**type**\:  :py:class:`OspfSidEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_cfg.OspfSidEnum>`
+                                    
+                                    	**mandatory**\: True
+                                    
+                                    .. attribute:: _is_presence
+                                    
+                                    	Is present if this instance represents presence container else not
+                                    	**type**\: bool
+                                    
+                                    
+
+                                    This class is a :ref:`presence class<presence-class>`
+
+                                    """
+
+                                    _prefix = 'ipv4-ospf-cfg'
+                                    _revision = '2015-11-09'
+
+                                    def __init__(self):
+                                        self.parent = None
+                                        self._is_presence = True
+                                        self.explicit_null = None
+                                        self.n_flag_clear = None
+                                        self.sid_value = None
+                                        self.type = None
+
+                                    @property
+                                    def _common_path(self):
+                                        if self.parent is None:
+                                            raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                        return self.parent._common_path +'/Cisco-IOS-XR-ipv4-ospf-cfg:prefix-sid-strict'
+
+                                    def is_config(self):
+                                        ''' Returns True if this instance represents config data else returns False '''
+                                        return True
+
+                                    def _has_data(self):
+                                        if not self.is_config():
+                                            return False
+                                        if self._is_presence:
+                                            return True
+                                        if self.explicit_null is not None:
+                                            return True
+
+                                        if self.n_flag_clear is not None:
+                                            return True
+
+                                        if self.sid_value is not None:
+                                            return True
+
+                                        if self.type is not None:
+                                            return True
+
+                                        return False
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_ospf_cfg as meta
+                                        return meta._meta_table['Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.PrefixSidStrict']['meta_info']
 
 
                                 class DistributeList(object):
@@ -33442,674 +37300,6 @@ class Ospf(object):
                                         return meta._meta_table['Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.Security']['meta_info']
 
 
-                                class FastReroute(object):
-                                    """
-                                    Fast\-reroute configuration
-                                    
-                                    .. attribute:: fast_reroute_enable
-                                    
-                                    	Enable/Disable Fast\-reroute per\-link or per\-prefix
-                                    	**type**\:  :py:class:`OspfFastRerouteEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_cfg.OspfFastRerouteEnum>`
-                                    
-                                    .. attribute:: per_link
-                                    
-                                    	Fast\-reroute per\-link configuration
-                                    	**type**\:  :py:class:`PerLink <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_cfg.Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.FastReroute.PerLink>`
-                                    
-                                    .. attribute:: per_prefix
-                                    
-                                    	Fast\-reroute per\-prefix configuration
-                                    	**type**\:  :py:class:`PerPrefix <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_cfg.Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.FastReroute.PerPrefix>`
-                                    
-                                    
-
-                                    """
-
-                                    _prefix = 'ipv4-ospf-cfg'
-                                    _revision = '2015-11-09'
-
-                                    def __init__(self):
-                                        self.parent = None
-                                        self.fast_reroute_enable = None
-                                        self.per_link = Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.FastReroute.PerLink()
-                                        self.per_link.parent = self
-                                        self.per_prefix = Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.FastReroute.PerPrefix()
-                                        self.per_prefix.parent = self
-
-
-                                    class PerLink(object):
-                                        """
-                                        Fast\-reroute per\-link configuration
-                                        
-                                        .. attribute:: candidate_interfaces
-                                        
-                                        	Fast\-reroute per\-link/per\-prefix candidate interface configuration
-                                        	**type**\:  :py:class:`CandidateInterfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_cfg.Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.FastReroute.PerLink.CandidateInterfaces>`
-                                        
-                                        .. attribute:: exclude_interfaces
-                                        
-                                        	Fast\-reroute per\-link/per\-prefix or UCMP exclude interface configuration
-                                        	**type**\:  :py:class:`ExcludeInterfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_cfg.Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.FastReroute.PerLink.ExcludeInterfaces>`
-                                        
-                                        .. attribute:: fast_reroute_use_candidate_only
-                                        
-                                        	Use only interfaces on the candidate list as a backup path
-                                        	**type**\:  bool
-                                        
-                                        
-
-                                        """
-
-                                        _prefix = 'ipv4-ospf-cfg'
-                                        _revision = '2015-11-09'
-
-                                        def __init__(self):
-                                            self.parent = None
-                                            self.candidate_interfaces = Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.FastReroute.PerLink.CandidateInterfaces()
-                                            self.candidate_interfaces.parent = self
-                                            self.exclude_interfaces = Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.FastReroute.PerLink.ExcludeInterfaces()
-                                            self.exclude_interfaces.parent = self
-                                            self.fast_reroute_use_candidate_only = None
-
-
-                                        class CandidateInterfaces(object):
-                                            """
-                                            Fast\-reroute per\-link/per\-prefix candidate
-                                            interface configuration
-                                            
-                                            .. attribute:: candidate_interface
-                                            
-                                            	Candidate backup interface
-                                            	**type**\: list of  :py:class:`CandidateInterface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_cfg.Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.FastReroute.PerLink.CandidateInterfaces.CandidateInterface>`
-                                            
-                                            
-
-                                            """
-
-                                            _prefix = 'ipv4-ospf-cfg'
-                                            _revision = '2015-11-09'
-
-                                            def __init__(self):
-                                                self.parent = None
-                                                self.candidate_interface = YList()
-                                                self.candidate_interface.parent = self
-                                                self.candidate_interface.name = 'candidate_interface'
-
-
-                                            class CandidateInterface(object):
-                                                """
-                                                Candidate backup interface
-                                                
-                                                .. attribute:: interface_name  <key>
-                                                
-                                                	Interface
-                                                	**type**\:  str
-                                                
-                                                	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
-                                                
-                                                
-
-                                                """
-
-                                                _prefix = 'ipv4-ospf-cfg'
-                                                _revision = '2015-11-09'
-
-                                                def __init__(self):
-                                                    self.parent = None
-                                                    self.interface_name = None
-
-                                                @property
-                                                def _common_path(self):
-                                                    if self.parent is None:
-                                                        raise YPYModelError('parent is not set . Cannot derive path.')
-                                                    if self.interface_name is None:
-                                                        raise YPYModelError('Key property interface_name is None')
-
-                                                    return self.parent._common_path +'/Cisco-IOS-XR-ipv4-ospf-cfg:candidate-interface[Cisco-IOS-XR-ipv4-ospf-cfg:interface-name = ' + str(self.interface_name) + ']'
-
-                                                def is_config(self):
-                                                    ''' Returns True if this instance represents config data else returns False '''
-                                                    return True
-
-                                                def _has_data(self):
-                                                    if not self.is_config():
-                                                        return False
-                                                    if self.interface_name is not None:
-                                                        return True
-
-                                                    return False
-
-                                                @staticmethod
-                                                def _meta_info():
-                                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_ospf_cfg as meta
-                                                    return meta._meta_table['Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.FastReroute.PerLink.CandidateInterfaces.CandidateInterface']['meta_info']
-
-                                            @property
-                                            def _common_path(self):
-                                                if self.parent is None:
-                                                    raise YPYModelError('parent is not set . Cannot derive path.')
-
-                                                return self.parent._common_path +'/Cisco-IOS-XR-ipv4-ospf-cfg:candidate-interfaces'
-
-                                            def is_config(self):
-                                                ''' Returns True if this instance represents config data else returns False '''
-                                                return True
-
-                                            def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
-                                                if self.candidate_interface is not None:
-                                                    for child_ref in self.candidate_interface:
-                                                        if child_ref._has_data():
-                                                            return True
-
-                                                return False
-
-                                            @staticmethod
-                                            def _meta_info():
-                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_ospf_cfg as meta
-                                                return meta._meta_table['Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.FastReroute.PerLink.CandidateInterfaces']['meta_info']
-
-
-                                        class ExcludeInterfaces(object):
-                                            """
-                                            Fast\-reroute per\-link/per\-prefix or UCMP exclude
-                                            interface configuration
-                                            
-                                            .. attribute:: exclude_interface
-                                            
-                                            	Exclude an interface from becoming a backup or UCMP
-                                            	**type**\: list of  :py:class:`ExcludeInterface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_cfg.Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.FastReroute.PerLink.ExcludeInterfaces.ExcludeInterface>`
-                                            
-                                            
-
-                                            """
-
-                                            _prefix = 'ipv4-ospf-cfg'
-                                            _revision = '2015-11-09'
-
-                                            def __init__(self):
-                                                self.parent = None
-                                                self.exclude_interface = YList()
-                                                self.exclude_interface.parent = self
-                                                self.exclude_interface.name = 'exclude_interface'
-
-
-                                            class ExcludeInterface(object):
-                                                """
-                                                Exclude an interface from becoming a backup or
-                                                UCMP
-                                                
-                                                .. attribute:: interface_name  <key>
-                                                
-                                                	Interface
-                                                	**type**\:  str
-                                                
-                                                	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
-                                                
-                                                
-
-                                                """
-
-                                                _prefix = 'ipv4-ospf-cfg'
-                                                _revision = '2015-11-09'
-
-                                                def __init__(self):
-                                                    self.parent = None
-                                                    self.interface_name = None
-
-                                                @property
-                                                def _common_path(self):
-                                                    if self.parent is None:
-                                                        raise YPYModelError('parent is not set . Cannot derive path.')
-                                                    if self.interface_name is None:
-                                                        raise YPYModelError('Key property interface_name is None')
-
-                                                    return self.parent._common_path +'/Cisco-IOS-XR-ipv4-ospf-cfg:exclude-interface[Cisco-IOS-XR-ipv4-ospf-cfg:interface-name = ' + str(self.interface_name) + ']'
-
-                                                def is_config(self):
-                                                    ''' Returns True if this instance represents config data else returns False '''
-                                                    return True
-
-                                                def _has_data(self):
-                                                    if not self.is_config():
-                                                        return False
-                                                    if self.interface_name is not None:
-                                                        return True
-
-                                                    return False
-
-                                                @staticmethod
-                                                def _meta_info():
-                                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_ospf_cfg as meta
-                                                    return meta._meta_table['Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.FastReroute.PerLink.ExcludeInterfaces.ExcludeInterface']['meta_info']
-
-                                            @property
-                                            def _common_path(self):
-                                                if self.parent is None:
-                                                    raise YPYModelError('parent is not set . Cannot derive path.')
-
-                                                return self.parent._common_path +'/Cisco-IOS-XR-ipv4-ospf-cfg:exclude-interfaces'
-
-                                            def is_config(self):
-                                                ''' Returns True if this instance represents config data else returns False '''
-                                                return True
-
-                                            def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
-                                                if self.exclude_interface is not None:
-                                                    for child_ref in self.exclude_interface:
-                                                        if child_ref._has_data():
-                                                            return True
-
-                                                return False
-
-                                            @staticmethod
-                                            def _meta_info():
-                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_ospf_cfg as meta
-                                                return meta._meta_table['Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.FastReroute.PerLink.ExcludeInterfaces']['meta_info']
-
-                                        @property
-                                        def _common_path(self):
-                                            if self.parent is None:
-                                                raise YPYModelError('parent is not set . Cannot derive path.')
-
-                                            return self.parent._common_path +'/Cisco-IOS-XR-ipv4-ospf-cfg:per-link'
-
-                                        def is_config(self):
-                                            ''' Returns True if this instance represents config data else returns False '''
-                                            return True
-
-                                        def _has_data(self):
-                                            if not self.is_config():
-                                                return False
-                                            if self.candidate_interfaces is not None and self.candidate_interfaces._has_data():
-                                                return True
-
-                                            if self.exclude_interfaces is not None and self.exclude_interfaces._has_data():
-                                                return True
-
-                                            if self.fast_reroute_use_candidate_only is not None:
-                                                return True
-
-                                            return False
-
-                                        @staticmethod
-                                        def _meta_info():
-                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_ospf_cfg as meta
-                                            return meta._meta_table['Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.FastReroute.PerLink']['meta_info']
-
-
-                                    class PerPrefix(object):
-                                        """
-                                        Fast\-reroute per\-prefix configuration
-                                        
-                                        .. attribute:: candidate_interfaces
-                                        
-                                        	Fast\-reroute per\-link/per\-prefix candidate interface configuration
-                                        	**type**\:  :py:class:`CandidateInterfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_cfg.Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.FastReroute.PerPrefix.CandidateInterfaces>`
-                                        
-                                        .. attribute:: exclude_interfaces
-                                        
-                                        	Fast\-reroute per\-link/per\-prefix or UCMP exclude interface configuration
-                                        	**type**\:  :py:class:`ExcludeInterfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_cfg.Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.FastReroute.PerPrefix.ExcludeInterfaces>`
-                                        
-                                        .. attribute:: fast_reroute_use_candidate_only
-                                        
-                                        	Use only interfaces on the candidate list as a backup path
-                                        	**type**\:  bool
-                                        
-                                        .. attribute:: remote_lfa
-                                        
-                                        	Remote LFA configuration
-                                        	**type**\:  :py:class:`RemoteLfa <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_cfg.Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.FastReroute.PerPrefix.RemoteLfa>`
-                                        
-                                        .. attribute:: topology_independent_lfa
-                                        
-                                        	Topology Independet LFA configuration
-                                        	**type**\:  bool
-                                        
-                                        
-
-                                        """
-
-                                        _prefix = 'ipv4-ospf-cfg'
-                                        _revision = '2015-11-09'
-
-                                        def __init__(self):
-                                            self.parent = None
-                                            self.candidate_interfaces = Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.FastReroute.PerPrefix.CandidateInterfaces()
-                                            self.candidate_interfaces.parent = self
-                                            self.exclude_interfaces = Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.FastReroute.PerPrefix.ExcludeInterfaces()
-                                            self.exclude_interfaces.parent = self
-                                            self.fast_reroute_use_candidate_only = None
-                                            self.remote_lfa = Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.FastReroute.PerPrefix.RemoteLfa()
-                                            self.remote_lfa.parent = self
-                                            self.topology_independent_lfa = None
-
-
-                                        class RemoteLfa(object):
-                                            """
-                                            Remote LFA configuration
-                                            
-                                            .. attribute:: maximum_cost
-                                            
-                                            	Maximum path cost to remote LFA
-                                            	**type**\:  int
-                                            
-                                            	**range:** 1..4294967295
-                                            
-                                            .. attribute:: tunnel
-                                            
-                                            	Enable/Disable remote LFA computation
-                                            	**type**\:  :py:class:`OspfFrrRlfaTunnelEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_cfg.OspfFrrRlfaTunnelEnum>`
-                                            
-                                            
-
-                                            """
-
-                                            _prefix = 'ipv4-ospf-cfg'
-                                            _revision = '2015-11-09'
-
-                                            def __init__(self):
-                                                self.parent = None
-                                                self.maximum_cost = None
-                                                self.tunnel = None
-
-                                            @property
-                                            def _common_path(self):
-                                                if self.parent is None:
-                                                    raise YPYModelError('parent is not set . Cannot derive path.')
-
-                                                return self.parent._common_path +'/Cisco-IOS-XR-ipv4-ospf-cfg:remote-lfa'
-
-                                            def is_config(self):
-                                                ''' Returns True if this instance represents config data else returns False '''
-                                                return True
-
-                                            def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
-                                                if self.maximum_cost is not None:
-                                                    return True
-
-                                                if self.tunnel is not None:
-                                                    return True
-
-                                                return False
-
-                                            @staticmethod
-                                            def _meta_info():
-                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_ospf_cfg as meta
-                                                return meta._meta_table['Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.FastReroute.PerPrefix.RemoteLfa']['meta_info']
-
-
-                                        class CandidateInterfaces(object):
-                                            """
-                                            Fast\-reroute per\-link/per\-prefix candidate
-                                            interface configuration
-                                            
-                                            .. attribute:: candidate_interface
-                                            
-                                            	Candidate backup interface
-                                            	**type**\: list of  :py:class:`CandidateInterface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_cfg.Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.FastReroute.PerPrefix.CandidateInterfaces.CandidateInterface>`
-                                            
-                                            
-
-                                            """
-
-                                            _prefix = 'ipv4-ospf-cfg'
-                                            _revision = '2015-11-09'
-
-                                            def __init__(self):
-                                                self.parent = None
-                                                self.candidate_interface = YList()
-                                                self.candidate_interface.parent = self
-                                                self.candidate_interface.name = 'candidate_interface'
-
-
-                                            class CandidateInterface(object):
-                                                """
-                                                Candidate backup interface
-                                                
-                                                .. attribute:: interface_name  <key>
-                                                
-                                                	Interface
-                                                	**type**\:  str
-                                                
-                                                	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
-                                                
-                                                
-
-                                                """
-
-                                                _prefix = 'ipv4-ospf-cfg'
-                                                _revision = '2015-11-09'
-
-                                                def __init__(self):
-                                                    self.parent = None
-                                                    self.interface_name = None
-
-                                                @property
-                                                def _common_path(self):
-                                                    if self.parent is None:
-                                                        raise YPYModelError('parent is not set . Cannot derive path.')
-                                                    if self.interface_name is None:
-                                                        raise YPYModelError('Key property interface_name is None')
-
-                                                    return self.parent._common_path +'/Cisco-IOS-XR-ipv4-ospf-cfg:candidate-interface[Cisco-IOS-XR-ipv4-ospf-cfg:interface-name = ' + str(self.interface_name) + ']'
-
-                                                def is_config(self):
-                                                    ''' Returns True if this instance represents config data else returns False '''
-                                                    return True
-
-                                                def _has_data(self):
-                                                    if not self.is_config():
-                                                        return False
-                                                    if self.interface_name is not None:
-                                                        return True
-
-                                                    return False
-
-                                                @staticmethod
-                                                def _meta_info():
-                                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_ospf_cfg as meta
-                                                    return meta._meta_table['Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.FastReroute.PerPrefix.CandidateInterfaces.CandidateInterface']['meta_info']
-
-                                            @property
-                                            def _common_path(self):
-                                                if self.parent is None:
-                                                    raise YPYModelError('parent is not set . Cannot derive path.')
-
-                                                return self.parent._common_path +'/Cisco-IOS-XR-ipv4-ospf-cfg:candidate-interfaces'
-
-                                            def is_config(self):
-                                                ''' Returns True if this instance represents config data else returns False '''
-                                                return True
-
-                                            def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
-                                                if self.candidate_interface is not None:
-                                                    for child_ref in self.candidate_interface:
-                                                        if child_ref._has_data():
-                                                            return True
-
-                                                return False
-
-                                            @staticmethod
-                                            def _meta_info():
-                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_ospf_cfg as meta
-                                                return meta._meta_table['Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.FastReroute.PerPrefix.CandidateInterfaces']['meta_info']
-
-
-                                        class ExcludeInterfaces(object):
-                                            """
-                                            Fast\-reroute per\-link/per\-prefix or UCMP exclude
-                                            interface configuration
-                                            
-                                            .. attribute:: exclude_interface
-                                            
-                                            	Exclude an interface from becoming a backup or UCMP
-                                            	**type**\: list of  :py:class:`ExcludeInterface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_cfg.Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.FastReroute.PerPrefix.ExcludeInterfaces.ExcludeInterface>`
-                                            
-                                            
-
-                                            """
-
-                                            _prefix = 'ipv4-ospf-cfg'
-                                            _revision = '2015-11-09'
-
-                                            def __init__(self):
-                                                self.parent = None
-                                                self.exclude_interface = YList()
-                                                self.exclude_interface.parent = self
-                                                self.exclude_interface.name = 'exclude_interface'
-
-
-                                            class ExcludeInterface(object):
-                                                """
-                                                Exclude an interface from becoming a backup or
-                                                UCMP
-                                                
-                                                .. attribute:: interface_name  <key>
-                                                
-                                                	Interface
-                                                	**type**\:  str
-                                                
-                                                	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
-                                                
-                                                
-
-                                                """
-
-                                                _prefix = 'ipv4-ospf-cfg'
-                                                _revision = '2015-11-09'
-
-                                                def __init__(self):
-                                                    self.parent = None
-                                                    self.interface_name = None
-
-                                                @property
-                                                def _common_path(self):
-                                                    if self.parent is None:
-                                                        raise YPYModelError('parent is not set . Cannot derive path.')
-                                                    if self.interface_name is None:
-                                                        raise YPYModelError('Key property interface_name is None')
-
-                                                    return self.parent._common_path +'/Cisco-IOS-XR-ipv4-ospf-cfg:exclude-interface[Cisco-IOS-XR-ipv4-ospf-cfg:interface-name = ' + str(self.interface_name) + ']'
-
-                                                def is_config(self):
-                                                    ''' Returns True if this instance represents config data else returns False '''
-                                                    return True
-
-                                                def _has_data(self):
-                                                    if not self.is_config():
-                                                        return False
-                                                    if self.interface_name is not None:
-                                                        return True
-
-                                                    return False
-
-                                                @staticmethod
-                                                def _meta_info():
-                                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_ospf_cfg as meta
-                                                    return meta._meta_table['Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.FastReroute.PerPrefix.ExcludeInterfaces.ExcludeInterface']['meta_info']
-
-                                            @property
-                                            def _common_path(self):
-                                                if self.parent is None:
-                                                    raise YPYModelError('parent is not set . Cannot derive path.')
-
-                                                return self.parent._common_path +'/Cisco-IOS-XR-ipv4-ospf-cfg:exclude-interfaces'
-
-                                            def is_config(self):
-                                                ''' Returns True if this instance represents config data else returns False '''
-                                                return True
-
-                                            def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
-                                                if self.exclude_interface is not None:
-                                                    for child_ref in self.exclude_interface:
-                                                        if child_ref._has_data():
-                                                            return True
-
-                                                return False
-
-                                            @staticmethod
-                                            def _meta_info():
-                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_ospf_cfg as meta
-                                                return meta._meta_table['Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.FastReroute.PerPrefix.ExcludeInterfaces']['meta_info']
-
-                                        @property
-                                        def _common_path(self):
-                                            if self.parent is None:
-                                                raise YPYModelError('parent is not set . Cannot derive path.')
-
-                                            return self.parent._common_path +'/Cisco-IOS-XR-ipv4-ospf-cfg:per-prefix'
-
-                                        def is_config(self):
-                                            ''' Returns True if this instance represents config data else returns False '''
-                                            return True
-
-                                        def _has_data(self):
-                                            if not self.is_config():
-                                                return False
-                                            if self.candidate_interfaces is not None and self.candidate_interfaces._has_data():
-                                                return True
-
-                                            if self.exclude_interfaces is not None and self.exclude_interfaces._has_data():
-                                                return True
-
-                                            if self.fast_reroute_use_candidate_only is not None:
-                                                return True
-
-                                            if self.remote_lfa is not None and self.remote_lfa._has_data():
-                                                return True
-
-                                            if self.topology_independent_lfa is not None:
-                                                return True
-
-                                            return False
-
-                                        @staticmethod
-                                        def _meta_info():
-                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_ospf_cfg as meta
-                                            return meta._meta_table['Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.FastReroute.PerPrefix']['meta_info']
-
-                                    @property
-                                    def _common_path(self):
-                                        if self.parent is None:
-                                            raise YPYModelError('parent is not set . Cannot derive path.')
-
-                                        return self.parent._common_path +'/Cisco-IOS-XR-ipv4-ospf-cfg:fast-reroute'
-
-                                    def is_config(self):
-                                        ''' Returns True if this instance represents config data else returns False '''
-                                        return True
-
-                                    def _has_data(self):
-                                        if not self.is_config():
-                                            return False
-                                        if self.fast_reroute_enable is not None:
-                                            return True
-
-                                        if self.per_link is not None and self.per_link._has_data():
-                                            return True
-
-                                        if self.per_prefix is not None and self.per_prefix._has_data():
-                                            return True
-
-                                        return False
-
-                                    @staticmethod
-                                    def _meta_info():
-                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_ospf_cfg as meta
-                                        return meta._meta_table['Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.FastReroute']['meta_info']
-
-
                                 class Neighbors(object):
                                     """
                                     Neighbor router configuration information
@@ -34309,6 +37499,793 @@ class Ospf(object):
                                         return meta._meta_table['Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.DeadIntervalMinimal']['meta_info']
 
 
+                                class FastReroute(object):
+                                    """
+                                    Fast\-reroute configuration
+                                    
+                                    .. attribute:: fast_reroute_enable
+                                    
+                                    	Enable/Disable Fast\-reroute per\-link or per\-prefix
+                                    	**type**\:  :py:class:`OspfFastRerouteEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_cfg.OspfFastRerouteEnum>`
+                                    
+                                    .. attribute:: per_link
+                                    
+                                    	Fast\-reroute per\-link configuration
+                                    	**type**\:  :py:class:`PerLink <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_cfg.Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.FastReroute.PerLink>`
+                                    
+                                    .. attribute:: per_prefix
+                                    
+                                    	Fast\-reroute per\-prefix global configuration
+                                    	**type**\:  :py:class:`PerPrefix <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_cfg.Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.FastReroute.PerPrefix>`
+                                    
+                                    
+
+                                    """
+
+                                    _prefix = 'ipv4-ospf-cfg'
+                                    _revision = '2015-11-09'
+
+                                    def __init__(self):
+                                        self.parent = None
+                                        self.fast_reroute_enable = None
+                                        self.per_link = Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.FastReroute.PerLink()
+                                        self.per_link.parent = self
+                                        self.per_prefix = Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.FastReroute.PerPrefix()
+                                        self.per_prefix.parent = self
+
+
+                                    class PerLink(object):
+                                        """
+                                        Fast\-reroute per\-link configuration
+                                        
+                                        .. attribute:: candidate_interfaces
+                                        
+                                        	Fast\-reroute per\-link/per\-prefix candidate interface configuration
+                                        	**type**\:  :py:class:`CandidateInterfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_cfg.Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.FastReroute.PerLink.CandidateInterfaces>`
+                                        
+                                        .. attribute:: exclude_interfaces
+                                        
+                                        	Fast\-reroute per\-link/per\-prefix or UCMP exclude interface configuration
+                                        	**type**\:  :py:class:`ExcludeInterfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_cfg.Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.FastReroute.PerLink.ExcludeInterfaces>`
+                                        
+                                        .. attribute:: fast_reroute_use_candidate_only
+                                        
+                                        	Use only interfaces on the candidate list as a backup path
+                                        	**type**\:  bool
+                                        
+                                        
+
+                                        """
+
+                                        _prefix = 'ipv4-ospf-cfg'
+                                        _revision = '2015-11-09'
+
+                                        def __init__(self):
+                                            self.parent = None
+                                            self.candidate_interfaces = Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.FastReroute.PerLink.CandidateInterfaces()
+                                            self.candidate_interfaces.parent = self
+                                            self.exclude_interfaces = Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.FastReroute.PerLink.ExcludeInterfaces()
+                                            self.exclude_interfaces.parent = self
+                                            self.fast_reroute_use_candidate_only = None
+
+
+                                        class CandidateInterfaces(object):
+                                            """
+                                            Fast\-reroute per\-link/per\-prefix candidate
+                                            interface configuration
+                                            
+                                            .. attribute:: candidate_interface
+                                            
+                                            	Candidate backup interface
+                                            	**type**\: list of  :py:class:`CandidateInterface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_cfg.Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.FastReroute.PerLink.CandidateInterfaces.CandidateInterface>`
+                                            
+                                            
+
+                                            """
+
+                                            _prefix = 'ipv4-ospf-cfg'
+                                            _revision = '2015-11-09'
+
+                                            def __init__(self):
+                                                self.parent = None
+                                                self.candidate_interface = YList()
+                                                self.candidate_interface.parent = self
+                                                self.candidate_interface.name = 'candidate_interface'
+
+
+                                            class CandidateInterface(object):
+                                                """
+                                                Candidate backup interface
+                                                
+                                                .. attribute:: interface_name  <key>
+                                                
+                                                	Interface
+                                                	**type**\:  str
+                                                
+                                                	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+                                                
+                                                
+
+                                                """
+
+                                                _prefix = 'ipv4-ospf-cfg'
+                                                _revision = '2015-11-09'
+
+                                                def __init__(self):
+                                                    self.parent = None
+                                                    self.interface_name = None
+
+                                                @property
+                                                def _common_path(self):
+                                                    if self.parent is None:
+                                                        raise YPYModelError('parent is not set . Cannot derive path.')
+                                                    if self.interface_name is None:
+                                                        raise YPYModelError('Key property interface_name is None')
+
+                                                    return self.parent._common_path +'/Cisco-IOS-XR-ipv4-ospf-cfg:candidate-interface[Cisco-IOS-XR-ipv4-ospf-cfg:interface-name = ' + str(self.interface_name) + ']'
+
+                                                def is_config(self):
+                                                    ''' Returns True if this instance represents config data else returns False '''
+                                                    return True
+
+                                                def _has_data(self):
+                                                    if not self.is_config():
+                                                        return False
+                                                    if self.interface_name is not None:
+                                                        return True
+
+                                                    return False
+
+                                                @staticmethod
+                                                def _meta_info():
+                                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_ospf_cfg as meta
+                                                    return meta._meta_table['Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.FastReroute.PerLink.CandidateInterfaces.CandidateInterface']['meta_info']
+
+                                            @property
+                                            def _common_path(self):
+                                                if self.parent is None:
+                                                    raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                                return self.parent._common_path +'/Cisco-IOS-XR-ipv4-ospf-cfg:candidate-interfaces'
+
+                                            def is_config(self):
+                                                ''' Returns True if this instance represents config data else returns False '''
+                                                return True
+
+                                            def _has_data(self):
+                                                if not self.is_config():
+                                                    return False
+                                                if self.candidate_interface is not None:
+                                                    for child_ref in self.candidate_interface:
+                                                        if child_ref._has_data():
+                                                            return True
+
+                                                return False
+
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_ospf_cfg as meta
+                                                return meta._meta_table['Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.FastReroute.PerLink.CandidateInterfaces']['meta_info']
+
+
+                                        class ExcludeInterfaces(object):
+                                            """
+                                            Fast\-reroute per\-link/per\-prefix or UCMP exclude
+                                            interface configuration
+                                            
+                                            .. attribute:: exclude_interface
+                                            
+                                            	Exclude an interface from becoming a backup or UCMP
+                                            	**type**\: list of  :py:class:`ExcludeInterface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_cfg.Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.FastReroute.PerLink.ExcludeInterfaces.ExcludeInterface>`
+                                            
+                                            
+
+                                            """
+
+                                            _prefix = 'ipv4-ospf-cfg'
+                                            _revision = '2015-11-09'
+
+                                            def __init__(self):
+                                                self.parent = None
+                                                self.exclude_interface = YList()
+                                                self.exclude_interface.parent = self
+                                                self.exclude_interface.name = 'exclude_interface'
+
+
+                                            class ExcludeInterface(object):
+                                                """
+                                                Exclude an interface from becoming a backup or
+                                                UCMP
+                                                
+                                                .. attribute:: interface_name  <key>
+                                                
+                                                	Interface
+                                                	**type**\:  str
+                                                
+                                                	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+                                                
+                                                
+
+                                                """
+
+                                                _prefix = 'ipv4-ospf-cfg'
+                                                _revision = '2015-11-09'
+
+                                                def __init__(self):
+                                                    self.parent = None
+                                                    self.interface_name = None
+
+                                                @property
+                                                def _common_path(self):
+                                                    if self.parent is None:
+                                                        raise YPYModelError('parent is not set . Cannot derive path.')
+                                                    if self.interface_name is None:
+                                                        raise YPYModelError('Key property interface_name is None')
+
+                                                    return self.parent._common_path +'/Cisco-IOS-XR-ipv4-ospf-cfg:exclude-interface[Cisco-IOS-XR-ipv4-ospf-cfg:interface-name = ' + str(self.interface_name) + ']'
+
+                                                def is_config(self):
+                                                    ''' Returns True if this instance represents config data else returns False '''
+                                                    return True
+
+                                                def _has_data(self):
+                                                    if not self.is_config():
+                                                        return False
+                                                    if self.interface_name is not None:
+                                                        return True
+
+                                                    return False
+
+                                                @staticmethod
+                                                def _meta_info():
+                                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_ospf_cfg as meta
+                                                    return meta._meta_table['Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.FastReroute.PerLink.ExcludeInterfaces.ExcludeInterface']['meta_info']
+
+                                            @property
+                                            def _common_path(self):
+                                                if self.parent is None:
+                                                    raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                                return self.parent._common_path +'/Cisco-IOS-XR-ipv4-ospf-cfg:exclude-interfaces'
+
+                                            def is_config(self):
+                                                ''' Returns True if this instance represents config data else returns False '''
+                                                return True
+
+                                            def _has_data(self):
+                                                if not self.is_config():
+                                                    return False
+                                                if self.exclude_interface is not None:
+                                                    for child_ref in self.exclude_interface:
+                                                        if child_ref._has_data():
+                                                            return True
+
+                                                return False
+
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_ospf_cfg as meta
+                                                return meta._meta_table['Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.FastReroute.PerLink.ExcludeInterfaces']['meta_info']
+
+                                        @property
+                                        def _common_path(self):
+                                            if self.parent is None:
+                                                raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                            return self.parent._common_path +'/Cisco-IOS-XR-ipv4-ospf-cfg:per-link'
+
+                                        def is_config(self):
+                                            ''' Returns True if this instance represents config data else returns False '''
+                                            return True
+
+                                        def _has_data(self):
+                                            if not self.is_config():
+                                                return False
+                                            if self.candidate_interfaces is not None and self.candidate_interfaces._has_data():
+                                                return True
+
+                                            if self.exclude_interfaces is not None and self.exclude_interfaces._has_data():
+                                                return True
+
+                                            if self.fast_reroute_use_candidate_only is not None:
+                                                return True
+
+                                            return False
+
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_ospf_cfg as meta
+                                            return meta._meta_table['Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.FastReroute.PerLink']['meta_info']
+
+
+                                    class PerPrefix(object):
+                                        """
+                                        Fast\-reroute per\-prefix global configuration
+                                        
+                                        .. attribute:: candidate_interfaces
+                                        
+                                        	Fast\-reroute per\-link/per\-prefix candidate interface configuration
+                                        	**type**\:  :py:class:`CandidateInterfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_cfg.Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.FastReroute.PerPrefix.CandidateInterfaces>`
+                                        
+                                        .. attribute:: exclude_interfaces
+                                        
+                                        	Fast\-reroute per\-link/per\-prefix or UCMP exclude interface configuration
+                                        	**type**\:  :py:class:`ExcludeInterfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_cfg.Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.FastReroute.PerPrefix.ExcludeInterfaces>`
+                                        
+                                        .. attribute:: fast_reroute_use_candidate_only
+                                        
+                                        	Use only interfaces on the candidate list as a backup path
+                                        	**type**\:  bool
+                                        
+                                        .. attribute:: remote_lfa
+                                        
+                                        	Remote LFA configuration
+                                        	**type**\:  :py:class:`RemoteLfa <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_cfg.Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.FastReroute.PerPrefix.RemoteLfa>`
+                                        
+                                        .. attribute:: tiebreakers
+                                        
+                                        	Fast\-reroute tiebreakers configurations
+                                        	**type**\:  :py:class:`Tiebreakers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_cfg.Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.FastReroute.PerPrefix.Tiebreakers>`
+                                        
+                                        .. attribute:: topology_independent_lfa
+                                        
+                                        	Topology Independet LFA configuration
+                                        	**type**\:  bool
+                                        
+                                        
+
+                                        """
+
+                                        _prefix = 'ipv4-ospf-cfg'
+                                        _revision = '2015-11-09'
+
+                                        def __init__(self):
+                                            self.parent = None
+                                            self.candidate_interfaces = Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.FastReroute.PerPrefix.CandidateInterfaces()
+                                            self.candidate_interfaces.parent = self
+                                            self.exclude_interfaces = Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.FastReroute.PerPrefix.ExcludeInterfaces()
+                                            self.exclude_interfaces.parent = self
+                                            self.fast_reroute_use_candidate_only = None
+                                            self.remote_lfa = Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.FastReroute.PerPrefix.RemoteLfa()
+                                            self.remote_lfa.parent = self
+                                            self.tiebreakers = Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.FastReroute.PerPrefix.Tiebreakers()
+                                            self.tiebreakers.parent = self
+                                            self.topology_independent_lfa = None
+
+
+                                        class RemoteLfa(object):
+                                            """
+                                            Remote LFA configuration
+                                            
+                                            .. attribute:: maximum_cost
+                                            
+                                            	Maximum path cost to remote LFA
+                                            	**type**\:  int
+                                            
+                                            	**range:** 1..4294967295
+                                            
+                                            .. attribute:: tunnel
+                                            
+                                            	Enable/Disable remote LFA computation
+                                            	**type**\:  :py:class:`OspfFrrRlfaTunnelEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_cfg.OspfFrrRlfaTunnelEnum>`
+                                            
+                                            
+
+                                            """
+
+                                            _prefix = 'ipv4-ospf-cfg'
+                                            _revision = '2015-11-09'
+
+                                            def __init__(self):
+                                                self.parent = None
+                                                self.maximum_cost = None
+                                                self.tunnel = None
+
+                                            @property
+                                            def _common_path(self):
+                                                if self.parent is None:
+                                                    raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                                return self.parent._common_path +'/Cisco-IOS-XR-ipv4-ospf-cfg:remote-lfa'
+
+                                            def is_config(self):
+                                                ''' Returns True if this instance represents config data else returns False '''
+                                                return True
+
+                                            def _has_data(self):
+                                                if not self.is_config():
+                                                    return False
+                                                if self.maximum_cost is not None:
+                                                    return True
+
+                                                if self.tunnel is not None:
+                                                    return True
+
+                                                return False
+
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_ospf_cfg as meta
+                                                return meta._meta_table['Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.FastReroute.PerPrefix.RemoteLfa']['meta_info']
+
+
+                                        class Tiebreakers(object):
+                                            """
+                                            Fast\-reroute tiebreakers configurations
+                                            
+                                            .. attribute:: tiebreaker
+                                            
+                                            	Fast\-reroute tiebreakers configuration
+                                            	**type**\: list of  :py:class:`Tiebreaker <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_cfg.Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.FastReroute.PerPrefix.Tiebreakers.Tiebreaker>`
+                                            
+                                            
+
+                                            """
+
+                                            _prefix = 'ipv4-ospf-cfg'
+                                            _revision = '2015-11-09'
+
+                                            def __init__(self):
+                                                self.parent = None
+                                                self.tiebreaker = YList()
+                                                self.tiebreaker.parent = self
+                                                self.tiebreaker.name = 'tiebreaker'
+
+
+                                            class Tiebreaker(object):
+                                                """
+                                                Fast\-reroute tiebreakers configuration
+                                                
+                                                .. attribute:: tiebreaker_type  <key>
+                                                
+                                                	Tiebreaker type
+                                                	**type**\:  :py:class:`OspfFastRerouteTiebreakersIntfEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_cfg.OspfFastRerouteTiebreakersIntfEnum>`
+                                                
+                                                .. attribute:: tiebreaker_index
+                                                
+                                                	Index value for a tiebreaker, 0 to disable
+                                                	**type**\:  int
+                                                
+                                                	**range:** 0..255
+                                                
+                                                	**mandatory**\: True
+                                                
+                                                
+
+                                                """
+
+                                                _prefix = 'ipv4-ospf-cfg'
+                                                _revision = '2015-11-09'
+
+                                                def __init__(self):
+                                                    self.parent = None
+                                                    self.tiebreaker_type = None
+                                                    self.tiebreaker_index = None
+
+                                                @property
+                                                def _common_path(self):
+                                                    if self.parent is None:
+                                                        raise YPYModelError('parent is not set . Cannot derive path.')
+                                                    if self.tiebreaker_type is None:
+                                                        raise YPYModelError('Key property tiebreaker_type is None')
+
+                                                    return self.parent._common_path +'/Cisco-IOS-XR-ipv4-ospf-cfg:tiebreaker[Cisco-IOS-XR-ipv4-ospf-cfg:tiebreaker-type = ' + str(self.tiebreaker_type) + ']'
+
+                                                def is_config(self):
+                                                    ''' Returns True if this instance represents config data else returns False '''
+                                                    return True
+
+                                                def _has_data(self):
+                                                    if not self.is_config():
+                                                        return False
+                                                    if self.tiebreaker_type is not None:
+                                                        return True
+
+                                                    if self.tiebreaker_index is not None:
+                                                        return True
+
+                                                    return False
+
+                                                @staticmethod
+                                                def _meta_info():
+                                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_ospf_cfg as meta
+                                                    return meta._meta_table['Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.FastReroute.PerPrefix.Tiebreakers.Tiebreaker']['meta_info']
+
+                                            @property
+                                            def _common_path(self):
+                                                if self.parent is None:
+                                                    raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                                return self.parent._common_path +'/Cisco-IOS-XR-ipv4-ospf-cfg:tiebreakers'
+
+                                            def is_config(self):
+                                                ''' Returns True if this instance represents config data else returns False '''
+                                                return True
+
+                                            def _has_data(self):
+                                                if not self.is_config():
+                                                    return False
+                                                if self.tiebreaker is not None:
+                                                    for child_ref in self.tiebreaker:
+                                                        if child_ref._has_data():
+                                                            return True
+
+                                                return False
+
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_ospf_cfg as meta
+                                                return meta._meta_table['Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.FastReroute.PerPrefix.Tiebreakers']['meta_info']
+
+
+                                        class CandidateInterfaces(object):
+                                            """
+                                            Fast\-reroute per\-link/per\-prefix candidate
+                                            interface configuration
+                                            
+                                            .. attribute:: candidate_interface
+                                            
+                                            	Candidate backup interface
+                                            	**type**\: list of  :py:class:`CandidateInterface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_cfg.Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.FastReroute.PerPrefix.CandidateInterfaces.CandidateInterface>`
+                                            
+                                            
+
+                                            """
+
+                                            _prefix = 'ipv4-ospf-cfg'
+                                            _revision = '2015-11-09'
+
+                                            def __init__(self):
+                                                self.parent = None
+                                                self.candidate_interface = YList()
+                                                self.candidate_interface.parent = self
+                                                self.candidate_interface.name = 'candidate_interface'
+
+
+                                            class CandidateInterface(object):
+                                                """
+                                                Candidate backup interface
+                                                
+                                                .. attribute:: interface_name  <key>
+                                                
+                                                	Interface
+                                                	**type**\:  str
+                                                
+                                                	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+                                                
+                                                
+
+                                                """
+
+                                                _prefix = 'ipv4-ospf-cfg'
+                                                _revision = '2015-11-09'
+
+                                                def __init__(self):
+                                                    self.parent = None
+                                                    self.interface_name = None
+
+                                                @property
+                                                def _common_path(self):
+                                                    if self.parent is None:
+                                                        raise YPYModelError('parent is not set . Cannot derive path.')
+                                                    if self.interface_name is None:
+                                                        raise YPYModelError('Key property interface_name is None')
+
+                                                    return self.parent._common_path +'/Cisco-IOS-XR-ipv4-ospf-cfg:candidate-interface[Cisco-IOS-XR-ipv4-ospf-cfg:interface-name = ' + str(self.interface_name) + ']'
+
+                                                def is_config(self):
+                                                    ''' Returns True if this instance represents config data else returns False '''
+                                                    return True
+
+                                                def _has_data(self):
+                                                    if not self.is_config():
+                                                        return False
+                                                    if self.interface_name is not None:
+                                                        return True
+
+                                                    return False
+
+                                                @staticmethod
+                                                def _meta_info():
+                                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_ospf_cfg as meta
+                                                    return meta._meta_table['Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.FastReroute.PerPrefix.CandidateInterfaces.CandidateInterface']['meta_info']
+
+                                            @property
+                                            def _common_path(self):
+                                                if self.parent is None:
+                                                    raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                                return self.parent._common_path +'/Cisco-IOS-XR-ipv4-ospf-cfg:candidate-interfaces'
+
+                                            def is_config(self):
+                                                ''' Returns True if this instance represents config data else returns False '''
+                                                return True
+
+                                            def _has_data(self):
+                                                if not self.is_config():
+                                                    return False
+                                                if self.candidate_interface is not None:
+                                                    for child_ref in self.candidate_interface:
+                                                        if child_ref._has_data():
+                                                            return True
+
+                                                return False
+
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_ospf_cfg as meta
+                                                return meta._meta_table['Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.FastReroute.PerPrefix.CandidateInterfaces']['meta_info']
+
+
+                                        class ExcludeInterfaces(object):
+                                            """
+                                            Fast\-reroute per\-link/per\-prefix or UCMP exclude
+                                            interface configuration
+                                            
+                                            .. attribute:: exclude_interface
+                                            
+                                            	Exclude an interface from becoming a backup or UCMP
+                                            	**type**\: list of  :py:class:`ExcludeInterface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_cfg.Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.FastReroute.PerPrefix.ExcludeInterfaces.ExcludeInterface>`
+                                            
+                                            
+
+                                            """
+
+                                            _prefix = 'ipv4-ospf-cfg'
+                                            _revision = '2015-11-09'
+
+                                            def __init__(self):
+                                                self.parent = None
+                                                self.exclude_interface = YList()
+                                                self.exclude_interface.parent = self
+                                                self.exclude_interface.name = 'exclude_interface'
+
+
+                                            class ExcludeInterface(object):
+                                                """
+                                                Exclude an interface from becoming a backup or
+                                                UCMP
+                                                
+                                                .. attribute:: interface_name  <key>
+                                                
+                                                	Interface
+                                                	**type**\:  str
+                                                
+                                                	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+                                                
+                                                
+
+                                                """
+
+                                                _prefix = 'ipv4-ospf-cfg'
+                                                _revision = '2015-11-09'
+
+                                                def __init__(self):
+                                                    self.parent = None
+                                                    self.interface_name = None
+
+                                                @property
+                                                def _common_path(self):
+                                                    if self.parent is None:
+                                                        raise YPYModelError('parent is not set . Cannot derive path.')
+                                                    if self.interface_name is None:
+                                                        raise YPYModelError('Key property interface_name is None')
+
+                                                    return self.parent._common_path +'/Cisco-IOS-XR-ipv4-ospf-cfg:exclude-interface[Cisco-IOS-XR-ipv4-ospf-cfg:interface-name = ' + str(self.interface_name) + ']'
+
+                                                def is_config(self):
+                                                    ''' Returns True if this instance represents config data else returns False '''
+                                                    return True
+
+                                                def _has_data(self):
+                                                    if not self.is_config():
+                                                        return False
+                                                    if self.interface_name is not None:
+                                                        return True
+
+                                                    return False
+
+                                                @staticmethod
+                                                def _meta_info():
+                                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_ospf_cfg as meta
+                                                    return meta._meta_table['Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.FastReroute.PerPrefix.ExcludeInterfaces.ExcludeInterface']['meta_info']
+
+                                            @property
+                                            def _common_path(self):
+                                                if self.parent is None:
+                                                    raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                                return self.parent._common_path +'/Cisco-IOS-XR-ipv4-ospf-cfg:exclude-interfaces'
+
+                                            def is_config(self):
+                                                ''' Returns True if this instance represents config data else returns False '''
+                                                return True
+
+                                            def _has_data(self):
+                                                if not self.is_config():
+                                                    return False
+                                                if self.exclude_interface is not None:
+                                                    for child_ref in self.exclude_interface:
+                                                        if child_ref._has_data():
+                                                            return True
+
+                                                return False
+
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_ospf_cfg as meta
+                                                return meta._meta_table['Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.FastReroute.PerPrefix.ExcludeInterfaces']['meta_info']
+
+                                        @property
+                                        def _common_path(self):
+                                            if self.parent is None:
+                                                raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                            return self.parent._common_path +'/Cisco-IOS-XR-ipv4-ospf-cfg:per-prefix'
+
+                                        def is_config(self):
+                                            ''' Returns True if this instance represents config data else returns False '''
+                                            return True
+
+                                        def _has_data(self):
+                                            if not self.is_config():
+                                                return False
+                                            if self.candidate_interfaces is not None and self.candidate_interfaces._has_data():
+                                                return True
+
+                                            if self.exclude_interfaces is not None and self.exclude_interfaces._has_data():
+                                                return True
+
+                                            if self.fast_reroute_use_candidate_only is not None:
+                                                return True
+
+                                            if self.remote_lfa is not None and self.remote_lfa._has_data():
+                                                return True
+
+                                            if self.tiebreakers is not None and self.tiebreakers._has_data():
+                                                return True
+
+                                            if self.topology_independent_lfa is not None:
+                                                return True
+
+                                            return False
+
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_ospf_cfg as meta
+                                            return meta._meta_table['Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.FastReroute.PerPrefix']['meta_info']
+
+                                    @property
+                                    def _common_path(self):
+                                        if self.parent is None:
+                                            raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                        return self.parent._common_path +'/Cisco-IOS-XR-ipv4-ospf-cfg:fast-reroute'
+
+                                    def is_config(self):
+                                        ''' Returns True if this instance represents config data else returns False '''
+                                        return True
+
+                                    def _has_data(self):
+                                        if not self.is_config():
+                                            return False
+                                        if self.fast_reroute_enable is not None:
+                                            return True
+
+                                        if self.per_link is not None and self.per_link._has_data():
+                                            return True
+
+                                        if self.per_prefix is not None and self.per_prefix._has_data():
+                                            return True
+
+                                        return False
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_ospf_cfg as meta
+                                        return meta._meta_table['Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.FastReroute']['meta_info']
+
+
                                 class CostFallback(object):
                                     """
                                     Interface fallback cost
@@ -34451,6 +38428,12 @@ class Ospf(object):
                                     if self.prefix_sid is not None and self.prefix_sid._has_data():
                                         return True
 
+                                    if self.prefix_sid_strict is not None and self.prefix_sid_strict._has_data():
+                                        return True
+
+                                    if self.prefix_suppression_primary is not None:
+                                        return True
+
                                     if self.prefix_suppression_secondary is not None:
                                         return True
 
@@ -34538,7 +38521,7 @@ class Ospf(object):
                                 	Name of Multi Area Interface to configure
                                 	**type**\:  str
                                 
-                                	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+                                	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
                                 
                                 .. attribute:: authentication
                                 
@@ -34571,6 +38554,11 @@ class Ospf(object):
                                 
                                 	Filter networks intalled to RIB (disable as ACL name means filtering is disabled)
                                 	**type**\:  :py:class:`DistributeList <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_cfg.Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.DistributeList>`
+                                
+                                .. attribute:: fast_reroute
+                                
+                                	Fast\-reroute configuration
+                                	**type**\:  :py:class:`FastReroute <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_cfg.Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.FastReroute>`
                                 
                                 .. attribute:: hello_interval
                                 
@@ -34639,6 +38627,8 @@ class Ospf(object):
                                     self.dead_interval_minimal = Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.DeadIntervalMinimal()
                                     self.dead_interval_minimal.parent = self
                                     self.distribute_list = None
+                                    self.fast_reroute = Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.FastReroute()
+                                    self.fast_reroute.parent = self
                                     self.hello_interval = None
                                     self.mtu_ignore = None
                                     self.neighbors = Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.Neighbors()
@@ -35157,6 +39147,793 @@ class Ospf(object):
                                         return meta._meta_table['Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.DeadIntervalMinimal']['meta_info']
 
 
+                                class FastReroute(object):
+                                    """
+                                    Fast\-reroute configuration
+                                    
+                                    .. attribute:: fast_reroute_enable
+                                    
+                                    	Enable/Disable Fast\-reroute per\-link or per\-prefix
+                                    	**type**\:  :py:class:`OspfFastRerouteEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_cfg.OspfFastRerouteEnum>`
+                                    
+                                    .. attribute:: per_link
+                                    
+                                    	Fast\-reroute per\-link configuration
+                                    	**type**\:  :py:class:`PerLink <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_cfg.Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.FastReroute.PerLink>`
+                                    
+                                    .. attribute:: per_prefix
+                                    
+                                    	Fast\-reroute per\-prefix global configuration
+                                    	**type**\:  :py:class:`PerPrefix <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_cfg.Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.FastReroute.PerPrefix>`
+                                    
+                                    
+
+                                    """
+
+                                    _prefix = 'ipv4-ospf-cfg'
+                                    _revision = '2015-11-09'
+
+                                    def __init__(self):
+                                        self.parent = None
+                                        self.fast_reroute_enable = None
+                                        self.per_link = Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.FastReroute.PerLink()
+                                        self.per_link.parent = self
+                                        self.per_prefix = Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.FastReroute.PerPrefix()
+                                        self.per_prefix.parent = self
+
+
+                                    class PerLink(object):
+                                        """
+                                        Fast\-reroute per\-link configuration
+                                        
+                                        .. attribute:: candidate_interfaces
+                                        
+                                        	Fast\-reroute per\-link/per\-prefix candidate interface configuration
+                                        	**type**\:  :py:class:`CandidateInterfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_cfg.Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.FastReroute.PerLink.CandidateInterfaces>`
+                                        
+                                        .. attribute:: exclude_interfaces
+                                        
+                                        	Fast\-reroute per\-link/per\-prefix or UCMP exclude interface configuration
+                                        	**type**\:  :py:class:`ExcludeInterfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_cfg.Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.FastReroute.PerLink.ExcludeInterfaces>`
+                                        
+                                        .. attribute:: fast_reroute_use_candidate_only
+                                        
+                                        	Use only interfaces on the candidate list as a backup path
+                                        	**type**\:  bool
+                                        
+                                        
+
+                                        """
+
+                                        _prefix = 'ipv4-ospf-cfg'
+                                        _revision = '2015-11-09'
+
+                                        def __init__(self):
+                                            self.parent = None
+                                            self.candidate_interfaces = Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.FastReroute.PerLink.CandidateInterfaces()
+                                            self.candidate_interfaces.parent = self
+                                            self.exclude_interfaces = Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.FastReroute.PerLink.ExcludeInterfaces()
+                                            self.exclude_interfaces.parent = self
+                                            self.fast_reroute_use_candidate_only = None
+
+
+                                        class CandidateInterfaces(object):
+                                            """
+                                            Fast\-reroute per\-link/per\-prefix candidate
+                                            interface configuration
+                                            
+                                            .. attribute:: candidate_interface
+                                            
+                                            	Candidate backup interface
+                                            	**type**\: list of  :py:class:`CandidateInterface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_cfg.Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.FastReroute.PerLink.CandidateInterfaces.CandidateInterface>`
+                                            
+                                            
+
+                                            """
+
+                                            _prefix = 'ipv4-ospf-cfg'
+                                            _revision = '2015-11-09'
+
+                                            def __init__(self):
+                                                self.parent = None
+                                                self.candidate_interface = YList()
+                                                self.candidate_interface.parent = self
+                                                self.candidate_interface.name = 'candidate_interface'
+
+
+                                            class CandidateInterface(object):
+                                                """
+                                                Candidate backup interface
+                                                
+                                                .. attribute:: interface_name  <key>
+                                                
+                                                	Interface
+                                                	**type**\:  str
+                                                
+                                                	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+                                                
+                                                
+
+                                                """
+
+                                                _prefix = 'ipv4-ospf-cfg'
+                                                _revision = '2015-11-09'
+
+                                                def __init__(self):
+                                                    self.parent = None
+                                                    self.interface_name = None
+
+                                                @property
+                                                def _common_path(self):
+                                                    if self.parent is None:
+                                                        raise YPYModelError('parent is not set . Cannot derive path.')
+                                                    if self.interface_name is None:
+                                                        raise YPYModelError('Key property interface_name is None')
+
+                                                    return self.parent._common_path +'/Cisco-IOS-XR-ipv4-ospf-cfg:candidate-interface[Cisco-IOS-XR-ipv4-ospf-cfg:interface-name = ' + str(self.interface_name) + ']'
+
+                                                def is_config(self):
+                                                    ''' Returns True if this instance represents config data else returns False '''
+                                                    return True
+
+                                                def _has_data(self):
+                                                    if not self.is_config():
+                                                        return False
+                                                    if self.interface_name is not None:
+                                                        return True
+
+                                                    return False
+
+                                                @staticmethod
+                                                def _meta_info():
+                                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_ospf_cfg as meta
+                                                    return meta._meta_table['Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.FastReroute.PerLink.CandidateInterfaces.CandidateInterface']['meta_info']
+
+                                            @property
+                                            def _common_path(self):
+                                                if self.parent is None:
+                                                    raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                                return self.parent._common_path +'/Cisco-IOS-XR-ipv4-ospf-cfg:candidate-interfaces'
+
+                                            def is_config(self):
+                                                ''' Returns True if this instance represents config data else returns False '''
+                                                return True
+
+                                            def _has_data(self):
+                                                if not self.is_config():
+                                                    return False
+                                                if self.candidate_interface is not None:
+                                                    for child_ref in self.candidate_interface:
+                                                        if child_ref._has_data():
+                                                            return True
+
+                                                return False
+
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_ospf_cfg as meta
+                                                return meta._meta_table['Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.FastReroute.PerLink.CandidateInterfaces']['meta_info']
+
+
+                                        class ExcludeInterfaces(object):
+                                            """
+                                            Fast\-reroute per\-link/per\-prefix or UCMP exclude
+                                            interface configuration
+                                            
+                                            .. attribute:: exclude_interface
+                                            
+                                            	Exclude an interface from becoming a backup or UCMP
+                                            	**type**\: list of  :py:class:`ExcludeInterface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_cfg.Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.FastReroute.PerLink.ExcludeInterfaces.ExcludeInterface>`
+                                            
+                                            
+
+                                            """
+
+                                            _prefix = 'ipv4-ospf-cfg'
+                                            _revision = '2015-11-09'
+
+                                            def __init__(self):
+                                                self.parent = None
+                                                self.exclude_interface = YList()
+                                                self.exclude_interface.parent = self
+                                                self.exclude_interface.name = 'exclude_interface'
+
+
+                                            class ExcludeInterface(object):
+                                                """
+                                                Exclude an interface from becoming a backup or
+                                                UCMP
+                                                
+                                                .. attribute:: interface_name  <key>
+                                                
+                                                	Interface
+                                                	**type**\:  str
+                                                
+                                                	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+                                                
+                                                
+
+                                                """
+
+                                                _prefix = 'ipv4-ospf-cfg'
+                                                _revision = '2015-11-09'
+
+                                                def __init__(self):
+                                                    self.parent = None
+                                                    self.interface_name = None
+
+                                                @property
+                                                def _common_path(self):
+                                                    if self.parent is None:
+                                                        raise YPYModelError('parent is not set . Cannot derive path.')
+                                                    if self.interface_name is None:
+                                                        raise YPYModelError('Key property interface_name is None')
+
+                                                    return self.parent._common_path +'/Cisco-IOS-XR-ipv4-ospf-cfg:exclude-interface[Cisco-IOS-XR-ipv4-ospf-cfg:interface-name = ' + str(self.interface_name) + ']'
+
+                                                def is_config(self):
+                                                    ''' Returns True if this instance represents config data else returns False '''
+                                                    return True
+
+                                                def _has_data(self):
+                                                    if not self.is_config():
+                                                        return False
+                                                    if self.interface_name is not None:
+                                                        return True
+
+                                                    return False
+
+                                                @staticmethod
+                                                def _meta_info():
+                                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_ospf_cfg as meta
+                                                    return meta._meta_table['Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.FastReroute.PerLink.ExcludeInterfaces.ExcludeInterface']['meta_info']
+
+                                            @property
+                                            def _common_path(self):
+                                                if self.parent is None:
+                                                    raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                                return self.parent._common_path +'/Cisco-IOS-XR-ipv4-ospf-cfg:exclude-interfaces'
+
+                                            def is_config(self):
+                                                ''' Returns True if this instance represents config data else returns False '''
+                                                return True
+
+                                            def _has_data(self):
+                                                if not self.is_config():
+                                                    return False
+                                                if self.exclude_interface is not None:
+                                                    for child_ref in self.exclude_interface:
+                                                        if child_ref._has_data():
+                                                            return True
+
+                                                return False
+
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_ospf_cfg as meta
+                                                return meta._meta_table['Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.FastReroute.PerLink.ExcludeInterfaces']['meta_info']
+
+                                        @property
+                                        def _common_path(self):
+                                            if self.parent is None:
+                                                raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                            return self.parent._common_path +'/Cisco-IOS-XR-ipv4-ospf-cfg:per-link'
+
+                                        def is_config(self):
+                                            ''' Returns True if this instance represents config data else returns False '''
+                                            return True
+
+                                        def _has_data(self):
+                                            if not self.is_config():
+                                                return False
+                                            if self.candidate_interfaces is not None and self.candidate_interfaces._has_data():
+                                                return True
+
+                                            if self.exclude_interfaces is not None and self.exclude_interfaces._has_data():
+                                                return True
+
+                                            if self.fast_reroute_use_candidate_only is not None:
+                                                return True
+
+                                            return False
+
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_ospf_cfg as meta
+                                            return meta._meta_table['Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.FastReroute.PerLink']['meta_info']
+
+
+                                    class PerPrefix(object):
+                                        """
+                                        Fast\-reroute per\-prefix global configuration
+                                        
+                                        .. attribute:: candidate_interfaces
+                                        
+                                        	Fast\-reroute per\-link/per\-prefix candidate interface configuration
+                                        	**type**\:  :py:class:`CandidateInterfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_cfg.Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.FastReroute.PerPrefix.CandidateInterfaces>`
+                                        
+                                        .. attribute:: exclude_interfaces
+                                        
+                                        	Fast\-reroute per\-link/per\-prefix or UCMP exclude interface configuration
+                                        	**type**\:  :py:class:`ExcludeInterfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_cfg.Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.FastReroute.PerPrefix.ExcludeInterfaces>`
+                                        
+                                        .. attribute:: fast_reroute_use_candidate_only
+                                        
+                                        	Use only interfaces on the candidate list as a backup path
+                                        	**type**\:  bool
+                                        
+                                        .. attribute:: remote_lfa
+                                        
+                                        	Remote LFA configuration
+                                        	**type**\:  :py:class:`RemoteLfa <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_cfg.Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.FastReroute.PerPrefix.RemoteLfa>`
+                                        
+                                        .. attribute:: tiebreakers
+                                        
+                                        	Fast\-reroute tiebreakers configurations
+                                        	**type**\:  :py:class:`Tiebreakers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_cfg.Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.FastReroute.PerPrefix.Tiebreakers>`
+                                        
+                                        .. attribute:: topology_independent_lfa
+                                        
+                                        	Topology Independet LFA configuration
+                                        	**type**\:  bool
+                                        
+                                        
+
+                                        """
+
+                                        _prefix = 'ipv4-ospf-cfg'
+                                        _revision = '2015-11-09'
+
+                                        def __init__(self):
+                                            self.parent = None
+                                            self.candidate_interfaces = Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.FastReroute.PerPrefix.CandidateInterfaces()
+                                            self.candidate_interfaces.parent = self
+                                            self.exclude_interfaces = Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.FastReroute.PerPrefix.ExcludeInterfaces()
+                                            self.exclude_interfaces.parent = self
+                                            self.fast_reroute_use_candidate_only = None
+                                            self.remote_lfa = Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.FastReroute.PerPrefix.RemoteLfa()
+                                            self.remote_lfa.parent = self
+                                            self.tiebreakers = Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.FastReroute.PerPrefix.Tiebreakers()
+                                            self.tiebreakers.parent = self
+                                            self.topology_independent_lfa = None
+
+
+                                        class RemoteLfa(object):
+                                            """
+                                            Remote LFA configuration
+                                            
+                                            .. attribute:: maximum_cost
+                                            
+                                            	Maximum path cost to remote LFA
+                                            	**type**\:  int
+                                            
+                                            	**range:** 1..4294967295
+                                            
+                                            .. attribute:: tunnel
+                                            
+                                            	Enable/Disable remote LFA computation
+                                            	**type**\:  :py:class:`OspfFrrRlfaTunnelEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_cfg.OspfFrrRlfaTunnelEnum>`
+                                            
+                                            
+
+                                            """
+
+                                            _prefix = 'ipv4-ospf-cfg'
+                                            _revision = '2015-11-09'
+
+                                            def __init__(self):
+                                                self.parent = None
+                                                self.maximum_cost = None
+                                                self.tunnel = None
+
+                                            @property
+                                            def _common_path(self):
+                                                if self.parent is None:
+                                                    raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                                return self.parent._common_path +'/Cisco-IOS-XR-ipv4-ospf-cfg:remote-lfa'
+
+                                            def is_config(self):
+                                                ''' Returns True if this instance represents config data else returns False '''
+                                                return True
+
+                                            def _has_data(self):
+                                                if not self.is_config():
+                                                    return False
+                                                if self.maximum_cost is not None:
+                                                    return True
+
+                                                if self.tunnel is not None:
+                                                    return True
+
+                                                return False
+
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_ospf_cfg as meta
+                                                return meta._meta_table['Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.FastReroute.PerPrefix.RemoteLfa']['meta_info']
+
+
+                                        class Tiebreakers(object):
+                                            """
+                                            Fast\-reroute tiebreakers configurations
+                                            
+                                            .. attribute:: tiebreaker
+                                            
+                                            	Fast\-reroute tiebreakers configuration
+                                            	**type**\: list of  :py:class:`Tiebreaker <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_cfg.Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.FastReroute.PerPrefix.Tiebreakers.Tiebreaker>`
+                                            
+                                            
+
+                                            """
+
+                                            _prefix = 'ipv4-ospf-cfg'
+                                            _revision = '2015-11-09'
+
+                                            def __init__(self):
+                                                self.parent = None
+                                                self.tiebreaker = YList()
+                                                self.tiebreaker.parent = self
+                                                self.tiebreaker.name = 'tiebreaker'
+
+
+                                            class Tiebreaker(object):
+                                                """
+                                                Fast\-reroute tiebreakers configuration
+                                                
+                                                .. attribute:: tiebreaker_type  <key>
+                                                
+                                                	Tiebreaker type
+                                                	**type**\:  :py:class:`OspfFastRerouteTiebreakersIntfEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_cfg.OspfFastRerouteTiebreakersIntfEnum>`
+                                                
+                                                .. attribute:: tiebreaker_index
+                                                
+                                                	Index value for a tiebreaker, 0 to disable
+                                                	**type**\:  int
+                                                
+                                                	**range:** 0..255
+                                                
+                                                	**mandatory**\: True
+                                                
+                                                
+
+                                                """
+
+                                                _prefix = 'ipv4-ospf-cfg'
+                                                _revision = '2015-11-09'
+
+                                                def __init__(self):
+                                                    self.parent = None
+                                                    self.tiebreaker_type = None
+                                                    self.tiebreaker_index = None
+
+                                                @property
+                                                def _common_path(self):
+                                                    if self.parent is None:
+                                                        raise YPYModelError('parent is not set . Cannot derive path.')
+                                                    if self.tiebreaker_type is None:
+                                                        raise YPYModelError('Key property tiebreaker_type is None')
+
+                                                    return self.parent._common_path +'/Cisco-IOS-XR-ipv4-ospf-cfg:tiebreaker[Cisco-IOS-XR-ipv4-ospf-cfg:tiebreaker-type = ' + str(self.tiebreaker_type) + ']'
+
+                                                def is_config(self):
+                                                    ''' Returns True if this instance represents config data else returns False '''
+                                                    return True
+
+                                                def _has_data(self):
+                                                    if not self.is_config():
+                                                        return False
+                                                    if self.tiebreaker_type is not None:
+                                                        return True
+
+                                                    if self.tiebreaker_index is not None:
+                                                        return True
+
+                                                    return False
+
+                                                @staticmethod
+                                                def _meta_info():
+                                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_ospf_cfg as meta
+                                                    return meta._meta_table['Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.FastReroute.PerPrefix.Tiebreakers.Tiebreaker']['meta_info']
+
+                                            @property
+                                            def _common_path(self):
+                                                if self.parent is None:
+                                                    raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                                return self.parent._common_path +'/Cisco-IOS-XR-ipv4-ospf-cfg:tiebreakers'
+
+                                            def is_config(self):
+                                                ''' Returns True if this instance represents config data else returns False '''
+                                                return True
+
+                                            def _has_data(self):
+                                                if not self.is_config():
+                                                    return False
+                                                if self.tiebreaker is not None:
+                                                    for child_ref in self.tiebreaker:
+                                                        if child_ref._has_data():
+                                                            return True
+
+                                                return False
+
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_ospf_cfg as meta
+                                                return meta._meta_table['Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.FastReroute.PerPrefix.Tiebreakers']['meta_info']
+
+
+                                        class CandidateInterfaces(object):
+                                            """
+                                            Fast\-reroute per\-link/per\-prefix candidate
+                                            interface configuration
+                                            
+                                            .. attribute:: candidate_interface
+                                            
+                                            	Candidate backup interface
+                                            	**type**\: list of  :py:class:`CandidateInterface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_cfg.Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.FastReroute.PerPrefix.CandidateInterfaces.CandidateInterface>`
+                                            
+                                            
+
+                                            """
+
+                                            _prefix = 'ipv4-ospf-cfg'
+                                            _revision = '2015-11-09'
+
+                                            def __init__(self):
+                                                self.parent = None
+                                                self.candidate_interface = YList()
+                                                self.candidate_interface.parent = self
+                                                self.candidate_interface.name = 'candidate_interface'
+
+
+                                            class CandidateInterface(object):
+                                                """
+                                                Candidate backup interface
+                                                
+                                                .. attribute:: interface_name  <key>
+                                                
+                                                	Interface
+                                                	**type**\:  str
+                                                
+                                                	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+                                                
+                                                
+
+                                                """
+
+                                                _prefix = 'ipv4-ospf-cfg'
+                                                _revision = '2015-11-09'
+
+                                                def __init__(self):
+                                                    self.parent = None
+                                                    self.interface_name = None
+
+                                                @property
+                                                def _common_path(self):
+                                                    if self.parent is None:
+                                                        raise YPYModelError('parent is not set . Cannot derive path.')
+                                                    if self.interface_name is None:
+                                                        raise YPYModelError('Key property interface_name is None')
+
+                                                    return self.parent._common_path +'/Cisco-IOS-XR-ipv4-ospf-cfg:candidate-interface[Cisco-IOS-XR-ipv4-ospf-cfg:interface-name = ' + str(self.interface_name) + ']'
+
+                                                def is_config(self):
+                                                    ''' Returns True if this instance represents config data else returns False '''
+                                                    return True
+
+                                                def _has_data(self):
+                                                    if not self.is_config():
+                                                        return False
+                                                    if self.interface_name is not None:
+                                                        return True
+
+                                                    return False
+
+                                                @staticmethod
+                                                def _meta_info():
+                                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_ospf_cfg as meta
+                                                    return meta._meta_table['Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.FastReroute.PerPrefix.CandidateInterfaces.CandidateInterface']['meta_info']
+
+                                            @property
+                                            def _common_path(self):
+                                                if self.parent is None:
+                                                    raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                                return self.parent._common_path +'/Cisco-IOS-XR-ipv4-ospf-cfg:candidate-interfaces'
+
+                                            def is_config(self):
+                                                ''' Returns True if this instance represents config data else returns False '''
+                                                return True
+
+                                            def _has_data(self):
+                                                if not self.is_config():
+                                                    return False
+                                                if self.candidate_interface is not None:
+                                                    for child_ref in self.candidate_interface:
+                                                        if child_ref._has_data():
+                                                            return True
+
+                                                return False
+
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_ospf_cfg as meta
+                                                return meta._meta_table['Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.FastReroute.PerPrefix.CandidateInterfaces']['meta_info']
+
+
+                                        class ExcludeInterfaces(object):
+                                            """
+                                            Fast\-reroute per\-link/per\-prefix or UCMP exclude
+                                            interface configuration
+                                            
+                                            .. attribute:: exclude_interface
+                                            
+                                            	Exclude an interface from becoming a backup or UCMP
+                                            	**type**\: list of  :py:class:`ExcludeInterface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_cfg.Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.FastReroute.PerPrefix.ExcludeInterfaces.ExcludeInterface>`
+                                            
+                                            
+
+                                            """
+
+                                            _prefix = 'ipv4-ospf-cfg'
+                                            _revision = '2015-11-09'
+
+                                            def __init__(self):
+                                                self.parent = None
+                                                self.exclude_interface = YList()
+                                                self.exclude_interface.parent = self
+                                                self.exclude_interface.name = 'exclude_interface'
+
+
+                                            class ExcludeInterface(object):
+                                                """
+                                                Exclude an interface from becoming a backup or
+                                                UCMP
+                                                
+                                                .. attribute:: interface_name  <key>
+                                                
+                                                	Interface
+                                                	**type**\:  str
+                                                
+                                                	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+                                                
+                                                
+
+                                                """
+
+                                                _prefix = 'ipv4-ospf-cfg'
+                                                _revision = '2015-11-09'
+
+                                                def __init__(self):
+                                                    self.parent = None
+                                                    self.interface_name = None
+
+                                                @property
+                                                def _common_path(self):
+                                                    if self.parent is None:
+                                                        raise YPYModelError('parent is not set . Cannot derive path.')
+                                                    if self.interface_name is None:
+                                                        raise YPYModelError('Key property interface_name is None')
+
+                                                    return self.parent._common_path +'/Cisco-IOS-XR-ipv4-ospf-cfg:exclude-interface[Cisco-IOS-XR-ipv4-ospf-cfg:interface-name = ' + str(self.interface_name) + ']'
+
+                                                def is_config(self):
+                                                    ''' Returns True if this instance represents config data else returns False '''
+                                                    return True
+
+                                                def _has_data(self):
+                                                    if not self.is_config():
+                                                        return False
+                                                    if self.interface_name is not None:
+                                                        return True
+
+                                                    return False
+
+                                                @staticmethod
+                                                def _meta_info():
+                                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_ospf_cfg as meta
+                                                    return meta._meta_table['Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.FastReroute.PerPrefix.ExcludeInterfaces.ExcludeInterface']['meta_info']
+
+                                            @property
+                                            def _common_path(self):
+                                                if self.parent is None:
+                                                    raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                                return self.parent._common_path +'/Cisco-IOS-XR-ipv4-ospf-cfg:exclude-interfaces'
+
+                                            def is_config(self):
+                                                ''' Returns True if this instance represents config data else returns False '''
+                                                return True
+
+                                            def _has_data(self):
+                                                if not self.is_config():
+                                                    return False
+                                                if self.exclude_interface is not None:
+                                                    for child_ref in self.exclude_interface:
+                                                        if child_ref._has_data():
+                                                            return True
+
+                                                return False
+
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_ospf_cfg as meta
+                                                return meta._meta_table['Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.FastReroute.PerPrefix.ExcludeInterfaces']['meta_info']
+
+                                        @property
+                                        def _common_path(self):
+                                            if self.parent is None:
+                                                raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                            return self.parent._common_path +'/Cisco-IOS-XR-ipv4-ospf-cfg:per-prefix'
+
+                                        def is_config(self):
+                                            ''' Returns True if this instance represents config data else returns False '''
+                                            return True
+
+                                        def _has_data(self):
+                                            if not self.is_config():
+                                                return False
+                                            if self.candidate_interfaces is not None and self.candidate_interfaces._has_data():
+                                                return True
+
+                                            if self.exclude_interfaces is not None and self.exclude_interfaces._has_data():
+                                                return True
+
+                                            if self.fast_reroute_use_candidate_only is not None:
+                                                return True
+
+                                            if self.remote_lfa is not None and self.remote_lfa._has_data():
+                                                return True
+
+                                            if self.tiebreakers is not None and self.tiebreakers._has_data():
+                                                return True
+
+                                            if self.topology_independent_lfa is not None:
+                                                return True
+
+                                            return False
+
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_ospf_cfg as meta
+                                            return meta._meta_table['Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.FastReroute.PerPrefix']['meta_info']
+
+                                    @property
+                                    def _common_path(self):
+                                        if self.parent is None:
+                                            raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                        return self.parent._common_path +'/Cisco-IOS-XR-ipv4-ospf-cfg:fast-reroute'
+
+                                    def is_config(self):
+                                        ''' Returns True if this instance represents config data else returns False '''
+                                        return True
+
+                                    def _has_data(self):
+                                        if not self.is_config():
+                                            return False
+                                        if self.fast_reroute_enable is not None:
+                                            return True
+
+                                        if self.per_link is not None and self.per_link._has_data():
+                                            return True
+
+                                        if self.per_prefix is not None and self.per_prefix._has_data():
+                                            return True
+
+                                        return False
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_ospf_cfg as meta
+                                        return meta._meta_table['Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.FastReroute']['meta_info']
+
+
                                 class CostFallback(object):
                                     """
                                     Interface fallback cost
@@ -35249,6 +40026,9 @@ class Ospf(object):
                                         return True
 
                                     if self.distribute_list is not None and self.distribute_list._has_data():
+                                        return True
+
+                                    if self.fast_reroute is not None and self.fast_reroute._has_data():
                                         return True
 
                                     if self.hello_interval is not None:

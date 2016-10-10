@@ -217,7 +217,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('last-n-logs', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Last N opeartion logs
                 ''',
                 'last_n_logs',
@@ -310,7 +310,7 @@ _meta_table = {
                 'node_type',
                 'Cisco-IOS-XR-spirit-install-instmgr-oper', False),
             _MetaInfoClassMember('number-of-active-packages', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                NumberOfActivePackages
                 ''',
                 'number_of_active_packages',
@@ -401,13 +401,13 @@ _meta_table = {
                 'issu_error',
                 'Cisco-IOS-XR-spirit-install-instmgr-oper', False),
             _MetaInfoClassMember('issu-node-cnt', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                ISSU Node Count
                 ''',
                 'issu_node_cnt',
                 'Cisco-IOS-XR-spirit-install-instmgr-oper', False),
             _MetaInfoClassMember('issu-ready-node-cnt', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                ISSU Ready Node Count
                 ''',
                 'issu_ready_node_cnt',
@@ -419,7 +419,7 @@ _meta_table = {
                 'issu_status',
                 'Cisco-IOS-XR-spirit-install-instmgr-oper', False),
             _MetaInfoClassMember('percentage', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Percentage
                 ''',
                 'percentage',
@@ -448,7 +448,7 @@ _meta_table = {
                 'issu_node_role',
                 'Cisco-IOS-XR-spirit-install-instmgr-oper', False),
             _MetaInfoClassMember('node-id', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Node ID
                 ''',
                 'node_id',
@@ -553,7 +553,7 @@ _meta_table = {
                 'node_type',
                 'Cisco-IOS-XR-spirit-install-instmgr-oper', False),
             _MetaInfoClassMember('number-of-committed-packages', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                NumberOfCommittedPackages
                 ''',
                 'number_of_committed_packages',
@@ -781,7 +781,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('log-id', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Log ID number
                 ''',
                 'log_id',

@@ -14,4 +14,21 @@ from ydk.errors import YPYError, YPYModelError
 from ydk.providers._importer import _yang_ns
 
 _meta_table = {
+    'HostNames' : {
+        'meta_info' : _MetaInfoClass('HostNames',
+            False, 
+            [
+            _MetaInfoClassMember('host-name', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Configure system's hostname
+                ''',
+                'host_name',
+                'Cisco-IOS-XR-shellutil-cfg', False),
+            ],
+            'Cisco-IOS-XR-shellutil-cfg',
+            'host-names',
+            _yang_ns._namespaces['Cisco-IOS-XR-shellutil-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_shellutil_cfg'
+        ),
+    },
 }

@@ -3,7 +3,7 @@
 This module contains a collection of generally useful
 derived YANG data types.
 
-Copyright (c) 2013\-2015 by Cisco Systems, Inc.
+Copyright (c) 2013\-2016 by Cisco Systems, Inc.
 All rights reserved.
 
 """
@@ -194,9 +194,17 @@ class Ipv6AclIcmpTypeCodeEnumEnum(Enum):
 
     Ipv6 acl icmp type code enum
 
+    .. data:: NO_ROUTE_TO_DESTINATION = 65536
+
+    	No route to destination
+
     .. data:: ADMINISTRATIVELY_PROHIBITED = 65537
 
     	Administratively prohibited
+
+    .. data:: BEYOND_SCOPE_OF_SOURCE_ADDRESS = 65538
+
+    	Unreachable beyond scope of address
 
     .. data:: HOST_UNREACHABLE = 65539
 
@@ -210,6 +218,14 @@ class Ipv6AclIcmpTypeCodeEnumEnum(Enum):
 
     	All unreachables
 
+    .. data:: PACKET_TOO_BIG = 131072
+
+    	packet too big
+
+    .. data:: TTL_EXCEEDED = 196608
+
+    	TTL exceeded
+
     .. data:: REASSEMBLY_TIMEOUT = 196609
 
     	Reassembly timeout
@@ -217,6 +233,10 @@ class Ipv6AclIcmpTypeCodeEnumEnum(Enum):
     .. data:: TIME_EXCEEDED = 262143
 
     	All time exceeds
+
+    .. data:: ERRONENOUS_HEADER_FIELD = 262144
+
+    	Erroneous header field
 
     .. data:: OPTION_MISSING = 262145
 
@@ -238,6 +258,18 @@ class Ipv6AclIcmpTypeCodeEnumEnum(Enum):
 
     	Echo reply
 
+    .. data:: GROUP_MEMBERSHIP_QUERY = 8585215
+
+    	Multicast listener query
+
+    .. data:: GROUP_MEMBERSHIP_REPORT = 8650751
+
+    	Multicast listener report
+
+    .. data:: GROUP_MEMBERSHIP_REDUCTION = 8716287
+
+    	Multicast listener done
+
     .. data:: ROUTER_SOLICITATION = 8716288
 
     	Router discovery solicitations
@@ -246,13 +278,73 @@ class Ipv6AclIcmpTypeCodeEnumEnum(Enum):
 
     	Router discovery advertisements
 
+    .. data:: NEIGHBOR_SOLICITATION = 8847360
+
+    	Neighbor discovery neighbor solicitations
+
+    .. data:: NEIGHBOR_ADVERTISEMENT = 8912896
+
+    	Neighbor discovery neighbor advertisements
+
     .. data:: REDIRECT = 8978432
 
     	All redirects
 
+    .. data:: RR_COMMAND = 9043968
+
+    	Router renumbering command
+
+    .. data:: RR_RESULT = 9043969
+
+    	Router renumbering result
+
+    .. data:: RR_SEQNUM_RESET = 9044223
+
+    	Router renumbering seqnum
+
+    .. data:: ROUTER_RENUMBERING = 9109503
+
+    	Router renumbering
+
+    .. data:: QUERY_SUBJECT_IS_IPV6_ADDRESS = 9109504
+
+    	Query subject is ipv6 address
+
+    .. data:: QUERY_SUBJECT_IS_DOMAIN_NAME = 9109505
+
+    	Query subject is domain name
+
+    .. data:: QUERY_SUBJECT_IS_IPV4_ADDRESS = 9109506
+
+    	Query subject is ipv4 address
+
+    .. data:: WHO_ARE_YOU_REQUEST = 9175039
+
+    	Who are you request
+
+    .. data:: NODE_INFORMATION_SUCCESSFUL_REPLY = 9175040
+
+    	Node information successful reply
+
+    .. data:: NODE_INFORMATION_REQUEST_IS_REFUSED = 9175041
+
+    	Node information reply rejected
+
+    .. data:: UNKNOWN_QUERY_TYPE = 9175042
+
+    	Unknown query type
+
+    .. data:: WHO_ARE_YOU_REPLY = 9240575
+
+    	Who are you reply
+
     """
 
+    NO_ROUTE_TO_DESTINATION = 65536
+
     ADMINISTRATIVELY_PROHIBITED = 65537
+
+    BEYOND_SCOPE_OF_SOURCE_ADDRESS = 65538
 
     HOST_UNREACHABLE = 65539
 
@@ -260,9 +352,15 @@ class Ipv6AclIcmpTypeCodeEnumEnum(Enum):
 
     UNREACHABLE = 131071
 
+    PACKET_TOO_BIG = 131072
+
+    TTL_EXCEEDED = 196608
+
     REASSEMBLY_TIMEOUT = 196609
 
     TIME_EXCEEDED = 262143
+
+    ERRONENOUS_HEADER_FIELD = 262144
 
     OPTION_MISSING = 262145
 
@@ -274,11 +372,45 @@ class Ipv6AclIcmpTypeCodeEnumEnum(Enum):
 
     ECHO_REPLY = 8454144
 
+    GROUP_MEMBERSHIP_QUERY = 8585215
+
+    GROUP_MEMBERSHIP_REPORT = 8650751
+
+    GROUP_MEMBERSHIP_REDUCTION = 8716287
+
     ROUTER_SOLICITATION = 8716288
 
     ROUTER_ADVERTISEMENT = 8781824
 
+    NEIGHBOR_SOLICITATION = 8847360
+
+    NEIGHBOR_ADVERTISEMENT = 8912896
+
     REDIRECT = 8978432
+
+    RR_COMMAND = 9043968
+
+    RR_RESULT = 9043969
+
+    RR_SEQNUM_RESET = 9044223
+
+    ROUTER_RENUMBERING = 9109503
+
+    QUERY_SUBJECT_IS_IPV6_ADDRESS = 9109504
+
+    QUERY_SUBJECT_IS_DOMAIN_NAME = 9109505
+
+    QUERY_SUBJECT_IS_IPV4_ADDRESS = 9109506
+
+    WHO_ARE_YOU_REQUEST = 9175039
+
+    NODE_INFORMATION_SUCCESSFUL_REPLY = 9175040
+
+    NODE_INFORMATION_REQUEST_IS_REFUSED = 9175041
+
+    UNKNOWN_QUERY_TYPE = 9175042
+
+    WHO_ARE_YOU_REPLY = 9240575
 
 
     @staticmethod

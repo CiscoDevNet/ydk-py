@@ -7,7 +7,7 @@ This module contains definitions
 for the following management objects\:
   exception\: Core dump configuration commands
 
-Copyright (c) 2013\-2015 by Cisco Systems, Inc.
+Copyright (c) 2013\-2016 by Cisco Systems, Inc.
 All rights reserved.
 
 """
@@ -74,9 +74,12 @@ class Exception(object):
     _revision = '2015-11-09'
 
     def __init__(self):
-        self.choice1 = None
-        self.choice2 = None
-        self.choice3 = None
+        self.choice1 = Exception.Choice1()
+        self.choice1.parent = self
+        self.choice2 = Exception.Choice2()
+        self.choice2.parent = self
+        self.choice3 = Exception.Choice3()
+        self.choice3.parent = self
         self.kernel_debugger = None
         self.packet_memory = None
         self.sparse = None
@@ -116,14 +119,7 @@ class Exception(object):
         
         	**range:** 0..4
         
-        .. attribute:: _is_presence
         
-        	Is present if this instance represents presence container else not
-        	**type**\: bool
-        
-        
-
-        This class is a :ref:`presence class<presence-class>`
 
         """
 
@@ -132,7 +128,6 @@ class Exception(object):
 
         def __init__(self):
             self.parent = None
-            self._is_presence = True
             self.compress = None
             self.file_path = None
             self.filename = None
@@ -151,8 +146,6 @@ class Exception(object):
         def _has_data(self):
             if not self.is_config():
                 return False
-            if self._is_presence:
-                return True
             if self.compress is not None:
                 return True
 
@@ -209,14 +202,7 @@ class Exception(object):
         
         	**range:** 0..4
         
-        .. attribute:: _is_presence
         
-        	Is present if this instance represents presence container else not
-        	**type**\: bool
-        
-        
-
-        This class is a :ref:`presence class<presence-class>`
 
         """
 
@@ -225,7 +211,6 @@ class Exception(object):
 
         def __init__(self):
             self.parent = None
-            self._is_presence = True
             self.compress = None
             self.file_path = None
             self.filename = None
@@ -244,8 +229,6 @@ class Exception(object):
         def _has_data(self):
             if not self.is_config():
                 return False
-            if self._is_presence:
-                return True
             if self.compress is not None:
                 return True
 
@@ -302,14 +285,7 @@ class Exception(object):
         
         	**range:** 0..4
         
-        .. attribute:: _is_presence
         
-        	Is present if this instance represents presence container else not
-        	**type**\: bool
-        
-        
-
-        This class is a :ref:`presence class<presence-class>`
 
         """
 
@@ -318,7 +294,6 @@ class Exception(object):
 
         def __init__(self):
             self.parent = None
-            self._is_presence = True
             self.compress = None
             self.file_path = None
             self.filename = None
@@ -337,8 +312,6 @@ class Exception(object):
         def _has_data(self):
             if not self.is_config():
                 return False
-            if self._is_presence:
-                return True
             if self.compress is not None:
                 return True
 

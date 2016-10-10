@@ -29,14 +29,14 @@ _meta_table = {
                 'pool_name',
                 'Cisco-IOS-XR-tty-vty-cfg', True),
             _MetaInfoClassMember('first-vty', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                First VTY number,For default VTY use 0,For
                 user-defined use 5,For fault-manager use 100
                 ''',
                 'first_vty',
                 'Cisco-IOS-XR-tty-vty-cfg', False),
             _MetaInfoClassMember('last-vty', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Last VTY number,For default configure between
                 0-99,For user-defined configure between 5-99
                 ,For fault-manager configure between 100-199

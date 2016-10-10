@@ -196,8 +196,8 @@ _meta_table = {
                 ''',
                 'discontinuity_time',
                 'ietf-interfaces', False),
-            _MetaInfoClassMember('in-broadcast-pkts', ATTRIBUTE, 'long' , None, None, 
-                [(0, 18446744073709551615L)], [], 
+            _MetaInfoClassMember('in-broadcast-pkts', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
                 '''                The number of packets, delivered by this sub-layer to a
                 higher (sub-)layer, that were addressed to a broadcast
                 address at this sub-layer.
@@ -210,7 +210,7 @@ _meta_table = {
                 'in_broadcast_pkts',
                 'ietf-interfaces', False),
             _MetaInfoClassMember('in-discards', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                The number of inbound packets that were chosen to be
                 discarded even though no errors had been detected to
                 prevent their being deliverable to a higher-layer
@@ -225,7 +225,7 @@ _meta_table = {
                 'in_discards',
                 'ietf-interfaces', False),
             _MetaInfoClassMember('in-errors', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                For packet-oriented interfaces, the number of inbound
                 packets that contained errors preventing them from being
                 deliverable to a higher-layer protocol.  For character-
@@ -241,8 +241,8 @@ _meta_table = {
                 ''',
                 'in_errors',
                 'ietf-interfaces', False),
-            _MetaInfoClassMember('in-multicast-pkts', ATTRIBUTE, 'long' , None, None, 
-                [(0, 18446744073709551615L)], [], 
+            _MetaInfoClassMember('in-multicast-pkts', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
                 '''                The number of packets, delivered by this sub-layer to a
                 higher (sub-)layer, that were addressed to a multicast
                 address at this sub-layer.  For a MAC-layer protocol,
@@ -255,8 +255,8 @@ _meta_table = {
                 ''',
                 'in_multicast_pkts',
                 'ietf-interfaces', False),
-            _MetaInfoClassMember('in-octets', ATTRIBUTE, 'long' , None, None, 
-                [(0, 18446744073709551615L)], [], 
+            _MetaInfoClassMember('in-octets', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
                 '''                The total number of octets received on the interface,
                 including framing characters.
                 
@@ -267,14 +267,14 @@ _meta_table = {
                 ''',
                 'in_octets',
                 'ietf-interfaces', False),
-            _MetaInfoClassMember('in-pkts', ATTRIBUTE, 'long' , None, None, 
-                [(0, 18446744073709551615L)], [], 
+            _MetaInfoClassMember('in-pkts', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
                 '''                total packets input
                 ''',
                 'in_pkts',
                 'ietf-interfaces-ext', False),
-            _MetaInfoClassMember('in-unicast-pkts', ATTRIBUTE, 'long' , None, None, 
-                [(0, 18446744073709551615L)], [], 
+            _MetaInfoClassMember('in-unicast-pkts', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
                 '''                The number of packets, delivered by this sub-layer to a
                 higher (sub-)layer, that were not addressed to a
                 multicast or broadcast address at this sub-layer.
@@ -287,7 +287,7 @@ _meta_table = {
                 'in_unicast_pkts',
                 'ietf-interfaces', False),
             _MetaInfoClassMember('in-unknown-protos', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                For packet-oriented interfaces, the number of packets
                 received via the interface that were discarded because
                 of an unknown or unsupported protocol.  For
@@ -305,8 +305,8 @@ _meta_table = {
                 ''',
                 'in_unknown_protos',
                 'ietf-interfaces', False),
-            _MetaInfoClassMember('out-broadcast-pkts', ATTRIBUTE, 'long' , None, None, 
-                [(0, 18446744073709551615L)], [], 
+            _MetaInfoClassMember('out-broadcast-pkts', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
                 '''                The total number of packets that higher-level protocols
                 requested be transmitted, and that were addressed to a
                 broadcast address at this sub-layer, including those
@@ -320,7 +320,7 @@ _meta_table = {
                 'out_broadcast_pkts',
                 'ietf-interfaces', False),
             _MetaInfoClassMember('out-discards', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                The number of outbound packets that were chosen to be
                 discarded even though no errors had been detected to
                 prevent their being transmitted.  One possible reason
@@ -335,7 +335,7 @@ _meta_table = {
                 'out_discards',
                 'ietf-interfaces', False),
             _MetaInfoClassMember('out-errors', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                For packet-oriented interfaces, the number of outbound
                 packets that could not be transmitted because of errors.
                 For character-oriented or fixed-length interfaces, the
@@ -352,8 +352,8 @@ _meta_table = {
                 ''',
                 'out_errors',
                 'ietf-interfaces', False),
-            _MetaInfoClassMember('out-multicast-pkts', ATTRIBUTE, 'long' , None, None, 
-                [(0, 18446744073709551615L)], [], 
+            _MetaInfoClassMember('out-multicast-pkts', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
                 '''                The total number of packets that higher-level protocols
                 requested be transmitted, and that were addressed to a
                 multicast address at this sub-layer, including those
@@ -368,8 +368,8 @@ _meta_table = {
                 ''',
                 'out_multicast_pkts',
                 'ietf-interfaces', False),
-            _MetaInfoClassMember('out-octets', ATTRIBUTE, 'long' , None, None, 
-                [(0, 18446744073709551615L)], [], 
+            _MetaInfoClassMember('out-octets', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
                 '''                The total number of octets transmitted out of the
                 interface, including framing characters.
                 
@@ -380,14 +380,14 @@ _meta_table = {
                 ''',
                 'out_octets',
                 'ietf-interfaces', False),
-            _MetaInfoClassMember('out-pkts', ATTRIBUTE, 'long' , None, None, 
-                [(0, 18446744073709551615L)], [], 
+            _MetaInfoClassMember('out-pkts', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
                 '''                total packets output
                 ''',
                 'out_pkts',
                 'ietf-interfaces-ext', False),
-            _MetaInfoClassMember('out-unicast-pkts', ATTRIBUTE, 'long' , None, None, 
-                [(0, 18446744073709551615L)], [], 
+            _MetaInfoClassMember('out-unicast-pkts', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
                 '''                The total number of packets that higher-level protocols
                 requested be transmitted, and that were not addressed
                 to a multicast or broadcast address at this sub-layer,
@@ -417,8 +417,8 @@ _meta_table = {
                 ''',
                 'units',
                 'ietf-interfaces-ext', False),
-            _MetaInfoClassMember('value', ATTRIBUTE, 'long' , None, None, 
-                [(0, 18446744073709551615L)], [], 
+            _MetaInfoClassMember('value', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
                 '''                Raw value for the bandwidth.
                 ''',
                 'value',
@@ -484,7 +484,7 @@ _meta_table = {
                 'higher_layer_if',
                 'ietf-interfaces', False),
             _MetaInfoClassMember('if-index', ATTRIBUTE, 'int' , None, None, 
-                [(1, 2147483647)], [], 
+                [('1', '2147483647')], [], 
                 '''                The ifIndex value for the ifEntry represented by this
                 interface.
                 ''',
@@ -528,8 +528,8 @@ _meta_table = {
                 ''',
                 'phys_address',
                 'ietf-interfaces', False),
-            _MetaInfoClassMember('speed', ATTRIBUTE, 'long' , None, None, 
-                [(0, 18446744073709551615L)], [], 
+            _MetaInfoClassMember('speed', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
                 '''                An estimate of the interface's current bandwidth in bits
                 per second.  For interfaces that do not vary in
                 bandwidth or for those where no accurate estimation can

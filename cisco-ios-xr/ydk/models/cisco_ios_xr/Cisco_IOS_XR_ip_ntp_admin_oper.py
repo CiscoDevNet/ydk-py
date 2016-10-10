@@ -8,7 +8,7 @@ This module contains definitions
 for the following management objects\:
   ntp\: NTP admin operational data
 
-Copyright (c) 2013\-2015 by Cisco Systems, Inc.
+Copyright (c) 2013\-2016 by Cisco Systems, Inc.
 All rights reserved.
 
 """

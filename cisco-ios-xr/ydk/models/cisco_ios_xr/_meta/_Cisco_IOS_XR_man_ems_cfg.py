@@ -54,19 +54,19 @@ _meta_table = {
                 'enable',
                 'Cisco-IOS-XR-man-ems-cfg', False),
             _MetaInfoClassMember('max-request-per-user', ATTRIBUTE, 'int' , None, None, 
-                [(1, 32)], [], 
+                [('1', '32')], [], 
                 '''                Maximum concurrent requests per user
                 ''',
                 'max_request_per_user',
                 'Cisco-IOS-XR-man-ems-cfg', False),
             _MetaInfoClassMember('max-request-total', ATTRIBUTE, 'int' , None, None, 
-                [(1, 256)], [], 
+                [('1', '256')], [], 
                 '''                Maximum concurrent requests in total
                 ''',
                 'max_request_total',
                 'Cisco-IOS-XR-man-ems-cfg', False),
             _MetaInfoClassMember('port', ATTRIBUTE, 'int' , None, None, 
-                [(57344, 57999)], [], 
+                [('10000', '57999')], [], 
                 '''                Server listening port
                 ''',
                 'port',

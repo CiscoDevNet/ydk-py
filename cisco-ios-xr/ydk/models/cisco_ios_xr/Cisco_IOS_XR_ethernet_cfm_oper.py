@@ -11,7 +11,7 @@ This YANG module augments the
   Cisco\-IOS\-XR\-infra\-sla\-oper
 module with state data.
 
-Copyright (c) 2013\-2015 by Cisco Systems, Inc.
+Copyright (c) 2013\-2016 by Cisco Systems, Inc.
 All rights reserved.
 
 """
@@ -1741,7 +1741,7 @@ class CfmPmPktActionEnum(Enum):
 
     	Packet dropped - not forwarded because
 
-    	interface is a standby bundle
+    	interface is in standby mode
 
     .. data:: MALFORMED_SMAN_ICC_BASED_LENGTH = 90
 
@@ -1759,7 +1759,7 @@ class CfmPmPktActionEnum(Enum):
 
     	Packet dropped - not responded to because
 
-    	interface is a standby bundle
+    	interface is in standby mode
 
     .. data:: FILTER_RESPONSE_ISSU_SECONDARY = 122
 
@@ -2515,14 +2515,14 @@ class Cfm(object):
                     	Interface
                     	**type**\:  str
                     
-                    	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+                    	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
                     
                     .. attribute:: interface
                     
                     	Interface
                     	**type**\:  str
                     
-                    	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+                    	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
                     
                     .. attribute:: interface_state
                     
@@ -3057,14 +3057,14 @@ class Cfm(object):
                     	Interface
                     	**type**\:  str
                     
-                    	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+                    	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
                     
                     .. attribute:: interface_xr
                     
                     	Interface
                     	**type**\:  str
                     
-                    	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+                    	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
                     
                     .. attribute:: statistics
                     
@@ -3093,7 +3093,7 @@ class Cfm(object):
                         .. attribute:: dropped_packets
                         
                         	Number of packets dropped at this EFP
-                        	**type**\:  long
+                        	**type**\:  int
                         
                         	**range:** 0..18446744073709551615
                         
@@ -3110,7 +3110,7 @@ class Cfm(object):
                         .. attribute:: malformed_packets
                         
                         	Number of malformed packets received at this EFP
-                        	**type**\:  long
+                        	**type**\:  int
                         
                         	**range:** 0..18446744073709551615
                         
@@ -3572,6 +3572,8 @@ class Cfm(object):
                     	Maintenance Domain
                     	**type**\:  str
                     
+                    	**range:** 0..79
+                    
                     .. attribute:: mac_address  <key>
                     
                     	MAC Address
@@ -3583,6 +3585,8 @@ class Cfm(object):
                     
                     	Service (Maintenance Association)
                     	**type**\:  str
+                    
+                    	**range:** 0..79
                     
                     .. attribute:: domain_xr
                     
@@ -3816,10 +3820,10 @@ class Cfm(object):
         	MEP configuration errors table
         	**type**\:  :py:class:`MepConfigurationErrors <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global.MepConfigurationErrors>`
         
-        .. attribute:: peer_meps
+        .. attribute:: peer_me_pv2s
         
-        	Peer MEPs table
-        	**type**\:  :py:class:`PeerMeps <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global.PeerMeps>`
+        	Peer MEPs table Version 2
+        	**type**\:  :py:class:`PeerMePv2S <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global.PeerMePv2S>`
         
         .. attribute:: traceroute_caches
         
@@ -3845,8 +3849,8 @@ class Cfm(object):
             self.maintenance_points.parent = self
             self.mep_configuration_errors = Cfm.Global.MepConfigurationErrors()
             self.mep_configuration_errors.parent = self
-            self.peer_meps = Cfm.Global.PeerMeps()
-            self.peer_meps.parent = self
+            self.peer_me_pv2s = Cfm.Global.PeerMePv2S()
+            self.peer_me_pv2s.parent = self
             self.traceroute_caches = Cfm.Global.TracerouteCaches()
             self.traceroute_caches.parent = self
 
@@ -3884,12 +3888,14 @@ class Cfm(object):
                 	Maintenance Domain
                 	**type**\:  str
                 
+                	**range:** 0..79
+                
                 .. attribute:: interface  <key>
                 
                 	Interface
                 	**type**\:  str
                 
-                	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+                	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
                 
                 .. attribute:: mep_id  <key>
                 
@@ -3903,6 +3909,8 @@ class Cfm(object):
                 	Service (Maintenance Association)
                 	**type**\:  str
                 
+                	**range:** 0..79
+                
                 .. attribute:: transaction_id  <key>
                 
                 	Transaction ID
@@ -3913,7 +3921,7 @@ class Cfm(object):
                 .. attribute:: time_left
                 
                 	Time (in seconds) before the traceroute completes
-                	**type**\:  long
+                	**type**\:  int
                 
                 	**range:** 0..18446744073709551615
                 
@@ -3977,7 +3985,7 @@ class Cfm(object):
                     	Source interface
                     	**type**\:  str
                     
-                    	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+                    	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
                     
                     .. attribute:: source_mac_address
                     
@@ -4010,7 +4018,7 @@ class Cfm(object):
                     .. attribute:: timestamp
                     
                     	Timestamp of initiation time (seconds)
-                    	**type**\:  long
+                    	**type**\:  int
                     
                     	**range:** 0..18446744073709551615
                     
@@ -4404,17 +4412,21 @@ class Cfm(object):
                 	Maintenance Domain
                 	**type**\:  str
                 
+                	**range:** 0..79
+                
                 .. attribute:: interface  <key>
                 
                 	Interface
                 	**type**\:  str
                 
-                	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+                	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
                 
                 .. attribute:: service  <key>
                 
                 	Service (Maintenance Association)
                 	**type**\:  str
+                
+                	**range:** 0..79
                 
                 .. attribute:: mac_address
                 
@@ -4465,7 +4477,7 @@ class Cfm(object):
                     	Interface
                     	**type**\:  str
                     
-                    	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+                    	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
                     
                     .. attribute:: level
                     
@@ -4612,1692 +4624,6 @@ class Cfm(object):
                 return meta._meta_table['Cfm.Global.MaintenancePoints']['meta_info']
 
 
-        class PeerMeps(object):
-            """
-            Peer MEPs table
-            
-            .. attribute:: peer_mep
-            
-            	Information about a peer MEP for a particular local MEP
-            	**type**\: list of  :py:class:`PeerMep <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global.PeerMeps.PeerMep>`
-            
-            
-
-            """
-
-            _prefix = 'ethernet-cfm-oper'
-            _revision = '2015-11-09'
-
-            def __init__(self):
-                self.parent = None
-                self.peer_mep = YList()
-                self.peer_mep.parent = self
-                self.peer_mep.name = 'peer_mep'
-
-
-            class PeerMep(object):
-                """
-                Information about a peer MEP for a particular
-                local MEP
-                
-                .. attribute:: domain  <key>
-                
-                	Maintenance Domain
-                	**type**\:  str
-                
-                .. attribute:: interface  <key>
-                
-                	Interface
-                	**type**\:  str
-                
-                	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
-                
-                .. attribute:: local_mep_id  <key>
-                
-                	MEP ID of Local MEP
-                	**type**\:  int
-                
-                	**range:** 1..8191
-                
-                .. attribute:: peer_mac_address  <key>
-                
-                	Peer MAC address
-                	**type**\:  str
-                
-                	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
-                
-                .. attribute:: peer_mep_id  <key>
-                
-                	MEP ID of Peer MEP
-                	**type**\:  int
-                
-                	**range:** 1..8191
-                
-                .. attribute:: service  <key>
-                
-                	Service (Maintenance Association)
-                	**type**\:  str
-                
-                .. attribute:: domain_xr
-                
-                	Maintenance domain name
-                	**type**\:  str
-                
-                .. attribute:: interface_xr
-                
-                	Interface
-                	**type**\:  str
-                
-                	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
-                
-                .. attribute:: level
-                
-                	Maintenance level
-                	**type**\:  :py:class:`CfmBagMdLevelEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.CfmBagMdLevelEnum>`
-                
-                .. attribute:: mep_direction
-                
-                	MEP facing direction
-                	**type**\:  :py:class:`CfmBagDirectionEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.CfmBagDirectionEnum>`
-                
-                .. attribute:: mep_id
-                
-                	MEP ID
-                	**type**\:  int
-                
-                	**range:** 0..65535
-                
-                .. attribute:: peer_mep
-                
-                	Peer MEP
-                	**type**\:  :py:class:`PeerMep <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global.PeerMeps.PeerMep.PeerMep>`
-                
-                .. attribute:: service_xr
-                
-                	Service name
-                	**type**\:  str
-                
-                .. attribute:: standby
-                
-                	The local MEP is on a standby bundle interface
-                	**type**\:  bool
-                
-                
-
-                """
-
-                _prefix = 'ethernet-cfm-oper'
-                _revision = '2015-11-09'
-
-                def __init__(self):
-                    self.parent = None
-                    self.domain = None
-                    self.interface = None
-                    self.local_mep_id = None
-                    self.peer_mac_address = None
-                    self.peer_mep_id = None
-                    self.service = None
-                    self.domain_xr = None
-                    self.interface_xr = None
-                    self.level = None
-                    self.mep_direction = None
-                    self.mep_id = None
-                    self.peer_mep = Cfm.Global.PeerMeps.PeerMep.PeerMep()
-                    self.peer_mep.parent = self
-                    self.service_xr = None
-                    self.standby = None
-
-
-                class PeerMep(object):
-                    """
-                    Peer MEP
-                    
-                    .. attribute:: ccm_offload
-                    
-                    	Offload status of received CCM handling
-                    	**type**\:  :py:class:`CfmBagCcmOffloadEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.CfmBagCcmOffloadEnum>`
-                    
-                    .. attribute:: cross_check_state
-                    
-                    	Cross\-check state
-                    	**type**\:  :py:class:`CfmPmRmepXcStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.CfmPmRmepXcStateEnum>`
-                    
-                    .. attribute:: error_state
-                    
-                    	Error state
-                    	**type**\:  :py:class:`ErrorState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global.PeerMeps.PeerMep.PeerMep.ErrorState>`
-                    
-                    .. attribute:: last_ccm_received
-                    
-                    	Last CCM received from the peer MEP
-                    	**type**\:  :py:class:`LastCcmReceived <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global.PeerMeps.PeerMep.PeerMep.LastCcmReceived>`
-                    
-                    .. attribute:: last_up_down_time
-                    
-                    	Elapsed time since peer MEP became active or timed out
-                    	**type**\:  :py:class:`LastUpDownTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global.PeerMeps.PeerMep.PeerMep.LastUpDownTime>`
-                    
-                    .. attribute:: mac_address
-                    
-                    	MAC address
-                    	**type**\:  str
-                    
-                    	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
-                    
-                    .. attribute:: mep_id
-                    
-                    	MEP ID
-                    	**type**\:  int
-                    
-                    	**range:** 0..65535
-                    
-                    .. attribute:: peer_mep_state
-                    
-                    	State of the peer MEP state machine
-                    	**type**\:  :py:class:`CfmPmRmepStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.CfmPmRmepStateEnum>`
-                    
-                    .. attribute:: statistics
-                    
-                    	Peer MEP statistics
-                    	**type**\:  :py:class:`Statistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global.PeerMeps.PeerMep.PeerMep.Statistics>`
-                    
-                    
-
-                    """
-
-                    _prefix = 'ethernet-cfm-oper'
-                    _revision = '2015-11-09'
-
-                    def __init__(self):
-                        self.parent = None
-                        self.ccm_offload = None
-                        self.cross_check_state = None
-                        self.error_state = Cfm.Global.PeerMeps.PeerMep.PeerMep.ErrorState()
-                        self.error_state.parent = self
-                        self.last_ccm_received = Cfm.Global.PeerMeps.PeerMep.PeerMep.LastCcmReceived()
-                        self.last_ccm_received.parent = self
-                        self.last_up_down_time = Cfm.Global.PeerMeps.PeerMep.PeerMep.LastUpDownTime()
-                        self.last_up_down_time.parent = self
-                        self.mac_address = None
-                        self.mep_id = None
-                        self.peer_mep_state = None
-                        self.statistics = Cfm.Global.PeerMeps.PeerMep.PeerMep.Statistics()
-                        self.statistics.parent = self
-
-
-                    class ErrorState(object):
-                        """
-                        Error state
-                        
-                        .. attribute:: invalid_ccm_interval
-                        
-                        	Invalid CCM interval
-                        	**type**\:  bool
-                        
-                        .. attribute:: invalid_level
-                        
-                        	Invalid level
-                        	**type**\:  bool
-                        
-                        .. attribute:: invalid_maid
-                        
-                        	Invalid MAID
-                        	**type**\:  bool
-                        
-                        .. attribute:: loss_threshold_exceeded
-                        
-                        	Timed out (loss threshold exceeded)
-                        	**type**\:  bool
-                        
-                        .. attribute:: received_our_mac
-                        
-                        	Loop detected (our MAC address received)
-                        	**type**\:  bool
-                        
-                        .. attribute:: received_our_mep_id
-                        
-                        	Configuration Error (our MEP ID received)
-                        	**type**\:  bool
-                        
-                        .. attribute:: received_rdi
-                        
-                        	Remote defection indication received
-                        	**type**\:  bool
-                        
-                        
-
-                        """
-
-                        _prefix = 'ethernet-cfm-oper'
-                        _revision = '2015-11-09'
-
-                        def __init__(self):
-                            self.parent = None
-                            self.invalid_ccm_interval = None
-                            self.invalid_level = None
-                            self.invalid_maid = None
-                            self.loss_threshold_exceeded = None
-                            self.received_our_mac = None
-                            self.received_our_mep_id = None
-                            self.received_rdi = None
-
-                        @property
-                        def _common_path(self):
-                            if self.parent is None:
-                                raise YPYModelError('parent is not set . Cannot derive path.')
-
-                            return self.parent._common_path +'/Cisco-IOS-XR-ethernet-cfm-oper:error-state'
-
-                        def is_config(self):
-                            ''' Returns True if this instance represents config data else returns False '''
-                            return False
-
-                        def _has_data(self):
-                            if not self.is_config():
-                                return False
-                            if self.invalid_ccm_interval is not None:
-                                return True
-
-                            if self.invalid_level is not None:
-                                return True
-
-                            if self.invalid_maid is not None:
-                                return True
-
-                            if self.loss_threshold_exceeded is not None:
-                                return True
-
-                            if self.received_our_mac is not None:
-                                return True
-
-                            if self.received_our_mep_id is not None:
-                                return True
-
-                            if self.received_rdi is not None:
-                                return True
-
-                            return False
-
-                        @staticmethod
-                        def _meta_info():
-                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ethernet_cfm_oper as meta
-                            return meta._meta_table['Cfm.Global.PeerMeps.PeerMep.PeerMep.ErrorState']['meta_info']
-
-
-                    class LastUpDownTime(object):
-                        """
-                        Elapsed time since peer MEP became active or
-                        timed out
-                        
-                        .. attribute:: nanoseconds
-                        
-                        	Nanoseconds
-                        	**type**\:  int
-                        
-                        	**range:** 0..4294967295
-                        
-                        .. attribute:: seconds
-                        
-                        	Seconds
-                        	**type**\:  int
-                        
-                        	**range:** 0..4294967295
-                        
-                        
-
-                        """
-
-                        _prefix = 'ethernet-cfm-oper'
-                        _revision = '2015-11-09'
-
-                        def __init__(self):
-                            self.parent = None
-                            self.nanoseconds = None
-                            self.seconds = None
-
-                        @property
-                        def _common_path(self):
-                            if self.parent is None:
-                                raise YPYModelError('parent is not set . Cannot derive path.')
-
-                            return self.parent._common_path +'/Cisco-IOS-XR-ethernet-cfm-oper:last-up-down-time'
-
-                        def is_config(self):
-                            ''' Returns True if this instance represents config data else returns False '''
-                            return False
-
-                        def _has_data(self):
-                            if not self.is_config():
-                                return False
-                            if self.nanoseconds is not None:
-                                return True
-
-                            if self.seconds is not None:
-                                return True
-
-                            return False
-
-                        @staticmethod
-                        def _meta_info():
-                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ethernet_cfm_oper as meta
-                            return meta._meta_table['Cfm.Global.PeerMeps.PeerMep.PeerMep.LastUpDownTime']['meta_info']
-
-
-                    class LastCcmReceived(object):
-                        """
-                        Last CCM received from the peer MEP
-                        
-                        .. attribute:: additional_interface_status
-                        
-                        	Additional interface status
-                        	**type**\:  :py:class:`CfmPmAddlIntfStatusEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.CfmPmAddlIntfStatusEnum>`
-                        
-                        .. attribute:: header
-                        
-                        	Frame header
-                        	**type**\:  :py:class:`Header <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global.PeerMeps.PeerMep.PeerMep.LastCcmReceived.Header>`
-                        
-                        .. attribute:: interface_status
-                        
-                        	Interface status
-                        	**type**\:  :py:class:`CfmPmIntfStatusEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.CfmPmIntfStatusEnum>`
-                        
-                        .. attribute:: mep_name
-                        
-                        	MEP name
-                        	**type**\:  :py:class:`MepName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global.PeerMeps.PeerMep.PeerMep.LastCcmReceived.MepName>`
-                        
-                        .. attribute:: organization_specific_tlv
-                        
-                        	Organizational\-specific TLVs
-                        	**type**\: list of  :py:class:`OrganizationSpecificTlv <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global.PeerMeps.PeerMep.PeerMep.LastCcmReceived.OrganizationSpecificTlv>`
-                        
-                        .. attribute:: port_status
-                        
-                        	Port status
-                        	**type**\:  :py:class:`CfmPmPortStatusEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.CfmPmPortStatusEnum>`
-                        
-                        .. attribute:: raw_data
-                        
-                        	Undecoded frame
-                        	**type**\:  str
-                        
-                        	**pattern:** ([0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2})\*)?
-                        
-                        .. attribute:: sender_id
-                        
-                        	Sender ID TLV
-                        	**type**\:  :py:class:`SenderId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global.PeerMeps.PeerMep.PeerMep.LastCcmReceived.SenderId>`
-                        
-                        .. attribute:: unknown_tlv
-                        
-                        	Unknown TLVs
-                        	**type**\: list of  :py:class:`UnknownTlv <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global.PeerMeps.PeerMep.PeerMep.LastCcmReceived.UnknownTlv>`
-                        
-                        
-
-                        """
-
-                        _prefix = 'ethernet-cfm-oper'
-                        _revision = '2015-11-09'
-
-                        def __init__(self):
-                            self.parent = None
-                            self.additional_interface_status = None
-                            self.header = Cfm.Global.PeerMeps.PeerMep.PeerMep.LastCcmReceived.Header()
-                            self.header.parent = self
-                            self.interface_status = None
-                            self.mep_name = Cfm.Global.PeerMeps.PeerMep.PeerMep.LastCcmReceived.MepName()
-                            self.mep_name.parent = self
-                            self.organization_specific_tlv = YList()
-                            self.organization_specific_tlv.parent = self
-                            self.organization_specific_tlv.name = 'organization_specific_tlv'
-                            self.port_status = None
-                            self.raw_data = None
-                            self.sender_id = Cfm.Global.PeerMeps.PeerMep.PeerMep.LastCcmReceived.SenderId()
-                            self.sender_id.parent = self
-                            self.unknown_tlv = YList()
-                            self.unknown_tlv.parent = self
-                            self.unknown_tlv.name = 'unknown_tlv'
-
-
-                        class Header(object):
-                            """
-                            Frame header
-                            
-                            .. attribute:: interval
-                            
-                            	CCM interval
-                            	**type**\:  :py:class:`CfmBagCcmIntervalEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.CfmBagCcmIntervalEnum>`
-                            
-                            .. attribute:: level
-                            
-                            	MD level
-                            	**type**\:  :py:class:`CfmBagMdLevelEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.CfmBagMdLevelEnum>`
-                            
-                            .. attribute:: mdid
-                            
-                            	MDID
-                            	**type**\:  :py:class:`Mdid <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global.PeerMeps.PeerMep.PeerMep.LastCcmReceived.Header.Mdid>`
-                            
-                            .. attribute:: mdid_format
-                            
-                            	MDID Format
-                            	**type**\:  :py:class:`CfmBagMdidFmtEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.CfmBagMdidFmtEnum>`
-                            
-                            .. attribute:: mep_id
-                            
-                            	MEP ID
-                            	**type**\:  int
-                            
-                            	**range:** 0..65535
-                            
-                            .. attribute:: rdi
-                            
-                            	Remote defect indicated
-                            	**type**\:  bool
-                            
-                            .. attribute:: sequence_number
-                            
-                            	CCM sequence number
-                            	**type**\:  int
-                            
-                            	**range:** 0..4294967295
-                            
-                            .. attribute:: short_ma_name
-                            
-                            	Short MA Name
-                            	**type**\:  :py:class:`ShortMaName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global.PeerMeps.PeerMep.PeerMep.LastCcmReceived.Header.ShortMaName>`
-                            
-                            .. attribute:: short_ma_name_format
-                            
-                            	Short MA Name format
-                            	**type**\:  :py:class:`CfmBagSmanFmtEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.CfmBagSmanFmtEnum>`
-                            
-                            .. attribute:: version
-                            
-                            	Version
-                            	**type**\:  int
-                            
-                            	**range:** 0..255
-                            
-                            
-
-                            """
-
-                            _prefix = 'ethernet-cfm-oper'
-                            _revision = '2015-11-09'
-
-                            def __init__(self):
-                                self.parent = None
-                                self.interval = None
-                                self.level = None
-                                self.mdid = Cfm.Global.PeerMeps.PeerMep.PeerMep.LastCcmReceived.Header.Mdid()
-                                self.mdid.parent = self
-                                self.mdid_format = None
-                                self.mep_id = None
-                                self.rdi = None
-                                self.sequence_number = None
-                                self.short_ma_name = Cfm.Global.PeerMeps.PeerMep.PeerMep.LastCcmReceived.Header.ShortMaName()
-                                self.short_ma_name.parent = self
-                                self.short_ma_name_format = None
-                                self.version = None
-
-
-                            class Mdid(object):
-                                """
-                                MDID
-                                
-                                .. attribute:: dns_like_name
-                                
-                                	DNS\-like name
-                                	**type**\:  str
-                                
-                                .. attribute:: mac_name
-                                
-                                	MAC address name
-                                	**type**\:  :py:class:`MacName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global.PeerMeps.PeerMep.PeerMep.LastCcmReceived.Header.Mdid.MacName>`
-                                
-                                .. attribute:: mdid_data
-                                
-                                	Hex data
-                                	**type**\:  str
-                                
-                                	**pattern:** ([0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2})\*)?
-                                
-                                .. attribute:: mdid_format_value
-                                
-                                	MDIDFormatValue
-                                	**type**\:  int
-                                
-                                	**range:** 0..4294967295
-                                
-                                .. attribute:: string_name
-                                
-                                	String name
-                                	**type**\:  str
-                                
-                                
-
-                                """
-
-                                _prefix = 'ethernet-cfm-oper'
-                                _revision = '2015-11-09'
-
-                                def __init__(self):
-                                    self.parent = None
-                                    self.dns_like_name = None
-                                    self.mac_name = Cfm.Global.PeerMeps.PeerMep.PeerMep.LastCcmReceived.Header.Mdid.MacName()
-                                    self.mac_name.parent = self
-                                    self.mdid_data = None
-                                    self.mdid_format_value = None
-                                    self.string_name = None
-
-
-                                class MacName(object):
-                                    """
-                                    MAC address name
-                                    
-                                    .. attribute:: integer
-                                    
-                                    	Integer
-                                    	**type**\:  int
-                                    
-                                    	**range:** 0..65535
-                                    
-                                    .. attribute:: mac_address
-                                    
-                                    	MAC address
-                                    	**type**\:  str
-                                    
-                                    	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
-                                    
-                                    
-
-                                    """
-
-                                    _prefix = 'ethernet-cfm-oper'
-                                    _revision = '2015-11-09'
-
-                                    def __init__(self):
-                                        self.parent = None
-                                        self.integer = None
-                                        self.mac_address = None
-
-                                    @property
-                                    def _common_path(self):
-                                        if self.parent is None:
-                                            raise YPYModelError('parent is not set . Cannot derive path.')
-
-                                        return self.parent._common_path +'/Cisco-IOS-XR-ethernet-cfm-oper:mac-name'
-
-                                    def is_config(self):
-                                        ''' Returns True if this instance represents config data else returns False '''
-                                        return False
-
-                                    def _has_data(self):
-                                        if not self.is_config():
-                                            return False
-                                        if self.integer is not None:
-                                            return True
-
-                                        if self.mac_address is not None:
-                                            return True
-
-                                        return False
-
-                                    @staticmethod
-                                    def _meta_info():
-                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ethernet_cfm_oper as meta
-                                        return meta._meta_table['Cfm.Global.PeerMeps.PeerMep.PeerMep.LastCcmReceived.Header.Mdid.MacName']['meta_info']
-
-                                @property
-                                def _common_path(self):
-                                    if self.parent is None:
-                                        raise YPYModelError('parent is not set . Cannot derive path.')
-
-                                    return self.parent._common_path +'/Cisco-IOS-XR-ethernet-cfm-oper:mdid'
-
-                                def is_config(self):
-                                    ''' Returns True if this instance represents config data else returns False '''
-                                    return False
-
-                                def _has_data(self):
-                                    if not self.is_config():
-                                        return False
-                                    if self.dns_like_name is not None:
-                                        return True
-
-                                    if self.mac_name is not None and self.mac_name._has_data():
-                                        return True
-
-                                    if self.mdid_data is not None:
-                                        return True
-
-                                    if self.mdid_format_value is not None:
-                                        return True
-
-                                    if self.string_name is not None:
-                                        return True
-
-                                    return False
-
-                                @staticmethod
-                                def _meta_info():
-                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ethernet_cfm_oper as meta
-                                    return meta._meta_table['Cfm.Global.PeerMeps.PeerMep.PeerMep.LastCcmReceived.Header.Mdid']['meta_info']
-
-
-                            class ShortMaName(object):
-                                """
-                                Short MA Name
-                                
-                                .. attribute:: icc_based
-                                
-                                	ICC\-based format
-                                	**type**\:  str
-                                
-                                .. attribute:: integer_name
-                                
-                                	Unsigned integer name
-                                	**type**\:  int
-                                
-                                	**range:** 0..65535
-                                
-                                .. attribute:: short_ma_name_data
-                                
-                                	Hex data
-                                	**type**\:  str
-                                
-                                	**pattern:** ([0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2})\*)?
-                                
-                                .. attribute:: short_ma_name_format_value
-                                
-                                	ShortMANameFormatValue
-                                	**type**\:  int
-                                
-                                	**range:** 0..4294967295
-                                
-                                .. attribute:: string_name
-                                
-                                	String name
-                                	**type**\:  str
-                                
-                                .. attribute:: vlan_id_name
-                                
-                                	VLAN ID name
-                                	**type**\:  int
-                                
-                                	**range:** 0..65535
-                                
-                                .. attribute:: vpn_id_name
-                                
-                                	VPN ID name
-                                	**type**\:  :py:class:`VpnIdName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global.PeerMeps.PeerMep.PeerMep.LastCcmReceived.Header.ShortMaName.VpnIdName>`
-                                
-                                
-
-                                """
-
-                                _prefix = 'ethernet-cfm-oper'
-                                _revision = '2015-11-09'
-
-                                def __init__(self):
-                                    self.parent = None
-                                    self.icc_based = None
-                                    self.integer_name = None
-                                    self.short_ma_name_data = None
-                                    self.short_ma_name_format_value = None
-                                    self.string_name = None
-                                    self.vlan_id_name = None
-                                    self.vpn_id_name = Cfm.Global.PeerMeps.PeerMep.PeerMep.LastCcmReceived.Header.ShortMaName.VpnIdName()
-                                    self.vpn_id_name.parent = self
-
-
-                                class VpnIdName(object):
-                                    """
-                                    VPN ID name
-                                    
-                                    .. attribute:: index
-                                    
-                                    	VPN index
-                                    	**type**\:  int
-                                    
-                                    	**range:** 0..4294967295
-                                    
-                                    .. attribute:: oui
-                                    
-                                    	VPN authority organizationally\-unique ID
-                                    	**type**\:  int
-                                    
-                                    	**range:** 0..4294967295
-                                    
-                                    
-
-                                    """
-
-                                    _prefix = 'ethernet-cfm-oper'
-                                    _revision = '2015-11-09'
-
-                                    def __init__(self):
-                                        self.parent = None
-                                        self.index = None
-                                        self.oui = None
-
-                                    @property
-                                    def _common_path(self):
-                                        if self.parent is None:
-                                            raise YPYModelError('parent is not set . Cannot derive path.')
-
-                                        return self.parent._common_path +'/Cisco-IOS-XR-ethernet-cfm-oper:vpn-id-name'
-
-                                    def is_config(self):
-                                        ''' Returns True if this instance represents config data else returns False '''
-                                        return False
-
-                                    def _has_data(self):
-                                        if not self.is_config():
-                                            return False
-                                        if self.index is not None:
-                                            return True
-
-                                        if self.oui is not None:
-                                            return True
-
-                                        return False
-
-                                    @staticmethod
-                                    def _meta_info():
-                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ethernet_cfm_oper as meta
-                                        return meta._meta_table['Cfm.Global.PeerMeps.PeerMep.PeerMep.LastCcmReceived.Header.ShortMaName.VpnIdName']['meta_info']
-
-                                @property
-                                def _common_path(self):
-                                    if self.parent is None:
-                                        raise YPYModelError('parent is not set . Cannot derive path.')
-
-                                    return self.parent._common_path +'/Cisco-IOS-XR-ethernet-cfm-oper:short-ma-name'
-
-                                def is_config(self):
-                                    ''' Returns True if this instance represents config data else returns False '''
-                                    return False
-
-                                def _has_data(self):
-                                    if not self.is_config():
-                                        return False
-                                    if self.icc_based is not None:
-                                        return True
-
-                                    if self.integer_name is not None:
-                                        return True
-
-                                    if self.short_ma_name_data is not None:
-                                        return True
-
-                                    if self.short_ma_name_format_value is not None:
-                                        return True
-
-                                    if self.string_name is not None:
-                                        return True
-
-                                    if self.vlan_id_name is not None:
-                                        return True
-
-                                    if self.vpn_id_name is not None and self.vpn_id_name._has_data():
-                                        return True
-
-                                    return False
-
-                                @staticmethod
-                                def _meta_info():
-                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ethernet_cfm_oper as meta
-                                    return meta._meta_table['Cfm.Global.PeerMeps.PeerMep.PeerMep.LastCcmReceived.Header.ShortMaName']['meta_info']
-
-                            @property
-                            def _common_path(self):
-                                if self.parent is None:
-                                    raise YPYModelError('parent is not set . Cannot derive path.')
-
-                                return self.parent._common_path +'/Cisco-IOS-XR-ethernet-cfm-oper:header'
-
-                            def is_config(self):
-                                ''' Returns True if this instance represents config data else returns False '''
-                                return False
-
-                            def _has_data(self):
-                                if not self.is_config():
-                                    return False
-                                if self.interval is not None:
-                                    return True
-
-                                if self.level is not None:
-                                    return True
-
-                                if self.mdid is not None and self.mdid._has_data():
-                                    return True
-
-                                if self.mdid_format is not None:
-                                    return True
-
-                                if self.mep_id is not None:
-                                    return True
-
-                                if self.rdi is not None:
-                                    return True
-
-                                if self.sequence_number is not None:
-                                    return True
-
-                                if self.short_ma_name is not None and self.short_ma_name._has_data():
-                                    return True
-
-                                if self.short_ma_name_format is not None:
-                                    return True
-
-                                if self.version is not None:
-                                    return True
-
-                                return False
-
-                            @staticmethod
-                            def _meta_info():
-                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ethernet_cfm_oper as meta
-                                return meta._meta_table['Cfm.Global.PeerMeps.PeerMep.PeerMep.LastCcmReceived.Header']['meta_info']
-
-
-                        class SenderId(object):
-                            """
-                            Sender ID TLV
-                            
-                            .. attribute:: chassis_id
-                            
-                            	Chassis ID
-                            	**type**\:  :py:class:`ChassisId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global.PeerMeps.PeerMep.PeerMep.LastCcmReceived.SenderId.ChassisId>`
-                            
-                            .. attribute:: management_address
-                            
-                            	Management address
-                            	**type**\:  str
-                            
-                            	**pattern:** ([0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2})\*)?
-                            
-                            .. attribute:: management_address_domain
-                            
-                            	Management address domain
-                            	**type**\:  str
-                            
-                            	**pattern:** ([0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2})\*)?
-                            
-                            
-
-                            """
-
-                            _prefix = 'ethernet-cfm-oper'
-                            _revision = '2015-11-09'
-
-                            def __init__(self):
-                                self.parent = None
-                                self.chassis_id = Cfm.Global.PeerMeps.PeerMep.PeerMep.LastCcmReceived.SenderId.ChassisId()
-                                self.chassis_id.parent = self
-                                self.management_address = None
-                                self.management_address_domain = None
-
-
-                            class ChassisId(object):
-                                """
-                                Chassis ID
-                                
-                                .. attribute:: chassis_id
-                                
-                                	Chassis ID (Deprecated)
-                                	**type**\:  str
-                                
-                                	**pattern:** ([0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2})\*)?
-                                
-                                .. attribute:: chassis_id_type
-                                
-                                	Chassis ID Type
-                                	**type**\:  :py:class:`CfmPmChassisIdFmtEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.CfmPmChassisIdFmtEnum>`
-                                
-                                .. attribute:: chassis_id_type_value
-                                
-                                	Chassis ID Type
-                                	**type**\:  int
-                                
-                                	**range:** 0..255
-                                
-                                .. attribute:: chassis_id_value
-                                
-                                	Chassis ID (Current)
-                                	**type**\:  :py:class:`ChassisIdValue <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global.PeerMeps.PeerMep.PeerMep.LastCcmReceived.SenderId.ChassisId.ChassisIdValue>`
-                                
-                                
-
-                                """
-
-                                _prefix = 'ethernet-cfm-oper'
-                                _revision = '2015-11-09'
-
-                                def __init__(self):
-                                    self.parent = None
-                                    self.chassis_id = None
-                                    self.chassis_id_type = None
-                                    self.chassis_id_type_value = None
-                                    self.chassis_id_value = Cfm.Global.PeerMeps.PeerMep.PeerMep.LastCcmReceived.SenderId.ChassisId.ChassisIdValue()
-                                    self.chassis_id_value.parent = self
-
-
-                                class ChassisIdValue(object):
-                                    """
-                                    Chassis ID (Current)
-                                    
-                                    .. attribute:: chassis_id_format
-                                    
-                                    	ChassisIDFormat
-                                    	**type**\:  :py:class:`CfmPmIdFmtEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.CfmPmIdFmtEnum>`
-                                    
-                                    .. attribute:: chassis_id_mac
-                                    
-                                    	Chassis ID MAC Address
-                                    	**type**\:  str
-                                    
-                                    	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
-                                    
-                                    .. attribute:: chassis_id_raw
-                                    
-                                    	Raw Chassis ID
-                                    	**type**\:  str
-                                    
-                                    	**pattern:** ([0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2})\*)?
-                                    
-                                    .. attribute:: chassis_id_string
-                                    
-                                    	Chassis ID String
-                                    	**type**\:  str
-                                    
-                                    
-
-                                    """
-
-                                    _prefix = 'ethernet-cfm-oper'
-                                    _revision = '2015-11-09'
-
-                                    def __init__(self):
-                                        self.parent = None
-                                        self.chassis_id_format = None
-                                        self.chassis_id_mac = None
-                                        self.chassis_id_raw = None
-                                        self.chassis_id_string = None
-
-                                    @property
-                                    def _common_path(self):
-                                        if self.parent is None:
-                                            raise YPYModelError('parent is not set . Cannot derive path.')
-
-                                        return self.parent._common_path +'/Cisco-IOS-XR-ethernet-cfm-oper:chassis-id-value'
-
-                                    def is_config(self):
-                                        ''' Returns True if this instance represents config data else returns False '''
-                                        return False
-
-                                    def _has_data(self):
-                                        if not self.is_config():
-                                            return False
-                                        if self.chassis_id_format is not None:
-                                            return True
-
-                                        if self.chassis_id_mac is not None:
-                                            return True
-
-                                        if self.chassis_id_raw is not None:
-                                            return True
-
-                                        if self.chassis_id_string is not None:
-                                            return True
-
-                                        return False
-
-                                    @staticmethod
-                                    def _meta_info():
-                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ethernet_cfm_oper as meta
-                                        return meta._meta_table['Cfm.Global.PeerMeps.PeerMep.PeerMep.LastCcmReceived.SenderId.ChassisId.ChassisIdValue']['meta_info']
-
-                                @property
-                                def _common_path(self):
-                                    if self.parent is None:
-                                        raise YPYModelError('parent is not set . Cannot derive path.')
-
-                                    return self.parent._common_path +'/Cisco-IOS-XR-ethernet-cfm-oper:chassis-id'
-
-                                def is_config(self):
-                                    ''' Returns True if this instance represents config data else returns False '''
-                                    return False
-
-                                def _has_data(self):
-                                    if not self.is_config():
-                                        return False
-                                    if self.chassis_id is not None:
-                                        return True
-
-                                    if self.chassis_id_type is not None:
-                                        return True
-
-                                    if self.chassis_id_type_value is not None:
-                                        return True
-
-                                    if self.chassis_id_value is not None and self.chassis_id_value._has_data():
-                                        return True
-
-                                    return False
-
-                                @staticmethod
-                                def _meta_info():
-                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ethernet_cfm_oper as meta
-                                    return meta._meta_table['Cfm.Global.PeerMeps.PeerMep.PeerMep.LastCcmReceived.SenderId.ChassisId']['meta_info']
-
-                            @property
-                            def _common_path(self):
-                                if self.parent is None:
-                                    raise YPYModelError('parent is not set . Cannot derive path.')
-
-                                return self.parent._common_path +'/Cisco-IOS-XR-ethernet-cfm-oper:sender-id'
-
-                            def is_config(self):
-                                ''' Returns True if this instance represents config data else returns False '''
-                                return False
-
-                            def _has_data(self):
-                                if not self.is_config():
-                                    return False
-                                if self.chassis_id is not None and self.chassis_id._has_data():
-                                    return True
-
-                                if self.management_address is not None:
-                                    return True
-
-                                if self.management_address_domain is not None:
-                                    return True
-
-                                return False
-
-                            @staticmethod
-                            def _meta_info():
-                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ethernet_cfm_oper as meta
-                                return meta._meta_table['Cfm.Global.PeerMeps.PeerMep.PeerMep.LastCcmReceived.SenderId']['meta_info']
-
-
-                        class MepName(object):
-                            """
-                            MEP name
-                            
-                            .. attribute:: name
-                            
-                            	MEP name
-                            	**type**\:  str
-                            
-                            
-
-                            """
-
-                            _prefix = 'ethernet-cfm-oper'
-                            _revision = '2015-11-09'
-
-                            def __init__(self):
-                                self.parent = None
-                                self.name = None
-
-                            @property
-                            def _common_path(self):
-                                if self.parent is None:
-                                    raise YPYModelError('parent is not set . Cannot derive path.')
-
-                                return self.parent._common_path +'/Cisco-IOS-XR-ethernet-cfm-oper:mep-name'
-
-                            def is_config(self):
-                                ''' Returns True if this instance represents config data else returns False '''
-                                return False
-
-                            def _has_data(self):
-                                if not self.is_config():
-                                    return False
-                                if self.name is not None:
-                                    return True
-
-                                return False
-
-                            @staticmethod
-                            def _meta_info():
-                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ethernet_cfm_oper as meta
-                                return meta._meta_table['Cfm.Global.PeerMeps.PeerMep.PeerMep.LastCcmReceived.MepName']['meta_info']
-
-
-                        class OrganizationSpecificTlv(object):
-                            """
-                            Organizational\-specific TLVs
-                            
-                            .. attribute:: oui
-                            
-                            	Organizationally\-unique ID
-                            	**type**\:  str
-                            
-                            	**pattern:** ([0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2})\*)?
-                            
-                            .. attribute:: subtype
-                            
-                            	Subtype of TLV
-                            	**type**\:  int
-                            
-                            	**range:** 0..255
-                            
-                            .. attribute:: value
-                            
-                            	Binary data in TLV
-                            	**type**\:  str
-                            
-                            	**pattern:** ([0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2})\*)?
-                            
-                            
-
-                            """
-
-                            _prefix = 'ethernet-cfm-oper'
-                            _revision = '2015-11-09'
-
-                            def __init__(self):
-                                self.parent = None
-                                self.oui = None
-                                self.subtype = None
-                                self.value = None
-
-                            @property
-                            def _common_path(self):
-                                if self.parent is None:
-                                    raise YPYModelError('parent is not set . Cannot derive path.')
-
-                                return self.parent._common_path +'/Cisco-IOS-XR-ethernet-cfm-oper:organization-specific-tlv'
-
-                            def is_config(self):
-                                ''' Returns True if this instance represents config data else returns False '''
-                                return False
-
-                            def _has_data(self):
-                                if not self.is_config():
-                                    return False
-                                if self.oui is not None:
-                                    return True
-
-                                if self.subtype is not None:
-                                    return True
-
-                                if self.value is not None:
-                                    return True
-
-                                return False
-
-                            @staticmethod
-                            def _meta_info():
-                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ethernet_cfm_oper as meta
-                                return meta._meta_table['Cfm.Global.PeerMeps.PeerMep.PeerMep.LastCcmReceived.OrganizationSpecificTlv']['meta_info']
-
-
-                        class UnknownTlv(object):
-                            """
-                            Unknown TLVs
-                            
-                            .. attribute:: typecode
-                            
-                            	Type code of TLV
-                            	**type**\:  int
-                            
-                            	**range:** 0..255
-                            
-                            .. attribute:: value
-                            
-                            	Binary data in TLV
-                            	**type**\:  str
-                            
-                            	**pattern:** ([0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2})\*)?
-                            
-                            
-
-                            """
-
-                            _prefix = 'ethernet-cfm-oper'
-                            _revision = '2015-11-09'
-
-                            def __init__(self):
-                                self.parent = None
-                                self.typecode = None
-                                self.value = None
-
-                            @property
-                            def _common_path(self):
-                                if self.parent is None:
-                                    raise YPYModelError('parent is not set . Cannot derive path.')
-
-                                return self.parent._common_path +'/Cisco-IOS-XR-ethernet-cfm-oper:unknown-tlv'
-
-                            def is_config(self):
-                                ''' Returns True if this instance represents config data else returns False '''
-                                return False
-
-                            def _has_data(self):
-                                if not self.is_config():
-                                    return False
-                                if self.typecode is not None:
-                                    return True
-
-                                if self.value is not None:
-                                    return True
-
-                                return False
-
-                            @staticmethod
-                            def _meta_info():
-                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ethernet_cfm_oper as meta
-                                return meta._meta_table['Cfm.Global.PeerMeps.PeerMep.PeerMep.LastCcmReceived.UnknownTlv']['meta_info']
-
-                        @property
-                        def _common_path(self):
-                            if self.parent is None:
-                                raise YPYModelError('parent is not set . Cannot derive path.')
-
-                            return self.parent._common_path +'/Cisco-IOS-XR-ethernet-cfm-oper:last-ccm-received'
-
-                        def is_config(self):
-                            ''' Returns True if this instance represents config data else returns False '''
-                            return False
-
-                        def _has_data(self):
-                            if not self.is_config():
-                                return False
-                            if self.additional_interface_status is not None:
-                                return True
-
-                            if self.header is not None and self.header._has_data():
-                                return True
-
-                            if self.interface_status is not None:
-                                return True
-
-                            if self.mep_name is not None and self.mep_name._has_data():
-                                return True
-
-                            if self.organization_specific_tlv is not None:
-                                for child_ref in self.organization_specific_tlv:
-                                    if child_ref._has_data():
-                                        return True
-
-                            if self.port_status is not None:
-                                return True
-
-                            if self.raw_data is not None:
-                                return True
-
-                            if self.sender_id is not None and self.sender_id._has_data():
-                                return True
-
-                            if self.unknown_tlv is not None:
-                                for child_ref in self.unknown_tlv:
-                                    if child_ref._has_data():
-                                        return True
-
-                            return False
-
-                        @staticmethod
-                        def _meta_info():
-                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ethernet_cfm_oper as meta
-                            return meta._meta_table['Cfm.Global.PeerMeps.PeerMep.PeerMep.LastCcmReceived']['meta_info']
-
-
-                    class Statistics(object):
-                        """
-                        Peer MEP statistics
-                        
-                        .. attribute:: ccms_invalid_interval
-                        
-                        	Number of CCMs received with an invalid interval
-                        	**type**\:  long
-                        
-                        	**range:** 0..18446744073709551615
-                        
-                        .. attribute:: ccms_invalid_maid
-                        
-                        	Number of CCMs received with an invalid MAID
-                        	**type**\:  long
-                        
-                        	**range:** 0..18446744073709551615
-                        
-                        .. attribute:: ccms_invalid_source_mac_address
-                        
-                        	Number of CCMs received with an invalid source MAC address
-                        	**type**\:  long
-                        
-                        	**range:** 0..18446744073709551615
-                        
-                        .. attribute:: ccms_our_mep_id
-                        
-                        	Number of CCMs received with our MEP ID
-                        	**type**\:  long
-                        
-                        	**range:** 0..18446744073709551615
-                        
-                        .. attribute:: ccms_out_of_sequence
-                        
-                        	Number of CCMs received out\-of\-sequence
-                        	**type**\:  long
-                        
-                        	**range:** 0..18446744073709551615
-                        
-                        .. attribute:: ccms_rdi
-                        
-                        	Number of CCMs received with the Remote Defect Indication bit set
-                        	**type**\:  long
-                        
-                        	**range:** 0..18446744073709551615
-                        
-                        .. attribute:: ccms_received
-                        
-                        	Number of CCMs received
-                        	**type**\:  long
-                        
-                        	**range:** 0..18446744073709551615
-                        
-                        .. attribute:: ccms_wrong_level
-                        
-                        	Number of CCMs received with an invalid level
-                        	**type**\:  long
-                        
-                        	**range:** 0..18446744073709551615
-                        
-                        .. attribute:: last_ccm_received_time
-                        
-                        	Elapsed time since last CCM received
-                        	**type**\:  :py:class:`LastCcmReceivedTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global.PeerMeps.PeerMep.PeerMep.Statistics.LastCcmReceivedTime>`
-                        
-                        .. attribute:: last_ccm_sequence_number
-                        
-                        	Sequence number of last CCM received
-                        	**type**\:  int
-                        
-                        	**range:** 0..4294967295
-                        
-                        
-
-                        """
-
-                        _prefix = 'ethernet-cfm-oper'
-                        _revision = '2015-11-09'
-
-                        def __init__(self):
-                            self.parent = None
-                            self.ccms_invalid_interval = None
-                            self.ccms_invalid_maid = None
-                            self.ccms_invalid_source_mac_address = None
-                            self.ccms_our_mep_id = None
-                            self.ccms_out_of_sequence = None
-                            self.ccms_rdi = None
-                            self.ccms_received = None
-                            self.ccms_wrong_level = None
-                            self.last_ccm_received_time = Cfm.Global.PeerMeps.PeerMep.PeerMep.Statistics.LastCcmReceivedTime()
-                            self.last_ccm_received_time.parent = self
-                            self.last_ccm_sequence_number = None
-
-
-                        class LastCcmReceivedTime(object):
-                            """
-                            Elapsed time since last CCM received
-                            
-                            .. attribute:: nanoseconds
-                            
-                            	Nanoseconds
-                            	**type**\:  int
-                            
-                            	**range:** 0..4294967295
-                            
-                            .. attribute:: seconds
-                            
-                            	Seconds
-                            	**type**\:  int
-                            
-                            	**range:** 0..4294967295
-                            
-                            
-
-                            """
-
-                            _prefix = 'ethernet-cfm-oper'
-                            _revision = '2015-11-09'
-
-                            def __init__(self):
-                                self.parent = None
-                                self.nanoseconds = None
-                                self.seconds = None
-
-                            @property
-                            def _common_path(self):
-                                if self.parent is None:
-                                    raise YPYModelError('parent is not set . Cannot derive path.')
-
-                                return self.parent._common_path +'/Cisco-IOS-XR-ethernet-cfm-oper:last-ccm-received-time'
-
-                            def is_config(self):
-                                ''' Returns True if this instance represents config data else returns False '''
-                                return False
-
-                            def _has_data(self):
-                                if not self.is_config():
-                                    return False
-                                if self.nanoseconds is not None:
-                                    return True
-
-                                if self.seconds is not None:
-                                    return True
-
-                                return False
-
-                            @staticmethod
-                            def _meta_info():
-                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ethernet_cfm_oper as meta
-                                return meta._meta_table['Cfm.Global.PeerMeps.PeerMep.PeerMep.Statistics.LastCcmReceivedTime']['meta_info']
-
-                        @property
-                        def _common_path(self):
-                            if self.parent is None:
-                                raise YPYModelError('parent is not set . Cannot derive path.')
-
-                            return self.parent._common_path +'/Cisco-IOS-XR-ethernet-cfm-oper:statistics'
-
-                        def is_config(self):
-                            ''' Returns True if this instance represents config data else returns False '''
-                            return False
-
-                        def _has_data(self):
-                            if not self.is_config():
-                                return False
-                            if self.ccms_invalid_interval is not None:
-                                return True
-
-                            if self.ccms_invalid_maid is not None:
-                                return True
-
-                            if self.ccms_invalid_source_mac_address is not None:
-                                return True
-
-                            if self.ccms_our_mep_id is not None:
-                                return True
-
-                            if self.ccms_out_of_sequence is not None:
-                                return True
-
-                            if self.ccms_rdi is not None:
-                                return True
-
-                            if self.ccms_received is not None:
-                                return True
-
-                            if self.ccms_wrong_level is not None:
-                                return True
-
-                            if self.last_ccm_received_time is not None and self.last_ccm_received_time._has_data():
-                                return True
-
-                            if self.last_ccm_sequence_number is not None:
-                                return True
-
-                            return False
-
-                        @staticmethod
-                        def _meta_info():
-                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ethernet_cfm_oper as meta
-                            return meta._meta_table['Cfm.Global.PeerMeps.PeerMep.PeerMep.Statistics']['meta_info']
-
-                    @property
-                    def _common_path(self):
-                        if self.parent is None:
-                            raise YPYModelError('parent is not set . Cannot derive path.')
-
-                        return self.parent._common_path +'/Cisco-IOS-XR-ethernet-cfm-oper:peer-mep'
-
-                    def is_config(self):
-                        ''' Returns True if this instance represents config data else returns False '''
-                        return False
-
-                    def _has_data(self):
-                        if not self.is_config():
-                            return False
-                        if self.ccm_offload is not None:
-                            return True
-
-                        if self.cross_check_state is not None:
-                            return True
-
-                        if self.error_state is not None and self.error_state._has_data():
-                            return True
-
-                        if self.last_ccm_received is not None and self.last_ccm_received._has_data():
-                            return True
-
-                        if self.last_up_down_time is not None and self.last_up_down_time._has_data():
-                            return True
-
-                        if self.mac_address is not None:
-                            return True
-
-                        if self.mep_id is not None:
-                            return True
-
-                        if self.peer_mep_state is not None:
-                            return True
-
-                        if self.statistics is not None and self.statistics._has_data():
-                            return True
-
-                        return False
-
-                    @staticmethod
-                    def _meta_info():
-                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ethernet_cfm_oper as meta
-                        return meta._meta_table['Cfm.Global.PeerMeps.PeerMep.PeerMep']['meta_info']
-
-                @property
-                def _common_path(self):
-                    if self.domain is None:
-                        raise YPYModelError('Key property domain is None')
-                    if self.interface is None:
-                        raise YPYModelError('Key property interface is None')
-                    if self.local_mep_id is None:
-                        raise YPYModelError('Key property local_mep_id is None')
-                    if self.peer_mac_address is None:
-                        raise YPYModelError('Key property peer_mac_address is None')
-                    if self.peer_mep_id is None:
-                        raise YPYModelError('Key property peer_mep_id is None')
-                    if self.service is None:
-                        raise YPYModelError('Key property service is None')
-
-                    return '/Cisco-IOS-XR-ethernet-cfm-oper:cfm/Cisco-IOS-XR-ethernet-cfm-oper:global/Cisco-IOS-XR-ethernet-cfm-oper:peer-meps/Cisco-IOS-XR-ethernet-cfm-oper:peer-mep[Cisco-IOS-XR-ethernet-cfm-oper:domain = ' + str(self.domain) + '][Cisco-IOS-XR-ethernet-cfm-oper:interface = ' + str(self.interface) + '][Cisco-IOS-XR-ethernet-cfm-oper:local-mep-id = ' + str(self.local_mep_id) + '][Cisco-IOS-XR-ethernet-cfm-oper:peer-mac-address = ' + str(self.peer_mac_address) + '][Cisco-IOS-XR-ethernet-cfm-oper:peer-mep-id = ' + str(self.peer_mep_id) + '][Cisco-IOS-XR-ethernet-cfm-oper:service = ' + str(self.service) + ']'
-
-                def is_config(self):
-                    ''' Returns True if this instance represents config data else returns False '''
-                    return False
-
-                def _has_data(self):
-                    if not self.is_config():
-                        return False
-                    if self.domain is not None:
-                        return True
-
-                    if self.interface is not None:
-                        return True
-
-                    if self.local_mep_id is not None:
-                        return True
-
-                    if self.peer_mac_address is not None:
-                        return True
-
-                    if self.peer_mep_id is not None:
-                        return True
-
-                    if self.service is not None:
-                        return True
-
-                    if self.domain_xr is not None:
-                        return True
-
-                    if self.interface_xr is not None:
-                        return True
-
-                    if self.level is not None:
-                        return True
-
-                    if self.mep_direction is not None:
-                        return True
-
-                    if self.mep_id is not None:
-                        return True
-
-                    if self.peer_mep is not None and self.peer_mep._has_data():
-                        return True
-
-                    if self.service_xr is not None:
-                        return True
-
-                    if self.standby is not None:
-                        return True
-
-                    return False
-
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ethernet_cfm_oper as meta
-                    return meta._meta_table['Cfm.Global.PeerMeps.PeerMep']['meta_info']
-
-            @property
-            def _common_path(self):
-
-                return '/Cisco-IOS-XR-ethernet-cfm-oper:cfm/Cisco-IOS-XR-ethernet-cfm-oper:global/Cisco-IOS-XR-ethernet-cfm-oper:peer-meps'
-
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
-                return False
-
-            def _has_data(self):
-                if not self.is_config():
-                    return False
-                if self.peer_mep is not None:
-                    for child_ref in self.peer_mep:
-                        if child_ref._has_data():
-                            return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ethernet_cfm_oper as meta
-                return meta._meta_table['Cfm.Global.PeerMeps']['meta_info']
-
-
         class GlobalConfigurationErrors(object):
             """
             Global configuration errors table
@@ -6331,10 +4657,14 @@ class Cfm(object):
                 	Maintenance Domain
                 	**type**\:  str
                 
+                	**range:** 0..79
+                
                 .. attribute:: service  <key>
                 
                 	Service (Maintenance Association)
                 	**type**\:  str
+                
+                	**range:** 0..79
                 
                 .. attribute:: bridge_domain_id
                 
@@ -6576,17 +4906,21 @@ class Cfm(object):
                 	Maintenance Domain
                 	**type**\:  str
                 
+                	**range:** 0..79
+                
                 .. attribute:: interface  <key>
                 
                 	Interface
                 	**type**\:  str
                 
-                	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+                	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
                 
                 .. attribute:: service  <key>
                 
                 	Service (Maintenance Association)
                 	**type**\:  str
+                
+                	**range:** 0..79
                 
                 .. attribute:: ais_configured
                 
@@ -6790,7 +5124,7 @@ class Cfm(object):
                     	Interface
                     	**type**\:  str
                     
-                    	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+                    	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
                     
                     .. attribute:: level
                     
@@ -7444,12 +5778,14 @@ class Cfm(object):
                 	Maintenance Domain
                 	**type**\:  str
                 
+                	**range:** 0..79
+                
                 .. attribute:: interface  <key>
                 
                 	Interface
                 	**type**\:  str
                 
-                	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+                	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
                 
                 .. attribute:: mep_id  <key>
                 
@@ -7462,6 +5798,8 @@ class Cfm(object):
                 
                 	Service (Maintenance Association)
                 	**type**\:  str
+                
+                	**range:** 0..79
                 
                 .. attribute:: transaction_id  <key>
                 
@@ -7553,7 +5891,7 @@ class Cfm(object):
                     	Source interface
                     	**type**\:  str
                     
-                    	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+                    	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
                     
                     .. attribute:: source_mac_address
                     
@@ -7586,7 +5924,7 @@ class Cfm(object):
                     .. attribute:: timestamp
                     
                     	Timestamp of initiation time (seconds)
-                    	**type**\:  long
+                    	**type**\:  int
                     
                     	**range:** 0..18446744073709551615
                     
@@ -10753,12 +9091,14 @@ class Cfm(object):
                 	Maintenance Domain
                 	**type**\:  str
                 
+                	**range:** 0..79
+                
                 .. attribute:: interface  <key>
                 
                 	Interface
                 	**type**\:  str
                 
-                	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+                	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
                 
                 .. attribute:: mep_id  <key>
                 
@@ -10771,6 +9111,8 @@ class Cfm(object):
                 
                 	Service (Maintenance Association)
                 	**type**\:  str
+                
+                	**range:** 0..79
                 
                 .. attribute:: ais_statistics
                 
@@ -10809,6 +9151,11 @@ class Cfm(object):
                 	Defects detected from peer MEPs
                 	**type**\:  :py:class:`Defects <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global.LocalMeps.LocalMep.Defects>`
                 
+                .. attribute:: defects_ignored
+                
+                	Defects present but ignored due to 'report defects' configuration
+                	**type**\:  bool
+                
                 .. attribute:: domain_xr
                 
                 	Maintenance domain name
@@ -10829,6 +9176,11 @@ class Cfm(object):
                 	Fault Notification Generation state
                 	**type**\:  :py:class:`CfmPmMepFngStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.CfmPmMepFngStateEnum>`
                 
+                .. attribute:: hairpin
+                
+                	MEP is on a sub\-interface in the same bridge\-domain and on the same trunk interface as another sub\-interface
+                	**type**\:  bool
+                
                 .. attribute:: highest_defect
                 
                 	Highest\-priority defect present since last FNG reset
@@ -10844,7 +9196,7 @@ class Cfm(object):
                 	Interface
                 	**type**\:  str
                 
-                	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+                	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
                 
                 .. attribute:: interworking_state
                 
@@ -10930,7 +9282,7 @@ class Cfm(object):
                 
                 .. attribute:: standby
                 
-                	The MEP is on a standby bundle interface
+                	The local MEP is on an interface in standby mode
                 	**type**\:  bool
                 
                 .. attribute:: statistics
@@ -10965,10 +9317,12 @@ class Cfm(object):
                     self.cross_connect_ccm_defect = None
                     self.defects = Cfm.Global.LocalMeps.LocalMep.Defects()
                     self.defects.parent = self
+                    self.defects_ignored = None
                     self.domain_xr = None
                     self.efd_triggered = None
                     self.error_ccm_defect = None
                     self.fault_notification_state = None
+                    self.hairpin = None
                     self.highest_defect = None
                     self.interface_state = None
                     self.interface_xr = None
@@ -10999,196 +9353,196 @@ class Cfm(object):
                     .. attribute:: ai_ss_received
                     
                     	Number of AIS messages received
-                    	**type**\:  long
+                    	**type**\:  int
                     
                     	**range:** 0..18446744073709551615
                     
                     .. attribute:: ai_ss_sent
                     
                     	Number of AIS messages sent
-                    	**type**\:  long
+                    	**type**\:  int
                     
                     	**range:** 0..18446744073709551615
                     
                     .. attribute:: bn_ms_discarded
                     
                     	Number of BNM messages discarded
-                    	**type**\:  long
+                    	**type**\:  int
                     
                     	**range:** 0..18446744073709551615
                     
                     .. attribute:: bn_ms_received
                     
                     	Number of BNM messages received
-                    	**type**\:  long
+                    	**type**\:  int
                     
                     	**range:** 0..18446744073709551615
                     
                     .. attribute:: ccms_discarded
                     
                     	Number of CCMs discarded because maximum MEPs limit was reached
-                    	**type**\:  long
+                    	**type**\:  int
                     
                     	**range:** 0..18446744073709551615
                     
                     .. attribute:: ccms_out_of_sequence
                     
                     	Number of CCMs received out\-of\-sequence
-                    	**type**\:  long
+                    	**type**\:  int
                     
                     	**range:** 0..18446744073709551615
                     
                     .. attribute:: ccms_received
                     
                     	Number of CCMs received
-                    	**type**\:  long
+                    	**type**\:  int
                     
                     	**range:** 0..18446744073709551615
                     
                     .. attribute:: ccms_sent
                     
                     	Number of CCMs sent
-                    	**type**\:  long
+                    	**type**\:  int
                     
                     	**range:** 0..18446744073709551615
                     
                     .. attribute:: dm_ms_received
                     
                     	Number of DMM messages received
-                    	**type**\:  long
+                    	**type**\:  int
                     
                     	**range:** 0..18446744073709551615
                     
                     .. attribute:: dm_ms_sent
                     
                     	Number of DMM messages sent
-                    	**type**\:  long
+                    	**type**\:  int
                     
                     	**range:** 0..18446744073709551615
                     
                     .. attribute:: dm_rs_received
                     
                     	Number of DMR messages received
-                    	**type**\:  long
+                    	**type**\:  int
                     
                     	**range:** 0..18446744073709551615
                     
                     .. attribute:: dm_rs_sent
                     
                     	Number of DMR messages sent
-                    	**type**\:  long
+                    	**type**\:  int
                     
                     	**range:** 0..18446744073709551615
                     
                     .. attribute:: lb_ms_received
                     
                     	Number of LBMs received
-                    	**type**\:  long
+                    	**type**\:  int
                     
                     	**range:** 0..18446744073709551615
                     
                     .. attribute:: lb_ms_sent
                     
                     	Number of LBMs sent
-                    	**type**\:  long
+                    	**type**\:  int
                     
                     	**range:** 0..18446744073709551615
                     
                     .. attribute:: lb_rs_bad_data
                     
                     	Number of LBRs received with non\-matching user\-specified data
-                    	**type**\:  long
+                    	**type**\:  int
                     
                     	**range:** 0..18446744073709551615
                     
                     .. attribute:: lb_rs_out_of_sequence
                     
                     	Number of LBRs received out\-of\-sequence
-                    	**type**\:  long
+                    	**type**\:  int
                     
                     	**range:** 0..18446744073709551615
                     
                     .. attribute:: lb_rs_received
                     
                     	Number of LBRs received
-                    	**type**\:  long
+                    	**type**\:  int
                     
                     	**range:** 0..18446744073709551615
                     
                     .. attribute:: lb_rs_sent
                     
                     	Number of LBRs sent
-                    	**type**\:  long
+                    	**type**\:  int
                     
                     	**range:** 0..18446744073709551615
                     
                     .. attribute:: lc_ks_received
                     
                     	Number of LCK messages received
-                    	**type**\:  long
+                    	**type**\:  int
                     
                     	**range:** 0..18446744073709551615
                     
                     .. attribute:: lm_ms_received
                     
                     	Number of LMM messages received
-                    	**type**\:  long
+                    	**type**\:  int
                     
                     	**range:** 0..18446744073709551615
                     
                     .. attribute:: lm_ms_sent
                     
                     	Number of LMM messages sent
-                    	**type**\:  long
+                    	**type**\:  int
                     
                     	**range:** 0..18446744073709551615
                     
                     .. attribute:: lm_rs_received
                     
                     	Number of LMR messages received
-                    	**type**\:  long
+                    	**type**\:  int
                     
                     	**range:** 0..18446744073709551615
                     
                     .. attribute:: lm_rs_sent
                     
                     	Number of LMR messages sent
-                    	**type**\:  long
+                    	**type**\:  int
                     
                     	**range:** 0..18446744073709551615
                     
                     .. attribute:: lt_rs_received_unexpected
                     
                     	Number of unexpected LTRs received
-                    	**type**\:  long
+                    	**type**\:  int
                     
                     	**range:** 0..18446744073709551615
                     
                     .. attribute:: sl_ms_received
                     
                     	Number of SLM messages received
-                    	**type**\:  long
+                    	**type**\:  int
                     
                     	**range:** 0..18446744073709551615
                     
                     .. attribute:: sl_ms_sent
                     
                     	Number of SLM messages sent
-                    	**type**\:  long
+                    	**type**\:  int
                     
                     	**range:** 0..18446744073709551615
                     
                     .. attribute:: sl_rs_received
                     
                     	Number of SLR messages received
-                    	**type**\:  long
+                    	**type**\:  int
                     
                     	**range:** 0..18446744073709551615
                     
                     .. attribute:: sl_rs_sent
                     
                     	Number of SLR messages sent
-                    	**type**\:  long
+                    	**type**\:  int
                     
                     	**range:** 0..18446744073709551615
                     
@@ -11832,6 +10186,9 @@ class Cfm(object):
                     if self.defects is not None and self.defects._has_data():
                         return True
 
+                    if self.defects_ignored is not None:
+                        return True
+
                     if self.domain_xr is not None:
                         return True
 
@@ -11842,6 +10199,9 @@ class Cfm(object):
                         return True
 
                     if self.fault_notification_state is not None:
+                        return True
+
+                    if self.hairpin is not None:
                         return True
 
                     if self.highest_defect is not None:
@@ -11935,6 +10295,1696 @@ class Cfm(object):
                 from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ethernet_cfm_oper as meta
                 return meta._meta_table['Cfm.Global.LocalMeps']['meta_info']
 
+
+        class PeerMePv2S(object):
+            """
+            Peer MEPs table Version 2
+            
+            .. attribute:: peer_me_pv2
+            
+            	Information about a peer MEP for a particular local MEP
+            	**type**\: list of  :py:class:`PeerMePv2 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global.PeerMePv2S.PeerMePv2>`
+            
+            
+
+            """
+
+            _prefix = 'ethernet-cfm-oper'
+            _revision = '2015-11-09'
+
+            def __init__(self):
+                self.parent = None
+                self.peer_me_pv2 = YList()
+                self.peer_me_pv2.parent = self
+                self.peer_me_pv2.name = 'peer_me_pv2'
+
+
+            class PeerMePv2(object):
+                """
+                Information about a peer MEP for a particular
+                local MEP
+                
+                .. attribute:: domain  <key>
+                
+                	Maintenance Domain
+                	**type**\:  str
+                
+                	**range:** 0..79
+                
+                .. attribute:: interface  <key>
+                
+                	Interface
+                	**type**\:  str
+                
+                	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+                
+                .. attribute:: local_mep_id  <key>
+                
+                	MEP ID of Local MEP
+                	**type**\:  int
+                
+                	**range:** 1..8191
+                
+                .. attribute:: peer_mac_address  <key>
+                
+                	Peer MAC address
+                	**type**\:  str
+                
+                	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
+                
+                .. attribute:: peer_mep_id  <key>
+                
+                	MEP ID of Peer MEP
+                	**type**\:  int
+                
+                	**range:** 1..8191
+                
+                .. attribute:: service  <key>
+                
+                	Service (Maintenance Association)
+                	**type**\:  str
+                
+                	**range:** 0..79
+                
+                .. attribute:: domain_xr
+                
+                	Maintenance domain name
+                	**type**\:  str
+                
+                .. attribute:: interface_xr
+                
+                	Interface
+                	**type**\:  str
+                
+                	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+                
+                .. attribute:: level
+                
+                	Maintenance level
+                	**type**\:  :py:class:`CfmBagMdLevelEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.CfmBagMdLevelEnum>`
+                
+                .. attribute:: mep_direction
+                
+                	MEP facing direction
+                	**type**\:  :py:class:`CfmBagDirectionEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.CfmBagDirectionEnum>`
+                
+                .. attribute:: mep_id
+                
+                	MEP ID
+                	**type**\:  int
+                
+                	**range:** 0..65535
+                
+                .. attribute:: peer_mep
+                
+                	Peer MEP
+                	**type**\:  :py:class:`PeerMep <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global.PeerMePv2S.PeerMePv2.PeerMep>`
+                
+                .. attribute:: service_xr
+                
+                	Service name
+                	**type**\:  str
+                
+                .. attribute:: standby
+                
+                	The local MEP is on an interface in standby mode
+                	**type**\:  bool
+                
+                
+
+                """
+
+                _prefix = 'ethernet-cfm-oper'
+                _revision = '2015-11-09'
+
+                def __init__(self):
+                    self.parent = None
+                    self.domain = None
+                    self.interface = None
+                    self.local_mep_id = None
+                    self.peer_mac_address = None
+                    self.peer_mep_id = None
+                    self.service = None
+                    self.domain_xr = None
+                    self.interface_xr = None
+                    self.level = None
+                    self.mep_direction = None
+                    self.mep_id = None
+                    self.peer_mep = Cfm.Global.PeerMePv2S.PeerMePv2.PeerMep()
+                    self.peer_mep.parent = self
+                    self.service_xr = None
+                    self.standby = None
+
+
+                class PeerMep(object):
+                    """
+                    Peer MEP
+                    
+                    .. attribute:: ccm_offload
+                    
+                    	Offload status of received CCM handling
+                    	**type**\:  :py:class:`CfmBagCcmOffloadEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.CfmBagCcmOffloadEnum>`
+                    
+                    .. attribute:: cross_check_state
+                    
+                    	Cross\-check state
+                    	**type**\:  :py:class:`CfmPmRmepXcStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.CfmPmRmepXcStateEnum>`
+                    
+                    .. attribute:: error_state
+                    
+                    	Error state
+                    	**type**\:  :py:class:`ErrorState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global.PeerMePv2S.PeerMePv2.PeerMep.ErrorState>`
+                    
+                    .. attribute:: last_ccm_received
+                    
+                    	Last CCM received from the peer MEP
+                    	**type**\:  :py:class:`LastCcmReceived <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global.PeerMePv2S.PeerMePv2.PeerMep.LastCcmReceived>`
+                    
+                    .. attribute:: last_up_down_time
+                    
+                    	Elapsed time since peer MEP became active or timed out
+                    	**type**\:  :py:class:`LastUpDownTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global.PeerMePv2S.PeerMePv2.PeerMep.LastUpDownTime>`
+                    
+                    .. attribute:: mac_address
+                    
+                    	MAC address
+                    	**type**\:  str
+                    
+                    	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
+                    
+                    .. attribute:: mep_id
+                    
+                    	MEP ID
+                    	**type**\:  int
+                    
+                    	**range:** 0..65535
+                    
+                    .. attribute:: peer_mep_state
+                    
+                    	State of the peer MEP state machine
+                    	**type**\:  :py:class:`CfmPmRmepStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.CfmPmRmepStateEnum>`
+                    
+                    .. attribute:: statistics
+                    
+                    	Peer MEP statistics
+                    	**type**\:  :py:class:`Statistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global.PeerMePv2S.PeerMePv2.PeerMep.Statistics>`
+                    
+                    
+
+                    """
+
+                    _prefix = 'ethernet-cfm-oper'
+                    _revision = '2015-11-09'
+
+                    def __init__(self):
+                        self.parent = None
+                        self.ccm_offload = None
+                        self.cross_check_state = None
+                        self.error_state = Cfm.Global.PeerMePv2S.PeerMePv2.PeerMep.ErrorState()
+                        self.error_state.parent = self
+                        self.last_ccm_received = Cfm.Global.PeerMePv2S.PeerMePv2.PeerMep.LastCcmReceived()
+                        self.last_ccm_received.parent = self
+                        self.last_up_down_time = Cfm.Global.PeerMePv2S.PeerMePv2.PeerMep.LastUpDownTime()
+                        self.last_up_down_time.parent = self
+                        self.mac_address = None
+                        self.mep_id = None
+                        self.peer_mep_state = None
+                        self.statistics = Cfm.Global.PeerMePv2S.PeerMePv2.PeerMep.Statistics()
+                        self.statistics.parent = self
+
+
+                    class ErrorState(object):
+                        """
+                        Error state
+                        
+                        .. attribute:: invalid_ccm_interval
+                        
+                        	Invalid CCM interval
+                        	**type**\:  bool
+                        
+                        .. attribute:: invalid_level
+                        
+                        	Invalid level
+                        	**type**\:  bool
+                        
+                        .. attribute:: invalid_maid
+                        
+                        	Invalid MAID
+                        	**type**\:  bool
+                        
+                        .. attribute:: loss_threshold_exceeded
+                        
+                        	Timed out (loss threshold exceeded)
+                        	**type**\:  bool
+                        
+                        .. attribute:: received_our_mac
+                        
+                        	Loop detected (our MAC address received)
+                        	**type**\:  bool
+                        
+                        .. attribute:: received_our_mep_id
+                        
+                        	Configuration Error (our MEP ID received)
+                        	**type**\:  bool
+                        
+                        .. attribute:: received_rdi
+                        
+                        	Remote defection indication received
+                        	**type**\:  bool
+                        
+                        
+
+                        """
+
+                        _prefix = 'ethernet-cfm-oper'
+                        _revision = '2015-11-09'
+
+                        def __init__(self):
+                            self.parent = None
+                            self.invalid_ccm_interval = None
+                            self.invalid_level = None
+                            self.invalid_maid = None
+                            self.loss_threshold_exceeded = None
+                            self.received_our_mac = None
+                            self.received_our_mep_id = None
+                            self.received_rdi = None
+
+                        @property
+                        def _common_path(self):
+                            if self.parent is None:
+                                raise YPYModelError('parent is not set . Cannot derive path.')
+
+                            return self.parent._common_path +'/Cisco-IOS-XR-ethernet-cfm-oper:error-state'
+
+                        def is_config(self):
+                            ''' Returns True if this instance represents config data else returns False '''
+                            return False
+
+                        def _has_data(self):
+                            if not self.is_config():
+                                return False
+                            if self.invalid_ccm_interval is not None:
+                                return True
+
+                            if self.invalid_level is not None:
+                                return True
+
+                            if self.invalid_maid is not None:
+                                return True
+
+                            if self.loss_threshold_exceeded is not None:
+                                return True
+
+                            if self.received_our_mac is not None:
+                                return True
+
+                            if self.received_our_mep_id is not None:
+                                return True
+
+                            if self.received_rdi is not None:
+                                return True
+
+                            return False
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ethernet_cfm_oper as meta
+                            return meta._meta_table['Cfm.Global.PeerMePv2S.PeerMePv2.PeerMep.ErrorState']['meta_info']
+
+
+                    class LastUpDownTime(object):
+                        """
+                        Elapsed time since peer MEP became active or
+                        timed out
+                        
+                        .. attribute:: nanoseconds
+                        
+                        	Nanoseconds
+                        	**type**\:  int
+                        
+                        	**range:** 0..4294967295
+                        
+                        .. attribute:: seconds
+                        
+                        	Seconds
+                        	**type**\:  int
+                        
+                        	**range:** 0..4294967295
+                        
+                        
+
+                        """
+
+                        _prefix = 'ethernet-cfm-oper'
+                        _revision = '2015-11-09'
+
+                        def __init__(self):
+                            self.parent = None
+                            self.nanoseconds = None
+                            self.seconds = None
+
+                        @property
+                        def _common_path(self):
+                            if self.parent is None:
+                                raise YPYModelError('parent is not set . Cannot derive path.')
+
+                            return self.parent._common_path +'/Cisco-IOS-XR-ethernet-cfm-oper:last-up-down-time'
+
+                        def is_config(self):
+                            ''' Returns True if this instance represents config data else returns False '''
+                            return False
+
+                        def _has_data(self):
+                            if not self.is_config():
+                                return False
+                            if self.nanoseconds is not None:
+                                return True
+
+                            if self.seconds is not None:
+                                return True
+
+                            return False
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ethernet_cfm_oper as meta
+                            return meta._meta_table['Cfm.Global.PeerMePv2S.PeerMePv2.PeerMep.LastUpDownTime']['meta_info']
+
+
+                    class LastCcmReceived(object):
+                        """
+                        Last CCM received from the peer MEP
+                        
+                        .. attribute:: additional_interface_status
+                        
+                        	Additional interface status
+                        	**type**\:  :py:class:`CfmPmAddlIntfStatusEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.CfmPmAddlIntfStatusEnum>`
+                        
+                        .. attribute:: header
+                        
+                        	Frame header
+                        	**type**\:  :py:class:`Header <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global.PeerMePv2S.PeerMePv2.PeerMep.LastCcmReceived.Header>`
+                        
+                        .. attribute:: interface_status
+                        
+                        	Interface status
+                        	**type**\:  :py:class:`CfmPmIntfStatusEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.CfmPmIntfStatusEnum>`
+                        
+                        .. attribute:: mep_name
+                        
+                        	MEP name
+                        	**type**\:  :py:class:`MepName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global.PeerMePv2S.PeerMePv2.PeerMep.LastCcmReceived.MepName>`
+                        
+                        .. attribute:: organization_specific_tlv
+                        
+                        	Organizational\-specific TLVs
+                        	**type**\: list of  :py:class:`OrganizationSpecificTlv <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global.PeerMePv2S.PeerMePv2.PeerMep.LastCcmReceived.OrganizationSpecificTlv>`
+                        
+                        .. attribute:: port_status
+                        
+                        	Port status
+                        	**type**\:  :py:class:`CfmPmPortStatusEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.CfmPmPortStatusEnum>`
+                        
+                        .. attribute:: raw_data
+                        
+                        	Undecoded frame
+                        	**type**\:  str
+                        
+                        	**pattern:** ([0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2})\*)?
+                        
+                        .. attribute:: sender_id
+                        
+                        	Sender ID TLV
+                        	**type**\:  :py:class:`SenderId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global.PeerMePv2S.PeerMePv2.PeerMep.LastCcmReceived.SenderId>`
+                        
+                        .. attribute:: unknown_tlv
+                        
+                        	Unknown TLVs
+                        	**type**\: list of  :py:class:`UnknownTlv <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global.PeerMePv2S.PeerMePv2.PeerMep.LastCcmReceived.UnknownTlv>`
+                        
+                        
+
+                        """
+
+                        _prefix = 'ethernet-cfm-oper'
+                        _revision = '2015-11-09'
+
+                        def __init__(self):
+                            self.parent = None
+                            self.additional_interface_status = None
+                            self.header = Cfm.Global.PeerMePv2S.PeerMePv2.PeerMep.LastCcmReceived.Header()
+                            self.header.parent = self
+                            self.interface_status = None
+                            self.mep_name = Cfm.Global.PeerMePv2S.PeerMePv2.PeerMep.LastCcmReceived.MepName()
+                            self.mep_name.parent = self
+                            self.organization_specific_tlv = YList()
+                            self.organization_specific_tlv.parent = self
+                            self.organization_specific_tlv.name = 'organization_specific_tlv'
+                            self.port_status = None
+                            self.raw_data = None
+                            self.sender_id = Cfm.Global.PeerMePv2S.PeerMePv2.PeerMep.LastCcmReceived.SenderId()
+                            self.sender_id.parent = self
+                            self.unknown_tlv = YList()
+                            self.unknown_tlv.parent = self
+                            self.unknown_tlv.name = 'unknown_tlv'
+
+
+                        class Header(object):
+                            """
+                            Frame header
+                            
+                            .. attribute:: interval
+                            
+                            	CCM interval
+                            	**type**\:  :py:class:`CfmBagCcmIntervalEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.CfmBagCcmIntervalEnum>`
+                            
+                            .. attribute:: level
+                            
+                            	MD level
+                            	**type**\:  :py:class:`CfmBagMdLevelEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.CfmBagMdLevelEnum>`
+                            
+                            .. attribute:: mdid
+                            
+                            	MDID
+                            	**type**\:  :py:class:`Mdid <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global.PeerMePv2S.PeerMePv2.PeerMep.LastCcmReceived.Header.Mdid>`
+                            
+                            .. attribute:: mdid_format
+                            
+                            	MDID Format
+                            	**type**\:  int
+                            
+                            	**range:** 0..255
+                            
+                            .. attribute:: mep_id
+                            
+                            	MEP ID
+                            	**type**\:  int
+                            
+                            	**range:** 0..65535
+                            
+                            .. attribute:: rdi
+                            
+                            	Remote defect indicated
+                            	**type**\:  bool
+                            
+                            .. attribute:: sequence_number
+                            
+                            	CCM sequence number
+                            	**type**\:  int
+                            
+                            	**range:** 0..4294967295
+                            
+                            .. attribute:: short_ma_name
+                            
+                            	Short MA Name
+                            	**type**\:  :py:class:`ShortMaName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global.PeerMePv2S.PeerMePv2.PeerMep.LastCcmReceived.Header.ShortMaName>`
+                            
+                            .. attribute:: short_ma_name_format
+                            
+                            	Short MA Name format
+                            	**type**\:  int
+                            
+                            	**range:** 0..255
+                            
+                            .. attribute:: version
+                            
+                            	Version
+                            	**type**\:  int
+                            
+                            	**range:** 0..255
+                            
+                            
+
+                            """
+
+                            _prefix = 'ethernet-cfm-oper'
+                            _revision = '2015-11-09'
+
+                            def __init__(self):
+                                self.parent = None
+                                self.interval = None
+                                self.level = None
+                                self.mdid = Cfm.Global.PeerMePv2S.PeerMePv2.PeerMep.LastCcmReceived.Header.Mdid()
+                                self.mdid.parent = self
+                                self.mdid_format = None
+                                self.mep_id = None
+                                self.rdi = None
+                                self.sequence_number = None
+                                self.short_ma_name = Cfm.Global.PeerMePv2S.PeerMePv2.PeerMep.LastCcmReceived.Header.ShortMaName()
+                                self.short_ma_name.parent = self
+                                self.short_ma_name_format = None
+                                self.version = None
+
+
+                            class Mdid(object):
+                                """
+                                MDID
+                                
+                                .. attribute:: dns_like_name
+                                
+                                	DNS\-like name
+                                	**type**\:  str
+                                
+                                .. attribute:: mac_name
+                                
+                                	MAC address name
+                                	**type**\:  :py:class:`MacName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global.PeerMePv2S.PeerMePv2.PeerMep.LastCcmReceived.Header.Mdid.MacName>`
+                                
+                                .. attribute:: mdid_data
+                                
+                                	Hex data
+                                	**type**\:  str
+                                
+                                	**pattern:** ([0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2})\*)?
+                                
+                                .. attribute:: mdid_format_value
+                                
+                                	MDIDFormatValue
+                                	**type**\:  :py:class:`CfmBagMdidFmtEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.CfmBagMdidFmtEnum>`
+                                
+                                .. attribute:: string_name
+                                
+                                	String name
+                                	**type**\:  str
+                                
+                                
+
+                                """
+
+                                _prefix = 'ethernet-cfm-oper'
+                                _revision = '2015-11-09'
+
+                                def __init__(self):
+                                    self.parent = None
+                                    self.dns_like_name = None
+                                    self.mac_name = Cfm.Global.PeerMePv2S.PeerMePv2.PeerMep.LastCcmReceived.Header.Mdid.MacName()
+                                    self.mac_name.parent = self
+                                    self.mdid_data = None
+                                    self.mdid_format_value = None
+                                    self.string_name = None
+
+
+                                class MacName(object):
+                                    """
+                                    MAC address name
+                                    
+                                    .. attribute:: integer
+                                    
+                                    	Integer
+                                    	**type**\:  int
+                                    
+                                    	**range:** 0..65535
+                                    
+                                    .. attribute:: mac_address
+                                    
+                                    	MAC address
+                                    	**type**\:  str
+                                    
+                                    	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
+                                    
+                                    
+
+                                    """
+
+                                    _prefix = 'ethernet-cfm-oper'
+                                    _revision = '2015-11-09'
+
+                                    def __init__(self):
+                                        self.parent = None
+                                        self.integer = None
+                                        self.mac_address = None
+
+                                    @property
+                                    def _common_path(self):
+                                        if self.parent is None:
+                                            raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                        return self.parent._common_path +'/Cisco-IOS-XR-ethernet-cfm-oper:mac-name'
+
+                                    def is_config(self):
+                                        ''' Returns True if this instance represents config data else returns False '''
+                                        return False
+
+                                    def _has_data(self):
+                                        if not self.is_config():
+                                            return False
+                                        if self.integer is not None:
+                                            return True
+
+                                        if self.mac_address is not None:
+                                            return True
+
+                                        return False
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ethernet_cfm_oper as meta
+                                        return meta._meta_table['Cfm.Global.PeerMePv2S.PeerMePv2.PeerMep.LastCcmReceived.Header.Mdid.MacName']['meta_info']
+
+                                @property
+                                def _common_path(self):
+                                    if self.parent is None:
+                                        raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                    return self.parent._common_path +'/Cisco-IOS-XR-ethernet-cfm-oper:mdid'
+
+                                def is_config(self):
+                                    ''' Returns True if this instance represents config data else returns False '''
+                                    return False
+
+                                def _has_data(self):
+                                    if not self.is_config():
+                                        return False
+                                    if self.dns_like_name is not None:
+                                        return True
+
+                                    if self.mac_name is not None and self.mac_name._has_data():
+                                        return True
+
+                                    if self.mdid_data is not None:
+                                        return True
+
+                                    if self.mdid_format_value is not None:
+                                        return True
+
+                                    if self.string_name is not None:
+                                        return True
+
+                                    return False
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ethernet_cfm_oper as meta
+                                    return meta._meta_table['Cfm.Global.PeerMePv2S.PeerMePv2.PeerMep.LastCcmReceived.Header.Mdid']['meta_info']
+
+
+                            class ShortMaName(object):
+                                """
+                                Short MA Name
+                                
+                                .. attribute:: icc_based
+                                
+                                	ICC\-based format
+                                	**type**\:  str
+                                
+                                .. attribute:: integer_name
+                                
+                                	Unsigned integer name
+                                	**type**\:  int
+                                
+                                	**range:** 0..65535
+                                
+                                .. attribute:: short_ma_name_data
+                                
+                                	Hex data
+                                	**type**\:  str
+                                
+                                	**pattern:** ([0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2})\*)?
+                                
+                                .. attribute:: short_ma_name_format_value
+                                
+                                	ShortMANameFormatValue
+                                	**type**\:  :py:class:`CfmBagSmanFmtEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.CfmBagSmanFmtEnum>`
+                                
+                                .. attribute:: string_name
+                                
+                                	String name
+                                	**type**\:  str
+                                
+                                .. attribute:: vlan_id_name
+                                
+                                	VLAN ID name
+                                	**type**\:  int
+                                
+                                	**range:** 0..65535
+                                
+                                .. attribute:: vpn_id_name
+                                
+                                	VPN ID name
+                                	**type**\:  :py:class:`VpnIdName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global.PeerMePv2S.PeerMePv2.PeerMep.LastCcmReceived.Header.ShortMaName.VpnIdName>`
+                                
+                                
+
+                                """
+
+                                _prefix = 'ethernet-cfm-oper'
+                                _revision = '2015-11-09'
+
+                                def __init__(self):
+                                    self.parent = None
+                                    self.icc_based = None
+                                    self.integer_name = None
+                                    self.short_ma_name_data = None
+                                    self.short_ma_name_format_value = None
+                                    self.string_name = None
+                                    self.vlan_id_name = None
+                                    self.vpn_id_name = Cfm.Global.PeerMePv2S.PeerMePv2.PeerMep.LastCcmReceived.Header.ShortMaName.VpnIdName()
+                                    self.vpn_id_name.parent = self
+
+
+                                class VpnIdName(object):
+                                    """
+                                    VPN ID name
+                                    
+                                    .. attribute:: index
+                                    
+                                    	VPN index
+                                    	**type**\:  int
+                                    
+                                    	**range:** 0..4294967295
+                                    
+                                    .. attribute:: oui
+                                    
+                                    	VPN authority organizationally\-unique ID
+                                    	**type**\:  int
+                                    
+                                    	**range:** 0..4294967295
+                                    
+                                    
+
+                                    """
+
+                                    _prefix = 'ethernet-cfm-oper'
+                                    _revision = '2015-11-09'
+
+                                    def __init__(self):
+                                        self.parent = None
+                                        self.index = None
+                                        self.oui = None
+
+                                    @property
+                                    def _common_path(self):
+                                        if self.parent is None:
+                                            raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                        return self.parent._common_path +'/Cisco-IOS-XR-ethernet-cfm-oper:vpn-id-name'
+
+                                    def is_config(self):
+                                        ''' Returns True if this instance represents config data else returns False '''
+                                        return False
+
+                                    def _has_data(self):
+                                        if not self.is_config():
+                                            return False
+                                        if self.index is not None:
+                                            return True
+
+                                        if self.oui is not None:
+                                            return True
+
+                                        return False
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ethernet_cfm_oper as meta
+                                        return meta._meta_table['Cfm.Global.PeerMePv2S.PeerMePv2.PeerMep.LastCcmReceived.Header.ShortMaName.VpnIdName']['meta_info']
+
+                                @property
+                                def _common_path(self):
+                                    if self.parent is None:
+                                        raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                    return self.parent._common_path +'/Cisco-IOS-XR-ethernet-cfm-oper:short-ma-name'
+
+                                def is_config(self):
+                                    ''' Returns True if this instance represents config data else returns False '''
+                                    return False
+
+                                def _has_data(self):
+                                    if not self.is_config():
+                                        return False
+                                    if self.icc_based is not None:
+                                        return True
+
+                                    if self.integer_name is not None:
+                                        return True
+
+                                    if self.short_ma_name_data is not None:
+                                        return True
+
+                                    if self.short_ma_name_format_value is not None:
+                                        return True
+
+                                    if self.string_name is not None:
+                                        return True
+
+                                    if self.vlan_id_name is not None:
+                                        return True
+
+                                    if self.vpn_id_name is not None and self.vpn_id_name._has_data():
+                                        return True
+
+                                    return False
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ethernet_cfm_oper as meta
+                                    return meta._meta_table['Cfm.Global.PeerMePv2S.PeerMePv2.PeerMep.LastCcmReceived.Header.ShortMaName']['meta_info']
+
+                            @property
+                            def _common_path(self):
+                                if self.parent is None:
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                return self.parent._common_path +'/Cisco-IOS-XR-ethernet-cfm-oper:header'
+
+                            def is_config(self):
+                                ''' Returns True if this instance represents config data else returns False '''
+                                return False
+
+                            def _has_data(self):
+                                if not self.is_config():
+                                    return False
+                                if self.interval is not None:
+                                    return True
+
+                                if self.level is not None:
+                                    return True
+
+                                if self.mdid is not None and self.mdid._has_data():
+                                    return True
+
+                                if self.mdid_format is not None:
+                                    return True
+
+                                if self.mep_id is not None:
+                                    return True
+
+                                if self.rdi is not None:
+                                    return True
+
+                                if self.sequence_number is not None:
+                                    return True
+
+                                if self.short_ma_name is not None and self.short_ma_name._has_data():
+                                    return True
+
+                                if self.short_ma_name_format is not None:
+                                    return True
+
+                                if self.version is not None:
+                                    return True
+
+                                return False
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ethernet_cfm_oper as meta
+                                return meta._meta_table['Cfm.Global.PeerMePv2S.PeerMePv2.PeerMep.LastCcmReceived.Header']['meta_info']
+
+
+                        class SenderId(object):
+                            """
+                            Sender ID TLV
+                            
+                            .. attribute:: chassis_id
+                            
+                            	Chassis ID
+                            	**type**\:  :py:class:`ChassisId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global.PeerMePv2S.PeerMePv2.PeerMep.LastCcmReceived.SenderId.ChassisId>`
+                            
+                            .. attribute:: management_address
+                            
+                            	Management address
+                            	**type**\:  str
+                            
+                            	**pattern:** ([0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2})\*)?
+                            
+                            .. attribute:: management_address_domain
+                            
+                            	Management address domain
+                            	**type**\:  str
+                            
+                            	**pattern:** ([0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2})\*)?
+                            
+                            
+
+                            """
+
+                            _prefix = 'ethernet-cfm-oper'
+                            _revision = '2015-11-09'
+
+                            def __init__(self):
+                                self.parent = None
+                                self.chassis_id = Cfm.Global.PeerMePv2S.PeerMePv2.PeerMep.LastCcmReceived.SenderId.ChassisId()
+                                self.chassis_id.parent = self
+                                self.management_address = None
+                                self.management_address_domain = None
+
+
+                            class ChassisId(object):
+                                """
+                                Chassis ID
+                                
+                                .. attribute:: chassis_id
+                                
+                                	Chassis ID (Deprecated)
+                                	**type**\:  str
+                                
+                                	**pattern:** ([0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2})\*)?
+                                
+                                .. attribute:: chassis_id_type
+                                
+                                	Chassis ID Type
+                                	**type**\:  :py:class:`CfmPmChassisIdFmtEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.CfmPmChassisIdFmtEnum>`
+                                
+                                .. attribute:: chassis_id_type_value
+                                
+                                	Chassis ID Type
+                                	**type**\:  int
+                                
+                                	**range:** 0..255
+                                
+                                .. attribute:: chassis_id_value
+                                
+                                	Chassis ID (Current)
+                                	**type**\:  :py:class:`ChassisIdValue <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global.PeerMePv2S.PeerMePv2.PeerMep.LastCcmReceived.SenderId.ChassisId.ChassisIdValue>`
+                                
+                                
+
+                                """
+
+                                _prefix = 'ethernet-cfm-oper'
+                                _revision = '2015-11-09'
+
+                                def __init__(self):
+                                    self.parent = None
+                                    self.chassis_id = None
+                                    self.chassis_id_type = None
+                                    self.chassis_id_type_value = None
+                                    self.chassis_id_value = Cfm.Global.PeerMePv2S.PeerMePv2.PeerMep.LastCcmReceived.SenderId.ChassisId.ChassisIdValue()
+                                    self.chassis_id_value.parent = self
+
+
+                                class ChassisIdValue(object):
+                                    """
+                                    Chassis ID (Current)
+                                    
+                                    .. attribute:: chassis_id_format
+                                    
+                                    	ChassisIDFormat
+                                    	**type**\:  :py:class:`CfmPmIdFmtEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.CfmPmIdFmtEnum>`
+                                    
+                                    .. attribute:: chassis_id_mac
+                                    
+                                    	Chassis ID MAC Address
+                                    	**type**\:  str
+                                    
+                                    	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
+                                    
+                                    .. attribute:: chassis_id_raw
+                                    
+                                    	Raw Chassis ID
+                                    	**type**\:  str
+                                    
+                                    	**pattern:** ([0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2})\*)?
+                                    
+                                    .. attribute:: chassis_id_string
+                                    
+                                    	Chassis ID String
+                                    	**type**\:  str
+                                    
+                                    
+
+                                    """
+
+                                    _prefix = 'ethernet-cfm-oper'
+                                    _revision = '2015-11-09'
+
+                                    def __init__(self):
+                                        self.parent = None
+                                        self.chassis_id_format = None
+                                        self.chassis_id_mac = None
+                                        self.chassis_id_raw = None
+                                        self.chassis_id_string = None
+
+                                    @property
+                                    def _common_path(self):
+                                        if self.parent is None:
+                                            raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                        return self.parent._common_path +'/Cisco-IOS-XR-ethernet-cfm-oper:chassis-id-value'
+
+                                    def is_config(self):
+                                        ''' Returns True if this instance represents config data else returns False '''
+                                        return False
+
+                                    def _has_data(self):
+                                        if not self.is_config():
+                                            return False
+                                        if self.chassis_id_format is not None:
+                                            return True
+
+                                        if self.chassis_id_mac is not None:
+                                            return True
+
+                                        if self.chassis_id_raw is not None:
+                                            return True
+
+                                        if self.chassis_id_string is not None:
+                                            return True
+
+                                        return False
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ethernet_cfm_oper as meta
+                                        return meta._meta_table['Cfm.Global.PeerMePv2S.PeerMePv2.PeerMep.LastCcmReceived.SenderId.ChassisId.ChassisIdValue']['meta_info']
+
+                                @property
+                                def _common_path(self):
+                                    if self.parent is None:
+                                        raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                    return self.parent._common_path +'/Cisco-IOS-XR-ethernet-cfm-oper:chassis-id'
+
+                                def is_config(self):
+                                    ''' Returns True if this instance represents config data else returns False '''
+                                    return False
+
+                                def _has_data(self):
+                                    if not self.is_config():
+                                        return False
+                                    if self.chassis_id is not None:
+                                        return True
+
+                                    if self.chassis_id_type is not None:
+                                        return True
+
+                                    if self.chassis_id_type_value is not None:
+                                        return True
+
+                                    if self.chassis_id_value is not None and self.chassis_id_value._has_data():
+                                        return True
+
+                                    return False
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ethernet_cfm_oper as meta
+                                    return meta._meta_table['Cfm.Global.PeerMePv2S.PeerMePv2.PeerMep.LastCcmReceived.SenderId.ChassisId']['meta_info']
+
+                            @property
+                            def _common_path(self):
+                                if self.parent is None:
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                return self.parent._common_path +'/Cisco-IOS-XR-ethernet-cfm-oper:sender-id'
+
+                            def is_config(self):
+                                ''' Returns True if this instance represents config data else returns False '''
+                                return False
+
+                            def _has_data(self):
+                                if not self.is_config():
+                                    return False
+                                if self.chassis_id is not None and self.chassis_id._has_data():
+                                    return True
+
+                                if self.management_address is not None:
+                                    return True
+
+                                if self.management_address_domain is not None:
+                                    return True
+
+                                return False
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ethernet_cfm_oper as meta
+                                return meta._meta_table['Cfm.Global.PeerMePv2S.PeerMePv2.PeerMep.LastCcmReceived.SenderId']['meta_info']
+
+
+                        class MepName(object):
+                            """
+                            MEP name
+                            
+                            .. attribute:: name
+                            
+                            	MEP name
+                            	**type**\:  str
+                            
+                            
+
+                            """
+
+                            _prefix = 'ethernet-cfm-oper'
+                            _revision = '2015-11-09'
+
+                            def __init__(self):
+                                self.parent = None
+                                self.name = None
+
+                            @property
+                            def _common_path(self):
+                                if self.parent is None:
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                return self.parent._common_path +'/Cisco-IOS-XR-ethernet-cfm-oper:mep-name'
+
+                            def is_config(self):
+                                ''' Returns True if this instance represents config data else returns False '''
+                                return False
+
+                            def _has_data(self):
+                                if not self.is_config():
+                                    return False
+                                if self.name is not None:
+                                    return True
+
+                                return False
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ethernet_cfm_oper as meta
+                                return meta._meta_table['Cfm.Global.PeerMePv2S.PeerMePv2.PeerMep.LastCcmReceived.MepName']['meta_info']
+
+
+                        class OrganizationSpecificTlv(object):
+                            """
+                            Organizational\-specific TLVs
+                            
+                            .. attribute:: oui
+                            
+                            	Organizationally\-unique ID
+                            	**type**\:  str
+                            
+                            	**pattern:** ([0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2})\*)?
+                            
+                            .. attribute:: subtype
+                            
+                            	Subtype of TLV
+                            	**type**\:  int
+                            
+                            	**range:** 0..255
+                            
+                            .. attribute:: value
+                            
+                            	Binary data in TLV
+                            	**type**\:  str
+                            
+                            	**pattern:** ([0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2})\*)?
+                            
+                            
+
+                            """
+
+                            _prefix = 'ethernet-cfm-oper'
+                            _revision = '2015-11-09'
+
+                            def __init__(self):
+                                self.parent = None
+                                self.oui = None
+                                self.subtype = None
+                                self.value = None
+
+                            @property
+                            def _common_path(self):
+                                if self.parent is None:
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                return self.parent._common_path +'/Cisco-IOS-XR-ethernet-cfm-oper:organization-specific-tlv'
+
+                            def is_config(self):
+                                ''' Returns True if this instance represents config data else returns False '''
+                                return False
+
+                            def _has_data(self):
+                                if not self.is_config():
+                                    return False
+                                if self.oui is not None:
+                                    return True
+
+                                if self.subtype is not None:
+                                    return True
+
+                                if self.value is not None:
+                                    return True
+
+                                return False
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ethernet_cfm_oper as meta
+                                return meta._meta_table['Cfm.Global.PeerMePv2S.PeerMePv2.PeerMep.LastCcmReceived.OrganizationSpecificTlv']['meta_info']
+
+
+                        class UnknownTlv(object):
+                            """
+                            Unknown TLVs
+                            
+                            .. attribute:: typecode
+                            
+                            	Type code of TLV
+                            	**type**\:  int
+                            
+                            	**range:** 0..255
+                            
+                            .. attribute:: value
+                            
+                            	Binary data in TLV
+                            	**type**\:  str
+                            
+                            	**pattern:** ([0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2})\*)?
+                            
+                            
+
+                            """
+
+                            _prefix = 'ethernet-cfm-oper'
+                            _revision = '2015-11-09'
+
+                            def __init__(self):
+                                self.parent = None
+                                self.typecode = None
+                                self.value = None
+
+                            @property
+                            def _common_path(self):
+                                if self.parent is None:
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                return self.parent._common_path +'/Cisco-IOS-XR-ethernet-cfm-oper:unknown-tlv'
+
+                            def is_config(self):
+                                ''' Returns True if this instance represents config data else returns False '''
+                                return False
+
+                            def _has_data(self):
+                                if not self.is_config():
+                                    return False
+                                if self.typecode is not None:
+                                    return True
+
+                                if self.value is not None:
+                                    return True
+
+                                return False
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ethernet_cfm_oper as meta
+                                return meta._meta_table['Cfm.Global.PeerMePv2S.PeerMePv2.PeerMep.LastCcmReceived.UnknownTlv']['meta_info']
+
+                        @property
+                        def _common_path(self):
+                            if self.parent is None:
+                                raise YPYModelError('parent is not set . Cannot derive path.')
+
+                            return self.parent._common_path +'/Cisco-IOS-XR-ethernet-cfm-oper:last-ccm-received'
+
+                        def is_config(self):
+                            ''' Returns True if this instance represents config data else returns False '''
+                            return False
+
+                        def _has_data(self):
+                            if not self.is_config():
+                                return False
+                            if self.additional_interface_status is not None:
+                                return True
+
+                            if self.header is not None and self.header._has_data():
+                                return True
+
+                            if self.interface_status is not None:
+                                return True
+
+                            if self.mep_name is not None and self.mep_name._has_data():
+                                return True
+
+                            if self.organization_specific_tlv is not None:
+                                for child_ref in self.organization_specific_tlv:
+                                    if child_ref._has_data():
+                                        return True
+
+                            if self.port_status is not None:
+                                return True
+
+                            if self.raw_data is not None:
+                                return True
+
+                            if self.sender_id is not None and self.sender_id._has_data():
+                                return True
+
+                            if self.unknown_tlv is not None:
+                                for child_ref in self.unknown_tlv:
+                                    if child_ref._has_data():
+                                        return True
+
+                            return False
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ethernet_cfm_oper as meta
+                            return meta._meta_table['Cfm.Global.PeerMePv2S.PeerMePv2.PeerMep.LastCcmReceived']['meta_info']
+
+
+                    class Statistics(object):
+                        """
+                        Peer MEP statistics
+                        
+                        .. attribute:: ccms_invalid_interval
+                        
+                        	Number of CCMs received with an invalid interval
+                        	**type**\:  int
+                        
+                        	**range:** 0..18446744073709551615
+                        
+                        .. attribute:: ccms_invalid_maid
+                        
+                        	Number of CCMs received with an invalid MAID
+                        	**type**\:  int
+                        
+                        	**range:** 0..18446744073709551615
+                        
+                        .. attribute:: ccms_invalid_source_mac_address
+                        
+                        	Number of CCMs received with an invalid source MAC address
+                        	**type**\:  int
+                        
+                        	**range:** 0..18446744073709551615
+                        
+                        .. attribute:: ccms_our_mep_id
+                        
+                        	Number of CCMs received with our MEP ID
+                        	**type**\:  int
+                        
+                        	**range:** 0..18446744073709551615
+                        
+                        .. attribute:: ccms_out_of_sequence
+                        
+                        	Number of CCMs received out\-of\-sequence
+                        	**type**\:  int
+                        
+                        	**range:** 0..18446744073709551615
+                        
+                        .. attribute:: ccms_rdi
+                        
+                        	Number of CCMs received with the Remote Defect Indication bit set
+                        	**type**\:  int
+                        
+                        	**range:** 0..18446744073709551615
+                        
+                        .. attribute:: ccms_received
+                        
+                        	Number of CCMs received
+                        	**type**\:  int
+                        
+                        	**range:** 0..18446744073709551615
+                        
+                        .. attribute:: ccms_wrong_level
+                        
+                        	Number of CCMs received with an invalid level
+                        	**type**\:  int
+                        
+                        	**range:** 0..18446744073709551615
+                        
+                        .. attribute:: last_ccm_received_time
+                        
+                        	Elapsed time since last CCM received
+                        	**type**\:  :py:class:`LastCcmReceivedTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global.PeerMePv2S.PeerMePv2.PeerMep.Statistics.LastCcmReceivedTime>`
+                        
+                        .. attribute:: last_ccm_sequence_number
+                        
+                        	Sequence number of last CCM received
+                        	**type**\:  int
+                        
+                        	**range:** 0..4294967295
+                        
+                        
+
+                        """
+
+                        _prefix = 'ethernet-cfm-oper'
+                        _revision = '2015-11-09'
+
+                        def __init__(self):
+                            self.parent = None
+                            self.ccms_invalid_interval = None
+                            self.ccms_invalid_maid = None
+                            self.ccms_invalid_source_mac_address = None
+                            self.ccms_our_mep_id = None
+                            self.ccms_out_of_sequence = None
+                            self.ccms_rdi = None
+                            self.ccms_received = None
+                            self.ccms_wrong_level = None
+                            self.last_ccm_received_time = Cfm.Global.PeerMePv2S.PeerMePv2.PeerMep.Statistics.LastCcmReceivedTime()
+                            self.last_ccm_received_time.parent = self
+                            self.last_ccm_sequence_number = None
+
+
+                        class LastCcmReceivedTime(object):
+                            """
+                            Elapsed time since last CCM received
+                            
+                            .. attribute:: nanoseconds
+                            
+                            	Nanoseconds
+                            	**type**\:  int
+                            
+                            	**range:** 0..4294967295
+                            
+                            .. attribute:: seconds
+                            
+                            	Seconds
+                            	**type**\:  int
+                            
+                            	**range:** 0..4294967295
+                            
+                            
+
+                            """
+
+                            _prefix = 'ethernet-cfm-oper'
+                            _revision = '2015-11-09'
+
+                            def __init__(self):
+                                self.parent = None
+                                self.nanoseconds = None
+                                self.seconds = None
+
+                            @property
+                            def _common_path(self):
+                                if self.parent is None:
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                return self.parent._common_path +'/Cisco-IOS-XR-ethernet-cfm-oper:last-ccm-received-time'
+
+                            def is_config(self):
+                                ''' Returns True if this instance represents config data else returns False '''
+                                return False
+
+                            def _has_data(self):
+                                if not self.is_config():
+                                    return False
+                                if self.nanoseconds is not None:
+                                    return True
+
+                                if self.seconds is not None:
+                                    return True
+
+                                return False
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ethernet_cfm_oper as meta
+                                return meta._meta_table['Cfm.Global.PeerMePv2S.PeerMePv2.PeerMep.Statistics.LastCcmReceivedTime']['meta_info']
+
+                        @property
+                        def _common_path(self):
+                            if self.parent is None:
+                                raise YPYModelError('parent is not set . Cannot derive path.')
+
+                            return self.parent._common_path +'/Cisco-IOS-XR-ethernet-cfm-oper:statistics'
+
+                        def is_config(self):
+                            ''' Returns True if this instance represents config data else returns False '''
+                            return False
+
+                        def _has_data(self):
+                            if not self.is_config():
+                                return False
+                            if self.ccms_invalid_interval is not None:
+                                return True
+
+                            if self.ccms_invalid_maid is not None:
+                                return True
+
+                            if self.ccms_invalid_source_mac_address is not None:
+                                return True
+
+                            if self.ccms_our_mep_id is not None:
+                                return True
+
+                            if self.ccms_out_of_sequence is not None:
+                                return True
+
+                            if self.ccms_rdi is not None:
+                                return True
+
+                            if self.ccms_received is not None:
+                                return True
+
+                            if self.ccms_wrong_level is not None:
+                                return True
+
+                            if self.last_ccm_received_time is not None and self.last_ccm_received_time._has_data():
+                                return True
+
+                            if self.last_ccm_sequence_number is not None:
+                                return True
+
+                            return False
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ethernet_cfm_oper as meta
+                            return meta._meta_table['Cfm.Global.PeerMePv2S.PeerMePv2.PeerMep.Statistics']['meta_info']
+
+                    @property
+                    def _common_path(self):
+                        if self.parent is None:
+                            raise YPYModelError('parent is not set . Cannot derive path.')
+
+                        return self.parent._common_path +'/Cisco-IOS-XR-ethernet-cfm-oper:peer-mep'
+
+                    def is_config(self):
+                        ''' Returns True if this instance represents config data else returns False '''
+                        return False
+
+                    def _has_data(self):
+                        if not self.is_config():
+                            return False
+                        if self.ccm_offload is not None:
+                            return True
+
+                        if self.cross_check_state is not None:
+                            return True
+
+                        if self.error_state is not None and self.error_state._has_data():
+                            return True
+
+                        if self.last_ccm_received is not None and self.last_ccm_received._has_data():
+                            return True
+
+                        if self.last_up_down_time is not None and self.last_up_down_time._has_data():
+                            return True
+
+                        if self.mac_address is not None:
+                            return True
+
+                        if self.mep_id is not None:
+                            return True
+
+                        if self.peer_mep_state is not None:
+                            return True
+
+                        if self.statistics is not None and self.statistics._has_data():
+                            return True
+
+                        return False
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ethernet_cfm_oper as meta
+                        return meta._meta_table['Cfm.Global.PeerMePv2S.PeerMePv2.PeerMep']['meta_info']
+
+                @property
+                def _common_path(self):
+                    if self.domain is None:
+                        raise YPYModelError('Key property domain is None')
+                    if self.interface is None:
+                        raise YPYModelError('Key property interface is None')
+                    if self.local_mep_id is None:
+                        raise YPYModelError('Key property local_mep_id is None')
+                    if self.peer_mac_address is None:
+                        raise YPYModelError('Key property peer_mac_address is None')
+                    if self.peer_mep_id is None:
+                        raise YPYModelError('Key property peer_mep_id is None')
+                    if self.service is None:
+                        raise YPYModelError('Key property service is None')
+
+                    return '/Cisco-IOS-XR-ethernet-cfm-oper:cfm/Cisco-IOS-XR-ethernet-cfm-oper:global/Cisco-IOS-XR-ethernet-cfm-oper:peer-me-pv2s/Cisco-IOS-XR-ethernet-cfm-oper:peer-me-pv2[Cisco-IOS-XR-ethernet-cfm-oper:domain = ' + str(self.domain) + '][Cisco-IOS-XR-ethernet-cfm-oper:interface = ' + str(self.interface) + '][Cisco-IOS-XR-ethernet-cfm-oper:local-mep-id = ' + str(self.local_mep_id) + '][Cisco-IOS-XR-ethernet-cfm-oper:peer-mac-address = ' + str(self.peer_mac_address) + '][Cisco-IOS-XR-ethernet-cfm-oper:peer-mep-id = ' + str(self.peer_mep_id) + '][Cisco-IOS-XR-ethernet-cfm-oper:service = ' + str(self.service) + ']'
+
+                def is_config(self):
+                    ''' Returns True if this instance represents config data else returns False '''
+                    return False
+
+                def _has_data(self):
+                    if not self.is_config():
+                        return False
+                    if self.domain is not None:
+                        return True
+
+                    if self.interface is not None:
+                        return True
+
+                    if self.local_mep_id is not None:
+                        return True
+
+                    if self.peer_mac_address is not None:
+                        return True
+
+                    if self.peer_mep_id is not None:
+                        return True
+
+                    if self.service is not None:
+                        return True
+
+                    if self.domain_xr is not None:
+                        return True
+
+                    if self.interface_xr is not None:
+                        return True
+
+                    if self.level is not None:
+                        return True
+
+                    if self.mep_direction is not None:
+                        return True
+
+                    if self.mep_id is not None:
+                        return True
+
+                    if self.peer_mep is not None and self.peer_mep._has_data():
+                        return True
+
+                    if self.service_xr is not None:
+                        return True
+
+                    if self.standby is not None:
+                        return True
+
+                    return False
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ethernet_cfm_oper as meta
+                    return meta._meta_table['Cfm.Global.PeerMePv2S.PeerMePv2']['meta_info']
+
+            @property
+            def _common_path(self):
+
+                return '/Cisco-IOS-XR-ethernet-cfm-oper:cfm/Cisco-IOS-XR-ethernet-cfm-oper:global/Cisco-IOS-XR-ethernet-cfm-oper:peer-me-pv2s'
+
+            def is_config(self):
+                ''' Returns True if this instance represents config data else returns False '''
+                return False
+
+            def _has_data(self):
+                if not self.is_config():
+                    return False
+                if self.peer_me_pv2 is not None:
+                    for child_ref in self.peer_me_pv2:
+                        if child_ref._has_data():
+                            return True
+
+                return False
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ethernet_cfm_oper as meta
+                return meta._meta_table['Cfm.Global.PeerMePv2S']['meta_info']
+
         @property
         def _common_path(self):
 
@@ -11962,7 +12012,7 @@ class Cfm(object):
             if self.mep_configuration_errors is not None and self.mep_configuration_errors._has_data():
                 return True
 
-            if self.peer_meps is not None and self.peer_meps._has_data():
+            if self.peer_me_pv2s is not None and self.peer_me_pv2s._has_data():
                 return True
 
             if self.traceroute_caches is not None and self.traceroute_caches._has_data():

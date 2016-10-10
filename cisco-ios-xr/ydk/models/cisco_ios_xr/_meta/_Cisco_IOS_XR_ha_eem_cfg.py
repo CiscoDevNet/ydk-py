@@ -57,7 +57,7 @@ _meta_table = {
                 'checksum_type',
                 'Cisco-IOS-XR-ha-eem-cfg', False),
             _MetaInfoClassMember('persist-time', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Time of validity (in seconds) for cached AAA
                 taskmap of username (default is 3600)
                 ''',
@@ -123,7 +123,7 @@ _meta_table = {
                 'thread_class_name',
                 'Cisco-IOS-XR-ha-eem-cfg', True),
             _MetaInfoClassMember('num-threads', ATTRIBUTE, 'int' , None, None, 
-                [(1, 5)], [], 
+                [('1', '5')], [], 
                 '''                number of scheduler threads
                 ''',
                 'num_threads',
@@ -239,7 +239,7 @@ _meta_table = {
                 'policies',
                 'Cisco-IOS-XR-ha-eem-cfg', False),
             _MetaInfoClassMember('refresh-time', ATTRIBUTE, 'int' , None, None, 
-                [(10, 4294967295)], [], 
+                [('10', '4294967295')], [], 
                 '''                Set refresh time (in seconds) for policy
                 username's AAA taskmap
                 ''',

@@ -27,37 +27,37 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('day', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                Day [1..31]
                 ''',
                 'day',
                 'Cisco-IOS-XR-shellutil-oper', False),
             _MetaInfoClassMember('hour', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                Hour [0..23]
                 ''',
                 'hour',
                 'Cisco-IOS-XR-shellutil-oper', False),
             _MetaInfoClassMember('millisecond', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                Millisecond [0..999]
                 ''',
                 'millisecond',
                 'Cisco-IOS-XR-shellutil-oper', False),
             _MetaInfoClassMember('minute', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                Minute [0..59]
                 ''',
                 'minute',
                 'Cisco-IOS-XR-shellutil-oper', False),
             _MetaInfoClassMember('month', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                Month [1..12]
                 ''',
                 'month',
                 'Cisco-IOS-XR-shellutil-oper', False),
             _MetaInfoClassMember('second', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                Second [0..60], use 60 for leap-second
                 ''',
                 'second',
@@ -75,13 +75,13 @@ _meta_table = {
                 'time_zone',
                 'Cisco-IOS-XR-shellutil-oper', False),
             _MetaInfoClassMember('wday', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                Week Day [0..6]
                 ''',
                 'wday',
                 'Cisco-IOS-XR-shellutil-oper', False),
             _MetaInfoClassMember('year', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                Year [0..65535]
                 ''',
                 'year',
@@ -104,7 +104,7 @@ _meta_table = {
                 'host_name',
                 'Cisco-IOS-XR-shellutil-oper', False),
             _MetaInfoClassMember('uptime', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Amount of time in seconds since this system    
                 was last initialized
                 ''',

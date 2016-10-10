@@ -18,6 +18,10 @@ _meta_table = {
         {
             'non-standard':'NON_STANDARD',
         }, 'Cisco-IOS-XR-drivers-media-eth-cfg', _yang_ns._namespaces['Cisco-IOS-XR-drivers-media-eth-cfg']),
+    'EthernetPfcEnum' : _MetaInfoEnum('EthernetPfcEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_cfg',
+        {
+            'on':'ON',
+        }, 'Cisco-IOS-XR-drivers-media-eth-cfg', _yang_ns._namespaces['Cisco-IOS-XR-drivers-media-eth-cfg']),
     'EthernetAutoNegotiationEnum' : _MetaInfoEnum('EthernetAutoNegotiationEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_cfg',
         {
             'true':'TRUE',

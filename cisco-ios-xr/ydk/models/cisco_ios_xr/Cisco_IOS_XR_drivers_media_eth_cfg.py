@@ -7,7 +7,7 @@ This YANG module augments the
   Cisco\-IOS\-XR\-ifmgr\-cfg
 module with configuration data.
 
-Copyright (c) 2013\-2015 by Cisco Systems, Inc.
+Copyright (c) 2013\-2016 by Cisco Systems, Inc.
 All rights reserved.
 
 """
@@ -190,6 +190,27 @@ class EthernetLoopbackEnum(Enum):
     def _meta_info():
         from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_drivers_media_eth_cfg as meta
         return meta._meta_table['EthernetLoopbackEnum']
+
+
+class EthernetPfcEnum(Enum):
+    """
+    EthernetPfcEnum
+
+    Ethernet pfc
+
+    .. data:: ON = 1
+
+    	Enable priority flow control
+
+    """
+
+    ON = 1
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_drivers_media_eth_cfg as meta
+        return meta._meta_table['EthernetPfcEnum']
 
 
 class EthernetSpeedEnum(Enum):

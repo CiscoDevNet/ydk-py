@@ -19,7 +19,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('session-id', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Session Id
                 ''',
                 'session_id',

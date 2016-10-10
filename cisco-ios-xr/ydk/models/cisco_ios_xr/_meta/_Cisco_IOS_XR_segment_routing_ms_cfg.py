@@ -24,13 +24,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('lower-bound', ATTRIBUTE, 'int' , None, None, 
-                [(16000, 1048574)], [], 
+                [('16000', '1048574')], [], 
                 '''                SRGB Lower Bound
                 ''',
                 'lower_bound',
                 'Cisco-IOS-XR-segment-routing-ms-cfg', False),
             _MetaInfoClassMember('upper-bound', ATTRIBUTE, 'int' , None, None, 
-                [(16001, 1048575)], [], 
+                [('16001', '1048575')], [], 
                 '''                SRGB Upper Bound
                 ''',
                 'upper_bound',
@@ -59,7 +59,7 @@ _meta_table = {
                 'ip',
                 'Cisco-IOS-XR-segment-routing-ms-cfg', True),
             _MetaInfoClassMember('mask', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Mask
                 ''',
                 'mask',
@@ -71,13 +71,13 @@ _meta_table = {
                 'flag_attached',
                 'Cisco-IOS-XR-segment-routing-ms-cfg', False),
             _MetaInfoClassMember('sid-range', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Range (number of SIDs)
                 ''',
                 'sid_range',
                 'Cisco-IOS-XR-segment-routing-ms-cfg', False),
             _MetaInfoClassMember('sid-start', ATTRIBUTE, 'int' , None, None, 
-                [(0, 1048575)], [], 
+                [('0', '1048575')], [], 
                 '''                Start of SID index range
                 ''',
                 'sid_start',

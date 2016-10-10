@@ -7,7 +7,7 @@ This module contains definitions
 for the following management objects\:
   sla\: SLA prtocol and profile Configuration
 
-Copyright (c) 2013\-2015 by Cisco Systems, Inc.
+Copyright (c) 2013\-2016 by Cisco Systems, Inc.
 All rights reserved.
 
 """
@@ -23,15 +23,6 @@ from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
 from ydk.errors import YPYError, YPYModelError
 
 
-from ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_datatypes import SlaBucketsSizeUnitsEnumEnum
-from ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_datatypes import SlaBurstIntervalUnitsEnumEnum
-from ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_datatypes import SlaPacketIntervalUnitsEnumEnum
-from ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_datatypes import SlaPaddingPatternEnum
-from ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_datatypes import SlaProbeDurationUnitsEnumEnum
-from ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_datatypes import SlaProbeIntervalDayEnumEnum
-from ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_datatypes import SlaProbeIntervalUnitsEnumEnum
-from ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_datatypes import SlaSendEnum
-from ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_datatypes import SlaStatisticTypeEnumEnum
 
 
 class Sla(object):
@@ -135,7 +126,7 @@ class Sla(object):
                     
                     .. attribute:: packet_type
                     
-                    	The possible packet types are cfm\-loopback, cfm\-delay\-measurement, cfm\-delay\-measurement\-version\-0 and cfm\-synthetic\-loss\-measurement
+                    	The possible packet types are cfm\-loopback, cfm\-delay\-measurement, cfm\-delay\-measurement\-version\-0, cfm\-loss\-measurement and cfm\-synthetic\-loss\-measurement
                     	**type**\:  str
                     
                     .. attribute:: probe
@@ -647,7 +638,7 @@ class Sla(object):
                             
                             .. attribute:: burst_interval_unit
                             
-                            	Time unit associated with the BurstInterval .  This must be specified if, and only is, SendType is 'Burst'
+                            	Time unit associated with the BurstInterval .  This must be specified if, and only if, SendType is 'Burst'
                             	**type**\:  :py:class:`SlaBurstIntervalUnitsEnumEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_datatypes.SlaBurstIntervalUnitsEnumEnum>`
                             
                             .. attribute:: packet_count
@@ -659,16 +650,14 @@ class Sla(object):
                             
                             .. attribute:: packet_interval
                             
-                            	Interval between packets
+                            	Interval between packets.  This must be specified if, and only if, PacketIntervalUnit is not 'Once'
                             	**type**\:  int
                             
-                            	**range:** 1..10000
-                            
-                            	**mandatory**\: True
+                            	**range:** 1..30000
                             
                             .. attribute:: packet_interval_unit
                             
-                            	Time unit associated with the PacketInterval, must not be 'Once'
+                            	Time unit associated with the PacketInterval
                             	**type**\:  :py:class:`SlaPacketIntervalUnitsEnumEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_datatypes.SlaPacketIntervalUnitsEnumEnum>`
                             
                             	**mandatory**\: True

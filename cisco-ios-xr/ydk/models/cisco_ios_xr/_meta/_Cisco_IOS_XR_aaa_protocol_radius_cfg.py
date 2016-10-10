@@ -30,6 +30,11 @@ _meta_table = {
             'accept':'ACCEPT',
             'reject':'REJECT',
         }, 'Cisco-IOS-XR-aaa-protocol-radius-cfg', _yang_ns._namespaces['Cisco-IOS-XR-aaa-protocol-radius-cfg']),
+    'AaaSelectKeyEnum' : _MetaInfoEnum('AaaSelectKeyEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_protocol_radius_cfg',
+        {
+            'server-key':'SERVER_KEY',
+            'session-key':'SESSION_KEY',
+        }, 'Cisco-IOS-XR-aaa-protocol-radius-cfg', _yang_ns._namespaces['Cisco-IOS-XR-aaa-protocol-radius-cfg']),
     'AaaDscpValueEnum' : _MetaInfoEnum('AaaDscpValueEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_protocol_radius_cfg',
         {
             'af11':'AF11',
@@ -53,10 +58,5 @@ _meta_table = {
             'cs7':'CS7',
             'default':'DEFAULT',
             'ef':'EF',
-        }, 'Cisco-IOS-XR-aaa-protocol-radius-cfg', _yang_ns._namespaces['Cisco-IOS-XR-aaa-protocol-radius-cfg']),
-    'AaaSelectKeyEnum' : _MetaInfoEnum('AaaSelectKeyEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_protocol_radius_cfg',
-        {
-            'server-key':'SERVER_KEY',
-            'session-key':'SESSION_KEY',
         }, 'Cisco-IOS-XR-aaa-protocol-radius-cfg', _yang_ns._namespaces['Cisco-IOS-XR-aaa-protocol-radius-cfg']),
 }

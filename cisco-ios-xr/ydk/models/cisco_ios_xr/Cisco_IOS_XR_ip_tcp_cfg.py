@@ -8,7 +8,7 @@ for the following management objects\:
   ip\-tcp\: Global IP TCP configuration
   ip\: ip
 
-Copyright (c) 2013\-2015 by Cisco Systems, Inc.
+Copyright (c) 2013\-2016 by Cisco Systems, Inc.
 All rights reserved.
 
 """
@@ -102,7 +102,7 @@ class IpTcp(object):
     """
 
     _prefix = 'ip-tcp-cfg'
-    _revision = '2015-11-09'
+    _revision = '2016-02-26'
 
     def __init__(self):
         self.accept_rate = None
@@ -159,7 +159,7 @@ class IpTcp(object):
         """
 
         _prefix = 'ip-tcp-cfg'
-        _revision = '2015-11-09'
+        _revision = '2016-02-26'
 
         def __init__(self):
             self.parent = None
@@ -233,7 +233,7 @@ class IpTcp(object):
         """
 
         _prefix = 'ip-tcp-cfg'
-        _revision = '2015-11-09'
+        _revision = '2016-02-26'
 
         def __init__(self):
             self.parent = None
@@ -303,7 +303,7 @@ class IpTcp(object):
         """
 
         _prefix = 'ip-tcp-cfg'
-        _revision = '2015-11-09'
+        _revision = '2016-02-26'
 
         def __init__(self):
             self.parent = None
@@ -410,7 +410,7 @@ class Ip(object):
     """
 
     _prefix = 'ip-tcp-cfg'
-    _revision = '2015-11-09'
+    _revision = '2016-02-26'
 
     def __init__(self):
         self.cinetd = Ip.Cinetd()
@@ -433,7 +433,7 @@ class Ip(object):
         """
 
         _prefix = 'ip-tcp-cfg'
-        _revision = '2015-11-09'
+        _revision = '2016-02-26'
 
         def __init__(self):
             self.parent = None
@@ -465,7 +465,7 @@ class Ip(object):
             """
 
             _prefix = 'ip-tcp-cfg'
-            _revision = '2015-11-09'
+            _revision = '2016-02-26'
 
             def __init__(self):
                 self.parent = None
@@ -491,7 +491,7 @@ class Ip(object):
                 """
 
                 _prefix = 'ip-tcp-cfg'
-                _revision = '2015-11-09'
+                _revision = '2016-02-26'
 
                 def __init__(self):
                     self.parent = None
@@ -518,7 +518,7 @@ class Ip(object):
                     """
 
                     _prefix = 'ip-tcp-cfg'
-                    _revision = '2015-11-09'
+                    _revision = '2016-02-26'
 
                     def __init__(self):
                         self.parent = None
@@ -557,7 +557,7 @@ class Ip(object):
                         """
 
                         _prefix = 'ip-tcp-cfg'
-                        _revision = '2015-11-09'
+                        _revision = '2016-02-26'
 
                         def __init__(self):
                             self.parent = None
@@ -625,7 +625,7 @@ class Ip(object):
                         """
 
                         _prefix = 'ip-udp-cfg'
-                        _revision = '2015-11-09'
+                        _revision = '2016-02-26'
 
                         def __init__(self):
                             self.parent = None
@@ -722,7 +722,7 @@ class Ip(object):
                 """
 
                 _prefix = 'ip-tcp-cfg'
-                _revision = '2015-11-09'
+                _revision = '2016-02-26'
 
                 def __init__(self):
                     self.parent = None
@@ -757,7 +757,7 @@ class Ip(object):
                     """
 
                     _prefix = 'ip-tcp-cfg'
-                    _revision = '2015-11-09'
+                    _revision = '2016-02-26'
 
                     def __init__(self):
                         self.parent = None
@@ -787,7 +787,7 @@ class Ip(object):
                         """
 
                         _prefix = 'ip-tcp-cfg'
-                        _revision = '2015-11-09'
+                        _revision = '2016-02-26'
 
                         def __init__(self):
                             self.parent = None
@@ -811,7 +811,7 @@ class Ip(object):
                             """
 
                             _prefix = 'ip-tcp-cfg'
-                            _revision = '2015-11-09'
+                            _revision = '2016-02-26'
 
                             def __init__(self):
                                 self.parent = None
@@ -848,7 +848,7 @@ class Ip(object):
                                 """
 
                                 _prefix = 'ip-tcp-cfg'
-                                _revision = '2015-11-09'
+                                _revision = '2016-02-26'
 
                                 def __init__(self):
                                     self.parent = None
@@ -924,7 +924,7 @@ class Ip(object):
                             """
 
                             _prefix = 'ip-tcp-cfg'
-                            _revision = '2015-11-09'
+                            _revision = '2016-02-26'
 
                             def __init__(self):
                                 self.parent = None
@@ -973,7 +973,7 @@ class Ip(object):
                                 """
 
                                 _prefix = 'ip-tcp-cfg'
-                                _revision = '2015-11-09'
+                                _revision = '2016-02-26'
 
                                 def __init__(self):
                                     self.parent = None
@@ -1089,7 +1089,7 @@ class Ip(object):
                         """
 
                         _prefix = 'ip-tcp-cfg'
-                        _revision = '2015-11-09'
+                        _revision = '2016-02-26'
 
                         def __init__(self):
                             self.parent = None
@@ -1113,7 +1113,7 @@ class Ip(object):
                             """
 
                             _prefix = 'ip-tcp-cfg'
-                            _revision = '2015-11-09'
+                            _revision = '2016-02-26'
 
                             def __init__(self):
                                 self.parent = None
@@ -1150,7 +1150,7 @@ class Ip(object):
                                 """
 
                                 _prefix = 'ip-tcp-cfg'
-                                _revision = '2015-11-09'
+                                _revision = '2016-02-26'
 
                                 def __init__(self):
                                     self.parent = None
@@ -1226,7 +1226,7 @@ class Ip(object):
                             """
 
                             _prefix = 'ip-tcp-cfg'
-                            _revision = '2015-11-09'
+                            _revision = '2016-02-26'
 
                             def __init__(self):
                                 self.parent = None
@@ -1275,7 +1275,7 @@ class Ip(object):
                                 """
 
                                 _prefix = 'ip-tcp-cfg'
-                                _revision = '2015-11-09'
+                                _revision = '2016-02-26'
 
                                 def __init__(self):
                                     self.parent = None
@@ -1440,7 +1440,7 @@ class Ip(object):
                 """
 
                 _prefix = 'ip-tcp-cfg'
-                _revision = '2015-11-09'
+                _revision = '2016-02-26'
 
                 def __init__(self):
                     self.parent = None
@@ -1462,7 +1462,7 @@ class Ip(object):
                     """
 
                     _prefix = 'ip-tcp-cfg'
-                    _revision = '2015-11-09'
+                    _revision = '2016-02-26'
 
                     def __init__(self):
                         self.parent = None
@@ -1500,7 +1500,7 @@ class Ip(object):
                         """
 
                         _prefix = 'ip-tcp-cfg'
-                        _revision = '2015-11-09'
+                        _revision = '2016-02-26'
 
                         def __init__(self):
                             self.parent = None
@@ -1645,7 +1645,7 @@ class Ip(object):
         """
 
         _prefix = 'ip-udp-cfg'
-        _revision = '2015-11-09'
+        _revision = '2016-02-26'
 
         def __init__(self):
             self.parent = None
@@ -1672,7 +1672,7 @@ class Ip(object):
             """
 
             _prefix = 'ip-udp-cfg'
-            _revision = '2015-11-09'
+            _revision = '2016-02-26'
 
             def __init__(self):
                 self.parent = None
@@ -1695,7 +1695,7 @@ class Ip(object):
                 """
 
                 _prefix = 'ip-udp-cfg'
-                _revision = '2015-11-09'
+                _revision = '2016-02-26'
 
                 def __init__(self):
                     self.parent = None
@@ -1729,7 +1729,7 @@ class Ip(object):
                     """
 
                     _prefix = 'ip-udp-cfg'
-                    _revision = '2015-11-09'
+                    _revision = '2016-02-26'
 
                     def __init__(self):
                         self.parent = None

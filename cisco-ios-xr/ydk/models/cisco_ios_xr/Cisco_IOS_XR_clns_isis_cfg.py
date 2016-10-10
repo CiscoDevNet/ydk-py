@@ -11,7 +11,7 @@ This YANG module augments the
   Cisco\-IOS\-XR\-snmp\-agent\-cfg
 module with configuration data.
 
-Copyright (c) 2013\-2015 by Cisco Systems, Inc.
+Copyright (c) 2013\-2016 by Cisco Systems, Inc.
 All rights reserved.
 
 """
@@ -27,9 +27,6 @@ from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
 from ydk.errors import YPYError, YPYModelError
 
 
-from ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_datatypes import IsisAddressFamilyEnum
-from ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_datatypes import IsisInternalLevelEnum
-from ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_datatypes import IsisSubAddressFamilyEnum
 
 class IsisAdjCheckEnum(Enum):
     """
@@ -293,6 +290,33 @@ class IsisInterfaceAfStateEnum(Enum):
     def _meta_info():
         from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_cfg as meta
         return meta._meta_table['IsisInterfaceAfStateEnum']
+
+
+class IsisInterfaceFrrTiebreakerEnum(Enum):
+    """
+    IsisInterfaceFrrTiebreakerEnum
+
+    Isis interface frr tiebreaker
+
+    .. data:: NODE_PROTECTING = 3
+
+    	Prefer node protecting backup path
+
+    .. data:: SRLG_DISJOINT = 6
+
+    	Prefer SRLG disjoint backup path
+
+    """
+
+    NODE_PROTECTING = 3
+
+    SRLG_DISJOINT = 6
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_cfg as meta
+        return meta._meta_table['IsisInterfaceFrrTiebreakerEnum']
 
 
 class IsisInterfaceStateEnum(Enum):
@@ -1220,6 +1244,39 @@ class IsisSnpAuthEnum(Enum):
         return meta._meta_table['IsisSnpAuthEnum']
 
 
+class IsisTracingModeEnum(Enum):
+    """
+    IsisTracingModeEnum
+
+    Isis tracing mode
+
+    .. data:: OFF = 0
+
+    	No tracing
+
+    .. data:: BASIC = 1
+
+    	Basic tracing (less overhead)
+
+    .. data:: ENHANCED = 2
+
+    	Enhanced tracing (more overhead)
+
+    """
+
+    OFF = 0
+
+    BASIC = 1
+
+    ENHANCED = 2
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_cfg as meta
+        return meta._meta_table['IsisTracingModeEnum']
+
+
 class IsisexplicitNullFlagEnum(Enum):
     """
     IsisexplicitNullFlagEnum
@@ -1532,6 +1589,13 @@ class Isis(object):
             	If TRUE, LSPs recieved with bad checksums will result in the purging of that LSP from the LSP DB. If FALSE or not set, the received LSP will just be ignored
             	**type**\:  bool
             
+            .. attribute:: instance_id
+            
+            	Instance ID of the IS\-IS process
+            	**type**\:  int
+            
+            	**range:** 0..65535
+            
             .. attribute:: interfaces
             
             	Per\-interface configuration
@@ -1637,6 +1701,11 @@ class Isis(object):
             	Trace buffer size configuration
             	**type**\:  :py:class:`TraceBufferSize <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.TraceBufferSize>`
             
+            .. attribute:: tracing_mode
+            
+            	Tracing mode configuration
+            	**type**\:  :py:class:`IsisTracingModeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.IsisTracingModeEnum>`
+            
             
 
             """
@@ -1652,6 +1721,7 @@ class Isis(object):
                 self.distribute = None
                 self.dynamic_host_name = None
                 self.ignore_lsp_errors = None
+                self.instance_id = None
                 self.interfaces = Isis.Instances.Instance.Interfaces()
                 self.interfaces.parent = self
                 self.is_type = None
@@ -1688,6 +1758,7 @@ class Isis(object):
                 self.srgb = None
                 self.trace_buffer_size = Isis.Instances.Instance.TraceBufferSize()
                 self.trace_buffer_size.parent = self
+                self.tracing_mode = None
 
 
             class Srgb(object):
@@ -2031,6 +2102,13 @@ class Isis(object):
                 
                 	**range:** 1..1000000
                 
+                .. attribute:: hello
+                
+                	Buffer size for hello trace
+                	**type**\:  int
+                
+                	**range:** 1..1000000
+                
                 .. attribute:: severe
                 
                 	Buffer size for severe trace
@@ -2055,6 +2133,7 @@ class Isis(object):
                 def __init__(self):
                     self.parent = None
                     self.detailed = None
+                    self.hello = None
                     self.severe = None
                     self.standard = None
 
@@ -2073,6 +2152,9 @@ class Isis(object):
                     if not self.is_config():
                         return False
                     if self.detailed is not None:
+                        return True
+
+                    if self.hello is not None:
                         return True
 
                     if self.severe is not None:
@@ -2265,6 +2347,11 @@ class Isis(object):
                         	Per\-route administrative distanceconfiguration
                         	**type**\:  :py:class:`AdminDistances <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Afs.Af.AfData.AdminDistances>`
                         
+                        .. attribute:: advertise_link_attributes
+                        
+                        	If TRUE, advertise additional link attributes in our LSP
+                        	**type**\:  bool
+                        
                         .. attribute:: advertise_passive_only
                         
                         	If enabled, advertise prefixes of passive interfaces only
@@ -2364,6 +2451,11 @@ class Isis(object):
                         	If TRUE, routes will be installed with the IP address of the first\-hop node as the source instead of the originating node
                         	**type**\:  bool
                         
+                        .. attribute:: router_id
+                        
+                        	Stable IP address for system. Will only be applied for the unicast sub\-address\-family
+                        	**type**\:  :py:class:`RouterId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Afs.Af.AfData.RouterId>`
+                        
                         .. attribute:: segment_routing
                         
                         	Enable Segment Routing configuration
@@ -2431,6 +2523,7 @@ class Isis(object):
                             self.adjacency_check = None
                             self.admin_distances = Isis.Instances.Instance.Afs.Af.AfData.AdminDistances()
                             self.admin_distances.parent = self
+                            self.advertise_link_attributes = None
                             self.advertise_passive_only = None
                             self.apply_weight = None
                             self.attached_bit = None
@@ -2462,6 +2555,8 @@ class Isis(object):
                             self.redistributions = Isis.Instances.Instance.Afs.Af.AfData.Redistributions()
                             self.redistributions.parent = self
                             self.route_source_first_hop = None
+                            self.router_id = Isis.Instances.Instance.Afs.Af.AfData.RouterId()
+                            self.router_id.parent = self
                             self.segment_routing = Isis.Instances.Instance.Afs.Af.AfData.SegmentRouting()
                             self.segment_routing.parent = self
                             self.single_topology = None
@@ -3354,6 +3449,63 @@ class Isis(object):
                                 return meta._meta_table['Isis.Instances.Instance.Afs.Af.AfData.FrrTable']['meta_info']
 
 
+                        class RouterId(object):
+                            """
+                            Stable IP address for system. Will only be
+                            applied for the unicast sub\-address\-family.
+                            
+                            .. attribute:: address
+                            
+                            	IPv4/IPv6 address to be used as a router ID. Precisely one of Address and Interface must be specified
+                            	**type**\:  str
+                            
+                            .. attribute:: interface_name
+                            
+                            	Interface with designated stable IP address to be used as a router ID. This must be a Loopback interface. Precisely one of Address and Interface must be specified
+                            	**type**\:  str
+                            
+                            	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+                            
+                            
+
+                            """
+
+                            _prefix = 'clns-isis-cfg'
+                            _revision = '2015-11-09'
+
+                            def __init__(self):
+                                self.parent = None
+                                self.address = None
+                                self.interface_name = None
+
+                            @property
+                            def _common_path(self):
+                                if self.parent is None:
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                return self.parent._common_path +'/Cisco-IOS-XR-clns-isis-cfg:router-id'
+
+                            def is_config(self):
+                                ''' Returns True if this instance represents config data else returns False '''
+                                return True
+
+                            def _has_data(self):
+                                if not self.is_config():
+                                    return False
+                                if self.address is not None:
+                                    return True
+
+                                if self.interface_name is not None:
+                                    return True
+
+                                return False
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_cfg as meta
+                                return meta._meta_table['Isis.Instances.Instance.Afs.Af.AfData.RouterId']['meta_info']
+
+
                         class SpfPrefixPriorities(object):
                             """
                             SPF Prefix Priority configuration
@@ -3794,7 +3946,7 @@ class Isis(object):
                                     	Name of the interface to be excluded
                                     	**type**\:  str
                                     
-                                    	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+                                    	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
                                     
                                     
 
@@ -5429,7 +5581,7 @@ class Isis(object):
                                 	Interface with designated stable IP address to be used as a router ID. This must be a Loopback interface. Precisely one of Address and Interface must be specified
                                 	**type**\:  str
                                 
-                                	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+                                	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
                                 
                                 
 
@@ -5786,6 +5938,9 @@ class Isis(object):
                             if self.admin_distances is not None and self.admin_distances._has_data():
                                 return True
 
+                            if self.advertise_link_attributes is not None:
+                                return True
+
                             if self.advertise_passive_only is not None:
                                 return True
 
@@ -5843,6 +5998,9 @@ class Isis(object):
                             if self.route_source_first_hop is not None:
                                 return True
 
+                            if self.router_id is not None and self.router_id._has_data():
+                                return True
+
                             if self.segment_routing is not None and self.segment_routing._has_data():
                                 return True
 
@@ -5898,6 +6056,11 @@ class Isis(object):
                         
                         	Per\-route administrative distanceconfiguration
                         	**type**\:  :py:class:`AdminDistances <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Afs.Af.TopologyName.AdminDistances>`
+                        
+                        .. attribute:: advertise_link_attributes
+                        
+                        	If TRUE, advertise additional link attributes in our LSP
+                        	**type**\:  bool
                         
                         .. attribute:: advertise_passive_only
                         
@@ -5998,6 +6161,11 @@ class Isis(object):
                         	If TRUE, routes will be installed with the IP address of the first\-hop node as the source instead of the originating node
                         	**type**\:  bool
                         
+                        .. attribute:: router_id
+                        
+                        	Stable IP address for system. Will only be applied for the unicast sub\-address\-family
+                        	**type**\:  :py:class:`RouterId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Afs.Af.TopologyName.RouterId>`
+                        
                         .. attribute:: segment_routing
                         
                         	Enable Segment Routing configuration
@@ -6058,6 +6226,7 @@ class Isis(object):
                             self.adjacency_check = None
                             self.admin_distances = Isis.Instances.Instance.Afs.Af.TopologyName.AdminDistances()
                             self.admin_distances.parent = self
+                            self.advertise_link_attributes = None
                             self.advertise_passive_only = None
                             self.apply_weight = None
                             self.attached_bit = None
@@ -6089,6 +6258,8 @@ class Isis(object):
                             self.redistributions = Isis.Instances.Instance.Afs.Af.TopologyName.Redistributions()
                             self.redistributions.parent = self
                             self.route_source_first_hop = None
+                            self.router_id = Isis.Instances.Instance.Afs.Af.TopologyName.RouterId()
+                            self.router_id.parent = self
                             self.segment_routing = Isis.Instances.Instance.Afs.Af.TopologyName.SegmentRouting()
                             self.segment_routing.parent = self
                             self.single_topology = None
@@ -6981,6 +7152,63 @@ class Isis(object):
                                 return meta._meta_table['Isis.Instances.Instance.Afs.Af.TopologyName.FrrTable']['meta_info']
 
 
+                        class RouterId(object):
+                            """
+                            Stable IP address for system. Will only be
+                            applied for the unicast sub\-address\-family.
+                            
+                            .. attribute:: address
+                            
+                            	IPv4/IPv6 address to be used as a router ID. Precisely one of Address and Interface must be specified
+                            	**type**\:  str
+                            
+                            .. attribute:: interface_name
+                            
+                            	Interface with designated stable IP address to be used as a router ID. This must be a Loopback interface. Precisely one of Address and Interface must be specified
+                            	**type**\:  str
+                            
+                            	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+                            
+                            
+
+                            """
+
+                            _prefix = 'clns-isis-cfg'
+                            _revision = '2015-11-09'
+
+                            def __init__(self):
+                                self.parent = None
+                                self.address = None
+                                self.interface_name = None
+
+                            @property
+                            def _common_path(self):
+                                if self.parent is None:
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                return self.parent._common_path +'/Cisco-IOS-XR-clns-isis-cfg:router-id'
+
+                            def is_config(self):
+                                ''' Returns True if this instance represents config data else returns False '''
+                                return True
+
+                            def _has_data(self):
+                                if not self.is_config():
+                                    return False
+                                if self.address is not None:
+                                    return True
+
+                                if self.interface_name is not None:
+                                    return True
+
+                                return False
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_cfg as meta
+                                return meta._meta_table['Isis.Instances.Instance.Afs.Af.TopologyName.RouterId']['meta_info']
+
+
                         class SpfPrefixPriorities(object):
                             """
                             SPF Prefix Priority configuration
@@ -7421,7 +7649,7 @@ class Isis(object):
                                     	Name of the interface to be excluded
                                     	**type**\:  str
                                     
-                                    	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+                                    	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
                                     
                                     
 
@@ -9056,7 +9284,7 @@ class Isis(object):
                                 	Interface with designated stable IP address to be used as a router ID. This must be a Loopback interface. Precisely one of Address and Interface must be specified
                                 	**type**\:  str
                                 
-                                	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+                                	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
                                 
                                 
 
@@ -9416,6 +9644,9 @@ class Isis(object):
                             if self.admin_distances is not None and self.admin_distances._has_data():
                                 return True
 
+                            if self.advertise_link_attributes is not None:
+                                return True
+
                             if self.advertise_passive_only is not None:
                                 return True
 
@@ -9471,6 +9702,9 @@ class Isis(object):
                                 return True
 
                             if self.route_source_first_hop is not None:
+                                return True
+
+                            if self.router_id is not None and self.router_id._has_data():
                                 return True
 
                             if self.segment_routing is not None and self.segment_routing._has_data():
@@ -10830,7 +11064,7 @@ class Isis(object):
                     	Interface name
                     	**type**\:  str
                     
-                    	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+                    	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
                     
                     .. attribute:: bfd
                     
@@ -12385,6 +12619,16 @@ class Isis(object):
                                     	TI LFA Enable
                                     	**type**\:  :py:class:`FrrtilfaTypes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.InterfaceAfData.InterfaceFrrTable.FrrtilfaTypes>`
                                     
+                                    .. attribute:: interface_frr_tiebreaker_defaults
+                                    
+                                    	Interface FRR Default tiebreaker configuration
+                                    	**type**\:  :py:class:`InterfaceFrrTiebreakerDefaults <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.InterfaceAfData.InterfaceFrrTable.InterfaceFrrTiebreakerDefaults>`
+                                    
+                                    .. attribute:: interface_frr_tiebreakers
+                                    
+                                    	Interface FRR tiebreakers configuration
+                                    	**type**\:  :py:class:`InterfaceFrrTiebreakers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.InterfaceAfData.InterfaceFrrTable.InterfaceFrrTiebreakers>`
+                                    
                                     
 
                                     """
@@ -12406,6 +12650,10 @@ class Isis(object):
                                         self.frrlfa_candidate_interfaces.parent = self
                                         self.frrtilfa_types = Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.InterfaceAfData.InterfaceFrrTable.FrrtilfaTypes()
                                         self.frrtilfa_types.parent = self
+                                        self.interface_frr_tiebreaker_defaults = Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.InterfaceAfData.InterfaceFrrTable.InterfaceFrrTiebreakerDefaults()
+                                        self.interface_frr_tiebreaker_defaults.parent = self
+                                        self.interface_frr_tiebreakers = Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.InterfaceAfData.InterfaceFrrTable.InterfaceFrrTiebreakers()
+                                        self.interface_frr_tiebreakers.parent = self
 
 
                                     class FrrlfaCandidateInterfaces(object):
@@ -12446,7 +12694,7 @@ class Isis(object):
                                             	Interface
                                             	**type**\:  str
                                             
-                                            	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+                                            	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
                                             
                                             .. attribute:: level
                                             
@@ -12857,6 +13105,103 @@ class Isis(object):
                                             return meta._meta_table['Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.InterfaceAfData.InterfaceFrrTable.FrrRemoteLfaTypes']['meta_info']
 
 
+                                    class InterfaceFrrTiebreakerDefaults(object):
+                                        """
+                                        Interface FRR Default tiebreaker
+                                        configuration
+                                        
+                                        .. attribute:: interface_frr_tiebreaker_default
+                                        
+                                        	Configure default tiebreaker
+                                        	**type**\: list of  :py:class:`InterfaceFrrTiebreakerDefault <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.InterfaceAfData.InterfaceFrrTable.InterfaceFrrTiebreakerDefaults.InterfaceFrrTiebreakerDefault>`
+                                        
+                                        
+
+                                        """
+
+                                        _prefix = 'clns-isis-cfg'
+                                        _revision = '2015-11-09'
+
+                                        def __init__(self):
+                                            self.parent = None
+                                            self.interface_frr_tiebreaker_default = YList()
+                                            self.interface_frr_tiebreaker_default.parent = self
+                                            self.interface_frr_tiebreaker_default.name = 'interface_frr_tiebreaker_default'
+
+
+                                        class InterfaceFrrTiebreakerDefault(object):
+                                            """
+                                            Configure default tiebreaker
+                                            
+                                            .. attribute:: level  <key>
+                                            
+                                            	Level to which configuration applies
+                                            	**type**\:  :py:class:`IsisInternalLevelEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_datatypes.IsisInternalLevelEnum>`
+                                            
+                                            
+
+                                            """
+
+                                            _prefix = 'clns-isis-cfg'
+                                            _revision = '2015-11-09'
+
+                                            def __init__(self):
+                                                self.parent = None
+                                                self.level = None
+
+                                            @property
+                                            def _common_path(self):
+                                                if self.parent is None:
+                                                    raise YPYModelError('parent is not set . Cannot derive path.')
+                                                if self.level is None:
+                                                    raise YPYModelError('Key property level is None')
+
+                                                return self.parent._common_path +'/Cisco-IOS-XR-clns-isis-cfg:interface-frr-tiebreaker-default[Cisco-IOS-XR-clns-isis-cfg:level = ' + str(self.level) + ']'
+
+                                            def is_config(self):
+                                                ''' Returns True if this instance represents config data else returns False '''
+                                                return True
+
+                                            def _has_data(self):
+                                                if not self.is_config():
+                                                    return False
+                                                if self.level is not None:
+                                                    return True
+
+                                                return False
+
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_cfg as meta
+                                                return meta._meta_table['Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.InterfaceAfData.InterfaceFrrTable.InterfaceFrrTiebreakerDefaults.InterfaceFrrTiebreakerDefault']['meta_info']
+
+                                        @property
+                                        def _common_path(self):
+                                            if self.parent is None:
+                                                raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                            return self.parent._common_path +'/Cisco-IOS-XR-clns-isis-cfg:interface-frr-tiebreaker-defaults'
+
+                                        def is_config(self):
+                                            ''' Returns True if this instance represents config data else returns False '''
+                                            return True
+
+                                        def _has_data(self):
+                                            if not self.is_config():
+                                                return False
+                                            if self.interface_frr_tiebreaker_default is not None:
+                                                for child_ref in self.interface_frr_tiebreaker_default:
+                                                    if child_ref._has_data():
+                                                        return True
+
+                                            return False
+
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_cfg as meta
+                                            return meta._meta_table['Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.InterfaceAfData.InterfaceFrrTable.InterfaceFrrTiebreakerDefaults']['meta_info']
+
+
                                     class FrrtilfaTypes(object):
                                         """
                                         TI LFA Enable
@@ -12990,7 +13335,7 @@ class Isis(object):
                                             	Interface
                                             	**type**\:  str
                                             
-                                            	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+                                            	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
                                             
                                             .. attribute:: level
                                             
@@ -13074,6 +13419,127 @@ class Isis(object):
                                             from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_cfg as meta
                                             return meta._meta_table['Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.InterfaceAfData.InterfaceFrrTable.FrrExcludeInterfaces']['meta_info']
 
+
+                                    class InterfaceFrrTiebreakers(object):
+                                        """
+                                        Interface FRR tiebreakers configuration
+                                        
+                                        .. attribute:: interface_frr_tiebreaker
+                                        
+                                        	Configure tiebreaker for multiple backups
+                                        	**type**\: list of  :py:class:`InterfaceFrrTiebreaker <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.InterfaceAfData.InterfaceFrrTable.InterfaceFrrTiebreakers.InterfaceFrrTiebreaker>`
+                                        
+                                        
+
+                                        """
+
+                                        _prefix = 'clns-isis-cfg'
+                                        _revision = '2015-11-09'
+
+                                        def __init__(self):
+                                            self.parent = None
+                                            self.interface_frr_tiebreaker = YList()
+                                            self.interface_frr_tiebreaker.parent = self
+                                            self.interface_frr_tiebreaker.name = 'interface_frr_tiebreaker'
+
+
+                                        class InterfaceFrrTiebreaker(object):
+                                            """
+                                            Configure tiebreaker for multiple
+                                            backups
+                                            
+                                            .. attribute:: level  <key>
+                                            
+                                            	Level to which configuration applies
+                                            	**type**\:  :py:class:`IsisInternalLevelEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_datatypes.IsisInternalLevelEnum>`
+                                            
+                                            .. attribute:: tiebreaker  <key>
+                                            
+                                            	Tiebreaker for which configuration applies
+                                            	**type**\:  :py:class:`IsisInterfaceFrrTiebreakerEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.IsisInterfaceFrrTiebreakerEnum>`
+                                            
+                                            .. attribute:: index
+                                            
+                                            	Preference order among tiebreakers
+                                            	**type**\:  int
+                                            
+                                            	**range:** 1..255
+                                            
+                                            	**mandatory**\: True
+                                            
+                                            
+
+                                            """
+
+                                            _prefix = 'clns-isis-cfg'
+                                            _revision = '2015-11-09'
+
+                                            def __init__(self):
+                                                self.parent = None
+                                                self.level = None
+                                                self.tiebreaker = None
+                                                self.index = None
+
+                                            @property
+                                            def _common_path(self):
+                                                if self.parent is None:
+                                                    raise YPYModelError('parent is not set . Cannot derive path.')
+                                                if self.level is None:
+                                                    raise YPYModelError('Key property level is None')
+                                                if self.tiebreaker is None:
+                                                    raise YPYModelError('Key property tiebreaker is None')
+
+                                                return self.parent._common_path +'/Cisco-IOS-XR-clns-isis-cfg:interface-frr-tiebreaker[Cisco-IOS-XR-clns-isis-cfg:level = ' + str(self.level) + '][Cisco-IOS-XR-clns-isis-cfg:tiebreaker = ' + str(self.tiebreaker) + ']'
+
+                                            def is_config(self):
+                                                ''' Returns True if this instance represents config data else returns False '''
+                                                return True
+
+                                            def _has_data(self):
+                                                if not self.is_config():
+                                                    return False
+                                                if self.level is not None:
+                                                    return True
+
+                                                if self.tiebreaker is not None:
+                                                    return True
+
+                                                if self.index is not None:
+                                                    return True
+
+                                                return False
+
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_cfg as meta
+                                                return meta._meta_table['Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.InterfaceAfData.InterfaceFrrTable.InterfaceFrrTiebreakers.InterfaceFrrTiebreaker']['meta_info']
+
+                                        @property
+                                        def _common_path(self):
+                                            if self.parent is None:
+                                                raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                            return self.parent._common_path +'/Cisco-IOS-XR-clns-isis-cfg:interface-frr-tiebreakers'
+
+                                        def is_config(self):
+                                            ''' Returns True if this instance represents config data else returns False '''
+                                            return True
+
+                                        def _has_data(self):
+                                            if not self.is_config():
+                                                return False
+                                            if self.interface_frr_tiebreaker is not None:
+                                                for child_ref in self.interface_frr_tiebreaker:
+                                                    if child_ref._has_data():
+                                                        return True
+
+                                            return False
+
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_cfg as meta
+                                            return meta._meta_table['Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.InterfaceAfData.InterfaceFrrTable.InterfaceFrrTiebreakers']['meta_info']
+
                                     @property
                                     def _common_path(self):
                                         if self.parent is None:
@@ -13104,6 +13570,12 @@ class Isis(object):
                                             return True
 
                                         if self.frrtilfa_types is not None and self.frrtilfa_types._has_data():
+                                            return True
+
+                                        if self.interface_frr_tiebreaker_defaults is not None and self.interface_frr_tiebreaker_defaults._has_data():
+                                            return True
+
+                                        if self.interface_frr_tiebreakers is not None and self.interface_frr_tiebreakers._has_data():
                                             return True
 
                                         return False
@@ -13999,6 +14471,16 @@ class Isis(object):
                                     	TI LFA Enable
                                     	**type**\:  :py:class:`FrrtilfaTypes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.InterfaceFrrTable.FrrtilfaTypes>`
                                     
+                                    .. attribute:: interface_frr_tiebreaker_defaults
+                                    
+                                    	Interface FRR Default tiebreaker configuration
+                                    	**type**\:  :py:class:`InterfaceFrrTiebreakerDefaults <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.InterfaceFrrTable.InterfaceFrrTiebreakerDefaults>`
+                                    
+                                    .. attribute:: interface_frr_tiebreakers
+                                    
+                                    	Interface FRR tiebreakers configuration
+                                    	**type**\:  :py:class:`InterfaceFrrTiebreakers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.InterfaceFrrTable.InterfaceFrrTiebreakers>`
+                                    
                                     
 
                                     """
@@ -14020,6 +14502,10 @@ class Isis(object):
                                         self.frrlfa_candidate_interfaces.parent = self
                                         self.frrtilfa_types = Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.InterfaceFrrTable.FrrtilfaTypes()
                                         self.frrtilfa_types.parent = self
+                                        self.interface_frr_tiebreaker_defaults = Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.InterfaceFrrTable.InterfaceFrrTiebreakerDefaults()
+                                        self.interface_frr_tiebreaker_defaults.parent = self
+                                        self.interface_frr_tiebreakers = Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.InterfaceFrrTable.InterfaceFrrTiebreakers()
+                                        self.interface_frr_tiebreakers.parent = self
 
 
                                     class FrrlfaCandidateInterfaces(object):
@@ -14060,7 +14546,7 @@ class Isis(object):
                                             	Interface
                                             	**type**\:  str
                                             
-                                            	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+                                            	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
                                             
                                             .. attribute:: level
                                             
@@ -14471,6 +14957,103 @@ class Isis(object):
                                             return meta._meta_table['Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.InterfaceFrrTable.FrrRemoteLfaTypes']['meta_info']
 
 
+                                    class InterfaceFrrTiebreakerDefaults(object):
+                                        """
+                                        Interface FRR Default tiebreaker
+                                        configuration
+                                        
+                                        .. attribute:: interface_frr_tiebreaker_default
+                                        
+                                        	Configure default tiebreaker
+                                        	**type**\: list of  :py:class:`InterfaceFrrTiebreakerDefault <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.InterfaceFrrTable.InterfaceFrrTiebreakerDefaults.InterfaceFrrTiebreakerDefault>`
+                                        
+                                        
+
+                                        """
+
+                                        _prefix = 'clns-isis-cfg'
+                                        _revision = '2015-11-09'
+
+                                        def __init__(self):
+                                            self.parent = None
+                                            self.interface_frr_tiebreaker_default = YList()
+                                            self.interface_frr_tiebreaker_default.parent = self
+                                            self.interface_frr_tiebreaker_default.name = 'interface_frr_tiebreaker_default'
+
+
+                                        class InterfaceFrrTiebreakerDefault(object):
+                                            """
+                                            Configure default tiebreaker
+                                            
+                                            .. attribute:: level  <key>
+                                            
+                                            	Level to which configuration applies
+                                            	**type**\:  :py:class:`IsisInternalLevelEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_datatypes.IsisInternalLevelEnum>`
+                                            
+                                            
+
+                                            """
+
+                                            _prefix = 'clns-isis-cfg'
+                                            _revision = '2015-11-09'
+
+                                            def __init__(self):
+                                                self.parent = None
+                                                self.level = None
+
+                                            @property
+                                            def _common_path(self):
+                                                if self.parent is None:
+                                                    raise YPYModelError('parent is not set . Cannot derive path.')
+                                                if self.level is None:
+                                                    raise YPYModelError('Key property level is None')
+
+                                                return self.parent._common_path +'/Cisco-IOS-XR-clns-isis-cfg:interface-frr-tiebreaker-default[Cisco-IOS-XR-clns-isis-cfg:level = ' + str(self.level) + ']'
+
+                                            def is_config(self):
+                                                ''' Returns True if this instance represents config data else returns False '''
+                                                return True
+
+                                            def _has_data(self):
+                                                if not self.is_config():
+                                                    return False
+                                                if self.level is not None:
+                                                    return True
+
+                                                return False
+
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_cfg as meta
+                                                return meta._meta_table['Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.InterfaceFrrTable.InterfaceFrrTiebreakerDefaults.InterfaceFrrTiebreakerDefault']['meta_info']
+
+                                        @property
+                                        def _common_path(self):
+                                            if self.parent is None:
+                                                raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                            return self.parent._common_path +'/Cisco-IOS-XR-clns-isis-cfg:interface-frr-tiebreaker-defaults'
+
+                                        def is_config(self):
+                                            ''' Returns True if this instance represents config data else returns False '''
+                                            return True
+
+                                        def _has_data(self):
+                                            if not self.is_config():
+                                                return False
+                                            if self.interface_frr_tiebreaker_default is not None:
+                                                for child_ref in self.interface_frr_tiebreaker_default:
+                                                    if child_ref._has_data():
+                                                        return True
+
+                                            return False
+
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_cfg as meta
+                                            return meta._meta_table['Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.InterfaceFrrTable.InterfaceFrrTiebreakerDefaults']['meta_info']
+
+
                                     class FrrtilfaTypes(object):
                                         """
                                         TI LFA Enable
@@ -14604,7 +15187,7 @@ class Isis(object):
                                             	Interface
                                             	**type**\:  str
                                             
-                                            	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+                                            	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
                                             
                                             .. attribute:: level
                                             
@@ -14688,6 +15271,127 @@ class Isis(object):
                                             from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_cfg as meta
                                             return meta._meta_table['Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.InterfaceFrrTable.FrrExcludeInterfaces']['meta_info']
 
+
+                                    class InterfaceFrrTiebreakers(object):
+                                        """
+                                        Interface FRR tiebreakers configuration
+                                        
+                                        .. attribute:: interface_frr_tiebreaker
+                                        
+                                        	Configure tiebreaker for multiple backups
+                                        	**type**\: list of  :py:class:`InterfaceFrrTiebreaker <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.InterfaceFrrTable.InterfaceFrrTiebreakers.InterfaceFrrTiebreaker>`
+                                        
+                                        
+
+                                        """
+
+                                        _prefix = 'clns-isis-cfg'
+                                        _revision = '2015-11-09'
+
+                                        def __init__(self):
+                                            self.parent = None
+                                            self.interface_frr_tiebreaker = YList()
+                                            self.interface_frr_tiebreaker.parent = self
+                                            self.interface_frr_tiebreaker.name = 'interface_frr_tiebreaker'
+
+
+                                        class InterfaceFrrTiebreaker(object):
+                                            """
+                                            Configure tiebreaker for multiple
+                                            backups
+                                            
+                                            .. attribute:: level  <key>
+                                            
+                                            	Level to which configuration applies
+                                            	**type**\:  :py:class:`IsisInternalLevelEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_datatypes.IsisInternalLevelEnum>`
+                                            
+                                            .. attribute:: tiebreaker  <key>
+                                            
+                                            	Tiebreaker for which configuration applies
+                                            	**type**\:  :py:class:`IsisInterfaceFrrTiebreakerEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.IsisInterfaceFrrTiebreakerEnum>`
+                                            
+                                            .. attribute:: index
+                                            
+                                            	Preference order among tiebreakers
+                                            	**type**\:  int
+                                            
+                                            	**range:** 1..255
+                                            
+                                            	**mandatory**\: True
+                                            
+                                            
+
+                                            """
+
+                                            _prefix = 'clns-isis-cfg'
+                                            _revision = '2015-11-09'
+
+                                            def __init__(self):
+                                                self.parent = None
+                                                self.level = None
+                                                self.tiebreaker = None
+                                                self.index = None
+
+                                            @property
+                                            def _common_path(self):
+                                                if self.parent is None:
+                                                    raise YPYModelError('parent is not set . Cannot derive path.')
+                                                if self.level is None:
+                                                    raise YPYModelError('Key property level is None')
+                                                if self.tiebreaker is None:
+                                                    raise YPYModelError('Key property tiebreaker is None')
+
+                                                return self.parent._common_path +'/Cisco-IOS-XR-clns-isis-cfg:interface-frr-tiebreaker[Cisco-IOS-XR-clns-isis-cfg:level = ' + str(self.level) + '][Cisco-IOS-XR-clns-isis-cfg:tiebreaker = ' + str(self.tiebreaker) + ']'
+
+                                            def is_config(self):
+                                                ''' Returns True if this instance represents config data else returns False '''
+                                                return True
+
+                                            def _has_data(self):
+                                                if not self.is_config():
+                                                    return False
+                                                if self.level is not None:
+                                                    return True
+
+                                                if self.tiebreaker is not None:
+                                                    return True
+
+                                                if self.index is not None:
+                                                    return True
+
+                                                return False
+
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_cfg as meta
+                                                return meta._meta_table['Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.InterfaceFrrTable.InterfaceFrrTiebreakers.InterfaceFrrTiebreaker']['meta_info']
+
+                                        @property
+                                        def _common_path(self):
+                                            if self.parent is None:
+                                                raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                            return self.parent._common_path +'/Cisco-IOS-XR-clns-isis-cfg:interface-frr-tiebreakers'
+
+                                        def is_config(self):
+                                            ''' Returns True if this instance represents config data else returns False '''
+                                            return True
+
+                                        def _has_data(self):
+                                            if not self.is_config():
+                                                return False
+                                            if self.interface_frr_tiebreaker is not None:
+                                                for child_ref in self.interface_frr_tiebreaker:
+                                                    if child_ref._has_data():
+                                                        return True
+
+                                            return False
+
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_cfg as meta
+                                            return meta._meta_table['Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.InterfaceFrrTable.InterfaceFrrTiebreakers']['meta_info']
+
                                     @property
                                     def _common_path(self):
                                         if self.parent is None:
@@ -14718,6 +15422,12 @@ class Isis(object):
                                             return True
 
                                         if self.frrtilfa_types is not None and self.frrtilfa_types._has_data():
+                                            return True
+
+                                        if self.interface_frr_tiebreaker_defaults is not None and self.interface_frr_tiebreaker_defaults._has_data():
+                                            return True
+
+                                        if self.interface_frr_tiebreakers is not None and self.interface_frr_tiebreakers._has_data():
                                             return True
 
                                         return False
@@ -15812,6 +16522,9 @@ class Isis(object):
                 if self.ignore_lsp_errors is not None:
                     return True
 
+                if self.instance_id is not None:
+                    return True
+
                 if self.interfaces is not None and self.interfaces._has_data():
                     return True
 
@@ -15873,6 +16586,9 @@ class Isis(object):
                     return True
 
                 if self.trace_buffer_size is not None and self.trace_buffer_size._has_data():
+                    return True
+
+                if self.tracing_mode is not None:
                     return True
 
                 return False

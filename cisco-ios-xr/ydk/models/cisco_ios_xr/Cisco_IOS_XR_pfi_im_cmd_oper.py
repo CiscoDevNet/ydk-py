@@ -7,7 +7,7 @@ This module contains definitions
 for the following management objects\:
   interfaces\: Interface operational data
 
-Copyright (c) 2013\-2015 by Cisco Systems, Inc.
+Copyright (c) 2013\-2016 by Cisco Systems, Inc.
 All rights reserved.
 
 """
@@ -372,7 +372,23 @@ class BmMbrStateReasonEnum(Enum):
 
     	network
 
-    .. data:: BM_MBR_STATE_REASON_COUNT = 70
+    .. data:: BM_MBR_STATE_REASON_BFD_IPV6_STARTING = 70
+
+    	Link is waiting for BFDv6 session to start
+
+    .. data:: BM_MBR_STATE_REASON_BFD_IPV6_DOWN = 71
+
+    	BFDv6 state of this link is Down
+
+    .. data:: BM_MBR_STATE_REASON_BFD_IPV6_NBR_UNCONFIG = 72
+
+    	BFDv6 session is unconfigured on the remote end
+
+    .. data:: BM_MBR_STATE_REASON_TIMER_RUNNING = 73
+
+    	LACP delay timer is running
+
+    .. data:: BM_MBR_STATE_REASON_COUNT = 74
 
     	Enumeration maximum value
 
@@ -518,7 +534,15 @@ class BmMbrStateReasonEnum(Enum):
 
     BM_MBR_STATE_REASON_SINGLETON_PE_ISOLATED = 69
 
-    BM_MBR_STATE_REASON_COUNT = 70
+    BM_MBR_STATE_REASON_BFD_IPV6_STARTING = 70
+
+    BM_MBR_STATE_REASON_BFD_IPV6_DOWN = 71
+
+    BM_MBR_STATE_REASON_BFD_IPV6_NBR_UNCONFIG = 72
+
+    BM_MBR_STATE_REASON_TIMER_RUNNING = 73
+
+    BM_MBR_STATE_REASON_COUNT = 74
 
 
     @staticmethod
@@ -1135,6 +1159,10 @@ class ImAttrFlowControlEnum(Enum):
 
     	im attr flow control not sup
 
+    .. data:: IM_ATTR_FLOW_CONTROL_PRIORITY = 3
+
+    	im attr flow control priority
+
     """
 
     IM_ATTR_FLOW_CONTROL_OFF = 0
@@ -1142,6 +1170,8 @@ class ImAttrFlowControlEnum(Enum):
     IM_ATTR_FLOW_CONTROL_ON = 1
 
     IM_ATTR_FLOW_CONTROL_NOT_SUP = 2
+
+    IM_ATTR_FLOW_CONTROL_PRIORITY = 3
 
 
     @staticmethod
@@ -2483,6 +2513,86 @@ class ImAttrMediaEnum(Enum):
 
     	im attr media 40gbase sr bd
 
+    .. data:: IM_ATTR_MEDIA_25GBASE_CR = 325
+
+    	im attr media 25gbase cr
+
+    .. data:: IM_ATTR_MEDIA_25GBASE_CR_S = 326
+
+    	im attr media 25gbase cr s
+
+    .. data:: IM_ATTR_MEDIA_25GBASE_KR = 327
+
+    	im attr media 25gbase kr
+
+    .. data:: IM_ATTR_MEDIA_25GBASE_KR_S = 328
+
+    	im attr media 25gbase kr s
+
+    .. data:: IM_ATTR_MEDIA_25GBASE_R = 329
+
+    	im attr media 25gbase r
+
+    .. data:: IM_ATTR_MEDIA_25GBASE_SR = 330
+
+    	im attr media 25gbase sr
+
+    .. data:: IM_ATTR_MEDIA_25GBASE_DWDM = 331
+
+    	im attr media 25gbase dwdm
+
+    .. data:: IM_ATTR_MEDIA_25GBASE_DWDM_TUNABLE = 332
+
+    	im attr media 25gbase dwdm tunable
+
+    .. data:: IM_ATTR_MEDIA_25GBASE_CWDM = 333
+
+    	im attr media 25gbase cwdm
+
+    .. data:: IM_ATTR_MEDIA_25GBASE_CWDM_TUNABLE = 334
+
+    	im attr media 25gbase cwdm tunable
+
+    .. data:: IM_ATTR_MEDIA_100GBASE_PSM4 = 335
+
+    	im attr media 100gbase psm4
+
+    .. data:: IM_ATTR_MEDIA_100GBASE_ER10 = 336
+
+    	im attr media 100gbase er10
+
+    .. data:: IM_ATTR_MEDIA_100GBASE_ER10L = 337
+
+    	im attr media 100gbase er10l
+
+    .. data:: IM_ATTR_MEDIA_100GBASE_ACC = 338
+
+    	im attr media 100gbase acc
+
+    .. data:: IM_ATTR_MEDIA_100GBASE_AOC = 339
+
+    	im attr media 100gbase aoc
+
+    .. data:: IM_ATTR_MEDIA_100GBASE_CWDM4 = 340
+
+    	im attr media 100gbase cwdm4
+
+    .. data:: IM_ATTR_MEDIA_40GBASE_PSM4 = 341
+
+    	im attr media 40gbase psm4
+
+    .. data:: IM_ATTR_MEDIA_100GBASE_CR4 = 342
+
+    	im attr media 100gbase cr4
+
+    .. data:: IM_ATTR_MEDIA_100GBASE_ACT_LOOP = 343
+
+    	im attr media 100gbase act loop
+
+    .. data:: IM_ATTR_MEDIA_100GBASE_PAS_LOOP = 344
+
+    	im attr media 100gbase pas loop
+
     """
 
     IM_ATTR_MEDIA_OTHER = 0
@@ -3134,6 +3244,46 @@ class ImAttrMediaEnum(Enum):
     IM_ATTR_MEDIA_100GBASE_SR4 = 323
 
     IM_ATTR_MEDIA_40GBASE_SR_BD = 324
+
+    IM_ATTR_MEDIA_25GBASE_CR = 325
+
+    IM_ATTR_MEDIA_25GBASE_CR_S = 326
+
+    IM_ATTR_MEDIA_25GBASE_KR = 327
+
+    IM_ATTR_MEDIA_25GBASE_KR_S = 328
+
+    IM_ATTR_MEDIA_25GBASE_R = 329
+
+    IM_ATTR_MEDIA_25GBASE_SR = 330
+
+    IM_ATTR_MEDIA_25GBASE_DWDM = 331
+
+    IM_ATTR_MEDIA_25GBASE_DWDM_TUNABLE = 332
+
+    IM_ATTR_MEDIA_25GBASE_CWDM = 333
+
+    IM_ATTR_MEDIA_25GBASE_CWDM_TUNABLE = 334
+
+    IM_ATTR_MEDIA_100GBASE_PSM4 = 335
+
+    IM_ATTR_MEDIA_100GBASE_ER10 = 336
+
+    IM_ATTR_MEDIA_100GBASE_ER10L = 337
+
+    IM_ATTR_MEDIA_100GBASE_ACC = 338
+
+    IM_ATTR_MEDIA_100GBASE_AOC = 339
+
+    IM_ATTR_MEDIA_100GBASE_CWDM4 = 340
+
+    IM_ATTR_MEDIA_40GBASE_PSM4 = 341
+
+    IM_ATTR_MEDIA_100GBASE_CR4 = 342
+
+    IM_ATTR_MEDIA_100GBASE_ACT_LOOP = 343
+
+    IM_ATTR_MEDIA_100GBASE_PAS_LOOP = 344
 
 
     @staticmethod
@@ -4616,7 +4766,7 @@ class Interfaces(object):
             	The name of the interface
             	**type**\:  str
             
-            	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+            	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
             
             .. attribute:: arp_information
             
@@ -4691,6 +4841,13 @@ class Interfaces(object):
             
             	**range:** 0..64
             
+            .. attribute:: if_index
+            
+            	This is not supposed to be used. It is a dummy attribute to support ifindex for OC model
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
             .. attribute:: in_flow_control
             
             	Input flow control configuration
@@ -4701,7 +4858,7 @@ class Interfaces(object):
             	Interface
             	**type**\:  str
             
-            	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+            	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
             
             .. attribute:: interface_statistics
             
@@ -4826,7 +4983,7 @@ class Interfaces(object):
             	Parent interface
             	**type**\:  str
             
-            	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+            	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
             
             .. attribute:: speed
             
@@ -4881,6 +5038,7 @@ class Interfaces(object):
                 self.encapsulation_information.parent = self
                 self.encapsulation_type_string = None
                 self.hardware_type_string = None
+                self.if_index = None
                 self.in_flow_control = None
                 self.interface_handle = None
                 self.interface_statistics = Interfaces.InterfaceXr.Interface.InterfaceStatistics()
@@ -6872,7 +7030,7 @@ class Interfaces(object):
                                         .. attribute:: stable_time
                                         
                                         	Stable time
-                                        	**type**\:  long
+                                        	**type**\:  int
                                         
                                         	**range:** 0..18446744073709551615
                                         
@@ -7193,7 +7351,7 @@ class Interfaces(object):
                                         .. attribute:: stable_time
                                         
                                         	Stable time
-                                        	**type**\:  long
+                                        	**type**\:  int
                                         
                                         	**range:** 0..18446744073709551615
                                         
@@ -8992,6 +9150,11 @@ class Interfaces(object):
                         
                         	**range:** 0..4294967295
                         
+                        .. attribute:: counters
+                        
+                        	Counters data about member link
+                        	**type**\:  :py:class:`Counters <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.BundleInformation.Member.Counters>`
+                        
                         .. attribute:: iccp_node
                         
                         	Location of member
@@ -9004,7 +9167,12 @@ class Interfaces(object):
                         	Member's interface name
                         	**type**\:  str
                         
-                        	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+                        	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+                        
+                        .. attribute:: link_data
+                        
+                        	Lacp data about member link
+                        	**type**\:  :py:class:`LinkData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.BundleInformation.Member.LinkData>`
                         
                         .. attribute:: link_order_number
                         
@@ -9064,8 +9232,12 @@ class Interfaces(object):
                         def __init__(self):
                             self.parent = None
                             self.bandwidth = None
+                            self.counters = Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.BundleInformation.Member.Counters()
+                            self.counters.parent = self
                             self.iccp_node = None
                             self.interface_name = None
+                            self.link_data = Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.BundleInformation.Member.LinkData()
+                            self.link_data.parent = self
                             self.link_order_number = None
                             self.mac_address = Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.BundleInformation.Member.MacAddress()
                             self.mac_address.parent = self
@@ -9076,6 +9248,342 @@ class Interfaces(object):
                             self.port_number = None
                             self.port_priority = None
                             self.underlying_link_id = None
+
+
+                        class Counters(object):
+                            """
+                            Counters data about member link
+                            
+                            .. attribute:: defaulted
+                            
+                            	State flag set to Defaulted
+                            	**type**\:  int
+                            
+                            	**range:** 0..4294967295
+                            
+                            .. attribute:: excess_lacpd_us_received
+                            
+                            	LACPDUs received that exceed the rate limit
+                            	**type**\:  int
+                            
+                            	**range:** 0..4294967295
+                            
+                            .. attribute:: excess_marker_packets_received
+                            
+                            	Marker packets received that exceed the rate limit
+                            	**type**\:  int
+                            
+                            	**range:** 0..4294967295
+                            
+                            .. attribute:: expired
+                            
+                            	State flag set to Expired
+                            	**type**\:  int
+                            
+                            	**range:** 0..4294967295
+                            
+                            .. attribute:: illegal_packets_received
+                            
+                            	Illegal and unknown packets received
+                            	**type**\:  int
+                            
+                            	**range:** 0..4294967295
+                            
+                            .. attribute:: lacpd_us_received
+                            
+                            	LACPDUs received
+                            	**type**\:  int
+                            
+                            	**range:** 0..4294967295
+                            
+                            .. attribute:: lacpd_us_transmitted
+                            
+                            	LACPDUs transmitted
+                            	**type**\:  int
+                            
+                            	**range:** 0..4294967295
+                            
+                            .. attribute:: last_cleared_nsec
+                            
+                            	Last time counters cleared (nsec) (deprecated)
+                            	**type**\:  int
+                            
+                            	**range:** 0..4294967295
+                            
+                            .. attribute:: last_cleared_sec
+                            
+                            	Last time counters cleared (s) (deprecated)
+                            	**type**\:  int
+                            
+                            	**range:** 0..4294967295
+                            
+                            .. attribute:: marker_packets_received
+                            
+                            	Marker packets received
+                            	**type**\:  int
+                            
+                            	**range:** 0..4294967295
+                            
+                            .. attribute:: marker_responses_transmitted
+                            
+                            	Marker response packets transmitted
+                            	**type**\:  int
+                            
+                            	**range:** 0..4294967295
+                            
+                            
+
+                            """
+
+                            _prefix = 'pfi-im-cmd-oper'
+                            _revision = '2015-11-09'
+
+                            def __init__(self):
+                                self.parent = None
+                                self.defaulted = None
+                                self.excess_lacpd_us_received = None
+                                self.excess_marker_packets_received = None
+                                self.expired = None
+                                self.illegal_packets_received = None
+                                self.lacpd_us_received = None
+                                self.lacpd_us_transmitted = None
+                                self.last_cleared_nsec = None
+                                self.last_cleared_sec = None
+                                self.marker_packets_received = None
+                                self.marker_responses_transmitted = None
+
+                            @property
+                            def _common_path(self):
+                                if self.parent is None:
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                return self.parent._common_path +'/Cisco-IOS-XR-pfi-im-cmd-oper:counters'
+
+                            def is_config(self):
+                                ''' Returns True if this instance represents config data else returns False '''
+                                return False
+
+                            def _has_data(self):
+                                if not self.is_config():
+                                    return False
+                                if self.defaulted is not None:
+                                    return True
+
+                                if self.excess_lacpd_us_received is not None:
+                                    return True
+
+                                if self.excess_marker_packets_received is not None:
+                                    return True
+
+                                if self.expired is not None:
+                                    return True
+
+                                if self.illegal_packets_received is not None:
+                                    return True
+
+                                if self.lacpd_us_received is not None:
+                                    return True
+
+                                if self.lacpd_us_transmitted is not None:
+                                    return True
+
+                                if self.last_cleared_nsec is not None:
+                                    return True
+
+                                if self.last_cleared_sec is not None:
+                                    return True
+
+                                if self.marker_packets_received is not None:
+                                    return True
+
+                                if self.marker_responses_transmitted is not None:
+                                    return True
+
+                                return False
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_pfi_im_cmd_oper as meta
+                                return meta._meta_table['Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.BundleInformation.Member.Counters']['meta_info']
+
+
+                        class LinkData(object):
+                            """
+                            Lacp data about member link
+                            
+                            .. attribute:: actor_operational_key
+                            
+                            	Operational key for this port
+                            	**type**\:  int
+                            
+                            	**range:** 0..65535
+                            
+                            .. attribute:: actor_port_id
+                            
+                            	Port number of this port
+                            	**type**\:  int
+                            
+                            	**range:** 0..65535
+                            
+                            .. attribute:: actor_port_priority
+                            
+                            	Priority of this port
+                            	**type**\:  int
+                            
+                            	**range:** 0..65535
+                            
+                            .. attribute:: actor_port_state
+                            
+                            	LACP state of this port
+                            	**type**\:  int
+                            
+                            	**range:** 0..255
+                            
+                            .. attribute:: attached_aggregator_id
+                            
+                            	MIB ifindex of attached bundle
+                            	**type**\:  int
+                            
+                            	**range:** 0..4294967295
+                            
+                            .. attribute:: interface_handle
+                            
+                            	Member's interface handle
+                            	**type**\:  str
+                            
+                            	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+                            
+                            .. attribute:: partner_operational_key
+                            
+                            	Operational key for partner port
+                            	**type**\:  int
+                            
+                            	**range:** 0..65535
+                            
+                            .. attribute:: partner_port_id
+                            
+                            	Port number of the partner's port
+                            	**type**\:  int
+                            
+                            	**range:** 0..65535
+                            
+                            .. attribute:: partner_port_priority
+                            
+                            	Priority of the partner's port
+                            	**type**\:  int
+                            
+                            	**range:** 0..65535
+                            
+                            .. attribute:: partner_port_state
+                            
+                            	LACP state of the partner's port
+                            	**type**\:  int
+                            
+                            	**range:** 0..255
+                            
+                            .. attribute:: partner_system_mac_address
+                            
+                            	MAC Address used to identify the partner system
+                            	**type**\:  str
+                            
+                            	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
+                            
+                            .. attribute:: partner_system_priority
+                            
+                            	System priority of partner system
+                            	**type**\:  int
+                            
+                            	**range:** 0..65535
+                            
+                            .. attribute:: selected_aggregator_id
+                            
+                            	MIB ifindex of selected bundle
+                            	**type**\:  int
+                            
+                            	**range:** 0..4294967295
+                            
+                            
+
+                            """
+
+                            _prefix = 'pfi-im-cmd-oper'
+                            _revision = '2015-11-09'
+
+                            def __init__(self):
+                                self.parent = None
+                                self.actor_operational_key = None
+                                self.actor_port_id = None
+                                self.actor_port_priority = None
+                                self.actor_port_state = None
+                                self.attached_aggregator_id = None
+                                self.interface_handle = None
+                                self.partner_operational_key = None
+                                self.partner_port_id = None
+                                self.partner_port_priority = None
+                                self.partner_port_state = None
+                                self.partner_system_mac_address = None
+                                self.partner_system_priority = None
+                                self.selected_aggregator_id = None
+
+                            @property
+                            def _common_path(self):
+                                if self.parent is None:
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                return self.parent._common_path +'/Cisco-IOS-XR-pfi-im-cmd-oper:link-data'
+
+                            def is_config(self):
+                                ''' Returns True if this instance represents config data else returns False '''
+                                return False
+
+                            def _has_data(self):
+                                if not self.is_config():
+                                    return False
+                                if self.actor_operational_key is not None:
+                                    return True
+
+                                if self.actor_port_id is not None:
+                                    return True
+
+                                if self.actor_port_priority is not None:
+                                    return True
+
+                                if self.actor_port_state is not None:
+                                    return True
+
+                                if self.attached_aggregator_id is not None:
+                                    return True
+
+                                if self.interface_handle is not None:
+                                    return True
+
+                                if self.partner_operational_key is not None:
+                                    return True
+
+                                if self.partner_port_id is not None:
+                                    return True
+
+                                if self.partner_port_priority is not None:
+                                    return True
+
+                                if self.partner_port_state is not None:
+                                    return True
+
+                                if self.partner_system_mac_address is not None:
+                                    return True
+
+                                if self.partner_system_priority is not None:
+                                    return True
+
+                                if self.selected_aggregator_id is not None:
+                                    return True
+
+                                return False
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_pfi_im_cmd_oper as meta
+                                return meta._meta_table['Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.BundleInformation.Member.LinkData']['meta_info']
 
 
                         class MemberMuxData(object):
@@ -9289,10 +9797,16 @@ class Interfaces(object):
                             if self.bandwidth is not None:
                                 return True
 
+                            if self.counters is not None and self.counters._has_data():
+                                return True
+
                             if self.iccp_node is not None:
                                 return True
 
                             if self.interface_name is not None:
+                                return True
+
+                            if self.link_data is not None and self.link_data._has_data():
                                 return True
 
                             if self.link_order_number is not None:
@@ -9997,7 +10511,7 @@ class Interfaces(object):
                 .. attribute:: input_data_rate
                 
                 	Input data rate in 1000's of bps
-                	**type**\:  long
+                	**type**\:  int
                 
                 	**range:** 0..18446744073709551615
                 
@@ -10011,7 +10525,7 @@ class Interfaces(object):
                 .. attribute:: input_packet_rate
                 
                 	Input packets per second
-                	**type**\:  long
+                	**type**\:  int
                 
                 	**range:** 0..18446744073709551615
                 
@@ -10025,7 +10539,7 @@ class Interfaces(object):
                 .. attribute:: output_data_rate
                 
                 	Output data rate in 1000's of bps
-                	**type**\:  long
+                	**type**\:  int
                 
                 	**range:** 0..18446744073709551615
                 
@@ -10039,35 +10553,35 @@ class Interfaces(object):
                 .. attribute:: output_packet_rate
                 
                 	Output packets per second
-                	**type**\:  long
+                	**type**\:  int
                 
                 	**range:** 0..18446744073709551615
                 
                 .. attribute:: peak_input_data_rate
                 
                 	Peak input data rate
-                	**type**\:  long
+                	**type**\:  int
                 
                 	**range:** 0..18446744073709551615
                 
                 .. attribute:: peak_input_packet_rate
                 
                 	Peak input packet rate
-                	**type**\:  long
+                	**type**\:  int
                 
                 	**range:** 0..18446744073709551615
                 
                 .. attribute:: peak_output_data_rate
                 
                 	Peak output data rate
-                	**type**\:  long
+                	**type**\:  int
                 
                 	**range:** 0..18446744073709551615
                 
                 .. attribute:: peak_output_packet_rate
                 
                 	Peak output packet rate
-                	**type**\:  long
+                	**type**\:  int
                 
                 	**range:** 0..18446744073709551615
                 
@@ -10218,28 +10732,28 @@ class Interfaces(object):
                     .. attribute:: broadcast_packets_received
                     
                     	Broadcast packets received
-                    	**type**\:  long
+                    	**type**\:  int
                     
                     	**range:** 0..18446744073709551615
                     
                     .. attribute:: broadcast_packets_sent
                     
                     	Broadcast packets sent
-                    	**type**\:  long
+                    	**type**\:  int
                     
                     	**range:** 0..18446744073709551615
                     
                     .. attribute:: bytes_received
                     
                     	Bytes received
-                    	**type**\:  long
+                    	**type**\:  int
                     
                     	**range:** 0..18446744073709551615
                     
                     .. attribute:: bytes_sent
                     
                     	Bytes sent
-                    	**type**\:  long
+                    	**type**\:  int
                     
                     	**range:** 0..18446744073709551615
                     
@@ -10330,14 +10844,14 @@ class Interfaces(object):
                     .. attribute:: multicast_packets_received
                     
                     	Multicast packets received
-                    	**type**\:  long
+                    	**type**\:  int
                     
                     	**range:** 0..18446744073709551615
                     
                     .. attribute:: multicast_packets_sent
                     
                     	Multicast packets sent
-                    	**type**\:  long
+                    	**type**\:  int
                     
                     	**range:** 0..18446744073709551615
                     
@@ -10386,14 +10900,14 @@ class Interfaces(object):
                     .. attribute:: packets_received
                     
                     	Packets received
-                    	**type**\:  long
+                    	**type**\:  int
                     
                     	**range:** 0..18446744073709551615
                     
                     .. attribute:: packets_sent
                     
                     	Packets sent
-                    	**type**\:  long
+                    	**type**\:  int
                     
                     	**range:** 0..18446744073709551615
                     
@@ -10636,14 +11150,14 @@ class Interfaces(object):
                     .. attribute:: bytes_received
                     
                     	Bytes received
-                    	**type**\:  long
+                    	**type**\:  int
                     
                     	**range:** 0..18446744073709551615
                     
                     .. attribute:: bytes_sent
                     
                     	Bytes sent
-                    	**type**\:  long
+                    	**type**\:  int
                     
                     	**range:** 0..18446744073709551615
                     
@@ -10706,14 +11220,14 @@ class Interfaces(object):
                     .. attribute:: packets_received
                     
                     	Packets received
-                    	**type**\:  long
+                    	**type**\:  int
                     
                     	**range:** 0..18446744073709551615
                     
                     .. attribute:: packets_sent
                     
                     	Packets sent
-                    	**type**\:  long
+                    	**type**\:  int
                     
                     	**range:** 0..18446744073709551615
                     
@@ -10951,7 +11465,7 @@ class Interfaces(object):
                     	Interface Handle
                     	**type**\:  str
                     
-                    	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+                    	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
                     
                     .. attribute:: node_id
                     
@@ -11355,6 +11869,9 @@ class Interfaces(object):
                     return True
 
                 if self.hardware_type_string is not None:
+                    return True
+
+                if self.if_index is not None:
                     return True
 
                 if self.in_flow_control is not None:
@@ -11897,7 +12414,7 @@ class Interfaces(object):
             	The name of the interface
             	**type**\:  str
             
-            	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+            	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
             
             .. attribute:: actual_line_state
             
@@ -11933,7 +12450,7 @@ class Interfaces(object):
             	Interface
             	**type**\:  str
             
-            	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+            	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
             
             .. attribute:: l2_transport
             
@@ -11957,7 +12474,7 @@ class Interfaces(object):
             	Parent Interface
             	**type**\:  str
             
-            	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+            	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
             
             .. attribute:: state
             
@@ -12395,7 +12912,7 @@ class Interfaces(object):
             	The name of the interface
             	**type**\:  str
             
-            	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+            	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
             
             .. attribute:: description
             
@@ -12407,7 +12924,7 @@ class Interfaces(object):
             	Interface
             	**type**\:  str
             
-            	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+            	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
             
             .. attribute:: line_state
             

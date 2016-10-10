@@ -187,7 +187,7 @@ _meta_table = {
                 'password',
                 'Cisco-IOS-XR-ipv6-ospfv3-cfg', False),
             _MetaInfoClassMember('spi', ATTRIBUTE, 'int' , None, None, 
-                [(256, 4294967295)], [], 
+                [('256', '4294967295')], [], 
                 '''                Use IPSec AH authentication. Specify the
                 Security Parameter Index (SPI) value
                 ''',
@@ -205,7 +205,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('detection-multiplier', ATTRIBUTE, 'int' , None, None, 
-                [(2, 50)], [], 
+                [('2', '50')], [], 
                 '''                Detect multiplier
                 ''',
                 'detection_multiplier',
@@ -217,7 +217,7 @@ _meta_table = {
                 'fast_detect_mode',
                 'Cisco-IOS-XR-ipv6-ospfv3-cfg', False),
             _MetaInfoClassMember('interval', ATTRIBUTE, 'int' , None, None, 
-                [(3, 30000)], [], 
+                [('3', '30000')], [], 
                 '''                Hello interval in milli-seconds
                 ''',
                 'interval',
@@ -240,13 +240,13 @@ _meta_table = {
                 'prefix',
                 'Cisco-IOS-XR-ipv6-ospfv3-cfg', True),
             _MetaInfoClassMember('prefix-length', ATTRIBUTE, 'int' , None, None, 
-                [(0, 128)], [], 
+                [('0', '128')], [], 
                 '''                IPV6 prefix length
                 ''',
                 'prefix_length',
                 'Cisco-IOS-XR-ipv6-ospfv3-cfg', True),
             _MetaInfoClassMember('cost', ATTRIBUTE, 'int' , None, None, 
-                [(1, 16777214)], [], 
+                [('1', '16777214')], [], 
                 '''                Specified metric for this range
                 ''',
                 'cost',
@@ -317,7 +317,7 @@ _meta_table = {
                 'encryption_password',
                 'Cisco-IOS-XR-ipv6-ospfv3-cfg', False),
             _MetaInfoClassMember('spi', ATTRIBUTE, 'int' , None, None, 
-                [(256, 4294967295)], [], 
+                [('256', '4294967295')], [], 
                 '''                Use IPSec ESP authentication. Specify the
                 Security Parameter Index (SPI) value
                 ''',
@@ -341,7 +341,7 @@ _meta_table = {
                 'default_info_originate',
                 'Cisco-IOS-XR-ipv6-ospfv3-cfg', False),
             _MetaInfoClassMember('metric', ATTRIBUTE, 'int' , None, None, 
-                [(0, 16777214)], [], 
+                [('0', '16777214')], [], 
                 '''                Only valid with DefaultInfoOriginate
                 ''',
                 'metric',
@@ -462,7 +462,7 @@ _meta_table = {
                 'password',
                 'Cisco-IOS-XR-ipv6-ospfv3-cfg', False),
             _MetaInfoClassMember('spi', ATTRIBUTE, 'int' , None, None, 
-                [(256, 4294967295)], [], 
+                [('256', '4294967295')], [], 
                 '''                Use IPSec AH authentication. Specify the
                 Security Parameter Index (SPI) value
                 ''',
@@ -486,7 +486,7 @@ _meta_table = {
                 'neighbor_address',
                 'Cisco-IOS-XR-ipv6-ospfv3-cfg', True),
             _MetaInfoClassMember('cost', ATTRIBUTE, 'int' , None, None, 
-                [(1, 65535)], [], 
+                [('1', '65535')], [], 
                 '''                OSPFv3 cost for point-to-multipoint
                 neighbor
                 ''',
@@ -501,14 +501,14 @@ _meta_table = {
                 'database_filter',
                 'Cisco-IOS-XR-ipv6-ospfv3-cfg', False),
             _MetaInfoClassMember('poll-interval', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                OSPFv3 dead-router polling interval (in
                 seconds)
                 ''',
                 'poll_interval',
                 'Cisco-IOS-XR-ipv6-ospfv3-cfg', False),
             _MetaInfoClassMember('priority', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                OSPFv3 priority of non-broadcast neighbor
                 ''',
                 'priority',
@@ -578,7 +578,7 @@ _meta_table = {
                 'encryption_password',
                 'Cisco-IOS-XR-ipv6-ospfv3-cfg', False),
             _MetaInfoClassMember('spi', ATTRIBUTE, 'int' , None, None, 
-                [(256, 4294967295)], [], 
+                [('256', '4294967295')], [], 
                 '''                Use IPSec ESP authentication. Specify the
                 Security Parameter Index (SPI) value
                 ''',
@@ -596,7 +596,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('detection-multiplier', ATTRIBUTE, 'int' , None, None, 
-                [(2, 50)], [], 
+                [('2', '50')], [], 
                 '''                Detect multiplier
                 ''',
                 'detection_multiplier',
@@ -608,7 +608,7 @@ _meta_table = {
                 'fast_detect_mode',
                 'Cisco-IOS-XR-ipv6-ospfv3-cfg', False),
             _MetaInfoClassMember('interval', ATTRIBUTE, 'int' , None, None, 
-                [(3, 30000)], [], 
+                [('3', '30000')], [], 
                 '''                Hello interval in milli-seconds
                 ''',
                 'interval',
@@ -694,7 +694,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('interface-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Interface
                 ''',
                 'interface_name',
@@ -728,7 +728,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('interface-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Interface
                 ''',
                 'interface_name',
@@ -794,7 +794,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('interface-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Interface
                 ''',
                 'interface_name',
@@ -828,7 +828,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('interface-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Interface
                 ''',
                 'interface_name',
@@ -924,7 +924,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('interface-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Interface to configure
                 ''',
                 'interface_name',
@@ -942,7 +942,7 @@ _meta_table = {
                 'bfd',
                 'Cisco-IOS-XR-ipv6-ospfv3-cfg', False),
             _MetaInfoClassMember('cost', ATTRIBUTE, 'int' , None, None, 
-                [(1, 65535)], [], 
+                [('1', '65535')], [], 
                 '''                Interface cost
                 ''',
                 'cost',
@@ -954,7 +954,7 @@ _meta_table = {
                 'database_filter',
                 'Cisco-IOS-XR-ipv6-ospfv3-cfg', False),
             _MetaInfoClassMember('dead-interval', ATTRIBUTE, 'int' , None, None, 
-                [(1, 65535)], [], 
+                [('1', '65535')], [], 
                 '''                Interval after which a neighbor is declared
                 dead (in seconds)
                 ''',
@@ -997,13 +997,13 @@ _meta_table = {
                 'flood_reduction',
                 'Cisco-IOS-XR-ipv6-ospfv3-cfg', False),
             _MetaInfoClassMember('hello-interval', ATTRIBUTE, 'int' , None, None, 
-                [(1, 65535)], [], 
+                [('1', '65535')], [], 
                 '''                Time between HELLO packets
                 ''',
                 'hello_interval',
                 'Cisco-IOS-XR-ipv6-ospfv3-cfg', False),
             _MetaInfoClassMember('instance', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                Instance ID
                 ''',
                 'instance',
@@ -1034,7 +1034,7 @@ _meta_table = {
                 'network',
                 'Cisco-IOS-XR-ipv6-ospfv3-cfg', False),
             _MetaInfoClassMember('packet-size', ATTRIBUTE, 'int' , None, None, 
-                [(256, 10000)], [], 
+                [('256', '10000')], [], 
                 '''                Limit size of OSPFv3 packets
                 ''',
                 'packet_size',
@@ -1046,20 +1046,27 @@ _meta_table = {
                 ''',
                 'passive',
                 'Cisco-IOS-XR-ipv6-ospfv3-cfg', False),
+            _MetaInfoClassMember('prefix-suppression', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Enable/disable prefix suppression on an
+                interface
+                ''',
+                'prefix_suppression',
+                'Cisco-IOS-XR-ipv6-ospfv3-cfg', False),
             _MetaInfoClassMember('priority', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                Specify router priority
                 ''',
                 'priority',
                 'Cisco-IOS-XR-ipv6-ospfv3-cfg', False),
             _MetaInfoClassMember('retransmit-interval', ATTRIBUTE, 'int' , None, None, 
-                [(1, 65535)], [], 
+                [('1', '65535')], [], 
                 '''                Specify the transmit interval in seconds
                 ''',
                 'retransmit_interval',
                 'Cisco-IOS-XR-ipv6-ospfv3-cfg', False),
             _MetaInfoClassMember('transmit-delay', ATTRIBUTE, 'int' , None, None, 
-                [(1, 65535)], [], 
+                [('1', '65535')], [], 
                 '''                Specify the transmit delay in seconds
                 ''',
                 'transmit_delay',
@@ -1093,7 +1100,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('interface-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Interface
                 ''',
                 'interface_name',
@@ -1127,7 +1134,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('interface-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Interface
                 ''',
                 'interface_name',
@@ -1193,7 +1200,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('interface-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Interface
                 ''',
                 'interface_name',
@@ -1227,7 +1234,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('interface-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Interface
                 ''',
                 'interface_name',
@@ -1358,7 +1365,7 @@ _meta_table = {
                 'password',
                 'Cisco-IOS-XR-ipv6-ospfv3-cfg', False),
             _MetaInfoClassMember('spi', ATTRIBUTE, 'int' , None, None, 
-                [(256, 4294967295)], [], 
+                [('256', '4294967295')], [], 
                 '''                Use IPSec AH authentication. Specify the
                 Security Parameter Index (SPI) value
                 ''',
@@ -1406,7 +1413,7 @@ _meta_table = {
                 'encryption_password',
                 'Cisco-IOS-XR-ipv6-ospfv3-cfg', False),
             _MetaInfoClassMember('spi', ATTRIBUTE, 'int' , None, None, 
-                [(256, 4294967295)], [], 
+                [('256', '4294967295')], [], 
                 '''                Use IPSec ESP authentication. Specify the
                 Security Parameter Index (SPI) value
                 ''',
@@ -1442,7 +1449,7 @@ _meta_table = {
                 'authentication',
                 'Cisco-IOS-XR-ipv6-ospfv3-cfg', False),
             _MetaInfoClassMember('dead-interval', ATTRIBUTE, 'int' , None, None, 
-                [(1, 65535)], [], 
+                [('1', '65535')], [], 
                 '''                Interval after which a neighbor is declared
                 dead (in seconds)
                 ''',
@@ -1461,19 +1468,19 @@ _meta_table = {
                 'encryption',
                 'Cisco-IOS-XR-ipv6-ospfv3-cfg', False),
             _MetaInfoClassMember('hello-interval', ATTRIBUTE, 'int' , None, None, 
-                [(1, 65535)], [], 
+                [('1', '65535')], [], 
                 '''                Time between HELLO packets
                 ''',
                 'hello_interval',
                 'Cisco-IOS-XR-ipv6-ospfv3-cfg', False),
             _MetaInfoClassMember('retransmit-interval', ATTRIBUTE, 'int' , None, None, 
-                [(1, 65535)], [], 
+                [('1', '65535')], [], 
                 '''                Specify the transmit interval in seconds
                 ''',
                 'retransmit_interval',
                 'Cisco-IOS-XR-ipv6-ospfv3-cfg', False),
             _MetaInfoClassMember('transmit-delay', ATTRIBUTE, 'int' , None, None, 
-                [(1, 65535)], [], 
+                [('1', '65535')], [], 
                 '''                Specify the transmit delay in seconds
                 ''',
                 'transmit_delay',
@@ -1525,7 +1532,7 @@ _meta_table = {
                 'password',
                 'Cisco-IOS-XR-ipv6-ospfv3-cfg', False),
             _MetaInfoClassMember('spi', ATTRIBUTE, 'int' , None, None, 
-                [(256, 4294967295)], [], 
+                [('256', '4294967295')], [], 
                 '''                Use IPSec AH authentication. Specify the
                 Security Parameter Index (SPI) value
                 ''',
@@ -1573,7 +1580,7 @@ _meta_table = {
                 'encryption_password',
                 'Cisco-IOS-XR-ipv6-ospfv3-cfg', False),
             _MetaInfoClassMember('spi', ATTRIBUTE, 'int' , None, None, 
-                [(256, 4294967295)], [], 
+                [('256', '4294967295')], [], 
                 '''                Use IPSec ESP authentication. Specify the
                 Security Parameter Index (SPI) value
                 ''',
@@ -1603,7 +1610,7 @@ _meta_table = {
                 'authentication',
                 'Cisco-IOS-XR-ipv6-ospfv3-cfg', False),
             _MetaInfoClassMember('dead-interval', ATTRIBUTE, 'int' , None, None, 
-                [(1, 65535)], [], 
+                [('1', '65535')], [], 
                 '''                Interval after which a neighbor is declared
                 dead (in seconds)
                 ''',
@@ -1622,19 +1629,19 @@ _meta_table = {
                 'encryption',
                 'Cisco-IOS-XR-ipv6-ospfv3-cfg', False),
             _MetaInfoClassMember('hello-interval', ATTRIBUTE, 'int' , None, None, 
-                [(1, 65535)], [], 
+                [('1', '65535')], [], 
                 '''                Time between HELLO packets
                 ''',
                 'hello_interval',
                 'Cisco-IOS-XR-ipv6-ospfv3-cfg', False),
             _MetaInfoClassMember('retransmit-interval', ATTRIBUTE, 'int' , None, None, 
-                [(1, 65535)], [], 
+                [('1', '65535')], [], 
                 '''                Specify the transmit interval in seconds
                 ''',
                 'retransmit_interval',
                 'Cisco-IOS-XR-ipv6-ospfv3-cfg', False),
             _MetaInfoClassMember('transmit-delay', ATTRIBUTE, 'int' , None, None, 
-                [(1, 65535)], [], 
+                [('1', '65535')], [], 
                 '''                Specify the transmit delay in seconds
                 ''',
                 'transmit_delay',
@@ -1692,7 +1699,7 @@ _meta_table = {
                 'bfd',
                 'Cisco-IOS-XR-ipv6-ospfv3-cfg', False),
             _MetaInfoClassMember('cost', ATTRIBUTE, 'int' , None, None, 
-                [(1, 65535)], [], 
+                [('1', '65535')], [], 
                 '''                Interface cost
                 ''',
                 'cost',
@@ -1704,14 +1711,14 @@ _meta_table = {
                 'database_filter',
                 'Cisco-IOS-XR-ipv6-ospfv3-cfg', False),
             _MetaInfoClassMember('dead-interval', ATTRIBUTE, 'int' , None, None, 
-                [(1, 65535)], [], 
+                [('1', '65535')], [], 
                 '''                Interval after which a neighbor is declared
                 dead (in seconds)
                 ''',
                 'dead_interval',
                 'Cisco-IOS-XR-ipv6-ospfv3-cfg', False),
             _MetaInfoClassMember('default-cost', ATTRIBUTE, 'int' , None, None, 
-                [(0, 16777215)], [], 
+                [('0', '16777215')], [], 
                 '''                Set the summary default-cost of a NSSA/stub
                 area
                 ''',
@@ -1748,13 +1755,13 @@ _meta_table = {
                 'flood_reduction',
                 'Cisco-IOS-XR-ipv6-ospfv3-cfg', False),
             _MetaInfoClassMember('hello-interval', ATTRIBUTE, 'int' , None, None, 
-                [(1, 65535)], [], 
+                [('1', '65535')], [], 
                 '''                Time between HELLO packets
                 ''',
                 'hello_interval',
                 'Cisco-IOS-XR-ipv6-ospfv3-cfg', False),
             _MetaInfoClassMember('instance', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                Instance ID
                 ''',
                 'instance',
@@ -1791,7 +1798,7 @@ _meta_table = {
                 'nssa',
                 'Cisco-IOS-XR-ipv6-ospfv3-cfg', False),
             _MetaInfoClassMember('packet-size', ATTRIBUTE, 'int' , None, None, 
-                [(256, 10000)], [], 
+                [('256', '10000')], [], 
                 '''                Limit size of OSPFv3 packets
                 ''',
                 'packet_size',
@@ -1802,8 +1809,15 @@ _meta_table = {
                 ''',
                 'passive',
                 'Cisco-IOS-XR-ipv6-ospfv3-cfg', False),
+            _MetaInfoClassMember('prefix-suppression', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Enable/disable prefix suppression on an
+                interface
+                ''',
+                'prefix_suppression',
+                'Cisco-IOS-XR-ipv6-ospfv3-cfg', False),
             _MetaInfoClassMember('priority', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                Specify router priority
                 ''',
                 'priority',
@@ -1815,7 +1829,7 @@ _meta_table = {
                 'ranges',
                 'Cisco-IOS-XR-ipv6-ospfv3-cfg', False),
             _MetaInfoClassMember('retransmit-interval', ATTRIBUTE, 'int' , None, None, 
-                [(1, 65535)], [], 
+                [('1', '65535')], [], 
                 '''                Specify the transmit interval in seconds
                 ''',
                 'retransmit_interval',
@@ -1834,7 +1848,7 @@ _meta_table = {
                 'stub',
                 'Cisco-IOS-XR-ipv6-ospfv3-cfg', False),
             _MetaInfoClassMember('transmit-delay', ATTRIBUTE, 'int' , None, None, 
-                [(1, 65535)], [], 
+                [('1', '65535')], [], 
                 '''                Specify the transmit delay in seconds
                 ''',
                 'transmit_delay',
@@ -1875,7 +1889,7 @@ _meta_table = {
                 'password',
                 'Cisco-IOS-XR-ipv6-ospfv3-cfg', False),
             _MetaInfoClassMember('spi', ATTRIBUTE, 'int' , None, None, 
-                [(256, 4294967295)], [], 
+                [('256', '4294967295')], [], 
                 '''                Use IPSec AH authentication. Specify the
                 Security Parameter Index (SPI) value
                 ''',
@@ -1893,7 +1907,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('detection-multiplier', ATTRIBUTE, 'int' , None, None, 
-                [(2, 50)], [], 
+                [('2', '50')], [], 
                 '''                Detect multiplier
                 ''',
                 'detection_multiplier',
@@ -1905,7 +1919,7 @@ _meta_table = {
                 'fast_detect_mode',
                 'Cisco-IOS-XR-ipv6-ospfv3-cfg', False),
             _MetaInfoClassMember('interval', ATTRIBUTE, 'int' , None, None, 
-                [(3, 30000)], [], 
+                [('3', '30000')], [], 
                 '''                Hello interval in milli-seconds
                 ''',
                 'interval',
@@ -1928,13 +1942,13 @@ _meta_table = {
                 'prefix',
                 'Cisco-IOS-XR-ipv6-ospfv3-cfg', True),
             _MetaInfoClassMember('prefix-length', ATTRIBUTE, 'int' , None, None, 
-                [(0, 128)], [], 
+                [('0', '128')], [], 
                 '''                IPV6 prefix length
                 ''',
                 'prefix_length',
                 'Cisco-IOS-XR-ipv6-ospfv3-cfg', True),
             _MetaInfoClassMember('cost', ATTRIBUTE, 'int' , None, None, 
-                [(1, 16777214)], [], 
+                [('1', '16777214')], [], 
                 '''                Specified metric for this range
                 ''',
                 'cost',
@@ -2005,7 +2019,7 @@ _meta_table = {
                 'encryption_password',
                 'Cisco-IOS-XR-ipv6-ospfv3-cfg', False),
             _MetaInfoClassMember('spi', ATTRIBUTE, 'int' , None, None, 
-                [(256, 4294967295)], [], 
+                [('256', '4294967295')], [], 
                 '''                Use IPSec ESP authentication. Specify the
                 Security Parameter Index (SPI) value
                 ''',
@@ -2029,7 +2043,7 @@ _meta_table = {
                 'default_info_originate',
                 'Cisco-IOS-XR-ipv6-ospfv3-cfg', False),
             _MetaInfoClassMember('metric', ATTRIBUTE, 'int' , None, None, 
-                [(0, 16777214)], [], 
+                [('0', '16777214')], [], 
                 '''                Only valid with DefaultInfoOriginate
                 ''',
                 'metric',
@@ -2150,7 +2164,7 @@ _meta_table = {
                 'password',
                 'Cisco-IOS-XR-ipv6-ospfv3-cfg', False),
             _MetaInfoClassMember('spi', ATTRIBUTE, 'int' , None, None, 
-                [(256, 4294967295)], [], 
+                [('256', '4294967295')], [], 
                 '''                Use IPSec AH authentication. Specify the
                 Security Parameter Index (SPI) value
                 ''',
@@ -2174,7 +2188,7 @@ _meta_table = {
                 'neighbor_address',
                 'Cisco-IOS-XR-ipv6-ospfv3-cfg', True),
             _MetaInfoClassMember('cost', ATTRIBUTE, 'int' , None, None, 
-                [(1, 65535)], [], 
+                [('1', '65535')], [], 
                 '''                OSPFv3 cost for point-to-multipoint
                 neighbor
                 ''',
@@ -2189,14 +2203,14 @@ _meta_table = {
                 'database_filter',
                 'Cisco-IOS-XR-ipv6-ospfv3-cfg', False),
             _MetaInfoClassMember('poll-interval', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                OSPFv3 dead-router polling interval (in
                 seconds)
                 ''',
                 'poll_interval',
                 'Cisco-IOS-XR-ipv6-ospfv3-cfg', False),
             _MetaInfoClassMember('priority', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                OSPFv3 priority of non-broadcast neighbor
                 ''',
                 'priority',
@@ -2266,7 +2280,7 @@ _meta_table = {
                 'encryption_password',
                 'Cisco-IOS-XR-ipv6-ospfv3-cfg', False),
             _MetaInfoClassMember('spi', ATTRIBUTE, 'int' , None, None, 
-                [(256, 4294967295)], [], 
+                [('256', '4294967295')], [], 
                 '''                Use IPSec ESP authentication. Specify the
                 Security Parameter Index (SPI) value
                 ''',
@@ -2284,7 +2298,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('detection-multiplier', ATTRIBUTE, 'int' , None, None, 
-                [(2, 50)], [], 
+                [('2', '50')], [], 
                 '''                Detect multiplier
                 ''',
                 'detection_multiplier',
@@ -2296,7 +2310,7 @@ _meta_table = {
                 'fast_detect_mode',
                 'Cisco-IOS-XR-ipv6-ospfv3-cfg', False),
             _MetaInfoClassMember('interval', ATTRIBUTE, 'int' , None, None, 
-                [(3, 30000)], [], 
+                [('3', '30000')], [], 
                 '''                Hello interval in milli-seconds
                 ''',
                 'interval',
@@ -2382,7 +2396,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('interface-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Interface
                 ''',
                 'interface_name',
@@ -2416,7 +2430,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('interface-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Interface
                 ''',
                 'interface_name',
@@ -2482,7 +2496,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('interface-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Interface
                 ''',
                 'interface_name',
@@ -2516,7 +2530,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('interface-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Interface
                 ''',
                 'interface_name',
@@ -2612,7 +2626,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('interface-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Interface to configure
                 ''',
                 'interface_name',
@@ -2630,7 +2644,7 @@ _meta_table = {
                 'bfd',
                 'Cisco-IOS-XR-ipv6-ospfv3-cfg', False),
             _MetaInfoClassMember('cost', ATTRIBUTE, 'int' , None, None, 
-                [(1, 65535)], [], 
+                [('1', '65535')], [], 
                 '''                Interface cost
                 ''',
                 'cost',
@@ -2642,7 +2656,7 @@ _meta_table = {
                 'database_filter',
                 'Cisco-IOS-XR-ipv6-ospfv3-cfg', False),
             _MetaInfoClassMember('dead-interval', ATTRIBUTE, 'int' , None, None, 
-                [(1, 65535)], [], 
+                [('1', '65535')], [], 
                 '''                Interval after which a neighbor is declared
                 dead (in seconds)
                 ''',
@@ -2685,13 +2699,13 @@ _meta_table = {
                 'flood_reduction',
                 'Cisco-IOS-XR-ipv6-ospfv3-cfg', False),
             _MetaInfoClassMember('hello-interval', ATTRIBUTE, 'int' , None, None, 
-                [(1, 65535)], [], 
+                [('1', '65535')], [], 
                 '''                Time between HELLO packets
                 ''',
                 'hello_interval',
                 'Cisco-IOS-XR-ipv6-ospfv3-cfg', False),
             _MetaInfoClassMember('instance', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                Instance ID
                 ''',
                 'instance',
@@ -2722,7 +2736,7 @@ _meta_table = {
                 'network',
                 'Cisco-IOS-XR-ipv6-ospfv3-cfg', False),
             _MetaInfoClassMember('packet-size', ATTRIBUTE, 'int' , None, None, 
-                [(256, 10000)], [], 
+                [('256', '10000')], [], 
                 '''                Limit size of OSPFv3 packets
                 ''',
                 'packet_size',
@@ -2734,20 +2748,27 @@ _meta_table = {
                 ''',
                 'passive',
                 'Cisco-IOS-XR-ipv6-ospfv3-cfg', False),
+            _MetaInfoClassMember('prefix-suppression', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Enable/disable prefix suppression on an
+                interface
+                ''',
+                'prefix_suppression',
+                'Cisco-IOS-XR-ipv6-ospfv3-cfg', False),
             _MetaInfoClassMember('priority', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                Specify router priority
                 ''',
                 'priority',
                 'Cisco-IOS-XR-ipv6-ospfv3-cfg', False),
             _MetaInfoClassMember('retransmit-interval', ATTRIBUTE, 'int' , None, None, 
-                [(1, 65535)], [], 
+                [('1', '65535')], [], 
                 '''                Specify the transmit interval in seconds
                 ''',
                 'retransmit_interval',
                 'Cisco-IOS-XR-ipv6-ospfv3-cfg', False),
             _MetaInfoClassMember('transmit-delay', ATTRIBUTE, 'int' , None, None, 
-                [(1, 65535)], [], 
+                [('1', '65535')], [], 
                 '''                Specify the transmit delay in seconds
                 ''',
                 'transmit_delay',
@@ -2781,7 +2802,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('interface-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Interface
                 ''',
                 'interface_name',
@@ -2815,7 +2836,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('interface-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Interface
                 ''',
                 'interface_name',
@@ -2881,7 +2902,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('interface-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Interface
                 ''',
                 'interface_name',
@@ -2915,7 +2936,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('interface-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Interface
                 ''',
                 'interface_name',
@@ -3046,7 +3067,7 @@ _meta_table = {
                 'password',
                 'Cisco-IOS-XR-ipv6-ospfv3-cfg', False),
             _MetaInfoClassMember('spi', ATTRIBUTE, 'int' , None, None, 
-                [(256, 4294967295)], [], 
+                [('256', '4294967295')], [], 
                 '''                Use IPSec AH authentication. Specify the
                 Security Parameter Index (SPI) value
                 ''',
@@ -3094,7 +3115,7 @@ _meta_table = {
                 'encryption_password',
                 'Cisco-IOS-XR-ipv6-ospfv3-cfg', False),
             _MetaInfoClassMember('spi', ATTRIBUTE, 'int' , None, None, 
-                [(256, 4294967295)], [], 
+                [('256', '4294967295')], [], 
                 '''                Use IPSec ESP authentication. Specify the
                 Security Parameter Index (SPI) value
                 ''',
@@ -3130,7 +3151,7 @@ _meta_table = {
                 'authentication',
                 'Cisco-IOS-XR-ipv6-ospfv3-cfg', False),
             _MetaInfoClassMember('dead-interval', ATTRIBUTE, 'int' , None, None, 
-                [(1, 65535)], [], 
+                [('1', '65535')], [], 
                 '''                Interval after which a neighbor is declared
                 dead (in seconds)
                 ''',
@@ -3149,19 +3170,19 @@ _meta_table = {
                 'encryption',
                 'Cisco-IOS-XR-ipv6-ospfv3-cfg', False),
             _MetaInfoClassMember('hello-interval', ATTRIBUTE, 'int' , None, None, 
-                [(1, 65535)], [], 
+                [('1', '65535')], [], 
                 '''                Time between HELLO packets
                 ''',
                 'hello_interval',
                 'Cisco-IOS-XR-ipv6-ospfv3-cfg', False),
             _MetaInfoClassMember('retransmit-interval', ATTRIBUTE, 'int' , None, None, 
-                [(1, 65535)], [], 
+                [('1', '65535')], [], 
                 '''                Specify the transmit interval in seconds
                 ''',
                 'retransmit_interval',
                 'Cisco-IOS-XR-ipv6-ospfv3-cfg', False),
             _MetaInfoClassMember('transmit-delay', ATTRIBUTE, 'int' , None, None, 
-                [(1, 65535)], [], 
+                [('1', '65535')], [], 
                 '''                Specify the transmit delay in seconds
                 ''',
                 'transmit_delay',
@@ -3213,7 +3234,7 @@ _meta_table = {
                 'password',
                 'Cisco-IOS-XR-ipv6-ospfv3-cfg', False),
             _MetaInfoClassMember('spi', ATTRIBUTE, 'int' , None, None, 
-                [(256, 4294967295)], [], 
+                [('256', '4294967295')], [], 
                 '''                Use IPSec AH authentication. Specify the
                 Security Parameter Index (SPI) value
                 ''',
@@ -3261,7 +3282,7 @@ _meta_table = {
                 'encryption_password',
                 'Cisco-IOS-XR-ipv6-ospfv3-cfg', False),
             _MetaInfoClassMember('spi', ATTRIBUTE, 'int' , None, None, 
-                [(256, 4294967295)], [], 
+                [('256', '4294967295')], [], 
                 '''                Use IPSec ESP authentication. Specify the
                 Security Parameter Index (SPI) value
                 ''',
@@ -3291,7 +3312,7 @@ _meta_table = {
                 'authentication',
                 'Cisco-IOS-XR-ipv6-ospfv3-cfg', False),
             _MetaInfoClassMember('dead-interval', ATTRIBUTE, 'int' , None, None, 
-                [(1, 65535)], [], 
+                [('1', '65535')], [], 
                 '''                Interval after which a neighbor is declared
                 dead (in seconds)
                 ''',
@@ -3310,19 +3331,19 @@ _meta_table = {
                 'encryption',
                 'Cisco-IOS-XR-ipv6-ospfv3-cfg', False),
             _MetaInfoClassMember('hello-interval', ATTRIBUTE, 'int' , None, None, 
-                [(1, 65535)], [], 
+                [('1', '65535')], [], 
                 '''                Time between HELLO packets
                 ''',
                 'hello_interval',
                 'Cisco-IOS-XR-ipv6-ospfv3-cfg', False),
             _MetaInfoClassMember('retransmit-interval', ATTRIBUTE, 'int' , None, None, 
-                [(1, 65535)], [], 
+                [('1', '65535')], [], 
                 '''                Specify the transmit interval in seconds
                 ''',
                 'retransmit_interval',
                 'Cisco-IOS-XR-ipv6-ospfv3-cfg', False),
             _MetaInfoClassMember('transmit-delay', ATTRIBUTE, 'int' , None, None, 
-                [(1, 65535)], [], 
+                [('1', '65535')], [], 
                 '''                Specify the transmit delay in seconds
                 ''',
                 'transmit_delay',
@@ -3356,7 +3377,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('area-id', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Area ID if in integer format
                 ''',
                 'area_id',
@@ -3380,7 +3401,7 @@ _meta_table = {
                 'bfd',
                 'Cisco-IOS-XR-ipv6-ospfv3-cfg', False),
             _MetaInfoClassMember('cost', ATTRIBUTE, 'int' , None, None, 
-                [(1, 65535)], [], 
+                [('1', '65535')], [], 
                 '''                Interface cost
                 ''',
                 'cost',
@@ -3392,14 +3413,14 @@ _meta_table = {
                 'database_filter',
                 'Cisco-IOS-XR-ipv6-ospfv3-cfg', False),
             _MetaInfoClassMember('dead-interval', ATTRIBUTE, 'int' , None, None, 
-                [(1, 65535)], [], 
+                [('1', '65535')], [], 
                 '''                Interval after which a neighbor is declared
                 dead (in seconds)
                 ''',
                 'dead_interval',
                 'Cisco-IOS-XR-ipv6-ospfv3-cfg', False),
             _MetaInfoClassMember('default-cost', ATTRIBUTE, 'int' , None, None, 
-                [(0, 16777215)], [], 
+                [('0', '16777215')], [], 
                 '''                Set the summary default-cost of a NSSA/stub
                 area
                 ''',
@@ -3436,13 +3457,13 @@ _meta_table = {
                 'flood_reduction',
                 'Cisco-IOS-XR-ipv6-ospfv3-cfg', False),
             _MetaInfoClassMember('hello-interval', ATTRIBUTE, 'int' , None, None, 
-                [(1, 65535)], [], 
+                [('1', '65535')], [], 
                 '''                Time between HELLO packets
                 ''',
                 'hello_interval',
                 'Cisco-IOS-XR-ipv6-ospfv3-cfg', False),
             _MetaInfoClassMember('instance', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                Instance ID
                 ''',
                 'instance',
@@ -3479,7 +3500,7 @@ _meta_table = {
                 'nssa',
                 'Cisco-IOS-XR-ipv6-ospfv3-cfg', False),
             _MetaInfoClassMember('packet-size', ATTRIBUTE, 'int' , None, None, 
-                [(256, 10000)], [], 
+                [('256', '10000')], [], 
                 '''                Limit size of OSPFv3 packets
                 ''',
                 'packet_size',
@@ -3490,8 +3511,15 @@ _meta_table = {
                 ''',
                 'passive',
                 'Cisco-IOS-XR-ipv6-ospfv3-cfg', False),
+            _MetaInfoClassMember('prefix-suppression', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Enable/disable prefix suppression on an
+                interface
+                ''',
+                'prefix_suppression',
+                'Cisco-IOS-XR-ipv6-ospfv3-cfg', False),
             _MetaInfoClassMember('priority', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                Specify router priority
                 ''',
                 'priority',
@@ -3503,7 +3531,7 @@ _meta_table = {
                 'ranges',
                 'Cisco-IOS-XR-ipv6-ospfv3-cfg', False),
             _MetaInfoClassMember('retransmit-interval', ATTRIBUTE, 'int' , None, None, 
-                [(1, 65535)], [], 
+                [('1', '65535')], [], 
                 '''                Specify the transmit interval in seconds
                 ''',
                 'retransmit_interval',
@@ -3522,7 +3550,7 @@ _meta_table = {
                 'stub',
                 'Cisco-IOS-XR-ipv6-ospfv3-cfg', False),
             _MetaInfoClassMember('transmit-delay', ATTRIBUTE, 'int' , None, None, 
-                [(1, 65535)], [], 
+                [('1', '65535')], [], 
                 '''                Specify the transmit delay in seconds
                 ''',
                 'transmit_delay',
@@ -3568,21 +3596,21 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('flood', ATTRIBUTE, 'int' , None, None, 
-                [(5, 100)], [], 
+                [('5', '100')], [], 
                 '''                The minimum interval in milliseconds to pace
                 limit flooding on interface
                 ''',
                 'flood',
                 'Cisco-IOS-XR-ipv6-ospfv3-cfg', False),
             _MetaInfoClassMember('lsa-group', ATTRIBUTE, 'int' , None, None, 
-                [(10, 1800)], [], 
+                [('10', '1800')], [], 
                 '''                Interval in seconds at which LSAs are grouped
                 and refreshed, checksummed, or aged
                 ''',
                 'lsa_group',
                 'Cisco-IOS-XR-ipv6-ospfv3-cfg', False),
             _MetaInfoClassMember('retransmission', ATTRIBUTE, 'int' , None, None, 
-                [(5, 100)], [], 
+                [('5', '100')], [], 
                 '''                The minimum interval in msec between neighbor
                 retransmissions
                 ''',
@@ -3600,7 +3628,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('arrival', ATTRIBUTE, 'int' , None, None, 
-                [(0, 60000)], [], 
+                [('0', '60000')], [], 
                 '''                The minimum interval in milliseconds between
                 accepting the same LSA
                 ''',
@@ -3618,21 +3646,21 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('first-delay', ATTRIBUTE, 'int' , None, None, 
-                [(0, 600000)], [], 
+                [('0', '600000')], [], 
                 '''                Delay to generate first occurrence of LSA in
                 milliseconds
                 ''',
                 'first_delay',
                 'Cisco-IOS-XR-ipv6-ospfv3-cfg', False),
             _MetaInfoClassMember('maximum-delay', ATTRIBUTE, 'int' , None, None, 
-                [(1, 600000)], [], 
+                [('1', '600000')], [], 
                 '''                Maximum delay between originating the same
                 LSA in milliseconds
                 ''',
                 'maximum_delay',
                 'Cisco-IOS-XR-ipv6-ospfv3-cfg', False),
             _MetaInfoClassMember('minimum-delay', ATTRIBUTE, 'int' , None, None, 
-                [(1, 600000)], [], 
+                [('1', '600000')], [], 
                 '''                Minimum delay between originating the same
                 LSA in milliseconds
                 ''',
@@ -3650,21 +3678,21 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('first-delay', ATTRIBUTE, 'int' , None, None, 
-                [(1, 600000)], [], 
+                [('1', '600000')], [], 
                 '''                Initial delay between receiving a change and
                 starting SPF in ms
                 ''',
                 'first_delay',
                 'Cisco-IOS-XR-ipv6-ospfv3-cfg', False),
             _MetaInfoClassMember('maximum-delay', ATTRIBUTE, 'int' , None, None, 
-                [(1, 600000)], [], 
+                [('1', '600000')], [], 
                 '''                Maximum wait time between consecutive SPF
                 calculations in ms
                 ''',
                 'maximum_delay',
                 'Cisco-IOS-XR-ipv6-ospfv3-cfg', False),
             _MetaInfoClassMember('minimum-delay', ATTRIBUTE, 'int' , None, None, 
-                [(1, 600000)], [], 
+                [('1', '600000')], [], 
                 '''                Minimum hold time between consecutive SPF
                 calculations in ms
                 ''',
@@ -3740,7 +3768,7 @@ _meta_table = {
                 'prefix',
                 'Cisco-IOS-XR-ipv6-ospfv3-cfg', True),
             _MetaInfoClassMember('prefix-length', ATTRIBUTE, 'int' , None, None, 
-                [(0, 128)], [], 
+                [('0', '128')], [], 
                 '''                IPV6 prefix length
                 ''',
                 'prefix_length',
@@ -3752,7 +3780,7 @@ _meta_table = {
                 'not_advertise',
                 'Cisco-IOS-XR-ipv6-ospfv3-cfg', False),
             _MetaInfoClassMember('tag', ATTRIBUTE, 'int' , None, None, 
-                [(1, 4294967295)], [], 
+                [('1', '4294967295')], [], 
                 '''                Tag
                 ''',
                 'tag',
@@ -3786,13 +3814,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('max-window-traps', ATTRIBUTE, 'int' , None, None, 
-                [(0, 300)], [], 
+                [('0', '300')], [], 
                 '''                Max number of traps sent in window time
                 ''',
                 'max_window_traps',
                 'Cisco-IOS-XR-ipv6-ospfv3-cfg', False),
             _MetaInfoClassMember('window-size', ATTRIBUTE, 'int' , None, None, 
-                [(2, 60)], [], 
+                [('2', '60')], [], 
                 '''                Trap rate limit sliding window size
                 ''',
                 'window_size',
@@ -3856,7 +3884,7 @@ _meta_table = {
                 'tiebreaker_type',
                 'Cisco-IOS-XR-ipv6-ospfv3-cfg', True),
             _MetaInfoClassMember('tiebreaker-index', ATTRIBUTE, 'int' , None, None, 
-                [(1, 255)], [], 
+                [('1', '255')], [], 
                 '''                Index value for a tiebreaker
                 ''',
                 'tiebreaker_index',
@@ -3943,19 +3971,19 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('external', ATTRIBUTE, 'int' , None, None, 
-                [(1, 255)], [], 
+                [('1', '255')], [], 
                 '''                Distance for external type 5 and type 7 routes
                 ''',
                 'external',
                 'Cisco-IOS-XR-ipv6-ospfv3-cfg', False),
             _MetaInfoClassMember('inter-area', ATTRIBUTE, 'int' , None, None, 
-                [(1, 255)], [], 
+                [('1', '255')], [], 
                 '''                Distance for inter-area routes
                 ''',
                 'inter_area',
                 'Cisco-IOS-XR-ipv6-ospfv3-cfg', False),
             _MetaInfoClassMember('intra-area', ATTRIBUTE, 'int' , None, None, 
-                [(1, 255)], [], 
+                [('1', '255')], [], 
                 '''                Distance for intra-area routes
                 ''',
                 'intra_area',
@@ -3972,7 +4000,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('administrative', ATTRIBUTE, 'int' , None, None, 
-                [(1, 255)], [], 
+                [('1', '255')], [], 
                 '''                Define an administrative distance
                 ''',
                 'administrative',
@@ -3995,14 +4023,14 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('prefixes', ATTRIBUTE, 'int' , None, None, 
-                [(1, 4294967295)], [], 
+                [('1', '4294967295')], [], 
                 '''                Maximum number of prefixes redistributed to
                 protocol
                 ''',
                 'prefixes',
                 'Cisco-IOS-XR-ipv6-ospfv3-cfg', False),
             _MetaInfoClassMember('threshold', ATTRIBUTE, 'int' , None, None, 
-                [(1, 100)], [], 
+                [('1', '100')], [], 
                 '''                Threshold value (%) at which to generate a
                 warning message
                 ''',
@@ -4027,13 +4055,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('interfaces', ATTRIBUTE, 'int' , None, None, 
-                [(1, 4294967295)], [], 
+                [('1', '4294967295')], [], 
                 '''                Specify maximum number of interfaces
                 ''',
                 'interfaces',
                 'Cisco-IOS-XR-ipv6-ospfv3-cfg', False),
             _MetaInfoClassMember('paths', ATTRIBUTE, 'int' , None, None, 
-                [(1, 64)], [], 
+                [('1', '64')], [], 
                 '''                Specify maximum number of paths per route
                 ''',
                 'paths',
@@ -4056,7 +4084,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('default-metric', ATTRIBUTE, 'int' , None, None, 
-                [(0, 16777214)], [], 
+                [('0', '16777214')], [], 
                 '''                OSPFv3 default metric
                 ''',
                 'default_metric',
@@ -4125,7 +4153,7 @@ _meta_table = {
                 'route_policy_name',
                 'Cisco-IOS-XR-ipv6-ospfv3-cfg', False),
             _MetaInfoClassMember('tag', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Tag for routes redistributed into OSPFv3
                 ''',
                 'tag',
@@ -4142,14 +4170,14 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('as-xx', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                4-byte AS number in asdot (X.Y) format -
                 first half (X)
                 ''',
                 'as_xx',
                 'Cisco-IOS-XR-ipv6-ospfv3-cfg', True),
             _MetaInfoClassMember('as-yy', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                4-byte AS number in asdot (X.Y) format -
                 second half (Y), or 2-byte AS number, or
                 4-byte AS number in asplain format
@@ -4157,7 +4185,7 @@ _meta_table = {
                 'as_yy',
                 'Cisco-IOS-XR-ipv6-ospfv3-cfg', True),
             _MetaInfoClassMember('default-metric', ATTRIBUTE, 'int' , None, None, 
-                [(0, 16777214)], [], 
+                [('0', '16777214')], [], 
                 '''                OSPFv3 default metric
                 ''',
                 'default_metric',
@@ -4226,7 +4254,7 @@ _meta_table = {
                 'route_policy_name',
                 'Cisco-IOS-XR-ipv6-ospfv3-cfg', False),
             _MetaInfoClassMember('tag', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Tag for routes redistributed into OSPFv3
                 ''',
                 'tag',
@@ -4250,7 +4278,7 @@ _meta_table = {
                 'process_name',
                 'Cisco-IOS-XR-ipv6-ospfv3-cfg', True),
             _MetaInfoClassMember('default-metric', ATTRIBUTE, 'int' , None, None, 
-                [(0, 16777214)], [], 
+                [('0', '16777214')], [], 
                 '''                OSPFv3 default metric
                 ''',
                 'default_metric',
@@ -4319,7 +4347,7 @@ _meta_table = {
                 'route_policy_name',
                 'Cisco-IOS-XR-ipv6-ospfv3-cfg', False),
             _MetaInfoClassMember('tag', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Tag for routes redistributed into OSPFv3
                 ''',
                 'tag',
@@ -4336,14 +4364,14 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('as-xx', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                4-byte AS number in asdot (X.Y) format -
                 first half (X)
                 ''',
                 'as_xx',
                 'Cisco-IOS-XR-ipv6-ospfv3-cfg', True),
             _MetaInfoClassMember('default-metric', ATTRIBUTE, 'int' , None, None, 
-                [(0, 16777214)], [], 
+                [('0', '16777214')], [], 
                 '''                OSPFv3 default metric
                 ''',
                 'default_metric',
@@ -4412,7 +4440,7 @@ _meta_table = {
                 'route_policy_name',
                 'Cisco-IOS-XR-ipv6-ospfv3-cfg', False),
             _MetaInfoClassMember('tag', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Tag for routes redistributed into OSPFv3
                 ''',
                 'tag',
@@ -4523,14 +4551,14 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('as-xx', ATTRIBUTE, 'int' , None, None, 
-                [(1, 65535)], [], 
+                [('1', '65535')], [], 
                 '''                4-byte AS number in asdot (X.Y) format -
                 first half (X)
                 ''',
                 'as_xx',
                 'Cisco-IOS-XR-ipv6-ospfv3-cfg', True),
             _MetaInfoClassMember('as-yy', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                4-byte AS number in asdot (X.Y) format -
                 second half (Y), or 2-byte AS number, or
                 4-byte AS number in asplain format
@@ -4659,7 +4687,7 @@ _meta_table = {
                 'wait_for_bgp',
                 'Cisco-IOS-XR-ipv6-ospfv3-cfg', False),
             _MetaInfoClassMember('wait-time', ATTRIBUTE, 'int' , None, None, 
-                [(5, 86400)], [], 
+                [('5', '86400')], [], 
                 '''                Time (in seconds) to stay in stub router
                 operational state
                 ''',
@@ -4690,7 +4718,7 @@ _meta_table = {
                 'enable',
                 'Cisco-IOS-XR-ipv6-ospfv3-cfg', False),
             _MetaInfoClassMember('external-lsa', ATTRIBUTE, 'int' , None, None, 
-                [(1, 16777214)], [], 
+                [('1', '16777214')], [], 
                 '''                Advertise external LSAs with modified metric in
                 stub router mode
                 ''',
@@ -4704,14 +4732,14 @@ _meta_table = {
                 'include_stub',
                 'Cisco-IOS-XR-ipv6-ospfv3-cfg', False),
             _MetaInfoClassMember('on-proc-migration', ATTRIBUTE, 'int' , None, None, 
-                [(5, 86400)], [], 
+                [('5', '86400')], [], 
                 '''                Time (in seconds) to stay in stub router
                 operational state
                 ''',
                 'on_proc_migration',
                 'Cisco-IOS-XR-ipv6-ospfv3-cfg', False),
             _MetaInfoClassMember('on-proc-restart', ATTRIBUTE, 'int' , None, None, 
-                [(5, 86400)], [], 
+                [('5', '86400')], [], 
                 '''                Time (in seconds) to stay in stub router
                 operational state
                 ''',
@@ -4724,14 +4752,14 @@ _meta_table = {
                 'on_startup',
                 'Cisco-IOS-XR-ipv6-ospfv3-cfg', False),
             _MetaInfoClassMember('on-switchover', ATTRIBUTE, 'int' , None, None, 
-                [(5, 86400)], [], 
+                [('5', '86400')], [], 
                 '''                Time (in seconds) to stay in stub router
                 operational state
                 ''',
                 'on_switchover',
                 'Cisco-IOS-XR-ipv6-ospfv3-cfg', False),
             _MetaInfoClassMember('summary-lsa', ATTRIBUTE, 'int' , None, None, 
-                [(1, 16777214)], [], 
+                [('1', '16777214')], [], 
                 '''                Advertise summary LSAs with modified metric in
                 stub router mode
                 ''',
@@ -4756,7 +4784,7 @@ _meta_table = {
                 'wait_for_bgp',
                 'Cisco-IOS-XR-ipv6-ospfv3-cfg', False),
             _MetaInfoClassMember('wait-time', ATTRIBUTE, 'int' , None, None, 
-                [(5, 86400)], [], 
+                [('5', '86400')], [], 
                 '''                Time (in seconds) to stay in stub router
                 operational state
                 ''',
@@ -4787,7 +4815,7 @@ _meta_table = {
                 'enable',
                 'Cisco-IOS-XR-ipv6-ospfv3-cfg', False),
             _MetaInfoClassMember('external-lsa', ATTRIBUTE, 'int' , None, None, 
-                [(1, 16777214)], [], 
+                [('1', '16777214')], [], 
                 '''                Advertise external LSAs with modified metric in
                 stub router mode
                 ''',
@@ -4801,14 +4829,14 @@ _meta_table = {
                 'include_stub',
                 'Cisco-IOS-XR-ipv6-ospfv3-cfg', False),
             _MetaInfoClassMember('on-proc-migration', ATTRIBUTE, 'int' , None, None, 
-                [(5, 86400)], [], 
+                [('5', '86400')], [], 
                 '''                Time (in seconds) to stay in stub router
                 operational state
                 ''',
                 'on_proc_migration',
                 'Cisco-IOS-XR-ipv6-ospfv3-cfg', False),
             _MetaInfoClassMember('on-proc-restart', ATTRIBUTE, 'int' , None, None, 
-                [(5, 86400)], [], 
+                [('5', '86400')], [], 
                 '''                Time (in seconds) to stay in stub router
                 operational state
                 ''',
@@ -4821,14 +4849,14 @@ _meta_table = {
                 'on_startup',
                 'Cisco-IOS-XR-ipv6-ospfv3-cfg', False),
             _MetaInfoClassMember('on-switchover', ATTRIBUTE, 'int' , None, None, 
-                [(5, 86400)], [], 
+                [('5', '86400')], [], 
                 '''                Time (in seconds) to stay in stub router
                 operational state
                 ''',
                 'on_switchover',
                 'Cisco-IOS-XR-ipv6-ospfv3-cfg', False),
             _MetaInfoClassMember('summary-lsa', ATTRIBUTE, 'int' , None, None, 
-                [(1, 16777214)], [], 
+                [('1', '16777214')], [], 
                 '''                Advertise summary LSAs with modified metric in
                 stub router mode
                 ''',
@@ -4853,7 +4881,7 @@ _meta_table = {
                 'wait_for_bgp',
                 'Cisco-IOS-XR-ipv6-ospfv3-cfg', False),
             _MetaInfoClassMember('wait-time', ATTRIBUTE, 'int' , None, None, 
-                [(5, 86400)], [], 
+                [('5', '86400')], [], 
                 '''                Time (in seconds) to stay in stub router
                 operational state
                 ''',
@@ -4884,7 +4912,7 @@ _meta_table = {
                 'enable',
                 'Cisco-IOS-XR-ipv6-ospfv3-cfg', False),
             _MetaInfoClassMember('external-lsa', ATTRIBUTE, 'int' , None, None, 
-                [(1, 16777214)], [], 
+                [('1', '16777214')], [], 
                 '''                Advertise external LSAs with modified metric in
                 stub router mode
                 ''',
@@ -4898,14 +4926,14 @@ _meta_table = {
                 'include_stub',
                 'Cisco-IOS-XR-ipv6-ospfv3-cfg', False),
             _MetaInfoClassMember('on-proc-migration', ATTRIBUTE, 'int' , None, None, 
-                [(5, 86400)], [], 
+                [('5', '86400')], [], 
                 '''                Time (in seconds) to stay in stub router
                 operational state
                 ''',
                 'on_proc_migration',
                 'Cisco-IOS-XR-ipv6-ospfv3-cfg', False),
             _MetaInfoClassMember('on-proc-restart', ATTRIBUTE, 'int' , None, None, 
-                [(5, 86400)], [], 
+                [('5', '86400')], [], 
                 '''                Time (in seconds) to stay in stub router
                 operational state
                 ''',
@@ -4918,14 +4946,14 @@ _meta_table = {
                 'on_startup',
                 'Cisco-IOS-XR-ipv6-ospfv3-cfg', False),
             _MetaInfoClassMember('on-switchover', ATTRIBUTE, 'int' , None, None, 
-                [(5, 86400)], [], 
+                [('5', '86400')], [], 
                 '''                Time (in seconds) to stay in stub router
                 operational state
                 ''',
                 'on_switchover',
                 'Cisco-IOS-XR-ipv6-ospfv3-cfg', False),
             _MetaInfoClassMember('summary-lsa', ATTRIBUTE, 'int' , None, None, 
-                [(1, 16777214)], [], 
+                [('1', '16777214')], [], 
                 '''                Advertise summary LSAs with modified metric in
                 stub router mode
                 ''',
@@ -4972,7 +5000,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('detection-multiplier', ATTRIBUTE, 'int' , None, None, 
-                [(2, 50)], [], 
+                [('2', '50')], [], 
                 '''                Detect multiplier
                 ''',
                 'detection_multiplier',
@@ -4984,7 +5012,7 @@ _meta_table = {
                 'fast_detect_mode',
                 'Cisco-IOS-XR-ipv6-ospfv3-cfg', False),
             _MetaInfoClassMember('interval', ATTRIBUTE, 'int' , None, None, 
-                [(3, 30000)], [], 
+                [('3', '30000')], [], 
                 '''                Hello interval in milli-seconds
                 ''',
                 'interval',
@@ -5053,7 +5081,7 @@ _meta_table = {
                 'password',
                 'Cisco-IOS-XR-ipv6-ospfv3-cfg', False),
             _MetaInfoClassMember('spi', ATTRIBUTE, 'int' , None, None, 
-                [(256, 4294967295)], [], 
+                [('256', '4294967295')], [], 
                 '''                Use IPSec AH authentication. Specify the
                 Security Parameter Index (SPI) value
                 ''',
@@ -5083,14 +5111,14 @@ _meta_table = {
                 'helper',
                 'Cisco-IOS-XR-ipv6-ospfv3-cfg', False),
             _MetaInfoClassMember('interval', ATTRIBUTE, 'int' , None, None, 
-                [(90, 3600)], [], 
+                [('90', '3600')], [], 
                 '''                Minimum interval between graceful restarts
                 (seconds)
                 ''',
                 'interval',
                 'Cisco-IOS-XR-ipv6-ospfv3-cfg', False),
             _MetaInfoClassMember('lifetime', ATTRIBUTE, 'int' , None, None, 
-                [(90, 1800)], [], 
+                [('90', '1800')], [], 
                 '''                Maximum route lifetime following restart
                 (seconds)
                 ''',
@@ -5121,13 +5149,13 @@ _meta_table = {
                 'always',
                 'Cisco-IOS-XR-ipv6-ospfv3-cfg', False),
             _MetaInfoClassMember('metric', ATTRIBUTE, 'int' , None, None, 
-                [(0, 16777214)], [], 
+                [('0', '16777214')], [], 
                 '''                OSPFv3 default metric
                 ''',
                 'metric',
                 'Cisco-IOS-XR-ipv6-ospfv3-cfg', False),
             _MetaInfoClassMember('metric-type', ATTRIBUTE, 'int' , None, None, 
-                [(1, 2)], [], 
+                [('1', '2')], [], 
                 '''                OSPFv3 metric type for default routes
                 ''',
                 'metric_type',
@@ -5140,7 +5168,7 @@ _meta_table = {
                 'route_policy_name',
                 'Cisco-IOS-XR-ipv6-ospfv3-cfg', False),
             _MetaInfoClassMember('tag', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Tag for default route
                 ''',
                 'tag',
@@ -5174,7 +5202,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('interface-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Interface
                 ''',
                 'interface_name',
@@ -5208,7 +5236,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('interface-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Interface
                 ''',
                 'interface_name',
@@ -5274,7 +5302,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('interface-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Interface
                 ''',
                 'interface_name',
@@ -5308,7 +5336,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('interface-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Interface
                 ''',
                 'interface_name',
@@ -5451,7 +5479,7 @@ _meta_table = {
                 'encryption_password',
                 'Cisco-IOS-XR-ipv6-ospfv3-cfg', False),
             _MetaInfoClassMember('spi', ATTRIBUTE, 'int' , None, None, 
-                [(256, 4294967295)], [], 
+                [('256', '4294967295')], [], 
                 '''                Use IPSec ESP authentication. Specify the
                 Security Parameter Index (SPI) value
                 ''',
@@ -5476,7 +5504,7 @@ _meta_table = {
                 'disable',
                 'Cisco-IOS-XR-ipv6-ospfv3-cfg', False),
             _MetaInfoClassMember('reference-bandwidth', ATTRIBUTE, 'int' , None, None, 
-                [(1, 4294967)], [], 
+                [('1', '4294967')], [], 
                 '''                Specify reference bandwidth for cost
                 computations in terms of Mbits per second
                 ''',
@@ -5518,7 +5546,7 @@ _meta_table = {
                 'bfd',
                 'Cisco-IOS-XR-ipv6-ospfv3-cfg', False),
             _MetaInfoClassMember('cost', ATTRIBUTE, 'int' , None, None, 
-                [(1, 65535)], [], 
+                [('1', '65535')], [], 
                 '''                Interface cost
                 ''',
                 'cost',
@@ -5530,7 +5558,7 @@ _meta_table = {
                 'database_filter',
                 'Cisco-IOS-XR-ipv6-ospfv3-cfg', False),
             _MetaInfoClassMember('dead-interval', ATTRIBUTE, 'int' , None, None, 
-                [(1, 65535)], [], 
+                [('1', '65535')], [], 
                 '''                Interval after which a neighbor is declared dead
                 (in seconds)
                 ''',
@@ -5543,7 +5571,7 @@ _meta_table = {
                 'default_information',
                 'Cisco-IOS-XR-ipv6-ospfv3-cfg', False),
             _MetaInfoClassMember('default-metric', ATTRIBUTE, 'int' , None, None, 
-                [(1, 16777214)], [], 
+                [('1', '16777214')], [], 
                 '''                Set metric of redistributed routes
                 ''',
                 'default_metric',
@@ -5597,7 +5625,7 @@ _meta_table = {
                 'graceful_restart',
                 'Cisco-IOS-XR-ipv6-ospfv3-cfg', False),
             _MetaInfoClassMember('hello-interval', ATTRIBUTE, 'int' , None, None, 
-                [(1, 65535)], [], 
+                [('1', '65535')], [], 
                 '''                Time between HELLO packets
                 ''',
                 'hello_interval',
@@ -5609,7 +5637,7 @@ _meta_table = {
                 'ignore',
                 'Cisco-IOS-XR-ipv6-ospfv3-cfg', False),
             _MetaInfoClassMember('instance', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                Instance ID
                 ''',
                 'instance',
@@ -5645,7 +5673,7 @@ _meta_table = {
                 'network',
                 'Cisco-IOS-XR-ipv6-ospfv3-cfg', False),
             _MetaInfoClassMember('packet-size', ATTRIBUTE, 'int' , None, None, 
-                [(256, 10000)], [], 
+                [('256', '10000')], [], 
                 '''                Limit size of OSPFv3 packets
                 ''',
                 'packet_size',
@@ -5656,8 +5684,15 @@ _meta_table = {
                 ''',
                 'passive',
                 'Cisco-IOS-XR-ipv6-ospfv3-cfg', False),
+            _MetaInfoClassMember('prefix-suppression', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Enable/disable prefix suppression on an
+                interface
+                ''',
+                'prefix_suppression',
+                'Cisco-IOS-XR-ipv6-ospfv3-cfg', False),
             _MetaInfoClassMember('priority', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                Specify router priority
                 ''',
                 'priority',
@@ -5676,7 +5711,7 @@ _meta_table = {
                 'redistributes',
                 'Cisco-IOS-XR-ipv6-ospfv3-cfg', False),
             _MetaInfoClassMember('retransmit-interval', ATTRIBUTE, 'int' , None, None, 
-                [(1, 65535)], [], 
+                [('1', '65535')], [], 
                 '''                Specify the transmit interval in seconds
                 ''',
                 'retransmit_interval',
@@ -5726,7 +5761,7 @@ _meta_table = {
                 'timers',
                 'Cisco-IOS-XR-ipv6-ospfv3-cfg', False),
             _MetaInfoClassMember('transmit-delay', ATTRIBUTE, 'int' , None, None, 
-                [(1, 65535)], [], 
+                [('1', '65535')], [], 
                 '''                Specify the transmit delay in seconds
                 ''',
                 'transmit_delay',
@@ -5864,7 +5899,7 @@ _meta_table = {
                 'password',
                 'Cisco-IOS-XR-ipv6-ospfv3-cfg', False),
             _MetaInfoClassMember('spi', ATTRIBUTE, 'int' , None, None, 
-                [(256, 4294967295)], [], 
+                [('256', '4294967295')], [], 
                 '''                Use IPSec AH authentication. Specify the
                 Security Parameter Index (SPI) value
                 ''',
@@ -5882,7 +5917,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('detection-multiplier', ATTRIBUTE, 'int' , None, None, 
-                [(2, 50)], [], 
+                [('2', '50')], [], 
                 '''                Detect multiplier
                 ''',
                 'detection_multiplier',
@@ -5894,7 +5929,7 @@ _meta_table = {
                 'fast_detect_mode',
                 'Cisco-IOS-XR-ipv6-ospfv3-cfg', False),
             _MetaInfoClassMember('interval', ATTRIBUTE, 'int' , None, None, 
-                [(3, 30000)], [], 
+                [('3', '30000')], [], 
                 '''                Hello interval in milli-seconds
                 ''',
                 'interval',
@@ -5917,13 +5952,13 @@ _meta_table = {
                 'prefix',
                 'Cisco-IOS-XR-ipv6-ospfv3-cfg', True),
             _MetaInfoClassMember('prefix-length', ATTRIBUTE, 'int' , None, None, 
-                [(0, 128)], [], 
+                [('0', '128')], [], 
                 '''                IPV6 prefix length
                 ''',
                 'prefix_length',
                 'Cisco-IOS-XR-ipv6-ospfv3-cfg', True),
             _MetaInfoClassMember('cost', ATTRIBUTE, 'int' , None, None, 
-                [(1, 16777214)], [], 
+                [('1', '16777214')], [], 
                 '''                Specified metric for this range
                 ''',
                 'cost',
@@ -5994,7 +6029,7 @@ _meta_table = {
                 'encryption_password',
                 'Cisco-IOS-XR-ipv6-ospfv3-cfg', False),
             _MetaInfoClassMember('spi', ATTRIBUTE, 'int' , None, None, 
-                [(256, 4294967295)], [], 
+                [('256', '4294967295')], [], 
                 '''                Use IPSec ESP authentication. Specify the
                 Security Parameter Index (SPI) value
                 ''',
@@ -6018,7 +6053,7 @@ _meta_table = {
                 'default_info_originate',
                 'Cisco-IOS-XR-ipv6-ospfv3-cfg', False),
             _MetaInfoClassMember('metric', ATTRIBUTE, 'int' , None, None, 
-                [(0, 16777214)], [], 
+                [('0', '16777214')], [], 
                 '''                Only valid with DefaultInfoOriginate
                 ''',
                 'metric',
@@ -6139,7 +6174,7 @@ _meta_table = {
                 'password',
                 'Cisco-IOS-XR-ipv6-ospfv3-cfg', False),
             _MetaInfoClassMember('spi', ATTRIBUTE, 'int' , None, None, 
-                [(256, 4294967295)], [], 
+                [('256', '4294967295')], [], 
                 '''                Use IPSec AH authentication. Specify the
                 Security Parameter Index (SPI) value
                 ''',
@@ -6163,7 +6198,7 @@ _meta_table = {
                 'neighbor_address',
                 'Cisco-IOS-XR-ipv6-ospfv3-cfg', True),
             _MetaInfoClassMember('cost', ATTRIBUTE, 'int' , None, None, 
-                [(1, 65535)], [], 
+                [('1', '65535')], [], 
                 '''                OSPFv3 cost for point-to-multipoint
                 neighbor
                 ''',
@@ -6178,14 +6213,14 @@ _meta_table = {
                 'database_filter',
                 'Cisco-IOS-XR-ipv6-ospfv3-cfg', False),
             _MetaInfoClassMember('poll-interval', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                OSPFv3 dead-router polling interval (in
                 seconds)
                 ''',
                 'poll_interval',
                 'Cisco-IOS-XR-ipv6-ospfv3-cfg', False),
             _MetaInfoClassMember('priority', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                OSPFv3 priority of non-broadcast neighbor
                 ''',
                 'priority',
@@ -6255,7 +6290,7 @@ _meta_table = {
                 'encryption_password',
                 'Cisco-IOS-XR-ipv6-ospfv3-cfg', False),
             _MetaInfoClassMember('spi', ATTRIBUTE, 'int' , None, None, 
-                [(256, 4294967295)], [], 
+                [('256', '4294967295')], [], 
                 '''                Use IPSec ESP authentication. Specify the
                 Security Parameter Index (SPI) value
                 ''',
@@ -6273,7 +6308,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('detection-multiplier', ATTRIBUTE, 'int' , None, None, 
-                [(2, 50)], [], 
+                [('2', '50')], [], 
                 '''                Detect multiplier
                 ''',
                 'detection_multiplier',
@@ -6285,7 +6320,7 @@ _meta_table = {
                 'fast_detect_mode',
                 'Cisco-IOS-XR-ipv6-ospfv3-cfg', False),
             _MetaInfoClassMember('interval', ATTRIBUTE, 'int' , None, None, 
-                [(3, 30000)], [], 
+                [('3', '30000')], [], 
                 '''                Hello interval in milli-seconds
                 ''',
                 'interval',
@@ -6371,7 +6406,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('interface-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Interface
                 ''',
                 'interface_name',
@@ -6405,7 +6440,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('interface-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Interface
                 ''',
                 'interface_name',
@@ -6471,7 +6506,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('interface-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Interface
                 ''',
                 'interface_name',
@@ -6505,7 +6540,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('interface-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Interface
                 ''',
                 'interface_name',
@@ -6601,7 +6636,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('interface-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Interface to configure
                 ''',
                 'interface_name',
@@ -6619,7 +6654,7 @@ _meta_table = {
                 'bfd',
                 'Cisco-IOS-XR-ipv6-ospfv3-cfg', False),
             _MetaInfoClassMember('cost', ATTRIBUTE, 'int' , None, None, 
-                [(1, 65535)], [], 
+                [('1', '65535')], [], 
                 '''                Interface cost
                 ''',
                 'cost',
@@ -6631,7 +6666,7 @@ _meta_table = {
                 'database_filter',
                 'Cisco-IOS-XR-ipv6-ospfv3-cfg', False),
             _MetaInfoClassMember('dead-interval', ATTRIBUTE, 'int' , None, None, 
-                [(1, 65535)], [], 
+                [('1', '65535')], [], 
                 '''                Interval after which a neighbor is declared
                 dead (in seconds)
                 ''',
@@ -6674,13 +6709,13 @@ _meta_table = {
                 'flood_reduction',
                 'Cisco-IOS-XR-ipv6-ospfv3-cfg', False),
             _MetaInfoClassMember('hello-interval', ATTRIBUTE, 'int' , None, None, 
-                [(1, 65535)], [], 
+                [('1', '65535')], [], 
                 '''                Time between HELLO packets
                 ''',
                 'hello_interval',
                 'Cisco-IOS-XR-ipv6-ospfv3-cfg', False),
             _MetaInfoClassMember('instance', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                Instance ID
                 ''',
                 'instance',
@@ -6711,7 +6746,7 @@ _meta_table = {
                 'network',
                 'Cisco-IOS-XR-ipv6-ospfv3-cfg', False),
             _MetaInfoClassMember('packet-size', ATTRIBUTE, 'int' , None, None, 
-                [(256, 10000)], [], 
+                [('256', '10000')], [], 
                 '''                Limit size of OSPFv3 packets
                 ''',
                 'packet_size',
@@ -6723,20 +6758,27 @@ _meta_table = {
                 ''',
                 'passive',
                 'Cisco-IOS-XR-ipv6-ospfv3-cfg', False),
+            _MetaInfoClassMember('prefix-suppression', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Enable/disable prefix suppression on an
+                interface
+                ''',
+                'prefix_suppression',
+                'Cisco-IOS-XR-ipv6-ospfv3-cfg', False),
             _MetaInfoClassMember('priority', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                Specify router priority
                 ''',
                 'priority',
                 'Cisco-IOS-XR-ipv6-ospfv3-cfg', False),
             _MetaInfoClassMember('retransmit-interval', ATTRIBUTE, 'int' , None, None, 
-                [(1, 65535)], [], 
+                [('1', '65535')], [], 
                 '''                Specify the transmit interval in seconds
                 ''',
                 'retransmit_interval',
                 'Cisco-IOS-XR-ipv6-ospfv3-cfg', False),
             _MetaInfoClassMember('transmit-delay', ATTRIBUTE, 'int' , None, None, 
-                [(1, 65535)], [], 
+                [('1', '65535')], [], 
                 '''                Specify the transmit delay in seconds
                 ''',
                 'transmit_delay',
@@ -6770,7 +6812,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('interface-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Interface
                 ''',
                 'interface_name',
@@ -6804,7 +6846,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('interface-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Interface
                 ''',
                 'interface_name',
@@ -6870,7 +6912,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('interface-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Interface
                 ''',
                 'interface_name',
@@ -6904,7 +6946,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('interface-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Interface
                 ''',
                 'interface_name',
@@ -7035,7 +7077,7 @@ _meta_table = {
                 'password',
                 'Cisco-IOS-XR-ipv6-ospfv3-cfg', False),
             _MetaInfoClassMember('spi', ATTRIBUTE, 'int' , None, None, 
-                [(256, 4294967295)], [], 
+                [('256', '4294967295')], [], 
                 '''                Use IPSec AH authentication. Specify the
                 Security Parameter Index (SPI) value
                 ''',
@@ -7083,7 +7125,7 @@ _meta_table = {
                 'encryption_password',
                 'Cisco-IOS-XR-ipv6-ospfv3-cfg', False),
             _MetaInfoClassMember('spi', ATTRIBUTE, 'int' , None, None, 
-                [(256, 4294967295)], [], 
+                [('256', '4294967295')], [], 
                 '''                Use IPSec ESP authentication. Specify the
                 Security Parameter Index (SPI) value
                 ''',
@@ -7119,7 +7161,7 @@ _meta_table = {
                 'authentication',
                 'Cisco-IOS-XR-ipv6-ospfv3-cfg', False),
             _MetaInfoClassMember('dead-interval', ATTRIBUTE, 'int' , None, None, 
-                [(1, 65535)], [], 
+                [('1', '65535')], [], 
                 '''                Interval after which a neighbor is declared
                 dead (in seconds)
                 ''',
@@ -7138,19 +7180,19 @@ _meta_table = {
                 'encryption',
                 'Cisco-IOS-XR-ipv6-ospfv3-cfg', False),
             _MetaInfoClassMember('hello-interval', ATTRIBUTE, 'int' , None, None, 
-                [(1, 65535)], [], 
+                [('1', '65535')], [], 
                 '''                Time between HELLO packets
                 ''',
                 'hello_interval',
                 'Cisco-IOS-XR-ipv6-ospfv3-cfg', False),
             _MetaInfoClassMember('retransmit-interval', ATTRIBUTE, 'int' , None, None, 
-                [(1, 65535)], [], 
+                [('1', '65535')], [], 
                 '''                Specify the transmit interval in seconds
                 ''',
                 'retransmit_interval',
                 'Cisco-IOS-XR-ipv6-ospfv3-cfg', False),
             _MetaInfoClassMember('transmit-delay', ATTRIBUTE, 'int' , None, None, 
-                [(1, 65535)], [], 
+                [('1', '65535')], [], 
                 '''                Specify the transmit delay in seconds
                 ''',
                 'transmit_delay',
@@ -7202,7 +7244,7 @@ _meta_table = {
                 'password',
                 'Cisco-IOS-XR-ipv6-ospfv3-cfg', False),
             _MetaInfoClassMember('spi', ATTRIBUTE, 'int' , None, None, 
-                [(256, 4294967295)], [], 
+                [('256', '4294967295')], [], 
                 '''                Use IPSec AH authentication. Specify the
                 Security Parameter Index (SPI) value
                 ''',
@@ -7250,7 +7292,7 @@ _meta_table = {
                 'encryption_password',
                 'Cisco-IOS-XR-ipv6-ospfv3-cfg', False),
             _MetaInfoClassMember('spi', ATTRIBUTE, 'int' , None, None, 
-                [(256, 4294967295)], [], 
+                [('256', '4294967295')], [], 
                 '''                Use IPSec ESP authentication. Specify the
                 Security Parameter Index (SPI) value
                 ''',
@@ -7280,7 +7322,7 @@ _meta_table = {
                 'authentication',
                 'Cisco-IOS-XR-ipv6-ospfv3-cfg', False),
             _MetaInfoClassMember('dead-interval', ATTRIBUTE, 'int' , None, None, 
-                [(1, 65535)], [], 
+                [('1', '65535')], [], 
                 '''                Interval after which a neighbor is declared
                 dead (in seconds)
                 ''',
@@ -7299,19 +7341,19 @@ _meta_table = {
                 'encryption',
                 'Cisco-IOS-XR-ipv6-ospfv3-cfg', False),
             _MetaInfoClassMember('hello-interval', ATTRIBUTE, 'int' , None, None, 
-                [(1, 65535)], [], 
+                [('1', '65535')], [], 
                 '''                Time between HELLO packets
                 ''',
                 'hello_interval',
                 'Cisco-IOS-XR-ipv6-ospfv3-cfg', False),
             _MetaInfoClassMember('retransmit-interval', ATTRIBUTE, 'int' , None, None, 
-                [(1, 65535)], [], 
+                [('1', '65535')], [], 
                 '''                Specify the transmit interval in seconds
                 ''',
                 'retransmit_interval',
                 'Cisco-IOS-XR-ipv6-ospfv3-cfg', False),
             _MetaInfoClassMember('transmit-delay', ATTRIBUTE, 'int' , None, None, 
-                [(1, 65535)], [], 
+                [('1', '65535')], [], 
                 '''                Specify the transmit delay in seconds
                 ''',
                 'transmit_delay',
@@ -7369,7 +7411,7 @@ _meta_table = {
                 'bfd',
                 'Cisco-IOS-XR-ipv6-ospfv3-cfg', False),
             _MetaInfoClassMember('cost', ATTRIBUTE, 'int' , None, None, 
-                [(1, 65535)], [], 
+                [('1', '65535')], [], 
                 '''                Interface cost
                 ''',
                 'cost',
@@ -7381,14 +7423,14 @@ _meta_table = {
                 'database_filter',
                 'Cisco-IOS-XR-ipv6-ospfv3-cfg', False),
             _MetaInfoClassMember('dead-interval', ATTRIBUTE, 'int' , None, None, 
-                [(1, 65535)], [], 
+                [('1', '65535')], [], 
                 '''                Interval after which a neighbor is declared
                 dead (in seconds)
                 ''',
                 'dead_interval',
                 'Cisco-IOS-XR-ipv6-ospfv3-cfg', False),
             _MetaInfoClassMember('default-cost', ATTRIBUTE, 'int' , None, None, 
-                [(0, 16777215)], [], 
+                [('0', '16777215')], [], 
                 '''                Set the summary default-cost of a NSSA/stub
                 area
                 ''',
@@ -7425,13 +7467,13 @@ _meta_table = {
                 'flood_reduction',
                 'Cisco-IOS-XR-ipv6-ospfv3-cfg', False),
             _MetaInfoClassMember('hello-interval', ATTRIBUTE, 'int' , None, None, 
-                [(1, 65535)], [], 
+                [('1', '65535')], [], 
                 '''                Time between HELLO packets
                 ''',
                 'hello_interval',
                 'Cisco-IOS-XR-ipv6-ospfv3-cfg', False),
             _MetaInfoClassMember('instance', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                Instance ID
                 ''',
                 'instance',
@@ -7468,7 +7510,7 @@ _meta_table = {
                 'nssa',
                 'Cisco-IOS-XR-ipv6-ospfv3-cfg', False),
             _MetaInfoClassMember('packet-size', ATTRIBUTE, 'int' , None, None, 
-                [(256, 10000)], [], 
+                [('256', '10000')], [], 
                 '''                Limit size of OSPFv3 packets
                 ''',
                 'packet_size',
@@ -7479,8 +7521,15 @@ _meta_table = {
                 ''',
                 'passive',
                 'Cisco-IOS-XR-ipv6-ospfv3-cfg', False),
+            _MetaInfoClassMember('prefix-suppression', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Enable/disable prefix suppression on an
+                interface
+                ''',
+                'prefix_suppression',
+                'Cisco-IOS-XR-ipv6-ospfv3-cfg', False),
             _MetaInfoClassMember('priority', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                Specify router priority
                 ''',
                 'priority',
@@ -7492,7 +7541,7 @@ _meta_table = {
                 'ranges',
                 'Cisco-IOS-XR-ipv6-ospfv3-cfg', False),
             _MetaInfoClassMember('retransmit-interval', ATTRIBUTE, 'int' , None, None, 
-                [(1, 65535)], [], 
+                [('1', '65535')], [], 
                 '''                Specify the transmit interval in seconds
                 ''',
                 'retransmit_interval',
@@ -7511,7 +7560,7 @@ _meta_table = {
                 'stub',
                 'Cisco-IOS-XR-ipv6-ospfv3-cfg', False),
             _MetaInfoClassMember('transmit-delay', ATTRIBUTE, 'int' , None, None, 
-                [(1, 65535)], [], 
+                [('1', '65535')], [], 
                 '''                Specify the transmit delay in seconds
                 ''',
                 'transmit_delay',
@@ -7552,7 +7601,7 @@ _meta_table = {
                 'password',
                 'Cisco-IOS-XR-ipv6-ospfv3-cfg', False),
             _MetaInfoClassMember('spi', ATTRIBUTE, 'int' , None, None, 
-                [(256, 4294967295)], [], 
+                [('256', '4294967295')], [], 
                 '''                Use IPSec AH authentication. Specify the
                 Security Parameter Index (SPI) value
                 ''',
@@ -7570,7 +7619,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('detection-multiplier', ATTRIBUTE, 'int' , None, None, 
-                [(2, 50)], [], 
+                [('2', '50')], [], 
                 '''                Detect multiplier
                 ''',
                 'detection_multiplier',
@@ -7582,7 +7631,7 @@ _meta_table = {
                 'fast_detect_mode',
                 'Cisco-IOS-XR-ipv6-ospfv3-cfg', False),
             _MetaInfoClassMember('interval', ATTRIBUTE, 'int' , None, None, 
-                [(3, 30000)], [], 
+                [('3', '30000')], [], 
                 '''                Hello interval in milli-seconds
                 ''',
                 'interval',
@@ -7605,13 +7654,13 @@ _meta_table = {
                 'prefix',
                 'Cisco-IOS-XR-ipv6-ospfv3-cfg', True),
             _MetaInfoClassMember('prefix-length', ATTRIBUTE, 'int' , None, None, 
-                [(0, 128)], [], 
+                [('0', '128')], [], 
                 '''                IPV6 prefix length
                 ''',
                 'prefix_length',
                 'Cisco-IOS-XR-ipv6-ospfv3-cfg', True),
             _MetaInfoClassMember('cost', ATTRIBUTE, 'int' , None, None, 
-                [(1, 16777214)], [], 
+                [('1', '16777214')], [], 
                 '''                Specified metric for this range
                 ''',
                 'cost',
@@ -7682,7 +7731,7 @@ _meta_table = {
                 'encryption_password',
                 'Cisco-IOS-XR-ipv6-ospfv3-cfg', False),
             _MetaInfoClassMember('spi', ATTRIBUTE, 'int' , None, None, 
-                [(256, 4294967295)], [], 
+                [('256', '4294967295')], [], 
                 '''                Use IPSec ESP authentication. Specify the
                 Security Parameter Index (SPI) value
                 ''',
@@ -7706,7 +7755,7 @@ _meta_table = {
                 'default_info_originate',
                 'Cisco-IOS-XR-ipv6-ospfv3-cfg', False),
             _MetaInfoClassMember('metric', ATTRIBUTE, 'int' , None, None, 
-                [(0, 16777214)], [], 
+                [('0', '16777214')], [], 
                 '''                Only valid with DefaultInfoOriginate
                 ''',
                 'metric',
@@ -7827,7 +7876,7 @@ _meta_table = {
                 'password',
                 'Cisco-IOS-XR-ipv6-ospfv3-cfg', False),
             _MetaInfoClassMember('spi', ATTRIBUTE, 'int' , None, None, 
-                [(256, 4294967295)], [], 
+                [('256', '4294967295')], [], 
                 '''                Use IPSec AH authentication. Specify the
                 Security Parameter Index (SPI) value
                 ''',
@@ -7851,7 +7900,7 @@ _meta_table = {
                 'neighbor_address',
                 'Cisco-IOS-XR-ipv6-ospfv3-cfg', True),
             _MetaInfoClassMember('cost', ATTRIBUTE, 'int' , None, None, 
-                [(1, 65535)], [], 
+                [('1', '65535')], [], 
                 '''                OSPFv3 cost for point-to-multipoint
                 neighbor
                 ''',
@@ -7866,14 +7915,14 @@ _meta_table = {
                 'database_filter',
                 'Cisco-IOS-XR-ipv6-ospfv3-cfg', False),
             _MetaInfoClassMember('poll-interval', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                OSPFv3 dead-router polling interval (in
                 seconds)
                 ''',
                 'poll_interval',
                 'Cisco-IOS-XR-ipv6-ospfv3-cfg', False),
             _MetaInfoClassMember('priority', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                OSPFv3 priority of non-broadcast neighbor
                 ''',
                 'priority',
@@ -7943,7 +7992,7 @@ _meta_table = {
                 'encryption_password',
                 'Cisco-IOS-XR-ipv6-ospfv3-cfg', False),
             _MetaInfoClassMember('spi', ATTRIBUTE, 'int' , None, None, 
-                [(256, 4294967295)], [], 
+                [('256', '4294967295')], [], 
                 '''                Use IPSec ESP authentication. Specify the
                 Security Parameter Index (SPI) value
                 ''',
@@ -7961,7 +8010,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('detection-multiplier', ATTRIBUTE, 'int' , None, None, 
-                [(2, 50)], [], 
+                [('2', '50')], [], 
                 '''                Detect multiplier
                 ''',
                 'detection_multiplier',
@@ -7973,7 +8022,7 @@ _meta_table = {
                 'fast_detect_mode',
                 'Cisco-IOS-XR-ipv6-ospfv3-cfg', False),
             _MetaInfoClassMember('interval', ATTRIBUTE, 'int' , None, None, 
-                [(3, 30000)], [], 
+                [('3', '30000')], [], 
                 '''                Hello interval in milli-seconds
                 ''',
                 'interval',
@@ -8059,7 +8108,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('interface-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Interface
                 ''',
                 'interface_name',
@@ -8093,7 +8142,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('interface-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Interface
                 ''',
                 'interface_name',
@@ -8159,7 +8208,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('interface-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Interface
                 ''',
                 'interface_name',
@@ -8193,7 +8242,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('interface-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Interface
                 ''',
                 'interface_name',
@@ -8289,7 +8338,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('interface-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Interface to configure
                 ''',
                 'interface_name',
@@ -8307,7 +8356,7 @@ _meta_table = {
                 'bfd',
                 'Cisco-IOS-XR-ipv6-ospfv3-cfg', False),
             _MetaInfoClassMember('cost', ATTRIBUTE, 'int' , None, None, 
-                [(1, 65535)], [], 
+                [('1', '65535')], [], 
                 '''                Interface cost
                 ''',
                 'cost',
@@ -8319,7 +8368,7 @@ _meta_table = {
                 'database_filter',
                 'Cisco-IOS-XR-ipv6-ospfv3-cfg', False),
             _MetaInfoClassMember('dead-interval', ATTRIBUTE, 'int' , None, None, 
-                [(1, 65535)], [], 
+                [('1', '65535')], [], 
                 '''                Interval after which a neighbor is declared
                 dead (in seconds)
                 ''',
@@ -8362,13 +8411,13 @@ _meta_table = {
                 'flood_reduction',
                 'Cisco-IOS-XR-ipv6-ospfv3-cfg', False),
             _MetaInfoClassMember('hello-interval', ATTRIBUTE, 'int' , None, None, 
-                [(1, 65535)], [], 
+                [('1', '65535')], [], 
                 '''                Time between HELLO packets
                 ''',
                 'hello_interval',
                 'Cisco-IOS-XR-ipv6-ospfv3-cfg', False),
             _MetaInfoClassMember('instance', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                Instance ID
                 ''',
                 'instance',
@@ -8399,7 +8448,7 @@ _meta_table = {
                 'network',
                 'Cisco-IOS-XR-ipv6-ospfv3-cfg', False),
             _MetaInfoClassMember('packet-size', ATTRIBUTE, 'int' , None, None, 
-                [(256, 10000)], [], 
+                [('256', '10000')], [], 
                 '''                Limit size of OSPFv3 packets
                 ''',
                 'packet_size',
@@ -8411,20 +8460,27 @@ _meta_table = {
                 ''',
                 'passive',
                 'Cisco-IOS-XR-ipv6-ospfv3-cfg', False),
+            _MetaInfoClassMember('prefix-suppression', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Enable/disable prefix suppression on an
+                interface
+                ''',
+                'prefix_suppression',
+                'Cisco-IOS-XR-ipv6-ospfv3-cfg', False),
             _MetaInfoClassMember('priority', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                Specify router priority
                 ''',
                 'priority',
                 'Cisco-IOS-XR-ipv6-ospfv3-cfg', False),
             _MetaInfoClassMember('retransmit-interval', ATTRIBUTE, 'int' , None, None, 
-                [(1, 65535)], [], 
+                [('1', '65535')], [], 
                 '''                Specify the transmit interval in seconds
                 ''',
                 'retransmit_interval',
                 'Cisco-IOS-XR-ipv6-ospfv3-cfg', False),
             _MetaInfoClassMember('transmit-delay', ATTRIBUTE, 'int' , None, None, 
-                [(1, 65535)], [], 
+                [('1', '65535')], [], 
                 '''                Specify the transmit delay in seconds
                 ''',
                 'transmit_delay',
@@ -8458,7 +8514,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('interface-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Interface
                 ''',
                 'interface_name',
@@ -8492,7 +8548,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('interface-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Interface
                 ''',
                 'interface_name',
@@ -8558,7 +8614,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('interface-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Interface
                 ''',
                 'interface_name',
@@ -8592,7 +8648,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('interface-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Interface
                 ''',
                 'interface_name',
@@ -8723,7 +8779,7 @@ _meta_table = {
                 'password',
                 'Cisco-IOS-XR-ipv6-ospfv3-cfg', False),
             _MetaInfoClassMember('spi', ATTRIBUTE, 'int' , None, None, 
-                [(256, 4294967295)], [], 
+                [('256', '4294967295')], [], 
                 '''                Use IPSec AH authentication. Specify the
                 Security Parameter Index (SPI) value
                 ''',
@@ -8771,7 +8827,7 @@ _meta_table = {
                 'encryption_password',
                 'Cisco-IOS-XR-ipv6-ospfv3-cfg', False),
             _MetaInfoClassMember('spi', ATTRIBUTE, 'int' , None, None, 
-                [(256, 4294967295)], [], 
+                [('256', '4294967295')], [], 
                 '''                Use IPSec ESP authentication. Specify the
                 Security Parameter Index (SPI) value
                 ''',
@@ -8807,7 +8863,7 @@ _meta_table = {
                 'authentication',
                 'Cisco-IOS-XR-ipv6-ospfv3-cfg', False),
             _MetaInfoClassMember('dead-interval', ATTRIBUTE, 'int' , None, None, 
-                [(1, 65535)], [], 
+                [('1', '65535')], [], 
                 '''                Interval after which a neighbor is declared
                 dead (in seconds)
                 ''',
@@ -8826,19 +8882,19 @@ _meta_table = {
                 'encryption',
                 'Cisco-IOS-XR-ipv6-ospfv3-cfg', False),
             _MetaInfoClassMember('hello-interval', ATTRIBUTE, 'int' , None, None, 
-                [(1, 65535)], [], 
+                [('1', '65535')], [], 
                 '''                Time between HELLO packets
                 ''',
                 'hello_interval',
                 'Cisco-IOS-XR-ipv6-ospfv3-cfg', False),
             _MetaInfoClassMember('retransmit-interval', ATTRIBUTE, 'int' , None, None, 
-                [(1, 65535)], [], 
+                [('1', '65535')], [], 
                 '''                Specify the transmit interval in seconds
                 ''',
                 'retransmit_interval',
                 'Cisco-IOS-XR-ipv6-ospfv3-cfg', False),
             _MetaInfoClassMember('transmit-delay', ATTRIBUTE, 'int' , None, None, 
-                [(1, 65535)], [], 
+                [('1', '65535')], [], 
                 '''                Specify the transmit delay in seconds
                 ''',
                 'transmit_delay',
@@ -8890,7 +8946,7 @@ _meta_table = {
                 'password',
                 'Cisco-IOS-XR-ipv6-ospfv3-cfg', False),
             _MetaInfoClassMember('spi', ATTRIBUTE, 'int' , None, None, 
-                [(256, 4294967295)], [], 
+                [('256', '4294967295')], [], 
                 '''                Use IPSec AH authentication. Specify the
                 Security Parameter Index (SPI) value
                 ''',
@@ -8938,7 +8994,7 @@ _meta_table = {
                 'encryption_password',
                 'Cisco-IOS-XR-ipv6-ospfv3-cfg', False),
             _MetaInfoClassMember('spi', ATTRIBUTE, 'int' , None, None, 
-                [(256, 4294967295)], [], 
+                [('256', '4294967295')], [], 
                 '''                Use IPSec ESP authentication. Specify the
                 Security Parameter Index (SPI) value
                 ''',
@@ -8968,7 +9024,7 @@ _meta_table = {
                 'authentication',
                 'Cisco-IOS-XR-ipv6-ospfv3-cfg', False),
             _MetaInfoClassMember('dead-interval', ATTRIBUTE, 'int' , None, None, 
-                [(1, 65535)], [], 
+                [('1', '65535')], [], 
                 '''                Interval after which a neighbor is declared
                 dead (in seconds)
                 ''',
@@ -8987,19 +9043,19 @@ _meta_table = {
                 'encryption',
                 'Cisco-IOS-XR-ipv6-ospfv3-cfg', False),
             _MetaInfoClassMember('hello-interval', ATTRIBUTE, 'int' , None, None, 
-                [(1, 65535)], [], 
+                [('1', '65535')], [], 
                 '''                Time between HELLO packets
                 ''',
                 'hello_interval',
                 'Cisco-IOS-XR-ipv6-ospfv3-cfg', False),
             _MetaInfoClassMember('retransmit-interval', ATTRIBUTE, 'int' , None, None, 
-                [(1, 65535)], [], 
+                [('1', '65535')], [], 
                 '''                Specify the transmit interval in seconds
                 ''',
                 'retransmit_interval',
                 'Cisco-IOS-XR-ipv6-ospfv3-cfg', False),
             _MetaInfoClassMember('transmit-delay', ATTRIBUTE, 'int' , None, None, 
-                [(1, 65535)], [], 
+                [('1', '65535')], [], 
                 '''                Specify the transmit delay in seconds
                 ''',
                 'transmit_delay',
@@ -9033,7 +9089,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('area-id', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Area ID if in integer format
                 ''',
                 'area_id',
@@ -9057,7 +9113,7 @@ _meta_table = {
                 'bfd',
                 'Cisco-IOS-XR-ipv6-ospfv3-cfg', False),
             _MetaInfoClassMember('cost', ATTRIBUTE, 'int' , None, None, 
-                [(1, 65535)], [], 
+                [('1', '65535')], [], 
                 '''                Interface cost
                 ''',
                 'cost',
@@ -9069,14 +9125,14 @@ _meta_table = {
                 'database_filter',
                 'Cisco-IOS-XR-ipv6-ospfv3-cfg', False),
             _MetaInfoClassMember('dead-interval', ATTRIBUTE, 'int' , None, None, 
-                [(1, 65535)], [], 
+                [('1', '65535')], [], 
                 '''                Interval after which a neighbor is declared
                 dead (in seconds)
                 ''',
                 'dead_interval',
                 'Cisco-IOS-XR-ipv6-ospfv3-cfg', False),
             _MetaInfoClassMember('default-cost', ATTRIBUTE, 'int' , None, None, 
-                [(0, 16777215)], [], 
+                [('0', '16777215')], [], 
                 '''                Set the summary default-cost of a NSSA/stub
                 area
                 ''',
@@ -9113,13 +9169,13 @@ _meta_table = {
                 'flood_reduction',
                 'Cisco-IOS-XR-ipv6-ospfv3-cfg', False),
             _MetaInfoClassMember('hello-interval', ATTRIBUTE, 'int' , None, None, 
-                [(1, 65535)], [], 
+                [('1', '65535')], [], 
                 '''                Time between HELLO packets
                 ''',
                 'hello_interval',
                 'Cisco-IOS-XR-ipv6-ospfv3-cfg', False),
             _MetaInfoClassMember('instance', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                Instance ID
                 ''',
                 'instance',
@@ -9156,7 +9212,7 @@ _meta_table = {
                 'nssa',
                 'Cisco-IOS-XR-ipv6-ospfv3-cfg', False),
             _MetaInfoClassMember('packet-size', ATTRIBUTE, 'int' , None, None, 
-                [(256, 10000)], [], 
+                [('256', '10000')], [], 
                 '''                Limit size of OSPFv3 packets
                 ''',
                 'packet_size',
@@ -9167,8 +9223,15 @@ _meta_table = {
                 ''',
                 'passive',
                 'Cisco-IOS-XR-ipv6-ospfv3-cfg', False),
+            _MetaInfoClassMember('prefix-suppression', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Enable/disable prefix suppression on an
+                interface
+                ''',
+                'prefix_suppression',
+                'Cisco-IOS-XR-ipv6-ospfv3-cfg', False),
             _MetaInfoClassMember('priority', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                Specify router priority
                 ''',
                 'priority',
@@ -9180,7 +9243,7 @@ _meta_table = {
                 'ranges',
                 'Cisco-IOS-XR-ipv6-ospfv3-cfg', False),
             _MetaInfoClassMember('retransmit-interval', ATTRIBUTE, 'int' , None, None, 
-                [(1, 65535)], [], 
+                [('1', '65535')], [], 
                 '''                Specify the transmit interval in seconds
                 ''',
                 'retransmit_interval',
@@ -9199,7 +9262,7 @@ _meta_table = {
                 'stub',
                 'Cisco-IOS-XR-ipv6-ospfv3-cfg', False),
             _MetaInfoClassMember('transmit-delay', ATTRIBUTE, 'int' , None, None, 
-                [(1, 65535)], [], 
+                [('1', '65535')], [], 
                 '''                Specify the transmit delay in seconds
                 ''',
                 'transmit_delay',
@@ -9245,21 +9308,21 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('flood', ATTRIBUTE, 'int' , None, None, 
-                [(5, 100)], [], 
+                [('5', '100')], [], 
                 '''                The minimum interval in milliseconds to pace
                 limit flooding on interface
                 ''',
                 'flood',
                 'Cisco-IOS-XR-ipv6-ospfv3-cfg', False),
             _MetaInfoClassMember('lsa-group', ATTRIBUTE, 'int' , None, None, 
-                [(10, 1800)], [], 
+                [('10', '1800')], [], 
                 '''                Interval in seconds at which LSAs are grouped
                 and refreshed, checksummed, or aged
                 ''',
                 'lsa_group',
                 'Cisco-IOS-XR-ipv6-ospfv3-cfg', False),
             _MetaInfoClassMember('retransmission', ATTRIBUTE, 'int' , None, None, 
-                [(5, 100)], [], 
+                [('5', '100')], [], 
                 '''                The minimum interval in msec between neighbor
                 retransmissions
                 ''',
@@ -9277,7 +9340,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('arrival', ATTRIBUTE, 'int' , None, None, 
-                [(0, 60000)], [], 
+                [('0', '60000')], [], 
                 '''                The minimum interval in milliseconds between
                 accepting the same LSA
                 ''',
@@ -9295,21 +9358,21 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('first-delay', ATTRIBUTE, 'int' , None, None, 
-                [(0, 600000)], [], 
+                [('0', '600000')], [], 
                 '''                Delay to generate first occurrence of LSA in
                 milliseconds
                 ''',
                 'first_delay',
                 'Cisco-IOS-XR-ipv6-ospfv3-cfg', False),
             _MetaInfoClassMember('maximum-delay', ATTRIBUTE, 'int' , None, None, 
-                [(1, 600000)], [], 
+                [('1', '600000')], [], 
                 '''                Maximum delay between originating the same
                 LSA in milliseconds
                 ''',
                 'maximum_delay',
                 'Cisco-IOS-XR-ipv6-ospfv3-cfg', False),
             _MetaInfoClassMember('minimum-delay', ATTRIBUTE, 'int' , None, None, 
-                [(1, 600000)], [], 
+                [('1', '600000')], [], 
                 '''                Minimum delay between originating the same
                 LSA in milliseconds
                 ''',
@@ -9327,21 +9390,21 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('first-delay', ATTRIBUTE, 'int' , None, None, 
-                [(1, 600000)], [], 
+                [('1', '600000')], [], 
                 '''                Initial delay between receiving a change and
                 starting SPF in ms
                 ''',
                 'first_delay',
                 'Cisco-IOS-XR-ipv6-ospfv3-cfg', False),
             _MetaInfoClassMember('maximum-delay', ATTRIBUTE, 'int' , None, None, 
-                [(1, 600000)], [], 
+                [('1', '600000')], [], 
                 '''                Maximum wait time between consecutive SPF
                 calculations in ms
                 ''',
                 'maximum_delay',
                 'Cisco-IOS-XR-ipv6-ospfv3-cfg', False),
             _MetaInfoClassMember('minimum-delay', ATTRIBUTE, 'int' , None, None, 
-                [(1, 600000)], [], 
+                [('1', '600000')], [], 
                 '''                Minimum hold time between consecutive SPF
                 calculations in ms
                 ''',
@@ -9417,7 +9480,7 @@ _meta_table = {
                 'prefix',
                 'Cisco-IOS-XR-ipv6-ospfv3-cfg', True),
             _MetaInfoClassMember('prefix-length', ATTRIBUTE, 'int' , None, None, 
-                [(0, 128)], [], 
+                [('0', '128')], [], 
                 '''                IPV6 prefix length
                 ''',
                 'prefix_length',
@@ -9429,7 +9492,7 @@ _meta_table = {
                 'not_advertise',
                 'Cisco-IOS-XR-ipv6-ospfv3-cfg', False),
             _MetaInfoClassMember('tag', ATTRIBUTE, 'int' , None, None, 
-                [(1, 4294967295)], [], 
+                [('1', '4294967295')], [], 
                 '''                Tag
                 ''',
                 'tag',
@@ -9463,13 +9526,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('max-window-traps', ATTRIBUTE, 'int' , None, None, 
-                [(0, 300)], [], 
+                [('0', '300')], [], 
                 '''                Max number of traps sent in window time
                 ''',
                 'max_window_traps',
                 'Cisco-IOS-XR-ipv6-ospfv3-cfg', False),
             _MetaInfoClassMember('window-size', ATTRIBUTE, 'int' , None, None, 
-                [(2, 60)], [], 
+                [('2', '60')], [], 
                 '''                Trap rate limit sliding window size
                 ''',
                 'window_size',
@@ -9533,7 +9596,7 @@ _meta_table = {
                 'tiebreaker_type',
                 'Cisco-IOS-XR-ipv6-ospfv3-cfg', True),
             _MetaInfoClassMember('tiebreaker-index', ATTRIBUTE, 'int' , None, None, 
-                [(1, 255)], [], 
+                [('1', '255')], [], 
                 '''                Index value for a tiebreaker
                 ''',
                 'tiebreaker_index',
@@ -9620,19 +9683,19 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('external', ATTRIBUTE, 'int' , None, None, 
-                [(1, 255)], [], 
+                [('1', '255')], [], 
                 '''                Distance for external type 5 and type 7 routes
                 ''',
                 'external',
                 'Cisco-IOS-XR-ipv6-ospfv3-cfg', False),
             _MetaInfoClassMember('inter-area', ATTRIBUTE, 'int' , None, None, 
-                [(1, 255)], [], 
+                [('1', '255')], [], 
                 '''                Distance for inter-area routes
                 ''',
                 'inter_area',
                 'Cisco-IOS-XR-ipv6-ospfv3-cfg', False),
             _MetaInfoClassMember('intra-area', ATTRIBUTE, 'int' , None, None, 
-                [(1, 255)], [], 
+                [('1', '255')], [], 
                 '''                Distance for intra-area routes
                 ''',
                 'intra_area',
@@ -9649,7 +9712,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('administrative', ATTRIBUTE, 'int' , None, None, 
-                [(1, 255)], [], 
+                [('1', '255')], [], 
                 '''                Define an administrative distance
                 ''',
                 'administrative',
@@ -9672,14 +9735,14 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('prefixes', ATTRIBUTE, 'int' , None, None, 
-                [(1, 4294967295)], [], 
+                [('1', '4294967295')], [], 
                 '''                Maximum number of prefixes redistributed to
                 protocol
                 ''',
                 'prefixes',
                 'Cisco-IOS-XR-ipv6-ospfv3-cfg', False),
             _MetaInfoClassMember('threshold', ATTRIBUTE, 'int' , None, None, 
-                [(1, 100)], [], 
+                [('1', '100')], [], 
                 '''                Threshold value (%) at which to generate a
                 warning message
                 ''',
@@ -9704,13 +9767,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('interfaces', ATTRIBUTE, 'int' , None, None, 
-                [(1, 4294967295)], [], 
+                [('1', '4294967295')], [], 
                 '''                Specify maximum number of interfaces
                 ''',
                 'interfaces',
                 'Cisco-IOS-XR-ipv6-ospfv3-cfg', False),
             _MetaInfoClassMember('paths', ATTRIBUTE, 'int' , None, None, 
-                [(1, 64)], [], 
+                [('1', '64')], [], 
                 '''                Specify maximum number of paths per route
                 ''',
                 'paths',
@@ -9733,7 +9796,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('default-metric', ATTRIBUTE, 'int' , None, None, 
-                [(0, 16777214)], [], 
+                [('0', '16777214')], [], 
                 '''                OSPFv3 default metric
                 ''',
                 'default_metric',
@@ -9802,7 +9865,7 @@ _meta_table = {
                 'route_policy_name',
                 'Cisco-IOS-XR-ipv6-ospfv3-cfg', False),
             _MetaInfoClassMember('tag', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Tag for routes redistributed into OSPFv3
                 ''',
                 'tag',
@@ -9819,14 +9882,14 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('as-xx', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                4-byte AS number in asdot (X.Y) format -
                 first half (X)
                 ''',
                 'as_xx',
                 'Cisco-IOS-XR-ipv6-ospfv3-cfg', True),
             _MetaInfoClassMember('as-yy', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                4-byte AS number in asdot (X.Y) format -
                 second half (Y), or 2-byte AS number, or
                 4-byte AS number in asplain format
@@ -9834,7 +9897,7 @@ _meta_table = {
                 'as_yy',
                 'Cisco-IOS-XR-ipv6-ospfv3-cfg', True),
             _MetaInfoClassMember('default-metric', ATTRIBUTE, 'int' , None, None, 
-                [(0, 16777214)], [], 
+                [('0', '16777214')], [], 
                 '''                OSPFv3 default metric
                 ''',
                 'default_metric',
@@ -9903,7 +9966,7 @@ _meta_table = {
                 'route_policy_name',
                 'Cisco-IOS-XR-ipv6-ospfv3-cfg', False),
             _MetaInfoClassMember('tag', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Tag for routes redistributed into OSPFv3
                 ''',
                 'tag',
@@ -9927,7 +9990,7 @@ _meta_table = {
                 'process_name',
                 'Cisco-IOS-XR-ipv6-ospfv3-cfg', True),
             _MetaInfoClassMember('default-metric', ATTRIBUTE, 'int' , None, None, 
-                [(0, 16777214)], [], 
+                [('0', '16777214')], [], 
                 '''                OSPFv3 default metric
                 ''',
                 'default_metric',
@@ -9996,7 +10059,7 @@ _meta_table = {
                 'route_policy_name',
                 'Cisco-IOS-XR-ipv6-ospfv3-cfg', False),
             _MetaInfoClassMember('tag', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Tag for routes redistributed into OSPFv3
                 ''',
                 'tag',
@@ -10013,14 +10076,14 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('as-xx', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                4-byte AS number in asdot (X.Y) format -
                 first half (X)
                 ''',
                 'as_xx',
                 'Cisco-IOS-XR-ipv6-ospfv3-cfg', True),
             _MetaInfoClassMember('default-metric', ATTRIBUTE, 'int' , None, None, 
-                [(0, 16777214)], [], 
+                [('0', '16777214')], [], 
                 '''                OSPFv3 default metric
                 ''',
                 'default_metric',
@@ -10089,7 +10152,7 @@ _meta_table = {
                 'route_policy_name',
                 'Cisco-IOS-XR-ipv6-ospfv3-cfg', False),
             _MetaInfoClassMember('tag', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Tag for routes redistributed into OSPFv3
                 ''',
                 'tag',
@@ -10200,14 +10263,14 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('as-xx', ATTRIBUTE, 'int' , None, None, 
-                [(1, 65535)], [], 
+                [('1', '65535')], [], 
                 '''                4-byte AS number in asdot (X.Y) format -
                 first half (X)
                 ''',
                 'as_xx',
                 'Cisco-IOS-XR-ipv6-ospfv3-cfg', True),
             _MetaInfoClassMember('as-yy', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                4-byte AS number in asdot (X.Y) format -
                 second half (Y), or 2-byte AS number, or
                 4-byte AS number in asplain format
@@ -10336,7 +10399,7 @@ _meta_table = {
                 'wait_for_bgp',
                 'Cisco-IOS-XR-ipv6-ospfv3-cfg', False),
             _MetaInfoClassMember('wait-time', ATTRIBUTE, 'int' , None, None, 
-                [(5, 86400)], [], 
+                [('5', '86400')], [], 
                 '''                Time (in seconds) to stay in stub router
                 operational state
                 ''',
@@ -10367,7 +10430,7 @@ _meta_table = {
                 'enable',
                 'Cisco-IOS-XR-ipv6-ospfv3-cfg', False),
             _MetaInfoClassMember('external-lsa', ATTRIBUTE, 'int' , None, None, 
-                [(1, 16777214)], [], 
+                [('1', '16777214')], [], 
                 '''                Advertise external LSAs with modified metric in
                 stub router mode
                 ''',
@@ -10381,14 +10444,14 @@ _meta_table = {
                 'include_stub',
                 'Cisco-IOS-XR-ipv6-ospfv3-cfg', False),
             _MetaInfoClassMember('on-proc-migration', ATTRIBUTE, 'int' , None, None, 
-                [(5, 86400)], [], 
+                [('5', '86400')], [], 
                 '''                Time (in seconds) to stay in stub router
                 operational state
                 ''',
                 'on_proc_migration',
                 'Cisco-IOS-XR-ipv6-ospfv3-cfg', False),
             _MetaInfoClassMember('on-proc-restart', ATTRIBUTE, 'int' , None, None, 
-                [(5, 86400)], [], 
+                [('5', '86400')], [], 
                 '''                Time (in seconds) to stay in stub router
                 operational state
                 ''',
@@ -10401,14 +10464,14 @@ _meta_table = {
                 'on_startup',
                 'Cisco-IOS-XR-ipv6-ospfv3-cfg', False),
             _MetaInfoClassMember('on-switchover', ATTRIBUTE, 'int' , None, None, 
-                [(5, 86400)], [], 
+                [('5', '86400')], [], 
                 '''                Time (in seconds) to stay in stub router
                 operational state
                 ''',
                 'on_switchover',
                 'Cisco-IOS-XR-ipv6-ospfv3-cfg', False),
             _MetaInfoClassMember('summary-lsa', ATTRIBUTE, 'int' , None, None, 
-                [(1, 16777214)], [], 
+                [('1', '16777214')], [], 
                 '''                Advertise summary LSAs with modified metric in
                 stub router mode
                 ''',
@@ -10433,7 +10496,7 @@ _meta_table = {
                 'wait_for_bgp',
                 'Cisco-IOS-XR-ipv6-ospfv3-cfg', False),
             _MetaInfoClassMember('wait-time', ATTRIBUTE, 'int' , None, None, 
-                [(5, 86400)], [], 
+                [('5', '86400')], [], 
                 '''                Time (in seconds) to stay in stub router
                 operational state
                 ''',
@@ -10464,7 +10527,7 @@ _meta_table = {
                 'enable',
                 'Cisco-IOS-XR-ipv6-ospfv3-cfg', False),
             _MetaInfoClassMember('external-lsa', ATTRIBUTE, 'int' , None, None, 
-                [(1, 16777214)], [], 
+                [('1', '16777214')], [], 
                 '''                Advertise external LSAs with modified metric in
                 stub router mode
                 ''',
@@ -10478,14 +10541,14 @@ _meta_table = {
                 'include_stub',
                 'Cisco-IOS-XR-ipv6-ospfv3-cfg', False),
             _MetaInfoClassMember('on-proc-migration', ATTRIBUTE, 'int' , None, None, 
-                [(5, 86400)], [], 
+                [('5', '86400')], [], 
                 '''                Time (in seconds) to stay in stub router
                 operational state
                 ''',
                 'on_proc_migration',
                 'Cisco-IOS-XR-ipv6-ospfv3-cfg', False),
             _MetaInfoClassMember('on-proc-restart', ATTRIBUTE, 'int' , None, None, 
-                [(5, 86400)], [], 
+                [('5', '86400')], [], 
                 '''                Time (in seconds) to stay in stub router
                 operational state
                 ''',
@@ -10498,14 +10561,14 @@ _meta_table = {
                 'on_startup',
                 'Cisco-IOS-XR-ipv6-ospfv3-cfg', False),
             _MetaInfoClassMember('on-switchover', ATTRIBUTE, 'int' , None, None, 
-                [(5, 86400)], [], 
+                [('5', '86400')], [], 
                 '''                Time (in seconds) to stay in stub router
                 operational state
                 ''',
                 'on_switchover',
                 'Cisco-IOS-XR-ipv6-ospfv3-cfg', False),
             _MetaInfoClassMember('summary-lsa', ATTRIBUTE, 'int' , None, None, 
-                [(1, 16777214)], [], 
+                [('1', '16777214')], [], 
                 '''                Advertise summary LSAs with modified metric in
                 stub router mode
                 ''',
@@ -10530,7 +10593,7 @@ _meta_table = {
                 'wait_for_bgp',
                 'Cisco-IOS-XR-ipv6-ospfv3-cfg', False),
             _MetaInfoClassMember('wait-time', ATTRIBUTE, 'int' , None, None, 
-                [(5, 86400)], [], 
+                [('5', '86400')], [], 
                 '''                Time (in seconds) to stay in stub router
                 operational state
                 ''',
@@ -10561,7 +10624,7 @@ _meta_table = {
                 'enable',
                 'Cisco-IOS-XR-ipv6-ospfv3-cfg', False),
             _MetaInfoClassMember('external-lsa', ATTRIBUTE, 'int' , None, None, 
-                [(1, 16777214)], [], 
+                [('1', '16777214')], [], 
                 '''                Advertise external LSAs with modified metric in
                 stub router mode
                 ''',
@@ -10575,14 +10638,14 @@ _meta_table = {
                 'include_stub',
                 'Cisco-IOS-XR-ipv6-ospfv3-cfg', False),
             _MetaInfoClassMember('on-proc-migration', ATTRIBUTE, 'int' , None, None, 
-                [(5, 86400)], [], 
+                [('5', '86400')], [], 
                 '''                Time (in seconds) to stay in stub router
                 operational state
                 ''',
                 'on_proc_migration',
                 'Cisco-IOS-XR-ipv6-ospfv3-cfg', False),
             _MetaInfoClassMember('on-proc-restart', ATTRIBUTE, 'int' , None, None, 
-                [(5, 86400)], [], 
+                [('5', '86400')], [], 
                 '''                Time (in seconds) to stay in stub router
                 operational state
                 ''',
@@ -10595,14 +10658,14 @@ _meta_table = {
                 'on_startup',
                 'Cisco-IOS-XR-ipv6-ospfv3-cfg', False),
             _MetaInfoClassMember('on-switchover', ATTRIBUTE, 'int' , None, None, 
-                [(5, 86400)], [], 
+                [('5', '86400')], [], 
                 '''                Time (in seconds) to stay in stub router
                 operational state
                 ''',
                 'on_switchover',
                 'Cisco-IOS-XR-ipv6-ospfv3-cfg', False),
             _MetaInfoClassMember('summary-lsa', ATTRIBUTE, 'int' , None, None, 
-                [(1, 16777214)], [], 
+                [('1', '16777214')], [], 
                 '''                Advertise summary LSAs with modified metric in
                 stub router mode
                 ''',
@@ -10649,7 +10712,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('detection-multiplier', ATTRIBUTE, 'int' , None, None, 
-                [(2, 50)], [], 
+                [('2', '50')], [], 
                 '''                Detect multiplier
                 ''',
                 'detection_multiplier',
@@ -10661,7 +10724,7 @@ _meta_table = {
                 'fast_detect_mode',
                 'Cisco-IOS-XR-ipv6-ospfv3-cfg', False),
             _MetaInfoClassMember('interval', ATTRIBUTE, 'int' , None, None, 
-                [(3, 30000)], [], 
+                [('3', '30000')], [], 
                 '''                Hello interval in milli-seconds
                 ''',
                 'interval',
@@ -10730,7 +10793,7 @@ _meta_table = {
                 'password',
                 'Cisco-IOS-XR-ipv6-ospfv3-cfg', False),
             _MetaInfoClassMember('spi', ATTRIBUTE, 'int' , None, None, 
-                [(256, 4294967295)], [], 
+                [('256', '4294967295')], [], 
                 '''                Use IPSec AH authentication. Specify the
                 Security Parameter Index (SPI) value
                 ''',
@@ -10760,14 +10823,14 @@ _meta_table = {
                 'helper',
                 'Cisco-IOS-XR-ipv6-ospfv3-cfg', False),
             _MetaInfoClassMember('interval', ATTRIBUTE, 'int' , None, None, 
-                [(90, 3600)], [], 
+                [('90', '3600')], [], 
                 '''                Minimum interval between graceful restarts
                 (seconds)
                 ''',
                 'interval',
                 'Cisco-IOS-XR-ipv6-ospfv3-cfg', False),
             _MetaInfoClassMember('lifetime', ATTRIBUTE, 'int' , None, None, 
-                [(90, 1800)], [], 
+                [('90', '1800')], [], 
                 '''                Maximum route lifetime following restart
                 (seconds)
                 ''',
@@ -10798,13 +10861,13 @@ _meta_table = {
                 'always',
                 'Cisco-IOS-XR-ipv6-ospfv3-cfg', False),
             _MetaInfoClassMember('metric', ATTRIBUTE, 'int' , None, None, 
-                [(0, 16777214)], [], 
+                [('0', '16777214')], [], 
                 '''                OSPFv3 default metric
                 ''',
                 'metric',
                 'Cisco-IOS-XR-ipv6-ospfv3-cfg', False),
             _MetaInfoClassMember('metric-type', ATTRIBUTE, 'int' , None, None, 
-                [(1, 2)], [], 
+                [('1', '2')], [], 
                 '''                OSPFv3 metric type for default routes
                 ''',
                 'metric_type',
@@ -10817,7 +10880,7 @@ _meta_table = {
                 'route_policy_name',
                 'Cisco-IOS-XR-ipv6-ospfv3-cfg', False),
             _MetaInfoClassMember('tag', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Tag for default route
                 ''',
                 'tag',
@@ -10851,7 +10914,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('interface-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Interface
                 ''',
                 'interface_name',
@@ -10885,7 +10948,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('interface-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Interface
                 ''',
                 'interface_name',
@@ -10951,7 +11014,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('interface-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Interface
                 ''',
                 'interface_name',
@@ -10985,7 +11048,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('interface-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Interface
                 ''',
                 'interface_name',
@@ -11128,7 +11191,7 @@ _meta_table = {
                 'encryption_password',
                 'Cisco-IOS-XR-ipv6-ospfv3-cfg', False),
             _MetaInfoClassMember('spi', ATTRIBUTE, 'int' , None, None, 
-                [(256, 4294967295)], [], 
+                [('256', '4294967295')], [], 
                 '''                Use IPSec ESP authentication. Specify the
                 Security Parameter Index (SPI) value
                 ''',
@@ -11153,7 +11216,7 @@ _meta_table = {
                 'disable',
                 'Cisco-IOS-XR-ipv6-ospfv3-cfg', False),
             _MetaInfoClassMember('reference-bandwidth', ATTRIBUTE, 'int' , None, None, 
-                [(1, 4294967)], [], 
+                [('1', '4294967')], [], 
                 '''                Specify reference bandwidth for cost
                 computations in terms of Mbits per second
                 ''',
@@ -11207,7 +11270,7 @@ _meta_table = {
                 'capability',
                 'Cisco-IOS-XR-ipv6-ospfv3-cfg', False),
             _MetaInfoClassMember('cost', ATTRIBUTE, 'int' , None, None, 
-                [(1, 65535)], [], 
+                [('1', '65535')], [], 
                 '''                Interface cost
                 ''',
                 'cost',
@@ -11219,7 +11282,7 @@ _meta_table = {
                 'database_filter',
                 'Cisco-IOS-XR-ipv6-ospfv3-cfg', False),
             _MetaInfoClassMember('dead-interval', ATTRIBUTE, 'int' , None, None, 
-                [(1, 65535)], [], 
+                [('1', '65535')], [], 
                 '''                Interval after which a neighbor is declared dead
                 (in seconds)
                 ''',
@@ -11232,7 +11295,7 @@ _meta_table = {
                 'default_information',
                 'Cisco-IOS-XR-ipv6-ospfv3-cfg', False),
             _MetaInfoClassMember('default-metric', ATTRIBUTE, 'int' , None, None, 
-                [(1, 16777214)], [], 
+                [('1', '16777214')], [], 
                 '''                Set metric of redistributed routes
                 ''',
                 'default_metric',
@@ -11298,7 +11361,7 @@ _meta_table = {
                 'graceful_restart',
                 'Cisco-IOS-XR-ipv6-ospfv3-cfg', False),
             _MetaInfoClassMember('hello-interval', ATTRIBUTE, 'int' , None, None, 
-                [(1, 65535)], [], 
+                [('1', '65535')], [], 
                 '''                Time between HELLO packets
                 ''',
                 'hello_interval',
@@ -11310,7 +11373,7 @@ _meta_table = {
                 'ignore',
                 'Cisco-IOS-XR-ipv6-ospfv3-cfg', False),
             _MetaInfoClassMember('instance', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                Instance ID
                 ''',
                 'instance',
@@ -11340,7 +11403,7 @@ _meta_table = {
                 'network',
                 'Cisco-IOS-XR-ipv6-ospfv3-cfg', False),
             _MetaInfoClassMember('packet-size', ATTRIBUTE, 'int' , None, None, 
-                [(256, 10000)], [], 
+                [('256', '10000')], [], 
                 '''                Limit size of OSPFv3 packets
                 ''',
                 'packet_size',
@@ -11351,8 +11414,15 @@ _meta_table = {
                 ''',
                 'passive',
                 'Cisco-IOS-XR-ipv6-ospfv3-cfg', False),
+            _MetaInfoClassMember('prefix-suppression', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Enable/disable prefix suppression on an
+                interface
+                ''',
+                'prefix_suppression',
+                'Cisco-IOS-XR-ipv6-ospfv3-cfg', False),
             _MetaInfoClassMember('priority', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                Specify router priority
                 ''',
                 'priority',
@@ -11371,7 +11441,7 @@ _meta_table = {
                 'redistributes',
                 'Cisco-IOS-XR-ipv6-ospfv3-cfg', False),
             _MetaInfoClassMember('retransmit-interval', ATTRIBUTE, 'int' , None, None, 
-                [(1, 65535)], [], 
+                [('1', '65535')], [], 
                 '''                Specify the transmit interval in seconds
                 ''',
                 'retransmit_interval',
@@ -11421,7 +11491,7 @@ _meta_table = {
                 'timers',
                 'Cisco-IOS-XR-ipv6-ospfv3-cfg', False),
             _MetaInfoClassMember('transmit-delay', ATTRIBUTE, 'int' , None, None, 
-                [(1, 65535)], [], 
+                [('1', '65535')], [], 
                 '''                Specify the transmit delay in seconds
                 ''',
                 'transmit_delay',

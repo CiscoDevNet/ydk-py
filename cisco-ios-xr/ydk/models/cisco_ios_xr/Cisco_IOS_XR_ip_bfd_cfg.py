@@ -11,7 +11,7 @@ This YANG module augments the
   Cisco\-IOS\-XR\-snmp\-agent\-cfg
 module with configuration data.
 
-Copyright (c) 2013\-2015 by Cisco Systems, Inc.
+Copyright (c) 2013\-2016 by Cisco Systems, Inc.
 All rights reserved.
 
 """
@@ -260,6 +260,11 @@ class Bfd(object):
         	Bundle per member feature class container
         	**type**\:  :py:class:`BundleMember <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_cfg.Bfd.FlapDamp.BundleMember>`
         
+        .. attribute:: dampen_disable
+        
+        	Dampening Enable/Disable
+        	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+        
         .. attribute:: extensions
         
         	Extensions to the BFD dampening feature
@@ -304,6 +309,7 @@ class Bfd(object):
             self.parent = None
             self.bundle_member = Bfd.FlapDamp.BundleMember()
             self.bundle_member.parent = self
+            self.dampen_disable = None
             self.extensions = Bfd.FlapDamp.Extensions()
             self.extensions.parent = self
             self.initial_delay = None
@@ -443,6 +449,9 @@ class Bfd(object):
             if not self.is_config():
                 return False
             if self.bundle_member is not None and self.bundle_member._has_data():
+                return True
+
+            if self.dampen_disable is not None:
                 return True
 
             if self.extensions is not None and self.extensions._has_data():
@@ -652,7 +661,7 @@ class Bfd(object):
             	Interface Name
             	**type**\:  str
             
-            	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+            	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
             
             .. attribute:: interface_echo_usage
             

@@ -20,30 +20,64 @@ _meta_table = {
             'forward':'FORWARD',
             'local':'LOCAL',
         }, 'Cisco-IOS-XR-mpls-lsd-cfg', _yang_ns._namespaces['Cisco-IOS-XR-mpls-lsd-cfg']),
+    'MplsLsd.Ipv6' : {
+        'meta_info' : _MetaInfoClass('MplsLsd.Ipv6',
+            False, 
+            [
+            _MetaInfoClassMember('ttl-expiration-pop', ATTRIBUTE, 'int' , None, None, 
+                [('1', '10')], [], 
+                '''                Number of labels to pop upon MPLS IP TTL expiry
+                ''',
+                'ttl_expiration_pop',
+                'Cisco-IOS-XR-mpls-lsd-cfg', False),
+            ],
+            'Cisco-IOS-XR-mpls-lsd-cfg',
+            'ipv6',
+            _yang_ns._namespaces['Cisco-IOS-XR-mpls-lsd-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_cfg'
+        ),
+    },
+    'MplsLsd.Ipv4' : {
+        'meta_info' : _MetaInfoClass('MplsLsd.Ipv4',
+            False, 
+            [
+            _MetaInfoClassMember('ttl-expiration-pop', ATTRIBUTE, 'int' , None, None, 
+                [('1', '10')], [], 
+                '''                Number of labels to pop upon MPLS IP TTL expiry
+                ''',
+                'ttl_expiration_pop',
+                'Cisco-IOS-XR-mpls-lsd-cfg', False),
+            ],
+            'Cisco-IOS-XR-mpls-lsd-cfg',
+            'ipv4',
+            _yang_ns._namespaces['Cisco-IOS-XR-mpls-lsd-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_cfg'
+        ),
+    },
     'MplsLsd.LabelDatabases.LabelDatabase.LabelRange' : {
         'meta_info' : _MetaInfoClass('MplsLsd.LabelDatabases.LabelDatabase.LabelRange',
             False, 
             [
             _MetaInfoClassMember('max-static-value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 1048575)], [], 
+                [('0', '1048575')], [], 
                 '''                Maximum static label value
                 ''',
                 'max_static_value',
                 'Cisco-IOS-XR-mpls-lsd-cfg', False),
             _MetaInfoClassMember('max-value', ATTRIBUTE, 'int' , None, None, 
-                [(16000, 1048575)], [], 
+                [('16000', '1048575')], [], 
                 '''                Maximum label value
                 ''',
                 'max_value',
                 'Cisco-IOS-XR-mpls-lsd-cfg', False),
             _MetaInfoClassMember('min-static-value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 1048575)], [], 
+                [('0', '1048575')], [], 
                 '''                Minimum static label value
                 ''',
                 'min_static_value',
                 'Cisco-IOS-XR-mpls-lsd-cfg', False),
             _MetaInfoClassMember('minvalue', ATTRIBUTE, 'int' , None, None, 
-                [(16000, 1048575)], [], 
+                [('16000', '1048575')], [], 
                 '''                Minimum label value
                 ''',
                 'minvalue',
@@ -60,7 +94,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('label-database-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Label database identifier
                 ''',
                 'label_database_id',
@@ -105,6 +139,18 @@ _meta_table = {
                 ''',
                 'app_reg_delay_disable',
                 'Cisco-IOS-XR-mpls-lsd-cfg', False),
+            _MetaInfoClassMember('ipv4', REFERENCE_CLASS, 'Ipv4' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_cfg', 'MplsLsd.Ipv4', 
+                [], [], 
+                '''                Configure IPv4 parameters
+                ''',
+                'ipv4',
+                'Cisco-IOS-XR-mpls-lsd-cfg', False),
+            _MetaInfoClassMember('ipv6', REFERENCE_CLASS, 'Ipv6' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_cfg', 'MplsLsd.Ipv6', 
+                [], [], 
+                '''                Configure IPv6 parameters
+                ''',
+                'ipv6',
+                'Cisco-IOS-XR-mpls-lsd-cfg', False),
             _MetaInfoClassMember('label-databases', REFERENCE_CLASS, 'LabelDatabases' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_cfg', 'MplsLsd.LabelDatabases', 
                 [], [], 
                 '''                Table of label databases
@@ -116,12 +162,6 @@ _meta_table = {
                 '''                Enable MPLS Entropy Label
                 ''',
                 'mpls_entropy_label',
-                'Cisco-IOS-XR-mpls-lsd-cfg', False),
-            _MetaInfoClassMember('mpls-ip-ttl-expiration-pop', ATTRIBUTE, 'int' , None, None, 
-                [(1, 10)], [], 
-                '''                Number of labels to pop upon MPLS TTL expiry
-                ''',
-                'mpls_ip_ttl_expiration_pop',
                 'Cisco-IOS-XR-mpls-lsd-cfg', False),
             _MetaInfoClassMember('mpls-ip-ttl-propagate-disable', REFERENCE_ENUM_CLASS, 'MplsIpTtlPropagateDisableEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_cfg', 'MplsIpTtlPropagateDisableEnum', 
                 [], [], 
@@ -140,4 +180,6 @@ _meta_table = {
 }
 _meta_table['MplsLsd.LabelDatabases.LabelDatabase.LabelRange']['meta_info'].parent =_meta_table['MplsLsd.LabelDatabases.LabelDatabase']['meta_info']
 _meta_table['MplsLsd.LabelDatabases.LabelDatabase']['meta_info'].parent =_meta_table['MplsLsd.LabelDatabases']['meta_info']
+_meta_table['MplsLsd.Ipv6']['meta_info'].parent =_meta_table['MplsLsd']['meta_info']
+_meta_table['MplsLsd.Ipv4']['meta_info'].parent =_meta_table['MplsLsd']['meta_info']
 _meta_table['MplsLsd.LabelDatabases']['meta_info'].parent =_meta_table['MplsLsd']['meta_info']

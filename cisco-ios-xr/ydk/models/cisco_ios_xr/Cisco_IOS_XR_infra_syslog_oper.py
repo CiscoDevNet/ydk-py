@@ -8,7 +8,7 @@ for the following management objects\:
   logging\: Logging History data
   syslog\: syslog
 
-Copyright (c) 2013\-2015 by Cisco Systems, Inc.
+Copyright (c) 2013\-2016 by Cisco Systems, Inc.
 All rights reserved.
 
 """
@@ -109,7 +109,7 @@ class Logging(object):
     """
 
     _prefix = 'infra-syslog-oper'
-    _revision = '2015-12-01'
+    _revision = '2016-06-24'
 
     def __init__(self):
         self.history = Logging.History()
@@ -135,7 +135,7 @@ class Logging(object):
         """
 
         _prefix = 'infra-syslog-oper'
-        _revision = '2015-12-01'
+        _revision = '2016-06-24'
 
         def __init__(self):
             self.parent = None
@@ -199,6 +199,11 @@ class Syslog(object):
     	Logging AN remote servers information
     	**type**\:  :py:class:`AnRemoteServers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_oper.Syslog.AnRemoteServers>`
     
+    .. attribute:: logging_files
+    
+    	Logging Files information
+    	**type**\:  :py:class:`LoggingFiles <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_oper.Syslog.LoggingFiles>`
+    
     .. attribute:: logging_statistics
     
     	Logging statistics information
@@ -214,15 +219,116 @@ class Syslog(object):
     """
 
     _prefix = 'infra-syslog-oper'
-    _revision = '2015-12-01'
+    _revision = '2016-06-24'
 
     def __init__(self):
         self.an_remote_servers = Syslog.AnRemoteServers()
         self.an_remote_servers.parent = self
+        self.logging_files = Syslog.LoggingFiles()
+        self.logging_files.parent = self
         self.logging_statistics = Syslog.LoggingStatistics()
         self.logging_statistics.parent = self
         self.messages = Syslog.Messages()
         self.messages.parent = self
+
+
+    class LoggingFiles(object):
+        """
+        Logging Files information
+        
+        .. attribute:: file_log_detail
+        
+        	Logging Files
+        	**type**\: list of  :py:class:`FileLogDetail <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_oper.Syslog.LoggingFiles.FileLogDetail>`
+        
+        
+
+        """
+
+        _prefix = 'infra-syslog-oper'
+        _revision = '2016-06-24'
+
+        def __init__(self):
+            self.parent = None
+            self.file_log_detail = YList()
+            self.file_log_detail.parent = self
+            self.file_log_detail.name = 'file_log_detail'
+
+
+        class FileLogDetail(object):
+            """
+            Logging Files
+            
+            .. attribute:: file_name
+            
+            	File name for logging messages
+            	**type**\:  str
+            
+            .. attribute:: file_path
+            
+            	File path for logging messages
+            	**type**\:  str
+            
+            
+
+            """
+
+            _prefix = 'infra-syslog-oper'
+            _revision = '2016-06-24'
+
+            def __init__(self):
+                self.parent = None
+                self.file_name = None
+                self.file_path = None
+
+            @property
+            def _common_path(self):
+
+                return '/Cisco-IOS-XR-infra-syslog-oper:syslog/Cisco-IOS-XR-infra-syslog-oper:logging-files/Cisco-IOS-XR-infra-syslog-oper:file-log-detail'
+
+            def is_config(self):
+                ''' Returns True if this instance represents config data else returns False '''
+                return False
+
+            def _has_data(self):
+                if not self.is_config():
+                    return False
+                if self.file_name is not None:
+                    return True
+
+                if self.file_path is not None:
+                    return True
+
+                return False
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_syslog_oper as meta
+                return meta._meta_table['Syslog.LoggingFiles.FileLogDetail']['meta_info']
+
+        @property
+        def _common_path(self):
+
+            return '/Cisco-IOS-XR-infra-syslog-oper:syslog/Cisco-IOS-XR-infra-syslog-oper:logging-files'
+
+        def is_config(self):
+            ''' Returns True if this instance represents config data else returns False '''
+            return False
+
+        def _has_data(self):
+            if not self.is_config():
+                return False
+            if self.file_log_detail is not None:
+                for child_ref in self.file_log_detail:
+                    if child_ref._has_data():
+                        return True
+
+            return False
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_syslog_oper as meta
+            return meta._meta_table['Syslog.LoggingFiles']['meta_info']
 
 
     class AnRemoteServers(object):
@@ -239,7 +345,7 @@ class Syslog(object):
         """
 
         _prefix = 'infra-syslog-oper'
-        _revision = '2015-12-01'
+        _revision = '2016-06-24'
 
         def __init__(self):
             self.parent = None
@@ -277,7 +383,7 @@ class Syslog(object):
             """
 
             _prefix = 'infra-syslog-oper'
-            _revision = '2015-12-01'
+            _revision = '2016-06-24'
 
             def __init__(self):
                 self.parent = None
@@ -356,7 +462,7 @@ class Syslog(object):
         """
 
         _prefix = 'infra-syslog-oper'
-        _revision = '2015-12-01'
+        _revision = '2016-06-24'
 
         def __init__(self):
             self.parent = None
@@ -426,7 +532,7 @@ class Syslog(object):
             .. attribute:: time_stamp
             
             	Time in milliseconds since 00\:00\:00 UTC, January 11970 of when message was generated
-            	**type**\:  long
+            	**type**\:  int
             
             	**range:** 0..18446744073709551615
             
@@ -440,7 +546,7 @@ class Syslog(object):
             """
 
             _prefix = 'infra-syslog-oper'
-            _revision = '2015-12-01'
+            _revision = '2016-06-24'
 
             def __init__(self):
                 self.parent = None
@@ -583,7 +689,7 @@ class Syslog(object):
         """
 
         _prefix = 'infra-syslog-oper'
-        _revision = '2015-12-01'
+        _revision = '2016-06-24'
 
         def __init__(self):
             self.parent = None
@@ -640,7 +746,7 @@ class Syslog(object):
             """
 
             _prefix = 'infra-syslog-oper'
-            _revision = '2015-12-01'
+            _revision = '2016-06-24'
 
             def __init__(self):
                 self.parent = None
@@ -714,7 +820,7 @@ class Syslog(object):
             """
 
             _prefix = 'infra-syslog-oper'
-            _revision = '2015-12-01'
+            _revision = '2016-06-24'
 
             def __init__(self):
                 self.parent = None
@@ -788,7 +894,7 @@ class Syslog(object):
             """
 
             _prefix = 'infra-syslog-oper'
-            _revision = '2015-12-01'
+            _revision = '2016-06-24'
 
             def __init__(self):
                 self.parent = None
@@ -862,7 +968,7 @@ class Syslog(object):
             """
 
             _prefix = 'infra-syslog-oper'
-            _revision = '2015-12-01'
+            _revision = '2016-06-24'
 
             def __init__(self):
                 self.parent = None
@@ -936,7 +1042,7 @@ class Syslog(object):
             """
 
             _prefix = 'infra-syslog-oper'
-            _revision = '2015-12-01'
+            _revision = '2016-06-24'
 
             def __init__(self):
                 self.parent = None
@@ -998,7 +1104,7 @@ class Syslog(object):
             """
 
             _prefix = 'infra-syslog-oper'
-            _revision = '2015-12-01'
+            _revision = '2016-06-24'
 
             def __init__(self):
                 self.parent = None
@@ -1052,7 +1158,7 @@ class Syslog(object):
             """
 
             _prefix = 'infra-syslog-oper'
-            _revision = '2015-12-01'
+            _revision = '2016-06-24'
 
             def __init__(self):
                 self.parent = None
@@ -1141,6 +1247,9 @@ class Syslog(object):
         if not self.is_config():
             return False
         if self.an_remote_servers is not None and self.an_remote_servers._has_data():
+            return True
+
+        if self.logging_files is not None and self.logging_files._has_data():
             return True
 
         if self.logging_statistics is not None and self.logging_statistics._has_data():

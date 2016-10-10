@@ -7,7 +7,7 @@ This module contains definitions
 for the following management objects\:
   ipv6\-io\: IPv6 IO Operational Data
 
-Copyright (c) 2013\-2015 by Cisco Systems, Inc.
+Copyright (c) 2013\-2016 by Cisco Systems, Inc.
 All rights reserved.
 
 """

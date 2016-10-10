@@ -7,7 +7,7 @@ This module contains definitions
 for the following management objects\:
   ethernet\-interface\: Ethernet operational data
 
-Copyright (c) 2013\-2015 by Cisco Systems, Inc.
+Copyright (c) 2013\-2016 by Cisco Systems, Inc.
 All rights reserved.
 
 """
@@ -432,6 +432,33 @@ class EtherLinkStateEnum(Enum):
         return meta._meta_table['EtherLinkStateEnum']
 
 
+class EtherPfcEnum(Enum):
+    """
+    EtherPfcEnum
+
+    Priority flowcontrol type
+
+    .. data:: NO_PFC = 0
+
+    	No priority flow control (disabled)
+
+    .. data:: ON = 1
+
+    	Priority flow control enabled
+
+    """
+
+    NO_PFC = 0
+
+    ON = 1
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_drivers_media_eth_oper as meta
+        return meta._meta_table['EtherPfcEnum']
+
+
 class EtherPhyPresentEnum(Enum):
     """
     EtherPhyPresentEnum
@@ -756,6 +783,10 @@ class EthernetFecEnum(Enum):
 
     	FEC explicitly disabled
 
+    .. data:: BASE_R = 3
+
+    	BASE-R encoding
+
     """
 
     NOT_CONFIGURED = 0
@@ -763,6 +794,8 @@ class EthernetFecEnum(Enum):
     STANDARD = 1
 
     DISABLED = 2
+
+    BASE_R = 3
 
 
     @staticmethod
@@ -2135,7 +2168,7 @@ class EthernetMediaEnum(Enum):
 
     .. data:: ETHERNET_100GBASE_ER4L = 320
 
-    	fiber over 4 lane optics (25km reach)
+    	fiber over 4 lane optics (25km reach) (lite)
 
     .. data:: ETHERNET_100GBASE_SR4 = 321
 
@@ -2147,7 +2180,89 @@ class EthernetMediaEnum(Enum):
 
     	reach)
 
-    .. data:: ETHERNET_BASE_MAX = 323
+    .. data:: ETHERNET_25GBASE_CR = 323
+
+    	Twinaxial copper cabling
+
+    .. data:: ETHERNET_25GBASE_CR_S = 324
+
+    	Twinaxial copper cabling (no RS-FEC)
+
+    .. data:: ETHERNET_25GBASE_KR = 325
+
+    	One lane electrical backplane
+
+    .. data:: ETHERNET_25GBASE_KR_S = 326
+
+    	One lane electrical backplane (no RS-FEC)
+
+    .. data:: ETHERNET_25GBASE_R = 327
+
+    	One lane fiber
+
+    .. data:: ETHERNET_25GBASE_SR = 328
+
+    	Multimode fiber
+
+    .. data:: ETHERNET_25GBASE_DWDM = 329
+
+    	DWDM optics
+
+    .. data:: ETHERNET_25GBASE_DWDM_TUNABLE = 330
+
+    	DWDM with tunable optics
+
+    .. data:: ETHERNET_25GBASE_CWDM = 331
+
+    	CWDM optics
+
+    .. data:: ETHERNET_25GBASE_CWDM_TUNABLE = 332
+
+    	CWDM with tunable optics
+
+    .. data:: ETHERNET_100GBASE_PSM4 = 333
+
+    	4 parallel single mode fibers
+
+    .. data:: ETHERNET_100GBASE_ER10 = 334
+
+    	Fiber over 10 lane optics (extended reach)
+
+    .. data:: ETHERNET_100GBASE_ER10L = 335
+
+    	Fiber over 10 lane optics (extended reach)
+
+    	(lite)
+
+    .. data:: ETHERNET_100GBASE_ACC = 336
+
+    	Active copper cable
+
+    .. data:: ETHERNET_100GBASE_AOC = 337
+
+    	Active optical cable
+
+    .. data:: ETHERNET_100GBASE_CWDM4 = 338
+
+    	4 lane CWDM cable
+
+    .. data:: ETHERNET_40GBASE_PSM4 = 339
+
+    	4 parallel single mode fibers
+
+    .. data:: ETHERNET_100GBASE_CR4 = 340
+
+    	4 lane copper (very short reach)
+
+    .. data:: ETHERNET_100GBASE_ACT_LOOP = 341
+
+    	Active loopback
+
+    .. data:: ETHERNET_100GBASE_PAS_LOOP = 342
+
+    	Passive loopback
+
+    .. data:: ETHERNET_BASE_MAX = 343
 
     	ethernet base max
 
@@ -2799,7 +2914,47 @@ class EthernetMediaEnum(Enum):
 
     ETHERNET_40GBASE_SR_BD = 322
 
-    ETHERNET_BASE_MAX = 323
+    ETHERNET_25GBASE_CR = 323
+
+    ETHERNET_25GBASE_CR_S = 324
+
+    ETHERNET_25GBASE_KR = 325
+
+    ETHERNET_25GBASE_KR_S = 326
+
+    ETHERNET_25GBASE_R = 327
+
+    ETHERNET_25GBASE_SR = 328
+
+    ETHERNET_25GBASE_DWDM = 329
+
+    ETHERNET_25GBASE_DWDM_TUNABLE = 330
+
+    ETHERNET_25GBASE_CWDM = 331
+
+    ETHERNET_25GBASE_CWDM_TUNABLE = 332
+
+    ETHERNET_100GBASE_PSM4 = 333
+
+    ETHERNET_100GBASE_ER10 = 334
+
+    ETHERNET_100GBASE_ER10L = 335
+
+    ETHERNET_100GBASE_ACC = 336
+
+    ETHERNET_100GBASE_AOC = 337
+
+    ETHERNET_100GBASE_CWDM4 = 338
+
+    ETHERNET_40GBASE_PSM4 = 339
+
+    ETHERNET_100GBASE_CR4 = 340
+
+    ETHERNET_100GBASE_ACT_LOOP = 341
+
+    ETHERNET_100GBASE_PAS_LOOP = 342
+
+    ETHERNET_BASE_MAX = 343
 
 
     @staticmethod
@@ -2873,15 +3028,23 @@ class EthernetSpeedEnum(Enum):
 
     	ten gbps
 
-    .. data:: FORTY_GBPS = 5
+    .. data:: TWENTY_FIVE_GBPS = 5
+
+    	twenty five gbps
+
+    .. data:: FORTY_GBPS = 6
 
     	forty gbps
 
-    .. data:: HUNDRED_GBPS = 6
+    .. data:: FIFTY_GBPS = 7
+
+    	fifty gbps
+
+    .. data:: HUNDRED_GBPS = 8
 
     	hundred gbps
 
-    .. data:: ETHERNET_SPEED_TYPES_COUNT = 7
+    .. data:: ETHERNET_SPEED_TYPES_COUNT = 9
 
     	ethernet speed types count
 
@@ -2897,11 +3060,15 @@ class EthernetSpeedEnum(Enum):
 
     TEN_GBPS = 4
 
-    FORTY_GBPS = 5
+    TWENTY_FIVE_GBPS = 5
 
-    HUNDRED_GBPS = 6
+    FORTY_GBPS = 6
 
-    ETHERNET_SPEED_TYPES_COUNT = 7
+    FIFTY_GBPS = 7
+
+    HUNDRED_GBPS = 8
+
+    ETHERNET_SPEED_TYPES_COUNT = 9
 
 
     @staticmethod
@@ -2978,390 +3145,390 @@ class EthernetInterface(object):
             	The name of the interface
             	**type**\:  str
             
-            	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+            	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
             
             .. attribute:: aborted_packet_drops
             
             	Drops due to packet abort
-            	**type**\:  long
+            	**type**\:  int
             
             	**range:** 0..18446744073709551615
             
             .. attribute:: buffer_underrun_packet_drops
             
             	Drops due to buffer underrun
-            	**type**\:  long
+            	**type**\:  int
             
             	**range:** 0..18446744073709551615
             
             .. attribute:: dropped_ether_stats_fragments
             
             	Bad Frames < 64 Octet, dropped
-            	**type**\:  long
+            	**type**\:  int
             
             	**range:** 0..18446744073709551615
             
             .. attribute:: dropped_ether_stats_undersize_pkts
             
             	Good frames < 64 Octet, dropped
-            	**type**\:  long
+            	**type**\:  int
             
             	**range:** 0..18446744073709551615
             
             .. attribute:: dropped_giant_packets_greaterthan_mru
             
             	Good frames > MRU, dropped
-            	**type**\:  long
+            	**type**\:  int
             
             	**range:** 0..18446744073709551615
             
             .. attribute:: dropped_jabbers_packets_greaterthan_mru
             
             	Bad Frames > MRU, dropped
-            	**type**\:  long
+            	**type**\:  int
             
             	**range:** 0..18446744073709551615
             
             .. attribute:: dropped_miscellaneous_error_packets
             
             	Any other errors not counted
-            	**type**\:  long
+            	**type**\:  int
             
             	**range:** 0..18446744073709551615
             
             .. attribute:: dropped_packets_with_crc_align_errors
             
             	Frames 64 \- MRU with CRC error
-            	**type**\:  long
+            	**type**\:  int
             
             	**range:** 0..18446744073709551615
             
             .. attribute:: ether_stats_collisions
             
             	All collision events
-            	**type**\:  long
+            	**type**\:  int
             
             	**range:** 0..18446744073709551615
             
             .. attribute:: invalid_dest_mac_drop_packets
             
             	Drops due to the destination MAC not matching
-            	**type**\:  long
+            	**type**\:  int
             
             	**range:** 0..18446744073709551615
             
             .. attribute:: invalid_encap_drop_packets
             
             	Drops due to the encapsulation or ether type not matching
-            	**type**\:  long
+            	**type**\:  int
             
             	**range:** 0..18446744073709551615
             
             .. attribute:: miscellaneous_output_errors
             
             	Any other errors not counted
-            	**type**\:  long
+            	**type**\:  int
             
             	**range:** 0..18446744073709551615
             
             .. attribute:: number_of_aborted_packets_dropped
             
             	Drops due to packet abort
-            	**type**\:  long
+            	**type**\:  int
             
             	**range:** 0..18446744073709551615
             
             .. attribute:: number_of_buffer_overrun_packets_dropped
             
             	Drops due to buffer overrun
-            	**type**\:  long
+            	**type**\:  int
             
             	**range:** 0..18446744073709551615
             
             .. attribute:: number_of_miscellaneous_packets_dropped
             
             	Any other drops not counted
-            	**type**\:  long
+            	**type**\:  int
             
             	**range:** 0..18446744073709551615
             
             .. attribute:: numberof_invalid_vlan_id_packets_dropped
             
             	Drops due to invalid VLAN id
-            	**type**\:  long
+            	**type**\:  int
             
             	**range:** 0..18446744073709551615
             
             .. attribute:: received8021q_frames
             
             	All 802.1Q frames
-            	**type**\:  long
+            	**type**\:  int
             
             	**range:** 0..18446744073709551615
             
             .. attribute:: received_broadcast_frames
             
             	Received broadcast Frames
-            	**type**\:  long
+            	**type**\:  int
             
             	**range:** 0..18446744073709551615
             
             .. attribute:: received_good_bytes
             
             	Total octets of all good frames
-            	**type**\:  long
+            	**type**\:  int
             
             	**range:** 0..18446744073709551615
             
             .. attribute:: received_good_frames
             
             	Received Good Frames
-            	**type**\:  long
+            	**type**\:  int
             
             	**range:** 0..18446744073709551615
             
             .. attribute:: received_multicast_frames
             
             	Received multicast Frames
-            	**type**\:  long
+            	**type**\:  int
             
             	**range:** 0..18446744073709551615
             
             .. attribute:: received_pause_frames
             
             	All pause frames
-            	**type**\:  long
+            	**type**\:  int
             
             	**range:** 0..18446744073709551615
             
             .. attribute:: received_total64_octet_frames
             
             	All 64 Octet Frame Count
-            	**type**\:  long
+            	**type**\:  int
             
             	**range:** 0..18446744073709551615
             
             .. attribute:: received_total_bytes
             
             	Total octets of all frames
-            	**type**\:  long
+            	**type**\:  int
             
             	**range:** 0..18446744073709551615
             
             .. attribute:: received_total_frames
             
             	All frames, good or bad
-            	**type**\:  long
+            	**type**\:  int
             
             	**range:** 0..18446744073709551615
             
             .. attribute:: received_total_octet_frames_from1024_to1518
             
             	All 1024\-1518 Octet Frame Count
-            	**type**\:  long
+            	**type**\:  int
             
             	**range:** 0..18446744073709551615
             
             .. attribute:: received_total_octet_frames_from128_to255
             
             	All 128\-255 Octet Frame Count
-            	**type**\:  long
+            	**type**\:  int
             
             	**range:** 0..18446744073709551615
             
             .. attribute:: received_total_octet_frames_from1519_to_max
             
             	All > 1518 Octet Frame Count
-            	**type**\:  long
+            	**type**\:  int
             
             	**range:** 0..18446744073709551615
             
             .. attribute:: received_total_octet_frames_from256_to511
             
             	All 256\-511 Octet Frame Count
-            	**type**\:  long
+            	**type**\:  int
             
             	**range:** 0..18446744073709551615
             
             .. attribute:: received_total_octet_frames_from512_to1023
             
             	All 512\-1023 Octet Frame Count
-            	**type**\:  long
+            	**type**\:  int
             
             	**range:** 0..18446744073709551615
             
             .. attribute:: received_total_octet_frames_from65_to127
             
             	All 65\-127 Octet Frame Count
-            	**type**\:  long
+            	**type**\:  int
             
             	**range:** 0..18446744073709551615
             
             .. attribute:: received_unicast_frames
             
             	Received unicast Frames
-            	**type**\:  long
+            	**type**\:  int
             
             	**range:** 0..18446744073709551615
             
             .. attribute:: received_unknown_opcodes
             
             	Unsupported MAC Control frames
-            	**type**\:  long
+            	**type**\:  int
             
             	**range:** 0..18446744073709551615
             
             .. attribute:: rfc2819_ether_stats_crc_align_errors
             
             	RFC2819 etherStatsCRCAlignErrors
-            	**type**\:  long
+            	**type**\:  int
             
             	**range:** 0..18446744073709551615
             
             .. attribute:: rfc2819_ether_stats_jabbers
             
             	RFC2819 etherStatsJabbers
-            	**type**\:  long
+            	**type**\:  int
             
             	**range:** 0..18446744073709551615
             
             .. attribute:: rfc2819_ether_stats_oversized_pkts
             
             	RFC2819 etherStatsOversizedPkts
-            	**type**\:  long
+            	**type**\:  int
             
             	**range:** 0..18446744073709551615
             
             .. attribute:: rfc3635dot3_stats_alignment_errors
             
             	RFC3635 dot3StatsAlignmentErrors
-            	**type**\:  long
+            	**type**\:  int
             
             	**range:** 0..18446744073709551615
             
             .. attribute:: symbol_errors
             
             	Symbol errors
-            	**type**\:  long
+            	**type**\:  int
             
             	**range:** 0..18446744073709551615
             
             .. attribute:: total_bytes_transmitted
             
             	Total octets of all frames
-            	**type**\:  long
+            	**type**\:  int
             
             	**range:** 0..18446744073709551615
             
             .. attribute:: total_frames_transmitted
             
             	All frames, good or bad
-            	**type**\:  long
+            	**type**\:  int
             
             	**range:** 0..18446744073709551615
             
             .. attribute:: total_good_bytes_transmitted
             
             	Total octets of all good frames
-            	**type**\:  long
+            	**type**\:  int
             
             	**range:** 0..18446744073709551615
             
             .. attribute:: transmitted8021q_frames
             
             	All 802.1Q frames
-            	**type**\:  long
+            	**type**\:  int
             
             	**range:** 0..18446744073709551615
             
             .. attribute:: transmitted_broadcast_frames
             
             	Transmitted broadcast Frames
-            	**type**\:  long
+            	**type**\:  int
             
             	**range:** 0..18446744073709551615
             
             .. attribute:: transmitted_good_frames
             
             	Transmitted Good Frames
-            	**type**\:  long
+            	**type**\:  int
             
             	**range:** 0..18446744073709551615
             
             .. attribute:: transmitted_multicast_frames
             
             	Transmitted multicast Frames
-            	**type**\:  long
+            	**type**\:  int
             
             	**range:** 0..18446744073709551615
             
             .. attribute:: transmitted_total64_octet_frames
             
             	All 64 Octet Frame Count
-            	**type**\:  long
+            	**type**\:  int
             
             	**range:** 0..18446744073709551615
             
             .. attribute:: transmitted_total_octet_frames_from1024_to1518
             
             	All 1024\-1518 Octet Frame Count
-            	**type**\:  long
+            	**type**\:  int
             
             	**range:** 0..18446744073709551615
             
             .. attribute:: transmitted_total_octet_frames_from128_to255
             
             	All 128\-255 Octet Frame Count
-            	**type**\:  long
+            	**type**\:  int
             
             	**range:** 0..18446744073709551615
             
             .. attribute:: transmitted_total_octet_frames_from1518_to_max
             
             	All > 1518 Octet Frame Count
-            	**type**\:  long
+            	**type**\:  int
             
             	**range:** 0..18446744073709551615
             
             .. attribute:: transmitted_total_octet_frames_from256_to511
             
             	All 256\-511 Octet Frame Count
-            	**type**\:  long
+            	**type**\:  int
             
             	**range:** 0..18446744073709551615
             
             .. attribute:: transmitted_total_octet_frames_from512_to1023
             
             	All 512\-1023 Octet Frame Count
-            	**type**\:  long
+            	**type**\:  int
             
             	**range:** 0..18446744073709551615
             
             .. attribute:: transmitted_total_octet_frames_from65_to127
             
             	All 65\-127 Octet Frame Count
-            	**type**\:  long
+            	**type**\:  int
             
             	**range:** 0..18446744073709551615
             
             .. attribute:: transmitted_total_pause_frames
             
             	All pause frames
-            	**type**\:  long
+            	**type**\:  int
             
             	**range:** 0..18446744073709551615
             
             .. attribute:: transmitted_unicast_frames
             
             	Transmitted unicast Frames
-            	**type**\:  long
+            	**type**\:  int
             
             	**range:** 0..18446744073709551615
             
             .. attribute:: uncounted_dropped_frames
             
             	Any other drops not counted
-            	**type**\:  long
+            	**type**\:  int
             
             	**range:** 0..18446744073709551615
             
@@ -3677,7 +3844,7 @@ class EthernetInterface(object):
             	The name of the interface
             	**type**\:  str
             
-            	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+            	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
             
             .. attribute:: admin_state
             
@@ -3809,9 +3976,30 @@ class EthernetInterface(object):
                     
                     	**range:** 0..4294967295
                     
+                    .. attribute:: transceiver_rx_power
+                    
+                    	The transceiver receive optical power (uW)
+                    	**type**\:  int
+                    
+                    	**range:** \-2147483648..2147483647
+                    
                     .. attribute:: transceiver_temperature
                     
                     	The temperature of the transceiver (mDegrees C)
+                    	**type**\:  int
+                    
+                    	**range:** \-2147483648..2147483647
+                    
+                    .. attribute:: transceiver_tx_bias
+                    
+                    	The laser bias of the transceiver (uA)
+                    	**type**\:  int
+                    
+                    	**range:** \-2147483648..2147483647
+                    
+                    .. attribute:: transceiver_tx_power
+                    
+                    	The transceiver transmit laser power (uW)
                     	**type**\:  int
                     
                     	**range:** \-2147483648..2147483647
@@ -3857,7 +4045,10 @@ class EthernetInterface(object):
                         self.lane_field_validity = EthernetInterface.Interfaces.Interface.PhyInfo.PhyDetails.LaneFieldValidity()
                         self.lane_field_validity.parent = self
                         self.optics_wavelength = None
+                        self.transceiver_rx_power = None
                         self.transceiver_temperature = None
+                        self.transceiver_tx_bias = None
+                        self.transceiver_tx_power = None
                         self.transceiver_voltage = None
                         self.vendor = None
                         self.vendor_part_number = None
@@ -3956,84 +4147,84 @@ class EthernetInterface(object):
                         
                         .. attribute:: laser_bias_alarm_high
                         
-                        	Laser bias high alarm threshold (mA)
+                        	Laser bias high alarm threshold (uA)
                         	**type**\:  int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: laser_bias_alarm_low
                         
-                        	Laser bias low alarm threshold (mA)
+                        	Laser bias low alarm threshold (uA)
                         	**type**\:  int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: laser_bias_warning_high
                         
-                        	Laser bias high warning threshold (mA)
+                        	Laser bias high warning threshold (uA)
                         	**type**\:  int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: laser_bias_warning_low
                         
-                        	Laser bias low warning threshold (mA)
+                        	Laser bias low warning threshold (uA)
                         	**type**\:  int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: optical_receive_power_alarm_high
                         
-                        	High optical receive power alarm threshold (mW)
+                        	High optical receive power alarm threshold (uW)
                         	**type**\:  int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: optical_receive_power_alarm_low
                         
-                        	Low optical receive power alarm threshold (mW)
+                        	Low optical receive power alarm threshold (uW)
                         	**type**\:  int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: optical_receive_power_warning_high
                         
-                        	High optical receive power warning threshold (mW)
+                        	High optical receive power warning threshold (uW)
                         	**type**\:  int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: optical_receive_power_warning_low
                         
-                        	Low optical receive power warning threshold (mW)
+                        	Low optical receive power warning threshold (uW)
                         	**type**\:  int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: optical_transmit_power_alarm_high
                         
-                        	High optical transmit power alarm threshold (mW)
+                        	High optical transmit power alarm threshold (uW)
                         	**type**\:  int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: optical_transmit_power_alarm_low
                         
-                        	Low optical transmit power alarm threshold (mW)
+                        	Low optical transmit power alarm threshold (uW)
                         	**type**\:  int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: optical_transmit_power_warning_high
                         
-                        	High optical transmit power warning threshold (mW)
+                        	High optical transmit power warning threshold (uW)
                         	**type**\:  int
                         
                         	**range:** 0..4294967295
                         
                         .. attribute:: optical_transmit_power_warning_low
                         
-                        	Low optical transmit power warning threshold (mW)
+                        	Low optical transmit power warning threshold (uW)
                         	**type**\:  int
                         
                         	**range:** 0..4294967295
@@ -4567,7 +4758,16 @@ class EthernetInterface(object):
                         if self.optics_wavelength is not None:
                             return True
 
+                        if self.transceiver_rx_power is not None:
+                            return True
+
                         if self.transceiver_temperature is not None:
+                            return True
+
+                        if self.transceiver_tx_bias is not None:
+                            return True
+
+                        if self.transceiver_tx_power is not None:
                             return True
 
                         if self.transceiver_voltage is not None:
@@ -4597,7 +4797,7 @@ class EthernetInterface(object):
                     .. attribute:: corrected_codeword_count
                     
                     	Corrected codeword error count
-                    	**type**\:  long
+                    	**type**\:  int
                     
                     	**range:** 0..18446744073709551615
                     
@@ -4609,7 +4809,7 @@ class EthernetInterface(object):
                     .. attribute:: uncorrected_codeword_count
                     
                     	Uncorrected codeword error count
-                    	**type**\:  long
+                    	**type**\:  int
                     
                     	**range:** 0..18446744073709551615
                     
@@ -4702,6 +4902,13 @@ class EthernetInterface(object):
                 	Port autonegotiation configuration settings
                 	**type**\:  :py:class:`Autoneg <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EthernetInterface.Interfaces.Interface.Layer1Info.Autoneg>`
                 
+                .. attribute:: bandwidth
+                
+                	Port operational bandwidth
+                	**type**\:  int
+                
+                	**range:** 0..18446744073709551615
+                
                 .. attribute:: bandwidth_utilization
                 
                 	Bandwidth utilization (hundredths of a percent)
@@ -4754,6 +4961,11 @@ class EthernetInterface(object):
                 	Link state
                 	**type**\:  :py:class:`EtherLinkStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EtherLinkStateEnum>`
                 
+                .. attribute:: pfc_info
+                
+                	Priority flow control information
+                	**type**\:  :py:class:`PfcInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EthernetInterface.Interfaces.Interface.Layer1Info.PfcInfo>`
+                
                 .. attribute:: previous_alarms
                 
                 	Previous alarms
@@ -4775,6 +4987,7 @@ class EthernetInterface(object):
                     self.parent = None
                     self.autoneg = EthernetInterface.Interfaces.Interface.Layer1Info.Autoneg()
                     self.autoneg.parent = self
+                    self.bandwidth = None
                     self.bandwidth_utilization = None
                     self.ber_monitoring = EthernetInterface.Interfaces.Interface.Layer1Info.BerMonitoring()
                     self.ber_monitoring.parent = self
@@ -4788,6 +5001,8 @@ class EthernetInterface(object):
                     self.laser_squelch_enabled = None
                     self.led_state = None
                     self.link_state = None
+                    self.pfc_info = EthernetInterface.Interfaces.Interface.Layer1Info.PfcInfo()
+                    self.pfc_info.parent = self
                     self.previous_alarms = EthernetInterface.Interfaces.Interface.Layer1Info.PreviousAlarms()
                     self.previous_alarms.parent = self
                     self.speed = None
@@ -4816,6 +5031,11 @@ class EthernetInterface(object):
                     	Restricted duplex (if relevant bit is set in mask)
                     	**type**\:  :py:class:`EthernetDuplexEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EthernetDuplexEnum>`
                     
+                    .. attribute:: fec
+                    
+                    	Restricted FEC (if revelevant bit is set in mask)
+                    	**type**\:  :py:class:`EthernetFecEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EthernetFecEnum>`
+                    
                     .. attribute:: flowcontrol
                     
                     	Restricted flowcontrol (if relevant bit is set in mask)
@@ -4823,7 +5043,7 @@ class EthernetInterface(object):
                     
                     .. attribute:: mask
                     
-                    	Validity mask\: 0x1 speed, 0x2 duplex, 0x4 flowcontrol
+                    	Validity mask\: 0x1 speed, 0x2 duplex, 0x4 flowcontrol, 0x8 fec
                     	**type**\:  int
                     
                     	**range:** 0..4294967295
@@ -4845,6 +5065,7 @@ class EthernetInterface(object):
                         self.autoneg_enabled = None
                         self.config_override = None
                         self.duplex = None
+                        self.fec = None
                         self.flowcontrol = None
                         self.mask = None
                         self.speed = None
@@ -4870,6 +5091,9 @@ class EthernetInterface(object):
                             return True
 
                         if self.duplex is not None:
+                            return True
+
+                        if self.fec is not None:
                             return True
 
                         if self.flowcontrol is not None:
@@ -5130,14 +5354,14 @@ class EthernetInterface(object):
                     .. attribute:: pcsbip_errors
                     
                     	PCS BIP error count
-                    	**type**\:  long
+                    	**type**\:  int
                     
                     	**range:** 0..18446744073709551615
                     
                     .. attribute:: sync_header_errors
                     
                     	Sync\-header error count
-                    	**type**\:  long
+                    	**type**\:  int
                     
                     	**range:** 0..18446744073709551615
                     
@@ -5328,6 +5552,92 @@ class EthernetInterface(object):
                         from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_drivers_media_eth_oper as meta
                         return meta._meta_table['EthernetInterface.Interfaces.Interface.Layer1Info.BerMonitoring']['meta_info']
 
+
+                class PfcInfo(object):
+                    """
+                    Priority flow control information
+                    
+                    .. attribute:: priority_enabled_bitmap
+                    
+                    	Priority bitmap
+                    	**type**\:  int
+                    
+                    	**range:** 0..255
+                    
+                    .. attribute:: priority_flowcontrol
+                    
+                    	Port operational priority flow control
+                    	**type**\:  :py:class:`EtherPfcEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EtherPfcEnum>`
+                    
+                    .. attribute:: rx_frame
+                    
+                    	RX Frame counts
+                    	**type**\:  list of int
+                    
+                    	**range:** 0..18446744073709551615
+                    
+                    .. attribute:: tx_frame
+                    
+                    	TX Frame counts
+                    	**type**\:  list of int
+                    
+                    	**range:** 0..18446744073709551615
+                    
+                    
+
+                    """
+
+                    _prefix = 'drivers-media-eth-oper'
+                    _revision = '2015-10-14'
+
+                    def __init__(self):
+                        self.parent = None
+                        self.priority_enabled_bitmap = None
+                        self.priority_flowcontrol = None
+                        self.rx_frame = YLeafList()
+                        self.rx_frame.parent = self
+                        self.rx_frame.name = 'rx_frame'
+                        self.tx_frame = YLeafList()
+                        self.tx_frame.parent = self
+                        self.tx_frame.name = 'tx_frame'
+
+                    @property
+                    def _common_path(self):
+                        if self.parent is None:
+                            raise YPYModelError('parent is not set . Cannot derive path.')
+
+                        return self.parent._common_path +'/Cisco-IOS-XR-drivers-media-eth-oper:pfc-info'
+
+                    def is_config(self):
+                        ''' Returns True if this instance represents config data else returns False '''
+                        return False
+
+                    def _has_data(self):
+                        if not self.is_config():
+                            return False
+                        if self.priority_enabled_bitmap is not None:
+                            return True
+
+                        if self.priority_flowcontrol is not None:
+                            return True
+
+                        if self.rx_frame is not None:
+                            for child in self.rx_frame:
+                                if child is not None:
+                                    return True
+
+                        if self.tx_frame is not None:
+                            for child in self.tx_frame:
+                                if child is not None:
+                                    return True
+
+                        return False
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_drivers_media_eth_oper as meta
+                        return meta._meta_table['EthernetInterface.Interfaces.Interface.Layer1Info.PfcInfo']['meta_info']
+
                 @property
                 def _common_path(self):
                     if self.parent is None:
@@ -5343,6 +5653,9 @@ class EthernetInterface(object):
                     if not self.is_config():
                         return False
                     if self.autoneg is not None and self.autoneg._has_data():
+                        return True
+
+                    if self.bandwidth is not None:
                         return True
 
                     if self.bandwidth_utilization is not None:
@@ -5373,6 +5686,9 @@ class EthernetInterface(object):
                         return True
 
                     if self.link_state is not None:
+                        return True
+
+                    if self.pfc_info is not None and self.pfc_info._has_data():
                         return True
 
                     if self.previous_alarms is not None and self.previous_alarms._has_data():
@@ -5831,7 +6147,7 @@ class EthernetInterface(object):
             	The name of the interface
             	**type**\:  str
             
-            	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+            	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
             
             .. attribute:: bert_status
             
@@ -5902,14 +6218,14 @@ class EthernetInterface(object):
                 .. attribute:: receive_count
                 
                 	Receive count (if 0x1 set in flag)
-                	**type**\:  long
+                	**type**\:  int
                 
                 	**range:** 0..18446744073709551615
                 
                 .. attribute:: receive_errors
                 
                 	Received errors (if 0x4 set in flag)
-                	**type**\:  long
+                	**type**\:  int
                 
                 	**range:** 0..18446744073709551615
                 
@@ -5921,7 +6237,7 @@ class EthernetInterface(object):
                 .. attribute:: transmit_count
                 
                 	Transmit count (if 0x2 set in flag)
-                	**type**\:  long
+                	**type**\:  int
                 
                 	**range:** 0..18446744073709551615
                 

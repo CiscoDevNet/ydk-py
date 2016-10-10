@@ -3,7 +3,7 @@
 This module contains a collection of YANG definitions
 for Cisco IOS\-XR mpls\-ldp\-oper\-data package operational data.
 
-Copyright (c) 2013\-2015 by Cisco Systems, Inc.
+Copyright (c) 2013\-2016 by Cisco Systems, Inc.
 All rights reserved.
 
 """

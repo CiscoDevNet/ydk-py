@@ -9,7 +9,7 @@ for the following management objects\:
   tcp\: tcp
   tcp\-nsr\: tcp nsr
 
-Copyright (c) 2013\-2015 by Cisco Systems, Inc.
+Copyright (c) 2013\-2016 by Cisco Systems, Inc.
 All rights reserved.
 
 """
@@ -36,7 +36,7 @@ class AddrFamilyEnum(Enum):
 
     	Internetwork: UDP, TCP, etc.
 
-    .. data:: IP_VERSION6 = 26
+    .. data:: IP_VERSION6 = 10
 
     	IP version 6
 
@@ -44,7 +44,7 @@ class AddrFamilyEnum(Enum):
 
     INTERNETWORK = 2
 
-    IP_VERSION6 = 26
+    IP_VERSION6 = 10
 
 
     @staticmethod
@@ -1296,6 +1296,33 @@ class ShowEnum(Enum):
         return meta._meta_table['ShowEnum']
 
 
+class TcpAddressFamilyEnum(Enum):
+    """
+    TcpAddressFamilyEnum
+
+    Address Family Type
+
+    .. data:: IPV4 = 2
+
+    	IPv4
+
+    .. data:: IPV6 = 10
+
+    	IPv6
+
+    """
+
+    IPV4 = 2
+
+    IPV6 = 10
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_tcp_oper as meta
+        return meta._meta_table['TcpAddressFamilyEnum']
+
+
 class TcpConnStateEnum(Enum):
     """
     TcpConnStateEnum
@@ -1455,7 +1482,7 @@ class TcpConnection(object):
     """
 
     _prefix = 'ip-tcp-oper'
-    _revision = '2015-11-09'
+    _revision = '2016-02-26'
 
     def __init__(self):
         self.nodes = TcpConnection.Nodes()
@@ -1477,7 +1504,7 @@ class TcpConnection(object):
         """
 
         _prefix = 'ip-tcp-oper'
-        _revision = '2015-11-09'
+        _revision = '2016-02-26'
 
         def __init__(self):
             self.parent = None
@@ -1522,7 +1549,7 @@ class TcpConnection(object):
             """
 
             _prefix = 'ip-tcp-oper'
-            _revision = '2015-11-09'
+            _revision = '2016-02-26'
 
             def __init__(self):
                 self.parent = None
@@ -1561,7 +1588,7 @@ class TcpConnection(object):
                 """
 
                 _prefix = 'ip-tcp-oper'
-                _revision = '2015-11-09'
+                _revision = '2016-02-26'
 
                 def __init__(self):
                     self.parent = None
@@ -1587,7 +1614,7 @@ class TcpConnection(object):
                     """
 
                     _prefix = 'ip-tcp-oper'
-                    _revision = '2015-11-09'
+                    _revision = '2016-02-26'
 
                     def __init__(self):
                         self.parent = None
@@ -1654,7 +1681,7 @@ class TcpConnection(object):
                         """
 
                         _prefix = 'ip-tcp-oper'
-                        _revision = '2015-11-09'
+                        _revision = '2016-02-26'
 
                         def __init__(self):
                             self.parent = None
@@ -1752,7 +1779,7 @@ class TcpConnection(object):
                     """
 
                     _prefix = 'ip-tcp-oper'
-                    _revision = '2015-11-09'
+                    _revision = '2016-02-26'
 
                     def __init__(self):
                         self.parent = None
@@ -1785,21 +1812,21 @@ class TcpConnection(object):
                         .. attribute:: packets_received
                         
                         	Packets received from network
-                        	**type**\:  long
+                        	**type**\:  int
                         
                         	**range:** 0..18446744073709551615
                         
                         .. attribute:: packets_sent
                         
                         	Packets received from application
-                        	**type**\:  long
+                        	**type**\:  int
                         
                         	**range:** 0..18446744073709551615
                         
                         .. attribute:: pcb
                         
                         	PCB Address
-                        	**type**\:  long
+                        	**type**\:  int
                         
                         	**range:** 0..18446744073709551615
                         
@@ -1825,7 +1852,7 @@ class TcpConnection(object):
                         .. attribute:: received_packets_queued
                         
                         	Received packets queued to application
-                        	**type**\:  long
+                        	**type**\:  int
                         
                         	**range:** 0..18446744073709551615
                         
@@ -1839,14 +1866,14 @@ class TcpConnection(object):
                         .. attribute:: send_packets_queued
                         
                         	Packets queued to v4/v6 IO
-                        	**type**\:  long
+                        	**type**\:  int
                         
                         	**range:** 0..18446744073709551615
                         
                         .. attribute:: send_packets_queued_net_io
                         
                         	Packets queued to NetIO
-                        	**type**\:  long
+                        	**type**\:  int
                         
                         	**range:** 0..18446744073709551615
                         
@@ -1893,7 +1920,7 @@ class TcpConnection(object):
                         .. attribute:: xipc_pulse_received
                         
                         	XIPC pulses received from application
-                        	**type**\:  long
+                        	**type**\:  int
                         
                         	**range:** 0..18446744073709551615
                         
@@ -1902,7 +1929,7 @@ class TcpConnection(object):
                         """
 
                         _prefix = 'ip-tcp-oper'
-                        _revision = '2015-11-09'
+                        _revision = '2016-02-26'
 
                         def __init__(self):
                             self.parent = None
@@ -1968,7 +1995,7 @@ class TcpConnection(object):
                             """
 
                             _prefix = 'ip-tcp-oper'
-                            _revision = '2015-11-09'
+                            _revision = '2016-02-26'
 
                             def __init__(self):
                                 self.parent = None
@@ -2048,7 +2075,7 @@ class TcpConnection(object):
                             """
 
                             _prefix = 'ip-tcp-oper'
-                            _revision = '2015-11-09'
+                            _revision = '2016-02-26'
 
                             def __init__(self):
                                 self.parent = None
@@ -2131,7 +2158,7 @@ class TcpConnection(object):
                             .. attribute:: data_read_byte
                             
                             	Number of bytes data has been read
-                            	**type**\:  list of long
+                            	**type**\:  list of int
                             
                             	**range:** 0..18446744073709551615
                             
@@ -2152,7 +2179,7 @@ class TcpConnection(object):
                             .. attribute:: data_write_byte
                             
                             	Number of bytes data has been written
-                            	**type**\:  list of long
+                            	**type**\:  list of int
                             
                             	**range:** 0..18446744073709551615
                             
@@ -2175,7 +2202,7 @@ class TcpConnection(object):
                             """
 
                             _prefix = 'ip-tcp-oper'
-                            _revision = '2015-11-09'
+                            _revision = '2016-02-26'
 
                             def __init__(self):
                                 self.parent = None
@@ -3006,7 +3033,7 @@ class TcpConnection(object):
                     """
 
                     _prefix = 'ip-tcp-oper'
-                    _revision = '2015-11-09'
+                    _revision = '2016-02-26'
 
                     def __init__(self):
                         self.parent = None
@@ -3421,7 +3448,7 @@ class TcpConnection(object):
                 """
 
                 _prefix = 'ip-tcp-oper'
-                _revision = '2015-11-09'
+                _revision = '2016-02-26'
 
                 def __init__(self):
                     self.parent = None
@@ -3443,7 +3470,7 @@ class TcpConnection(object):
                     """
 
                     _prefix = 'ip-tcp-oper'
-                    _revision = '2015-11-09'
+                    _revision = '2016-02-26'
 
                     def __init__(self):
                         self.parent = None
@@ -3471,7 +3498,7 @@ class TcpConnection(object):
                         """
 
                         _prefix = 'ip-tcp-oper'
-                        _revision = '2015-11-09'
+                        _revision = '2016-02-26'
 
                         def __init__(self):
                             self.parent = None
@@ -3533,7 +3560,7 @@ class TcpConnection(object):
                             """
 
                             _prefix = 'ip-tcp-oper'
-                            _revision = '2015-11-09'
+                            _revision = '2016-02-26'
 
                             def __init__(self):
                                 self.parent = None
@@ -3577,7 +3604,7 @@ class TcpConnection(object):
                                 """
 
                                 _prefix = 'ip-tcp-oper'
-                                _revision = '2015-11-09'
+                                _revision = '2016-02-26'
 
                                 def __init__(self):
                                     self.parent = None
@@ -3644,7 +3671,7 @@ class TcpConnection(object):
                                 """
 
                                 _prefix = 'ip-tcp-oper'
-                                _revision = '2015-11-09'
+                                _revision = '2016-02-26'
 
                                 def __init__(self):
                                     self.parent = None
@@ -3702,7 +3729,7 @@ class TcpConnection(object):
                                 """
 
                                 _prefix = 'ip-tcp-oper'
-                                _revision = '2015-11-09'
+                                _revision = '2016-02-26'
 
                                 def __init__(self):
                                     self.parent = None
@@ -3754,7 +3781,7 @@ class TcpConnection(object):
                                     """
 
                                     _prefix = 'ip-tcp-oper'
-                                    _revision = '2015-11-09'
+                                    _revision = '2016-02-26'
 
                                     def __init__(self):
                                         self.parent = None
@@ -3790,7 +3817,7 @@ class TcpConnection(object):
                                         """
 
                                         _prefix = 'ip-tcp-oper'
-                                        _revision = '2015-11-09'
+                                        _revision = '2016-02-26'
 
                                         def __init__(self):
                                             self.parent = None
@@ -3849,7 +3876,7 @@ class TcpConnection(object):
                                         """
 
                                         _prefix = 'ip-tcp-oper'
-                                        _revision = '2015-11-09'
+                                        _revision = '2016-02-26'
 
                                         def __init__(self):
                                             self.parent = None
@@ -3927,7 +3954,7 @@ class TcpConnection(object):
                                         """
 
                                         _prefix = 'ip-tcp-oper'
-                                        _revision = '2015-11-09'
+                                        _revision = '2016-02-26'
 
                                         def __init__(self):
                                             self.parent = None
@@ -3994,7 +4021,7 @@ class TcpConnection(object):
                                         	Interface name
                                         	**type**\:  str
                                         
-                                        	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+                                        	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
                                         
                                         .. attribute:: local_address
                                         
@@ -4058,7 +4085,7 @@ class TcpConnection(object):
                                         """
 
                                         _prefix = 'ip-tcp-oper'
-                                        _revision = '2015-11-09'
+                                        _revision = '2016-02-26'
 
                                         def __init__(self):
                                             self.parent = None
@@ -4114,7 +4141,7 @@ class TcpConnection(object):
                                             """
 
                                             _prefix = 'ip-tcp-oper'
-                                            _revision = '2015-11-09'
+                                            _revision = '2016-02-26'
 
                                             def __init__(self):
                                                 self.parent = None
@@ -4189,7 +4216,7 @@ class TcpConnection(object):
                                             """
 
                                             _prefix = 'ip-tcp-oper'
-                                            _revision = '2015-11-09'
+                                            _revision = '2016-02-26'
 
                                             def __init__(self):
                                                 self.parent = None
@@ -4256,7 +4283,7 @@ class TcpConnection(object):
                                             """
 
                                             _prefix = 'ip-tcp-oper'
-                                            _revision = '2015-11-09'
+                                            _revision = '2016-02-26'
 
                                             def __init__(self):
                                                 self.parent = None
@@ -4557,7 +4584,7 @@ class TcpConnection(object):
                 """
 
                 _prefix = 'ip-tcp-oper'
-                _revision = '2015-11-09'
+                _revision = '2016-02-26'
 
                 def __init__(self):
                     self.parent = None
@@ -4587,7 +4614,7 @@ class TcpConnection(object):
                     .. attribute:: address_family
                     
                     	Address Family
-                    	**type**\:  :py:class:`AddrFamilyEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.AddrFamilyEnum>`
+                    	**type**\:  :py:class:`TcpAddressFamilyEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.TcpAddressFamilyEnum>`
                     
                     .. attribute:: connect_retries
                     
@@ -4665,9 +4692,7 @@ class TcpConnection(object):
                     .. attribute:: foreign_address
                     
                     	Foreign address
-                    	**type**\:  list of str
-                    
-                    	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                    	**type**\:  :py:class:`ForeignAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.TcpConnection.Nodes.Node.DetailInformations.DetailInformation.ForeignAddress>`
                     
                     .. attribute:: foreign_port
                     
@@ -4719,9 +4744,7 @@ class TcpConnection(object):
                     .. attribute:: local_address
                     
                     	Local address
-                    	**type**\:  list of str
-                    
-                    	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                    	**type**\:  :py:class:`LocalAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.TcpConnection.Nodes.Node.DetailInformations.DetailInformation.LocalAddress>`
                     
                     .. attribute:: local_pid
                     
@@ -4829,7 +4852,7 @@ class TcpConnection(object):
                     .. attribute:: pcb
                     
                     	PCB Address
-                    	**type**\:  long
+                    	**type**\:  int
                     
                     	**range:** 0..18446744073709551615
                     
@@ -5036,7 +5059,7 @@ class TcpConnection(object):
                     .. attribute:: so
                     
                     	Socket Address
-                    	**type**\:  long
+                    	**type**\:  int
                     
                     	**range:** 0..18446744073709551615
                     
@@ -5093,7 +5116,7 @@ class TcpConnection(object):
                     .. attribute:: tcpcb
                     
                     	TCPCB Address
-                    	**type**\:  long
+                    	**type**\:  int
                     
                     	**range:** 0..18446744073709551615
                     
@@ -5128,7 +5151,7 @@ class TcpConnection(object):
                     """
 
                     _prefix = 'ip-tcp-oper'
-                    _revision = '2015-11-09'
+                    _revision = '2016-02-26'
 
                     def __init__(self):
                         self.parent = None
@@ -5151,9 +5174,8 @@ class TcpConnection(object):
                         self.fib_pd_ctx.parent = self
                         self.fib_pd_ctx.name = 'fib_pd_ctx'
                         self.fib_pd_ctx_size = None
-                        self.foreign_address = YLeafList()
+                        self.foreign_address = TcpConnection.Nodes.Node.DetailInformations.DetailInformation.ForeignAddress()
                         self.foreign_address.parent = self
-                        self.foreign_address.name = 'foreign_address'
                         self.foreign_port = None
                         self.giveup_time = None
                         self.hash_index = None
@@ -5161,9 +5183,8 @@ class TcpConnection(object):
                         self.keep_alive_time = None
                         self.krtt = None
                         self.last_ack_sent = None
-                        self.local_address = YLeafList()
+                        self.local_address = TcpConnection.Nodes.Node.DetailInformations.DetailInformation.LocalAddress()
                         self.local_address.parent = self
-                        self.local_address.name = 'local_address'
                         self.local_pid = None
                         self.local_port = None
                         self.max_mss = None
@@ -5238,6 +5259,140 @@ class TcpConnection(object):
                         self.vrf_id = None
 
 
+                    class LocalAddress(object):
+                        """
+                        Local address
+                        
+                        .. attribute:: af_name
+                        
+                        	AFName
+                        	**type**\:  :py:class:`TcpAddressFamilyEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.TcpAddressFamilyEnum>`
+                        
+                        .. attribute:: ipv4_address
+                        
+                        	IPv4 Address
+                        	**type**\:  str
+                        
+                        	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                        
+                        .. attribute:: ipv6_address
+                        
+                        	IPv6 Address
+                        	**type**\:  str
+                        
+                        	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                        
+                        
+
+                        """
+
+                        _prefix = 'ip-tcp-oper'
+                        _revision = '2016-02-26'
+
+                        def __init__(self):
+                            self.parent = None
+                            self.af_name = None
+                            self.ipv4_address = None
+                            self.ipv6_address = None
+
+                        @property
+                        def _common_path(self):
+                            if self.parent is None:
+                                raise YPYModelError('parent is not set . Cannot derive path.')
+
+                            return self.parent._common_path +'/Cisco-IOS-XR-ip-tcp-oper:local-address'
+
+                        def is_config(self):
+                            ''' Returns True if this instance represents config data else returns False '''
+                            return False
+
+                        def _has_data(self):
+                            if not self.is_config():
+                                return False
+                            if self.af_name is not None:
+                                return True
+
+                            if self.ipv4_address is not None:
+                                return True
+
+                            if self.ipv6_address is not None:
+                                return True
+
+                            return False
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_tcp_oper as meta
+                            return meta._meta_table['TcpConnection.Nodes.Node.DetailInformations.DetailInformation.LocalAddress']['meta_info']
+
+
+                    class ForeignAddress(object):
+                        """
+                        Foreign address
+                        
+                        .. attribute:: af_name
+                        
+                        	AFName
+                        	**type**\:  :py:class:`TcpAddressFamilyEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.TcpAddressFamilyEnum>`
+                        
+                        .. attribute:: ipv4_address
+                        
+                        	IPv4 Address
+                        	**type**\:  str
+                        
+                        	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                        
+                        .. attribute:: ipv6_address
+                        
+                        	IPv6 Address
+                        	**type**\:  str
+                        
+                        	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                        
+                        
+
+                        """
+
+                        _prefix = 'ip-tcp-oper'
+                        _revision = '2016-02-26'
+
+                        def __init__(self):
+                            self.parent = None
+                            self.af_name = None
+                            self.ipv4_address = None
+                            self.ipv6_address = None
+
+                        @property
+                        def _common_path(self):
+                            if self.parent is None:
+                                raise YPYModelError('parent is not set . Cannot derive path.')
+
+                            return self.parent._common_path +'/Cisco-IOS-XR-ip-tcp-oper:foreign-address'
+
+                        def is_config(self):
+                            ''' Returns True if this instance represents config data else returns False '''
+                            return False
+
+                        def _has_data(self):
+                            if not self.is_config():
+                                return False
+                            if self.af_name is not None:
+                                return True
+
+                            if self.ipv4_address is not None:
+                                return True
+
+                            if self.ipv6_address is not None:
+                                return True
+
+                            return False
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_tcp_oper as meta
+                            return meta._meta_table['TcpConnection.Nodes.Node.DetailInformations.DetailInformation.ForeignAddress']['meta_info']
+
+
                     class SocketOptionFlags(object):
                         """
                         Socket option flags
@@ -5302,7 +5457,7 @@ class TcpConnection(object):
                         """
 
                         _prefix = 'ip-tcp-oper'
-                        _revision = '2015-11-09'
+                        _revision = '2016-02-26'
 
                         def __init__(self):
                             self.parent = None
@@ -5457,7 +5612,7 @@ class TcpConnection(object):
                         """
 
                         _prefix = 'ip-tcp-oper'
-                        _revision = '2015-11-09'
+                        _revision = '2016-02-26'
 
                         def __init__(self):
                             self.parent = None
@@ -5598,7 +5753,7 @@ class TcpConnection(object):
                         """
 
                         _prefix = 'ip-tcp-oper'
-                        _revision = '2015-11-09'
+                        _revision = '2016-02-26'
 
                         def __init__(self):
                             self.parent = None
@@ -5710,7 +5865,7 @@ class TcpConnection(object):
                         """
 
                         _prefix = 'ip-tcp-oper'
-                        _revision = '2015-11-09'
+                        _revision = '2016-02-26'
 
                         def __init__(self):
                             self.parent = None
@@ -5823,7 +5978,7 @@ class TcpConnection(object):
                         """
 
                         _prefix = 'ip-tcp-oper'
-                        _revision = '2015-11-09'
+                        _revision = '2016-02-26'
 
                         def __init__(self):
                             self.parent = None
@@ -5955,7 +6110,7 @@ class TcpConnection(object):
                         """
 
                         _prefix = 'ip-tcp-oper'
-                        _revision = '2015-11-09'
+                        _revision = '2016-02-26'
 
                         def __init__(self):
                             self.parent = None
@@ -6099,7 +6254,7 @@ class TcpConnection(object):
                         """
 
                         _prefix = 'ip-tcp-oper'
-                        _revision = '2015-11-09'
+                        _revision = '2016-02-26'
 
                         def __init__(self):
                             self.parent = None
@@ -6209,7 +6364,7 @@ class TcpConnection(object):
                         """
 
                         _prefix = 'ip-tcp-oper'
-                        _revision = '2015-11-09'
+                        _revision = '2016-02-26'
 
                         def __init__(self):
                             self.parent = None
@@ -6275,7 +6430,7 @@ class TcpConnection(object):
                         """
 
                         _prefix = 'ip-tcp-oper'
-                        _revision = '2015-11-09'
+                        _revision = '2016-02-26'
 
                         def __init__(self):
                             self.parent = None
@@ -6347,7 +6502,7 @@ class TcpConnection(object):
                         """
 
                         _prefix = 'ip-tcp-oper'
-                        _revision = '2015-11-09'
+                        _revision = '2016-02-26'
 
                         def __init__(self):
                             self.parent = None
@@ -6451,10 +6606,8 @@ class TcpConnection(object):
                         if self.fib_pd_ctx_size is not None:
                             return True
 
-                        if self.foreign_address is not None:
-                            for child in self.foreign_address:
-                                if child is not None:
-                                    return True
+                        if self.foreign_address is not None and self.foreign_address._has_data():
+                            return True
 
                         if self.foreign_port is not None:
                             return True
@@ -6477,10 +6630,8 @@ class TcpConnection(object):
                         if self.last_ack_sent is not None:
                             return True
 
-                        if self.local_address is not None:
-                            for child in self.local_address:
-                                if child is not None:
-                                    return True
+                        if self.local_address is not None and self.local_address._has_data():
+                            return True
 
                         if self.local_pid is not None:
                             return True
@@ -6718,7 +6869,7 @@ class TcpConnection(object):
                 """
 
                 _prefix = 'ip-tcp-oper'
-                _revision = '2015-11-09'
+                _revision = '2016-02-26'
 
                 def __init__(self):
                     self.parent = None
@@ -6738,10 +6889,10 @@ class TcpConnection(object):
                     
                     	**range:** 0..4294967295
                     
-                    .. attribute:: address_family
+                    .. attribute:: af_name
                     
                     	Address family
-                    	**type**\:  :py:class:`AddrFamilyEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.AddrFamilyEnum>`
+                    	**type**\:  :py:class:`TcpAddressFamilyEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.TcpAddressFamilyEnum>`
                     
                     .. attribute:: connection_state
                     
@@ -6765,9 +6916,7 @@ class TcpConnection(object):
                     .. attribute:: foreign_address
                     
                     	Foreign address
-                    	**type**\:  list of str
-                    
-                    	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                    	**type**\:  :py:class:`ForeignAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.TcpConnection.Nodes.Node.BriefInformations.BriefInformation.ForeignAddress>`
                     
                     .. attribute:: foreign_port
                     
@@ -6779,9 +6928,7 @@ class TcpConnection(object):
                     .. attribute:: local_address
                     
                     	Local address
-                    	**type**\:  list of str
-                    
-                    	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                    	**type**\:  :py:class:`LocalAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.TcpConnection.Nodes.Node.BriefInformations.BriefInformation.LocalAddress>`
                     
                     .. attribute:: local_pid
                     
@@ -6800,7 +6947,7 @@ class TcpConnection(object):
                     .. attribute:: pcb
                     
                     	PCB Address
-                    	**type**\:  long
+                    	**type**\:  int
                     
                     	**range:** 0..18446744073709551615
                     
@@ -6816,26 +6963,158 @@ class TcpConnection(object):
                     """
 
                     _prefix = 'ip-tcp-oper'
-                    _revision = '2015-11-09'
+                    _revision = '2016-02-26'
 
                     def __init__(self):
                         self.parent = None
                         self.pcb_id = None
-                        self.address_family = None
+                        self.af_name = None
                         self.connection_state = None
                         self.current_receive_queue_size = None
                         self.current_send_queue_size = None
-                        self.foreign_address = YLeafList()
+                        self.foreign_address = TcpConnection.Nodes.Node.BriefInformations.BriefInformation.ForeignAddress()
                         self.foreign_address.parent = self
-                        self.foreign_address.name = 'foreign_address'
                         self.foreign_port = None
-                        self.local_address = YLeafList()
+                        self.local_address = TcpConnection.Nodes.Node.BriefInformations.BriefInformation.LocalAddress()
                         self.local_address.parent = self
-                        self.local_address.name = 'local_address'
                         self.local_pid = None
                         self.local_port = None
                         self.pcb = None
                         self.vrf_id = None
+
+
+                    class LocalAddress(object):
+                        """
+                        Local address
+                        
+                        .. attribute:: af_name
+                        
+                        	AFName
+                        	**type**\:  :py:class:`TcpAddressFamilyEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.TcpAddressFamilyEnum>`
+                        
+                        .. attribute:: ipv4_address
+                        
+                        	IPv4 Address
+                        	**type**\:  str
+                        
+                        	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                        
+                        .. attribute:: ipv6_address
+                        
+                        	IPv6 Address
+                        	**type**\:  str
+                        
+                        	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                        
+                        
+
+                        """
+
+                        _prefix = 'ip-tcp-oper'
+                        _revision = '2016-02-26'
+
+                        def __init__(self):
+                            self.parent = None
+                            self.af_name = None
+                            self.ipv4_address = None
+                            self.ipv6_address = None
+
+                        @property
+                        def _common_path(self):
+                            if self.parent is None:
+                                raise YPYModelError('parent is not set . Cannot derive path.')
+
+                            return self.parent._common_path +'/Cisco-IOS-XR-ip-tcp-oper:local-address'
+
+                        def is_config(self):
+                            ''' Returns True if this instance represents config data else returns False '''
+                            return False
+
+                        def _has_data(self):
+                            if not self.is_config():
+                                return False
+                            if self.af_name is not None:
+                                return True
+
+                            if self.ipv4_address is not None:
+                                return True
+
+                            if self.ipv6_address is not None:
+                                return True
+
+                            return False
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_tcp_oper as meta
+                            return meta._meta_table['TcpConnection.Nodes.Node.BriefInformations.BriefInformation.LocalAddress']['meta_info']
+
+
+                    class ForeignAddress(object):
+                        """
+                        Foreign address
+                        
+                        .. attribute:: af_name
+                        
+                        	AFName
+                        	**type**\:  :py:class:`TcpAddressFamilyEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.TcpAddressFamilyEnum>`
+                        
+                        .. attribute:: ipv4_address
+                        
+                        	IPv4 Address
+                        	**type**\:  str
+                        
+                        	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                        
+                        .. attribute:: ipv6_address
+                        
+                        	IPv6 Address
+                        	**type**\:  str
+                        
+                        	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                        
+                        
+
+                        """
+
+                        _prefix = 'ip-tcp-oper'
+                        _revision = '2016-02-26'
+
+                        def __init__(self):
+                            self.parent = None
+                            self.af_name = None
+                            self.ipv4_address = None
+                            self.ipv6_address = None
+
+                        @property
+                        def _common_path(self):
+                            if self.parent is None:
+                                raise YPYModelError('parent is not set . Cannot derive path.')
+
+                            return self.parent._common_path +'/Cisco-IOS-XR-ip-tcp-oper:foreign-address'
+
+                        def is_config(self):
+                            ''' Returns True if this instance represents config data else returns False '''
+                            return False
+
+                        def _has_data(self):
+                            if not self.is_config():
+                                return False
+                            if self.af_name is not None:
+                                return True
+
+                            if self.ipv4_address is not None:
+                                return True
+
+                            if self.ipv6_address is not None:
+                                return True
+
+                            return False
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_tcp_oper as meta
+                            return meta._meta_table['TcpConnection.Nodes.Node.BriefInformations.BriefInformation.ForeignAddress']['meta_info']
 
                     @property
                     def _common_path(self):
@@ -6856,7 +7135,7 @@ class TcpConnection(object):
                         if self.pcb_id is not None:
                             return True
 
-                        if self.address_family is not None:
+                        if self.af_name is not None:
                             return True
 
                         if self.connection_state is not None:
@@ -6868,18 +7147,14 @@ class TcpConnection(object):
                         if self.current_send_queue_size is not None:
                             return True
 
-                        if self.foreign_address is not None:
-                            for child in self.foreign_address:
-                                if child is not None:
-                                    return True
+                        if self.foreign_address is not None and self.foreign_address._has_data():
+                            return True
 
                         if self.foreign_port is not None:
                             return True
 
-                        if self.local_address is not None:
-                            for child in self.local_address:
-                                if child is not None:
-                                    return True
+                        if self.local_address is not None and self.local_address._has_data():
+                            return True
 
                         if self.local_pid is not None:
                             return True
@@ -7023,7 +7298,7 @@ class Tcp(object):
     """
 
     _prefix = 'ip-tcp-oper'
-    _revision = '2015-11-09'
+    _revision = '2016-02-26'
 
     def __init__(self):
         self.nodes = Tcp.Nodes()
@@ -7044,7 +7319,7 @@ class Tcp(object):
         """
 
         _prefix = 'ip-tcp-oper'
-        _revision = '2015-11-09'
+        _revision = '2016-02-26'
 
         def __init__(self):
             self.parent = None
@@ -7074,7 +7349,7 @@ class Tcp(object):
             """
 
             _prefix = 'ip-tcp-oper'
-            _revision = '2015-11-09'
+            _revision = '2016-02-26'
 
             def __init__(self):
                 self.parent = None
@@ -7102,7 +7377,7 @@ class Tcp(object):
                 """
 
                 _prefix = 'ip-tcp-oper'
-                _revision = '2015-11-09'
+                _revision = '2016-02-26'
 
                 def __init__(self):
                     self.parent = None
@@ -7156,7 +7431,7 @@ class Tcp(object):
                     """
 
                     _prefix = 'ip-tcp-oper'
-                    _revision = '2015-11-09'
+                    _revision = '2016-02-26'
 
                     def __init__(self):
                         self.parent = None
@@ -7247,7 +7522,7 @@ class Tcp(object):
                     """
 
                     _prefix = 'ip-tcp-oper'
-                    _revision = '2015-11-09'
+                    _revision = '2016-02-26'
 
                     def __init__(self):
                         self.parent = None
@@ -7408,7 +7683,7 @@ class TcpNsr(object):
     """
 
     _prefix = 'ip-tcp-oper'
-    _revision = '2015-11-09'
+    _revision = '2016-02-26'
 
     def __init__(self):
         self.nodes = TcpNsr.Nodes()
@@ -7430,7 +7705,7 @@ class TcpNsr(object):
         """
 
         _prefix = 'ip-tcp-oper'
-        _revision = '2015-11-09'
+        _revision = '2016-02-26'
 
         def __init__(self):
             self.parent = None
@@ -7475,7 +7750,7 @@ class TcpNsr(object):
             """
 
             _prefix = 'ip-tcp-oper'
-            _revision = '2015-11-09'
+            _revision = '2016-02-26'
 
             def __init__(self):
                 self.parent = None
@@ -7509,7 +7784,7 @@ class TcpNsr(object):
                 """
 
                 _prefix = 'ip-tcp-oper'
-                _revision = '2015-11-09'
+                _revision = '2016-02-26'
 
                 def __init__(self):
                     self.parent = None
@@ -7533,7 +7808,7 @@ class TcpNsr(object):
                     """
 
                     _prefix = 'ip-tcp-oper'
-                    _revision = '2015-11-09'
+                    _revision = '2016-02-26'
 
                     def __init__(self):
                         self.parent = None
@@ -7609,14 +7884,14 @@ class TcpNsr(object):
                         .. attribute:: pcb
                         
                         	PCB Address
-                        	**type**\:  long
+                        	**type**\:  int
                         
                         	**range:** 0..18446744073709551615
                         
                         .. attribute:: sscb
                         
                         	SSCB Address
-                        	**type**\:  long
+                        	**type**\:  int
                         
                         	**range:** 0..18446744073709551615
                         
@@ -7632,7 +7907,7 @@ class TcpNsr(object):
                         """
 
                         _prefix = 'ip-tcp-oper'
-                        _revision = '2015-11-09'
+                        _revision = '2016-02-26'
 
                         def __init__(self):
                             self.parent = None
@@ -7761,7 +8036,7 @@ class TcpNsr(object):
                     """
 
                     _prefix = 'ip-tcp-oper'
-                    _revision = '2015-11-09'
+                    _revision = '2016-02-26'
 
                     def __init__(self):
                         self.parent = None
@@ -7789,7 +8064,7 @@ class TcpNsr(object):
                         .. attribute:: cookie
                         
                         	Cookie provided by active APP
-                        	**type**\:  long
+                        	**type**\:  int
                         
                         	**range:** 0..18446744073709551615
                         
@@ -8025,21 +8300,21 @@ class TcpNsr(object):
                         .. attribute:: pcb
                         
                         	PCB Address
-                        	**type**\:  long
+                        	**type**\:  int
                         
                         	**range:** 0..18446744073709551615
                         
                         .. attribute:: peer_endp_hdl_down_stream
                         
                         	Peer NCD endp handle
-                        	**type**\:  long
+                        	**type**\:  int
                         
                         	**range:** 0..18446744073709551615
                         
                         .. attribute:: peer_endp_hdl_up_stream
                         
                         	Peer NCD endp handle
-                        	**type**\:  long
+                        	**type**\:  int
                         
                         	**range:** 0..18446744073709551615
                         
@@ -8072,7 +8347,7 @@ class TcpNsr(object):
                         .. attribute:: sscb
                         
                         	SSCB Address
-                        	**type**\:  long
+                        	**type**\:  int
                         
                         	**range:** 0..18446744073709551615
                         
@@ -8088,7 +8363,7 @@ class TcpNsr(object):
                         """
 
                         _prefix = 'ip-tcp-oper'
-                        _revision = '2015-11-09'
+                        _revision = '2016-02-26'
 
                         def __init__(self):
                             self.parent = None
@@ -8256,7 +8531,7 @@ class TcpNsr(object):
                             .. attribute:: sscb
                             
                             	Address of the Session Set Control Block
-                            	**type**\:  long
+                            	**type**\:  int
                             
                             	**range:** 0..18446744073709551615
                             
@@ -8279,7 +8554,7 @@ class TcpNsr(object):
                             """
 
                             _prefix = 'ip-tcp-oper'
-                            _revision = '2015-11-09'
+                            _revision = '2016-02-26'
 
                             def __init__(self):
                                 self.parent = None
@@ -8409,7 +8684,7 @@ class TcpNsr(object):
                             """
 
                             _prefix = 'ip-tcp-oper'
-                            _revision = '2015-11-09'
+                            _revision = '2016-02-26'
 
                             def __init__(self):
                                 self.parent = None
@@ -8479,7 +8754,7 @@ class TcpNsr(object):
                             """
 
                             _prefix = 'ip-tcp-oper'
-                            _revision = '2015-11-09'
+                            _revision = '2016-02-26'
 
                             def __init__(self):
                                 self.parent = None
@@ -8768,7 +9043,7 @@ class TcpNsr(object):
                 """
 
                 _prefix = 'ip-tcp-oper'
-                _revision = '2015-11-09'
+                _revision = '2016-02-26'
 
                 def __init__(self):
                     self.parent = None
@@ -8792,7 +9067,7 @@ class TcpNsr(object):
                     """
 
                     _prefix = 'ip-tcp-oper'
-                    _revision = '2015-11-09'
+                    _revision = '2016-02-26'
 
                     def __init__(self):
                         self.parent = None
@@ -8815,7 +9090,7 @@ class TcpNsr(object):
                         .. attribute:: ccb
                         
                         	Address of the Client Control Block
-                        	**type**\:  long
+                        	**type**\:  int
                         
                         	**range:** 0..18446744073709551615
                         
@@ -8883,7 +9158,7 @@ class TcpNsr(object):
                         """
 
                         _prefix = 'ip-tcp-oper'
-                        _revision = '2015-11-09'
+                        _revision = '2016-02-26'
 
                         def __init__(self):
                             self.parent = None
@@ -8996,7 +9271,7 @@ class TcpNsr(object):
                     """
 
                     _prefix = 'ip-tcp-oper'
-                    _revision = '2015-11-09'
+                    _revision = '2016-02-26'
 
                     def __init__(self):
                         self.parent = None
@@ -9019,7 +9294,7 @@ class TcpNsr(object):
                         .. attribute:: ccb
                         
                         	Address of the Client Control Block
-                        	**type**\:  long
+                        	**type**\:  int
                         
                         	**range:** 0..18446744073709551615
                         
@@ -9075,7 +9350,7 @@ class TcpNsr(object):
                         """
 
                         _prefix = 'ip-tcp-oper'
-                        _revision = '2015-11-09'
+                        _revision = '2016-02-26'
 
                         def __init__(self):
                             self.parent = None
@@ -9212,7 +9487,7 @@ class TcpNsr(object):
                 """
 
                 _prefix = 'ip-tcp-oper'
-                _revision = '2015-11-09'
+                _revision = '2016-02-26'
 
                 def __init__(self):
                     self.parent = None
@@ -9236,7 +9511,7 @@ class TcpNsr(object):
                     """
 
                     _prefix = 'ip-tcp-oper'
-                    _revision = '2015-11-09'
+                    _revision = '2016-02-26'
 
                     def __init__(self):
                         self.parent = None
@@ -9449,7 +9724,7 @@ class TcpNsr(object):
                         .. attribute:: sscb
                         
                         	Address of the Session Set Control Block
-                        	**type**\:  long
+                        	**type**\:  int
                         
                         	**range:** 0..18446744073709551615
                         
@@ -9479,7 +9754,7 @@ class TcpNsr(object):
                         """
 
                         _prefix = 'ip-tcp-oper'
-                        _revision = '2015-11-09'
+                        _revision = '2016-02-26'
 
                         def __init__(self):
                             self.parent = None
@@ -9684,7 +9959,7 @@ class TcpNsr(object):
                     """
 
                     _prefix = 'ip-tcp-oper'
-                    _revision = '2015-11-09'
+                    _revision = '2016-02-26'
 
                     def __init__(self):
                         self.parent = None
@@ -9804,7 +10079,7 @@ class TcpNsr(object):
                         .. attribute:: sscb
                         
                         	Address of the Session Set Control Block
-                        	**type**\:  long
+                        	**type**\:  int
                         
                         	**range:** 0..18446744073709551615
                         
@@ -9827,7 +10102,7 @@ class TcpNsr(object):
                         """
 
                         _prefix = 'ip-tcp-oper'
-                        _revision = '2015-11-09'
+                        _revision = '2016-02-26'
 
                         def __init__(self):
                             self.parent = None
@@ -10014,7 +10289,7 @@ class TcpNsr(object):
                 """
 
                 _prefix = 'ip-tcp-oper'
-                _revision = '2015-11-09'
+                _revision = '2016-02-26'
 
                 def __init__(self):
                     self.parent = None
@@ -10283,7 +10558,7 @@ class TcpNsr(object):
                     """
 
                     _prefix = 'ip-tcp-oper'
-                    _revision = '2015-11-09'
+                    _revision = '2016-02-26'
 
                     def __init__(self):
                         self.parent = None
@@ -10348,7 +10623,7 @@ class TcpNsr(object):
                         """
 
                         _prefix = 'ip-tcp-oper'
-                        _revision = '2015-11-09'
+                        _revision = '2016-02-26'
 
                         def __init__(self):
                             self.parent = None
@@ -10449,7 +10724,7 @@ class TcpNsr(object):
                             .. attribute:: data_xfer_send_total
                             
                             	Amount of data transferred
-                            	**type**\:  long
+                            	**type**\:  int
                             
                             	**range:** 0..18446744073709551615
                             
@@ -10542,7 +10817,7 @@ class TcpNsr(object):
                             """
 
                             _prefix = 'ip-tcp-oper'
-                            _revision = '2015-11-09'
+                            _revision = '2016-02-26'
 
                             def __init__(self):
                                 self.parent = None
@@ -10734,7 +11009,7 @@ class TcpNsr(object):
                             """
 
                             _prefix = 'ip-tcp-oper'
-                            _revision = '2015-11-09'
+                            _revision = '2016-02-26'
 
                             def __init__(self):
                                 self.parent = None
@@ -10839,7 +11114,7 @@ class TcpNsr(object):
                         """
 
                         _prefix = 'ip-tcp-oper'
-                        _revision = '2015-11-09'
+                        _revision = '2016-02-26'
 
                         def __init__(self):
                             self.parent = None
@@ -11033,7 +11308,7 @@ class TcpNsr(object):
                             """
 
                             _prefix = 'ip-tcp-oper'
-                            _revision = '2015-11-09'
+                            _revision = '2016-02-26'
 
                             def __init__(self):
                                 self.parent = None
@@ -11211,7 +11486,7 @@ class TcpNsr(object):
                             """
 
                             _prefix = 'ip-tcp-oper'
-                            _revision = '2015-11-09'
+                            _revision = '2016-02-26'
 
                             def __init__(self):
                                 self.parent = None
@@ -11326,7 +11601,7 @@ class TcpNsr(object):
                         """
 
                         _prefix = 'ip-tcp-oper'
-                        _revision = '2015-11-09'
+                        _revision = '2016-02-26'
 
                         def __init__(self):
                             self.parent = None
@@ -11515,7 +11790,7 @@ class TcpNsr(object):
                     """
 
                     _prefix = 'ip-tcp-oper'
-                    _revision = '2015-11-09'
+                    _revision = '2016-02-26'
 
                     def __init__(self):
                         self.parent = None
@@ -11538,7 +11813,7 @@ class TcpNsr(object):
                         .. attribute:: ccb
                         
                         	Address of the Client Control Block
-                        	**type**\:  long
+                        	**type**\:  int
                         
                         	**range:** 0..18446744073709551615
                         
@@ -11606,7 +11881,7 @@ class TcpNsr(object):
                         """
 
                         _prefix = 'ip-tcp-oper'
-                        _revision = '2015-11-09'
+                        _revision = '2016-02-26'
 
                         def __init__(self):
                             self.parent = None
@@ -11662,7 +11937,7 @@ class TcpNsr(object):
                             """
 
                             _prefix = 'ip-tcp-oper'
-                            _revision = '2015-11-09'
+                            _revision = '2016-02-26'
 
                             def __init__(self):
                                 self.parent = None
@@ -11804,7 +12079,7 @@ class TcpNsr(object):
                     """
 
                     _prefix = 'ip-tcp-oper'
-                    _revision = '2015-11-09'
+                    _revision = '2016-02-26'
 
                     def __init__(self):
                         self.parent = None
@@ -11877,7 +12152,7 @@ class TcpNsr(object):
                         .. attribute:: sscb
                         
                         	SSCB Address
-                        	**type**\:  long
+                        	**type**\:  int
                         
                         	**range:** 0..18446744073709551615
                         
@@ -11886,7 +12161,7 @@ class TcpNsr(object):
                         """
 
                         _prefix = 'ip-tcp-oper'
-                        _revision = '2015-11-09'
+                        _revision = '2016-02-26'
 
                         def __init__(self):
                             self.parent = None
@@ -11992,7 +12267,7 @@ class TcpNsr(object):
                     """
 
                     _prefix = 'ip-tcp-oper'
-                    _revision = '2015-11-09'
+                    _revision = '2016-02-26'
 
                     def __init__(self):
                         self.parent = None
@@ -12016,28 +12291,28 @@ class TcpNsr(object):
                         .. attribute:: internal_ack_drops_immediate_match
                         
                         	Number of iACKs not held because of an immediate match
-                        	**type**\:  long
+                        	**type**\:  int
                         
                         	**range:** 0..18446744073709551615
                         
                         .. attribute:: internal_ack_drops_initsync_first_phase
                         
                         	Number of iACKs dropped because 1st phase of init\-sync is in progress
-                        	**type**\:  long
+                        	**type**\:  int
                         
                         	**range:** 0..18446744073709551615
                         
                         .. attribute:: internal_ack_drops_not_replicated
                         
                         	Number of iACKs dropped because session is not replicated
-                        	**type**\:  long
+                        	**type**\:  int
                         
                         	**range:** 0..18446744073709551615
                         
                         .. attribute:: internal_ack_drops_stale
                         
                         	Number of stale iACKs dropped
-                        	**type**\:  long
+                        	**type**\:  int
                         
                         	**range:** 0..18446744073709551615
                         
@@ -12079,7 +12354,7 @@ class TcpNsr(object):
                         .. attribute:: pcb
                         
                         	PCB Address
-                        	**type**\:  long
+                        	**type**\:  int
                         
                         	**range:** 0..18446744073709551615
                         
@@ -12093,7 +12368,7 @@ class TcpNsr(object):
                         """
 
                         _prefix = 'ip-tcp-oper'
-                        _revision = '2015-11-09'
+                        _revision = '2016-02-26'
 
                         def __init__(self):
                             self.parent = None
@@ -12203,7 +12478,7 @@ class TcpNsr(object):
                             .. attribute:: data_xfer_send_total
                             
                             	Amount of data transferred
-                            	**type**\:  long
+                            	**type**\:  int
                             
                             	**range:** 0..18446744073709551615
                             
@@ -12296,7 +12571,7 @@ class TcpNsr(object):
                             """
 
                             _prefix = 'ip-tcp-oper'
-                            _revision = '2015-11-09'
+                            _revision = '2016-02-26'
 
                             def __init__(self):
                                 self.parent = None

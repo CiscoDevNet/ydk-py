@@ -7,7 +7,7 @@ This module contains definitions
 for the following management objects\:
   aaa\: AAA operational data
 
-Copyright (c) 2013\-2015 by Cisco Systems, Inc.
+Copyright (c) 2013\-2016 by Cisco Systems, Inc.
 All rights reserved.
 
 """
@@ -54,6 +54,11 @@ class Aaa(object):
     	RADIUS operational data
     	**type**\:  :py:class:`Radius <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_locald_oper.Aaa.Radius>`
     
+    .. attribute:: tacacs
+    
+    	TACACS operational data
+    	**type**\:  :py:class:`Tacacs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_locald_oper.Aaa.Tacacs>`
+    
     .. attribute:: task_map
     
     	Task map of current user
@@ -92,6 +97,8 @@ class Aaa(object):
         self.currentuser_detail.parent = self
         self.radius = Aaa.Radius()
         self.radius.parent = self
+        self.tacacs = Aaa.Tacacs()
+        self.tacacs.parent = self
         self.task_map = Aaa.TaskMap()
         self.task_map.parent = self
         self.taskgroups = Aaa.Taskgroups()
@@ -2875,6 +2882,926 @@ class Aaa(object):
             from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_aaa_locald_oper as meta
             return meta._meta_table['Aaa.Radius']['meta_info']
 
+
+    class Tacacs(object):
+        """
+        TACACS operational data
+        
+        .. attribute:: requests
+        
+        	TACACS Active Request List
+        	**type**\:  :py:class:`Requests <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_locald_oper.Aaa.Tacacs.Requests>`
+        
+        .. attribute:: server_groups
+        
+        	TACACS sg Information
+        	**type**\:  :py:class:`ServerGroups <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_locald_oper.Aaa.Tacacs.ServerGroups>`
+        
+        .. attribute:: servers
+        
+        	TACACS server Information
+        	**type**\:  :py:class:`Servers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_locald_oper.Aaa.Tacacs.Servers>`
+        
+        
+
+        """
+
+        _prefix = 'aaa-tacacs-oper'
+        _revision = '2015-11-09'
+
+        def __init__(self):
+            self.parent = None
+            self.requests = Aaa.Tacacs.Requests()
+            self.requests.parent = self
+            self.server_groups = Aaa.Tacacs.ServerGroups()
+            self.server_groups.parent = self
+            self.servers = Aaa.Tacacs.Servers()
+            self.servers.parent = self
+
+
+        class Requests(object):
+            """
+            TACACS Active Request List
+            
+            .. attribute:: request
+            
+            	request
+            	**type**\: list of  :py:class:`Request <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_locald_oper.Aaa.Tacacs.Requests.Request>`
+            
+            
+
+            """
+
+            _prefix = 'aaa-tacacs-oper'
+            _revision = '2015-11-09'
+
+            def __init__(self):
+                self.parent = None
+                self.request = YList()
+                self.request.parent = self
+                self.request.name = 'request'
+
+
+            class Request(object):
+                """
+                request
+                
+                .. attribute:: tacacs_requestbag
+                
+                	tacacs requestbag
+                	**type**\: list of  :py:class:`TacacsRequestbag <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_locald_oper.Aaa.Tacacs.Requests.Request.TacacsRequestbag>`
+                
+                
+
+                """
+
+                _prefix = 'aaa-tacacs-oper'
+                _revision = '2015-11-09'
+
+                def __init__(self):
+                    self.parent = None
+                    self.tacacs_requestbag = YList()
+                    self.tacacs_requestbag.parent = self
+                    self.tacacs_requestbag.name = 'tacacs_requestbag'
+
+
+                class TacacsRequestbag(object):
+                    """
+                    tacacs requestbag
+                    
+                    .. attribute:: bytes_in
+                    
+                    	bytes read from socket
+                    	**type**\:  int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: bytes_out
+                    
+                    	bytes written
+                    	**type**\:  int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: in_pak_size
+                    
+                    	size of the packet to be received
+                    	**type**\:  int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: out_pak_size
+                    
+                    	size of the packet to be sent
+                    	**type**\:  int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: pak_type
+                    
+                    	the type of packet
+                    	**type**\:  str
+                    
+                    .. attribute:: session_id
+                    
+                    	same as in pkt hdr
+                    	**type**\:  int
+                    
+                    	**range:** \-2147483648..2147483647
+                    
+                    .. attribute:: sock
+                    
+                    	socket number
+                    	**type**\:  int
+                    
+                    	**range:** \-2147483648..2147483647
+                    
+                    .. attribute:: time_remaining
+                    
+                    	time remaining for this request
+                    	**type**\:  int
+                    
+                    	**range:** 0..4294967295
+                    
+                    
+
+                    """
+
+                    _prefix = 'aaa-tacacs-oper'
+                    _revision = '2015-11-09'
+
+                    def __init__(self):
+                        self.parent = None
+                        self.bytes_in = None
+                        self.bytes_out = None
+                        self.in_pak_size = None
+                        self.out_pak_size = None
+                        self.pak_type = None
+                        self.session_id = None
+                        self.sock = None
+                        self.time_remaining = None
+
+                    @property
+                    def _common_path(self):
+
+                        return '/Cisco-IOS-XR-aaa-locald-oper:aaa/Cisco-IOS-XR-aaa-tacacs-oper:tacacs/Cisco-IOS-XR-aaa-tacacs-oper:requests/Cisco-IOS-XR-aaa-tacacs-oper:request/Cisco-IOS-XR-aaa-tacacs-oper:tacacs-requestbag'
+
+                    def is_config(self):
+                        ''' Returns True if this instance represents config data else returns False '''
+                        return False
+
+                    def _has_data(self):
+                        if not self.is_config():
+                            return False
+                        if self.bytes_in is not None:
+                            return True
+
+                        if self.bytes_out is not None:
+                            return True
+
+                        if self.in_pak_size is not None:
+                            return True
+
+                        if self.out_pak_size is not None:
+                            return True
+
+                        if self.pak_type is not None:
+                            return True
+
+                        if self.session_id is not None:
+                            return True
+
+                        if self.sock is not None:
+                            return True
+
+                        if self.time_remaining is not None:
+                            return True
+
+                        return False
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_aaa_locald_oper as meta
+                        return meta._meta_table['Aaa.Tacacs.Requests.Request.TacacsRequestbag']['meta_info']
+
+                @property
+                def _common_path(self):
+
+                    return '/Cisco-IOS-XR-aaa-locald-oper:aaa/Cisco-IOS-XR-aaa-tacacs-oper:tacacs/Cisco-IOS-XR-aaa-tacacs-oper:requests/Cisco-IOS-XR-aaa-tacacs-oper:request'
+
+                def is_config(self):
+                    ''' Returns True if this instance represents config data else returns False '''
+                    return False
+
+                def _has_data(self):
+                    if not self.is_config():
+                        return False
+                    if self.tacacs_requestbag is not None:
+                        for child_ref in self.tacacs_requestbag:
+                            if child_ref._has_data():
+                                return True
+
+                    return False
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_aaa_locald_oper as meta
+                    return meta._meta_table['Aaa.Tacacs.Requests.Request']['meta_info']
+
+            @property
+            def _common_path(self):
+
+                return '/Cisco-IOS-XR-aaa-locald-oper:aaa/Cisco-IOS-XR-aaa-tacacs-oper:tacacs/Cisco-IOS-XR-aaa-tacacs-oper:requests'
+
+            def is_config(self):
+                ''' Returns True if this instance represents config data else returns False '''
+                return False
+
+            def _has_data(self):
+                if not self.is_config():
+                    return False
+                if self.request is not None:
+                    for child_ref in self.request:
+                        if child_ref._has_data():
+                            return True
+
+                return False
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_aaa_locald_oper as meta
+                return meta._meta_table['Aaa.Tacacs.Requests']['meta_info']
+
+
+        class Servers(object):
+            """
+            TACACS server Information
+            
+            .. attribute:: server
+            
+            	server
+            	**type**\: list of  :py:class:`Server <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_locald_oper.Aaa.Tacacs.Servers.Server>`
+            
+            
+
+            """
+
+            _prefix = 'aaa-tacacs-oper'
+            _revision = '2015-11-09'
+
+            def __init__(self):
+                self.parent = None
+                self.server = YList()
+                self.server.parent = self
+                self.server.name = 'server'
+
+
+            class Server(object):
+                """
+                server
+                
+                .. attribute:: aborts
+                
+                	abort count
+                	**type**\:  int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: addr
+                
+                	internet address of T+ server
+                	**type**\:  str
+                
+                	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                
+                .. attribute:: addr_buf
+                
+                	IP address buffer
+                	**type**\:  str
+                
+                	**range:** 0..46
+                
+                .. attribute:: bytes_in
+                
+                	# of bytes read
+                	**type**\:  int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: bytes_out
+                
+                	# of bytes out
+                	**type**\:  int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: closes
+                
+                	socket closes
+                	**type**\:  int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: conn_up
+                
+                	is the server connected ?
+                	**type**\:  bool
+                
+                .. attribute:: errors
+                
+                	error count
+                	**type**\:  int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: family
+                
+                	IP address Family
+                	**type**\:  str
+                
+                	**range:** 0..5
+                
+                .. attribute:: is_private
+                
+                	is this a private server ?
+                	**type**\:  bool
+                
+                .. attribute:: opens
+                
+                	socket opens
+                	**type**\:  int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: paks_in
+                
+                	# of incoming packets read
+                	**type**\:  int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: paks_out
+                
+                	# of outgoing packets sent
+                	**type**\:  int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: port
+                
+                	per server port to use
+                	**type**\:  int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: replies_expected
+                
+                	# of replies expected to arrive
+                	**type**\:  int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: single_connect
+                
+                	is this a single connect server ?
+                	**type**\:  bool
+                
+                .. attribute:: timeout
+                
+                	per\-server timeout
+                	**type**\:  int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: up
+                
+                	is the server UP or down ?
+                	**type**\:  bool
+                
+                .. attribute:: vrf_name
+                
+                	VRF in which server is reachable
+                	**type**\:  str
+                
+                	**range:** 0..33
+                
+                
+
+                """
+
+                _prefix = 'aaa-tacacs-oper'
+                _revision = '2015-11-09'
+
+                def __init__(self):
+                    self.parent = None
+                    self.aborts = None
+                    self.addr = None
+                    self.addr_buf = None
+                    self.bytes_in = None
+                    self.bytes_out = None
+                    self.closes = None
+                    self.conn_up = None
+                    self.errors = None
+                    self.family = None
+                    self.is_private = None
+                    self.opens = None
+                    self.paks_in = None
+                    self.paks_out = None
+                    self.port = None
+                    self.replies_expected = None
+                    self.single_connect = None
+                    self.timeout = None
+                    self.up = None
+                    self.vrf_name = None
+
+                @property
+                def _common_path(self):
+
+                    return '/Cisco-IOS-XR-aaa-locald-oper:aaa/Cisco-IOS-XR-aaa-tacacs-oper:tacacs/Cisco-IOS-XR-aaa-tacacs-oper:servers/Cisco-IOS-XR-aaa-tacacs-oper:server'
+
+                def is_config(self):
+                    ''' Returns True if this instance represents config data else returns False '''
+                    return False
+
+                def _has_data(self):
+                    if not self.is_config():
+                        return False
+                    if self.aborts is not None:
+                        return True
+
+                    if self.addr is not None:
+                        return True
+
+                    if self.addr_buf is not None:
+                        return True
+
+                    if self.bytes_in is not None:
+                        return True
+
+                    if self.bytes_out is not None:
+                        return True
+
+                    if self.closes is not None:
+                        return True
+
+                    if self.conn_up is not None:
+                        return True
+
+                    if self.errors is not None:
+                        return True
+
+                    if self.family is not None:
+                        return True
+
+                    if self.is_private is not None:
+                        return True
+
+                    if self.opens is not None:
+                        return True
+
+                    if self.paks_in is not None:
+                        return True
+
+                    if self.paks_out is not None:
+                        return True
+
+                    if self.port is not None:
+                        return True
+
+                    if self.replies_expected is not None:
+                        return True
+
+                    if self.single_connect is not None:
+                        return True
+
+                    if self.timeout is not None:
+                        return True
+
+                    if self.up is not None:
+                        return True
+
+                    if self.vrf_name is not None:
+                        return True
+
+                    return False
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_aaa_locald_oper as meta
+                    return meta._meta_table['Aaa.Tacacs.Servers.Server']['meta_info']
+
+            @property
+            def _common_path(self):
+
+                return '/Cisco-IOS-XR-aaa-locald-oper:aaa/Cisco-IOS-XR-aaa-tacacs-oper:tacacs/Cisco-IOS-XR-aaa-tacacs-oper:servers'
+
+            def is_config(self):
+                ''' Returns True if this instance represents config data else returns False '''
+                return False
+
+            def _has_data(self):
+                if not self.is_config():
+                    return False
+                if self.server is not None:
+                    for child_ref in self.server:
+                        if child_ref._has_data():
+                            return True
+
+                return False
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_aaa_locald_oper as meta
+                return meta._meta_table['Aaa.Tacacs.Servers']['meta_info']
+
+
+        class ServerGroups(object):
+            """
+            TACACS sg Information
+            
+            .. attribute:: server_group
+            
+            	server group
+            	**type**\: list of  :py:class:`ServerGroup <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_locald_oper.Aaa.Tacacs.ServerGroups.ServerGroup>`
+            
+            
+
+            """
+
+            _prefix = 'aaa-tacacs-oper'
+            _revision = '2015-11-09'
+
+            def __init__(self):
+                self.parent = None
+                self.server_group = YList()
+                self.server_group.parent = self
+                self.server_group.name = 'server_group'
+
+
+            class ServerGroup(object):
+                """
+                server group
+                
+                .. attribute:: group_name
+                
+                	name of the server group
+                	**type**\:  str
+                
+                .. attribute:: server
+                
+                	list of servers in this group
+                	**type**\: list of  :py:class:`Server <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_locald_oper.Aaa.Tacacs.ServerGroups.ServerGroup.Server>`
+                
+                .. attribute:: sg_map_num
+                
+                	server group mapped number
+                	**type**\:  int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: vrf_name
+                
+                	vrf of the group
+                	**type**\:  str
+                
+                	**range:** 0..33
+                
+                
+
+                """
+
+                _prefix = 'aaa-tacacs-oper'
+                _revision = '2015-11-09'
+
+                def __init__(self):
+                    self.parent = None
+                    self.group_name = None
+                    self.server = YList()
+                    self.server.parent = self
+                    self.server.name = 'server'
+                    self.sg_map_num = None
+                    self.vrf_name = None
+
+
+                class Server(object):
+                    """
+                    list of servers in this group
+                    
+                    .. attribute:: aborts
+                    
+                    	abort count
+                    	**type**\:  int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: addr
+                    
+                    	internet address of T+ server
+                    	**type**\:  str
+                    
+                    	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                    
+                    .. attribute:: addr_buf
+                    
+                    	IP address buffer
+                    	**type**\:  str
+                    
+                    	**range:** 0..46
+                    
+                    .. attribute:: bytes_in
+                    
+                    	# of bytes read
+                    	**type**\:  int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: bytes_out
+                    
+                    	# of bytes out
+                    	**type**\:  int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: closes
+                    
+                    	socket closes
+                    	**type**\:  int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: conn_up
+                    
+                    	is the server connected ?
+                    	**type**\:  bool
+                    
+                    .. attribute:: errors
+                    
+                    	error count
+                    	**type**\:  int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: family
+                    
+                    	IP address Family
+                    	**type**\:  str
+                    
+                    	**range:** 0..5
+                    
+                    .. attribute:: is_private
+                    
+                    	is this a private server ?
+                    	**type**\:  bool
+                    
+                    .. attribute:: opens
+                    
+                    	socket opens
+                    	**type**\:  int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: paks_in
+                    
+                    	# of incoming packets read
+                    	**type**\:  int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: paks_out
+                    
+                    	# of outgoing packets sent
+                    	**type**\:  int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: port
+                    
+                    	per server port to use
+                    	**type**\:  int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: replies_expected
+                    
+                    	# of replies expected to arrive
+                    	**type**\:  int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: single_connect
+                    
+                    	is this a single connect server ?
+                    	**type**\:  bool
+                    
+                    .. attribute:: timeout
+                    
+                    	per\-server timeout
+                    	**type**\:  int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: up
+                    
+                    	is the server UP or down ?
+                    	**type**\:  bool
+                    
+                    .. attribute:: vrf_name
+                    
+                    	VRF in which server is reachable
+                    	**type**\:  str
+                    
+                    	**range:** 0..33
+                    
+                    
+
+                    """
+
+                    _prefix = 'aaa-tacacs-oper'
+                    _revision = '2015-11-09'
+
+                    def __init__(self):
+                        self.parent = None
+                        self.aborts = None
+                        self.addr = None
+                        self.addr_buf = None
+                        self.bytes_in = None
+                        self.bytes_out = None
+                        self.closes = None
+                        self.conn_up = None
+                        self.errors = None
+                        self.family = None
+                        self.is_private = None
+                        self.opens = None
+                        self.paks_in = None
+                        self.paks_out = None
+                        self.port = None
+                        self.replies_expected = None
+                        self.single_connect = None
+                        self.timeout = None
+                        self.up = None
+                        self.vrf_name = None
+
+                    @property
+                    def _common_path(self):
+
+                        return '/Cisco-IOS-XR-aaa-locald-oper:aaa/Cisco-IOS-XR-aaa-tacacs-oper:tacacs/Cisco-IOS-XR-aaa-tacacs-oper:server-groups/Cisco-IOS-XR-aaa-tacacs-oper:server-group/Cisco-IOS-XR-aaa-tacacs-oper:server'
+
+                    def is_config(self):
+                        ''' Returns True if this instance represents config data else returns False '''
+                        return False
+
+                    def _has_data(self):
+                        if not self.is_config():
+                            return False
+                        if self.aborts is not None:
+                            return True
+
+                        if self.addr is not None:
+                            return True
+
+                        if self.addr_buf is not None:
+                            return True
+
+                        if self.bytes_in is not None:
+                            return True
+
+                        if self.bytes_out is not None:
+                            return True
+
+                        if self.closes is not None:
+                            return True
+
+                        if self.conn_up is not None:
+                            return True
+
+                        if self.errors is not None:
+                            return True
+
+                        if self.family is not None:
+                            return True
+
+                        if self.is_private is not None:
+                            return True
+
+                        if self.opens is not None:
+                            return True
+
+                        if self.paks_in is not None:
+                            return True
+
+                        if self.paks_out is not None:
+                            return True
+
+                        if self.port is not None:
+                            return True
+
+                        if self.replies_expected is not None:
+                            return True
+
+                        if self.single_connect is not None:
+                            return True
+
+                        if self.timeout is not None:
+                            return True
+
+                        if self.up is not None:
+                            return True
+
+                        if self.vrf_name is not None:
+                            return True
+
+                        return False
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_aaa_locald_oper as meta
+                        return meta._meta_table['Aaa.Tacacs.ServerGroups.ServerGroup.Server']['meta_info']
+
+                @property
+                def _common_path(self):
+
+                    return '/Cisco-IOS-XR-aaa-locald-oper:aaa/Cisco-IOS-XR-aaa-tacacs-oper:tacacs/Cisco-IOS-XR-aaa-tacacs-oper:server-groups/Cisco-IOS-XR-aaa-tacacs-oper:server-group'
+
+                def is_config(self):
+                    ''' Returns True if this instance represents config data else returns False '''
+                    return False
+
+                def _has_data(self):
+                    if not self.is_config():
+                        return False
+                    if self.group_name is not None:
+                        return True
+
+                    if self.server is not None:
+                        for child_ref in self.server:
+                            if child_ref._has_data():
+                                return True
+
+                    if self.sg_map_num is not None:
+                        return True
+
+                    if self.vrf_name is not None:
+                        return True
+
+                    return False
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_aaa_locald_oper as meta
+                    return meta._meta_table['Aaa.Tacacs.ServerGroups.ServerGroup']['meta_info']
+
+            @property
+            def _common_path(self):
+
+                return '/Cisco-IOS-XR-aaa-locald-oper:aaa/Cisco-IOS-XR-aaa-tacacs-oper:tacacs/Cisco-IOS-XR-aaa-tacacs-oper:server-groups'
+
+            def is_config(self):
+                ''' Returns True if this instance represents config data else returns False '''
+                return False
+
+            def _has_data(self):
+                if not self.is_config():
+                    return False
+                if self.server_group is not None:
+                    for child_ref in self.server_group:
+                        if child_ref._has_data():
+                            return True
+
+                return False
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_aaa_locald_oper as meta
+                return meta._meta_table['Aaa.Tacacs.ServerGroups']['meta_info']
+
+        @property
+        def _common_path(self):
+
+            return '/Cisco-IOS-XR-aaa-locald-oper:aaa/Cisco-IOS-XR-aaa-tacacs-oper:tacacs'
+
+        def is_config(self):
+            ''' Returns True if this instance represents config data else returns False '''
+            return False
+
+        def _has_data(self):
+            if not self.is_config():
+                return False
+            if self.requests is not None and self.requests._has_data():
+                return True
+
+            if self.server_groups is not None and self.server_groups._has_data():
+                return True
+
+            if self.servers is not None and self.servers._has_data():
+                return True
+
+            return False
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_aaa_locald_oper as meta
+            return meta._meta_table['Aaa.Tacacs']['meta_info']
+
     @property
     def _common_path(self):
 
@@ -2900,6 +3827,9 @@ class Aaa(object):
             return True
 
         if self.radius is not None and self.radius._has_data():
+            return True
+
+        if self.tacacs is not None and self.tacacs._has_data():
             return True
 
         if self.task_map is not None and self.task_map._has_data():

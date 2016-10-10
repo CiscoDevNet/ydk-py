@@ -164,7 +164,7 @@ _meta_table = {
                 'application_name',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('application-role-primary', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Primary/Backup role
                 ''',
                 'application_role_primary',
@@ -187,13 +187,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('client-conn-index', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                BCDL Agent client connection index
                 ''',
                 'client_conn_index',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('parent-client-conn-index', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                BCDL Agent parent client connection index
                 ''',
                 'parent_client_conn_index',
@@ -247,7 +247,7 @@ _meta_table = {
                 'client_name',
                 'Cisco-IOS-XR-mpls-lsd-oper', True),
             _MetaInfoClassMember('client-index', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Client Index Value
                 ''',
                 'client_index',
@@ -305,7 +305,7 @@ _meta_table = {
                 'application_name',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('application-role-primary', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Primary/Backup role
                 ''',
                 'application_role_primary',
@@ -317,7 +317,7 @@ _meta_table = {
                 'application_type',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('number-of-labels', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of labels
                 ''',
                 'number_of_labels',
@@ -340,13 +340,13 @@ _meta_table = {
                 'owner_count',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('rsi-connected', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Rsi connected
                 ''',
                 'rsi_connected',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('total-labels', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Total labels
                 ''',
                 'total_labels',
@@ -375,19 +375,19 @@ _meta_table = {
                 'prefix',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('prefix-length', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                IPv4 prefix length
                 ''',
                 'prefix_length',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('security-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Security ID
                 ''',
                 'security_id',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('table-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Table ID
                 ''',
                 'table_id',
@@ -416,19 +416,19 @@ _meta_table = {
                 'prefix',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('prefix-length', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                Prefix length
                 ''',
                 'prefix_length',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('security-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Security ID
                 ''',
                 'security_id',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('table-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Table ID
                 ''',
                 'table_id',
@@ -451,13 +451,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('is-srte', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Is this an SRTE head tunnel
                 ''',
                 'is_srte',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('table-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Table ID
                 ''',
                 'table_id',
@@ -469,19 +469,19 @@ _meta_table = {
                 'tunnel_dest',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('tunnel-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Tunnel ID
                 ''',
                 'tunnel_id',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('tunnel-id-extension', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Extended tunnel ID
                 ''',
                 'tunnel_id_extension',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('tunnel-lsp-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Tunnel LSP ID
                 ''',
                 'tunnel_lsp_id',
@@ -510,13 +510,13 @@ _meta_table = {
                 'prefix',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('prefix-length', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                Prefix length
                 ''',
                 'prefix_length',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
-            _MetaInfoClassMember('route-distinguisher', ATTRIBUTE, 'long' , None, None, 
-                [(0, 18446744073709551615L)], [], 
+            _MetaInfoClassMember('route-distinguisher', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
                 '''                Route distinguisher
                 ''',
                 'route_distinguisher',
@@ -539,13 +539,13 @@ _meta_table = {
                 'prefix',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('prefix-length', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                Prefix length
                 ''',
                 'prefix_length',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
-            _MetaInfoClassMember('route-distinguisher', ATTRIBUTE, 'long' , None, None, 
-                [(0, 18446744073709551615L)], [], 
+            _MetaInfoClassMember('route-distinguisher', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
                 '''                Route distinguisher
                 ''',
                 'route_distinguisher',
@@ -562,13 +562,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('security-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Security ID
                 ''',
                 'security_id',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('table-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Table ID
                 ''',
                 'table_id',
@@ -591,13 +591,13 @@ _meta_table = {
                 'ipv4_next_hop',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('security-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Security ID
                 ''',
                 'security_id',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('table-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Table ID
                 ''',
                 'table_id',
@@ -620,13 +620,13 @@ _meta_table = {
                 'ipv6_next_hop',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('security-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Security ID
                 ''',
                 'security_id',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('table-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Table ID
                 ''',
                 'table_id',
@@ -648,20 +648,20 @@ _meta_table = {
                 ''',
                 'prefix',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
-            _MetaInfoClassMember('pseudowire-id', ATTRIBUTE, 'long' , None, None, 
-                [(0, 18446744073709551615L)], [], 
+            _MetaInfoClassMember('pseudowire-id', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
                 '''                Pseudo-wire ID
                 ''',
                 'pseudowire_id',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('remote-l2-router-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Remote L2 Router ID
                 ''',
                 'remote_l2_router_id',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('subinterface', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Subinterface
                 ''',
                 'subinterface',
@@ -678,31 +678,31 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('edge-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                Edge ID
                 ''',
                 'edge_id',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('offset', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Offset
                 ''',
                 'offset',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('service', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                Service
                 ''',
                 'service',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('size', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of labels
                 ''',
                 'size',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('vpn-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                VPN ID
                 ''',
                 'vpn_id',
@@ -719,13 +719,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('parent-interface', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Parent interface
                 ''',
                 'parent_interface',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('table-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Table Id
                 ''',
                 'table_id',
@@ -742,7 +742,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('p2mp-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Point to multipoint ID
                 ''',
                 'p2mp_id',
@@ -754,25 +754,25 @@ _meta_table = {
                 'previous_hop',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('table-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Table ID
                 ''',
                 'table_id',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('tunnel-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Tunnel ID
                 ''',
                 'tunnel_id',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('tunnel-id-extension', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Tunnel ID extension
                 ''',
                 'tunnel_id_extension',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('tunnel-lsp-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Tunnel LSP ID
                 ''',
                 'tunnel_lsp_id',
@@ -795,13 +795,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('lsm-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                LSM ID
                 ''',
                 'lsm_id',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('peer-label-space-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                Peer Label Space Id
                 ''',
                 'peer_label_space_id',
@@ -813,13 +813,13 @@ _meta_table = {
                 'peer_lsrid',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('table-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Table ID
                 ''',
                 'table_id',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('type', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                LSM ID Type
                 ''',
                 'type',
@@ -836,7 +836,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('pwhe-intf', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Pseudo-wire Head-end interface
                 ''',
                 'pwhe_intf',
@@ -853,7 +853,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('dest-global-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                TP destination global ID
                 ''',
                 'dest_global_id',
@@ -865,19 +865,19 @@ _meta_table = {
                 'dest_node_id',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('dest-tunnel-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                TP destination tunnel ID
                 ''',
                 'dest_tunnel_id',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('lsp-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                TP LSP ID
                 ''',
                 'lsp_id',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('source-global-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                TP source global ID
                 ''',
                 'source_global_id',
@@ -889,7 +889,7 @@ _meta_table = {
                 'source_node_id',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('source-tunnel-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                TP source tunnel ID
                 ''',
                 'source_tunnel_id',
@@ -906,7 +906,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('gre-interface', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Generic routing encapsulation interface
                 ''',
                 'gre_interface',
@@ -923,7 +923,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('greipv6-interface', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Generic routing encapsulation IPv6 interface
                 ''',
                 'greipv6_interface',
@@ -946,13 +946,13 @@ _meta_table = {
                 'ethernet_segment',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('evpn-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                EVPN ID
                 ''',
                 'evpn_id',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('evpn-tag', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                EVPN TAG
                 ''',
                 'evpn_tag',
@@ -969,7 +969,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('blb-intf', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                BFD BLB interface
                 ''',
                 'blb_intf',
@@ -992,7 +992,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('blb-intf', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                BFD BLB interface
                 ''',
                 'blb_intf',
@@ -1015,19 +1015,19 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('head', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Head
                 ''',
                 'head',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('v6', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                PIM6
                 ''',
                 'v6',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('vrf-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                VRF ID
                 ''',
                 'vrf_id',
@@ -1044,19 +1044,19 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('head', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Head
                 ''',
                 'head',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('hli', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Head LSM-ID
                 ''',
                 'hli',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('seg', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Segmented Multicast
                 ''',
                 'seg',
@@ -1068,13 +1068,13 @@ _meta_table = {
                 'source',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('v6', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                PIM6
                 ''',
                 'v6',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('vrf-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                VRF ID
                 ''',
                 'vrf_id',
@@ -1091,13 +1091,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('next-hop-set-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Next Hop Set ID
                 ''',
                 'next_hop_set_id',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('table-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Table ID
                 ''',
                 'table_id',
@@ -1114,13 +1114,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('segment-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Prefix Segment ID
                 ''',
                 'segment_id',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('table-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Table ID
                 ''',
                 'table_id',
@@ -1143,19 +1143,19 @@ _meta_table = {
                 'addr',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('index', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Adjacency index
                 ''',
                 'index',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('intf', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Adjacency interface
                 ''',
                 'intf',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('type', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Adjacency type
                 ''',
                 'type',
@@ -1178,19 +1178,19 @@ _meta_table = {
                 'addr',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('index', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Adjacency index
                 ''',
                 'index',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('intf', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Adjacency interface
                 ''',
                 'intf',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('type', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Adjacency type
                 ''',
                 'type',
@@ -1207,19 +1207,19 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('offset', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Offset
                 ''',
                 'offset',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('size', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of labels
                 ''',
                 'size',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('start-label', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Start Label
                 ''',
                 'start_label',
@@ -1236,7 +1236,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('te-identifier', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                MPLS Traffic Engineering Tunnel or Group ID
                 ''',
                 'te_identifier',
@@ -1479,7 +1479,7 @@ _meta_table = {
                 'application_name',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('application-role-primary', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Primary/Backup role
                 ''',
                 'application_role_primary',
@@ -1508,7 +1508,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('label-id', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Label value
                 ''',
                 'label_id',
@@ -1520,7 +1520,7 @@ _meta_table = {
                 'application_owner',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('label', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Label value
                 ''',
                 'label',
@@ -1532,19 +1532,19 @@ _meta_table = {
                 'label_context',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('rewrite-is-bound', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Rewrite bound to label
                 ''',
                 'rewrite_is_bound',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('rewrite-owners', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Rewrite owner
                 ''',
                 'rewrite_owners',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('rs-iconnected', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                RSI connected
                 ''',
                 'rs_iconnected',
@@ -1590,7 +1590,7 @@ _meta_table = {
                 'destination_prefix',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('destination-prefix-length', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                Destination prefix length
                 ''',
                 'destination_prefix_length',
@@ -1607,7 +1607,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('lspid', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                LSP ID
                 ''',
                 'lspid',
@@ -1619,7 +1619,7 @@ _meta_table = {
                 'source_address',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('tunnel-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Tunnel ID
                 ''',
                 'tunnel_id',
@@ -1665,13 +1665,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('frr-interface', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                FRR interface
                 ''',
                 'frr_interface',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('frr-label', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                FRR output label
                 ''',
                 'frr_label',
@@ -1683,13 +1683,13 @@ _meta_table = {
                 'ipv4_next_hop',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('out-interface', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Outgoing interface
                 ''',
                 'out_interface',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('out-label', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Outgoing label
                 ''',
                 'out_label',
@@ -1706,7 +1706,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('label', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Label value
                 ''',
                 'label',
@@ -1724,7 +1724,7 @@ _meta_table = {
                 'frr_entry_id',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('input-label', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Input label
                 ''',
                 'input_label',
@@ -1736,7 +1736,7 @@ _meta_table = {
                 'out_path',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('tunnel-interface', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Tunnel interface
                 ''',
                 'tunnel_interface',
@@ -1776,7 +1776,7 @@ _meta_table = {
                 'destination_prefix',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('destination-prefix-length', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                Destination prefix length
                 ''',
                 'destination_prefix_length',
@@ -1793,7 +1793,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('lspid', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                LSP ID
                 ''',
                 'lspid',
@@ -1805,7 +1805,7 @@ _meta_table = {
                 'source_address',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('tunnel-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Tunnel ID
                 ''',
                 'tunnel_id',
@@ -1851,13 +1851,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('frr-interface', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                FRR interface
                 ''',
                 'frr_interface',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('frr-label', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                FRR output label
                 ''',
                 'frr_label',
@@ -1869,13 +1869,13 @@ _meta_table = {
                 'ipv4_next_hop',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('out-interface', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Outgoing interface
                 ''',
                 'out_interface',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('out-label', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Outgoing label
                 ''',
                 'out_label',
@@ -1892,7 +1892,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('interface-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Tunnel interface
                 ''',
                 'interface_name',
@@ -1910,7 +1910,7 @@ _meta_table = {
                 'frr_entry_id',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('input-label', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Input label
                 ''',
                 'input_label',
@@ -1922,7 +1922,7 @@ _meta_table = {
                 'out_path',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('tunnel-interface', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Tunnel interface
                 ''',
                 'tunnel_interface',
@@ -1956,25 +1956,25 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('active', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of FRR rewrites in Active state
                 ''',
                 'active',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('igp', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of FRR rewrites in IGP state for SR-TE
                 ''',
                 'igp',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('partial', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of FRR rewrites in Partial state
                 ''',
                 'partial',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('ready', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of FRR rewrites in Ready state
                 ''',
                 'ready',
@@ -1991,31 +1991,31 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('interface-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Interface
                 ''',
                 'interface_name',
                 'Cisco-IOS-XR-mpls-lsd-oper', True),
             _MetaInfoClassMember('active', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of FRR rewrites in Active state
                 ''',
                 'active',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('igp', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of FRR rewrites in IGP state for SR-TE
                 ''',
                 'igp',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('partial', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of FRR rewrites in Partial state
                 ''',
                 'partial',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('ready', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of FRR rewrites in Ready state
                 ''',
                 'ready',
@@ -2049,25 +2049,25 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('active', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of FRR rewrites in Active state
                 ''',
                 'active',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('igp', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of FRR rewrites in IGP state for SR-TE
                 ''',
                 'igp',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('partial', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of FRR rewrites in Partial state
                 ''',
                 'partial',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('ready', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of FRR rewrites in Ready state
                 ''',
                 'ready',
@@ -2084,25 +2084,25 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('active', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of FRR rewrites in Active state
                 ''',
                 'active',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('igp', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of FRR rewrites in IGP state for SR-TE
                 ''',
                 'igp',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('partial', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of FRR rewrites in Partial state
                 ''',
                 'partial',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('ready', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of FRR rewrites in Ready state
                 ''',
                 'ready',
@@ -2169,19 +2169,19 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('elc', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                ELC
                 ''',
                 'elc',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('label', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Label value
                 ''',
                 'label',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('security-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Security ID
                 ''',
                 'security_id',
@@ -2198,13 +2198,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('local-label', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Local label
                 ''',
                 'local_label',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('tunnel-interface', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Tunnel interface
                 ''',
                 'tunnel_interface',
@@ -2227,19 +2227,19 @@ _meta_table = {
                 'prefix',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('prefix-length', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                Prefix Length
                 ''',
                 'prefix_length',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('table-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Table ID
                 ''',
                 'table_id',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('version', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Version
                 ''',
                 'version',
@@ -2262,25 +2262,25 @@ _meta_table = {
                 'prefix',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('prefix-len', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                Prefix length
                 ''',
                 'prefix_len',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('router-flags', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Route flags
                 ''',
                 'router_flags',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('table-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Table ID
                 ''',
                 'table_id',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('version', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Version
                 ''',
                 'version',
@@ -2297,7 +2297,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('pwhe-list-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                Pseudowire List Identifier
                 ''',
                 'pwhe_list_id',
@@ -2314,7 +2314,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('dmtc-ext-ifh', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                DMTC External Interface
                 ''',
                 'dmtc_ext_ifh',
@@ -2396,7 +2396,7 @@ _meta_table = {
                 'application_name',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('application-role-primary', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Primary/Backup role
                 ''',
                 'application_role_primary',
@@ -2454,19 +2454,19 @@ _meta_table = {
                 'prefix',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('prefix-length', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                IPv4 prefix length
                 ''',
                 'prefix_length',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('security-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Security ID
                 ''',
                 'security_id',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('table-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Table ID
                 ''',
                 'table_id',
@@ -2495,19 +2495,19 @@ _meta_table = {
                 'prefix',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('prefix-length', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                Prefix length
                 ''',
                 'prefix_length',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('security-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Security ID
                 ''',
                 'security_id',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('table-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Table ID
                 ''',
                 'table_id',
@@ -2530,13 +2530,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('is-srte', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Is this an SRTE head tunnel
                 ''',
                 'is_srte',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('table-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Table ID
                 ''',
                 'table_id',
@@ -2548,19 +2548,19 @@ _meta_table = {
                 'tunnel_dest',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('tunnel-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Tunnel ID
                 ''',
                 'tunnel_id',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('tunnel-id-extension', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Extended tunnel ID
                 ''',
                 'tunnel_id_extension',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('tunnel-lsp-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Tunnel LSP ID
                 ''',
                 'tunnel_lsp_id',
@@ -2589,13 +2589,13 @@ _meta_table = {
                 'prefix',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('prefix-length', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                Prefix length
                 ''',
                 'prefix_length',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
-            _MetaInfoClassMember('route-distinguisher', ATTRIBUTE, 'long' , None, None, 
-                [(0, 18446744073709551615L)], [], 
+            _MetaInfoClassMember('route-distinguisher', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
                 '''                Route distinguisher
                 ''',
                 'route_distinguisher',
@@ -2618,13 +2618,13 @@ _meta_table = {
                 'prefix',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('prefix-length', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                Prefix length
                 ''',
                 'prefix_length',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
-            _MetaInfoClassMember('route-distinguisher', ATTRIBUTE, 'long' , None, None, 
-                [(0, 18446744073709551615L)], [], 
+            _MetaInfoClassMember('route-distinguisher', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
                 '''                Route distinguisher
                 ''',
                 'route_distinguisher',
@@ -2641,13 +2641,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('security-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Security ID
                 ''',
                 'security_id',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('table-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Table ID
                 ''',
                 'table_id',
@@ -2670,13 +2670,13 @@ _meta_table = {
                 'ipv4_next_hop',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('security-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Security ID
                 ''',
                 'security_id',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('table-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Table ID
                 ''',
                 'table_id',
@@ -2699,13 +2699,13 @@ _meta_table = {
                 'ipv6_next_hop',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('security-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Security ID
                 ''',
                 'security_id',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('table-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Table ID
                 ''',
                 'table_id',
@@ -2727,20 +2727,20 @@ _meta_table = {
                 ''',
                 'prefix',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
-            _MetaInfoClassMember('pseudowire-id', ATTRIBUTE, 'long' , None, None, 
-                [(0, 18446744073709551615L)], [], 
+            _MetaInfoClassMember('pseudowire-id', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
                 '''                Pseudo-wire ID
                 ''',
                 'pseudowire_id',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('remote-l2-router-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Remote L2 Router ID
                 ''',
                 'remote_l2_router_id',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('subinterface', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Subinterface
                 ''',
                 'subinterface',
@@ -2757,31 +2757,31 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('edge-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                Edge ID
                 ''',
                 'edge_id',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('offset', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Offset
                 ''',
                 'offset',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('service', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                Service
                 ''',
                 'service',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('size', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of labels
                 ''',
                 'size',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('vpn-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                VPN ID
                 ''',
                 'vpn_id',
@@ -2798,13 +2798,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('parent-interface', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Parent interface
                 ''',
                 'parent_interface',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('table-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Table Id
                 ''',
                 'table_id',
@@ -2821,7 +2821,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('p2mp-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Point to multipoint ID
                 ''',
                 'p2mp_id',
@@ -2833,25 +2833,25 @@ _meta_table = {
                 'previous_hop',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('table-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Table ID
                 ''',
                 'table_id',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('tunnel-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Tunnel ID
                 ''',
                 'tunnel_id',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('tunnel-id-extension', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Tunnel ID extension
                 ''',
                 'tunnel_id_extension',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('tunnel-lsp-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Tunnel LSP ID
                 ''',
                 'tunnel_lsp_id',
@@ -2874,13 +2874,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('lsm-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                LSM ID
                 ''',
                 'lsm_id',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('peer-label-space-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                Peer Label Space Id
                 ''',
                 'peer_label_space_id',
@@ -2892,13 +2892,13 @@ _meta_table = {
                 'peer_lsrid',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('table-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Table ID
                 ''',
                 'table_id',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('type', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                LSM ID Type
                 ''',
                 'type',
@@ -2915,7 +2915,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('pwhe-intf', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Pseudo-wire Head-end interface
                 ''',
                 'pwhe_intf',
@@ -2932,7 +2932,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('dest-global-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                TP destination global ID
                 ''',
                 'dest_global_id',
@@ -2944,19 +2944,19 @@ _meta_table = {
                 'dest_node_id',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('dest-tunnel-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                TP destination tunnel ID
                 ''',
                 'dest_tunnel_id',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('lsp-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                TP LSP ID
                 ''',
                 'lsp_id',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('source-global-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                TP source global ID
                 ''',
                 'source_global_id',
@@ -2968,7 +2968,7 @@ _meta_table = {
                 'source_node_id',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('source-tunnel-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                TP source tunnel ID
                 ''',
                 'source_tunnel_id',
@@ -2985,7 +2985,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('gre-interface', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Generic routing encapsulation interface
                 ''',
                 'gre_interface',
@@ -3002,7 +3002,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('greipv6-interface', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Generic routing encapsulation IPv6 interface
                 ''',
                 'greipv6_interface',
@@ -3025,13 +3025,13 @@ _meta_table = {
                 'ethernet_segment',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('evpn-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                EVPN ID
                 ''',
                 'evpn_id',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('evpn-tag', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                EVPN TAG
                 ''',
                 'evpn_tag',
@@ -3048,7 +3048,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('blb-intf', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                BFD BLB interface
                 ''',
                 'blb_intf',
@@ -3071,7 +3071,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('blb-intf', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                BFD BLB interface
                 ''',
                 'blb_intf',
@@ -3094,19 +3094,19 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('head', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Head
                 ''',
                 'head',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('v6', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                PIM6
                 ''',
                 'v6',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('vrf-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                VRF ID
                 ''',
                 'vrf_id',
@@ -3123,19 +3123,19 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('head', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Head
                 ''',
                 'head',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('hli', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Head LSM-ID
                 ''',
                 'hli',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('seg', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Segmented Multicast
                 ''',
                 'seg',
@@ -3147,13 +3147,13 @@ _meta_table = {
                 'source',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('v6', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                PIM6
                 ''',
                 'v6',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('vrf-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                VRF ID
                 ''',
                 'vrf_id',
@@ -3170,13 +3170,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('next-hop-set-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Next Hop Set ID
                 ''',
                 'next_hop_set_id',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('table-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Table ID
                 ''',
                 'table_id',
@@ -3193,13 +3193,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('segment-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Prefix Segment ID
                 ''',
                 'segment_id',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('table-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Table ID
                 ''',
                 'table_id',
@@ -3222,19 +3222,19 @@ _meta_table = {
                 'addr',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('index', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Adjacency index
                 ''',
                 'index',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('intf', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Adjacency interface
                 ''',
                 'intf',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('type', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Adjacency type
                 ''',
                 'type',
@@ -3257,19 +3257,19 @@ _meta_table = {
                 'addr',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('index', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Adjacency index
                 ''',
                 'index',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('intf', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Adjacency interface
                 ''',
                 'intf',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('type', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Adjacency type
                 ''',
                 'type',
@@ -3286,19 +3286,19 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('offset', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Offset
                 ''',
                 'offset',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('size', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of labels
                 ''',
                 'size',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('start-label', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Start Label
                 ''',
                 'start_label',
@@ -3315,7 +3315,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('te-identifier', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                MPLS Traffic Engineering Tunnel or Group ID
                 ''',
                 'te_identifier',
@@ -3523,7 +3523,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('label-data', REFERENCE_LEAFLIST, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                label data
                 ''',
                 'label_data',
@@ -3586,19 +3586,19 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('elc', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                ELC
                 ''',
                 'elc',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('label', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Label value
                 ''',
                 'label',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('security-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Security ID
                 ''',
                 'security_id',
@@ -3615,13 +3615,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('local-label', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Local label
                 ''',
                 'local_label',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('tunnel-interface', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Tunnel interface
                 ''',
                 'tunnel_interface',
@@ -3644,19 +3644,19 @@ _meta_table = {
                 'prefix',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('prefix-length', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                Prefix Length
                 ''',
                 'prefix_length',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('table-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Table ID
                 ''',
                 'table_id',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('version', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Version
                 ''',
                 'version',
@@ -3679,25 +3679,25 @@ _meta_table = {
                 'prefix',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('prefix-len', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                Prefix length
                 ''',
                 'prefix_len',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('router-flags', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Route flags
                 ''',
                 'router_flags',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('table-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Table ID
                 ''',
                 'table_id',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('version', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Version
                 ''',
                 'version',
@@ -3714,7 +3714,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('pwhe-list-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                Pseudowire List Identifier
                 ''',
                 'pwhe_list_id',
@@ -3731,7 +3731,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('dmtc-ext-ifh', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                DMTC External Interface
                 ''',
                 'dmtc_ext_ifh',
@@ -3813,7 +3813,7 @@ _meta_table = {
                 'application_name',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('application-role-primary', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Primary/Backup role
                 ''',
                 'application_role_primary',
@@ -3865,7 +3865,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('table-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Table ID
                 ''',
                 'table_id',
@@ -3888,7 +3888,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('table-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Table ID
                 ''',
                 'table_id',
@@ -3923,7 +3923,7 @@ _meta_table = {
                 'application_name',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('application-role-primary', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Primary/Backup role
                 ''',
                 'application_role_primary',
@@ -3958,7 +3958,7 @@ _meta_table = {
                 'path_flags_decode',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('table-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Table ID
                 ''',
                 'table_id',
@@ -3981,7 +3981,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('out-label', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Outgoing Label
                 ''',
                 'out_label',
@@ -3993,7 +3993,7 @@ _meta_table = {
                 'path_flags_decode',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('table-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Table ID
                 ''',
                 'table_id',
@@ -4022,7 +4022,7 @@ _meta_table = {
                 'path_flags_decode',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('table-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Table ID
                 ''',
                 'table_id',
@@ -4045,7 +4045,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('backup-path-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                Routing path backup id
                 ''',
                 'backup_path_id',
@@ -4057,37 +4057,37 @@ _meta_table = {
                 'ipv4_next_hop',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('load-metric', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Routing path's load metric
                 ''',
                 'load_metric',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('local-label', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                TE backup path local label
                 ''',
                 'local_label',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('next-hop-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Next hop ID
                 ''',
                 'next_hop_id',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('out-interface', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Outgoing Interface
                 ''',
                 'out_interface',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('out-interface-parent', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Outgoing Interface's parent
                 ''',
                 'out_interface_parent',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('out-label', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Outgoing Label
                 ''',
                 'out_label',
@@ -4105,13 +4105,13 @@ _meta_table = {
                 'path_flags_decode',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('path-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                Routing path id
                 ''',
                 'path_id',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('table-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Table ID
                 ''',
                 'table_id',
@@ -4123,7 +4123,7 @@ _meta_table = {
                 'table_name',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('tunnel-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                Tunnel ID
                 ''',
                 'tunnel_id',
@@ -4140,7 +4140,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('backup-path-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                Routing path backup id
                 ''',
                 'backup_path_id',
@@ -4152,19 +4152,19 @@ _meta_table = {
                 'ipv6_next_hop',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('next-hop-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Next hop ID
                 ''',
                 'next_hop_id',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('out-interface', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Outgoing interface
                 ''',
                 'out_interface',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('out-label', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Outgoing label
                 ''',
                 'out_label',
@@ -4182,13 +4182,13 @@ _meta_table = {
                 'path_flags_decode',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('path-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                Routing path id
                 ''',
                 'path_id',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('table-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Table ID
                 ''',
                 'table_id',
@@ -4211,7 +4211,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('backup-interface', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Backup interface
                 ''',
                 'backup_interface',
@@ -4223,13 +4223,13 @@ _meta_table = {
                 'backup_ipv4_next_hop',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('backup-local-label', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Backup local label
                 ''',
                 'backup_local_label',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('data-out-parent-interface', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Outgoing data parent interface
                 ''',
                 'data_out_parent_interface',
@@ -4241,19 +4241,19 @@ _meta_table = {
                 'ipv4_next_hop',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('merge-point-label', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Merge point label
                 ''',
                 'merge_point_label',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('out-interface', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Outgoing interface
                 ''',
                 'out_interface',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('out-label', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Outgoing label
                 ''',
                 'out_label',
@@ -4271,7 +4271,7 @@ _meta_table = {
                 'path_flags_decode',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('table-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Table ID
                 ''',
                 'table_id',
@@ -4283,19 +4283,19 @@ _meta_table = {
                 'table_name',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('tunnel-class', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Tunnel class
                 ''',
                 'tunnel_class',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('tunnel-interface', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Tunnel interface
                 ''',
                 'tunnel_interface',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('tunnel-weight', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Tunnel weight
                 ''',
                 'tunnel_weight',
@@ -4312,13 +4312,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('bridge-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Bridge ID
                 ''',
                 'bridge_id',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('cross-connect-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Cross-connect ID
                 ''',
                 'cross_connect_id',
@@ -4330,13 +4330,13 @@ _meta_table = {
                 'ipv4_next_hop',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('out-interface', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Outgoing interface
                 ''',
                 'out_interface',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('out-label', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Outgoing Label
                 ''',
                 'out_label',
@@ -4348,19 +4348,19 @@ _meta_table = {
                 'path_flags_decode',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('pseuodo-wire-connect-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                PseudoWire Cross-connect ID
                 ''',
                 'pseuodo_wire_connect_id',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('split-horizon-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Split horizon group ID
                 ''',
                 'split_horizon_id',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('table-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Table ID
                 ''',
                 'table_id',
@@ -4383,7 +4383,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('out-interface', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Outgoing interface
                 ''',
                 'out_interface',
@@ -4395,7 +4395,7 @@ _meta_table = {
                 'path_flags_decode',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('table-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                VRF table ID
                 ''',
                 'table_id',
@@ -4418,13 +4418,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('control-word', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Is control word present
                 ''',
                 'control_word',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('imposition', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Is PWHE IMposition
                 ''',
                 'imposition',
@@ -4436,13 +4436,13 @@ _meta_table = {
                 'ipv4_next_hop',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('out-interface', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Outgoing interface
                 ''',
                 'out_interface',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('out-label', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Outgoing Label
                 ''',
                 'out_label',
@@ -4454,19 +4454,19 @@ _meta_table = {
                 'path_flags_decode',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('pw-list-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                Pseudo-wire List Identifier
                 ''',
                 'pw_list_id',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('pwhe-interface', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Pseudo-wire Head-end interface
                 ''',
                 'pwhe_interface',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('table-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Table ID
                 ''',
                 'table_id',
@@ -4478,7 +4478,7 @@ _meta_table = {
                 'table_name',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('vctype', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                Virtual Circuit Type
                 ''',
                 'vctype',
@@ -4495,13 +4495,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('l2-interface', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Pseudo-wire Layer 2 interface
                 ''',
                 'l2_interface',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('l3-interface', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Pseudo-wire Layer 3 interface
                 ''',
                 'l3_interface',
@@ -4513,7 +4513,7 @@ _meta_table = {
                 'path_flags_decode',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('table-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Table ID
                 ''',
                 'table_id',
@@ -4536,7 +4536,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('backup-path-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                Routing path backup id
                 ''',
                 'backup_path_id',
@@ -4548,37 +4548,37 @@ _meta_table = {
                 'ipv4_next_hop',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('load-metric', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Routing path's load metric
                 ''',
                 'load_metric',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('local-label', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                TE backup path local label
                 ''',
                 'local_label',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('next-hop-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Next hop ID
                 ''',
                 'next_hop_id',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('out-interface', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Outgoing Interface
                 ''',
                 'out_interface',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('out-interface-parent', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Outgoing Interface's parent
                 ''',
                 'out_interface_parent',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('out-label', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Outgoing Label
                 ''',
                 'out_label',
@@ -4596,13 +4596,13 @@ _meta_table = {
                 'path_flags_decode',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('path-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                Routing path id
                 ''',
                 'path_id',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('table-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Table ID
                 ''',
                 'table_id',
@@ -4614,7 +4614,7 @@ _meta_table = {
                 'table_name',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('tunnel-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                Tunnel ID
                 ''',
                 'tunnel_id',
@@ -4631,7 +4631,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('outgoing-label', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Remote Label
                 ''',
                 'outgoing_label',
@@ -4666,13 +4666,13 @@ _meta_table = {
                 'nexthop',
                 'Cisco-IOS-XR-mpls-lsd-oper', False, max_elements=2),
             _MetaInfoClassMember('num-lbls', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                Depth of inner label stack
                 ''',
                 'num_lbls',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('num-nexthops', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                Number of remote nexthop addresses
                 ''',
                 'num_nexthops',
@@ -4718,7 +4718,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('backup-path-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                Routing path backup id
                 ''',
                 'backup_path_id',
@@ -4730,19 +4730,19 @@ _meta_table = {
                 'ipv6_next_hop',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('next-hop-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Next hop ID
                 ''',
                 'next_hop_id',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('out-interface', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Outgoing interface
                 ''',
                 'out_interface',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('out-label', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Outgoing label
                 ''',
                 'out_label',
@@ -4760,13 +4760,13 @@ _meta_table = {
                 'path_flags_decode',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('path-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                Routing path id
                 ''',
                 'path_id',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('table-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Table ID
                 ''',
                 'table_id',
@@ -4789,7 +4789,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('outgoing-label', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Remote Label
                 ''',
                 'outgoing_label',
@@ -4824,13 +4824,13 @@ _meta_table = {
                 'nexthop',
                 'Cisco-IOS-XR-mpls-lsd-oper', False, max_elements=2),
             _MetaInfoClassMember('num-lbls', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                Depth of inner label stack
                 ''',
                 'num_lbls',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('num-nexthops', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                Number of remote nexthop addresses
                 ''',
                 'num_nexthops',
@@ -4876,7 +4876,7 @@ _meta_table = {
                 'flags_decode',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('table-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Table ID
                 ''',
                 'table_id',
@@ -4888,19 +4888,19 @@ _meta_table = {
                 'table_name',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('tunnel-fwd-class', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                Tunnel forwarding class
                 ''',
                 'tunnel_fwd_class',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('tunnel-load-metric', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Tunnel Load metric
                 ''',
                 'tunnel_load_metric',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('tunnel-local-label', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Tunnel local label
                 ''',
                 'tunnel_local_label',
@@ -4923,7 +4923,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('dmtc-ext-ifh', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                DMTC External Interface
                 ''',
                 'dmtc_ext_ifh',
@@ -5081,7 +5081,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('pw-list-id', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                PW List ID
                 ''',
                 'pw_list_id',
@@ -5093,7 +5093,7 @@ _meta_table = {
                 'associated_fpi',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('bcdl-priority', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                BCDL Priority
                 ''',
                 'bcdl_priority',
@@ -5105,7 +5105,7 @@ _meta_table = {
                 'fpi_key',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('lsd-queue', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                LSD queue
                 ''',
                 'lsd_queue',
@@ -5117,7 +5117,7 @@ _meta_table = {
                 'mois',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('priority-updated', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Is rewrite's BCDL priority updated
                 ''',
                 'priority_updated',
@@ -5128,26 +5128,26 @@ _meta_table = {
                 ''',
                 'rewrite_id',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
-            _MetaInfoClassMember('rewrite-version', ATTRIBUTE, 'long' , None, None, 
-                [(0, 18446744073709551615L)], [], 
+            _MetaInfoClassMember('rewrite-version', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
                 '''                Rewrite version
                 ''',
                 'rewrite_version',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
-            _MetaInfoClassMember('rw-install-age', ATTRIBUTE, 'long' , None, None, 
-                [(0, 18446744073709551615L)], [], 
+            _MetaInfoClassMember('rw-install-age', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
                 '''                Rewrite install age
                 ''',
                 'rw_install_age',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
-            _MetaInfoClassMember('rw-install-time', ATTRIBUTE, 'long' , None, None, 
-                [(0, 18446744073709551615L)], [], 
+            _MetaInfoClassMember('rw-install-time', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
                 '''                Rewrite install timestamp
                 ''',
                 'rw_install_time',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('rw-updated', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Is rewrite ever updated
                 ''',
                 'rw_updated',
@@ -5193,19 +5193,19 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('elc', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                ELC
                 ''',
                 'elc',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('label', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Label value
                 ''',
                 'label',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('security-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Security ID
                 ''',
                 'security_id',
@@ -5222,13 +5222,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('local-label', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Local label
                 ''',
                 'local_label',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('tunnel-interface', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Tunnel interface
                 ''',
                 'tunnel_interface',
@@ -5251,19 +5251,19 @@ _meta_table = {
                 'prefix',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('prefix-length', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                Prefix Length
                 ''',
                 'prefix_length',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('table-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Table ID
                 ''',
                 'table_id',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('version', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Version
                 ''',
                 'version',
@@ -5286,25 +5286,25 @@ _meta_table = {
                 'prefix',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('prefix-len', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                Prefix length
                 ''',
                 'prefix_len',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('router-flags', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Route flags
                 ''',
                 'router_flags',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('table-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Table ID
                 ''',
                 'table_id',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('version', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Version
                 ''',
                 'version',
@@ -5321,7 +5321,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('pwhe-list-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                Pseudowire List Identifier
                 ''',
                 'pwhe_list_id',
@@ -5338,7 +5338,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('dmtc-ext-ifh', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                DMTC External Interface
                 ''',
                 'dmtc_ext_ifh',
@@ -5420,7 +5420,7 @@ _meta_table = {
                 'application_name',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('application-role-primary', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Primary/Backup role
                 ''',
                 'application_role_primary',
@@ -5478,19 +5478,19 @@ _meta_table = {
                 'prefix',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('prefix-length', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                IPv4 prefix length
                 ''',
                 'prefix_length',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('security-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Security ID
                 ''',
                 'security_id',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('table-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Table ID
                 ''',
                 'table_id',
@@ -5519,19 +5519,19 @@ _meta_table = {
                 'prefix',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('prefix-length', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                Prefix length
                 ''',
                 'prefix_length',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('security-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Security ID
                 ''',
                 'security_id',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('table-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Table ID
                 ''',
                 'table_id',
@@ -5554,13 +5554,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('is-srte', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Is this an SRTE head tunnel
                 ''',
                 'is_srte',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('table-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Table ID
                 ''',
                 'table_id',
@@ -5572,19 +5572,19 @@ _meta_table = {
                 'tunnel_dest',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('tunnel-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Tunnel ID
                 ''',
                 'tunnel_id',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('tunnel-id-extension', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Extended tunnel ID
                 ''',
                 'tunnel_id_extension',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('tunnel-lsp-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Tunnel LSP ID
                 ''',
                 'tunnel_lsp_id',
@@ -5613,13 +5613,13 @@ _meta_table = {
                 'prefix',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('prefix-length', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                Prefix length
                 ''',
                 'prefix_length',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
-            _MetaInfoClassMember('route-distinguisher', ATTRIBUTE, 'long' , None, None, 
-                [(0, 18446744073709551615L)], [], 
+            _MetaInfoClassMember('route-distinguisher', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
                 '''                Route distinguisher
                 ''',
                 'route_distinguisher',
@@ -5642,13 +5642,13 @@ _meta_table = {
                 'prefix',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('prefix-length', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                Prefix length
                 ''',
                 'prefix_length',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
-            _MetaInfoClassMember('route-distinguisher', ATTRIBUTE, 'long' , None, None, 
-                [(0, 18446744073709551615L)], [], 
+            _MetaInfoClassMember('route-distinguisher', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
                 '''                Route distinguisher
                 ''',
                 'route_distinguisher',
@@ -5665,13 +5665,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('security-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Security ID
                 ''',
                 'security_id',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('table-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Table ID
                 ''',
                 'table_id',
@@ -5694,13 +5694,13 @@ _meta_table = {
                 'ipv4_next_hop',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('security-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Security ID
                 ''',
                 'security_id',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('table-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Table ID
                 ''',
                 'table_id',
@@ -5723,13 +5723,13 @@ _meta_table = {
                 'ipv6_next_hop',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('security-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Security ID
                 ''',
                 'security_id',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('table-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Table ID
                 ''',
                 'table_id',
@@ -5751,20 +5751,20 @@ _meta_table = {
                 ''',
                 'prefix',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
-            _MetaInfoClassMember('pseudowire-id', ATTRIBUTE, 'long' , None, None, 
-                [(0, 18446744073709551615L)], [], 
+            _MetaInfoClassMember('pseudowire-id', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
                 '''                Pseudo-wire ID
                 ''',
                 'pseudowire_id',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('remote-l2-router-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Remote L2 Router ID
                 ''',
                 'remote_l2_router_id',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('subinterface', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Subinterface
                 ''',
                 'subinterface',
@@ -5781,31 +5781,31 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('edge-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                Edge ID
                 ''',
                 'edge_id',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('offset', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Offset
                 ''',
                 'offset',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('service', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                Service
                 ''',
                 'service',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('size', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of labels
                 ''',
                 'size',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('vpn-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                VPN ID
                 ''',
                 'vpn_id',
@@ -5822,13 +5822,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('parent-interface', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Parent interface
                 ''',
                 'parent_interface',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('table-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Table Id
                 ''',
                 'table_id',
@@ -5845,7 +5845,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('p2mp-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Point to multipoint ID
                 ''',
                 'p2mp_id',
@@ -5857,25 +5857,25 @@ _meta_table = {
                 'previous_hop',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('table-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Table ID
                 ''',
                 'table_id',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('tunnel-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Tunnel ID
                 ''',
                 'tunnel_id',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('tunnel-id-extension', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Tunnel ID extension
                 ''',
                 'tunnel_id_extension',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('tunnel-lsp-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Tunnel LSP ID
                 ''',
                 'tunnel_lsp_id',
@@ -5898,13 +5898,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('lsm-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                LSM ID
                 ''',
                 'lsm_id',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('peer-label-space-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                Peer Label Space Id
                 ''',
                 'peer_label_space_id',
@@ -5916,13 +5916,13 @@ _meta_table = {
                 'peer_lsrid',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('table-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Table ID
                 ''',
                 'table_id',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('type', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                LSM ID Type
                 ''',
                 'type',
@@ -5939,7 +5939,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('pwhe-intf', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Pseudo-wire Head-end interface
                 ''',
                 'pwhe_intf',
@@ -5956,7 +5956,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('dest-global-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                TP destination global ID
                 ''',
                 'dest_global_id',
@@ -5968,19 +5968,19 @@ _meta_table = {
                 'dest_node_id',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('dest-tunnel-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                TP destination tunnel ID
                 ''',
                 'dest_tunnel_id',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('lsp-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                TP LSP ID
                 ''',
                 'lsp_id',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('source-global-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                TP source global ID
                 ''',
                 'source_global_id',
@@ -5992,7 +5992,7 @@ _meta_table = {
                 'source_node_id',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('source-tunnel-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                TP source tunnel ID
                 ''',
                 'source_tunnel_id',
@@ -6009,7 +6009,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('gre-interface', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Generic routing encapsulation interface
                 ''',
                 'gre_interface',
@@ -6026,7 +6026,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('greipv6-interface', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Generic routing encapsulation IPv6 interface
                 ''',
                 'greipv6_interface',
@@ -6049,13 +6049,13 @@ _meta_table = {
                 'ethernet_segment',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('evpn-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                EVPN ID
                 ''',
                 'evpn_id',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('evpn-tag', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                EVPN TAG
                 ''',
                 'evpn_tag',
@@ -6072,7 +6072,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('blb-intf', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                BFD BLB interface
                 ''',
                 'blb_intf',
@@ -6095,7 +6095,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('blb-intf', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                BFD BLB interface
                 ''',
                 'blb_intf',
@@ -6118,19 +6118,19 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('head', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Head
                 ''',
                 'head',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('v6', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                PIM6
                 ''',
                 'v6',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('vrf-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                VRF ID
                 ''',
                 'vrf_id',
@@ -6147,19 +6147,19 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('head', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Head
                 ''',
                 'head',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('hli', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Head LSM-ID
                 ''',
                 'hli',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('seg', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Segmented Multicast
                 ''',
                 'seg',
@@ -6171,13 +6171,13 @@ _meta_table = {
                 'source',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('v6', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                PIM6
                 ''',
                 'v6',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('vrf-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                VRF ID
                 ''',
                 'vrf_id',
@@ -6194,13 +6194,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('next-hop-set-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Next Hop Set ID
                 ''',
                 'next_hop_set_id',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('table-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Table ID
                 ''',
                 'table_id',
@@ -6217,13 +6217,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('segment-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Prefix Segment ID
                 ''',
                 'segment_id',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('table-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Table ID
                 ''',
                 'table_id',
@@ -6246,19 +6246,19 @@ _meta_table = {
                 'addr',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('index', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Adjacency index
                 ''',
                 'index',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('intf', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Adjacency interface
                 ''',
                 'intf',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('type', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Adjacency type
                 ''',
                 'type',
@@ -6281,19 +6281,19 @@ _meta_table = {
                 'addr',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('index', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Adjacency index
                 ''',
                 'index',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('intf', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Adjacency interface
                 ''',
                 'intf',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('type', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Adjacency type
                 ''',
                 'type',
@@ -6310,19 +6310,19 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('offset', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Offset
                 ''',
                 'offset',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('size', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of labels
                 ''',
                 'size',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('start-label', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Start Label
                 ''',
                 'start_label',
@@ -6339,7 +6339,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('te-identifier', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                MPLS Traffic Engineering Tunnel or Group ID
                 ''',
                 'te_identifier',
@@ -6547,7 +6547,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('label-data', REFERENCE_LEAFLIST, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                label data
                 ''',
                 'label_data',
@@ -6610,19 +6610,19 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('elc', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                ELC
                 ''',
                 'elc',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('label', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Label value
                 ''',
                 'label',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('security-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Security ID
                 ''',
                 'security_id',
@@ -6639,13 +6639,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('local-label', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Local label
                 ''',
                 'local_label',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('tunnel-interface', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Tunnel interface
                 ''',
                 'tunnel_interface',
@@ -6668,19 +6668,19 @@ _meta_table = {
                 'prefix',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('prefix-length', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                Prefix Length
                 ''',
                 'prefix_length',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('table-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Table ID
                 ''',
                 'table_id',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('version', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Version
                 ''',
                 'version',
@@ -6703,25 +6703,25 @@ _meta_table = {
                 'prefix',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('prefix-len', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                Prefix length
                 ''',
                 'prefix_len',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('router-flags', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Route flags
                 ''',
                 'router_flags',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('table-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Table ID
                 ''',
                 'table_id',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('version', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Version
                 ''',
                 'version',
@@ -6738,7 +6738,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('pwhe-list-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                Pseudowire List Identifier
                 ''',
                 'pwhe_list_id',
@@ -6755,7 +6755,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('dmtc-ext-ifh', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                DMTC External Interface
                 ''',
                 'dmtc_ext_ifh',
@@ -6837,7 +6837,7 @@ _meta_table = {
                 'application_name',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('application-role-primary', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Primary/Backup role
                 ''',
                 'application_role_primary',
@@ -6889,7 +6889,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('table-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Table ID
                 ''',
                 'table_id',
@@ -6912,7 +6912,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('table-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Table ID
                 ''',
                 'table_id',
@@ -6947,7 +6947,7 @@ _meta_table = {
                 'application_name',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('application-role-primary', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Primary/Backup role
                 ''',
                 'application_role_primary',
@@ -6982,7 +6982,7 @@ _meta_table = {
                 'path_flags_decode',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('table-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Table ID
                 ''',
                 'table_id',
@@ -7005,7 +7005,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('out-label', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Outgoing Label
                 ''',
                 'out_label',
@@ -7017,7 +7017,7 @@ _meta_table = {
                 'path_flags_decode',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('table-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Table ID
                 ''',
                 'table_id',
@@ -7046,7 +7046,7 @@ _meta_table = {
                 'path_flags_decode',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('table-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Table ID
                 ''',
                 'table_id',
@@ -7069,7 +7069,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('backup-path-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                Routing path backup id
                 ''',
                 'backup_path_id',
@@ -7081,37 +7081,37 @@ _meta_table = {
                 'ipv4_next_hop',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('load-metric', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Routing path's load metric
                 ''',
                 'load_metric',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('local-label', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                TE backup path local label
                 ''',
                 'local_label',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('next-hop-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Next hop ID
                 ''',
                 'next_hop_id',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('out-interface', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Outgoing Interface
                 ''',
                 'out_interface',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('out-interface-parent', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Outgoing Interface's parent
                 ''',
                 'out_interface_parent',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('out-label', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Outgoing Label
                 ''',
                 'out_label',
@@ -7129,13 +7129,13 @@ _meta_table = {
                 'path_flags_decode',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('path-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                Routing path id
                 ''',
                 'path_id',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('table-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Table ID
                 ''',
                 'table_id',
@@ -7147,7 +7147,7 @@ _meta_table = {
                 'table_name',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('tunnel-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                Tunnel ID
                 ''',
                 'tunnel_id',
@@ -7164,7 +7164,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('backup-path-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                Routing path backup id
                 ''',
                 'backup_path_id',
@@ -7176,19 +7176,19 @@ _meta_table = {
                 'ipv6_next_hop',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('next-hop-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Next hop ID
                 ''',
                 'next_hop_id',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('out-interface', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Outgoing interface
                 ''',
                 'out_interface',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('out-label', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Outgoing label
                 ''',
                 'out_label',
@@ -7206,13 +7206,13 @@ _meta_table = {
                 'path_flags_decode',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('path-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                Routing path id
                 ''',
                 'path_id',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('table-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Table ID
                 ''',
                 'table_id',
@@ -7235,7 +7235,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('backup-interface', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Backup interface
                 ''',
                 'backup_interface',
@@ -7247,13 +7247,13 @@ _meta_table = {
                 'backup_ipv4_next_hop',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('backup-local-label', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Backup local label
                 ''',
                 'backup_local_label',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('data-out-parent-interface', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Outgoing data parent interface
                 ''',
                 'data_out_parent_interface',
@@ -7265,19 +7265,19 @@ _meta_table = {
                 'ipv4_next_hop',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('merge-point-label', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Merge point label
                 ''',
                 'merge_point_label',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('out-interface', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Outgoing interface
                 ''',
                 'out_interface',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('out-label', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Outgoing label
                 ''',
                 'out_label',
@@ -7295,7 +7295,7 @@ _meta_table = {
                 'path_flags_decode',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('table-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Table ID
                 ''',
                 'table_id',
@@ -7307,19 +7307,19 @@ _meta_table = {
                 'table_name',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('tunnel-class', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Tunnel class
                 ''',
                 'tunnel_class',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('tunnel-interface', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Tunnel interface
                 ''',
                 'tunnel_interface',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('tunnel-weight', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Tunnel weight
                 ''',
                 'tunnel_weight',
@@ -7336,13 +7336,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('bridge-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Bridge ID
                 ''',
                 'bridge_id',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('cross-connect-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Cross-connect ID
                 ''',
                 'cross_connect_id',
@@ -7354,13 +7354,13 @@ _meta_table = {
                 'ipv4_next_hop',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('out-interface', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Outgoing interface
                 ''',
                 'out_interface',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('out-label', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Outgoing Label
                 ''',
                 'out_label',
@@ -7372,19 +7372,19 @@ _meta_table = {
                 'path_flags_decode',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('pseuodo-wire-connect-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                PseudoWire Cross-connect ID
                 ''',
                 'pseuodo_wire_connect_id',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('split-horizon-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Split horizon group ID
                 ''',
                 'split_horizon_id',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('table-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Table ID
                 ''',
                 'table_id',
@@ -7407,7 +7407,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('out-interface', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Outgoing interface
                 ''',
                 'out_interface',
@@ -7419,7 +7419,7 @@ _meta_table = {
                 'path_flags_decode',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('table-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                VRF table ID
                 ''',
                 'table_id',
@@ -7442,13 +7442,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('control-word', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Is control word present
                 ''',
                 'control_word',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('imposition', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Is PWHE IMposition
                 ''',
                 'imposition',
@@ -7460,13 +7460,13 @@ _meta_table = {
                 'ipv4_next_hop',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('out-interface', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Outgoing interface
                 ''',
                 'out_interface',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('out-label', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Outgoing Label
                 ''',
                 'out_label',
@@ -7478,19 +7478,19 @@ _meta_table = {
                 'path_flags_decode',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('pw-list-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                Pseudo-wire List Identifier
                 ''',
                 'pw_list_id',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('pwhe-interface', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Pseudo-wire Head-end interface
                 ''',
                 'pwhe_interface',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('table-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Table ID
                 ''',
                 'table_id',
@@ -7502,7 +7502,7 @@ _meta_table = {
                 'table_name',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('vctype', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                Virtual Circuit Type
                 ''',
                 'vctype',
@@ -7519,13 +7519,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('l2-interface', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Pseudo-wire Layer 2 interface
                 ''',
                 'l2_interface',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('l3-interface', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Pseudo-wire Layer 3 interface
                 ''',
                 'l3_interface',
@@ -7537,7 +7537,7 @@ _meta_table = {
                 'path_flags_decode',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('table-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Table ID
                 ''',
                 'table_id',
@@ -7560,7 +7560,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('backup-path-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                Routing path backup id
                 ''',
                 'backup_path_id',
@@ -7572,37 +7572,37 @@ _meta_table = {
                 'ipv4_next_hop',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('load-metric', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Routing path's load metric
                 ''',
                 'load_metric',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('local-label', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                TE backup path local label
                 ''',
                 'local_label',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('next-hop-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Next hop ID
                 ''',
                 'next_hop_id',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('out-interface', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Outgoing Interface
                 ''',
                 'out_interface',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('out-interface-parent', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Outgoing Interface's parent
                 ''',
                 'out_interface_parent',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('out-label', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Outgoing Label
                 ''',
                 'out_label',
@@ -7620,13 +7620,13 @@ _meta_table = {
                 'path_flags_decode',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('path-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                Routing path id
                 ''',
                 'path_id',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('table-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Table ID
                 ''',
                 'table_id',
@@ -7638,7 +7638,7 @@ _meta_table = {
                 'table_name',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('tunnel-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                Tunnel ID
                 ''',
                 'tunnel_id',
@@ -7655,7 +7655,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('outgoing-label', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Remote Label
                 ''',
                 'outgoing_label',
@@ -7690,13 +7690,13 @@ _meta_table = {
                 'nexthop',
                 'Cisco-IOS-XR-mpls-lsd-oper', False, max_elements=2),
             _MetaInfoClassMember('num-lbls', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                Depth of inner label stack
                 ''',
                 'num_lbls',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('num-nexthops', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                Number of remote nexthop addresses
                 ''',
                 'num_nexthops',
@@ -7742,7 +7742,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('backup-path-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                Routing path backup id
                 ''',
                 'backup_path_id',
@@ -7754,19 +7754,19 @@ _meta_table = {
                 'ipv6_next_hop',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('next-hop-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Next hop ID
                 ''',
                 'next_hop_id',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('out-interface', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Outgoing interface
                 ''',
                 'out_interface',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('out-label', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Outgoing label
                 ''',
                 'out_label',
@@ -7784,13 +7784,13 @@ _meta_table = {
                 'path_flags_decode',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('path-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                Routing path id
                 ''',
                 'path_id',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('table-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Table ID
                 ''',
                 'table_id',
@@ -7813,7 +7813,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('outgoing-label', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Remote Label
                 ''',
                 'outgoing_label',
@@ -7848,13 +7848,13 @@ _meta_table = {
                 'nexthop',
                 'Cisco-IOS-XR-mpls-lsd-oper', False, max_elements=2),
             _MetaInfoClassMember('num-lbls', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                Depth of inner label stack
                 ''',
                 'num_lbls',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('num-nexthops', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                Number of remote nexthop addresses
                 ''',
                 'num_nexthops',
@@ -7900,7 +7900,7 @@ _meta_table = {
                 'flags_decode',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('table-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Table ID
                 ''',
                 'table_id',
@@ -7912,19 +7912,19 @@ _meta_table = {
                 'table_name',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('tunnel-fwd-class', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                Tunnel forwarding class
                 ''',
                 'tunnel_fwd_class',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('tunnel-load-metric', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Tunnel Load metric
                 ''',
                 'tunnel_load_metric',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('tunnel-local-label', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Tunnel local label
                 ''',
                 'tunnel_local_label',
@@ -7947,7 +7947,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('dmtc-ext-ifh', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                DMTC External Interface
                 ''',
                 'dmtc_ext_ifh',
@@ -8111,7 +8111,7 @@ _meta_table = {
                 'associated_fpi',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('bcdl-priority', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                BCDL Priority
                 ''',
                 'bcdl_priority',
@@ -8123,7 +8123,7 @@ _meta_table = {
                 'fpi_key',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('lsd-queue', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                LSD queue
                 ''',
                 'lsd_queue',
@@ -8141,13 +8141,13 @@ _meta_table = {
                 'prefix',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('prefix-length', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Prefix length
                 ''',
                 'prefix_length',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('priority-updated', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Is rewrite's BCDL priority updated
                 ''',
                 'priority_updated',
@@ -8158,8 +8158,8 @@ _meta_table = {
                 ''',
                 'rewrite_id',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
-            _MetaInfoClassMember('rewrite-version', ATTRIBUTE, 'long' , None, None, 
-                [(0, 18446744073709551615L)], [], 
+            _MetaInfoClassMember('rewrite-version', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
                 '''                Rewrite version
                 ''',
                 'rewrite_version',
@@ -8176,20 +8176,20 @@ _meta_table = {
                 ''',
                 'rsi_table_name',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
-            _MetaInfoClassMember('rw-install-age', ATTRIBUTE, 'long' , None, None, 
-                [(0, 18446744073709551615L)], [], 
+            _MetaInfoClassMember('rw-install-age', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
                 '''                Rewrite install age
                 ''',
                 'rw_install_age',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
-            _MetaInfoClassMember('rw-install-time', ATTRIBUTE, 'long' , None, None, 
-                [(0, 18446744073709551615L)], [], 
+            _MetaInfoClassMember('rw-install-time', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
                 '''                Rewrite install timestamp
                 ''',
                 'rw_install_time',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('rw-updated', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Is rewrite ever updated
                 ''',
                 'rw_updated',
@@ -8235,19 +8235,19 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('elc', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                ELC
                 ''',
                 'elc',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('label', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Label value
                 ''',
                 'label',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('security-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Security ID
                 ''',
                 'security_id',
@@ -8264,13 +8264,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('local-label', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Local label
                 ''',
                 'local_label',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('tunnel-interface', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Tunnel interface
                 ''',
                 'tunnel_interface',
@@ -8293,19 +8293,19 @@ _meta_table = {
                 'prefix',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('prefix-length', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                Prefix Length
                 ''',
                 'prefix_length',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('table-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Table ID
                 ''',
                 'table_id',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('version', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Version
                 ''',
                 'version',
@@ -8328,25 +8328,25 @@ _meta_table = {
                 'prefix',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('prefix-len', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                Prefix length
                 ''',
                 'prefix_len',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('router-flags', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Route flags
                 ''',
                 'router_flags',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('table-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Table ID
                 ''',
                 'table_id',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('version', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Version
                 ''',
                 'version',
@@ -8363,7 +8363,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('pwhe-list-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                Pseudowire List Identifier
                 ''',
                 'pwhe_list_id',
@@ -8380,7 +8380,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('dmtc-ext-ifh', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                DMTC External Interface
                 ''',
                 'dmtc_ext_ifh',
@@ -8462,7 +8462,7 @@ _meta_table = {
                 'application_name',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('application-role-primary', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Primary/Backup role
                 ''',
                 'application_role_primary',
@@ -8520,19 +8520,19 @@ _meta_table = {
                 'prefix',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('prefix-length', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                IPv4 prefix length
                 ''',
                 'prefix_length',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('security-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Security ID
                 ''',
                 'security_id',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('table-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Table ID
                 ''',
                 'table_id',
@@ -8561,19 +8561,19 @@ _meta_table = {
                 'prefix',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('prefix-length', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                Prefix length
                 ''',
                 'prefix_length',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('security-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Security ID
                 ''',
                 'security_id',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('table-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Table ID
                 ''',
                 'table_id',
@@ -8596,13 +8596,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('is-srte', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Is this an SRTE head tunnel
                 ''',
                 'is_srte',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('table-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Table ID
                 ''',
                 'table_id',
@@ -8614,19 +8614,19 @@ _meta_table = {
                 'tunnel_dest',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('tunnel-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Tunnel ID
                 ''',
                 'tunnel_id',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('tunnel-id-extension', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Extended tunnel ID
                 ''',
                 'tunnel_id_extension',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('tunnel-lsp-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Tunnel LSP ID
                 ''',
                 'tunnel_lsp_id',
@@ -8655,13 +8655,13 @@ _meta_table = {
                 'prefix',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('prefix-length', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                Prefix length
                 ''',
                 'prefix_length',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
-            _MetaInfoClassMember('route-distinguisher', ATTRIBUTE, 'long' , None, None, 
-                [(0, 18446744073709551615L)], [], 
+            _MetaInfoClassMember('route-distinguisher', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
                 '''                Route distinguisher
                 ''',
                 'route_distinguisher',
@@ -8684,13 +8684,13 @@ _meta_table = {
                 'prefix',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('prefix-length', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                Prefix length
                 ''',
                 'prefix_length',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
-            _MetaInfoClassMember('route-distinguisher', ATTRIBUTE, 'long' , None, None, 
-                [(0, 18446744073709551615L)], [], 
+            _MetaInfoClassMember('route-distinguisher', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
                 '''                Route distinguisher
                 ''',
                 'route_distinguisher',
@@ -8707,13 +8707,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('security-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Security ID
                 ''',
                 'security_id',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('table-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Table ID
                 ''',
                 'table_id',
@@ -8736,13 +8736,13 @@ _meta_table = {
                 'ipv4_next_hop',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('security-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Security ID
                 ''',
                 'security_id',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('table-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Table ID
                 ''',
                 'table_id',
@@ -8765,13 +8765,13 @@ _meta_table = {
                 'ipv6_next_hop',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('security-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Security ID
                 ''',
                 'security_id',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('table-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Table ID
                 ''',
                 'table_id',
@@ -8793,20 +8793,20 @@ _meta_table = {
                 ''',
                 'prefix',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
-            _MetaInfoClassMember('pseudowire-id', ATTRIBUTE, 'long' , None, None, 
-                [(0, 18446744073709551615L)], [], 
+            _MetaInfoClassMember('pseudowire-id', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
                 '''                Pseudo-wire ID
                 ''',
                 'pseudowire_id',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('remote-l2-router-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Remote L2 Router ID
                 ''',
                 'remote_l2_router_id',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('subinterface', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Subinterface
                 ''',
                 'subinterface',
@@ -8823,31 +8823,31 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('edge-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                Edge ID
                 ''',
                 'edge_id',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('offset', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Offset
                 ''',
                 'offset',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('service', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                Service
                 ''',
                 'service',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('size', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of labels
                 ''',
                 'size',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('vpn-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                VPN ID
                 ''',
                 'vpn_id',
@@ -8864,13 +8864,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('parent-interface', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Parent interface
                 ''',
                 'parent_interface',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('table-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Table Id
                 ''',
                 'table_id',
@@ -8887,7 +8887,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('p2mp-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Point to multipoint ID
                 ''',
                 'p2mp_id',
@@ -8899,25 +8899,25 @@ _meta_table = {
                 'previous_hop',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('table-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Table ID
                 ''',
                 'table_id',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('tunnel-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Tunnel ID
                 ''',
                 'tunnel_id',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('tunnel-id-extension', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Tunnel ID extension
                 ''',
                 'tunnel_id_extension',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('tunnel-lsp-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Tunnel LSP ID
                 ''',
                 'tunnel_lsp_id',
@@ -8940,13 +8940,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('lsm-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                LSM ID
                 ''',
                 'lsm_id',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('peer-label-space-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                Peer Label Space Id
                 ''',
                 'peer_label_space_id',
@@ -8958,13 +8958,13 @@ _meta_table = {
                 'peer_lsrid',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('table-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Table ID
                 ''',
                 'table_id',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('type', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                LSM ID Type
                 ''',
                 'type',
@@ -8981,7 +8981,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('pwhe-intf', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Pseudo-wire Head-end interface
                 ''',
                 'pwhe_intf',
@@ -8998,7 +8998,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('dest-global-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                TP destination global ID
                 ''',
                 'dest_global_id',
@@ -9010,19 +9010,19 @@ _meta_table = {
                 'dest_node_id',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('dest-tunnel-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                TP destination tunnel ID
                 ''',
                 'dest_tunnel_id',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('lsp-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                TP LSP ID
                 ''',
                 'lsp_id',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('source-global-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                TP source global ID
                 ''',
                 'source_global_id',
@@ -9034,7 +9034,7 @@ _meta_table = {
                 'source_node_id',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('source-tunnel-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                TP source tunnel ID
                 ''',
                 'source_tunnel_id',
@@ -9051,7 +9051,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('gre-interface', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Generic routing encapsulation interface
                 ''',
                 'gre_interface',
@@ -9068,7 +9068,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('greipv6-interface', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Generic routing encapsulation IPv6 interface
                 ''',
                 'greipv6_interface',
@@ -9091,13 +9091,13 @@ _meta_table = {
                 'ethernet_segment',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('evpn-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                EVPN ID
                 ''',
                 'evpn_id',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('evpn-tag', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                EVPN TAG
                 ''',
                 'evpn_tag',
@@ -9114,7 +9114,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('blb-intf', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                BFD BLB interface
                 ''',
                 'blb_intf',
@@ -9137,7 +9137,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('blb-intf', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                BFD BLB interface
                 ''',
                 'blb_intf',
@@ -9160,19 +9160,19 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('head', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Head
                 ''',
                 'head',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('v6', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                PIM6
                 ''',
                 'v6',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('vrf-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                VRF ID
                 ''',
                 'vrf_id',
@@ -9189,19 +9189,19 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('head', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Head
                 ''',
                 'head',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('hli', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Head LSM-ID
                 ''',
                 'hli',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('seg', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Segmented Multicast
                 ''',
                 'seg',
@@ -9213,13 +9213,13 @@ _meta_table = {
                 'source',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('v6', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                PIM6
                 ''',
                 'v6',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('vrf-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                VRF ID
                 ''',
                 'vrf_id',
@@ -9236,13 +9236,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('next-hop-set-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Next Hop Set ID
                 ''',
                 'next_hop_set_id',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('table-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Table ID
                 ''',
                 'table_id',
@@ -9259,13 +9259,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('segment-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Prefix Segment ID
                 ''',
                 'segment_id',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('table-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Table ID
                 ''',
                 'table_id',
@@ -9288,19 +9288,19 @@ _meta_table = {
                 'addr',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('index', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Adjacency index
                 ''',
                 'index',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('intf', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Adjacency interface
                 ''',
                 'intf',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('type', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Adjacency type
                 ''',
                 'type',
@@ -9323,19 +9323,19 @@ _meta_table = {
                 'addr',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('index', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Adjacency index
                 ''',
                 'index',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('intf', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Adjacency interface
                 ''',
                 'intf',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('type', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Adjacency type
                 ''',
                 'type',
@@ -9352,19 +9352,19 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('offset', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Offset
                 ''',
                 'offset',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('size', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of labels
                 ''',
                 'size',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('start-label', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Start Label
                 ''',
                 'start_label',
@@ -9381,7 +9381,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('te-identifier', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                MPLS Traffic Engineering Tunnel or Group ID
                 ''',
                 'te_identifier',
@@ -9589,7 +9589,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('label-data', REFERENCE_LEAFLIST, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                label data
                 ''',
                 'label_data',
@@ -9652,19 +9652,19 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('elc', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                ELC
                 ''',
                 'elc',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('label', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Label value
                 ''',
                 'label',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('security-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Security ID
                 ''',
                 'security_id',
@@ -9681,13 +9681,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('local-label', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Local label
                 ''',
                 'local_label',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('tunnel-interface', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Tunnel interface
                 ''',
                 'tunnel_interface',
@@ -9710,19 +9710,19 @@ _meta_table = {
                 'prefix',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('prefix-length', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                Prefix Length
                 ''',
                 'prefix_length',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('table-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Table ID
                 ''',
                 'table_id',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('version', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Version
                 ''',
                 'version',
@@ -9745,25 +9745,25 @@ _meta_table = {
                 'prefix',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('prefix-len', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                Prefix length
                 ''',
                 'prefix_len',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('router-flags', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Route flags
                 ''',
                 'router_flags',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('table-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Table ID
                 ''',
                 'table_id',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('version', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Version
                 ''',
                 'version',
@@ -9780,7 +9780,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('pwhe-list-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                Pseudowire List Identifier
                 ''',
                 'pwhe_list_id',
@@ -9797,7 +9797,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('dmtc-ext-ifh', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                DMTC External Interface
                 ''',
                 'dmtc_ext_ifh',
@@ -9879,7 +9879,7 @@ _meta_table = {
                 'application_name',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('application-role-primary', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Primary/Backup role
                 ''',
                 'application_role_primary',
@@ -9931,7 +9931,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('table-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Table ID
                 ''',
                 'table_id',
@@ -9954,7 +9954,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('table-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Table ID
                 ''',
                 'table_id',
@@ -9989,7 +9989,7 @@ _meta_table = {
                 'application_name',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('application-role-primary', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Primary/Backup role
                 ''',
                 'application_role_primary',
@@ -10024,7 +10024,7 @@ _meta_table = {
                 'path_flags_decode',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('table-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Table ID
                 ''',
                 'table_id',
@@ -10047,7 +10047,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('out-label', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Outgoing Label
                 ''',
                 'out_label',
@@ -10059,7 +10059,7 @@ _meta_table = {
                 'path_flags_decode',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('table-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Table ID
                 ''',
                 'table_id',
@@ -10088,7 +10088,7 @@ _meta_table = {
                 'path_flags_decode',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('table-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Table ID
                 ''',
                 'table_id',
@@ -10111,7 +10111,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('backup-path-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                Routing path backup id
                 ''',
                 'backup_path_id',
@@ -10123,37 +10123,37 @@ _meta_table = {
                 'ipv4_next_hop',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('load-metric', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Routing path's load metric
                 ''',
                 'load_metric',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('local-label', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                TE backup path local label
                 ''',
                 'local_label',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('next-hop-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Next hop ID
                 ''',
                 'next_hop_id',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('out-interface', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Outgoing Interface
                 ''',
                 'out_interface',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('out-interface-parent', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Outgoing Interface's parent
                 ''',
                 'out_interface_parent',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('out-label', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Outgoing Label
                 ''',
                 'out_label',
@@ -10171,13 +10171,13 @@ _meta_table = {
                 'path_flags_decode',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('path-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                Routing path id
                 ''',
                 'path_id',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('table-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Table ID
                 ''',
                 'table_id',
@@ -10189,7 +10189,7 @@ _meta_table = {
                 'table_name',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('tunnel-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                Tunnel ID
                 ''',
                 'tunnel_id',
@@ -10206,7 +10206,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('backup-path-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                Routing path backup id
                 ''',
                 'backup_path_id',
@@ -10218,19 +10218,19 @@ _meta_table = {
                 'ipv6_next_hop',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('next-hop-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Next hop ID
                 ''',
                 'next_hop_id',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('out-interface', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Outgoing interface
                 ''',
                 'out_interface',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('out-label', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Outgoing label
                 ''',
                 'out_label',
@@ -10248,13 +10248,13 @@ _meta_table = {
                 'path_flags_decode',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('path-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                Routing path id
                 ''',
                 'path_id',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('table-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Table ID
                 ''',
                 'table_id',
@@ -10277,7 +10277,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('backup-interface', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Backup interface
                 ''',
                 'backup_interface',
@@ -10289,13 +10289,13 @@ _meta_table = {
                 'backup_ipv4_next_hop',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('backup-local-label', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Backup local label
                 ''',
                 'backup_local_label',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('data-out-parent-interface', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Outgoing data parent interface
                 ''',
                 'data_out_parent_interface',
@@ -10307,19 +10307,19 @@ _meta_table = {
                 'ipv4_next_hop',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('merge-point-label', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Merge point label
                 ''',
                 'merge_point_label',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('out-interface', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Outgoing interface
                 ''',
                 'out_interface',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('out-label', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Outgoing label
                 ''',
                 'out_label',
@@ -10337,7 +10337,7 @@ _meta_table = {
                 'path_flags_decode',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('table-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Table ID
                 ''',
                 'table_id',
@@ -10349,19 +10349,19 @@ _meta_table = {
                 'table_name',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('tunnel-class', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Tunnel class
                 ''',
                 'tunnel_class',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('tunnel-interface', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Tunnel interface
                 ''',
                 'tunnel_interface',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('tunnel-weight', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Tunnel weight
                 ''',
                 'tunnel_weight',
@@ -10378,13 +10378,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('bridge-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Bridge ID
                 ''',
                 'bridge_id',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('cross-connect-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Cross-connect ID
                 ''',
                 'cross_connect_id',
@@ -10396,13 +10396,13 @@ _meta_table = {
                 'ipv4_next_hop',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('out-interface', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Outgoing interface
                 ''',
                 'out_interface',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('out-label', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Outgoing Label
                 ''',
                 'out_label',
@@ -10414,19 +10414,19 @@ _meta_table = {
                 'path_flags_decode',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('pseuodo-wire-connect-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                PseudoWire Cross-connect ID
                 ''',
                 'pseuodo_wire_connect_id',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('split-horizon-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Split horizon group ID
                 ''',
                 'split_horizon_id',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('table-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Table ID
                 ''',
                 'table_id',
@@ -10449,7 +10449,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('out-interface', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Outgoing interface
                 ''',
                 'out_interface',
@@ -10461,7 +10461,7 @@ _meta_table = {
                 'path_flags_decode',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('table-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                VRF table ID
                 ''',
                 'table_id',
@@ -10484,13 +10484,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('control-word', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Is control word present
                 ''',
                 'control_word',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('imposition', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Is PWHE IMposition
                 ''',
                 'imposition',
@@ -10502,13 +10502,13 @@ _meta_table = {
                 'ipv4_next_hop',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('out-interface', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Outgoing interface
                 ''',
                 'out_interface',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('out-label', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Outgoing Label
                 ''',
                 'out_label',
@@ -10520,19 +10520,19 @@ _meta_table = {
                 'path_flags_decode',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('pw-list-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                Pseudo-wire List Identifier
                 ''',
                 'pw_list_id',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('pwhe-interface', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Pseudo-wire Head-end interface
                 ''',
                 'pwhe_interface',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('table-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Table ID
                 ''',
                 'table_id',
@@ -10544,7 +10544,7 @@ _meta_table = {
                 'table_name',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('vctype', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                Virtual Circuit Type
                 ''',
                 'vctype',
@@ -10561,13 +10561,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('l2-interface', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Pseudo-wire Layer 2 interface
                 ''',
                 'l2_interface',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('l3-interface', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Pseudo-wire Layer 3 interface
                 ''',
                 'l3_interface',
@@ -10579,7 +10579,7 @@ _meta_table = {
                 'path_flags_decode',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('table-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Table ID
                 ''',
                 'table_id',
@@ -10602,7 +10602,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('backup-path-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                Routing path backup id
                 ''',
                 'backup_path_id',
@@ -10614,37 +10614,37 @@ _meta_table = {
                 'ipv4_next_hop',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('load-metric', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Routing path's load metric
                 ''',
                 'load_metric',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('local-label', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                TE backup path local label
                 ''',
                 'local_label',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('next-hop-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Next hop ID
                 ''',
                 'next_hop_id',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('out-interface', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Outgoing Interface
                 ''',
                 'out_interface',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('out-interface-parent', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Outgoing Interface's parent
                 ''',
                 'out_interface_parent',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('out-label', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Outgoing Label
                 ''',
                 'out_label',
@@ -10662,13 +10662,13 @@ _meta_table = {
                 'path_flags_decode',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('path-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                Routing path id
                 ''',
                 'path_id',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('table-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Table ID
                 ''',
                 'table_id',
@@ -10680,7 +10680,7 @@ _meta_table = {
                 'table_name',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('tunnel-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                Tunnel ID
                 ''',
                 'tunnel_id',
@@ -10697,7 +10697,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('outgoing-label', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Remote Label
                 ''',
                 'outgoing_label',
@@ -10732,13 +10732,13 @@ _meta_table = {
                 'nexthop',
                 'Cisco-IOS-XR-mpls-lsd-oper', False, max_elements=2),
             _MetaInfoClassMember('num-lbls', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                Depth of inner label stack
                 ''',
                 'num_lbls',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('num-nexthops', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                Number of remote nexthop addresses
                 ''',
                 'num_nexthops',
@@ -10784,7 +10784,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('backup-path-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                Routing path backup id
                 ''',
                 'backup_path_id',
@@ -10796,19 +10796,19 @@ _meta_table = {
                 'ipv6_next_hop',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('next-hop-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Next hop ID
                 ''',
                 'next_hop_id',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('out-interface', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Outgoing interface
                 ''',
                 'out_interface',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('out-label', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Outgoing label
                 ''',
                 'out_label',
@@ -10826,13 +10826,13 @@ _meta_table = {
                 'path_flags_decode',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('path-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                Routing path id
                 ''',
                 'path_id',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('table-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Table ID
                 ''',
                 'table_id',
@@ -10855,7 +10855,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('outgoing-label', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Remote Label
                 ''',
                 'outgoing_label',
@@ -10890,13 +10890,13 @@ _meta_table = {
                 'nexthop',
                 'Cisco-IOS-XR-mpls-lsd-oper', False, max_elements=2),
             _MetaInfoClassMember('num-lbls', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                Depth of inner label stack
                 ''',
                 'num_lbls',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('num-nexthops', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                Number of remote nexthop addresses
                 ''',
                 'num_nexthops',
@@ -10942,7 +10942,7 @@ _meta_table = {
                 'flags_decode',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('table-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Table ID
                 ''',
                 'table_id',
@@ -10954,19 +10954,19 @@ _meta_table = {
                 'table_name',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('tunnel-fwd-class', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                Tunnel forwarding class
                 ''',
                 'tunnel_fwd_class',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('tunnel-load-metric', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Tunnel Load metric
                 ''',
                 'tunnel_load_metric',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('tunnel-local-label', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Tunnel local label
                 ''',
                 'tunnel_local_label',
@@ -10989,7 +10989,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('dmtc-ext-ifh', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                DMTC External Interface
                 ''',
                 'dmtc_ext_ifh',
@@ -11147,7 +11147,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('interface-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Tunnel interface
                 ''',
                 'interface_name',
@@ -11159,7 +11159,7 @@ _meta_table = {
                 'associated_fpi',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('bcdl-priority', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                BCDL Priority
                 ''',
                 'bcdl_priority',
@@ -11171,7 +11171,7 @@ _meta_table = {
                 'fpi_key',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('lsd-queue', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                LSD queue
                 ''',
                 'lsd_queue',
@@ -11183,7 +11183,7 @@ _meta_table = {
                 'mois',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('priority-updated', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Is rewrite's BCDL priority updated
                 ''',
                 'priority_updated',
@@ -11194,26 +11194,26 @@ _meta_table = {
                 ''',
                 'rewrite_id',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
-            _MetaInfoClassMember('rewrite-version', ATTRIBUTE, 'long' , None, None, 
-                [(0, 18446744073709551615L)], [], 
+            _MetaInfoClassMember('rewrite-version', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
                 '''                Rewrite version
                 ''',
                 'rewrite_version',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
-            _MetaInfoClassMember('rw-install-age', ATTRIBUTE, 'long' , None, None, 
-                [(0, 18446744073709551615L)], [], 
+            _MetaInfoClassMember('rw-install-age', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
                 '''                Rewrite install age
                 ''',
                 'rw_install_age',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
-            _MetaInfoClassMember('rw-install-time', ATTRIBUTE, 'long' , None, None, 
-                [(0, 18446744073709551615L)], [], 
+            _MetaInfoClassMember('rw-install-time', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
                 '''                Rewrite install timestamp
                 ''',
                 'rw_install_time',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('rw-updated', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Is rewrite ever updated
                 ''',
                 'rw_updated',
@@ -11259,19 +11259,19 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('elc', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                ELC
                 ''',
                 'elc',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('label', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Label value
                 ''',
                 'label',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('security-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Security ID
                 ''',
                 'security_id',
@@ -11288,13 +11288,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('local-label', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Local label
                 ''',
                 'local_label',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('tunnel-interface', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Tunnel interface
                 ''',
                 'tunnel_interface',
@@ -11317,19 +11317,19 @@ _meta_table = {
                 'prefix',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('prefix-length', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                Prefix Length
                 ''',
                 'prefix_length',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('table-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Table ID
                 ''',
                 'table_id',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('version', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Version
                 ''',
                 'version',
@@ -11352,25 +11352,25 @@ _meta_table = {
                 'prefix',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('prefix-len', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                Prefix length
                 ''',
                 'prefix_len',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('router-flags', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Route flags
                 ''',
                 'router_flags',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('table-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Table ID
                 ''',
                 'table_id',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('version', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Version
                 ''',
                 'version',
@@ -11387,7 +11387,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('pwhe-list-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                Pseudowire List Identifier
                 ''',
                 'pwhe_list_id',
@@ -11404,7 +11404,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('dmtc-ext-ifh', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                DMTC External Interface
                 ''',
                 'dmtc_ext_ifh',
@@ -11486,7 +11486,7 @@ _meta_table = {
                 'application_name',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('application-role-primary', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Primary/Backup role
                 ''',
                 'application_role_primary',
@@ -11544,19 +11544,19 @@ _meta_table = {
                 'prefix',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('prefix-length', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                IPv4 prefix length
                 ''',
                 'prefix_length',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('security-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Security ID
                 ''',
                 'security_id',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('table-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Table ID
                 ''',
                 'table_id',
@@ -11585,19 +11585,19 @@ _meta_table = {
                 'prefix',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('prefix-length', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                Prefix length
                 ''',
                 'prefix_length',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('security-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Security ID
                 ''',
                 'security_id',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('table-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Table ID
                 ''',
                 'table_id',
@@ -11620,13 +11620,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('is-srte', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Is this an SRTE head tunnel
                 ''',
                 'is_srte',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('table-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Table ID
                 ''',
                 'table_id',
@@ -11638,19 +11638,19 @@ _meta_table = {
                 'tunnel_dest',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('tunnel-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Tunnel ID
                 ''',
                 'tunnel_id',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('tunnel-id-extension', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Extended tunnel ID
                 ''',
                 'tunnel_id_extension',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('tunnel-lsp-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Tunnel LSP ID
                 ''',
                 'tunnel_lsp_id',
@@ -11679,13 +11679,13 @@ _meta_table = {
                 'prefix',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('prefix-length', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                Prefix length
                 ''',
                 'prefix_length',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
-            _MetaInfoClassMember('route-distinguisher', ATTRIBUTE, 'long' , None, None, 
-                [(0, 18446744073709551615L)], [], 
+            _MetaInfoClassMember('route-distinguisher', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
                 '''                Route distinguisher
                 ''',
                 'route_distinguisher',
@@ -11708,13 +11708,13 @@ _meta_table = {
                 'prefix',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('prefix-length', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                Prefix length
                 ''',
                 'prefix_length',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
-            _MetaInfoClassMember('route-distinguisher', ATTRIBUTE, 'long' , None, None, 
-                [(0, 18446744073709551615L)], [], 
+            _MetaInfoClassMember('route-distinguisher', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
                 '''                Route distinguisher
                 ''',
                 'route_distinguisher',
@@ -11731,13 +11731,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('security-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Security ID
                 ''',
                 'security_id',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('table-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Table ID
                 ''',
                 'table_id',
@@ -11760,13 +11760,13 @@ _meta_table = {
                 'ipv4_next_hop',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('security-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Security ID
                 ''',
                 'security_id',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('table-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Table ID
                 ''',
                 'table_id',
@@ -11789,13 +11789,13 @@ _meta_table = {
                 'ipv6_next_hop',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('security-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Security ID
                 ''',
                 'security_id',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('table-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Table ID
                 ''',
                 'table_id',
@@ -11817,20 +11817,20 @@ _meta_table = {
                 ''',
                 'prefix',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
-            _MetaInfoClassMember('pseudowire-id', ATTRIBUTE, 'long' , None, None, 
-                [(0, 18446744073709551615L)], [], 
+            _MetaInfoClassMember('pseudowire-id', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
                 '''                Pseudo-wire ID
                 ''',
                 'pseudowire_id',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('remote-l2-router-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Remote L2 Router ID
                 ''',
                 'remote_l2_router_id',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('subinterface', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Subinterface
                 ''',
                 'subinterface',
@@ -11847,31 +11847,31 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('edge-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                Edge ID
                 ''',
                 'edge_id',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('offset', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Offset
                 ''',
                 'offset',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('service', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                Service
                 ''',
                 'service',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('size', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of labels
                 ''',
                 'size',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('vpn-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                VPN ID
                 ''',
                 'vpn_id',
@@ -11888,13 +11888,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('parent-interface', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Parent interface
                 ''',
                 'parent_interface',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('table-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Table Id
                 ''',
                 'table_id',
@@ -11911,7 +11911,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('p2mp-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Point to multipoint ID
                 ''',
                 'p2mp_id',
@@ -11923,25 +11923,25 @@ _meta_table = {
                 'previous_hop',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('table-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Table ID
                 ''',
                 'table_id',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('tunnel-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Tunnel ID
                 ''',
                 'tunnel_id',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('tunnel-id-extension', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Tunnel ID extension
                 ''',
                 'tunnel_id_extension',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('tunnel-lsp-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Tunnel LSP ID
                 ''',
                 'tunnel_lsp_id',
@@ -11964,13 +11964,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('lsm-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                LSM ID
                 ''',
                 'lsm_id',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('peer-label-space-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                Peer Label Space Id
                 ''',
                 'peer_label_space_id',
@@ -11982,13 +11982,13 @@ _meta_table = {
                 'peer_lsrid',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('table-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Table ID
                 ''',
                 'table_id',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('type', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                LSM ID Type
                 ''',
                 'type',
@@ -12005,7 +12005,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('pwhe-intf', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Pseudo-wire Head-end interface
                 ''',
                 'pwhe_intf',
@@ -12022,7 +12022,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('dest-global-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                TP destination global ID
                 ''',
                 'dest_global_id',
@@ -12034,19 +12034,19 @@ _meta_table = {
                 'dest_node_id',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('dest-tunnel-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                TP destination tunnel ID
                 ''',
                 'dest_tunnel_id',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('lsp-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                TP LSP ID
                 ''',
                 'lsp_id',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('source-global-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                TP source global ID
                 ''',
                 'source_global_id',
@@ -12058,7 +12058,7 @@ _meta_table = {
                 'source_node_id',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('source-tunnel-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                TP source tunnel ID
                 ''',
                 'source_tunnel_id',
@@ -12075,7 +12075,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('gre-interface', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Generic routing encapsulation interface
                 ''',
                 'gre_interface',
@@ -12092,7 +12092,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('greipv6-interface', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Generic routing encapsulation IPv6 interface
                 ''',
                 'greipv6_interface',
@@ -12115,13 +12115,13 @@ _meta_table = {
                 'ethernet_segment',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('evpn-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                EVPN ID
                 ''',
                 'evpn_id',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('evpn-tag', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                EVPN TAG
                 ''',
                 'evpn_tag',
@@ -12138,7 +12138,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('blb-intf', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                BFD BLB interface
                 ''',
                 'blb_intf',
@@ -12161,7 +12161,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('blb-intf', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                BFD BLB interface
                 ''',
                 'blb_intf',
@@ -12184,19 +12184,19 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('head', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Head
                 ''',
                 'head',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('v6', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                PIM6
                 ''',
                 'v6',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('vrf-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                VRF ID
                 ''',
                 'vrf_id',
@@ -12213,19 +12213,19 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('head', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Head
                 ''',
                 'head',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('hli', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Head LSM-ID
                 ''',
                 'hli',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('seg', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Segmented Multicast
                 ''',
                 'seg',
@@ -12237,13 +12237,13 @@ _meta_table = {
                 'source',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('v6', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                PIM6
                 ''',
                 'v6',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('vrf-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                VRF ID
                 ''',
                 'vrf_id',
@@ -12260,13 +12260,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('next-hop-set-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Next Hop Set ID
                 ''',
                 'next_hop_set_id',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('table-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Table ID
                 ''',
                 'table_id',
@@ -12283,13 +12283,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('segment-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Prefix Segment ID
                 ''',
                 'segment_id',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('table-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Table ID
                 ''',
                 'table_id',
@@ -12312,19 +12312,19 @@ _meta_table = {
                 'addr',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('index', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Adjacency index
                 ''',
                 'index',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('intf', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Adjacency interface
                 ''',
                 'intf',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('type', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Adjacency type
                 ''',
                 'type',
@@ -12347,19 +12347,19 @@ _meta_table = {
                 'addr',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('index', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Adjacency index
                 ''',
                 'index',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('intf', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Adjacency interface
                 ''',
                 'intf',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('type', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Adjacency type
                 ''',
                 'type',
@@ -12376,19 +12376,19 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('offset', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Offset
                 ''',
                 'offset',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('size', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of labels
                 ''',
                 'size',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('start-label', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Start Label
                 ''',
                 'start_label',
@@ -12405,7 +12405,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('te-identifier', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                MPLS Traffic Engineering Tunnel or Group ID
                 ''',
                 'te_identifier',
@@ -12613,7 +12613,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('label-data', REFERENCE_LEAFLIST, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                label data
                 ''',
                 'label_data',
@@ -12676,19 +12676,19 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('elc', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                ELC
                 ''',
                 'elc',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('label', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Label value
                 ''',
                 'label',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('security-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Security ID
                 ''',
                 'security_id',
@@ -12705,13 +12705,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('local-label', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Local label
                 ''',
                 'local_label',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('tunnel-interface', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Tunnel interface
                 ''',
                 'tunnel_interface',
@@ -12734,19 +12734,19 @@ _meta_table = {
                 'prefix',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('prefix-length', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                Prefix Length
                 ''',
                 'prefix_length',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('table-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Table ID
                 ''',
                 'table_id',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('version', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Version
                 ''',
                 'version',
@@ -12769,25 +12769,25 @@ _meta_table = {
                 'prefix',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('prefix-len', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                Prefix length
                 ''',
                 'prefix_len',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('router-flags', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Route flags
                 ''',
                 'router_flags',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('table-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Table ID
                 ''',
                 'table_id',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('version', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Version
                 ''',
                 'version',
@@ -12804,7 +12804,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('pwhe-list-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                Pseudowire List Identifier
                 ''',
                 'pwhe_list_id',
@@ -12821,7 +12821,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('dmtc-ext-ifh', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                DMTC External Interface
                 ''',
                 'dmtc_ext_ifh',
@@ -12903,7 +12903,7 @@ _meta_table = {
                 'application_name',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('application-role-primary', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Primary/Backup role
                 ''',
                 'application_role_primary',
@@ -12955,7 +12955,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('table-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Table ID
                 ''',
                 'table_id',
@@ -12978,7 +12978,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('table-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Table ID
                 ''',
                 'table_id',
@@ -13013,7 +13013,7 @@ _meta_table = {
                 'application_name',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('application-role-primary', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Primary/Backup role
                 ''',
                 'application_role_primary',
@@ -13048,7 +13048,7 @@ _meta_table = {
                 'path_flags_decode',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('table-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Table ID
                 ''',
                 'table_id',
@@ -13071,7 +13071,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('out-label', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Outgoing Label
                 ''',
                 'out_label',
@@ -13083,7 +13083,7 @@ _meta_table = {
                 'path_flags_decode',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('table-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Table ID
                 ''',
                 'table_id',
@@ -13112,7 +13112,7 @@ _meta_table = {
                 'path_flags_decode',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('table-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Table ID
                 ''',
                 'table_id',
@@ -13135,7 +13135,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('backup-path-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                Routing path backup id
                 ''',
                 'backup_path_id',
@@ -13147,37 +13147,37 @@ _meta_table = {
                 'ipv4_next_hop',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('load-metric', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Routing path's load metric
                 ''',
                 'load_metric',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('local-label', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                TE backup path local label
                 ''',
                 'local_label',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('next-hop-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Next hop ID
                 ''',
                 'next_hop_id',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('out-interface', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Outgoing Interface
                 ''',
                 'out_interface',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('out-interface-parent', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Outgoing Interface's parent
                 ''',
                 'out_interface_parent',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('out-label', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Outgoing Label
                 ''',
                 'out_label',
@@ -13195,13 +13195,13 @@ _meta_table = {
                 'path_flags_decode',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('path-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                Routing path id
                 ''',
                 'path_id',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('table-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Table ID
                 ''',
                 'table_id',
@@ -13213,7 +13213,7 @@ _meta_table = {
                 'table_name',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('tunnel-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                Tunnel ID
                 ''',
                 'tunnel_id',
@@ -13230,7 +13230,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('backup-path-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                Routing path backup id
                 ''',
                 'backup_path_id',
@@ -13242,19 +13242,19 @@ _meta_table = {
                 'ipv6_next_hop',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('next-hop-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Next hop ID
                 ''',
                 'next_hop_id',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('out-interface', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Outgoing interface
                 ''',
                 'out_interface',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('out-label', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Outgoing label
                 ''',
                 'out_label',
@@ -13272,13 +13272,13 @@ _meta_table = {
                 'path_flags_decode',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('path-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                Routing path id
                 ''',
                 'path_id',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('table-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Table ID
                 ''',
                 'table_id',
@@ -13301,7 +13301,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('backup-interface', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Backup interface
                 ''',
                 'backup_interface',
@@ -13313,13 +13313,13 @@ _meta_table = {
                 'backup_ipv4_next_hop',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('backup-local-label', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Backup local label
                 ''',
                 'backup_local_label',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('data-out-parent-interface', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Outgoing data parent interface
                 ''',
                 'data_out_parent_interface',
@@ -13331,19 +13331,19 @@ _meta_table = {
                 'ipv4_next_hop',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('merge-point-label', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Merge point label
                 ''',
                 'merge_point_label',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('out-interface', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Outgoing interface
                 ''',
                 'out_interface',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('out-label', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Outgoing label
                 ''',
                 'out_label',
@@ -13361,7 +13361,7 @@ _meta_table = {
                 'path_flags_decode',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('table-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Table ID
                 ''',
                 'table_id',
@@ -13373,19 +13373,19 @@ _meta_table = {
                 'table_name',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('tunnel-class', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Tunnel class
                 ''',
                 'tunnel_class',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('tunnel-interface', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Tunnel interface
                 ''',
                 'tunnel_interface',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('tunnel-weight', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Tunnel weight
                 ''',
                 'tunnel_weight',
@@ -13402,13 +13402,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('bridge-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Bridge ID
                 ''',
                 'bridge_id',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('cross-connect-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Cross-connect ID
                 ''',
                 'cross_connect_id',
@@ -13420,13 +13420,13 @@ _meta_table = {
                 'ipv4_next_hop',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('out-interface', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Outgoing interface
                 ''',
                 'out_interface',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('out-label', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Outgoing Label
                 ''',
                 'out_label',
@@ -13438,19 +13438,19 @@ _meta_table = {
                 'path_flags_decode',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('pseuodo-wire-connect-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                PseudoWire Cross-connect ID
                 ''',
                 'pseuodo_wire_connect_id',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('split-horizon-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Split horizon group ID
                 ''',
                 'split_horizon_id',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('table-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Table ID
                 ''',
                 'table_id',
@@ -13473,7 +13473,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('out-interface', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Outgoing interface
                 ''',
                 'out_interface',
@@ -13485,7 +13485,7 @@ _meta_table = {
                 'path_flags_decode',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('table-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                VRF table ID
                 ''',
                 'table_id',
@@ -13508,13 +13508,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('control-word', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Is control word present
                 ''',
                 'control_word',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('imposition', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Is PWHE IMposition
                 ''',
                 'imposition',
@@ -13526,13 +13526,13 @@ _meta_table = {
                 'ipv4_next_hop',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('out-interface', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Outgoing interface
                 ''',
                 'out_interface',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('out-label', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Outgoing Label
                 ''',
                 'out_label',
@@ -13544,19 +13544,19 @@ _meta_table = {
                 'path_flags_decode',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('pw-list-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                Pseudo-wire List Identifier
                 ''',
                 'pw_list_id',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('pwhe-interface', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Pseudo-wire Head-end interface
                 ''',
                 'pwhe_interface',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('table-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Table ID
                 ''',
                 'table_id',
@@ -13568,7 +13568,7 @@ _meta_table = {
                 'table_name',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('vctype', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                Virtual Circuit Type
                 ''',
                 'vctype',
@@ -13585,13 +13585,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('l2-interface', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Pseudo-wire Layer 2 interface
                 ''',
                 'l2_interface',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('l3-interface', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Pseudo-wire Layer 3 interface
                 ''',
                 'l3_interface',
@@ -13603,7 +13603,7 @@ _meta_table = {
                 'path_flags_decode',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('table-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Table ID
                 ''',
                 'table_id',
@@ -13626,7 +13626,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('backup-path-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                Routing path backup id
                 ''',
                 'backup_path_id',
@@ -13638,37 +13638,37 @@ _meta_table = {
                 'ipv4_next_hop',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('load-metric', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Routing path's load metric
                 ''',
                 'load_metric',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('local-label', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                TE backup path local label
                 ''',
                 'local_label',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('next-hop-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Next hop ID
                 ''',
                 'next_hop_id',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('out-interface', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Outgoing Interface
                 ''',
                 'out_interface',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('out-interface-parent', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Outgoing Interface's parent
                 ''',
                 'out_interface_parent',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('out-label', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Outgoing Label
                 ''',
                 'out_label',
@@ -13686,13 +13686,13 @@ _meta_table = {
                 'path_flags_decode',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('path-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                Routing path id
                 ''',
                 'path_id',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('table-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Table ID
                 ''',
                 'table_id',
@@ -13704,7 +13704,7 @@ _meta_table = {
                 'table_name',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('tunnel-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                Tunnel ID
                 ''',
                 'tunnel_id',
@@ -13721,7 +13721,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('outgoing-label', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Remote Label
                 ''',
                 'outgoing_label',
@@ -13756,13 +13756,13 @@ _meta_table = {
                 'nexthop',
                 'Cisco-IOS-XR-mpls-lsd-oper', False, max_elements=2),
             _MetaInfoClassMember('num-lbls', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                Depth of inner label stack
                 ''',
                 'num_lbls',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('num-nexthops', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                Number of remote nexthop addresses
                 ''',
                 'num_nexthops',
@@ -13808,7 +13808,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('backup-path-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                Routing path backup id
                 ''',
                 'backup_path_id',
@@ -13820,19 +13820,19 @@ _meta_table = {
                 'ipv6_next_hop',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('next-hop-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Next hop ID
                 ''',
                 'next_hop_id',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('out-interface', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Outgoing interface
                 ''',
                 'out_interface',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('out-label', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Outgoing label
                 ''',
                 'out_label',
@@ -13850,13 +13850,13 @@ _meta_table = {
                 'path_flags_decode',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('path-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                Routing path id
                 ''',
                 'path_id',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('table-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Table ID
                 ''',
                 'table_id',
@@ -13879,7 +13879,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('outgoing-label', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Remote Label
                 ''',
                 'outgoing_label',
@@ -13914,13 +13914,13 @@ _meta_table = {
                 'nexthop',
                 'Cisco-IOS-XR-mpls-lsd-oper', False, max_elements=2),
             _MetaInfoClassMember('num-lbls', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                Depth of inner label stack
                 ''',
                 'num_lbls',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('num-nexthops', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                Number of remote nexthop addresses
                 ''',
                 'num_nexthops',
@@ -13966,7 +13966,7 @@ _meta_table = {
                 'flags_decode',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('table-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Table ID
                 ''',
                 'table_id',
@@ -13978,19 +13978,19 @@ _meta_table = {
                 'table_name',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('tunnel-fwd-class', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                Tunnel forwarding class
                 ''',
                 'tunnel_fwd_class',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('tunnel-load-metric', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Tunnel Load metric
                 ''',
                 'tunnel_load_metric',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('tunnel-local-label', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Tunnel local label
                 ''',
                 'tunnel_local_label',
@@ -14013,7 +14013,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('dmtc-ext-ifh', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                DMTC External Interface
                 ''',
                 'dmtc_ext_ifh',
@@ -14171,7 +14171,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('label-id', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Label value
                 ''',
                 'label_id',
@@ -14183,7 +14183,7 @@ _meta_table = {
                 'associated_fpi',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('bcdl-priority', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                BCDL Priority
                 ''',
                 'bcdl_priority',
@@ -14195,7 +14195,7 @@ _meta_table = {
                 'fpi_key',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('lsd-queue', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                LSD queue
                 ''',
                 'lsd_queue',
@@ -14207,7 +14207,7 @@ _meta_table = {
                 'mois',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('priority-updated', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Is rewrite's BCDL priority updated
                 ''',
                 'priority_updated',
@@ -14218,26 +14218,26 @@ _meta_table = {
                 ''',
                 'rewrite_id',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
-            _MetaInfoClassMember('rewrite-version', ATTRIBUTE, 'long' , None, None, 
-                [(0, 18446744073709551615L)], [], 
+            _MetaInfoClassMember('rewrite-version', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
                 '''                Rewrite version
                 ''',
                 'rewrite_version',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
-            _MetaInfoClassMember('rw-install-age', ATTRIBUTE, 'long' , None, None, 
-                [(0, 18446744073709551615L)], [], 
+            _MetaInfoClassMember('rw-install-age', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
                 '''                Rewrite install age
                 ''',
                 'rw_install_age',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
-            _MetaInfoClassMember('rw-install-time', ATTRIBUTE, 'long' , None, None, 
-                [(0, 18446744073709551615L)], [], 
+            _MetaInfoClassMember('rw-install-time', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
                 '''                Rewrite install timestamp
                 ''',
                 'rw_install_time',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('rw-updated', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Is rewrite ever updated
                 ''',
                 'rw_updated',
@@ -14318,31 +14318,31 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('total-backup-paths', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Total number of non-primary backup paths
                 ''',
                 'total_backup_paths',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('total-paths', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Total number of IP paths
                 ''',
                 'total_paths',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('total-pop-lkup-paths', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Total number of Pop-and-Lookup paths
                 ''',
                 'total_pop_lkup_paths',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('total-protected-paths', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Total number of protected paths
                 ''',
                 'total_protected_paths',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('total-remote-backup-paths', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Total number of remote backup paths
                 ''',
                 'total_remote_backup_paths',
@@ -14359,31 +14359,31 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('total-backup-paths', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Total number of non-primary backup paths
                 ''',
                 'total_backup_paths',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('total-paths', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Total number of IP paths
                 ''',
                 'total_paths',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('total-pop-lkup-paths', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Total number of Pop-and-Lookup paths
                 ''',
                 'total_pop_lkup_paths',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('total-protected-paths', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Total number of protected paths
                 ''',
                 'total_protected_paths',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('total-remote-backup-paths', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Total number of remote backup paths
                 ''',
                 'total_remote_backup_paths',
@@ -14412,109 +14412,109 @@ _meta_table = {
                 'ipv6_paths',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('num-dmtctefpi', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of DMTC FPI
                 ''',
                 'num_dmtctefpi',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('num-ipv4fpi', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of IPv4 FPI
                 ''',
                 'num_ipv4fpi',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('num-ipv6fpi', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of IPv6 FPI
                 ''',
                 'num_ipv6fpi',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('num-label-fpi', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of label FPI
                 ''',
                 'num_label_fpi',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('num-pw-list-tefpi', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of PW List FPI
                 ''',
                 'num_pw_list_tefpi',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('num-rewrite', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of rewrites
                 ''',
                 'num_rewrite',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('num-rewrite-rpf-neighbors', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of rewrites with RPF Neighbors
                 ''',
                 'num_rewrite_rpf_neighbors',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('num-tefpi', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of TE FPI
                 ''',
                 'num_tefpi',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('total-dmtc-intf', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Total number of DMTC External Interfaces
                 ''',
                 'total_dmtc_intf',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('total-forwad-update-message', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Total number of forward update messages
                 ''',
                 'total_forwad_update_message',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('total-forward-update', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Total number of forward updates
                 ''',
                 'total_forward_update',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('total-ip-sub-paths', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Total number of IP Subscriber paths
                 ''',
                 'total_ip_sub_paths',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('total-ipv4rpf-neighbors', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Total number of IPv4 RPF Neighbors
                 ''',
                 'total_ipv4rpf_neighbors',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('total-ipv6rpf-neighbors', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Total number of IPv6 RPF Neighbors
                 ''',
                 'total_ipv6rpf_neighbors',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('total-paths', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Total paths
                 ''',
                 'total_paths',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('total-pw-paths', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Total number of Pseudo-wire paths
                 ''',
                 'total_pw_paths',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('total-t-ev4-paths', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Total number of Traffic Eng IPv4 paths
                 ''',
                 'total_t_ev4_paths',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('total-te-head-paths', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Total number of Traffic Eng Head paths
                 ''',
                 'total_te_head_paths',
@@ -14537,25 +14537,25 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('error-msg-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Error count
                 ''',
                 'error_msg_count',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('oor-label-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Label OOR count
                 ''',
                 'oor_label_count',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('operation-msg-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Operation count
                 ''',
                 'operation_msg_count',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('rt-set-msg-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                RT set count
                 ''',
                 'rt_set_msg_count',
@@ -14572,7 +14572,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('connect-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Connect count
                 ''',
                 'connect_count',
@@ -14584,25 +14584,25 @@ _meta_table = {
                 'connected',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('interface-enable', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of interface enabled
                 ''',
                 'interface_enable',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('interface-enable-pending', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of interface enable pending
                 ''',
                 'interface_enable_pending',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('label-context-count', REFERENCE_LEAFLIST, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Label context count
                 ''',
                 'label_context_count',
                 'Cisco-IOS-XR-mpls-lsd-oper', False, max_elements=29),
             _MetaInfoClassMember('label-context-pending-count', REFERENCE_LEAFLIST, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Label context pending count
                 ''',
                 'label_context_pending_count',
@@ -14625,20 +14625,20 @@ _meta_table = {
                 ''',
                 'application_name',
                 'Cisco-IOS-XR-mpls-lsd-oper', True),
-            _MetaInfoClassMember('app-disconnect-time', ATTRIBUTE, 'long' , None, None, 
-                [(0, 18446744073709551615L)], [], 
+            _MetaInfoClassMember('app-disconnect-time', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
                 '''                App disconnect ts
                 ''',
                 'app_disconnect_time',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('app-flow-controlled', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                App flow control status
                 ''',
                 'app_flow_controlled',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
-            _MetaInfoClassMember('app-reg-time', ATTRIBUTE, 'long' , None, None, 
-                [(0, 18446744073709551615L)], [], 
+            _MetaInfoClassMember('app-reg-time', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
                 '''                App reg ts
                 ''',
                 'app_reg_time',
@@ -14656,7 +14656,7 @@ _meta_table = {
                 'application_name_xr',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('application-role-primary', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Primary/Backup role
                 ''',
                 'application_role_primary',
@@ -14679,20 +14679,20 @@ _meta_table = {
                 ''',
                 'application_type',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
-            _MetaInfoClassMember('flow-ctrl-clr-time', ATTRIBUTE, 'long' , None, None, 
-                [(0, 18446744073709551615L)], [], 
+            _MetaInfoClassMember('flow-ctrl-clr-time', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
                 '''                Flow Ctrl Clr ts
                 ''',
                 'flow_ctrl_clr_time',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
-            _MetaInfoClassMember('flow-ctrl-time', ATTRIBUTE, 'long' , None, None, 
-                [(0, 18446744073709551615L)], [], 
+            _MetaInfoClassMember('flow-ctrl-time', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
                 '''                Flow Ctrl ts
                 ''',
                 'flow_ctrl_time',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
-            _MetaInfoClassMember('go-act-ts', ATTRIBUTE, 'long' , None, None, 
-                [(0, 18446744073709551615L)], [], 
+            _MetaInfoClassMember('go-act-ts', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
                 '''                App go active timestamp
                 ''',
                 'go_act_ts',
@@ -14704,21 +14704,21 @@ _meta_table = {
                 'node_id',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('recovery-time-elapsed-seconds', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Recovery time [secs] elapsed if client is timing
                 out
                 ''',
                 'recovery_time_elapsed_seconds',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('recovery-time-register-seconds', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Recovery time [secs] specified at registration
                 or set explicitly
                 ''',
                 'recovery_time_register_seconds',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('recovery-time-remaining-seconds', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Recovery time [secs] remaining if client is
                 timing out
                 ''',
@@ -14765,7 +14765,7 @@ _meta_table = {
                 'application_name',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('application-role-primary', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Primary/Backup role
                 ''',
                 'application_role_primary',
@@ -14777,7 +14777,7 @@ _meta_table = {
                 'application_type',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('number-of-labels', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of labels
                 ''',
                 'number_of_labels',
@@ -14806,13 +14806,13 @@ _meta_table = {
                 'owner_count',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('rsi-connected', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Rsi connected
                 ''',
                 'rsi_connected',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('total-labels', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Total labels
                 ''',
                 'total_labels',
@@ -14852,25 +14852,25 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('max-dynamic-label-value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Maximum dynamic label value
                 ''',
                 'max_dynamic_label_value',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('max-static-label-value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Maximum static label value
                 ''',
                 'max_static_label_value',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('min-dynamic-label-value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Minimum dynamic label value
                 ''',
                 'min_dynamic_label_value',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('min-static-label-value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Minimum static label value
                 ''',
                 'min_static_label_value',
@@ -14887,31 +14887,31 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('total-backup-paths', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Total number of non-primary backup paths
                 ''',
                 'total_backup_paths',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('total-paths', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Total number of IP paths
                 ''',
                 'total_paths',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('total-pop-lkup-paths', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Total number of Pop-and-Lookup paths
                 ''',
                 'total_pop_lkup_paths',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('total-protected-paths', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Total number of protected paths
                 ''',
                 'total_protected_paths',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('total-remote-backup-paths', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Total number of remote backup paths
                 ''',
                 'total_remote_backup_paths',
@@ -14928,31 +14928,31 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('total-backup-paths', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Total number of non-primary backup paths
                 ''',
                 'total_backup_paths',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('total-paths', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Total number of IP paths
                 ''',
                 'total_paths',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('total-pop-lkup-paths', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Total number of Pop-and-Lookup paths
                 ''',
                 'total_pop_lkup_paths',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('total-protected-paths', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Total number of protected paths
                 ''',
                 'total_protected_paths',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('total-remote-backup-paths', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Total number of remote backup paths
                 ''',
                 'total_remote_backup_paths',
@@ -14987,109 +14987,109 @@ _meta_table = {
                 'ipv6_paths',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('num-dmtctefpi', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of DMTC FPI
                 ''',
                 'num_dmtctefpi',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('num-ipv4fpi', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of IPv4 FPI
                 ''',
                 'num_ipv4fpi',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('num-ipv6fpi', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of IPv6 FPI
                 ''',
                 'num_ipv6fpi',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('num-label-fpi', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of label FPI
                 ''',
                 'num_label_fpi',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('num-pw-list-tefpi', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of PW List FPI
                 ''',
                 'num_pw_list_tefpi',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('num-rewrite', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of rewrites
                 ''',
                 'num_rewrite',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('num-rewrite-rpf-neighbors', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of rewrites with RPF Neighbors
                 ''',
                 'num_rewrite_rpf_neighbors',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('num-tefpi', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of TE FPI
                 ''',
                 'num_tefpi',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('total-dmtc-intf', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Total number of DMTC External Interfaces
                 ''',
                 'total_dmtc_intf',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('total-forwad-update-message', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Total number of forward update messages
                 ''',
                 'total_forwad_update_message',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('total-forward-update', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Total number of forward updates
                 ''',
                 'total_forward_update',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('total-ip-sub-paths', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Total number of IP Subscriber paths
                 ''',
                 'total_ip_sub_paths',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('total-ipv4rpf-neighbors', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Total number of IPv4 RPF Neighbors
                 ''',
                 'total_ipv4rpf_neighbors',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('total-ipv6rpf-neighbors', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Total number of IPv6 RPF Neighbors
                 ''',
                 'total_ipv6rpf_neighbors',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('total-paths', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Total paths
                 ''',
                 'total_paths',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('total-pw-paths', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Total number of Pseudo-wire paths
                 ''',
                 'total_pw_paths',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('total-t-ev4-paths', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Total number of Traffic Eng IPv4 paths
                 ''',
                 'total_t_ev4_paths',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('total-te-head-paths', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Total number of Traffic Eng Head paths
                 ''',
                 'total_te_head_paths',
@@ -15141,7 +15141,7 @@ _meta_table = {
                 'application_name',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('application-role-primary', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Primary/Backup role
                 ''',
                 'application_role_primary',
@@ -15170,7 +15170,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('interface-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Interface
                 ''',
                 'interface_name',
@@ -15182,7 +15182,7 @@ _meta_table = {
                 'application_owner',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('interface', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Interface
                 ''',
                 'interface',
@@ -15335,7 +15335,7 @@ _meta_table = {
                 'application_name',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('application-role-primary', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Primary/Backup role
                 ''',
                 'application_role_primary',
@@ -15358,13 +15358,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('client-conn-index', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                BCDL Agent client connection index
                 ''',
                 'client_conn_index',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('parent-client-conn-index', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                BCDL Agent parent client connection index
                 ''',
                 'parent_client_conn_index',
@@ -15418,7 +15418,7 @@ _meta_table = {
                 'client_name',
                 'Cisco-IOS-XR-mpls-lsd-oper', True),
             _MetaInfoClassMember('client-index', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Client Index Value
                 ''',
                 'client_index',
@@ -15476,7 +15476,7 @@ _meta_table = {
                 'application_name',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('application-role-primary', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Primary/Backup role
                 ''',
                 'application_role_primary',
@@ -15488,7 +15488,7 @@ _meta_table = {
                 'application_type',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('number-of-labels', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of labels
                 ''',
                 'number_of_labels',
@@ -15511,13 +15511,13 @@ _meta_table = {
                 'owner_count',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('rsi-connected', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Rsi connected
                 ''',
                 'rsi_connected',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('total-labels', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Total labels
                 ''',
                 'total_labels',
@@ -15546,19 +15546,19 @@ _meta_table = {
                 'prefix',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('prefix-length', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                IPv4 prefix length
                 ''',
                 'prefix_length',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('security-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Security ID
                 ''',
                 'security_id',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('table-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Table ID
                 ''',
                 'table_id',
@@ -15587,19 +15587,19 @@ _meta_table = {
                 'prefix',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('prefix-length', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                Prefix length
                 ''',
                 'prefix_length',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('security-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Security ID
                 ''',
                 'security_id',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('table-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Table ID
                 ''',
                 'table_id',
@@ -15622,13 +15622,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('is-srte', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Is this an SRTE head tunnel
                 ''',
                 'is_srte',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('table-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Table ID
                 ''',
                 'table_id',
@@ -15640,19 +15640,19 @@ _meta_table = {
                 'tunnel_dest',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('tunnel-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Tunnel ID
                 ''',
                 'tunnel_id',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('tunnel-id-extension', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Extended tunnel ID
                 ''',
                 'tunnel_id_extension',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('tunnel-lsp-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Tunnel LSP ID
                 ''',
                 'tunnel_lsp_id',
@@ -15681,13 +15681,13 @@ _meta_table = {
                 'prefix',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('prefix-length', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                Prefix length
                 ''',
                 'prefix_length',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
-            _MetaInfoClassMember('route-distinguisher', ATTRIBUTE, 'long' , None, None, 
-                [(0, 18446744073709551615L)], [], 
+            _MetaInfoClassMember('route-distinguisher', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
                 '''                Route distinguisher
                 ''',
                 'route_distinguisher',
@@ -15710,13 +15710,13 @@ _meta_table = {
                 'prefix',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('prefix-length', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                Prefix length
                 ''',
                 'prefix_length',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
-            _MetaInfoClassMember('route-distinguisher', ATTRIBUTE, 'long' , None, None, 
-                [(0, 18446744073709551615L)], [], 
+            _MetaInfoClassMember('route-distinguisher', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
                 '''                Route distinguisher
                 ''',
                 'route_distinguisher',
@@ -15733,13 +15733,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('security-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Security ID
                 ''',
                 'security_id',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('table-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Table ID
                 ''',
                 'table_id',
@@ -15762,13 +15762,13 @@ _meta_table = {
                 'ipv4_next_hop',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('security-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Security ID
                 ''',
                 'security_id',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('table-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Table ID
                 ''',
                 'table_id',
@@ -15791,13 +15791,13 @@ _meta_table = {
                 'ipv6_next_hop',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('security-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Security ID
                 ''',
                 'security_id',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('table-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Table ID
                 ''',
                 'table_id',
@@ -15819,20 +15819,20 @@ _meta_table = {
                 ''',
                 'prefix',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
-            _MetaInfoClassMember('pseudowire-id', ATTRIBUTE, 'long' , None, None, 
-                [(0, 18446744073709551615L)], [], 
+            _MetaInfoClassMember('pseudowire-id', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
                 '''                Pseudo-wire ID
                 ''',
                 'pseudowire_id',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('remote-l2-router-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Remote L2 Router ID
                 ''',
                 'remote_l2_router_id',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('subinterface', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Subinterface
                 ''',
                 'subinterface',
@@ -15849,31 +15849,31 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('edge-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                Edge ID
                 ''',
                 'edge_id',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('offset', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Offset
                 ''',
                 'offset',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('service', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                Service
                 ''',
                 'service',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('size', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of labels
                 ''',
                 'size',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('vpn-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                VPN ID
                 ''',
                 'vpn_id',
@@ -15890,13 +15890,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('parent-interface', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Parent interface
                 ''',
                 'parent_interface',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('table-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Table Id
                 ''',
                 'table_id',
@@ -15913,7 +15913,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('p2mp-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Point to multipoint ID
                 ''',
                 'p2mp_id',
@@ -15925,25 +15925,25 @@ _meta_table = {
                 'previous_hop',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('table-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Table ID
                 ''',
                 'table_id',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('tunnel-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Tunnel ID
                 ''',
                 'tunnel_id',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('tunnel-id-extension', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Tunnel ID extension
                 ''',
                 'tunnel_id_extension',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('tunnel-lsp-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Tunnel LSP ID
                 ''',
                 'tunnel_lsp_id',
@@ -15966,13 +15966,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('lsm-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                LSM ID
                 ''',
                 'lsm_id',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('peer-label-space-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                Peer Label Space Id
                 ''',
                 'peer_label_space_id',
@@ -15984,13 +15984,13 @@ _meta_table = {
                 'peer_lsrid',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('table-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Table ID
                 ''',
                 'table_id',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('type', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                LSM ID Type
                 ''',
                 'type',
@@ -16007,7 +16007,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('pwhe-intf', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Pseudo-wire Head-end interface
                 ''',
                 'pwhe_intf',
@@ -16024,7 +16024,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('dest-global-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                TP destination global ID
                 ''',
                 'dest_global_id',
@@ -16036,19 +16036,19 @@ _meta_table = {
                 'dest_node_id',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('dest-tunnel-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                TP destination tunnel ID
                 ''',
                 'dest_tunnel_id',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('lsp-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                TP LSP ID
                 ''',
                 'lsp_id',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('source-global-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                TP source global ID
                 ''',
                 'source_global_id',
@@ -16060,7 +16060,7 @@ _meta_table = {
                 'source_node_id',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('source-tunnel-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                TP source tunnel ID
                 ''',
                 'source_tunnel_id',
@@ -16077,7 +16077,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('gre-interface', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Generic routing encapsulation interface
                 ''',
                 'gre_interface',
@@ -16094,7 +16094,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('greipv6-interface', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Generic routing encapsulation IPv6 interface
                 ''',
                 'greipv6_interface',
@@ -16117,13 +16117,13 @@ _meta_table = {
                 'ethernet_segment',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('evpn-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                EVPN ID
                 ''',
                 'evpn_id',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('evpn-tag', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                EVPN TAG
                 ''',
                 'evpn_tag',
@@ -16140,7 +16140,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('blb-intf', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                BFD BLB interface
                 ''',
                 'blb_intf',
@@ -16163,7 +16163,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('blb-intf', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                BFD BLB interface
                 ''',
                 'blb_intf',
@@ -16186,19 +16186,19 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('head', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Head
                 ''',
                 'head',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('v6', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                PIM6
                 ''',
                 'v6',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('vrf-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                VRF ID
                 ''',
                 'vrf_id',
@@ -16215,19 +16215,19 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('head', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Head
                 ''',
                 'head',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('hli', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Head LSM-ID
                 ''',
                 'hli',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('seg', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Segmented Multicast
                 ''',
                 'seg',
@@ -16239,13 +16239,13 @@ _meta_table = {
                 'source',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('v6', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                PIM6
                 ''',
                 'v6',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('vrf-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                VRF ID
                 ''',
                 'vrf_id',
@@ -16262,13 +16262,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('next-hop-set-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Next Hop Set ID
                 ''',
                 'next_hop_set_id',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('table-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Table ID
                 ''',
                 'table_id',
@@ -16285,13 +16285,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('segment-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Prefix Segment ID
                 ''',
                 'segment_id',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('table-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Table ID
                 ''',
                 'table_id',
@@ -16314,19 +16314,19 @@ _meta_table = {
                 'addr',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('index', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Adjacency index
                 ''',
                 'index',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('intf', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Adjacency interface
                 ''',
                 'intf',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('type', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Adjacency type
                 ''',
                 'type',
@@ -16349,19 +16349,19 @@ _meta_table = {
                 'addr',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('index', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Adjacency index
                 ''',
                 'index',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('intf', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Adjacency interface
                 ''',
                 'intf',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('type', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Adjacency type
                 ''',
                 'type',
@@ -16378,19 +16378,19 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('offset', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Offset
                 ''',
                 'offset',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('size', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of labels
                 ''',
                 'size',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('start-label', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Start Label
                 ''',
                 'start_label',
@@ -16407,7 +16407,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('te-identifier', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                MPLS Traffic Engineering Tunnel or Group ID
                 ''',
                 'te_identifier',
@@ -16650,7 +16650,7 @@ _meta_table = {
                 'application_name',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('application-role-primary', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Primary/Backup role
                 ''',
                 'application_role_primary',
@@ -16679,7 +16679,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('label-id', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Label value
                 ''',
                 'label_id',
@@ -16691,7 +16691,7 @@ _meta_table = {
                 'application_owner',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('label', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Label value
                 ''',
                 'label',
@@ -16703,19 +16703,19 @@ _meta_table = {
                 'label_context',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('rewrite-is-bound', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Rewrite bound to label
                 ''',
                 'rewrite_is_bound',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('rewrite-owners', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Rewrite owner
                 ''',
                 'rewrite_owners',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('rs-iconnected', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                RSI connected
                 ''',
                 'rs_iconnected',
@@ -16761,7 +16761,7 @@ _meta_table = {
                 'destination_prefix',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('destination-prefix-length', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                Destination prefix length
                 ''',
                 'destination_prefix_length',
@@ -16778,7 +16778,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('lspid', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                LSP ID
                 ''',
                 'lspid',
@@ -16790,7 +16790,7 @@ _meta_table = {
                 'source_address',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('tunnel-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Tunnel ID
                 ''',
                 'tunnel_id',
@@ -16836,13 +16836,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('frr-interface', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                FRR interface
                 ''',
                 'frr_interface',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('frr-label', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                FRR output label
                 ''',
                 'frr_label',
@@ -16854,13 +16854,13 @@ _meta_table = {
                 'ipv4_next_hop',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('out-interface', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Outgoing interface
                 ''',
                 'out_interface',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('out-label', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Outgoing label
                 ''',
                 'out_label',
@@ -16877,7 +16877,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('label', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Label value
                 ''',
                 'label',
@@ -16895,7 +16895,7 @@ _meta_table = {
                 'frr_entry_id',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('input-label', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Input label
                 ''',
                 'input_label',
@@ -16907,7 +16907,7 @@ _meta_table = {
                 'out_path',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('tunnel-interface', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Tunnel interface
                 ''',
                 'tunnel_interface',
@@ -16947,7 +16947,7 @@ _meta_table = {
                 'destination_prefix',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('destination-prefix-length', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                Destination prefix length
                 ''',
                 'destination_prefix_length',
@@ -16964,7 +16964,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('lspid', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                LSP ID
                 ''',
                 'lspid',
@@ -16976,7 +16976,7 @@ _meta_table = {
                 'source_address',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('tunnel-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Tunnel ID
                 ''',
                 'tunnel_id',
@@ -17022,13 +17022,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('frr-interface', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                FRR interface
                 ''',
                 'frr_interface',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('frr-label', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                FRR output label
                 ''',
                 'frr_label',
@@ -17040,13 +17040,13 @@ _meta_table = {
                 'ipv4_next_hop',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('out-interface', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Outgoing interface
                 ''',
                 'out_interface',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('out-label', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Outgoing label
                 ''',
                 'out_label',
@@ -17063,7 +17063,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('interface-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Tunnel interface
                 ''',
                 'interface_name',
@@ -17081,7 +17081,7 @@ _meta_table = {
                 'frr_entry_id',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('input-label', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Input label
                 ''',
                 'input_label',
@@ -17093,7 +17093,7 @@ _meta_table = {
                 'out_path',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('tunnel-interface', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Tunnel interface
                 ''',
                 'tunnel_interface',
@@ -17127,25 +17127,25 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('active', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of FRR rewrites in Active state
                 ''',
                 'active',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('igp', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of FRR rewrites in IGP state for SR-TE
                 ''',
                 'igp',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('partial', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of FRR rewrites in Partial state
                 ''',
                 'partial',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('ready', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of FRR rewrites in Ready state
                 ''',
                 'ready',
@@ -17162,31 +17162,31 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('interface-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Interface
                 ''',
                 'interface_name',
                 'Cisco-IOS-XR-mpls-lsd-oper', True),
             _MetaInfoClassMember('active', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of FRR rewrites in Active state
                 ''',
                 'active',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('igp', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of FRR rewrites in IGP state for SR-TE
                 ''',
                 'igp',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('partial', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of FRR rewrites in Partial state
                 ''',
                 'partial',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('ready', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of FRR rewrites in Ready state
                 ''',
                 'ready',
@@ -17220,25 +17220,25 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('active', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of FRR rewrites in Active state
                 ''',
                 'active',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('igp', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of FRR rewrites in IGP state for SR-TE
                 ''',
                 'igp',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('partial', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of FRR rewrites in Partial state
                 ''',
                 'partial',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('ready', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of FRR rewrites in Ready state
                 ''',
                 'ready',
@@ -17255,25 +17255,25 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('active', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of FRR rewrites in Active state
                 ''',
                 'active',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('igp', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of FRR rewrites in IGP state for SR-TE
                 ''',
                 'igp',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('partial', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of FRR rewrites in Partial state
                 ''',
                 'partial',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('ready', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of FRR rewrites in Ready state
                 ''',
                 'ready',
@@ -17340,19 +17340,19 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('elc', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                ELC
                 ''',
                 'elc',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('label', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Label value
                 ''',
                 'label',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('security-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Security ID
                 ''',
                 'security_id',
@@ -17369,13 +17369,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('local-label', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Local label
                 ''',
                 'local_label',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('tunnel-interface', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Tunnel interface
                 ''',
                 'tunnel_interface',
@@ -17398,19 +17398,19 @@ _meta_table = {
                 'prefix',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('prefix-length', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                Prefix Length
                 ''',
                 'prefix_length',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('table-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Table ID
                 ''',
                 'table_id',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('version', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Version
                 ''',
                 'version',
@@ -17433,25 +17433,25 @@ _meta_table = {
                 'prefix',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('prefix-len', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                Prefix length
                 ''',
                 'prefix_len',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('router-flags', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Route flags
                 ''',
                 'router_flags',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('table-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Table ID
                 ''',
                 'table_id',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('version', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Version
                 ''',
                 'version',
@@ -17468,7 +17468,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('pwhe-list-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                Pseudowire List Identifier
                 ''',
                 'pwhe_list_id',
@@ -17485,7 +17485,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('dmtc-ext-ifh', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                DMTC External Interface
                 ''',
                 'dmtc_ext_ifh',
@@ -17567,7 +17567,7 @@ _meta_table = {
                 'application_name',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('application-role-primary', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Primary/Backup role
                 ''',
                 'application_role_primary',
@@ -17625,19 +17625,19 @@ _meta_table = {
                 'prefix',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('prefix-length', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                IPv4 prefix length
                 ''',
                 'prefix_length',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('security-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Security ID
                 ''',
                 'security_id',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('table-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Table ID
                 ''',
                 'table_id',
@@ -17666,19 +17666,19 @@ _meta_table = {
                 'prefix',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('prefix-length', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                Prefix length
                 ''',
                 'prefix_length',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('security-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Security ID
                 ''',
                 'security_id',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('table-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Table ID
                 ''',
                 'table_id',
@@ -17701,13 +17701,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('is-srte', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Is this an SRTE head tunnel
                 ''',
                 'is_srte',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('table-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Table ID
                 ''',
                 'table_id',
@@ -17719,19 +17719,19 @@ _meta_table = {
                 'tunnel_dest',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('tunnel-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Tunnel ID
                 ''',
                 'tunnel_id',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('tunnel-id-extension', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Extended tunnel ID
                 ''',
                 'tunnel_id_extension',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('tunnel-lsp-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Tunnel LSP ID
                 ''',
                 'tunnel_lsp_id',
@@ -17760,13 +17760,13 @@ _meta_table = {
                 'prefix',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('prefix-length', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                Prefix length
                 ''',
                 'prefix_length',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
-            _MetaInfoClassMember('route-distinguisher', ATTRIBUTE, 'long' , None, None, 
-                [(0, 18446744073709551615L)], [], 
+            _MetaInfoClassMember('route-distinguisher', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
                 '''                Route distinguisher
                 ''',
                 'route_distinguisher',
@@ -17789,13 +17789,13 @@ _meta_table = {
                 'prefix',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('prefix-length', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                Prefix length
                 ''',
                 'prefix_length',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
-            _MetaInfoClassMember('route-distinguisher', ATTRIBUTE, 'long' , None, None, 
-                [(0, 18446744073709551615L)], [], 
+            _MetaInfoClassMember('route-distinguisher', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
                 '''                Route distinguisher
                 ''',
                 'route_distinguisher',
@@ -17812,13 +17812,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('security-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Security ID
                 ''',
                 'security_id',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('table-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Table ID
                 ''',
                 'table_id',
@@ -17841,13 +17841,13 @@ _meta_table = {
                 'ipv4_next_hop',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('security-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Security ID
                 ''',
                 'security_id',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('table-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Table ID
                 ''',
                 'table_id',
@@ -17870,13 +17870,13 @@ _meta_table = {
                 'ipv6_next_hop',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('security-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Security ID
                 ''',
                 'security_id',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('table-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Table ID
                 ''',
                 'table_id',
@@ -17898,20 +17898,20 @@ _meta_table = {
                 ''',
                 'prefix',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
-            _MetaInfoClassMember('pseudowire-id', ATTRIBUTE, 'long' , None, None, 
-                [(0, 18446744073709551615L)], [], 
+            _MetaInfoClassMember('pseudowire-id', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
                 '''                Pseudo-wire ID
                 ''',
                 'pseudowire_id',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('remote-l2-router-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Remote L2 Router ID
                 ''',
                 'remote_l2_router_id',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('subinterface', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Subinterface
                 ''',
                 'subinterface',
@@ -17928,31 +17928,31 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('edge-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                Edge ID
                 ''',
                 'edge_id',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('offset', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Offset
                 ''',
                 'offset',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('service', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                Service
                 ''',
                 'service',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('size', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of labels
                 ''',
                 'size',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('vpn-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                VPN ID
                 ''',
                 'vpn_id',
@@ -17969,13 +17969,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('parent-interface', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Parent interface
                 ''',
                 'parent_interface',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('table-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Table Id
                 ''',
                 'table_id',
@@ -17992,7 +17992,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('p2mp-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Point to multipoint ID
                 ''',
                 'p2mp_id',
@@ -18004,25 +18004,25 @@ _meta_table = {
                 'previous_hop',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('table-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Table ID
                 ''',
                 'table_id',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('tunnel-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Tunnel ID
                 ''',
                 'tunnel_id',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('tunnel-id-extension', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Tunnel ID extension
                 ''',
                 'tunnel_id_extension',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('tunnel-lsp-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Tunnel LSP ID
                 ''',
                 'tunnel_lsp_id',
@@ -18045,13 +18045,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('lsm-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                LSM ID
                 ''',
                 'lsm_id',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('peer-label-space-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                Peer Label Space Id
                 ''',
                 'peer_label_space_id',
@@ -18063,13 +18063,13 @@ _meta_table = {
                 'peer_lsrid',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('table-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Table ID
                 ''',
                 'table_id',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('type', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                LSM ID Type
                 ''',
                 'type',
@@ -18086,7 +18086,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('pwhe-intf', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Pseudo-wire Head-end interface
                 ''',
                 'pwhe_intf',
@@ -18103,7 +18103,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('dest-global-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                TP destination global ID
                 ''',
                 'dest_global_id',
@@ -18115,19 +18115,19 @@ _meta_table = {
                 'dest_node_id',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('dest-tunnel-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                TP destination tunnel ID
                 ''',
                 'dest_tunnel_id',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('lsp-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                TP LSP ID
                 ''',
                 'lsp_id',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('source-global-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                TP source global ID
                 ''',
                 'source_global_id',
@@ -18139,7 +18139,7 @@ _meta_table = {
                 'source_node_id',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('source-tunnel-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                TP source tunnel ID
                 ''',
                 'source_tunnel_id',
@@ -18156,7 +18156,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('gre-interface', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Generic routing encapsulation interface
                 ''',
                 'gre_interface',
@@ -18173,7 +18173,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('greipv6-interface', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Generic routing encapsulation IPv6 interface
                 ''',
                 'greipv6_interface',
@@ -18196,13 +18196,13 @@ _meta_table = {
                 'ethernet_segment',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('evpn-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                EVPN ID
                 ''',
                 'evpn_id',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('evpn-tag', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                EVPN TAG
                 ''',
                 'evpn_tag',
@@ -18219,7 +18219,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('blb-intf', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                BFD BLB interface
                 ''',
                 'blb_intf',
@@ -18242,7 +18242,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('blb-intf', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                BFD BLB interface
                 ''',
                 'blb_intf',
@@ -18265,19 +18265,19 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('head', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Head
                 ''',
                 'head',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('v6', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                PIM6
                 ''',
                 'v6',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('vrf-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                VRF ID
                 ''',
                 'vrf_id',
@@ -18294,19 +18294,19 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('head', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Head
                 ''',
                 'head',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('hli', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Head LSM-ID
                 ''',
                 'hli',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('seg', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Segmented Multicast
                 ''',
                 'seg',
@@ -18318,13 +18318,13 @@ _meta_table = {
                 'source',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('v6', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                PIM6
                 ''',
                 'v6',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('vrf-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                VRF ID
                 ''',
                 'vrf_id',
@@ -18341,13 +18341,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('next-hop-set-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Next Hop Set ID
                 ''',
                 'next_hop_set_id',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('table-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Table ID
                 ''',
                 'table_id',
@@ -18364,13 +18364,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('segment-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Prefix Segment ID
                 ''',
                 'segment_id',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('table-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Table ID
                 ''',
                 'table_id',
@@ -18393,19 +18393,19 @@ _meta_table = {
                 'addr',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('index', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Adjacency index
                 ''',
                 'index',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('intf', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Adjacency interface
                 ''',
                 'intf',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('type', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Adjacency type
                 ''',
                 'type',
@@ -18428,19 +18428,19 @@ _meta_table = {
                 'addr',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('index', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Adjacency index
                 ''',
                 'index',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('intf', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Adjacency interface
                 ''',
                 'intf',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('type', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Adjacency type
                 ''',
                 'type',
@@ -18457,19 +18457,19 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('offset', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Offset
                 ''',
                 'offset',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('size', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of labels
                 ''',
                 'size',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('start-label', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Start Label
                 ''',
                 'start_label',
@@ -18486,7 +18486,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('te-identifier', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                MPLS Traffic Engineering Tunnel or Group ID
                 ''',
                 'te_identifier',
@@ -18694,7 +18694,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('label-data', REFERENCE_LEAFLIST, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                label data
                 ''',
                 'label_data',
@@ -18757,19 +18757,19 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('elc', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                ELC
                 ''',
                 'elc',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('label', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Label value
                 ''',
                 'label',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('security-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Security ID
                 ''',
                 'security_id',
@@ -18786,13 +18786,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('local-label', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Local label
                 ''',
                 'local_label',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('tunnel-interface', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Tunnel interface
                 ''',
                 'tunnel_interface',
@@ -18815,19 +18815,19 @@ _meta_table = {
                 'prefix',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('prefix-length', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                Prefix Length
                 ''',
                 'prefix_length',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('table-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Table ID
                 ''',
                 'table_id',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('version', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Version
                 ''',
                 'version',
@@ -18850,25 +18850,25 @@ _meta_table = {
                 'prefix',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('prefix-len', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                Prefix length
                 ''',
                 'prefix_len',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('router-flags', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Route flags
                 ''',
                 'router_flags',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('table-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Table ID
                 ''',
                 'table_id',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('version', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Version
                 ''',
                 'version',
@@ -18885,7 +18885,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('pwhe-list-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                Pseudowire List Identifier
                 ''',
                 'pwhe_list_id',
@@ -18902,7 +18902,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('dmtc-ext-ifh', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                DMTC External Interface
                 ''',
                 'dmtc_ext_ifh',
@@ -18984,7 +18984,7 @@ _meta_table = {
                 'application_name',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('application-role-primary', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Primary/Backup role
                 ''',
                 'application_role_primary',
@@ -19036,7 +19036,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('table-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Table ID
                 ''',
                 'table_id',
@@ -19059,7 +19059,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('table-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Table ID
                 ''',
                 'table_id',
@@ -19094,7 +19094,7 @@ _meta_table = {
                 'application_name',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('application-role-primary', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Primary/Backup role
                 ''',
                 'application_role_primary',
@@ -19129,7 +19129,7 @@ _meta_table = {
                 'path_flags_decode',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('table-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Table ID
                 ''',
                 'table_id',
@@ -19152,7 +19152,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('out-label', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Outgoing Label
                 ''',
                 'out_label',
@@ -19164,7 +19164,7 @@ _meta_table = {
                 'path_flags_decode',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('table-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Table ID
                 ''',
                 'table_id',
@@ -19193,7 +19193,7 @@ _meta_table = {
                 'path_flags_decode',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('table-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Table ID
                 ''',
                 'table_id',
@@ -19216,7 +19216,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('backup-path-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                Routing path backup id
                 ''',
                 'backup_path_id',
@@ -19228,37 +19228,37 @@ _meta_table = {
                 'ipv4_next_hop',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('load-metric', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Routing path's load metric
                 ''',
                 'load_metric',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('local-label', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                TE backup path local label
                 ''',
                 'local_label',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('next-hop-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Next hop ID
                 ''',
                 'next_hop_id',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('out-interface', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Outgoing Interface
                 ''',
                 'out_interface',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('out-interface-parent', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Outgoing Interface's parent
                 ''',
                 'out_interface_parent',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('out-label', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Outgoing Label
                 ''',
                 'out_label',
@@ -19276,13 +19276,13 @@ _meta_table = {
                 'path_flags_decode',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('path-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                Routing path id
                 ''',
                 'path_id',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('table-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Table ID
                 ''',
                 'table_id',
@@ -19294,7 +19294,7 @@ _meta_table = {
                 'table_name',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('tunnel-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                Tunnel ID
                 ''',
                 'tunnel_id',
@@ -19311,7 +19311,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('backup-path-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                Routing path backup id
                 ''',
                 'backup_path_id',
@@ -19323,19 +19323,19 @@ _meta_table = {
                 'ipv6_next_hop',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('next-hop-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Next hop ID
                 ''',
                 'next_hop_id',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('out-interface', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Outgoing interface
                 ''',
                 'out_interface',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('out-label', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Outgoing label
                 ''',
                 'out_label',
@@ -19353,13 +19353,13 @@ _meta_table = {
                 'path_flags_decode',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('path-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                Routing path id
                 ''',
                 'path_id',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('table-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Table ID
                 ''',
                 'table_id',
@@ -19382,7 +19382,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('backup-interface', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Backup interface
                 ''',
                 'backup_interface',
@@ -19394,13 +19394,13 @@ _meta_table = {
                 'backup_ipv4_next_hop',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('backup-local-label', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Backup local label
                 ''',
                 'backup_local_label',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('data-out-parent-interface', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Outgoing data parent interface
                 ''',
                 'data_out_parent_interface',
@@ -19412,19 +19412,19 @@ _meta_table = {
                 'ipv4_next_hop',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('merge-point-label', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Merge point label
                 ''',
                 'merge_point_label',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('out-interface', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Outgoing interface
                 ''',
                 'out_interface',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('out-label', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Outgoing label
                 ''',
                 'out_label',
@@ -19442,7 +19442,7 @@ _meta_table = {
                 'path_flags_decode',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('table-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Table ID
                 ''',
                 'table_id',
@@ -19454,19 +19454,19 @@ _meta_table = {
                 'table_name',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('tunnel-class', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Tunnel class
                 ''',
                 'tunnel_class',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('tunnel-interface', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Tunnel interface
                 ''',
                 'tunnel_interface',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('tunnel-weight', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Tunnel weight
                 ''',
                 'tunnel_weight',
@@ -19483,13 +19483,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('bridge-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Bridge ID
                 ''',
                 'bridge_id',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('cross-connect-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Cross-connect ID
                 ''',
                 'cross_connect_id',
@@ -19501,13 +19501,13 @@ _meta_table = {
                 'ipv4_next_hop',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('out-interface', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Outgoing interface
                 ''',
                 'out_interface',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('out-label', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Outgoing Label
                 ''',
                 'out_label',
@@ -19519,19 +19519,19 @@ _meta_table = {
                 'path_flags_decode',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('pseuodo-wire-connect-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                PseudoWire Cross-connect ID
                 ''',
                 'pseuodo_wire_connect_id',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('split-horizon-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Split horizon group ID
                 ''',
                 'split_horizon_id',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('table-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Table ID
                 ''',
                 'table_id',
@@ -19554,7 +19554,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('out-interface', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Outgoing interface
                 ''',
                 'out_interface',
@@ -19566,7 +19566,7 @@ _meta_table = {
                 'path_flags_decode',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('table-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                VRF table ID
                 ''',
                 'table_id',
@@ -19589,13 +19589,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('control-word', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Is control word present
                 ''',
                 'control_word',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('imposition', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Is PWHE IMposition
                 ''',
                 'imposition',
@@ -19607,13 +19607,13 @@ _meta_table = {
                 'ipv4_next_hop',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('out-interface', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Outgoing interface
                 ''',
                 'out_interface',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('out-label', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Outgoing Label
                 ''',
                 'out_label',
@@ -19625,19 +19625,19 @@ _meta_table = {
                 'path_flags_decode',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('pw-list-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                Pseudo-wire List Identifier
                 ''',
                 'pw_list_id',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('pwhe-interface', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Pseudo-wire Head-end interface
                 ''',
                 'pwhe_interface',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('table-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Table ID
                 ''',
                 'table_id',
@@ -19649,7 +19649,7 @@ _meta_table = {
                 'table_name',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('vctype', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                Virtual Circuit Type
                 ''',
                 'vctype',
@@ -19666,13 +19666,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('l2-interface', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Pseudo-wire Layer 2 interface
                 ''',
                 'l2_interface',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('l3-interface', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Pseudo-wire Layer 3 interface
                 ''',
                 'l3_interface',
@@ -19684,7 +19684,7 @@ _meta_table = {
                 'path_flags_decode',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('table-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Table ID
                 ''',
                 'table_id',
@@ -19707,7 +19707,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('backup-path-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                Routing path backup id
                 ''',
                 'backup_path_id',
@@ -19719,37 +19719,37 @@ _meta_table = {
                 'ipv4_next_hop',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('load-metric', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Routing path's load metric
                 ''',
                 'load_metric',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('local-label', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                TE backup path local label
                 ''',
                 'local_label',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('next-hop-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Next hop ID
                 ''',
                 'next_hop_id',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('out-interface', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Outgoing Interface
                 ''',
                 'out_interface',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('out-interface-parent', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Outgoing Interface's parent
                 ''',
                 'out_interface_parent',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('out-label', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Outgoing Label
                 ''',
                 'out_label',
@@ -19767,13 +19767,13 @@ _meta_table = {
                 'path_flags_decode',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('path-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                Routing path id
                 ''',
                 'path_id',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('table-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Table ID
                 ''',
                 'table_id',
@@ -19785,7 +19785,7 @@ _meta_table = {
                 'table_name',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('tunnel-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                Tunnel ID
                 ''',
                 'tunnel_id',
@@ -19802,7 +19802,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('outgoing-label', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Remote Label
                 ''',
                 'outgoing_label',
@@ -19837,13 +19837,13 @@ _meta_table = {
                 'nexthop',
                 'Cisco-IOS-XR-mpls-lsd-oper', False, max_elements=2),
             _MetaInfoClassMember('num-lbls', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                Depth of inner label stack
                 ''',
                 'num_lbls',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('num-nexthops', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                Number of remote nexthop addresses
                 ''',
                 'num_nexthops',
@@ -19889,7 +19889,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('backup-path-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                Routing path backup id
                 ''',
                 'backup_path_id',
@@ -19901,19 +19901,19 @@ _meta_table = {
                 'ipv6_next_hop',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('next-hop-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Next hop ID
                 ''',
                 'next_hop_id',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('out-interface', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Outgoing interface
                 ''',
                 'out_interface',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('out-label', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Outgoing label
                 ''',
                 'out_label',
@@ -19931,13 +19931,13 @@ _meta_table = {
                 'path_flags_decode',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('path-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                Routing path id
                 ''',
                 'path_id',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('table-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Table ID
                 ''',
                 'table_id',
@@ -19960,7 +19960,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('outgoing-label', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Remote Label
                 ''',
                 'outgoing_label',
@@ -19995,13 +19995,13 @@ _meta_table = {
                 'nexthop',
                 'Cisco-IOS-XR-mpls-lsd-oper', False, max_elements=2),
             _MetaInfoClassMember('num-lbls', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                Depth of inner label stack
                 ''',
                 'num_lbls',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('num-nexthops', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                Number of remote nexthop addresses
                 ''',
                 'num_nexthops',
@@ -20047,7 +20047,7 @@ _meta_table = {
                 'flags_decode',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('table-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Table ID
                 ''',
                 'table_id',
@@ -20059,19 +20059,19 @@ _meta_table = {
                 'table_name',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('tunnel-fwd-class', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                Tunnel forwarding class
                 ''',
                 'tunnel_fwd_class',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('tunnel-load-metric', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Tunnel Load metric
                 ''',
                 'tunnel_load_metric',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('tunnel-local-label', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Tunnel local label
                 ''',
                 'tunnel_local_label',
@@ -20094,7 +20094,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('dmtc-ext-ifh', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                DMTC External Interface
                 ''',
                 'dmtc_ext_ifh',
@@ -20252,7 +20252,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('pw-list-id', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                PW List ID
                 ''',
                 'pw_list_id',
@@ -20264,7 +20264,7 @@ _meta_table = {
                 'associated_fpi',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('bcdl-priority', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                BCDL Priority
                 ''',
                 'bcdl_priority',
@@ -20276,7 +20276,7 @@ _meta_table = {
                 'fpi_key',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('lsd-queue', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                LSD queue
                 ''',
                 'lsd_queue',
@@ -20288,7 +20288,7 @@ _meta_table = {
                 'mois',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('priority-updated', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Is rewrite's BCDL priority updated
                 ''',
                 'priority_updated',
@@ -20299,26 +20299,26 @@ _meta_table = {
                 ''',
                 'rewrite_id',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
-            _MetaInfoClassMember('rewrite-version', ATTRIBUTE, 'long' , None, None, 
-                [(0, 18446744073709551615L)], [], 
+            _MetaInfoClassMember('rewrite-version', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
                 '''                Rewrite version
                 ''',
                 'rewrite_version',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
-            _MetaInfoClassMember('rw-install-age', ATTRIBUTE, 'long' , None, None, 
-                [(0, 18446744073709551615L)], [], 
+            _MetaInfoClassMember('rw-install-age', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
                 '''                Rewrite install age
                 ''',
                 'rw_install_age',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
-            _MetaInfoClassMember('rw-install-time', ATTRIBUTE, 'long' , None, None, 
-                [(0, 18446744073709551615L)], [], 
+            _MetaInfoClassMember('rw-install-time', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
                 '''                Rewrite install timestamp
                 ''',
                 'rw_install_time',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('rw-updated', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Is rewrite ever updated
                 ''',
                 'rw_updated',
@@ -20364,19 +20364,19 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('elc', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                ELC
                 ''',
                 'elc',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('label', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Label value
                 ''',
                 'label',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('security-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Security ID
                 ''',
                 'security_id',
@@ -20393,13 +20393,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('local-label', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Local label
                 ''',
                 'local_label',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('tunnel-interface', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Tunnel interface
                 ''',
                 'tunnel_interface',
@@ -20422,19 +20422,19 @@ _meta_table = {
                 'prefix',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('prefix-length', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                Prefix Length
                 ''',
                 'prefix_length',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('table-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Table ID
                 ''',
                 'table_id',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('version', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Version
                 ''',
                 'version',
@@ -20457,25 +20457,25 @@ _meta_table = {
                 'prefix',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('prefix-len', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                Prefix length
                 ''',
                 'prefix_len',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('router-flags', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Route flags
                 ''',
                 'router_flags',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('table-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Table ID
                 ''',
                 'table_id',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('version', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Version
                 ''',
                 'version',
@@ -20492,7 +20492,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('pwhe-list-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                Pseudowire List Identifier
                 ''',
                 'pwhe_list_id',
@@ -20509,7 +20509,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('dmtc-ext-ifh', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                DMTC External Interface
                 ''',
                 'dmtc_ext_ifh',
@@ -20591,7 +20591,7 @@ _meta_table = {
                 'application_name',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('application-role-primary', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Primary/Backup role
                 ''',
                 'application_role_primary',
@@ -20649,19 +20649,19 @@ _meta_table = {
                 'prefix',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('prefix-length', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                IPv4 prefix length
                 ''',
                 'prefix_length',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('security-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Security ID
                 ''',
                 'security_id',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('table-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Table ID
                 ''',
                 'table_id',
@@ -20690,19 +20690,19 @@ _meta_table = {
                 'prefix',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('prefix-length', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                Prefix length
                 ''',
                 'prefix_length',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('security-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Security ID
                 ''',
                 'security_id',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('table-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Table ID
                 ''',
                 'table_id',
@@ -20725,13 +20725,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('is-srte', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Is this an SRTE head tunnel
                 ''',
                 'is_srte',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('table-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Table ID
                 ''',
                 'table_id',
@@ -20743,19 +20743,19 @@ _meta_table = {
                 'tunnel_dest',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('tunnel-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Tunnel ID
                 ''',
                 'tunnel_id',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('tunnel-id-extension', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Extended tunnel ID
                 ''',
                 'tunnel_id_extension',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('tunnel-lsp-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Tunnel LSP ID
                 ''',
                 'tunnel_lsp_id',
@@ -20784,13 +20784,13 @@ _meta_table = {
                 'prefix',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('prefix-length', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                Prefix length
                 ''',
                 'prefix_length',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
-            _MetaInfoClassMember('route-distinguisher', ATTRIBUTE, 'long' , None, None, 
-                [(0, 18446744073709551615L)], [], 
+            _MetaInfoClassMember('route-distinguisher', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
                 '''                Route distinguisher
                 ''',
                 'route_distinguisher',
@@ -20813,13 +20813,13 @@ _meta_table = {
                 'prefix',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('prefix-length', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                Prefix length
                 ''',
                 'prefix_length',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
-            _MetaInfoClassMember('route-distinguisher', ATTRIBUTE, 'long' , None, None, 
-                [(0, 18446744073709551615L)], [], 
+            _MetaInfoClassMember('route-distinguisher', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
                 '''                Route distinguisher
                 ''',
                 'route_distinguisher',
@@ -20836,13 +20836,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('security-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Security ID
                 ''',
                 'security_id',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('table-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Table ID
                 ''',
                 'table_id',
@@ -20865,13 +20865,13 @@ _meta_table = {
                 'ipv4_next_hop',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('security-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Security ID
                 ''',
                 'security_id',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('table-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Table ID
                 ''',
                 'table_id',
@@ -20894,13 +20894,13 @@ _meta_table = {
                 'ipv6_next_hop',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('security-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Security ID
                 ''',
                 'security_id',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('table-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Table ID
                 ''',
                 'table_id',
@@ -20922,20 +20922,20 @@ _meta_table = {
                 ''',
                 'prefix',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
-            _MetaInfoClassMember('pseudowire-id', ATTRIBUTE, 'long' , None, None, 
-                [(0, 18446744073709551615L)], [], 
+            _MetaInfoClassMember('pseudowire-id', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
                 '''                Pseudo-wire ID
                 ''',
                 'pseudowire_id',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('remote-l2-router-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Remote L2 Router ID
                 ''',
                 'remote_l2_router_id',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('subinterface', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Subinterface
                 ''',
                 'subinterface',
@@ -20952,31 +20952,31 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('edge-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                Edge ID
                 ''',
                 'edge_id',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('offset', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Offset
                 ''',
                 'offset',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('service', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                Service
                 ''',
                 'service',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('size', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of labels
                 ''',
                 'size',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('vpn-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                VPN ID
                 ''',
                 'vpn_id',
@@ -20993,13 +20993,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('parent-interface', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Parent interface
                 ''',
                 'parent_interface',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('table-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Table Id
                 ''',
                 'table_id',
@@ -21016,7 +21016,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('p2mp-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Point to multipoint ID
                 ''',
                 'p2mp_id',
@@ -21028,25 +21028,25 @@ _meta_table = {
                 'previous_hop',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('table-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Table ID
                 ''',
                 'table_id',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('tunnel-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Tunnel ID
                 ''',
                 'tunnel_id',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('tunnel-id-extension', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Tunnel ID extension
                 ''',
                 'tunnel_id_extension',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('tunnel-lsp-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Tunnel LSP ID
                 ''',
                 'tunnel_lsp_id',
@@ -21069,13 +21069,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('lsm-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                LSM ID
                 ''',
                 'lsm_id',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('peer-label-space-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                Peer Label Space Id
                 ''',
                 'peer_label_space_id',
@@ -21087,13 +21087,13 @@ _meta_table = {
                 'peer_lsrid',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('table-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Table ID
                 ''',
                 'table_id',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('type', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                LSM ID Type
                 ''',
                 'type',
@@ -21110,7 +21110,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('pwhe-intf', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Pseudo-wire Head-end interface
                 ''',
                 'pwhe_intf',
@@ -21127,7 +21127,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('dest-global-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                TP destination global ID
                 ''',
                 'dest_global_id',
@@ -21139,19 +21139,19 @@ _meta_table = {
                 'dest_node_id',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('dest-tunnel-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                TP destination tunnel ID
                 ''',
                 'dest_tunnel_id',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('lsp-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                TP LSP ID
                 ''',
                 'lsp_id',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('source-global-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                TP source global ID
                 ''',
                 'source_global_id',
@@ -21163,7 +21163,7 @@ _meta_table = {
                 'source_node_id',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('source-tunnel-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                TP source tunnel ID
                 ''',
                 'source_tunnel_id',
@@ -21180,7 +21180,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('gre-interface', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Generic routing encapsulation interface
                 ''',
                 'gre_interface',
@@ -21197,7 +21197,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('greipv6-interface', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Generic routing encapsulation IPv6 interface
                 ''',
                 'greipv6_interface',
@@ -21220,13 +21220,13 @@ _meta_table = {
                 'ethernet_segment',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('evpn-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                EVPN ID
                 ''',
                 'evpn_id',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('evpn-tag', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                EVPN TAG
                 ''',
                 'evpn_tag',
@@ -21243,7 +21243,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('blb-intf', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                BFD BLB interface
                 ''',
                 'blb_intf',
@@ -21266,7 +21266,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('blb-intf', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                BFD BLB interface
                 ''',
                 'blb_intf',
@@ -21289,19 +21289,19 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('head', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Head
                 ''',
                 'head',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('v6', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                PIM6
                 ''',
                 'v6',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('vrf-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                VRF ID
                 ''',
                 'vrf_id',
@@ -21318,19 +21318,19 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('head', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Head
                 ''',
                 'head',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('hli', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Head LSM-ID
                 ''',
                 'hli',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('seg', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Segmented Multicast
                 ''',
                 'seg',
@@ -21342,13 +21342,13 @@ _meta_table = {
                 'source',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('v6', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                PIM6
                 ''',
                 'v6',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('vrf-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                VRF ID
                 ''',
                 'vrf_id',
@@ -21365,13 +21365,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('next-hop-set-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Next Hop Set ID
                 ''',
                 'next_hop_set_id',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('table-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Table ID
                 ''',
                 'table_id',
@@ -21388,13 +21388,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('segment-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Prefix Segment ID
                 ''',
                 'segment_id',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('table-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Table ID
                 ''',
                 'table_id',
@@ -21417,19 +21417,19 @@ _meta_table = {
                 'addr',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('index', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Adjacency index
                 ''',
                 'index',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('intf', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Adjacency interface
                 ''',
                 'intf',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('type', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Adjacency type
                 ''',
                 'type',
@@ -21452,19 +21452,19 @@ _meta_table = {
                 'addr',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('index', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Adjacency index
                 ''',
                 'index',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('intf', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Adjacency interface
                 ''',
                 'intf',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('type', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Adjacency type
                 ''',
                 'type',
@@ -21481,19 +21481,19 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('offset', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Offset
                 ''',
                 'offset',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('size', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of labels
                 ''',
                 'size',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('start-label', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Start Label
                 ''',
                 'start_label',
@@ -21510,7 +21510,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('te-identifier', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                MPLS Traffic Engineering Tunnel or Group ID
                 ''',
                 'te_identifier',
@@ -21718,7 +21718,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('label-data', REFERENCE_LEAFLIST, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                label data
                 ''',
                 'label_data',
@@ -21781,19 +21781,19 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('elc', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                ELC
                 ''',
                 'elc',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('label', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Label value
                 ''',
                 'label',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('security-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Security ID
                 ''',
                 'security_id',
@@ -21810,13 +21810,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('local-label', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Local label
                 ''',
                 'local_label',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('tunnel-interface', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Tunnel interface
                 ''',
                 'tunnel_interface',
@@ -21839,19 +21839,19 @@ _meta_table = {
                 'prefix',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('prefix-length', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                Prefix Length
                 ''',
                 'prefix_length',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('table-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Table ID
                 ''',
                 'table_id',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('version', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Version
                 ''',
                 'version',
@@ -21874,25 +21874,25 @@ _meta_table = {
                 'prefix',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('prefix-len', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                Prefix length
                 ''',
                 'prefix_len',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('router-flags', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Route flags
                 ''',
                 'router_flags',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('table-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Table ID
                 ''',
                 'table_id',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('version', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Version
                 ''',
                 'version',
@@ -21909,7 +21909,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('pwhe-list-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                Pseudowire List Identifier
                 ''',
                 'pwhe_list_id',
@@ -21926,7 +21926,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('dmtc-ext-ifh', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                DMTC External Interface
                 ''',
                 'dmtc_ext_ifh',
@@ -22008,7 +22008,7 @@ _meta_table = {
                 'application_name',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('application-role-primary', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Primary/Backup role
                 ''',
                 'application_role_primary',
@@ -22060,7 +22060,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('table-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Table ID
                 ''',
                 'table_id',
@@ -22083,7 +22083,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('table-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Table ID
                 ''',
                 'table_id',
@@ -22118,7 +22118,7 @@ _meta_table = {
                 'application_name',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('application-role-primary', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Primary/Backup role
                 ''',
                 'application_role_primary',
@@ -22153,7 +22153,7 @@ _meta_table = {
                 'path_flags_decode',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('table-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Table ID
                 ''',
                 'table_id',
@@ -22176,7 +22176,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('out-label', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Outgoing Label
                 ''',
                 'out_label',
@@ -22188,7 +22188,7 @@ _meta_table = {
                 'path_flags_decode',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('table-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Table ID
                 ''',
                 'table_id',
@@ -22217,7 +22217,7 @@ _meta_table = {
                 'path_flags_decode',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('table-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Table ID
                 ''',
                 'table_id',
@@ -22240,7 +22240,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('backup-path-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                Routing path backup id
                 ''',
                 'backup_path_id',
@@ -22252,37 +22252,37 @@ _meta_table = {
                 'ipv4_next_hop',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('load-metric', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Routing path's load metric
                 ''',
                 'load_metric',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('local-label', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                TE backup path local label
                 ''',
                 'local_label',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('next-hop-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Next hop ID
                 ''',
                 'next_hop_id',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('out-interface', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Outgoing Interface
                 ''',
                 'out_interface',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('out-interface-parent', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Outgoing Interface's parent
                 ''',
                 'out_interface_parent',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('out-label', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Outgoing Label
                 ''',
                 'out_label',
@@ -22300,13 +22300,13 @@ _meta_table = {
                 'path_flags_decode',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('path-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                Routing path id
                 ''',
                 'path_id',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('table-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Table ID
                 ''',
                 'table_id',
@@ -22318,7 +22318,7 @@ _meta_table = {
                 'table_name',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('tunnel-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                Tunnel ID
                 ''',
                 'tunnel_id',
@@ -22335,7 +22335,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('backup-path-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                Routing path backup id
                 ''',
                 'backup_path_id',
@@ -22347,19 +22347,19 @@ _meta_table = {
                 'ipv6_next_hop',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('next-hop-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Next hop ID
                 ''',
                 'next_hop_id',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('out-interface', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Outgoing interface
                 ''',
                 'out_interface',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('out-label', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Outgoing label
                 ''',
                 'out_label',
@@ -22377,13 +22377,13 @@ _meta_table = {
                 'path_flags_decode',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('path-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                Routing path id
                 ''',
                 'path_id',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('table-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Table ID
                 ''',
                 'table_id',
@@ -22406,7 +22406,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('backup-interface', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Backup interface
                 ''',
                 'backup_interface',
@@ -22418,13 +22418,13 @@ _meta_table = {
                 'backup_ipv4_next_hop',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('backup-local-label', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Backup local label
                 ''',
                 'backup_local_label',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('data-out-parent-interface', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Outgoing data parent interface
                 ''',
                 'data_out_parent_interface',
@@ -22436,19 +22436,19 @@ _meta_table = {
                 'ipv4_next_hop',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('merge-point-label', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Merge point label
                 ''',
                 'merge_point_label',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('out-interface', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Outgoing interface
                 ''',
                 'out_interface',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('out-label', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Outgoing label
                 ''',
                 'out_label',
@@ -22466,7 +22466,7 @@ _meta_table = {
                 'path_flags_decode',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('table-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Table ID
                 ''',
                 'table_id',
@@ -22478,19 +22478,19 @@ _meta_table = {
                 'table_name',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('tunnel-class', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Tunnel class
                 ''',
                 'tunnel_class',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('tunnel-interface', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Tunnel interface
                 ''',
                 'tunnel_interface',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('tunnel-weight', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Tunnel weight
                 ''',
                 'tunnel_weight',
@@ -22507,13 +22507,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('bridge-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Bridge ID
                 ''',
                 'bridge_id',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('cross-connect-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Cross-connect ID
                 ''',
                 'cross_connect_id',
@@ -22525,13 +22525,13 @@ _meta_table = {
                 'ipv4_next_hop',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('out-interface', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Outgoing interface
                 ''',
                 'out_interface',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('out-label', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Outgoing Label
                 ''',
                 'out_label',
@@ -22543,19 +22543,19 @@ _meta_table = {
                 'path_flags_decode',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('pseuodo-wire-connect-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                PseudoWire Cross-connect ID
                 ''',
                 'pseuodo_wire_connect_id',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('split-horizon-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Split horizon group ID
                 ''',
                 'split_horizon_id',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('table-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Table ID
                 ''',
                 'table_id',
@@ -22578,7 +22578,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('out-interface', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Outgoing interface
                 ''',
                 'out_interface',
@@ -22590,7 +22590,7 @@ _meta_table = {
                 'path_flags_decode',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('table-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                VRF table ID
                 ''',
                 'table_id',
@@ -22613,13 +22613,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('control-word', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Is control word present
                 ''',
                 'control_word',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('imposition', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Is PWHE IMposition
                 ''',
                 'imposition',
@@ -22631,13 +22631,13 @@ _meta_table = {
                 'ipv4_next_hop',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('out-interface', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Outgoing interface
                 ''',
                 'out_interface',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('out-label', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Outgoing Label
                 ''',
                 'out_label',
@@ -22649,19 +22649,19 @@ _meta_table = {
                 'path_flags_decode',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('pw-list-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                Pseudo-wire List Identifier
                 ''',
                 'pw_list_id',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('pwhe-interface', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Pseudo-wire Head-end interface
                 ''',
                 'pwhe_interface',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('table-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Table ID
                 ''',
                 'table_id',
@@ -22673,7 +22673,7 @@ _meta_table = {
                 'table_name',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('vctype', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                Virtual Circuit Type
                 ''',
                 'vctype',
@@ -22690,13 +22690,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('l2-interface', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Pseudo-wire Layer 2 interface
                 ''',
                 'l2_interface',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('l3-interface', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Pseudo-wire Layer 3 interface
                 ''',
                 'l3_interface',
@@ -22708,7 +22708,7 @@ _meta_table = {
                 'path_flags_decode',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('table-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Table ID
                 ''',
                 'table_id',
@@ -22731,7 +22731,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('backup-path-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                Routing path backup id
                 ''',
                 'backup_path_id',
@@ -22743,37 +22743,37 @@ _meta_table = {
                 'ipv4_next_hop',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('load-metric', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Routing path's load metric
                 ''',
                 'load_metric',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('local-label', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                TE backup path local label
                 ''',
                 'local_label',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('next-hop-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Next hop ID
                 ''',
                 'next_hop_id',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('out-interface', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Outgoing Interface
                 ''',
                 'out_interface',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('out-interface-parent', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Outgoing Interface's parent
                 ''',
                 'out_interface_parent',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('out-label', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Outgoing Label
                 ''',
                 'out_label',
@@ -22791,13 +22791,13 @@ _meta_table = {
                 'path_flags_decode',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('path-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                Routing path id
                 ''',
                 'path_id',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('table-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Table ID
                 ''',
                 'table_id',
@@ -22809,7 +22809,7 @@ _meta_table = {
                 'table_name',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('tunnel-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                Tunnel ID
                 ''',
                 'tunnel_id',
@@ -22826,7 +22826,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('outgoing-label', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Remote Label
                 ''',
                 'outgoing_label',
@@ -22861,13 +22861,13 @@ _meta_table = {
                 'nexthop',
                 'Cisco-IOS-XR-mpls-lsd-oper', False, max_elements=2),
             _MetaInfoClassMember('num-lbls', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                Depth of inner label stack
                 ''',
                 'num_lbls',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('num-nexthops', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                Number of remote nexthop addresses
                 ''',
                 'num_nexthops',
@@ -22913,7 +22913,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('backup-path-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                Routing path backup id
                 ''',
                 'backup_path_id',
@@ -22925,19 +22925,19 @@ _meta_table = {
                 'ipv6_next_hop',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('next-hop-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Next hop ID
                 ''',
                 'next_hop_id',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('out-interface', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Outgoing interface
                 ''',
                 'out_interface',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('out-label', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Outgoing label
                 ''',
                 'out_label',
@@ -22955,13 +22955,13 @@ _meta_table = {
                 'path_flags_decode',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('path-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                Routing path id
                 ''',
                 'path_id',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('table-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Table ID
                 ''',
                 'table_id',
@@ -22984,7 +22984,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('outgoing-label', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Remote Label
                 ''',
                 'outgoing_label',
@@ -23019,13 +23019,13 @@ _meta_table = {
                 'nexthop',
                 'Cisco-IOS-XR-mpls-lsd-oper', False, max_elements=2),
             _MetaInfoClassMember('num-lbls', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                Depth of inner label stack
                 ''',
                 'num_lbls',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('num-nexthops', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                Number of remote nexthop addresses
                 ''',
                 'num_nexthops',
@@ -23071,7 +23071,7 @@ _meta_table = {
                 'flags_decode',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('table-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Table ID
                 ''',
                 'table_id',
@@ -23083,19 +23083,19 @@ _meta_table = {
                 'table_name',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('tunnel-fwd-class', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                Tunnel forwarding class
                 ''',
                 'tunnel_fwd_class',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('tunnel-load-metric', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Tunnel Load metric
                 ''',
                 'tunnel_load_metric',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('tunnel-local-label', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Tunnel local label
                 ''',
                 'tunnel_local_label',
@@ -23118,7 +23118,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('dmtc-ext-ifh', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                DMTC External Interface
                 ''',
                 'dmtc_ext_ifh',
@@ -23282,7 +23282,7 @@ _meta_table = {
                 'associated_fpi',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('bcdl-priority', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                BCDL Priority
                 ''',
                 'bcdl_priority',
@@ -23294,7 +23294,7 @@ _meta_table = {
                 'fpi_key',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('lsd-queue', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                LSD queue
                 ''',
                 'lsd_queue',
@@ -23312,13 +23312,13 @@ _meta_table = {
                 'prefix',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('prefix-length', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Prefix length
                 ''',
                 'prefix_length',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('priority-updated', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Is rewrite's BCDL priority updated
                 ''',
                 'priority_updated',
@@ -23329,8 +23329,8 @@ _meta_table = {
                 ''',
                 'rewrite_id',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
-            _MetaInfoClassMember('rewrite-version', ATTRIBUTE, 'long' , None, None, 
-                [(0, 18446744073709551615L)], [], 
+            _MetaInfoClassMember('rewrite-version', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
                 '''                Rewrite version
                 ''',
                 'rewrite_version',
@@ -23347,20 +23347,20 @@ _meta_table = {
                 ''',
                 'rsi_table_name',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
-            _MetaInfoClassMember('rw-install-age', ATTRIBUTE, 'long' , None, None, 
-                [(0, 18446744073709551615L)], [], 
+            _MetaInfoClassMember('rw-install-age', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
                 '''                Rewrite install age
                 ''',
                 'rw_install_age',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
-            _MetaInfoClassMember('rw-install-time', ATTRIBUTE, 'long' , None, None, 
-                [(0, 18446744073709551615L)], [], 
+            _MetaInfoClassMember('rw-install-time', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
                 '''                Rewrite install timestamp
                 ''',
                 'rw_install_time',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('rw-updated', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Is rewrite ever updated
                 ''',
                 'rw_updated',
@@ -23406,19 +23406,19 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('elc', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                ELC
                 ''',
                 'elc',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('label', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Label value
                 ''',
                 'label',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('security-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Security ID
                 ''',
                 'security_id',
@@ -23435,13 +23435,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('local-label', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Local label
                 ''',
                 'local_label',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('tunnel-interface', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Tunnel interface
                 ''',
                 'tunnel_interface',
@@ -23464,19 +23464,19 @@ _meta_table = {
                 'prefix',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('prefix-length', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                Prefix Length
                 ''',
                 'prefix_length',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('table-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Table ID
                 ''',
                 'table_id',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('version', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Version
                 ''',
                 'version',
@@ -23499,25 +23499,25 @@ _meta_table = {
                 'prefix',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('prefix-len', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                Prefix length
                 ''',
                 'prefix_len',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('router-flags', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Route flags
                 ''',
                 'router_flags',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('table-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Table ID
                 ''',
                 'table_id',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('version', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Version
                 ''',
                 'version',
@@ -23534,7 +23534,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('pwhe-list-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                Pseudowire List Identifier
                 ''',
                 'pwhe_list_id',
@@ -23551,7 +23551,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('dmtc-ext-ifh', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                DMTC External Interface
                 ''',
                 'dmtc_ext_ifh',
@@ -23633,7 +23633,7 @@ _meta_table = {
                 'application_name',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('application-role-primary', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Primary/Backup role
                 ''',
                 'application_role_primary',
@@ -23691,19 +23691,19 @@ _meta_table = {
                 'prefix',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('prefix-length', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                IPv4 prefix length
                 ''',
                 'prefix_length',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('security-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Security ID
                 ''',
                 'security_id',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('table-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Table ID
                 ''',
                 'table_id',
@@ -23732,19 +23732,19 @@ _meta_table = {
                 'prefix',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('prefix-length', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                Prefix length
                 ''',
                 'prefix_length',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('security-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Security ID
                 ''',
                 'security_id',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('table-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Table ID
                 ''',
                 'table_id',
@@ -23767,13 +23767,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('is-srte', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Is this an SRTE head tunnel
                 ''',
                 'is_srte',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('table-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Table ID
                 ''',
                 'table_id',
@@ -23785,19 +23785,19 @@ _meta_table = {
                 'tunnel_dest',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('tunnel-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Tunnel ID
                 ''',
                 'tunnel_id',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('tunnel-id-extension', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Extended tunnel ID
                 ''',
                 'tunnel_id_extension',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('tunnel-lsp-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Tunnel LSP ID
                 ''',
                 'tunnel_lsp_id',
@@ -23826,13 +23826,13 @@ _meta_table = {
                 'prefix',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('prefix-length', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                Prefix length
                 ''',
                 'prefix_length',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
-            _MetaInfoClassMember('route-distinguisher', ATTRIBUTE, 'long' , None, None, 
-                [(0, 18446744073709551615L)], [], 
+            _MetaInfoClassMember('route-distinguisher', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
                 '''                Route distinguisher
                 ''',
                 'route_distinguisher',
@@ -23855,13 +23855,13 @@ _meta_table = {
                 'prefix',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('prefix-length', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                Prefix length
                 ''',
                 'prefix_length',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
-            _MetaInfoClassMember('route-distinguisher', ATTRIBUTE, 'long' , None, None, 
-                [(0, 18446744073709551615L)], [], 
+            _MetaInfoClassMember('route-distinguisher', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
                 '''                Route distinguisher
                 ''',
                 'route_distinguisher',
@@ -23878,13 +23878,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('security-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Security ID
                 ''',
                 'security_id',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('table-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Table ID
                 ''',
                 'table_id',
@@ -23907,13 +23907,13 @@ _meta_table = {
                 'ipv4_next_hop',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('security-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Security ID
                 ''',
                 'security_id',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('table-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Table ID
                 ''',
                 'table_id',
@@ -23936,13 +23936,13 @@ _meta_table = {
                 'ipv6_next_hop',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('security-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Security ID
                 ''',
                 'security_id',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('table-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Table ID
                 ''',
                 'table_id',
@@ -23964,20 +23964,20 @@ _meta_table = {
                 ''',
                 'prefix',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
-            _MetaInfoClassMember('pseudowire-id', ATTRIBUTE, 'long' , None, None, 
-                [(0, 18446744073709551615L)], [], 
+            _MetaInfoClassMember('pseudowire-id', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
                 '''                Pseudo-wire ID
                 ''',
                 'pseudowire_id',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('remote-l2-router-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Remote L2 Router ID
                 ''',
                 'remote_l2_router_id',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('subinterface', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Subinterface
                 ''',
                 'subinterface',
@@ -23994,31 +23994,31 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('edge-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                Edge ID
                 ''',
                 'edge_id',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('offset', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Offset
                 ''',
                 'offset',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('service', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                Service
                 ''',
                 'service',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('size', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of labels
                 ''',
                 'size',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('vpn-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                VPN ID
                 ''',
                 'vpn_id',
@@ -24035,13 +24035,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('parent-interface', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Parent interface
                 ''',
                 'parent_interface',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('table-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Table Id
                 ''',
                 'table_id',
@@ -24058,7 +24058,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('p2mp-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Point to multipoint ID
                 ''',
                 'p2mp_id',
@@ -24070,25 +24070,25 @@ _meta_table = {
                 'previous_hop',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('table-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Table ID
                 ''',
                 'table_id',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('tunnel-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Tunnel ID
                 ''',
                 'tunnel_id',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('tunnel-id-extension', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Tunnel ID extension
                 ''',
                 'tunnel_id_extension',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('tunnel-lsp-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Tunnel LSP ID
                 ''',
                 'tunnel_lsp_id',
@@ -24111,13 +24111,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('lsm-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                LSM ID
                 ''',
                 'lsm_id',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('peer-label-space-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                Peer Label Space Id
                 ''',
                 'peer_label_space_id',
@@ -24129,13 +24129,13 @@ _meta_table = {
                 'peer_lsrid',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('table-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Table ID
                 ''',
                 'table_id',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('type', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                LSM ID Type
                 ''',
                 'type',
@@ -24152,7 +24152,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('pwhe-intf', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Pseudo-wire Head-end interface
                 ''',
                 'pwhe_intf',
@@ -24169,7 +24169,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('dest-global-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                TP destination global ID
                 ''',
                 'dest_global_id',
@@ -24181,19 +24181,19 @@ _meta_table = {
                 'dest_node_id',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('dest-tunnel-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                TP destination tunnel ID
                 ''',
                 'dest_tunnel_id',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('lsp-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                TP LSP ID
                 ''',
                 'lsp_id',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('source-global-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                TP source global ID
                 ''',
                 'source_global_id',
@@ -24205,7 +24205,7 @@ _meta_table = {
                 'source_node_id',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('source-tunnel-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                TP source tunnel ID
                 ''',
                 'source_tunnel_id',
@@ -24222,7 +24222,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('gre-interface', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Generic routing encapsulation interface
                 ''',
                 'gre_interface',
@@ -24239,7 +24239,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('greipv6-interface', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Generic routing encapsulation IPv6 interface
                 ''',
                 'greipv6_interface',
@@ -24262,13 +24262,13 @@ _meta_table = {
                 'ethernet_segment',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('evpn-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                EVPN ID
                 ''',
                 'evpn_id',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('evpn-tag', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                EVPN TAG
                 ''',
                 'evpn_tag',
@@ -24285,7 +24285,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('blb-intf', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                BFD BLB interface
                 ''',
                 'blb_intf',
@@ -24308,7 +24308,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('blb-intf', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                BFD BLB interface
                 ''',
                 'blb_intf',
@@ -24331,19 +24331,19 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('head', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Head
                 ''',
                 'head',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('v6', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                PIM6
                 ''',
                 'v6',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('vrf-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                VRF ID
                 ''',
                 'vrf_id',
@@ -24360,19 +24360,19 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('head', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Head
                 ''',
                 'head',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('hli', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Head LSM-ID
                 ''',
                 'hli',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('seg', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Segmented Multicast
                 ''',
                 'seg',
@@ -24384,13 +24384,13 @@ _meta_table = {
                 'source',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('v6', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                PIM6
                 ''',
                 'v6',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('vrf-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                VRF ID
                 ''',
                 'vrf_id',
@@ -24407,13 +24407,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('next-hop-set-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Next Hop Set ID
                 ''',
                 'next_hop_set_id',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('table-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Table ID
                 ''',
                 'table_id',
@@ -24430,13 +24430,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('segment-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Prefix Segment ID
                 ''',
                 'segment_id',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('table-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Table ID
                 ''',
                 'table_id',
@@ -24459,19 +24459,19 @@ _meta_table = {
                 'addr',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('index', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Adjacency index
                 ''',
                 'index',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('intf', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Adjacency interface
                 ''',
                 'intf',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('type', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Adjacency type
                 ''',
                 'type',
@@ -24494,19 +24494,19 @@ _meta_table = {
                 'addr',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('index', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Adjacency index
                 ''',
                 'index',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('intf', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Adjacency interface
                 ''',
                 'intf',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('type', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Adjacency type
                 ''',
                 'type',
@@ -24523,19 +24523,19 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('offset', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Offset
                 ''',
                 'offset',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('size', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of labels
                 ''',
                 'size',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('start-label', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Start Label
                 ''',
                 'start_label',
@@ -24552,7 +24552,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('te-identifier', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                MPLS Traffic Engineering Tunnel or Group ID
                 ''',
                 'te_identifier',
@@ -24760,7 +24760,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('label-data', REFERENCE_LEAFLIST, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                label data
                 ''',
                 'label_data',
@@ -24823,19 +24823,19 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('elc', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                ELC
                 ''',
                 'elc',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('label', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Label value
                 ''',
                 'label',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('security-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Security ID
                 ''',
                 'security_id',
@@ -24852,13 +24852,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('local-label', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Local label
                 ''',
                 'local_label',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('tunnel-interface', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Tunnel interface
                 ''',
                 'tunnel_interface',
@@ -24881,19 +24881,19 @@ _meta_table = {
                 'prefix',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('prefix-length', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                Prefix Length
                 ''',
                 'prefix_length',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('table-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Table ID
                 ''',
                 'table_id',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('version', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Version
                 ''',
                 'version',
@@ -24916,25 +24916,25 @@ _meta_table = {
                 'prefix',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('prefix-len', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                Prefix length
                 ''',
                 'prefix_len',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('router-flags', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Route flags
                 ''',
                 'router_flags',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('table-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Table ID
                 ''',
                 'table_id',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('version', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Version
                 ''',
                 'version',
@@ -24951,7 +24951,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('pwhe-list-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                Pseudowire List Identifier
                 ''',
                 'pwhe_list_id',
@@ -24968,7 +24968,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('dmtc-ext-ifh', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                DMTC External Interface
                 ''',
                 'dmtc_ext_ifh',
@@ -25050,7 +25050,7 @@ _meta_table = {
                 'application_name',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('application-role-primary', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Primary/Backup role
                 ''',
                 'application_role_primary',
@@ -25102,7 +25102,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('table-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Table ID
                 ''',
                 'table_id',
@@ -25125,7 +25125,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('table-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Table ID
                 ''',
                 'table_id',
@@ -25160,7 +25160,7 @@ _meta_table = {
                 'application_name',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('application-role-primary', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Primary/Backup role
                 ''',
                 'application_role_primary',
@@ -25195,7 +25195,7 @@ _meta_table = {
                 'path_flags_decode',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('table-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Table ID
                 ''',
                 'table_id',
@@ -25218,7 +25218,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('out-label', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Outgoing Label
                 ''',
                 'out_label',
@@ -25230,7 +25230,7 @@ _meta_table = {
                 'path_flags_decode',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('table-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Table ID
                 ''',
                 'table_id',
@@ -25259,7 +25259,7 @@ _meta_table = {
                 'path_flags_decode',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('table-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Table ID
                 ''',
                 'table_id',
@@ -25282,7 +25282,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('backup-path-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                Routing path backup id
                 ''',
                 'backup_path_id',
@@ -25294,37 +25294,37 @@ _meta_table = {
                 'ipv4_next_hop',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('load-metric', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Routing path's load metric
                 ''',
                 'load_metric',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('local-label', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                TE backup path local label
                 ''',
                 'local_label',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('next-hop-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Next hop ID
                 ''',
                 'next_hop_id',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('out-interface', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Outgoing Interface
                 ''',
                 'out_interface',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('out-interface-parent', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Outgoing Interface's parent
                 ''',
                 'out_interface_parent',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('out-label', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Outgoing Label
                 ''',
                 'out_label',
@@ -25342,13 +25342,13 @@ _meta_table = {
                 'path_flags_decode',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('path-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                Routing path id
                 ''',
                 'path_id',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('table-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Table ID
                 ''',
                 'table_id',
@@ -25360,7 +25360,7 @@ _meta_table = {
                 'table_name',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('tunnel-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                Tunnel ID
                 ''',
                 'tunnel_id',
@@ -25377,7 +25377,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('backup-path-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                Routing path backup id
                 ''',
                 'backup_path_id',
@@ -25389,19 +25389,19 @@ _meta_table = {
                 'ipv6_next_hop',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('next-hop-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Next hop ID
                 ''',
                 'next_hop_id',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('out-interface', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Outgoing interface
                 ''',
                 'out_interface',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('out-label', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Outgoing label
                 ''',
                 'out_label',
@@ -25419,13 +25419,13 @@ _meta_table = {
                 'path_flags_decode',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('path-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                Routing path id
                 ''',
                 'path_id',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('table-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Table ID
                 ''',
                 'table_id',
@@ -25448,7 +25448,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('backup-interface', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Backup interface
                 ''',
                 'backup_interface',
@@ -25460,13 +25460,13 @@ _meta_table = {
                 'backup_ipv4_next_hop',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('backup-local-label', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Backup local label
                 ''',
                 'backup_local_label',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('data-out-parent-interface', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Outgoing data parent interface
                 ''',
                 'data_out_parent_interface',
@@ -25478,19 +25478,19 @@ _meta_table = {
                 'ipv4_next_hop',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('merge-point-label', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Merge point label
                 ''',
                 'merge_point_label',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('out-interface', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Outgoing interface
                 ''',
                 'out_interface',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('out-label', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Outgoing label
                 ''',
                 'out_label',
@@ -25508,7 +25508,7 @@ _meta_table = {
                 'path_flags_decode',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('table-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Table ID
                 ''',
                 'table_id',
@@ -25520,19 +25520,19 @@ _meta_table = {
                 'table_name',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('tunnel-class', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Tunnel class
                 ''',
                 'tunnel_class',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('tunnel-interface', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Tunnel interface
                 ''',
                 'tunnel_interface',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('tunnel-weight', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Tunnel weight
                 ''',
                 'tunnel_weight',
@@ -25549,13 +25549,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('bridge-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Bridge ID
                 ''',
                 'bridge_id',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('cross-connect-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Cross-connect ID
                 ''',
                 'cross_connect_id',
@@ -25567,13 +25567,13 @@ _meta_table = {
                 'ipv4_next_hop',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('out-interface', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Outgoing interface
                 ''',
                 'out_interface',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('out-label', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Outgoing Label
                 ''',
                 'out_label',
@@ -25585,19 +25585,19 @@ _meta_table = {
                 'path_flags_decode',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('pseuodo-wire-connect-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                PseudoWire Cross-connect ID
                 ''',
                 'pseuodo_wire_connect_id',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('split-horizon-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Split horizon group ID
                 ''',
                 'split_horizon_id',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('table-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Table ID
                 ''',
                 'table_id',
@@ -25620,7 +25620,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('out-interface', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Outgoing interface
                 ''',
                 'out_interface',
@@ -25632,7 +25632,7 @@ _meta_table = {
                 'path_flags_decode',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('table-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                VRF table ID
                 ''',
                 'table_id',
@@ -25655,13 +25655,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('control-word', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Is control word present
                 ''',
                 'control_word',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('imposition', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Is PWHE IMposition
                 ''',
                 'imposition',
@@ -25673,13 +25673,13 @@ _meta_table = {
                 'ipv4_next_hop',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('out-interface', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Outgoing interface
                 ''',
                 'out_interface',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('out-label', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Outgoing Label
                 ''',
                 'out_label',
@@ -25691,19 +25691,19 @@ _meta_table = {
                 'path_flags_decode',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('pw-list-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                Pseudo-wire List Identifier
                 ''',
                 'pw_list_id',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('pwhe-interface', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Pseudo-wire Head-end interface
                 ''',
                 'pwhe_interface',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('table-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Table ID
                 ''',
                 'table_id',
@@ -25715,7 +25715,7 @@ _meta_table = {
                 'table_name',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('vctype', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                Virtual Circuit Type
                 ''',
                 'vctype',
@@ -25732,13 +25732,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('l2-interface', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Pseudo-wire Layer 2 interface
                 ''',
                 'l2_interface',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('l3-interface', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Pseudo-wire Layer 3 interface
                 ''',
                 'l3_interface',
@@ -25750,7 +25750,7 @@ _meta_table = {
                 'path_flags_decode',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('table-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Table ID
                 ''',
                 'table_id',
@@ -25773,7 +25773,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('backup-path-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                Routing path backup id
                 ''',
                 'backup_path_id',
@@ -25785,37 +25785,37 @@ _meta_table = {
                 'ipv4_next_hop',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('load-metric', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Routing path's load metric
                 ''',
                 'load_metric',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('local-label', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                TE backup path local label
                 ''',
                 'local_label',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('next-hop-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Next hop ID
                 ''',
                 'next_hop_id',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('out-interface', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Outgoing Interface
                 ''',
                 'out_interface',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('out-interface-parent', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Outgoing Interface's parent
                 ''',
                 'out_interface_parent',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('out-label', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Outgoing Label
                 ''',
                 'out_label',
@@ -25833,13 +25833,13 @@ _meta_table = {
                 'path_flags_decode',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('path-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                Routing path id
                 ''',
                 'path_id',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('table-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Table ID
                 ''',
                 'table_id',
@@ -25851,7 +25851,7 @@ _meta_table = {
                 'table_name',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('tunnel-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                Tunnel ID
                 ''',
                 'tunnel_id',
@@ -25868,7 +25868,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('outgoing-label', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Remote Label
                 ''',
                 'outgoing_label',
@@ -25903,13 +25903,13 @@ _meta_table = {
                 'nexthop',
                 'Cisco-IOS-XR-mpls-lsd-oper', False, max_elements=2),
             _MetaInfoClassMember('num-lbls', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                Depth of inner label stack
                 ''',
                 'num_lbls',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('num-nexthops', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                Number of remote nexthop addresses
                 ''',
                 'num_nexthops',
@@ -25955,7 +25955,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('backup-path-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                Routing path backup id
                 ''',
                 'backup_path_id',
@@ -25967,19 +25967,19 @@ _meta_table = {
                 'ipv6_next_hop',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('next-hop-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Next hop ID
                 ''',
                 'next_hop_id',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('out-interface', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Outgoing interface
                 ''',
                 'out_interface',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('out-label', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Outgoing label
                 ''',
                 'out_label',
@@ -25997,13 +25997,13 @@ _meta_table = {
                 'path_flags_decode',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('path-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                Routing path id
                 ''',
                 'path_id',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('table-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Table ID
                 ''',
                 'table_id',
@@ -26026,7 +26026,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('outgoing-label', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Remote Label
                 ''',
                 'outgoing_label',
@@ -26061,13 +26061,13 @@ _meta_table = {
                 'nexthop',
                 'Cisco-IOS-XR-mpls-lsd-oper', False, max_elements=2),
             _MetaInfoClassMember('num-lbls', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                Depth of inner label stack
                 ''',
                 'num_lbls',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('num-nexthops', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                Number of remote nexthop addresses
                 ''',
                 'num_nexthops',
@@ -26113,7 +26113,7 @@ _meta_table = {
                 'flags_decode',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('table-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Table ID
                 ''',
                 'table_id',
@@ -26125,19 +26125,19 @@ _meta_table = {
                 'table_name',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('tunnel-fwd-class', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                Tunnel forwarding class
                 ''',
                 'tunnel_fwd_class',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('tunnel-load-metric', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Tunnel Load metric
                 ''',
                 'tunnel_load_metric',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('tunnel-local-label', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Tunnel local label
                 ''',
                 'tunnel_local_label',
@@ -26160,7 +26160,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('dmtc-ext-ifh', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                DMTC External Interface
                 ''',
                 'dmtc_ext_ifh',
@@ -26318,7 +26318,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('interface-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Tunnel interface
                 ''',
                 'interface_name',
@@ -26330,7 +26330,7 @@ _meta_table = {
                 'associated_fpi',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('bcdl-priority', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                BCDL Priority
                 ''',
                 'bcdl_priority',
@@ -26342,7 +26342,7 @@ _meta_table = {
                 'fpi_key',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('lsd-queue', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                LSD queue
                 ''',
                 'lsd_queue',
@@ -26354,7 +26354,7 @@ _meta_table = {
                 'mois',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('priority-updated', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Is rewrite's BCDL priority updated
                 ''',
                 'priority_updated',
@@ -26365,26 +26365,26 @@ _meta_table = {
                 ''',
                 'rewrite_id',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
-            _MetaInfoClassMember('rewrite-version', ATTRIBUTE, 'long' , None, None, 
-                [(0, 18446744073709551615L)], [], 
+            _MetaInfoClassMember('rewrite-version', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
                 '''                Rewrite version
                 ''',
                 'rewrite_version',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
-            _MetaInfoClassMember('rw-install-age', ATTRIBUTE, 'long' , None, None, 
-                [(0, 18446744073709551615L)], [], 
+            _MetaInfoClassMember('rw-install-age', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
                 '''                Rewrite install age
                 ''',
                 'rw_install_age',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
-            _MetaInfoClassMember('rw-install-time', ATTRIBUTE, 'long' , None, None, 
-                [(0, 18446744073709551615L)], [], 
+            _MetaInfoClassMember('rw-install-time', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
                 '''                Rewrite install timestamp
                 ''',
                 'rw_install_time',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('rw-updated', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Is rewrite ever updated
                 ''',
                 'rw_updated',
@@ -26430,19 +26430,19 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('elc', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                ELC
                 ''',
                 'elc',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('label', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Label value
                 ''',
                 'label',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('security-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Security ID
                 ''',
                 'security_id',
@@ -26459,13 +26459,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('local-label', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Local label
                 ''',
                 'local_label',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('tunnel-interface', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Tunnel interface
                 ''',
                 'tunnel_interface',
@@ -26488,19 +26488,19 @@ _meta_table = {
                 'prefix',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('prefix-length', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                Prefix Length
                 ''',
                 'prefix_length',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('table-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Table ID
                 ''',
                 'table_id',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('version', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Version
                 ''',
                 'version',
@@ -26523,25 +26523,25 @@ _meta_table = {
                 'prefix',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('prefix-len', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                Prefix length
                 ''',
                 'prefix_len',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('router-flags', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Route flags
                 ''',
                 'router_flags',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('table-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Table ID
                 ''',
                 'table_id',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('version', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Version
                 ''',
                 'version',
@@ -26558,7 +26558,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('pwhe-list-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                Pseudowire List Identifier
                 ''',
                 'pwhe_list_id',
@@ -26575,7 +26575,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('dmtc-ext-ifh', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                DMTC External Interface
                 ''',
                 'dmtc_ext_ifh',
@@ -26657,7 +26657,7 @@ _meta_table = {
                 'application_name',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('application-role-primary', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Primary/Backup role
                 ''',
                 'application_role_primary',
@@ -26715,19 +26715,19 @@ _meta_table = {
                 'prefix',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('prefix-length', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                IPv4 prefix length
                 ''',
                 'prefix_length',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('security-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Security ID
                 ''',
                 'security_id',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('table-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Table ID
                 ''',
                 'table_id',
@@ -26756,19 +26756,19 @@ _meta_table = {
                 'prefix',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('prefix-length', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                Prefix length
                 ''',
                 'prefix_length',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('security-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Security ID
                 ''',
                 'security_id',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('table-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Table ID
                 ''',
                 'table_id',
@@ -26791,13 +26791,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('is-srte', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Is this an SRTE head tunnel
                 ''',
                 'is_srte',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('table-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Table ID
                 ''',
                 'table_id',
@@ -26809,19 +26809,19 @@ _meta_table = {
                 'tunnel_dest',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('tunnel-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Tunnel ID
                 ''',
                 'tunnel_id',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('tunnel-id-extension', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Extended tunnel ID
                 ''',
                 'tunnel_id_extension',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('tunnel-lsp-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Tunnel LSP ID
                 ''',
                 'tunnel_lsp_id',
@@ -26850,13 +26850,13 @@ _meta_table = {
                 'prefix',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('prefix-length', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                Prefix length
                 ''',
                 'prefix_length',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
-            _MetaInfoClassMember('route-distinguisher', ATTRIBUTE, 'long' , None, None, 
-                [(0, 18446744073709551615L)], [], 
+            _MetaInfoClassMember('route-distinguisher', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
                 '''                Route distinguisher
                 ''',
                 'route_distinguisher',
@@ -26879,13 +26879,13 @@ _meta_table = {
                 'prefix',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('prefix-length', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                Prefix length
                 ''',
                 'prefix_length',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
-            _MetaInfoClassMember('route-distinguisher', ATTRIBUTE, 'long' , None, None, 
-                [(0, 18446744073709551615L)], [], 
+            _MetaInfoClassMember('route-distinguisher', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
                 '''                Route distinguisher
                 ''',
                 'route_distinguisher',
@@ -26902,13 +26902,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('security-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Security ID
                 ''',
                 'security_id',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('table-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Table ID
                 ''',
                 'table_id',
@@ -26931,13 +26931,13 @@ _meta_table = {
                 'ipv4_next_hop',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('security-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Security ID
                 ''',
                 'security_id',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('table-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Table ID
                 ''',
                 'table_id',
@@ -26960,13 +26960,13 @@ _meta_table = {
                 'ipv6_next_hop',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('security-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Security ID
                 ''',
                 'security_id',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('table-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Table ID
                 ''',
                 'table_id',
@@ -26988,20 +26988,20 @@ _meta_table = {
                 ''',
                 'prefix',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
-            _MetaInfoClassMember('pseudowire-id', ATTRIBUTE, 'long' , None, None, 
-                [(0, 18446744073709551615L)], [], 
+            _MetaInfoClassMember('pseudowire-id', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
                 '''                Pseudo-wire ID
                 ''',
                 'pseudowire_id',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('remote-l2-router-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Remote L2 Router ID
                 ''',
                 'remote_l2_router_id',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('subinterface', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Subinterface
                 ''',
                 'subinterface',
@@ -27018,31 +27018,31 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('edge-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                Edge ID
                 ''',
                 'edge_id',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('offset', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Offset
                 ''',
                 'offset',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('service', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                Service
                 ''',
                 'service',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('size', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of labels
                 ''',
                 'size',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('vpn-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                VPN ID
                 ''',
                 'vpn_id',
@@ -27059,13 +27059,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('parent-interface', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Parent interface
                 ''',
                 'parent_interface',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('table-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Table Id
                 ''',
                 'table_id',
@@ -27082,7 +27082,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('p2mp-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Point to multipoint ID
                 ''',
                 'p2mp_id',
@@ -27094,25 +27094,25 @@ _meta_table = {
                 'previous_hop',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('table-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Table ID
                 ''',
                 'table_id',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('tunnel-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Tunnel ID
                 ''',
                 'tunnel_id',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('tunnel-id-extension', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Tunnel ID extension
                 ''',
                 'tunnel_id_extension',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('tunnel-lsp-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Tunnel LSP ID
                 ''',
                 'tunnel_lsp_id',
@@ -27135,13 +27135,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('lsm-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                LSM ID
                 ''',
                 'lsm_id',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('peer-label-space-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                Peer Label Space Id
                 ''',
                 'peer_label_space_id',
@@ -27153,13 +27153,13 @@ _meta_table = {
                 'peer_lsrid',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('table-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Table ID
                 ''',
                 'table_id',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('type', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                LSM ID Type
                 ''',
                 'type',
@@ -27176,7 +27176,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('pwhe-intf', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Pseudo-wire Head-end interface
                 ''',
                 'pwhe_intf',
@@ -27193,7 +27193,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('dest-global-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                TP destination global ID
                 ''',
                 'dest_global_id',
@@ -27205,19 +27205,19 @@ _meta_table = {
                 'dest_node_id',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('dest-tunnel-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                TP destination tunnel ID
                 ''',
                 'dest_tunnel_id',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('lsp-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                TP LSP ID
                 ''',
                 'lsp_id',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('source-global-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                TP source global ID
                 ''',
                 'source_global_id',
@@ -27229,7 +27229,7 @@ _meta_table = {
                 'source_node_id',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('source-tunnel-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                TP source tunnel ID
                 ''',
                 'source_tunnel_id',
@@ -27246,7 +27246,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('gre-interface', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Generic routing encapsulation interface
                 ''',
                 'gre_interface',
@@ -27263,7 +27263,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('greipv6-interface', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Generic routing encapsulation IPv6 interface
                 ''',
                 'greipv6_interface',
@@ -27286,13 +27286,13 @@ _meta_table = {
                 'ethernet_segment',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('evpn-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                EVPN ID
                 ''',
                 'evpn_id',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('evpn-tag', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                EVPN TAG
                 ''',
                 'evpn_tag',
@@ -27309,7 +27309,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('blb-intf', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                BFD BLB interface
                 ''',
                 'blb_intf',
@@ -27332,7 +27332,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('blb-intf', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                BFD BLB interface
                 ''',
                 'blb_intf',
@@ -27355,19 +27355,19 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('head', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Head
                 ''',
                 'head',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('v6', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                PIM6
                 ''',
                 'v6',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('vrf-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                VRF ID
                 ''',
                 'vrf_id',
@@ -27384,19 +27384,19 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('head', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Head
                 ''',
                 'head',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('hli', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Head LSM-ID
                 ''',
                 'hli',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('seg', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Segmented Multicast
                 ''',
                 'seg',
@@ -27408,13 +27408,13 @@ _meta_table = {
                 'source',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('v6', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                PIM6
                 ''',
                 'v6',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('vrf-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                VRF ID
                 ''',
                 'vrf_id',
@@ -27431,13 +27431,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('next-hop-set-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Next Hop Set ID
                 ''',
                 'next_hop_set_id',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('table-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Table ID
                 ''',
                 'table_id',
@@ -27454,13 +27454,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('segment-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Prefix Segment ID
                 ''',
                 'segment_id',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('table-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Table ID
                 ''',
                 'table_id',
@@ -27483,19 +27483,19 @@ _meta_table = {
                 'addr',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('index', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Adjacency index
                 ''',
                 'index',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('intf', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Adjacency interface
                 ''',
                 'intf',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('type', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Adjacency type
                 ''',
                 'type',
@@ -27518,19 +27518,19 @@ _meta_table = {
                 'addr',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('index', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Adjacency index
                 ''',
                 'index',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('intf', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Adjacency interface
                 ''',
                 'intf',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('type', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Adjacency type
                 ''',
                 'type',
@@ -27547,19 +27547,19 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('offset', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Offset
                 ''',
                 'offset',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('size', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of labels
                 ''',
                 'size',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('start-label', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Start Label
                 ''',
                 'start_label',
@@ -27576,7 +27576,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('te-identifier', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                MPLS Traffic Engineering Tunnel or Group ID
                 ''',
                 'te_identifier',
@@ -27784,7 +27784,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('label-data', REFERENCE_LEAFLIST, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                label data
                 ''',
                 'label_data',
@@ -27847,19 +27847,19 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('elc', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                ELC
                 ''',
                 'elc',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('label', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Label value
                 ''',
                 'label',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('security-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Security ID
                 ''',
                 'security_id',
@@ -27876,13 +27876,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('local-label', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Local label
                 ''',
                 'local_label',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('tunnel-interface', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Tunnel interface
                 ''',
                 'tunnel_interface',
@@ -27905,19 +27905,19 @@ _meta_table = {
                 'prefix',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('prefix-length', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                Prefix Length
                 ''',
                 'prefix_length',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('table-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Table ID
                 ''',
                 'table_id',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('version', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Version
                 ''',
                 'version',
@@ -27940,25 +27940,25 @@ _meta_table = {
                 'prefix',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('prefix-len', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                Prefix length
                 ''',
                 'prefix_len',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('router-flags', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Route flags
                 ''',
                 'router_flags',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('table-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Table ID
                 ''',
                 'table_id',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('version', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Version
                 ''',
                 'version',
@@ -27975,7 +27975,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('pwhe-list-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                Pseudowire List Identifier
                 ''',
                 'pwhe_list_id',
@@ -27992,7 +27992,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('dmtc-ext-ifh', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                DMTC External Interface
                 ''',
                 'dmtc_ext_ifh',
@@ -28074,7 +28074,7 @@ _meta_table = {
                 'application_name',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('application-role-primary', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Primary/Backup role
                 ''',
                 'application_role_primary',
@@ -28126,7 +28126,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('table-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Table ID
                 ''',
                 'table_id',
@@ -28149,7 +28149,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('table-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Table ID
                 ''',
                 'table_id',
@@ -28184,7 +28184,7 @@ _meta_table = {
                 'application_name',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('application-role-primary', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Primary/Backup role
                 ''',
                 'application_role_primary',
@@ -28219,7 +28219,7 @@ _meta_table = {
                 'path_flags_decode',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('table-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Table ID
                 ''',
                 'table_id',
@@ -28242,7 +28242,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('out-label', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Outgoing Label
                 ''',
                 'out_label',
@@ -28254,7 +28254,7 @@ _meta_table = {
                 'path_flags_decode',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('table-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Table ID
                 ''',
                 'table_id',
@@ -28283,7 +28283,7 @@ _meta_table = {
                 'path_flags_decode',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('table-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Table ID
                 ''',
                 'table_id',
@@ -28306,7 +28306,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('backup-path-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                Routing path backup id
                 ''',
                 'backup_path_id',
@@ -28318,37 +28318,37 @@ _meta_table = {
                 'ipv4_next_hop',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('load-metric', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Routing path's load metric
                 ''',
                 'load_metric',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('local-label', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                TE backup path local label
                 ''',
                 'local_label',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('next-hop-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Next hop ID
                 ''',
                 'next_hop_id',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('out-interface', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Outgoing Interface
                 ''',
                 'out_interface',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('out-interface-parent', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Outgoing Interface's parent
                 ''',
                 'out_interface_parent',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('out-label', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Outgoing Label
                 ''',
                 'out_label',
@@ -28366,13 +28366,13 @@ _meta_table = {
                 'path_flags_decode',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('path-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                Routing path id
                 ''',
                 'path_id',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('table-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Table ID
                 ''',
                 'table_id',
@@ -28384,7 +28384,7 @@ _meta_table = {
                 'table_name',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('tunnel-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                Tunnel ID
                 ''',
                 'tunnel_id',
@@ -28401,7 +28401,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('backup-path-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                Routing path backup id
                 ''',
                 'backup_path_id',
@@ -28413,19 +28413,19 @@ _meta_table = {
                 'ipv6_next_hop',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('next-hop-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Next hop ID
                 ''',
                 'next_hop_id',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('out-interface', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Outgoing interface
                 ''',
                 'out_interface',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('out-label', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Outgoing label
                 ''',
                 'out_label',
@@ -28443,13 +28443,13 @@ _meta_table = {
                 'path_flags_decode',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('path-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                Routing path id
                 ''',
                 'path_id',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('table-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Table ID
                 ''',
                 'table_id',
@@ -28472,7 +28472,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('backup-interface', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Backup interface
                 ''',
                 'backup_interface',
@@ -28484,13 +28484,13 @@ _meta_table = {
                 'backup_ipv4_next_hop',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('backup-local-label', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Backup local label
                 ''',
                 'backup_local_label',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('data-out-parent-interface', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Outgoing data parent interface
                 ''',
                 'data_out_parent_interface',
@@ -28502,19 +28502,19 @@ _meta_table = {
                 'ipv4_next_hop',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('merge-point-label', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Merge point label
                 ''',
                 'merge_point_label',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('out-interface', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Outgoing interface
                 ''',
                 'out_interface',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('out-label', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Outgoing label
                 ''',
                 'out_label',
@@ -28532,7 +28532,7 @@ _meta_table = {
                 'path_flags_decode',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('table-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Table ID
                 ''',
                 'table_id',
@@ -28544,19 +28544,19 @@ _meta_table = {
                 'table_name',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('tunnel-class', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Tunnel class
                 ''',
                 'tunnel_class',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('tunnel-interface', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Tunnel interface
                 ''',
                 'tunnel_interface',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('tunnel-weight', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Tunnel weight
                 ''',
                 'tunnel_weight',
@@ -28573,13 +28573,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('bridge-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Bridge ID
                 ''',
                 'bridge_id',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('cross-connect-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Cross-connect ID
                 ''',
                 'cross_connect_id',
@@ -28591,13 +28591,13 @@ _meta_table = {
                 'ipv4_next_hop',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('out-interface', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Outgoing interface
                 ''',
                 'out_interface',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('out-label', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Outgoing Label
                 ''',
                 'out_label',
@@ -28609,19 +28609,19 @@ _meta_table = {
                 'path_flags_decode',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('pseuodo-wire-connect-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                PseudoWire Cross-connect ID
                 ''',
                 'pseuodo_wire_connect_id',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('split-horizon-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Split horizon group ID
                 ''',
                 'split_horizon_id',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('table-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Table ID
                 ''',
                 'table_id',
@@ -28644,7 +28644,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('out-interface', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Outgoing interface
                 ''',
                 'out_interface',
@@ -28656,7 +28656,7 @@ _meta_table = {
                 'path_flags_decode',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('table-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                VRF table ID
                 ''',
                 'table_id',
@@ -28679,13 +28679,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('control-word', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Is control word present
                 ''',
                 'control_word',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('imposition', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Is PWHE IMposition
                 ''',
                 'imposition',
@@ -28697,13 +28697,13 @@ _meta_table = {
                 'ipv4_next_hop',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('out-interface', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Outgoing interface
                 ''',
                 'out_interface',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('out-label', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Outgoing Label
                 ''',
                 'out_label',
@@ -28715,19 +28715,19 @@ _meta_table = {
                 'path_flags_decode',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('pw-list-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                Pseudo-wire List Identifier
                 ''',
                 'pw_list_id',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('pwhe-interface', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Pseudo-wire Head-end interface
                 ''',
                 'pwhe_interface',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('table-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Table ID
                 ''',
                 'table_id',
@@ -28739,7 +28739,7 @@ _meta_table = {
                 'table_name',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('vctype', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                Virtual Circuit Type
                 ''',
                 'vctype',
@@ -28756,13 +28756,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('l2-interface', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Pseudo-wire Layer 2 interface
                 ''',
                 'l2_interface',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('l3-interface', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Pseudo-wire Layer 3 interface
                 ''',
                 'l3_interface',
@@ -28774,7 +28774,7 @@ _meta_table = {
                 'path_flags_decode',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('table-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Table ID
                 ''',
                 'table_id',
@@ -28797,7 +28797,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('backup-path-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                Routing path backup id
                 ''',
                 'backup_path_id',
@@ -28809,37 +28809,37 @@ _meta_table = {
                 'ipv4_next_hop',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('load-metric', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Routing path's load metric
                 ''',
                 'load_metric',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('local-label', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                TE backup path local label
                 ''',
                 'local_label',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('next-hop-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Next hop ID
                 ''',
                 'next_hop_id',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('out-interface', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Outgoing Interface
                 ''',
                 'out_interface',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('out-interface-parent', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Outgoing Interface's parent
                 ''',
                 'out_interface_parent',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('out-label', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Outgoing Label
                 ''',
                 'out_label',
@@ -28857,13 +28857,13 @@ _meta_table = {
                 'path_flags_decode',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('path-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                Routing path id
                 ''',
                 'path_id',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('table-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Table ID
                 ''',
                 'table_id',
@@ -28875,7 +28875,7 @@ _meta_table = {
                 'table_name',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('tunnel-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                Tunnel ID
                 ''',
                 'tunnel_id',
@@ -28892,7 +28892,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('outgoing-label', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Remote Label
                 ''',
                 'outgoing_label',
@@ -28927,13 +28927,13 @@ _meta_table = {
                 'nexthop',
                 'Cisco-IOS-XR-mpls-lsd-oper', False, max_elements=2),
             _MetaInfoClassMember('num-lbls', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                Depth of inner label stack
                 ''',
                 'num_lbls',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('num-nexthops', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                Number of remote nexthop addresses
                 ''',
                 'num_nexthops',
@@ -28979,7 +28979,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('backup-path-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                Routing path backup id
                 ''',
                 'backup_path_id',
@@ -28991,19 +28991,19 @@ _meta_table = {
                 'ipv6_next_hop',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('next-hop-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Next hop ID
                 ''',
                 'next_hop_id',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('out-interface', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Outgoing interface
                 ''',
                 'out_interface',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('out-label', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Outgoing label
                 ''',
                 'out_label',
@@ -29021,13 +29021,13 @@ _meta_table = {
                 'path_flags_decode',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('path-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                Routing path id
                 ''',
                 'path_id',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('table-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Table ID
                 ''',
                 'table_id',
@@ -29050,7 +29050,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('outgoing-label', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Remote Label
                 ''',
                 'outgoing_label',
@@ -29085,13 +29085,13 @@ _meta_table = {
                 'nexthop',
                 'Cisco-IOS-XR-mpls-lsd-oper', False, max_elements=2),
             _MetaInfoClassMember('num-lbls', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                Depth of inner label stack
                 ''',
                 'num_lbls',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('num-nexthops', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                Number of remote nexthop addresses
                 ''',
                 'num_nexthops',
@@ -29137,7 +29137,7 @@ _meta_table = {
                 'flags_decode',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('table-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Table ID
                 ''',
                 'table_id',
@@ -29149,19 +29149,19 @@ _meta_table = {
                 'table_name',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('tunnel-fwd-class', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                Tunnel forwarding class
                 ''',
                 'tunnel_fwd_class',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('tunnel-load-metric', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Tunnel Load metric
                 ''',
                 'tunnel_load_metric',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('tunnel-local-label', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Tunnel local label
                 ''',
                 'tunnel_local_label',
@@ -29184,7 +29184,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('dmtc-ext-ifh', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                DMTC External Interface
                 ''',
                 'dmtc_ext_ifh',
@@ -29342,7 +29342,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('label-id', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Label value
                 ''',
                 'label_id',
@@ -29354,7 +29354,7 @@ _meta_table = {
                 'associated_fpi',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('bcdl-priority', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                BCDL Priority
                 ''',
                 'bcdl_priority',
@@ -29366,7 +29366,7 @@ _meta_table = {
                 'fpi_key',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('lsd-queue', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                LSD queue
                 ''',
                 'lsd_queue',
@@ -29378,7 +29378,7 @@ _meta_table = {
                 'mois',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('priority-updated', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Is rewrite's BCDL priority updated
                 ''',
                 'priority_updated',
@@ -29389,26 +29389,26 @@ _meta_table = {
                 ''',
                 'rewrite_id',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
-            _MetaInfoClassMember('rewrite-version', ATTRIBUTE, 'long' , None, None, 
-                [(0, 18446744073709551615L)], [], 
+            _MetaInfoClassMember('rewrite-version', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
                 '''                Rewrite version
                 ''',
                 'rewrite_version',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
-            _MetaInfoClassMember('rw-install-age', ATTRIBUTE, 'long' , None, None, 
-                [(0, 18446744073709551615L)], [], 
+            _MetaInfoClassMember('rw-install-age', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
                 '''                Rewrite install age
                 ''',
                 'rw_install_age',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
-            _MetaInfoClassMember('rw-install-time', ATTRIBUTE, 'long' , None, None, 
-                [(0, 18446744073709551615L)], [], 
+            _MetaInfoClassMember('rw-install-time', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
                 '''                Rewrite install timestamp
                 ''',
                 'rw_install_time',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('rw-updated', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Is rewrite ever updated
                 ''',
                 'rw_updated',
@@ -29489,31 +29489,31 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('total-backup-paths', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Total number of non-primary backup paths
                 ''',
                 'total_backup_paths',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('total-paths', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Total number of IP paths
                 ''',
                 'total_paths',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('total-pop-lkup-paths', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Total number of Pop-and-Lookup paths
                 ''',
                 'total_pop_lkup_paths',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('total-protected-paths', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Total number of protected paths
                 ''',
                 'total_protected_paths',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('total-remote-backup-paths', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Total number of remote backup paths
                 ''',
                 'total_remote_backup_paths',
@@ -29530,31 +29530,31 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('total-backup-paths', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Total number of non-primary backup paths
                 ''',
                 'total_backup_paths',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('total-paths', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Total number of IP paths
                 ''',
                 'total_paths',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('total-pop-lkup-paths', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Total number of Pop-and-Lookup paths
                 ''',
                 'total_pop_lkup_paths',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('total-protected-paths', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Total number of protected paths
                 ''',
                 'total_protected_paths',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('total-remote-backup-paths', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Total number of remote backup paths
                 ''',
                 'total_remote_backup_paths',
@@ -29583,109 +29583,109 @@ _meta_table = {
                 'ipv6_paths',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('num-dmtctefpi', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of DMTC FPI
                 ''',
                 'num_dmtctefpi',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('num-ipv4fpi', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of IPv4 FPI
                 ''',
                 'num_ipv4fpi',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('num-ipv6fpi', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of IPv6 FPI
                 ''',
                 'num_ipv6fpi',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('num-label-fpi', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of label FPI
                 ''',
                 'num_label_fpi',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('num-pw-list-tefpi', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of PW List FPI
                 ''',
                 'num_pw_list_tefpi',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('num-rewrite', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of rewrites
                 ''',
                 'num_rewrite',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('num-rewrite-rpf-neighbors', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of rewrites with RPF Neighbors
                 ''',
                 'num_rewrite_rpf_neighbors',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('num-tefpi', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of TE FPI
                 ''',
                 'num_tefpi',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('total-dmtc-intf', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Total number of DMTC External Interfaces
                 ''',
                 'total_dmtc_intf',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('total-forwad-update-message', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Total number of forward update messages
                 ''',
                 'total_forwad_update_message',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('total-forward-update', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Total number of forward updates
                 ''',
                 'total_forward_update',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('total-ip-sub-paths', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Total number of IP Subscriber paths
                 ''',
                 'total_ip_sub_paths',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('total-ipv4rpf-neighbors', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Total number of IPv4 RPF Neighbors
                 ''',
                 'total_ipv4rpf_neighbors',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('total-ipv6rpf-neighbors', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Total number of IPv6 RPF Neighbors
                 ''',
                 'total_ipv6rpf_neighbors',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('total-paths', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Total paths
                 ''',
                 'total_paths',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('total-pw-paths', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Total number of Pseudo-wire paths
                 ''',
                 'total_pw_paths',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('total-t-ev4-paths', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Total number of Traffic Eng IPv4 paths
                 ''',
                 'total_t_ev4_paths',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('total-te-head-paths', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Total number of Traffic Eng Head paths
                 ''',
                 'total_te_head_paths',
@@ -29708,25 +29708,25 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('error-msg-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Error count
                 ''',
                 'error_msg_count',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('oor-label-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Label OOR count
                 ''',
                 'oor_label_count',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('operation-msg-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Operation count
                 ''',
                 'operation_msg_count',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('rt-set-msg-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                RT set count
                 ''',
                 'rt_set_msg_count',
@@ -29743,7 +29743,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('connect-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Connect count
                 ''',
                 'connect_count',
@@ -29755,25 +29755,25 @@ _meta_table = {
                 'connected',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('interface-enable', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of interface enabled
                 ''',
                 'interface_enable',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('interface-enable-pending', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of interface enable pending
                 ''',
                 'interface_enable_pending',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('label-context-count', REFERENCE_LEAFLIST, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Label context count
                 ''',
                 'label_context_count',
                 'Cisco-IOS-XR-mpls-lsd-oper', False, max_elements=29),
             _MetaInfoClassMember('label-context-pending-count', REFERENCE_LEAFLIST, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Label context pending count
                 ''',
                 'label_context_pending_count',
@@ -29796,20 +29796,20 @@ _meta_table = {
                 ''',
                 'application_name',
                 'Cisco-IOS-XR-mpls-lsd-oper', True),
-            _MetaInfoClassMember('app-disconnect-time', ATTRIBUTE, 'long' , None, None, 
-                [(0, 18446744073709551615L)], [], 
+            _MetaInfoClassMember('app-disconnect-time', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
                 '''                App disconnect ts
                 ''',
                 'app_disconnect_time',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('app-flow-controlled', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                App flow control status
                 ''',
                 'app_flow_controlled',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
-            _MetaInfoClassMember('app-reg-time', ATTRIBUTE, 'long' , None, None, 
-                [(0, 18446744073709551615L)], [], 
+            _MetaInfoClassMember('app-reg-time', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
                 '''                App reg ts
                 ''',
                 'app_reg_time',
@@ -29827,7 +29827,7 @@ _meta_table = {
                 'application_name_xr',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('application-role-primary', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Primary/Backup role
                 ''',
                 'application_role_primary',
@@ -29850,20 +29850,20 @@ _meta_table = {
                 ''',
                 'application_type',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
-            _MetaInfoClassMember('flow-ctrl-clr-time', ATTRIBUTE, 'long' , None, None, 
-                [(0, 18446744073709551615L)], [], 
+            _MetaInfoClassMember('flow-ctrl-clr-time', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
                 '''                Flow Ctrl Clr ts
                 ''',
                 'flow_ctrl_clr_time',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
-            _MetaInfoClassMember('flow-ctrl-time', ATTRIBUTE, 'long' , None, None, 
-                [(0, 18446744073709551615L)], [], 
+            _MetaInfoClassMember('flow-ctrl-time', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
                 '''                Flow Ctrl ts
                 ''',
                 'flow_ctrl_time',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
-            _MetaInfoClassMember('go-act-ts', ATTRIBUTE, 'long' , None, None, 
-                [(0, 18446744073709551615L)], [], 
+            _MetaInfoClassMember('go-act-ts', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
                 '''                App go active timestamp
                 ''',
                 'go_act_ts',
@@ -29875,21 +29875,21 @@ _meta_table = {
                 'node_id',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('recovery-time-elapsed-seconds', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Recovery time [secs] elapsed if client is timing
                 out
                 ''',
                 'recovery_time_elapsed_seconds',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('recovery-time-register-seconds', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Recovery time [secs] specified at registration
                 or set explicitly
                 ''',
                 'recovery_time_register_seconds',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('recovery-time-remaining-seconds', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Recovery time [secs] remaining if client is
                 timing out
                 ''',
@@ -29936,7 +29936,7 @@ _meta_table = {
                 'application_name',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('application-role-primary', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Primary/Backup role
                 ''',
                 'application_role_primary',
@@ -29948,7 +29948,7 @@ _meta_table = {
                 'application_type',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('number-of-labels', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of labels
                 ''',
                 'number_of_labels',
@@ -29977,13 +29977,13 @@ _meta_table = {
                 'owner_count',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('rsi-connected', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Rsi connected
                 ''',
                 'rsi_connected',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('total-labels', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Total labels
                 ''',
                 'total_labels',
@@ -30023,25 +30023,25 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('max-dynamic-label-value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Maximum dynamic label value
                 ''',
                 'max_dynamic_label_value',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('max-static-label-value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Maximum static label value
                 ''',
                 'max_static_label_value',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('min-dynamic-label-value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Minimum dynamic label value
                 ''',
                 'min_dynamic_label_value',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('min-static-label-value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Minimum static label value
                 ''',
                 'min_static_label_value',
@@ -30058,31 +30058,31 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('total-backup-paths', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Total number of non-primary backup paths
                 ''',
                 'total_backup_paths',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('total-paths', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Total number of IP paths
                 ''',
                 'total_paths',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('total-pop-lkup-paths', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Total number of Pop-and-Lookup paths
                 ''',
                 'total_pop_lkup_paths',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('total-protected-paths', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Total number of protected paths
                 ''',
                 'total_protected_paths',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('total-remote-backup-paths', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Total number of remote backup paths
                 ''',
                 'total_remote_backup_paths',
@@ -30099,31 +30099,31 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('total-backup-paths', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Total number of non-primary backup paths
                 ''',
                 'total_backup_paths',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('total-paths', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Total number of IP paths
                 ''',
                 'total_paths',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('total-pop-lkup-paths', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Total number of Pop-and-Lookup paths
                 ''',
                 'total_pop_lkup_paths',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('total-protected-paths', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Total number of protected paths
                 ''',
                 'total_protected_paths',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('total-remote-backup-paths', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Total number of remote backup paths
                 ''',
                 'total_remote_backup_paths',
@@ -30158,109 +30158,109 @@ _meta_table = {
                 'ipv6_paths',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('num-dmtctefpi', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of DMTC FPI
                 ''',
                 'num_dmtctefpi',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('num-ipv4fpi', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of IPv4 FPI
                 ''',
                 'num_ipv4fpi',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('num-ipv6fpi', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of IPv6 FPI
                 ''',
                 'num_ipv6fpi',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('num-label-fpi', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of label FPI
                 ''',
                 'num_label_fpi',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('num-pw-list-tefpi', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of PW List FPI
                 ''',
                 'num_pw_list_tefpi',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('num-rewrite', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of rewrites
                 ''',
                 'num_rewrite',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('num-rewrite-rpf-neighbors', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of rewrites with RPF Neighbors
                 ''',
                 'num_rewrite_rpf_neighbors',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('num-tefpi', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of TE FPI
                 ''',
                 'num_tefpi',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('total-dmtc-intf', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Total number of DMTC External Interfaces
                 ''',
                 'total_dmtc_intf',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('total-forwad-update-message', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Total number of forward update messages
                 ''',
                 'total_forwad_update_message',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('total-forward-update', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Total number of forward updates
                 ''',
                 'total_forward_update',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('total-ip-sub-paths', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Total number of IP Subscriber paths
                 ''',
                 'total_ip_sub_paths',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('total-ipv4rpf-neighbors', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Total number of IPv4 RPF Neighbors
                 ''',
                 'total_ipv4rpf_neighbors',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('total-ipv6rpf-neighbors', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Total number of IPv6 RPF Neighbors
                 ''',
                 'total_ipv6rpf_neighbors',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('total-paths', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Total paths
                 ''',
                 'total_paths',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('total-pw-paths', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Total number of Pseudo-wire paths
                 ''',
                 'total_pw_paths',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('total-t-ev4-paths', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Total number of Traffic Eng IPv4 paths
                 ''',
                 'total_t_ev4_paths',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('total-te-head-paths', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Total number of Traffic Eng Head paths
                 ''',
                 'total_te_head_paths',
@@ -30312,7 +30312,7 @@ _meta_table = {
                 'application_name',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('application-role-primary', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Primary/Backup role
                 ''',
                 'application_role_primary',
@@ -30341,7 +30341,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('interface-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Interface
                 ''',
                 'interface_name',
@@ -30353,7 +30353,7 @@ _meta_table = {
                 'application_owner',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
             _MetaInfoClassMember('interface', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Interface
                 ''',
                 'interface',

@@ -112,13 +112,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('if-index', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                IfIndex
                 ''',
                 'if_index',
                 'Cisco-IOS-XR-controller-otu-oper', False),
             _MetaInfoClassMember('router-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Router ID
                 ''',
                 'router_id',
@@ -135,13 +135,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('if-index', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                IfIndex
                 ''',
                 'if_index',
                 'Cisco-IOS-XR-controller-otu-oper', False),
             _MetaInfoClassMember('router-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Router ID
                 ''',
                 'router_id',
@@ -158,19 +158,19 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('dapi', REFERENCE_LEAFLIST, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                exp String 
                 ''',
                 'dapi',
                 'Cisco-IOS-XR-controller-otu-oper', False),
             _MetaInfoClassMember('operator-specific', REFERENCE_LEAFLIST, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                rec String 
                 ''',
                 'operator_specific',
                 'Cisco-IOS-XR-controller-otu-oper', False),
             _MetaInfoClassMember('sapi', REFERENCE_LEAFLIST, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                tx String 
                 ''',
                 'sapi',
@@ -187,19 +187,19 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('dapi', REFERENCE_LEAFLIST, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                exp String 
                 ''',
                 'dapi',
                 'Cisco-IOS-XR-controller-otu-oper', False),
             _MetaInfoClassMember('operator-specific', REFERENCE_LEAFLIST, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                rec String 
                 ''',
                 'operator_specific',
                 'Cisco-IOS-XR-controller-otu-oper', False),
             _MetaInfoClassMember('sapi', REFERENCE_LEAFLIST, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                tx String 
                 ''',
                 'sapi',
@@ -216,19 +216,19 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('dapi', REFERENCE_LEAFLIST, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                exp String 
                 ''',
                 'dapi',
                 'Cisco-IOS-XR-controller-otu-oper', False),
             _MetaInfoClassMember('operator-specific', REFERENCE_LEAFLIST, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                rec String 
                 ''',
                 'operator_specific',
                 'Cisco-IOS-XR-controller-otu-oper', False),
             _MetaInfoClassMember('sapi', REFERENCE_LEAFLIST, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                tx String 
                 ''',
                 'sapi',
@@ -287,12 +287,48 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_otu_oper'
         ),
     },
+    'Otu.Controllers.Controller.Info.NetworkSrlg.SrlgInfo' : {
+        'meta_info' : _MetaInfoClass('Otu.Controllers.Controller.Info.NetworkSrlg.SrlgInfo',
+            False, 
+            [
+            _MetaInfoClassMember('srlg', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                Shared Risk Link Group information expressed in
+                integer format
+                ''',
+                'srlg',
+                'Cisco-IOS-XR-controller-otu-oper', False),
+            ],
+            'Cisco-IOS-XR-controller-otu-oper',
+            'srlg-info',
+            _yang_ns._namespaces['Cisco-IOS-XR-controller-otu-oper'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_otu_oper'
+        ),
+    },
+    'Otu.Controllers.Controller.Info.NetworkSrlg' : {
+        'meta_info' : _MetaInfoClass('Otu.Controllers.Controller.Info.NetworkSrlg',
+            False, 
+            [
+            _MetaInfoClassMember('srlg-info', REFERENCE_LIST, 'SrlgInfo' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_otu_oper', 'Otu.Controllers.Controller.Info.NetworkSrlg.SrlgInfo', 
+                [], [], 
+                '''                Array of Network Shared Risk Link Group
+                information
+                ''',
+                'srlg_info',
+                'Cisco-IOS-XR-controller-otu-oper', False),
+            ],
+            'Cisco-IOS-XR-controller-otu-oper',
+            'network-srlg',
+            _yang_ns._namespaces['Cisco-IOS-XR-controller-otu-oper'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_otu_oper'
+        ),
+    },
     'Otu.Controllers.Controller.Info.OtuAlarmInfo.Los' : {
         'meta_info' : _MetaInfoClass('Otu.Controllers.Controller.Info.OtuAlarmInfo.Los',
             False, 
             [
-            _MetaInfoClassMember('counter', ATTRIBUTE, 'long' , None, None, 
-                [(0, 18446744073709551615L)], [], 
+            _MetaInfoClassMember('counter', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
                 '''                Alarm counter
                 ''',
                 'counter',
@@ -326,8 +362,8 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Otu.Controllers.Controller.Info.OtuAlarmInfo.Lof',
             False, 
             [
-            _MetaInfoClassMember('counter', ATTRIBUTE, 'long' , None, None, 
-                [(0, 18446744073709551615L)], [], 
+            _MetaInfoClassMember('counter', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
                 '''                Alarm counter
                 ''',
                 'counter',
@@ -361,8 +397,8 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Otu.Controllers.Controller.Info.OtuAlarmInfo.Lom',
             False, 
             [
-            _MetaInfoClassMember('counter', ATTRIBUTE, 'long' , None, None, 
-                [(0, 18446744073709551615L)], [], 
+            _MetaInfoClassMember('counter', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
                 '''                Alarm counter
                 ''',
                 'counter',
@@ -396,8 +432,8 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Otu.Controllers.Controller.Info.OtuAlarmInfo.Oof',
             False, 
             [
-            _MetaInfoClassMember('counter', ATTRIBUTE, 'long' , None, None, 
-                [(0, 18446744073709551615L)], [], 
+            _MetaInfoClassMember('counter', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
                 '''                Alarm counter
                 ''',
                 'counter',
@@ -431,8 +467,8 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Otu.Controllers.Controller.Info.OtuAlarmInfo.Oom',
             False, 
             [
-            _MetaInfoClassMember('counter', ATTRIBUTE, 'long' , None, None, 
-                [(0, 18446744073709551615L)], [], 
+            _MetaInfoClassMember('counter', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
                 '''                Alarm counter
                 ''',
                 'counter',
@@ -466,8 +502,8 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Otu.Controllers.Controller.Info.OtuAlarmInfo.Ais',
             False, 
             [
-            _MetaInfoClassMember('counter', ATTRIBUTE, 'long' , None, None, 
-                [(0, 18446744073709551615L)], [], 
+            _MetaInfoClassMember('counter', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
                 '''                Alarm counter
                 ''',
                 'counter',
@@ -501,8 +537,8 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Otu.Controllers.Controller.Info.OtuAlarmInfo.Iae',
             False, 
             [
-            _MetaInfoClassMember('counter', ATTRIBUTE, 'long' , None, None, 
-                [(0, 18446744073709551615L)], [], 
+            _MetaInfoClassMember('counter', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
                 '''                Alarm counter
                 ''',
                 'counter',
@@ -536,8 +572,8 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Otu.Controllers.Controller.Info.OtuAlarmInfo.Biae',
             False, 
             [
-            _MetaInfoClassMember('counter', ATTRIBUTE, 'long' , None, None, 
-                [(0, 18446744073709551615L)], [], 
+            _MetaInfoClassMember('counter', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
                 '''                Alarm counter
                 ''',
                 'counter',
@@ -571,8 +607,8 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Otu.Controllers.Controller.Info.OtuAlarmInfo.Bdi',
             False, 
             [
-            _MetaInfoClassMember('counter', ATTRIBUTE, 'long' , None, None, 
-                [(0, 18446744073709551615L)], [], 
+            _MetaInfoClassMember('counter', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
                 '''                Alarm counter
                 ''',
                 'counter',
@@ -606,8 +642,8 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Otu.Controllers.Controller.Info.OtuAlarmInfo.Tim',
             False, 
             [
-            _MetaInfoClassMember('counter', ATTRIBUTE, 'long' , None, None, 
-                [(0, 18446744073709551615L)], [], 
+            _MetaInfoClassMember('counter', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
                 '''                Alarm counter
                 ''',
                 'counter',
@@ -641,8 +677,8 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Otu.Controllers.Controller.Info.OtuAlarmInfo.Eoc',
             False, 
             [
-            _MetaInfoClassMember('counter', ATTRIBUTE, 'long' , None, None, 
-                [(0, 18446744073709551615L)], [], 
+            _MetaInfoClassMember('counter', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
                 '''                Alarm counter
                 ''',
                 'counter',
@@ -676,8 +712,8 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Otu.Controllers.Controller.Info.OtuAlarmInfo.FecMismatch',
             False, 
             [
-            _MetaInfoClassMember('counter', ATTRIBUTE, 'long' , None, None, 
-                [(0, 18446744073709551615L)], [], 
+            _MetaInfoClassMember('counter', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
                 '''                Alarm counter
                 ''',
                 'counter',
@@ -711,8 +747,8 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Otu.Controllers.Controller.Info.OtuAlarmInfo.SfBer',
             False, 
             [
-            _MetaInfoClassMember('counter', ATTRIBUTE, 'long' , None, None, 
-                [(0, 18446744073709551615L)], [], 
+            _MetaInfoClassMember('counter', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
                 '''                Alarm counter
                 ''',
                 'counter',
@@ -746,8 +782,8 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Otu.Controllers.Controller.Info.OtuAlarmInfo.SdBer',
             False, 
             [
-            _MetaInfoClassMember('counter', ATTRIBUTE, 'long' , None, None, 
-                [(0, 18446744073709551615L)], [], 
+            _MetaInfoClassMember('counter', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
                 '''                Alarm counter
                 ''',
                 'counter',
@@ -781,8 +817,8 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Otu.Controllers.Controller.Info.OtuAlarmInfo.Ec',
             False, 
             [
-            _MetaInfoClassMember('counter', ATTRIBUTE, 'long' , None, None, 
-                [(0, 18446744073709551615L)], [], 
+            _MetaInfoClassMember('counter', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
                 '''                Alarm counter
                 ''',
                 'counter',
@@ -816,8 +852,8 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Otu.Controllers.Controller.Info.OtuAlarmInfo.Uc',
             False, 
             [
-            _MetaInfoClassMember('counter', ATTRIBUTE, 'long' , None, None, 
-                [(0, 18446744073709551615L)], [], 
+            _MetaInfoClassMember('counter', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
                 '''                Alarm counter
                 ''',
                 'counter',
@@ -851,8 +887,8 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Otu.Controllers.Controller.Info.OtuAlarmInfo.Fecunc',
             False, 
             [
-            _MetaInfoClassMember('counter', ATTRIBUTE, 'long' , None, None, 
-                [(0, 18446744073709551615L)], [], 
+            _MetaInfoClassMember('counter', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
                 '''                Alarm counter
                 ''',
                 'counter',
@@ -1018,19 +1054,19 @@ _meta_table = {
                 'proactive_status',
                 'Cisco-IOS-XR-controller-otu-oper', False),
             _MetaInfoClassMember('revert-window', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Revert Integration Window
                 ''',
                 'revert_window',
                 'Cisco-IOS-XR-controller-otu-oper', False),
             _MetaInfoClassMember('rvrt-thresh-coeff', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                Revert threshold coefficient
                 ''',
                 'rvrt_thresh_coeff',
                 'Cisco-IOS-XR-controller-otu-oper', False),
             _MetaInfoClassMember('rvrt-thresh-power', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                Revert threshold power
                 ''',
                 'rvrt_thresh_power',
@@ -1042,19 +1078,19 @@ _meta_table = {
                 'sec_state',
                 'Cisco-IOS-XR-controller-otu-oper', False),
             _MetaInfoClassMember('trig-thresh-coeff', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                Trigger threshold coefficient
                 ''',
                 'trig_thresh_coeff',
                 'Cisco-IOS-XR-controller-otu-oper', False),
             _MetaInfoClassMember('trig-thresh-power', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                Trigger threshold power
                 ''',
                 'trig_thresh_power',
                 'Cisco-IOS-XR-controller-otu-oper', False),
             _MetaInfoClassMember('trigger-window', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Trigger Integration window
                 ''',
                 'trigger_window',
@@ -1062,6 +1098,29 @@ _meta_table = {
             ],
             'Cisco-IOS-XR-controller-otu-oper',
             'proactive',
+            _yang_ns._namespaces['Cisco-IOS-XR-controller-otu-oper'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_otu_oper'
+        ),
+    },
+    'Otu.Controllers.Controller.Info.OtuFecSatistics' : {
+        'meta_info' : _MetaInfoClass('Otu.Controllers.Controller.Info.OtuFecSatistics',
+            False, 
+            [
+            _MetaInfoClassMember('post-fec-ber', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Bit Error Rate After Forward Error Correction
+                ''',
+                'post_fec_ber',
+                'Cisco-IOS-XR-controller-otu-oper', False),
+            _MetaInfoClassMember('pre-fec-ber', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Bit Error Rate Before Forward Error Correction
+                ''',
+                'pre_fec_ber',
+                'Cisco-IOS-XR-controller-otu-oper', False),
+            ],
+            'Cisco-IOS-XR-controller-otu-oper',
+            'otu-fec-satistics',
             _yang_ns._namespaces['Cisco-IOS-XR-controller-otu-oper'],
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_otu_oper'
         ),
@@ -1076,8 +1135,8 @@ _meta_table = {
                 ''',
                 'derivedstate_mode',
                 'Cisco-IOS-XR-controller-otu-oper', False),
-            _MetaInfoClassMember('ec', ATTRIBUTE, 'long' , None, None, 
-                [(0, 18446744073709551615L)], [], 
+            _MetaInfoClassMember('ec', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
                 '''                Average bit errors corrected
                 ''',
                 'ec',
@@ -1107,7 +1166,7 @@ _meta_table = {
                 'gmpls_tti_mode',
                 'Cisco-IOS-XR-controller-otu-oper', False),
             _MetaInfoClassMember('gmpls-tvm-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                GMPLS TCM ID
                 ''',
                 'gmpls_tvm_id',
@@ -1130,12 +1189,12 @@ _meta_table = {
                 ''',
                 'name',
                 'Cisco-IOS-XR-controller-otu-oper', False),
-            _MetaInfoClassMember('network-srlg', REFERENCE_LEAFLIST, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Network SRLG
+            _MetaInfoClassMember('network-srlg', REFERENCE_CLASS, 'NetworkSrlg' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_otu_oper', 'Otu.Controllers.Controller.Info.NetworkSrlg', 
+                [], [], 
+                '''                Network Shared Risk Link Group information
                 ''',
                 'network_srlg',
-                'Cisco-IOS-XR-controller-otu-oper', False, max_elements=100),
+                'Cisco-IOS-XR-controller-otu-oper', False),
             _MetaInfoClassMember('nv-optical-support', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
                 '''                NV Optical support
@@ -1147,6 +1206,12 @@ _meta_table = {
                 '''                OTU layer alarm Information
                 ''',
                 'otu_alarm_info',
+                'Cisco-IOS-XR-controller-otu-oper', False),
+            _MetaInfoClassMember('otu-fec-satistics', REFERENCE_CLASS, 'OtuFecSatistics' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_otu_oper', 'Otu.Controllers.Controller.Info.OtuFecSatistics', 
+                [], [], 
+                '''                OTU FEC Statistics
+                ''',
+                'otu_fec_satistics',
                 'Cisco-IOS-XR-controller-otu-oper', False),
             _MetaInfoClassMember('performance-monitoring', REFERENCE_ENUM_CLASS, 'OtuPerMonEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_otu_oper', 'OtuPerMonEnum', 
                 [], [], 
@@ -1167,13 +1232,13 @@ _meta_table = {
                 'pre_fec_ber_value',
                 'Cisco-IOS-XR-controller-otu-oper', False),
             _MetaInfoClassMember('pre-fec-mantissa', ATTRIBUTE, 'int' , None, None, 
-                [(-128, 127)], [], 
+                [('-128', '127')], [], 
                 '''                Pre FEC BER Mantissa in form E-<mantisaa>
                 ''',
                 'pre_fec_mantissa',
                 'Cisco-IOS-XR-controller-otu-oper', False),
             _MetaInfoClassMember('pre-fec-val', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Pre FEC BER Value in form 0.00
                 ''',
                 'pre_fec_val',
@@ -1184,14 +1249,14 @@ _meta_table = {
                 ''',
                 'proactive',
                 'Cisco-IOS-XR-controller-otu-oper', False),
-            _MetaInfoClassMember('q', ATTRIBUTE, 'long' , None, None, 
-                [(0, 18446744073709551615L)], [], 
+            _MetaInfoClassMember('q', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
                 '''                q value calculated
                 ''',
                 'q',
                 'Cisco-IOS-XR-controller-otu-oper', False),
-            _MetaInfoClassMember('q-margin', ATTRIBUTE, 'long' , None, None, 
-                [(0, 18446744073709551615L)], [], 
+            _MetaInfoClassMember('q-margin', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
                 '''                q margin calculated
                 ''',
                 'q_margin',
@@ -1203,8 +1268,8 @@ _meta_table = {
                 'remote',
                 'Cisco-IOS-XR-controller-otu-oper', False),
             _MetaInfoClassMember('sd', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
-                '''                SD
+                [('0', '255')], [], 
+                '''                SD in the form of 1.0E - <SD>
                 ''',
                 'sd',
                 'Cisco-IOS-XR-controller-otu-oper', False),
@@ -1215,8 +1280,8 @@ _meta_table = {
                 'sec_state',
                 'Cisco-IOS-XR-controller-otu-oper', False),
             _MetaInfoClassMember('sf', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
-                '''                SF
+                [('0', '255')], [], 
+                '''                SF in the form of 1.0E - <SF>
                 ''',
                 'sf',
                 'Cisco-IOS-XR-controller-otu-oper', False),
@@ -1232,8 +1297,8 @@ _meta_table = {
                 ''',
                 'tti_mode',
                 'Cisco-IOS-XR-controller-otu-oper', False),
-            _MetaInfoClassMember('uc', ATTRIBUTE, 'long' , None, None, 
-                [(0, 18446744073709551615L)], [], 
+            _MetaInfoClassMember('uc', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
                 '''                Uncorrected word count
                 ''',
                 'uc',
@@ -1256,7 +1321,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('controller-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Port name
                 ''',
                 'controller_name',
@@ -1312,6 +1377,7 @@ _meta_table = {
 _meta_table['Otu.Controllers.Controller.Info.TtiMode.Tx']['meta_info'].parent =_meta_table['Otu.Controllers.Controller.Info.TtiMode']['meta_info']
 _meta_table['Otu.Controllers.Controller.Info.TtiMode.Exp']['meta_info'].parent =_meta_table['Otu.Controllers.Controller.Info.TtiMode']['meta_info']
 _meta_table['Otu.Controllers.Controller.Info.TtiMode.Rec']['meta_info'].parent =_meta_table['Otu.Controllers.Controller.Info.TtiMode']['meta_info']
+_meta_table['Otu.Controllers.Controller.Info.NetworkSrlg.SrlgInfo']['meta_info'].parent =_meta_table['Otu.Controllers.Controller.Info.NetworkSrlg']['meta_info']
 _meta_table['Otu.Controllers.Controller.Info.OtuAlarmInfo.Los']['meta_info'].parent =_meta_table['Otu.Controllers.Controller.Info.OtuAlarmInfo']['meta_info']
 _meta_table['Otu.Controllers.Controller.Info.OtuAlarmInfo.Lof']['meta_info'].parent =_meta_table['Otu.Controllers.Controller.Info.OtuAlarmInfo']['meta_info']
 _meta_table['Otu.Controllers.Controller.Info.OtuAlarmInfo.Lom']['meta_info'].parent =_meta_table['Otu.Controllers.Controller.Info.OtuAlarmInfo']['meta_info']
@@ -1332,8 +1398,10 @@ _meta_table['Otu.Controllers.Controller.Info.OtuAlarmInfo.Fecunc']['meta_info'].
 _meta_table['Otu.Controllers.Controller.Info.Local']['meta_info'].parent =_meta_table['Otu.Controllers.Controller.Info']['meta_info']
 _meta_table['Otu.Controllers.Controller.Info.Remote']['meta_info'].parent =_meta_table['Otu.Controllers.Controller.Info']['meta_info']
 _meta_table['Otu.Controllers.Controller.Info.TtiMode']['meta_info'].parent =_meta_table['Otu.Controllers.Controller.Info']['meta_info']
+_meta_table['Otu.Controllers.Controller.Info.NetworkSrlg']['meta_info'].parent =_meta_table['Otu.Controllers.Controller.Info']['meta_info']
 _meta_table['Otu.Controllers.Controller.Info.OtuAlarmInfo']['meta_info'].parent =_meta_table['Otu.Controllers.Controller.Info']['meta_info']
 _meta_table['Otu.Controllers.Controller.Info.Proactive']['meta_info'].parent =_meta_table['Otu.Controllers.Controller.Info']['meta_info']
+_meta_table['Otu.Controllers.Controller.Info.OtuFecSatistics']['meta_info'].parent =_meta_table['Otu.Controllers.Controller.Info']['meta_info']
 _meta_table['Otu.Controllers.Controller.Info']['meta_info'].parent =_meta_table['Otu.Controllers.Controller']['meta_info']
 _meta_table['Otu.Controllers.Controller']['meta_info'].parent =_meta_table['Otu.Controllers']['meta_info']
 _meta_table['Otu.Controllers']['meta_info'].parent =_meta_table['Otu']['meta_info']

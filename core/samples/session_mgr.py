@@ -1,3 +1,4 @@
+from __future__ import print_function
 #  ----------------------------------------------------------------
 # Copyright 2016 Cisco Systems
 #
@@ -65,7 +66,7 @@ def establish_session():
 
     (o, args) = parser.parse_args()
 
-    print 'Establishing connection with device %s:%d using %s :'%(o.host, o.port, o.proto)
+    print('Establishing connection with device %s:%d using %s :'%(o.host, o.port, o.proto))
 
     ne = NetconfServiceProvider(address=o.host,
                                 port=o.port,
@@ -73,5 +74,5 @@ def establish_session():
                                 password = o.password,
                                 protocol = o.proto)
 
-    print 'connection established...'
+    print('connection established...')
     return ne

@@ -1,4 +1,5 @@
 #!/usr/bin/env python
+
 #  ----------------------------------------------------------------
 # Copyright 2016 Cisco Systems
 #
@@ -14,6 +15,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 # ------------------------------------------------------------------
+from __future__ import print_function
 from ydk.providers import NetconfServiceProvider
 from ydk.services import CRUDService
 
@@ -130,7 +132,7 @@ def _init_logging():
 
 
 def ietf_run(crud_service, provider):
-    print '==============\nCRUD SERVICE\n=============='
+    print('==============\nCRUD SERVICE\n==============')
 
     from ydk.models.ietf import ietf_system
     sys_obj = _get_obj_system()
@@ -139,7 +141,7 @@ def ietf_run(crud_service, provider):
     crud_service.create(provider, sys_obj)
     crud_service.delete(provider, ietf_system.System())
 
-    print '\n\n================\nCODEC SERVICE\n================'
+    print('\n\n================\nCODEC SERVICE\n================')
 
     crud_service.delete(provider, ietf_system.System())
     crud_service.create(provider, _get_decoded_entity())

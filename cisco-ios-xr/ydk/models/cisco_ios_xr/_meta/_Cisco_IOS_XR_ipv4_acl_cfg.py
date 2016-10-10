@@ -93,7 +93,7 @@ _meta_table = {
                         'first_source_port',
                         'Cisco-IOS-XR-ipv4-acl-cfg', False),
                     _MetaInfoClassMember('first-source-port', ATTRIBUTE, 'int' , None, None, 
-                        [(0, 65535)], [], 
+                        [('0', '65535')], [], 
                         '''                        First source port for comparison, leave 
                         unspecified if source port comparison is not to
                         be performed.
@@ -118,7 +118,7 @@ _meta_table = {
                         'second_source_port',
                         'Cisco-IOS-XR-ipv4-acl-cfg', False),
                     _MetaInfoClassMember('second-source-port', ATTRIBUTE, 'int' , None, None, 
-                        [(0, 65535)], [], 
+                        [('0', '65535')], [], 
                         '''                        Second source port for comparion, leave 
                         unspecified if source port comparison is not to
                         be performed.
@@ -169,7 +169,7 @@ _meta_table = {
                         'first_destination_port',
                         'Cisco-IOS-XR-ipv4-acl-cfg', False),
                     _MetaInfoClassMember('first-destination-port', ATTRIBUTE, 'int' , None, None, 
-                        [(0, 65535)], [], 
+                        [('0', '65535')], [], 
                         '''                        First destination port for comparison, leave
                         unspecified if destination port comparison is
                         not to be performed.
@@ -194,7 +194,7 @@ _meta_table = {
                         'second_destination_port',
                         'Cisco-IOS-XR-ipv4-acl-cfg', False),
                     _MetaInfoClassMember('second-destination-port', ATTRIBUTE, 'int' , None, None, 
-                        [(0, 65535)], [], 
+                        [('0', '65535')], [], 
                         '''                        Second destination port for comparion, leave
                         unspecified if destination port comparison is
                         not to be performed.
@@ -249,7 +249,7 @@ _meta_table = {
                         'tcp_bits',
                         'Cisco-IOS-XR-ipv4-acl-cfg', False),
                     _MetaInfoClassMember('tcp-bits', ATTRIBUTE, 'int' , None, None, 
-                        [(0, 32)], [], 
+                        [('0', '32')], [], 
                         '''                        TCP bits to match.
                         Leave unspecified if comparison of TCP bits is
                         not required.
@@ -274,7 +274,7 @@ _meta_table = {
                         'tcp_bits_mask',
                         'Cisco-IOS-XR-ipv4-acl-cfg', False),
                     _MetaInfoClassMember('tcp-bits-mask', ATTRIBUTE, 'int' , None, None, 
-                        [(0, 32)], [], 
+                        [('0', '32')], [], 
                         '''                        TCP bits mask to use for flexible TCP matching.
                         Leave unspecified if tcp-bits-match-operator is 
                         unspecified.
@@ -302,7 +302,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('packet-length-max', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                Maximum packet length for comparion, leave 
                 unspecified if packet length comparison is not 
                 to be performed or if only the minimum packet 
@@ -311,7 +311,7 @@ _meta_table = {
                 'packet_length_max',
                 'Cisco-IOS-XR-ipv4-acl-cfg', False),
             _MetaInfoClassMember('packet-length-min', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                Minimum packet length for comparison, leave 
                 unspecified if packet length comparison is not 
                 to be performed or if only the maximum packet 
@@ -339,7 +339,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('time-to-live-max', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                Maximum TTL for comparion, leave unspecified if 
                 TTL comparison is not to be performed or if only
                 the minimum TTL should be considered.
@@ -347,7 +347,7 @@ _meta_table = {
                 'time_to_live_max',
                 'Cisco-IOS-XR-ipv4-acl-cfg', False),
             _MetaInfoClassMember('time-to-live-min', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                TTL value for comparison OR Minimum TTL value 
                 for TTL range comparision, leave unspecified if
                 TTL classification is not required.
@@ -514,7 +514,7 @@ _meta_table = {
                         'dscp_max',
                         'Cisco-IOS-XR-ipv4-acl-cfg', False),
                     _MetaInfoClassMember('dscp-max', ATTRIBUTE, 'int' , None, None, 
-                        [(0, 63)], [], 
+                        [('0', '63')], [], 
                         '''                        Maximum DSCP value for comparion, leave 
                         unspecified if DSCP comparison is not to 
                         be performed or if only the minimum DSCP
@@ -540,7 +540,7 @@ _meta_table = {
                         'dscp_min',
                         'Cisco-IOS-XR-ipv4-acl-cfg', False),
                     _MetaInfoClassMember('dscp-min', ATTRIBUTE, 'int' , None, None, 
-                        [(0, 63)], [], 
+                        [('0', '63')], [], 
                         '''                        DSCP value to match or minimum DSCP value 
                         for DSCP range comparison, leave unspecified 
                         if DSCP comparion is not to be performed.
@@ -568,7 +568,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('sequence-number', ATTRIBUTE, 'int' , None, None, 
-                [(1, 2147483646)], [], 
+                [('1', '2147483646')], [], 
                 '''                Sequence number for this entry
                 ''',
                 'sequence_number',
@@ -657,7 +657,7 @@ _meta_table = {
                         'igmp_message_type',
                         'Cisco-IOS-XR-ipv4-acl-cfg', False),
                     _MetaInfoClassMember('igmp-message-type', ATTRIBUTE, 'int' , None, None, 
-                        [(0, 255)], [], 
+                        [('0', '255')], [], 
                         '''                        IGMP message type to match. Leave unspecified if 
                         no message type comparison is to be done.
                         ''',
@@ -700,7 +700,7 @@ _meta_table = {
                         'precedence',
                         'Cisco-IOS-XR-ipv4-acl-cfg', False),
                     _MetaInfoClassMember('precedence', ATTRIBUTE, 'int' , None, None, 
-                        [(0, 7)], [], 
+                        [('0', '7')], [], 
                         '''                        Precedence value to match (if a protocol was 
                         specified), leave unspecified if precedence 
                         comparion is not to be performed.
@@ -721,7 +721,7 @@ _meta_table = {
                         'protocol',
                         'Cisco-IOS-XR-ipv4-acl-cfg', False),
                     _MetaInfoClassMember('protocol', ATTRIBUTE, 'int' , None, None, 
-                        [(0, 255)], [], 
+                        [('0', '255')], [], 
                         '''                        Protocol to match.
                         ''',
                         'protocol',
@@ -732,6 +732,12 @@ _meta_table = {
                 '''                Comments or a description for the access list.
                 ''',
                 'remark',
+                'Cisco-IOS-XR-ipv4-acl-cfg', False),
+            _MetaInfoClassMember('sequence-str', ATTRIBUTE, 'str' , None, None, 
+                [(1, 64)], [], 
+                '''                Sequence String for the ace.
+                ''',
+                'sequence_str',
                 'Cisco-IOS-XR-ipv4-acl-cfg', False),
             _MetaInfoClassMember('source-network', REFERENCE_CLASS, 'SourceNetwork' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_acl_cfg', 'Ipv4AclAndPrefixList.Accesses.Access.AccessListEntries.AccessListEntry.SourceNetwork', 
                 [], [], 
@@ -839,13 +845,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('sequence-number', ATTRIBUTE, 'int' , None, None, 
-                [(1, 2147483646)], [], 
+                [('1', '2147483646')], [], 
                 '''                Sequence number of prefix list
                 ''',
                 'sequence_number',
                 'Cisco-IOS-XR-ipv4-acl-cfg', True),
             _MetaInfoClassMember('exact-prefix-length', ATTRIBUTE, 'int' , None, None, 
-                [(0, 32)], [], 
+                [('0', '32')], [], 
                 '''                If exact prefix length matching specified,
                 set the length of prefix to be matched
                 ''',
@@ -883,7 +889,7 @@ _meta_table = {
                 'match_min_length',
                 'Cisco-IOS-XR-ipv4-acl-cfg', False),
             _MetaInfoClassMember('max-prefix-length', ATTRIBUTE, 'int' , None, None, 
-                [(0, 32)], [], 
+                [('0', '32')], [], 
                 '''                If maximum length prefix matching specified,
                 set the maximum length of prefix to be
                 matched
@@ -891,7 +897,7 @@ _meta_table = {
                 'max_prefix_length',
                 'Cisco-IOS-XR-ipv4-acl-cfg', False),
             _MetaInfoClassMember('min-prefix-length', ATTRIBUTE, 'int' , None, None, 
-                [(0, 32)], [], 
+                [('0', '32')], [], 
                 '''                If minimum length prefix matching specified,
                 set the minimum length of prefix to be
                 matched
@@ -988,13 +994,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('rate', ATTRIBUTE, 'int' , None, None, 
-                [(1, 1000)], [], 
+                [('1', '1000')], [], 
                 '''                Log update rate (log msgs per second)
                 ''',
                 'rate',
                 'Cisco-IOS-XR-ipv4-acl-cfg', False),
             _MetaInfoClassMember('threshold', ATTRIBUTE, 'int' , None, None, 
-                [(1, 2147483647)], [], 
+                [('1', '2147483647')], [], 
                 '''                Log update threshold (number of hits)
                 ''',
                 'threshold',

@@ -8,7 +8,7 @@ for the following management objects\:
   syslog\-service\: Syslog Timestamp Services
   syslog\: syslog
 
-Copyright (c) 2013\-2015 by Cisco Systems, Inc.
+Copyright (c) 2013\-2016 by Cisco Systems, Inc.
 All rights reserved.
 
 """
@@ -24,7 +24,6 @@ from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
 from ydk.errors import YPYError, YPYModelError
 
 
-from ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_alarm_logger_datatypes import AlarmLoggerSeverityLevelEnum
 
 class FacilityEnum(Enum):
     """
@@ -734,7 +733,7 @@ class SyslogService(object):
     """
 
     _prefix = 'infra-syslog-cfg'
-    _revision = '2015-10-08'
+    _revision = '2016-06-22'
 
     def __init__(self):
         self.timestamps = SyslogService.Timestamps()
@@ -765,7 +764,7 @@ class SyslogService(object):
         """
 
         _prefix = 'infra-syslog-cfg'
-        _revision = '2015-10-08'
+        _revision = '2016-06-22'
 
         def __init__(self):
             self.parent = None
@@ -800,7 +799,7 @@ class SyslogService(object):
             """
 
             _prefix = 'infra-syslog-cfg'
-            _revision = '2015-10-08'
+            _revision = '2016-06-22'
 
             def __init__(self):
                 self.parent = None
@@ -824,7 +823,7 @@ class SyslogService(object):
                 """
 
                 _prefix = 'infra-syslog-cfg'
-                _revision = '2015-10-08'
+                _revision = '2016-06-22'
 
                 def __init__(self):
                     self.parent = None
@@ -861,7 +860,7 @@ class SyslogService(object):
                     """
 
                     _prefix = 'infra-syslog-cfg'
-                    _revision = '2015-10-08'
+                    _revision = '2016-06-22'
 
                     def __init__(self):
                         self.parent = None
@@ -976,7 +975,7 @@ class SyslogService(object):
             """
 
             _prefix = 'infra-syslog-cfg'
-            _revision = '2015-10-08'
+            _revision = '2016-06-22'
 
             def __init__(self):
                 self.parent = None
@@ -1000,7 +999,7 @@ class SyslogService(object):
                 """
 
                 _prefix = 'infra-syslog-cfg'
-                _revision = '2015-10-08'
+                _revision = '2016-06-22'
 
                 def __init__(self):
                     self.parent = None
@@ -1037,7 +1036,7 @@ class SyslogService(object):
                     """
 
                     _prefix = 'infra-syslog-cfg'
-                    _revision = '2015-10-08'
+                    _revision = '2016-06-22'
 
                     def __init__(self):
                         self.parent = None
@@ -1202,6 +1201,11 @@ class Syslog(object):
     	Set console logging
     	**type**\:  :py:class:`ConsoleLogging <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.Syslog.ConsoleLogging>`
     
+    .. attribute:: correlator
+    
+    	Configure properties of the event correlator
+    	**type**\:  :py:class:`Correlator <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.Syslog.Correlator>`
+    
     .. attribute:: enable_console_logging
     
     	Enabled or disabled
@@ -1264,6 +1268,11 @@ class Syslog(object):
     	Suppress consecutive duplicate messages
     	**type**\:  :py:class:`Empty <ydk.types.Empty>`
     
+    .. attribute:: suppression
+    
+    	Configure properties of the syslog/alarm suppression
+    	**type**\:  :py:class:`Suppression <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.Syslog.Suppression>`
+    
     .. attribute:: trap_logging
     
     	Set trap logging
@@ -1274,7 +1283,7 @@ class Syslog(object):
     """
 
     _prefix = 'infra-syslog-cfg'
-    _revision = '2015-10-08'
+    _revision = '2016-06-22'
 
     def __init__(self):
         self.alarm_logger = Syslog.AlarmLogger()
@@ -1285,6 +1294,8 @@ class Syslog(object):
         self.buffered_logging.parent = self
         self.console_logging = Syslog.ConsoleLogging()
         self.console_logging.parent = self
+        self.correlator = Syslog.Correlator()
+        self.correlator.parent = self
         self.enable_console_logging = None
         self.files = Syslog.Files()
         self.files.parent = self
@@ -1305,6 +1316,8 @@ class Syslog(object):
         self.source_interface_table = Syslog.SourceInterfaceTable()
         self.source_interface_table.parent = self
         self.suppress_duplicates = None
+        self.suppression = Syslog.Suppression()
+        self.suppression.parent = self
         self.trap_logging = Syslog.TrapLogging()
         self.trap_logging.parent = self
 
@@ -1328,7 +1341,7 @@ class Syslog(object):
         """
 
         _prefix = 'infra-syslog-cfg'
-        _revision = '2015-10-08'
+        _revision = '2016-06-22'
 
         def __init__(self):
             self.parent = None
@@ -1376,7 +1389,7 @@ class Syslog(object):
             """
 
             _prefix = 'infra-syslog-cfg'
-            _revision = '2015-10-08'
+            _revision = '2016-06-22'
 
             def __init__(self):
                 self.parent = None
@@ -1471,7 +1484,7 @@ class Syslog(object):
         """
 
         _prefix = 'infra-syslog-cfg'
-        _revision = '2015-10-08'
+        _revision = '2016-06-22'
 
         def __init__(self):
             self.parent = None
@@ -1518,7 +1531,7 @@ class Syslog(object):
         """
 
         _prefix = 'infra-syslog-cfg'
-        _revision = '2015-10-08'
+        _revision = '2016-06-22'
 
         def __init__(self):
             self.parent = None
@@ -1561,7 +1574,7 @@ class Syslog(object):
         """
 
         _prefix = 'infra-syslog-cfg'
-        _revision = '2015-10-08'
+        _revision = '2016-06-22'
 
         def __init__(self):
             self.parent = None
@@ -1616,7 +1629,7 @@ class Syslog(object):
         """
 
         _prefix = 'infra-syslog-cfg'
-        _revision = '2015-10-08'
+        _revision = '2016-06-22'
 
         def __init__(self):
             self.parent = None
@@ -1665,7 +1678,7 @@ class Syslog(object):
             """
 
             _prefix = 'infra-syslog-cfg'
-            _revision = '2015-10-08'
+            _revision = '2016-06-22'
 
             def __init__(self):
                 self.parent = None
@@ -1756,7 +1769,7 @@ class Syslog(object):
         """
 
         _prefix = 'infra-syslog-cfg'
-        _revision = '2015-10-08'
+        _revision = '2016-06-22'
 
         def __init__(self):
             self.parent = None
@@ -1778,7 +1791,7 @@ class Syslog(object):
             """
 
             _prefix = 'infra-syslog-cfg'
-            _revision = '2015-10-08'
+            _revision = '2016-06-22'
 
             def __init__(self):
                 self.parent = None
@@ -1818,7 +1831,7 @@ class Syslog(object):
                 """
 
                 _prefix = 'infra-syslog-cfg'
-                _revision = '2015-10-08'
+                _revision = '2016-06-22'
 
                 def __init__(self):
                     self.parent = None
@@ -1845,7 +1858,7 @@ class Syslog(object):
                     """
 
                     _prefix = 'infra-syslog-cfg'
-                    _revision = '2015-10-08'
+                    _revision = '2016-06-22'
 
                     def __init__(self):
                         self.parent = None
@@ -1885,7 +1898,7 @@ class Syslog(object):
                         """
 
                         _prefix = 'infra-syslog-cfg'
-                        _revision = '2015-10-08'
+                        _revision = '2016-06-22'
 
                         def __init__(self):
                             self.parent = None
@@ -1921,7 +1934,7 @@ class Syslog(object):
                             """
 
                             _prefix = 'infra-syslog-cfg'
-                            _revision = '2015-10-08'
+                            _revision = '2016-06-22'
 
                             def __init__(self):
                                 self.parent = None
@@ -1995,7 +2008,7 @@ class Syslog(object):
                             """
 
                             _prefix = 'infra-syslog-cfg'
-                            _revision = '2015-10-08'
+                            _revision = '2016-06-22'
 
                             def __init__(self):
                                 self.parent = None
@@ -2060,7 +2073,7 @@ class Syslog(object):
                             """
 
                             _prefix = 'infra-syslog-cfg'
-                            _revision = '2015-10-08'
+                            _revision = '2016-06-22'
 
                             def __init__(self):
                                 self.parent = None
@@ -2083,7 +2096,7 @@ class Syslog(object):
                                 """
 
                                 _prefix = 'infra-syslog-cfg'
-                                _revision = '2015-10-08'
+                                _revision = '2016-06-22'
 
                                 def __init__(self):
                                     self.parent = None
@@ -2217,7 +2230,7 @@ class Syslog(object):
                     """
 
                     _prefix = 'infra-syslog-cfg'
-                    _revision = '2015-10-08'
+                    _revision = '2016-06-22'
 
                     def __init__(self):
                         self.parent = None
@@ -2255,7 +2268,7 @@ class Syslog(object):
                         """
 
                         _prefix = 'infra-syslog-cfg'
-                        _revision = '2015-10-08'
+                        _revision = '2016-06-22'
 
                         def __init__(self):
                             self.parent = None
@@ -2282,7 +2295,7 @@ class Syslog(object):
                             """
 
                             _prefix = 'infra-syslog-cfg'
-                            _revision = '2015-10-08'
+                            _revision = '2016-06-22'
 
                             def __init__(self):
                                 self.parent = None
@@ -2305,7 +2318,7 @@ class Syslog(object):
                                 """
 
                                 _prefix = 'infra-syslog-cfg'
-                                _revision = '2015-10-08'
+                                _revision = '2016-06-22'
 
                                 def __init__(self):
                                     self.parent = None
@@ -2403,7 +2416,7 @@ class Syslog(object):
                             """
 
                             _prefix = 'infra-syslog-cfg'
-                            _revision = '2015-10-08'
+                            _revision = '2016-06-22'
 
                             def __init__(self):
                                 self.parent = None
@@ -2477,7 +2490,7 @@ class Syslog(object):
                             """
 
                             _prefix = 'infra-syslog-cfg'
-                            _revision = '2015-10-08'
+                            _revision = '2016-06-22'
 
                             def __init__(self):
                                 self.parent = None
@@ -2587,7 +2600,7 @@ class Syslog(object):
                     """
 
                     _prefix = 'infra-syslog-cfg'
-                    _revision = '2015-10-08'
+                    _revision = '2016-06-22'
 
                     def __init__(self):
                         self.parent = None
@@ -2627,7 +2640,7 @@ class Syslog(object):
                         """
 
                         _prefix = 'infra-syslog-cfg'
-                        _revision = '2015-10-08'
+                        _revision = '2016-06-22'
 
                         def __init__(self):
                             self.parent = None
@@ -2654,7 +2667,7 @@ class Syslog(object):
                             """
 
                             _prefix = 'infra-syslog-cfg'
-                            _revision = '2015-10-08'
+                            _revision = '2016-06-22'
 
                             def __init__(self):
                                 self.parent = None
@@ -2677,7 +2690,7 @@ class Syslog(object):
                                 """
 
                                 _prefix = 'infra-syslog-cfg'
-                                _revision = '2015-10-08'
+                                _revision = '2016-06-22'
 
                                 def __init__(self):
                                     self.parent = None
@@ -2759,7 +2772,7 @@ class Syslog(object):
                             """
 
                             _prefix = 'infra-syslog-cfg'
-                            _revision = '2015-10-08'
+                            _revision = '2016-06-22'
 
                             def __init__(self):
                                 self.parent = None
@@ -2833,7 +2846,7 @@ class Syslog(object):
                             """
 
                             _prefix = 'infra-syslog-cfg'
-                            _revision = '2015-10-08'
+                            _revision = '2016-06-22'
 
                             def __init__(self):
                                 self.parent = None
@@ -3043,7 +3056,7 @@ class Syslog(object):
         """
 
         _prefix = 'infra-syslog-cfg'
-        _revision = '2015-10-08'
+        _revision = '2016-06-22'
 
         def __init__(self):
             self.parent = None
@@ -3091,7 +3104,7 @@ class Syslog(object):
             """
 
             _prefix = 'infra-syslog-cfg'
-            _revision = '2015-10-08'
+            _revision = '2016-06-22'
 
             def __init__(self):
                 self.parent = None
@@ -3179,7 +3192,7 @@ class Syslog(object):
         """
 
         _prefix = 'infra-syslog-cfg'
-        _revision = '2015-10-08'
+        _revision = '2016-06-22'
 
         def __init__(self):
             self.parent = None
@@ -3199,6 +3212,11 @@ class Syslog(object):
             
             	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
             
+            .. attribute:: file_log_attributes
+            
+            	Attributes of the logging file destination
+            	**type**\:  :py:class:`FileLogAttributes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.Syslog.Files.File.FileLogAttributes>`
+            
             .. attribute:: file_log_discriminator
             
             	Set File logging discriminators
@@ -3214,11 +3232,13 @@ class Syslog(object):
             """
 
             _prefix = 'infra-syslog-cfg'
-            _revision = '2015-10-08'
+            _revision = '2016-06-22'
 
             def __init__(self):
                 self.parent = None
                 self.file_name = None
+                self.file_log_attributes = Syslog.Files.File.FileLogAttributes()
+                self.file_log_attributes.parent = self
                 self.file_log_discriminator = Syslog.Files.File.FileLogDiscriminator()
                 self.file_log_discriminator.parent = self
                 self.file_specification = Syslog.Files.File.FileSpecification()
@@ -3253,7 +3273,7 @@ class Syslog(object):
                 """
 
                 _prefix = 'infra-syslog-cfg'
-                _revision = '2015-10-08'
+                _revision = '2016-06-22'
 
                 def __init__(self):
                     self.parent = None
@@ -3290,6 +3310,64 @@ class Syslog(object):
                 def _meta_info():
                     from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_syslog_cfg as meta
                     return meta._meta_table['Syslog.Files.File.FileSpecification']['meta_info']
+
+
+            class FileLogAttributes(object):
+                """
+                Attributes of the logging file destination
+                
+                .. attribute:: max_file_size
+                
+                	Maximum file size (in KB)
+                	**type**\:  int
+                
+                	**range:** \-2147483648..2147483647
+                
+                .. attribute:: severity
+                
+                	Severity of messages
+                	**type**\:  int
+                
+                	**range:** \-2147483648..2147483647
+                
+                
+
+                """
+
+                _prefix = 'infra-syslog-cfg'
+                _revision = '2016-06-22'
+
+                def __init__(self):
+                    self.parent = None
+                    self.max_file_size = None
+                    self.severity = None
+
+                @property
+                def _common_path(self):
+                    if self.parent is None:
+                        raise YPYModelError('parent is not set . Cannot derive path.')
+
+                    return self.parent._common_path +'/Cisco-IOS-XR-infra-syslog-cfg:file-log-attributes'
+
+                def is_config(self):
+                    ''' Returns True if this instance represents config data else returns False '''
+                    return True
+
+                def _has_data(self):
+                    if not self.is_config():
+                        return False
+                    if self.max_file_size is not None:
+                        return True
+
+                    if self.severity is not None:
+                        return True
+
+                    return False
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_syslog_cfg as meta
+                    return meta._meta_table['Syslog.Files.File.FileLogAttributes']['meta_info']
 
 
             class FileLogDiscriminator(object):
@@ -3331,7 +3409,7 @@ class Syslog(object):
                 """
 
                 _prefix = 'infra-syslog-cfg'
-                _revision = '2015-10-08'
+                _revision = '2016-06-22'
 
                 def __init__(self):
                     self.parent = None
@@ -3398,6 +3476,9 @@ class Syslog(object):
                 if self.file_name is not None:
                     return True
 
+                if self.file_log_attributes is not None and self.file_log_attributes._has_data():
+                    return True
+
                 if self.file_log_discriminator is not None and self.file_log_discriminator._has_data():
                     return True
 
@@ -3460,7 +3541,7 @@ class Syslog(object):
         """
 
         _prefix = 'infra-syslog-cfg'
-        _revision = '2015-10-08'
+        _revision = '2016-06-22'
 
         def __init__(self):
             self.parent = None
@@ -3527,7 +3608,7 @@ class Syslog(object):
             """
 
             _prefix = 'infra-syslog-cfg'
-            _revision = '2015-10-08'
+            _revision = '2016-06-22'
 
             def __init__(self):
                 self.parent = None
@@ -3611,7 +3692,7 @@ class Syslog(object):
             """
 
             _prefix = 'infra-syslog-cfg'
-            _revision = '2015-10-08'
+            _revision = '2016-06-22'
 
             def __init__(self):
                 self.parent = None
@@ -3705,7 +3786,7 @@ class Syslog(object):
             """
 
             _prefix = 'infra-syslog-cfg'
-            _revision = '2015-10-08'
+            _revision = '2016-06-22'
 
             def __init__(self):
                 self.parent = None
@@ -3825,7 +3906,7 @@ class Syslog(object):
         """
 
         _prefix = 'infra-syslog-cfg'
-        _revision = '2015-10-08'
+        _revision = '2016-06-22'
 
         def __init__(self):
             self.parent = None
@@ -3902,7 +3983,7 @@ class Syslog(object):
         """
 
         _prefix = 'infra-syslog-cfg'
-        _revision = '2015-10-08'
+        _revision = '2016-06-22'
 
         def __init__(self):
             self.parent = None
@@ -3969,7 +4050,7 @@ class Syslog(object):
             """
 
             _prefix = 'infra-syslog-cfg'
-            _revision = '2015-10-08'
+            _revision = '2016-06-22'
 
             def __init__(self):
                 self.parent = None
@@ -4053,7 +4134,7 @@ class Syslog(object):
             """
 
             _prefix = 'infra-syslog-cfg'
-            _revision = '2015-10-08'
+            _revision = '2016-06-22'
 
             def __init__(self):
                 self.parent = None
@@ -4147,7 +4228,7 @@ class Syslog(object):
             """
 
             _prefix = 'infra-syslog-cfg'
-            _revision = '2015-10-08'
+            _revision = '2016-06-22'
 
             def __init__(self):
                 self.parent = None
@@ -4229,7 +4310,7 @@ class Syslog(object):
         """
 
         _prefix = 'infra-syslog-cfg'
-        _revision = '2015-10-08'
+        _revision = '2016-06-22'
 
         def __init__(self):
             self.parent = None
@@ -4252,7 +4333,7 @@ class Syslog(object):
             """
 
             _prefix = 'infra-syslog-cfg'
-            _revision = '2015-10-08'
+            _revision = '2016-06-22'
 
             def __init__(self):
                 self.parent = None
@@ -4270,7 +4351,7 @@ class Syslog(object):
                 	Which Interface
                 	**type**\:  str
                 
-                	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+                	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
                 
                 .. attribute:: source_interface_vrfs
                 
@@ -4282,7 +4363,7 @@ class Syslog(object):
                 """
 
                 _prefix = 'infra-syslog-cfg'
-                _revision = '2015-10-08'
+                _revision = '2016-06-22'
 
                 def __init__(self):
                     self.parent = None
@@ -4305,7 +4386,7 @@ class Syslog(object):
                     """
 
                     _prefix = 'infra-syslog-cfg'
-                    _revision = '2015-10-08'
+                    _revision = '2016-06-22'
 
                     def __init__(self):
                         self.parent = None
@@ -4330,7 +4411,7 @@ class Syslog(object):
                         """
 
                         _prefix = 'infra-syslog-cfg'
-                        _revision = '2015-10-08'
+                        _revision = '2016-06-22'
 
                         def __init__(self):
                             self.parent = None
@@ -4535,6 +4616,2432 @@ class Syslog(object):
             from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_syslog_cfg as meta
             return meta._meta_table['Syslog.AlarmLogger']['meta_info']
 
+
+    class Correlator(object):
+        """
+        Configure properties of the event correlator
+        
+        .. attribute:: buffer_size
+        
+        	Configure size of the correlator buffer
+        	**type**\:  int
+        
+        	**range:** 1024..52428800
+        
+        .. attribute:: rule_sets
+        
+        	Table of configured rulesets
+        	**type**\:  :py:class:`RuleSets <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.Syslog.Correlator.RuleSets>`
+        
+        .. attribute:: rules
+        
+        	Table of configured rules
+        	**type**\:  :py:class:`Rules <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.Syslog.Correlator.Rules>`
+        
+        
+
+        """
+
+        _prefix = 'infra-correlator-cfg'
+        _revision = '2015-11-09'
+
+        def __init__(self):
+            self.parent = None
+            self.buffer_size = None
+            self.rule_sets = Syslog.Correlator.RuleSets()
+            self.rule_sets.parent = self
+            self.rules = Syslog.Correlator.Rules()
+            self.rules.parent = self
+
+
+        class Rules(object):
+            """
+            Table of configured rules
+            
+            .. attribute:: rule
+            
+            	Rule name
+            	**type**\: list of  :py:class:`Rule <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.Syslog.Correlator.Rules.Rule>`
+            
+            
+
+            """
+
+            _prefix = 'infra-correlator-cfg'
+            _revision = '2015-11-09'
+
+            def __init__(self):
+                self.parent = None
+                self.rule = YList()
+                self.rule.parent = self
+                self.rule.name = 'rule'
+
+
+            class Rule(object):
+                """
+                Rule name
+                
+                .. attribute:: name  <key>
+                
+                	Rule name
+                	**type**\:  str
+                
+                	**range:** 0..32
+                
+                .. attribute:: applied_to
+                
+                	Applied to the Rule or Ruleset
+                	**type**\:  :py:class:`AppliedTo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.Syslog.Correlator.Rules.Rule.AppliedTo>`
+                
+                .. attribute:: apply_to
+                
+                	Apply the Rules
+                	**type**\:  :py:class:`ApplyTo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.Syslog.Correlator.Rules.Rule.ApplyTo>`
+                
+                .. attribute:: definition
+                
+                	Configure a specified correlation rule
+                	**type**\:  :py:class:`Definition <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.Syslog.Correlator.Rules.Rule.Definition>`
+                
+                .. attribute:: non_stateful
+                
+                	The Non\-Stateful Rule Type
+                	**type**\:  :py:class:`NonStateful <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.Syslog.Correlator.Rules.Rule.NonStateful>`
+                
+                .. attribute:: stateful
+                
+                	The Stateful Rule Type
+                	**type**\:  :py:class:`Stateful <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.Syslog.Correlator.Rules.Rule.Stateful>`
+                
+                
+
+                """
+
+                _prefix = 'infra-correlator-cfg'
+                _revision = '2015-11-09'
+
+                def __init__(self):
+                    self.parent = None
+                    self.name = None
+                    self.applied_to = Syslog.Correlator.Rules.Rule.AppliedTo()
+                    self.applied_to.parent = self
+                    self.apply_to = Syslog.Correlator.Rules.Rule.ApplyTo()
+                    self.apply_to.parent = self
+                    self.definition = Syslog.Correlator.Rules.Rule.Definition()
+                    self.definition.parent = self
+                    self.non_stateful = Syslog.Correlator.Rules.Rule.NonStateful()
+                    self.non_stateful.parent = self
+                    self.stateful = Syslog.Correlator.Rules.Rule.Stateful()
+                    self.stateful.parent = self
+
+
+                class Definition(object):
+                    """
+                    Configure a specified correlation rule
+                    
+                    .. attribute:: category_name_entry1
+                    
+                    	Root message category name
+                    	**type**\:  str
+                    
+                    .. attribute:: category_name_entry10
+                    
+                    	Correlated message category name
+                    	**type**\:  str
+                    
+                    .. attribute:: category_name_entry2
+                    
+                    	Correlated message category name
+                    	**type**\:  str
+                    
+                    .. attribute:: category_name_entry3
+                    
+                    	Correlated message category name
+                    	**type**\:  str
+                    
+                    .. attribute:: category_name_entry4
+                    
+                    	Correlated message category name
+                    	**type**\:  str
+                    
+                    .. attribute:: category_name_entry5
+                    
+                    	Correlated message category name
+                    	**type**\:  str
+                    
+                    .. attribute:: category_name_entry6
+                    
+                    	Correlated message category name
+                    	**type**\:  str
+                    
+                    .. attribute:: category_name_entry7
+                    
+                    	Correlated message category name
+                    	**type**\:  str
+                    
+                    .. attribute:: category_name_entry8
+                    
+                    	Correlated message category name
+                    	**type**\:  str
+                    
+                    .. attribute:: category_name_entry9
+                    
+                    	Correlated message category name
+                    	**type**\:  str
+                    
+                    .. attribute:: group_name_entry1
+                    
+                    	Root message group name
+                    	**type**\:  str
+                    
+                    .. attribute:: group_name_entry10
+                    
+                    	Correlated message group name
+                    	**type**\:  str
+                    
+                    .. attribute:: group_name_entry2
+                    
+                    	Correlated message group name
+                    	**type**\:  str
+                    
+                    .. attribute:: group_name_entry3
+                    
+                    	Correlated message group name
+                    	**type**\:  str
+                    
+                    .. attribute:: group_name_entry4
+                    
+                    	Correlated message group name
+                    	**type**\:  str
+                    
+                    .. attribute:: group_name_entry5
+                    
+                    	Correlated message group name
+                    	**type**\:  str
+                    
+                    .. attribute:: group_name_entry6
+                    
+                    	Correlated message group name
+                    	**type**\:  str
+                    
+                    .. attribute:: group_name_entry7
+                    
+                    	Correlated message group name
+                    	**type**\:  str
+                    
+                    .. attribute:: group_name_entry8
+                    
+                    	Correlated message group name
+                    	**type**\:  str
+                    
+                    .. attribute:: group_name_entry9
+                    
+                    	Correlated message group name
+                    	**type**\:  str
+                    
+                    .. attribute:: message_code_entry1
+                    
+                    	Root message code
+                    	**type**\:  str
+                    
+                    .. attribute:: message_code_entry10
+                    
+                    	Correlated message code
+                    	**type**\:  str
+                    
+                    .. attribute:: message_code_entry2
+                    
+                    	Correlated message code
+                    	**type**\:  str
+                    
+                    .. attribute:: message_code_entry3
+                    
+                    	Correlated message code
+                    	**type**\:  str
+                    
+                    .. attribute:: message_code_entry4
+                    
+                    	Correlated message code
+                    	**type**\:  str
+                    
+                    .. attribute:: message_code_entry5
+                    
+                    	Correlated message code
+                    	**type**\:  str
+                    
+                    .. attribute:: message_code_entry6
+                    
+                    	Correlated message code
+                    	**type**\:  str
+                    
+                    .. attribute:: message_code_entry7
+                    
+                    	Correlated message code
+                    	**type**\:  str
+                    
+                    .. attribute:: message_code_entry8
+                    
+                    	Correlated message code
+                    	**type**\:  str
+                    
+                    .. attribute:: message_code_entry9
+                    
+                    	Correlated message code
+                    	**type**\:  str
+                    
+                    .. attribute:: timeout
+                    
+                    	Timeout (time the rule is to be active) in milliseconds
+                    	**type**\:  int
+                    
+                    	**range:** 1..7200000
+                    
+                    
+
+                    """
+
+                    _prefix = 'infra-correlator-cfg'
+                    _revision = '2015-11-09'
+
+                    def __init__(self):
+                        self.parent = None
+                        self.category_name_entry1 = None
+                        self.category_name_entry10 = None
+                        self.category_name_entry2 = None
+                        self.category_name_entry3 = None
+                        self.category_name_entry4 = None
+                        self.category_name_entry5 = None
+                        self.category_name_entry6 = None
+                        self.category_name_entry7 = None
+                        self.category_name_entry8 = None
+                        self.category_name_entry9 = None
+                        self.group_name_entry1 = None
+                        self.group_name_entry10 = None
+                        self.group_name_entry2 = None
+                        self.group_name_entry3 = None
+                        self.group_name_entry4 = None
+                        self.group_name_entry5 = None
+                        self.group_name_entry6 = None
+                        self.group_name_entry7 = None
+                        self.group_name_entry8 = None
+                        self.group_name_entry9 = None
+                        self.message_code_entry1 = None
+                        self.message_code_entry10 = None
+                        self.message_code_entry2 = None
+                        self.message_code_entry3 = None
+                        self.message_code_entry4 = None
+                        self.message_code_entry5 = None
+                        self.message_code_entry6 = None
+                        self.message_code_entry7 = None
+                        self.message_code_entry8 = None
+                        self.message_code_entry9 = None
+                        self.timeout = None
+
+                    @property
+                    def _common_path(self):
+                        if self.parent is None:
+                            raise YPYModelError('parent is not set . Cannot derive path.')
+
+                        return self.parent._common_path +'/Cisco-IOS-XR-infra-correlator-cfg:definition'
+
+                    def is_config(self):
+                        ''' Returns True if this instance represents config data else returns False '''
+                        return True
+
+                    def _has_data(self):
+                        if not self.is_config():
+                            return False
+                        if self.category_name_entry1 is not None:
+                            return True
+
+                        if self.category_name_entry10 is not None:
+                            return True
+
+                        if self.category_name_entry2 is not None:
+                            return True
+
+                        if self.category_name_entry3 is not None:
+                            return True
+
+                        if self.category_name_entry4 is not None:
+                            return True
+
+                        if self.category_name_entry5 is not None:
+                            return True
+
+                        if self.category_name_entry6 is not None:
+                            return True
+
+                        if self.category_name_entry7 is not None:
+                            return True
+
+                        if self.category_name_entry8 is not None:
+                            return True
+
+                        if self.category_name_entry9 is not None:
+                            return True
+
+                        if self.group_name_entry1 is not None:
+                            return True
+
+                        if self.group_name_entry10 is not None:
+                            return True
+
+                        if self.group_name_entry2 is not None:
+                            return True
+
+                        if self.group_name_entry3 is not None:
+                            return True
+
+                        if self.group_name_entry4 is not None:
+                            return True
+
+                        if self.group_name_entry5 is not None:
+                            return True
+
+                        if self.group_name_entry6 is not None:
+                            return True
+
+                        if self.group_name_entry7 is not None:
+                            return True
+
+                        if self.group_name_entry8 is not None:
+                            return True
+
+                        if self.group_name_entry9 is not None:
+                            return True
+
+                        if self.message_code_entry1 is not None:
+                            return True
+
+                        if self.message_code_entry10 is not None:
+                            return True
+
+                        if self.message_code_entry2 is not None:
+                            return True
+
+                        if self.message_code_entry3 is not None:
+                            return True
+
+                        if self.message_code_entry4 is not None:
+                            return True
+
+                        if self.message_code_entry5 is not None:
+                            return True
+
+                        if self.message_code_entry6 is not None:
+                            return True
+
+                        if self.message_code_entry7 is not None:
+                            return True
+
+                        if self.message_code_entry8 is not None:
+                            return True
+
+                        if self.message_code_entry9 is not None:
+                            return True
+
+                        if self.timeout is not None:
+                            return True
+
+                        return False
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_syslog_cfg as meta
+                        return meta._meta_table['Syslog.Correlator.Rules.Rule.Definition']['meta_info']
+
+
+                class NonStateful(object):
+                    """
+                    The Non\-Stateful Rule Type
+                    
+                    .. attribute:: context_correlation
+                    
+                    	Enable correlation on alarm context
+                    	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                    
+                    .. attribute:: non_root_causes
+                    
+                    	Table of configured non\-rootcause
+                    	**type**\:  :py:class:`NonRootCauses <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.Syslog.Correlator.Rules.Rule.NonStateful.NonRootCauses>`
+                    
+                    .. attribute:: root_cause
+                    
+                    	The root cause
+                    	**type**\:  :py:class:`RootCause <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.Syslog.Correlator.Rules.Rule.NonStateful.RootCause>`
+                    
+                    .. attribute:: timeout
+                    
+                    	Timeout (time to wait for active correlation) in milliseconds
+                    	**type**\:  int
+                    
+                    	**range:** 1..7200000
+                    
+                    .. attribute:: timeout_root_cause
+                    
+                    	Rootcause Timeout (time to wait for rootcause) in milliseconds
+                    	**type**\:  int
+                    
+                    	**range:** 1..7200000
+                    
+                    
+
+                    """
+
+                    _prefix = 'infra-correlator-cfg'
+                    _revision = '2015-11-09'
+
+                    def __init__(self):
+                        self.parent = None
+                        self.context_correlation = None
+                        self.non_root_causes = Syslog.Correlator.Rules.Rule.NonStateful.NonRootCauses()
+                        self.non_root_causes.parent = self
+                        self.root_cause = Syslog.Correlator.Rules.Rule.NonStateful.RootCause()
+                        self.root_cause.parent = self
+                        self.timeout = None
+                        self.timeout_root_cause = None
+
+
+                    class NonRootCauses(object):
+                        """
+                        Table of configured non\-rootcause
+                        
+                        .. attribute:: non_root_cause
+                        
+                        	A non\-rootcause
+                        	**type**\: list of  :py:class:`NonRootCause <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.Syslog.Correlator.Rules.Rule.NonStateful.NonRootCauses.NonRootCause>`
+                        
+                        
+
+                        """
+
+                        _prefix = 'infra-correlator-cfg'
+                        _revision = '2015-11-09'
+
+                        def __init__(self):
+                            self.parent = None
+                            self.non_root_cause = YList()
+                            self.non_root_cause.parent = self
+                            self.non_root_cause.name = 'non_root_cause'
+
+
+                        class NonRootCause(object):
+                            """
+                            A non\-rootcause
+                            
+                            .. attribute:: category  <key>
+                            
+                            	Correlated message category
+                            	**type**\:  str
+                            
+                            .. attribute:: group  <key>
+                            
+                            	Correlated message group
+                            	**type**\:  str
+                            
+                            .. attribute:: message_code  <key>
+                            
+                            	Correlated message code
+                            	**type**\:  str
+                            
+                            
+
+                            """
+
+                            _prefix = 'infra-correlator-cfg'
+                            _revision = '2015-11-09'
+
+                            def __init__(self):
+                                self.parent = None
+                                self.category = None
+                                self.group = None
+                                self.message_code = None
+
+                            @property
+                            def _common_path(self):
+                                if self.parent is None:
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
+                                if self.category is None:
+                                    raise YPYModelError('Key property category is None')
+                                if self.group is None:
+                                    raise YPYModelError('Key property group is None')
+                                if self.message_code is None:
+                                    raise YPYModelError('Key property message_code is None')
+
+                                return self.parent._common_path +'/Cisco-IOS-XR-infra-correlator-cfg:non-root-cause[Cisco-IOS-XR-infra-correlator-cfg:category = ' + str(self.category) + '][Cisco-IOS-XR-infra-correlator-cfg:group = ' + str(self.group) + '][Cisco-IOS-XR-infra-correlator-cfg:message-code = ' + str(self.message_code) + ']'
+
+                            def is_config(self):
+                                ''' Returns True if this instance represents config data else returns False '''
+                                return True
+
+                            def _has_data(self):
+                                if not self.is_config():
+                                    return False
+                                if self.category is not None:
+                                    return True
+
+                                if self.group is not None:
+                                    return True
+
+                                if self.message_code is not None:
+                                    return True
+
+                                return False
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_syslog_cfg as meta
+                                return meta._meta_table['Syslog.Correlator.Rules.Rule.NonStateful.NonRootCauses.NonRootCause']['meta_info']
+
+                        @property
+                        def _common_path(self):
+                            if self.parent is None:
+                                raise YPYModelError('parent is not set . Cannot derive path.')
+
+                            return self.parent._common_path +'/Cisco-IOS-XR-infra-correlator-cfg:non-root-causes'
+
+                        def is_config(self):
+                            ''' Returns True if this instance represents config data else returns False '''
+                            return True
+
+                        def _has_data(self):
+                            if not self.is_config():
+                                return False
+                            if self.non_root_cause is not None:
+                                for child_ref in self.non_root_cause:
+                                    if child_ref._has_data():
+                                        return True
+
+                            return False
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_syslog_cfg as meta
+                            return meta._meta_table['Syslog.Correlator.Rules.Rule.NonStateful.NonRootCauses']['meta_info']
+
+
+                    class RootCause(object):
+                        """
+                        The root cause
+                        
+                        .. attribute:: category
+                        
+                        	Root message category
+                        	**type**\:  str
+                        
+                        .. attribute:: group
+                        
+                        	Root message group
+                        	**type**\:  str
+                        
+                        .. attribute:: message_code
+                        
+                        	Root message code
+                        	**type**\:  str
+                        
+                        
+
+                        """
+
+                        _prefix = 'infra-correlator-cfg'
+                        _revision = '2015-11-09'
+
+                        def __init__(self):
+                            self.parent = None
+                            self.category = None
+                            self.group = None
+                            self.message_code = None
+
+                        @property
+                        def _common_path(self):
+                            if self.parent is None:
+                                raise YPYModelError('parent is not set . Cannot derive path.')
+
+                            return self.parent._common_path +'/Cisco-IOS-XR-infra-correlator-cfg:root-cause'
+
+                        def is_config(self):
+                            ''' Returns True if this instance represents config data else returns False '''
+                            return True
+
+                        def _has_data(self):
+                            if not self.is_config():
+                                return False
+                            if self.category is not None:
+                                return True
+
+                            if self.group is not None:
+                                return True
+
+                            if self.message_code is not None:
+                                return True
+
+                            return False
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_syslog_cfg as meta
+                            return meta._meta_table['Syslog.Correlator.Rules.Rule.NonStateful.RootCause']['meta_info']
+
+                    @property
+                    def _common_path(self):
+                        if self.parent is None:
+                            raise YPYModelError('parent is not set . Cannot derive path.')
+
+                        return self.parent._common_path +'/Cisco-IOS-XR-infra-correlator-cfg:non-stateful'
+
+                    def is_config(self):
+                        ''' Returns True if this instance represents config data else returns False '''
+                        return True
+
+                    def _has_data(self):
+                        if not self.is_config():
+                            return False
+                        if self.context_correlation is not None:
+                            return True
+
+                        if self.non_root_causes is not None and self.non_root_causes._has_data():
+                            return True
+
+                        if self.root_cause is not None and self.root_cause._has_data():
+                            return True
+
+                        if self.timeout is not None:
+                            return True
+
+                        if self.timeout_root_cause is not None:
+                            return True
+
+                        return False
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_syslog_cfg as meta
+                        return meta._meta_table['Syslog.Correlator.Rules.Rule.NonStateful']['meta_info']
+
+
+                class Stateful(object):
+                    """
+                    The Stateful Rule Type
+                    
+                    .. attribute:: context_correlation
+                    
+                    	Enable correlation on alarm context
+                    	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                    
+                    .. attribute:: non_root_causes
+                    
+                    	Table of configured non\-rootcause
+                    	**type**\:  :py:class:`NonRootCauses <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.Syslog.Correlator.Rules.Rule.Stateful.NonRootCauses>`
+                    
+                    .. attribute:: reissue
+                    
+                    	Enable reissue of non\-bistate alarms on rootcause alarm clear
+                    	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                    
+                    .. attribute:: reparent
+                    
+                    	Enable reparent of alarm on rootcause alarm clear
+                    	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                    
+                    .. attribute:: root_cause
+                    
+                    	The root cause
+                    	**type**\:  :py:class:`RootCause <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.Syslog.Correlator.Rules.Rule.Stateful.RootCause>`
+                    
+                    .. attribute:: timeout
+                    
+                    	Timeout (time to wait for active correlation) in milliseconds
+                    	**type**\:  int
+                    
+                    	**range:** 1..7200000
+                    
+                    .. attribute:: timeout_root_cause
+                    
+                    	Rootcause Timeout (time to wait for rootcause) in milliseconds
+                    	**type**\:  int
+                    
+                    	**range:** 1..7200000
+                    
+                    
+
+                    """
+
+                    _prefix = 'infra-correlator-cfg'
+                    _revision = '2015-11-09'
+
+                    def __init__(self):
+                        self.parent = None
+                        self.context_correlation = None
+                        self.non_root_causes = Syslog.Correlator.Rules.Rule.Stateful.NonRootCauses()
+                        self.non_root_causes.parent = self
+                        self.reissue = None
+                        self.reparent = None
+                        self.root_cause = Syslog.Correlator.Rules.Rule.Stateful.RootCause()
+                        self.root_cause.parent = self
+                        self.timeout = None
+                        self.timeout_root_cause = None
+
+
+                    class NonRootCauses(object):
+                        """
+                        Table of configured non\-rootcause
+                        
+                        .. attribute:: non_root_cause
+                        
+                        	A non\-rootcause
+                        	**type**\: list of  :py:class:`NonRootCause <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.Syslog.Correlator.Rules.Rule.Stateful.NonRootCauses.NonRootCause>`
+                        
+                        
+
+                        """
+
+                        _prefix = 'infra-correlator-cfg'
+                        _revision = '2015-11-09'
+
+                        def __init__(self):
+                            self.parent = None
+                            self.non_root_cause = YList()
+                            self.non_root_cause.parent = self
+                            self.non_root_cause.name = 'non_root_cause'
+
+
+                        class NonRootCause(object):
+                            """
+                            A non\-rootcause
+                            
+                            .. attribute:: category  <key>
+                            
+                            	Correlated message category
+                            	**type**\:  str
+                            
+                            .. attribute:: group  <key>
+                            
+                            	Correlated message group
+                            	**type**\:  str
+                            
+                            .. attribute:: message_code  <key>
+                            
+                            	Correlated message code
+                            	**type**\:  str
+                            
+                            
+
+                            """
+
+                            _prefix = 'infra-correlator-cfg'
+                            _revision = '2015-11-09'
+
+                            def __init__(self):
+                                self.parent = None
+                                self.category = None
+                                self.group = None
+                                self.message_code = None
+
+                            @property
+                            def _common_path(self):
+                                if self.parent is None:
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
+                                if self.category is None:
+                                    raise YPYModelError('Key property category is None')
+                                if self.group is None:
+                                    raise YPYModelError('Key property group is None')
+                                if self.message_code is None:
+                                    raise YPYModelError('Key property message_code is None')
+
+                                return self.parent._common_path +'/Cisco-IOS-XR-infra-correlator-cfg:non-root-cause[Cisco-IOS-XR-infra-correlator-cfg:category = ' + str(self.category) + '][Cisco-IOS-XR-infra-correlator-cfg:group = ' + str(self.group) + '][Cisco-IOS-XR-infra-correlator-cfg:message-code = ' + str(self.message_code) + ']'
+
+                            def is_config(self):
+                                ''' Returns True if this instance represents config data else returns False '''
+                                return True
+
+                            def _has_data(self):
+                                if not self.is_config():
+                                    return False
+                                if self.category is not None:
+                                    return True
+
+                                if self.group is not None:
+                                    return True
+
+                                if self.message_code is not None:
+                                    return True
+
+                                return False
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_syslog_cfg as meta
+                                return meta._meta_table['Syslog.Correlator.Rules.Rule.Stateful.NonRootCauses.NonRootCause']['meta_info']
+
+                        @property
+                        def _common_path(self):
+                            if self.parent is None:
+                                raise YPYModelError('parent is not set . Cannot derive path.')
+
+                            return self.parent._common_path +'/Cisco-IOS-XR-infra-correlator-cfg:non-root-causes'
+
+                        def is_config(self):
+                            ''' Returns True if this instance represents config data else returns False '''
+                            return True
+
+                        def _has_data(self):
+                            if not self.is_config():
+                                return False
+                            if self.non_root_cause is not None:
+                                for child_ref in self.non_root_cause:
+                                    if child_ref._has_data():
+                                        return True
+
+                            return False
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_syslog_cfg as meta
+                            return meta._meta_table['Syslog.Correlator.Rules.Rule.Stateful.NonRootCauses']['meta_info']
+
+
+                    class RootCause(object):
+                        """
+                        The root cause
+                        
+                        .. attribute:: category
+                        
+                        	Root message category
+                        	**type**\:  str
+                        
+                        .. attribute:: group
+                        
+                        	Root message group
+                        	**type**\:  str
+                        
+                        .. attribute:: message_code
+                        
+                        	Root message code
+                        	**type**\:  str
+                        
+                        
+
+                        """
+
+                        _prefix = 'infra-correlator-cfg'
+                        _revision = '2015-11-09'
+
+                        def __init__(self):
+                            self.parent = None
+                            self.category = None
+                            self.group = None
+                            self.message_code = None
+
+                        @property
+                        def _common_path(self):
+                            if self.parent is None:
+                                raise YPYModelError('parent is not set . Cannot derive path.')
+
+                            return self.parent._common_path +'/Cisco-IOS-XR-infra-correlator-cfg:root-cause'
+
+                        def is_config(self):
+                            ''' Returns True if this instance represents config data else returns False '''
+                            return True
+
+                        def _has_data(self):
+                            if not self.is_config():
+                                return False
+                            if self.category is not None:
+                                return True
+
+                            if self.group is not None:
+                                return True
+
+                            if self.message_code is not None:
+                                return True
+
+                            return False
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_syslog_cfg as meta
+                            return meta._meta_table['Syslog.Correlator.Rules.Rule.Stateful.RootCause']['meta_info']
+
+                    @property
+                    def _common_path(self):
+                        if self.parent is None:
+                            raise YPYModelError('parent is not set . Cannot derive path.')
+
+                        return self.parent._common_path +'/Cisco-IOS-XR-infra-correlator-cfg:stateful'
+
+                    def is_config(self):
+                        ''' Returns True if this instance represents config data else returns False '''
+                        return True
+
+                    def _has_data(self):
+                        if not self.is_config():
+                            return False
+                        if self.context_correlation is not None:
+                            return True
+
+                        if self.non_root_causes is not None and self.non_root_causes._has_data():
+                            return True
+
+                        if self.reissue is not None:
+                            return True
+
+                        if self.reparent is not None:
+                            return True
+
+                        if self.root_cause is not None and self.root_cause._has_data():
+                            return True
+
+                        if self.timeout is not None:
+                            return True
+
+                        if self.timeout_root_cause is not None:
+                            return True
+
+                        return False
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_syslog_cfg as meta
+                        return meta._meta_table['Syslog.Correlator.Rules.Rule.Stateful']['meta_info']
+
+
+                class ApplyTo(object):
+                    """
+                    Apply the Rules
+                    
+                    .. attribute:: all_of_router
+                    
+                    	Apply the rule to all of the router
+                    	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                    
+                    .. attribute:: contexts
+                    
+                    	Apply rule to a specified list of contexts, e.g. interfaces
+                    	**type**\:  :py:class:`Contexts <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.Syslog.Correlator.Rules.Rule.ApplyTo.Contexts>`
+                    
+                    .. attribute:: locations
+                    
+                    	Apply rule to a specified list of Locations
+                    	**type**\:  :py:class:`Locations <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.Syslog.Correlator.Rules.Rule.ApplyTo.Locations>`
+                    
+                    
+
+                    """
+
+                    _prefix = 'infra-correlator-cfg'
+                    _revision = '2015-11-09'
+
+                    def __init__(self):
+                        self.parent = None
+                        self.all_of_router = None
+                        self.contexts = Syslog.Correlator.Rules.Rule.ApplyTo.Contexts()
+                        self.contexts.parent = self
+                        self.locations = Syslog.Correlator.Rules.Rule.ApplyTo.Locations()
+                        self.locations.parent = self
+
+
+                    class Contexts(object):
+                        """
+                        Apply rule to a specified list of contexts,
+                        e.g. interfaces
+                        
+                        .. attribute:: context
+                        
+                        	One or more context names
+                        	**type**\:  list of str
+                        
+                        
+
+                        """
+
+                        _prefix = 'infra-correlator-cfg'
+                        _revision = '2015-11-09'
+
+                        def __init__(self):
+                            self.parent = None
+                            self.context = YLeafList()
+                            self.context.parent = self
+                            self.context.name = 'context'
+
+                        @property
+                        def _common_path(self):
+                            if self.parent is None:
+                                raise YPYModelError('parent is not set . Cannot derive path.')
+
+                            return self.parent._common_path +'/Cisco-IOS-XR-infra-correlator-cfg:contexts'
+
+                        def is_config(self):
+                            ''' Returns True if this instance represents config data else returns False '''
+                            return True
+
+                        def _has_data(self):
+                            if not self.is_config():
+                                return False
+                            if self.context is not None:
+                                for child in self.context:
+                                    if child is not None:
+                                        return True
+
+                            return False
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_syslog_cfg as meta
+                            return meta._meta_table['Syslog.Correlator.Rules.Rule.ApplyTo.Contexts']['meta_info']
+
+
+                    class Locations(object):
+                        """
+                        Apply rule to a specified list of Locations
+                        
+                        .. attribute:: location
+                        
+                        	One or more Locations
+                        	**type**\:  list of str
+                        
+                        	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
+                        
+                        
+
+                        """
+
+                        _prefix = 'infra-correlator-cfg'
+                        _revision = '2015-11-09'
+
+                        def __init__(self):
+                            self.parent = None
+                            self.location = YLeafList()
+                            self.location.parent = self
+                            self.location.name = 'location'
+
+                        @property
+                        def _common_path(self):
+                            if self.parent is None:
+                                raise YPYModelError('parent is not set . Cannot derive path.')
+
+                            return self.parent._common_path +'/Cisco-IOS-XR-infra-correlator-cfg:locations'
+
+                        def is_config(self):
+                            ''' Returns True if this instance represents config data else returns False '''
+                            return True
+
+                        def _has_data(self):
+                            if not self.is_config():
+                                return False
+                            if self.location is not None:
+                                for child in self.location:
+                                    if child is not None:
+                                        return True
+
+                            return False
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_syslog_cfg as meta
+                            return meta._meta_table['Syslog.Correlator.Rules.Rule.ApplyTo.Locations']['meta_info']
+
+                    @property
+                    def _common_path(self):
+                        if self.parent is None:
+                            raise YPYModelError('parent is not set . Cannot derive path.')
+
+                        return self.parent._common_path +'/Cisco-IOS-XR-infra-correlator-cfg:apply-to'
+
+                    def is_config(self):
+                        ''' Returns True if this instance represents config data else returns False '''
+                        return True
+
+                    def _has_data(self):
+                        if not self.is_config():
+                            return False
+                        if self.all_of_router is not None:
+                            return True
+
+                        if self.contexts is not None and self.contexts._has_data():
+                            return True
+
+                        if self.locations is not None and self.locations._has_data():
+                            return True
+
+                        return False
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_syslog_cfg as meta
+                        return meta._meta_table['Syslog.Correlator.Rules.Rule.ApplyTo']['meta_info']
+
+
+                class AppliedTo(object):
+                    """
+                    Applied to the Rule or Ruleset
+                    
+                    .. attribute:: all
+                    
+                    	Apply to all of the router
+                    	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                    
+                    .. attribute:: contexts
+                    
+                    	Table of configured contexts to apply
+                    	**type**\:  :py:class:`Contexts <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.Syslog.Correlator.Rules.Rule.AppliedTo.Contexts>`
+                    
+                    .. attribute:: locations
+                    
+                    	Table of configured locations to apply
+                    	**type**\:  :py:class:`Locations <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.Syslog.Correlator.Rules.Rule.AppliedTo.Locations>`
+                    
+                    
+
+                    """
+
+                    _prefix = 'infra-correlator-cfg'
+                    _revision = '2015-11-09'
+
+                    def __init__(self):
+                        self.parent = None
+                        self.all = None
+                        self.contexts = Syslog.Correlator.Rules.Rule.AppliedTo.Contexts()
+                        self.contexts.parent = self
+                        self.locations = Syslog.Correlator.Rules.Rule.AppliedTo.Locations()
+                        self.locations.parent = self
+
+
+                    class Contexts(object):
+                        """
+                        Table of configured contexts to apply
+                        
+                        .. attribute:: context
+                        
+                        	A context
+                        	**type**\: list of  :py:class:`Context <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.Syslog.Correlator.Rules.Rule.AppliedTo.Contexts.Context>`
+                        
+                        
+
+                        """
+
+                        _prefix = 'infra-correlator-cfg'
+                        _revision = '2015-11-09'
+
+                        def __init__(self):
+                            self.parent = None
+                            self.context = YList()
+                            self.context.parent = self
+                            self.context.name = 'context'
+
+
+                        class Context(object):
+                            """
+                            A context
+                            
+                            .. attribute:: context  <key>
+                            
+                            	Context
+                            	**type**\:  str
+                            
+                            	**range:** 0..32
+                            
+                            
+
+                            """
+
+                            _prefix = 'infra-correlator-cfg'
+                            _revision = '2015-11-09'
+
+                            def __init__(self):
+                                self.parent = None
+                                self.context = None
+
+                            @property
+                            def _common_path(self):
+                                if self.parent is None:
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
+                                if self.context is None:
+                                    raise YPYModelError('Key property context is None')
+
+                                return self.parent._common_path +'/Cisco-IOS-XR-infra-correlator-cfg:context[Cisco-IOS-XR-infra-correlator-cfg:context = ' + str(self.context) + ']'
+
+                            def is_config(self):
+                                ''' Returns True if this instance represents config data else returns False '''
+                                return True
+
+                            def _has_data(self):
+                                if not self.is_config():
+                                    return False
+                                if self.context is not None:
+                                    return True
+
+                                return False
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_syslog_cfg as meta
+                                return meta._meta_table['Syslog.Correlator.Rules.Rule.AppliedTo.Contexts.Context']['meta_info']
+
+                        @property
+                        def _common_path(self):
+                            if self.parent is None:
+                                raise YPYModelError('parent is not set . Cannot derive path.')
+
+                            return self.parent._common_path +'/Cisco-IOS-XR-infra-correlator-cfg:contexts'
+
+                        def is_config(self):
+                            ''' Returns True if this instance represents config data else returns False '''
+                            return True
+
+                        def _has_data(self):
+                            if not self.is_config():
+                                return False
+                            if self.context is not None:
+                                for child_ref in self.context:
+                                    if child_ref._has_data():
+                                        return True
+
+                            return False
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_syslog_cfg as meta
+                            return meta._meta_table['Syslog.Correlator.Rules.Rule.AppliedTo.Contexts']['meta_info']
+
+
+                    class Locations(object):
+                        """
+                        Table of configured locations to apply
+                        
+                        .. attribute:: location
+                        
+                        	A location
+                        	**type**\: list of  :py:class:`Location <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.Syslog.Correlator.Rules.Rule.AppliedTo.Locations.Location>`
+                        
+                        
+
+                        """
+
+                        _prefix = 'infra-correlator-cfg'
+                        _revision = '2015-11-09'
+
+                        def __init__(self):
+                            self.parent = None
+                            self.location = YList()
+                            self.location.parent = self
+                            self.location.name = 'location'
+
+
+                        class Location(object):
+                            """
+                            A location
+                            
+                            .. attribute:: location  <key>
+                            
+                            	Location
+                            	**type**\:  str
+                            
+                            	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
+                            
+                            
+
+                            """
+
+                            _prefix = 'infra-correlator-cfg'
+                            _revision = '2015-11-09'
+
+                            def __init__(self):
+                                self.parent = None
+                                self.location = None
+
+                            @property
+                            def _common_path(self):
+                                if self.parent is None:
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
+                                if self.location is None:
+                                    raise YPYModelError('Key property location is None')
+
+                                return self.parent._common_path +'/Cisco-IOS-XR-infra-correlator-cfg:location[Cisco-IOS-XR-infra-correlator-cfg:location = ' + str(self.location) + ']'
+
+                            def is_config(self):
+                                ''' Returns True if this instance represents config data else returns False '''
+                                return True
+
+                            def _has_data(self):
+                                if not self.is_config():
+                                    return False
+                                if self.location is not None:
+                                    return True
+
+                                return False
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_syslog_cfg as meta
+                                return meta._meta_table['Syslog.Correlator.Rules.Rule.AppliedTo.Locations.Location']['meta_info']
+
+                        @property
+                        def _common_path(self):
+                            if self.parent is None:
+                                raise YPYModelError('parent is not set . Cannot derive path.')
+
+                            return self.parent._common_path +'/Cisco-IOS-XR-infra-correlator-cfg:locations'
+
+                        def is_config(self):
+                            ''' Returns True if this instance represents config data else returns False '''
+                            return True
+
+                        def _has_data(self):
+                            if not self.is_config():
+                                return False
+                            if self.location is not None:
+                                for child_ref in self.location:
+                                    if child_ref._has_data():
+                                        return True
+
+                            return False
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_syslog_cfg as meta
+                            return meta._meta_table['Syslog.Correlator.Rules.Rule.AppliedTo.Locations']['meta_info']
+
+                    @property
+                    def _common_path(self):
+                        if self.parent is None:
+                            raise YPYModelError('parent is not set . Cannot derive path.')
+
+                        return self.parent._common_path +'/Cisco-IOS-XR-infra-correlator-cfg:applied-to'
+
+                    def is_config(self):
+                        ''' Returns True if this instance represents config data else returns False '''
+                        return True
+
+                    def _has_data(self):
+                        if not self.is_config():
+                            return False
+                        if self.all is not None:
+                            return True
+
+                        if self.contexts is not None and self.contexts._has_data():
+                            return True
+
+                        if self.locations is not None and self.locations._has_data():
+                            return True
+
+                        return False
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_syslog_cfg as meta
+                        return meta._meta_table['Syslog.Correlator.Rules.Rule.AppliedTo']['meta_info']
+
+                @property
+                def _common_path(self):
+                    if self.name is None:
+                        raise YPYModelError('Key property name is None')
+
+                    return '/Cisco-IOS-XR-infra-syslog-cfg:syslog/Cisco-IOS-XR-infra-correlator-cfg:correlator/Cisco-IOS-XR-infra-correlator-cfg:rules/Cisco-IOS-XR-infra-correlator-cfg:rule[Cisco-IOS-XR-infra-correlator-cfg:name = ' + str(self.name) + ']'
+
+                def is_config(self):
+                    ''' Returns True if this instance represents config data else returns False '''
+                    return True
+
+                def _has_data(self):
+                    if not self.is_config():
+                        return False
+                    if self.name is not None:
+                        return True
+
+                    if self.applied_to is not None and self.applied_to._has_data():
+                        return True
+
+                    if self.apply_to is not None and self.apply_to._has_data():
+                        return True
+
+                    if self.definition is not None and self.definition._has_data():
+                        return True
+
+                    if self.non_stateful is not None and self.non_stateful._has_data():
+                        return True
+
+                    if self.stateful is not None and self.stateful._has_data():
+                        return True
+
+                    return False
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_syslog_cfg as meta
+                    return meta._meta_table['Syslog.Correlator.Rules.Rule']['meta_info']
+
+            @property
+            def _common_path(self):
+
+                return '/Cisco-IOS-XR-infra-syslog-cfg:syslog/Cisco-IOS-XR-infra-correlator-cfg:correlator/Cisco-IOS-XR-infra-correlator-cfg:rules'
+
+            def is_config(self):
+                ''' Returns True if this instance represents config data else returns False '''
+                return True
+
+            def _has_data(self):
+                if not self.is_config():
+                    return False
+                if self.rule is not None:
+                    for child_ref in self.rule:
+                        if child_ref._has_data():
+                            return True
+
+                return False
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_syslog_cfg as meta
+                return meta._meta_table['Syslog.Correlator.Rules']['meta_info']
+
+
+        class RuleSets(object):
+            """
+            Table of configured rulesets
+            
+            .. attribute:: rule_set
+            
+            	Ruleset name
+            	**type**\: list of  :py:class:`RuleSet <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.Syslog.Correlator.RuleSets.RuleSet>`
+            
+            
+
+            """
+
+            _prefix = 'infra-correlator-cfg'
+            _revision = '2015-11-09'
+
+            def __init__(self):
+                self.parent = None
+                self.rule_set = YList()
+                self.rule_set.parent = self
+                self.rule_set.name = 'rule_set'
+
+
+            class RuleSet(object):
+                """
+                Ruleset name
+                
+                .. attribute:: name  <key>
+                
+                	Ruleset name
+                	**type**\:  str
+                
+                	**range:** 0..32
+                
+                .. attribute:: applied_to
+                
+                	Applied to the Rule or Ruleset
+                	**type**\:  :py:class:`AppliedTo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.Syslog.Correlator.RuleSets.RuleSet.AppliedTo>`
+                
+                .. attribute:: rulenames
+                
+                	Table of configured rulenames
+                	**type**\:  :py:class:`Rulenames <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.Syslog.Correlator.RuleSets.RuleSet.Rulenames>`
+                
+                
+
+                """
+
+                _prefix = 'infra-correlator-cfg'
+                _revision = '2015-11-09'
+
+                def __init__(self):
+                    self.parent = None
+                    self.name = None
+                    self.applied_to = Syslog.Correlator.RuleSets.RuleSet.AppliedTo()
+                    self.applied_to.parent = self
+                    self.rulenames = Syslog.Correlator.RuleSets.RuleSet.Rulenames()
+                    self.rulenames.parent = self
+
+
+                class Rulenames(object):
+                    """
+                    Table of configured rulenames
+                    
+                    .. attribute:: rulename
+                    
+                    	A rulename
+                    	**type**\: list of  :py:class:`Rulename <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.Syslog.Correlator.RuleSets.RuleSet.Rulenames.Rulename>`
+                    
+                    
+
+                    """
+
+                    _prefix = 'infra-correlator-cfg'
+                    _revision = '2015-11-09'
+
+                    def __init__(self):
+                        self.parent = None
+                        self.rulename = YList()
+                        self.rulename.parent = self
+                        self.rulename.name = 'rulename'
+
+
+                    class Rulename(object):
+                        """
+                        A rulename
+                        
+                        .. attribute:: rulename  <key>
+                        
+                        	Rule name
+                        	**type**\:  str
+                        
+                        	**range:** 0..32
+                        
+                        
+
+                        """
+
+                        _prefix = 'infra-correlator-cfg'
+                        _revision = '2015-11-09'
+
+                        def __init__(self):
+                            self.parent = None
+                            self.rulename = None
+
+                        @property
+                        def _common_path(self):
+                            if self.parent is None:
+                                raise YPYModelError('parent is not set . Cannot derive path.')
+                            if self.rulename is None:
+                                raise YPYModelError('Key property rulename is None')
+
+                            return self.parent._common_path +'/Cisco-IOS-XR-infra-correlator-cfg:rulename[Cisco-IOS-XR-infra-correlator-cfg:rulename = ' + str(self.rulename) + ']'
+
+                        def is_config(self):
+                            ''' Returns True if this instance represents config data else returns False '''
+                            return True
+
+                        def _has_data(self):
+                            if not self.is_config():
+                                return False
+                            if self.rulename is not None:
+                                return True
+
+                            return False
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_syslog_cfg as meta
+                            return meta._meta_table['Syslog.Correlator.RuleSets.RuleSet.Rulenames.Rulename']['meta_info']
+
+                    @property
+                    def _common_path(self):
+                        if self.parent is None:
+                            raise YPYModelError('parent is not set . Cannot derive path.')
+
+                        return self.parent._common_path +'/Cisco-IOS-XR-infra-correlator-cfg:rulenames'
+
+                    def is_config(self):
+                        ''' Returns True if this instance represents config data else returns False '''
+                        return True
+
+                    def _has_data(self):
+                        if not self.is_config():
+                            return False
+                        if self.rulename is not None:
+                            for child_ref in self.rulename:
+                                if child_ref._has_data():
+                                    return True
+
+                        return False
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_syslog_cfg as meta
+                        return meta._meta_table['Syslog.Correlator.RuleSets.RuleSet.Rulenames']['meta_info']
+
+
+                class AppliedTo(object):
+                    """
+                    Applied to the Rule or Ruleset
+                    
+                    .. attribute:: all
+                    
+                    	Apply to all of the router
+                    	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                    
+                    .. attribute:: contexts
+                    
+                    	Table of configured contexts to apply
+                    	**type**\:  :py:class:`Contexts <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.Syslog.Correlator.RuleSets.RuleSet.AppliedTo.Contexts>`
+                    
+                    .. attribute:: locations
+                    
+                    	Table of configured locations to apply
+                    	**type**\:  :py:class:`Locations <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.Syslog.Correlator.RuleSets.RuleSet.AppliedTo.Locations>`
+                    
+                    
+
+                    """
+
+                    _prefix = 'infra-correlator-cfg'
+                    _revision = '2015-11-09'
+
+                    def __init__(self):
+                        self.parent = None
+                        self.all = None
+                        self.contexts = Syslog.Correlator.RuleSets.RuleSet.AppliedTo.Contexts()
+                        self.contexts.parent = self
+                        self.locations = Syslog.Correlator.RuleSets.RuleSet.AppliedTo.Locations()
+                        self.locations.parent = self
+
+
+                    class Contexts(object):
+                        """
+                        Table of configured contexts to apply
+                        
+                        .. attribute:: context
+                        
+                        	A context
+                        	**type**\: list of  :py:class:`Context <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.Syslog.Correlator.RuleSets.RuleSet.AppliedTo.Contexts.Context>`
+                        
+                        
+
+                        """
+
+                        _prefix = 'infra-correlator-cfg'
+                        _revision = '2015-11-09'
+
+                        def __init__(self):
+                            self.parent = None
+                            self.context = YList()
+                            self.context.parent = self
+                            self.context.name = 'context'
+
+
+                        class Context(object):
+                            """
+                            A context
+                            
+                            .. attribute:: context  <key>
+                            
+                            	Context
+                            	**type**\:  str
+                            
+                            	**range:** 0..32
+                            
+                            
+
+                            """
+
+                            _prefix = 'infra-correlator-cfg'
+                            _revision = '2015-11-09'
+
+                            def __init__(self):
+                                self.parent = None
+                                self.context = None
+
+                            @property
+                            def _common_path(self):
+                                if self.parent is None:
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
+                                if self.context is None:
+                                    raise YPYModelError('Key property context is None')
+
+                                return self.parent._common_path +'/Cisco-IOS-XR-infra-correlator-cfg:context[Cisco-IOS-XR-infra-correlator-cfg:context = ' + str(self.context) + ']'
+
+                            def is_config(self):
+                                ''' Returns True if this instance represents config data else returns False '''
+                                return True
+
+                            def _has_data(self):
+                                if not self.is_config():
+                                    return False
+                                if self.context is not None:
+                                    return True
+
+                                return False
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_syslog_cfg as meta
+                                return meta._meta_table['Syslog.Correlator.RuleSets.RuleSet.AppliedTo.Contexts.Context']['meta_info']
+
+                        @property
+                        def _common_path(self):
+                            if self.parent is None:
+                                raise YPYModelError('parent is not set . Cannot derive path.')
+
+                            return self.parent._common_path +'/Cisco-IOS-XR-infra-correlator-cfg:contexts'
+
+                        def is_config(self):
+                            ''' Returns True if this instance represents config data else returns False '''
+                            return True
+
+                        def _has_data(self):
+                            if not self.is_config():
+                                return False
+                            if self.context is not None:
+                                for child_ref in self.context:
+                                    if child_ref._has_data():
+                                        return True
+
+                            return False
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_syslog_cfg as meta
+                            return meta._meta_table['Syslog.Correlator.RuleSets.RuleSet.AppliedTo.Contexts']['meta_info']
+
+
+                    class Locations(object):
+                        """
+                        Table of configured locations to apply
+                        
+                        .. attribute:: location
+                        
+                        	A location
+                        	**type**\: list of  :py:class:`Location <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.Syslog.Correlator.RuleSets.RuleSet.AppliedTo.Locations.Location>`
+                        
+                        
+
+                        """
+
+                        _prefix = 'infra-correlator-cfg'
+                        _revision = '2015-11-09'
+
+                        def __init__(self):
+                            self.parent = None
+                            self.location = YList()
+                            self.location.parent = self
+                            self.location.name = 'location'
+
+
+                        class Location(object):
+                            """
+                            A location
+                            
+                            .. attribute:: location  <key>
+                            
+                            	Location
+                            	**type**\:  str
+                            
+                            	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
+                            
+                            
+
+                            """
+
+                            _prefix = 'infra-correlator-cfg'
+                            _revision = '2015-11-09'
+
+                            def __init__(self):
+                                self.parent = None
+                                self.location = None
+
+                            @property
+                            def _common_path(self):
+                                if self.parent is None:
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
+                                if self.location is None:
+                                    raise YPYModelError('Key property location is None')
+
+                                return self.parent._common_path +'/Cisco-IOS-XR-infra-correlator-cfg:location[Cisco-IOS-XR-infra-correlator-cfg:location = ' + str(self.location) + ']'
+
+                            def is_config(self):
+                                ''' Returns True if this instance represents config data else returns False '''
+                                return True
+
+                            def _has_data(self):
+                                if not self.is_config():
+                                    return False
+                                if self.location is not None:
+                                    return True
+
+                                return False
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_syslog_cfg as meta
+                                return meta._meta_table['Syslog.Correlator.RuleSets.RuleSet.AppliedTo.Locations.Location']['meta_info']
+
+                        @property
+                        def _common_path(self):
+                            if self.parent is None:
+                                raise YPYModelError('parent is not set . Cannot derive path.')
+
+                            return self.parent._common_path +'/Cisco-IOS-XR-infra-correlator-cfg:locations'
+
+                        def is_config(self):
+                            ''' Returns True if this instance represents config data else returns False '''
+                            return True
+
+                        def _has_data(self):
+                            if not self.is_config():
+                                return False
+                            if self.location is not None:
+                                for child_ref in self.location:
+                                    if child_ref._has_data():
+                                        return True
+
+                            return False
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_syslog_cfg as meta
+                            return meta._meta_table['Syslog.Correlator.RuleSets.RuleSet.AppliedTo.Locations']['meta_info']
+
+                    @property
+                    def _common_path(self):
+                        if self.parent is None:
+                            raise YPYModelError('parent is not set . Cannot derive path.')
+
+                        return self.parent._common_path +'/Cisco-IOS-XR-infra-correlator-cfg:applied-to'
+
+                    def is_config(self):
+                        ''' Returns True if this instance represents config data else returns False '''
+                        return True
+
+                    def _has_data(self):
+                        if not self.is_config():
+                            return False
+                        if self.all is not None:
+                            return True
+
+                        if self.contexts is not None and self.contexts._has_data():
+                            return True
+
+                        if self.locations is not None and self.locations._has_data():
+                            return True
+
+                        return False
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_syslog_cfg as meta
+                        return meta._meta_table['Syslog.Correlator.RuleSets.RuleSet.AppliedTo']['meta_info']
+
+                @property
+                def _common_path(self):
+                    if self.name is None:
+                        raise YPYModelError('Key property name is None')
+
+                    return '/Cisco-IOS-XR-infra-syslog-cfg:syslog/Cisco-IOS-XR-infra-correlator-cfg:correlator/Cisco-IOS-XR-infra-correlator-cfg:rule-sets/Cisco-IOS-XR-infra-correlator-cfg:rule-set[Cisco-IOS-XR-infra-correlator-cfg:name = ' + str(self.name) + ']'
+
+                def is_config(self):
+                    ''' Returns True if this instance represents config data else returns False '''
+                    return True
+
+                def _has_data(self):
+                    if not self.is_config():
+                        return False
+                    if self.name is not None:
+                        return True
+
+                    if self.applied_to is not None and self.applied_to._has_data():
+                        return True
+
+                    if self.rulenames is not None and self.rulenames._has_data():
+                        return True
+
+                    return False
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_syslog_cfg as meta
+                    return meta._meta_table['Syslog.Correlator.RuleSets.RuleSet']['meta_info']
+
+            @property
+            def _common_path(self):
+
+                return '/Cisco-IOS-XR-infra-syslog-cfg:syslog/Cisco-IOS-XR-infra-correlator-cfg:correlator/Cisco-IOS-XR-infra-correlator-cfg:rule-sets'
+
+            def is_config(self):
+                ''' Returns True if this instance represents config data else returns False '''
+                return True
+
+            def _has_data(self):
+                if not self.is_config():
+                    return False
+                if self.rule_set is not None:
+                    for child_ref in self.rule_set:
+                        if child_ref._has_data():
+                            return True
+
+                return False
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_syslog_cfg as meta
+                return meta._meta_table['Syslog.Correlator.RuleSets']['meta_info']
+
+        @property
+        def _common_path(self):
+
+            return '/Cisco-IOS-XR-infra-syslog-cfg:syslog/Cisco-IOS-XR-infra-correlator-cfg:correlator'
+
+        def is_config(self):
+            ''' Returns True if this instance represents config data else returns False '''
+            return True
+
+        def _has_data(self):
+            if not self.is_config():
+                return False
+            if self.buffer_size is not None:
+                return True
+
+            if self.rule_sets is not None and self.rule_sets._has_data():
+                return True
+
+            if self.rules is not None and self.rules._has_data():
+                return True
+
+            return False
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_syslog_cfg as meta
+            return meta._meta_table['Syslog.Correlator']['meta_info']
+
+
+    class Suppression(object):
+        """
+        Configure properties of the syslog/alarm
+        suppression
+        
+        .. attribute:: rules
+        
+        	Table of configured rules
+        	**type**\:  :py:class:`Rules <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.Syslog.Suppression.Rules>`
+        
+        
+
+        """
+
+        _prefix = 'infra-correlator-cfg'
+        _revision = '2015-11-09'
+
+        def __init__(self):
+            self.parent = None
+            self.rules = Syslog.Suppression.Rules()
+            self.rules.parent = self
+
+
+        class Rules(object):
+            """
+            Table of configured rules
+            
+            .. attribute:: rule
+            
+            	Rule name
+            	**type**\: list of  :py:class:`Rule <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.Syslog.Suppression.Rules.Rule>`
+            
+            
+
+            """
+
+            _prefix = 'infra-correlator-cfg'
+            _revision = '2015-11-09'
+
+            def __init__(self):
+                self.parent = None
+                self.rule = YList()
+                self.rule.parent = self
+                self.rule.name = 'rule'
+
+
+            class Rule(object):
+                """
+                Rule name
+                
+                .. attribute:: name  <key>
+                
+                	Rule name
+                	**type**\:  str
+                
+                	**range:** 0..32
+                
+                .. attribute:: alarm_causes
+                
+                	Causes of alarms to be suppressed
+                	**type**\:  :py:class:`AlarmCauses <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.Syslog.Suppression.Rules.Rule.AlarmCauses>`
+                
+                .. attribute:: all_alarms
+                
+                	Suppress all alarms
+                	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                
+                .. attribute:: applied_to
+                
+                	Applied to the Rule
+                	**type**\:  :py:class:`AppliedTo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.Syslog.Suppression.Rules.Rule.AppliedTo>`
+                
+                
+
+                """
+
+                _prefix = 'infra-correlator-cfg'
+                _revision = '2015-11-09'
+
+                def __init__(self):
+                    self.parent = None
+                    self.name = None
+                    self.alarm_causes = Syslog.Suppression.Rules.Rule.AlarmCauses()
+                    self.alarm_causes.parent = self
+                    self.all_alarms = None
+                    self.applied_to = Syslog.Suppression.Rules.Rule.AppliedTo()
+                    self.applied_to.parent = self
+
+
+                class AppliedTo(object):
+                    """
+                    Applied to the Rule
+                    
+                    .. attribute:: all
+                    
+                    	Apply to all of the router
+                    	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                    
+                    .. attribute:: sources
+                    
+                    	Table of configured sources to apply
+                    	**type**\:  :py:class:`Sources <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.Syslog.Suppression.Rules.Rule.AppliedTo.Sources>`
+                    
+                    
+
+                    """
+
+                    _prefix = 'infra-correlator-cfg'
+                    _revision = '2015-11-09'
+
+                    def __init__(self):
+                        self.parent = None
+                        self.all = None
+                        self.sources = Syslog.Suppression.Rules.Rule.AppliedTo.Sources()
+                        self.sources.parent = self
+
+
+                    class Sources(object):
+                        """
+                        Table of configured sources to apply
+                        
+                        .. attribute:: source
+                        
+                        	An alarm source
+                        	**type**\: list of  :py:class:`Source <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.Syslog.Suppression.Rules.Rule.AppliedTo.Sources.Source>`
+                        
+                        
+
+                        """
+
+                        _prefix = 'infra-correlator-cfg'
+                        _revision = '2015-11-09'
+
+                        def __init__(self):
+                            self.parent = None
+                            self.source = YList()
+                            self.source.parent = self
+                            self.source.name = 'source'
+
+
+                        class Source(object):
+                            """
+                            An alarm source
+                            
+                            .. attribute:: source  <key>
+                            
+                            	Source
+                            	**type**\:  str
+                            
+                            	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
+                            
+                            
+
+                            """
+
+                            _prefix = 'infra-correlator-cfg'
+                            _revision = '2015-11-09'
+
+                            def __init__(self):
+                                self.parent = None
+                                self.source = None
+
+                            @property
+                            def _common_path(self):
+                                if self.parent is None:
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
+                                if self.source is None:
+                                    raise YPYModelError('Key property source is None')
+
+                                return self.parent._common_path +'/Cisco-IOS-XR-infra-correlator-cfg:source[Cisco-IOS-XR-infra-correlator-cfg:source = ' + str(self.source) + ']'
+
+                            def is_config(self):
+                                ''' Returns True if this instance represents config data else returns False '''
+                                return True
+
+                            def _has_data(self):
+                                if not self.is_config():
+                                    return False
+                                if self.source is not None:
+                                    return True
+
+                                return False
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_syslog_cfg as meta
+                                return meta._meta_table['Syslog.Suppression.Rules.Rule.AppliedTo.Sources.Source']['meta_info']
+
+                        @property
+                        def _common_path(self):
+                            if self.parent is None:
+                                raise YPYModelError('parent is not set . Cannot derive path.')
+
+                            return self.parent._common_path +'/Cisco-IOS-XR-infra-correlator-cfg:sources'
+
+                        def is_config(self):
+                            ''' Returns True if this instance represents config data else returns False '''
+                            return True
+
+                        def _has_data(self):
+                            if not self.is_config():
+                                return False
+                            if self.source is not None:
+                                for child_ref in self.source:
+                                    if child_ref._has_data():
+                                        return True
+
+                            return False
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_syslog_cfg as meta
+                            return meta._meta_table['Syslog.Suppression.Rules.Rule.AppliedTo.Sources']['meta_info']
+
+                    @property
+                    def _common_path(self):
+                        if self.parent is None:
+                            raise YPYModelError('parent is not set . Cannot derive path.')
+
+                        return self.parent._common_path +'/Cisco-IOS-XR-infra-correlator-cfg:applied-to'
+
+                    def is_config(self):
+                        ''' Returns True if this instance represents config data else returns False '''
+                        return True
+
+                    def _has_data(self):
+                        if not self.is_config():
+                            return False
+                        if self.all is not None:
+                            return True
+
+                        if self.sources is not None and self.sources._has_data():
+                            return True
+
+                        return False
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_syslog_cfg as meta
+                        return meta._meta_table['Syslog.Suppression.Rules.Rule.AppliedTo']['meta_info']
+
+
+                class AlarmCauses(object):
+                    """
+                    Causes of alarms to be suppressed
+                    
+                    .. attribute:: alarm_cause
+                    
+                    	Category, Group and Code of alarm/syslog to be suppressed
+                    	**type**\: list of  :py:class:`AlarmCause <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.Syslog.Suppression.Rules.Rule.AlarmCauses.AlarmCause>`
+                    
+                    
+
+                    """
+
+                    _prefix = 'infra-correlator-cfg'
+                    _revision = '2015-11-09'
+
+                    def __init__(self):
+                        self.parent = None
+                        self.alarm_cause = YList()
+                        self.alarm_cause.parent = self
+                        self.alarm_cause.name = 'alarm_cause'
+
+
+                    class AlarmCause(object):
+                        """
+                        Category, Group and Code of alarm/syslog to
+                        be suppressed
+                        
+                        .. attribute:: category  <key>
+                        
+                        	Category
+                        	**type**\:  str
+                        
+                        	**range:** 0..32
+                        
+                        .. attribute:: code  <key>
+                        
+                        	Code
+                        	**type**\:  str
+                        
+                        	**range:** 0..32
+                        
+                        .. attribute:: group  <key>
+                        
+                        	Group
+                        	**type**\:  str
+                        
+                        	**range:** 0..32
+                        
+                        
+
+                        """
+
+                        _prefix = 'infra-correlator-cfg'
+                        _revision = '2015-11-09'
+
+                        def __init__(self):
+                            self.parent = None
+                            self.category = None
+                            self.code = None
+                            self.group = None
+
+                        @property
+                        def _common_path(self):
+                            if self.parent is None:
+                                raise YPYModelError('parent is not set . Cannot derive path.')
+                            if self.category is None:
+                                raise YPYModelError('Key property category is None')
+                            if self.code is None:
+                                raise YPYModelError('Key property code is None')
+                            if self.group is None:
+                                raise YPYModelError('Key property group is None')
+
+                            return self.parent._common_path +'/Cisco-IOS-XR-infra-correlator-cfg:alarm-cause[Cisco-IOS-XR-infra-correlator-cfg:category = ' + str(self.category) + '][Cisco-IOS-XR-infra-correlator-cfg:code = ' + str(self.code) + '][Cisco-IOS-XR-infra-correlator-cfg:group = ' + str(self.group) + ']'
+
+                        def is_config(self):
+                            ''' Returns True if this instance represents config data else returns False '''
+                            return True
+
+                        def _has_data(self):
+                            if not self.is_config():
+                                return False
+                            if self.category is not None:
+                                return True
+
+                            if self.code is not None:
+                                return True
+
+                            if self.group is not None:
+                                return True
+
+                            return False
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_syslog_cfg as meta
+                            return meta._meta_table['Syslog.Suppression.Rules.Rule.AlarmCauses.AlarmCause']['meta_info']
+
+                    @property
+                    def _common_path(self):
+                        if self.parent is None:
+                            raise YPYModelError('parent is not set . Cannot derive path.')
+
+                        return self.parent._common_path +'/Cisco-IOS-XR-infra-correlator-cfg:alarm-causes'
+
+                    def is_config(self):
+                        ''' Returns True if this instance represents config data else returns False '''
+                        return True
+
+                    def _has_data(self):
+                        if not self.is_config():
+                            return False
+                        if self.alarm_cause is not None:
+                            for child_ref in self.alarm_cause:
+                                if child_ref._has_data():
+                                    return True
+
+                        return False
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_syslog_cfg as meta
+                        return meta._meta_table['Syslog.Suppression.Rules.Rule.AlarmCauses']['meta_info']
+
+                @property
+                def _common_path(self):
+                    if self.name is None:
+                        raise YPYModelError('Key property name is None')
+
+                    return '/Cisco-IOS-XR-infra-syslog-cfg:syslog/Cisco-IOS-XR-infra-correlator-cfg:suppression/Cisco-IOS-XR-infra-correlator-cfg:rules/Cisco-IOS-XR-infra-correlator-cfg:rule[Cisco-IOS-XR-infra-correlator-cfg:name = ' + str(self.name) + ']'
+
+                def is_config(self):
+                    ''' Returns True if this instance represents config data else returns False '''
+                    return True
+
+                def _has_data(self):
+                    if not self.is_config():
+                        return False
+                    if self.name is not None:
+                        return True
+
+                    if self.alarm_causes is not None and self.alarm_causes._has_data():
+                        return True
+
+                    if self.all_alarms is not None:
+                        return True
+
+                    if self.applied_to is not None and self.applied_to._has_data():
+                        return True
+
+                    return False
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_syslog_cfg as meta
+                    return meta._meta_table['Syslog.Suppression.Rules.Rule']['meta_info']
+
+            @property
+            def _common_path(self):
+
+                return '/Cisco-IOS-XR-infra-syslog-cfg:syslog/Cisco-IOS-XR-infra-correlator-cfg:suppression/Cisco-IOS-XR-infra-correlator-cfg:rules'
+
+            def is_config(self):
+                ''' Returns True if this instance represents config data else returns False '''
+                return True
+
+            def _has_data(self):
+                if not self.is_config():
+                    return False
+                if self.rule is not None:
+                    for child_ref in self.rule:
+                        if child_ref._has_data():
+                            return True
+
+                return False
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_syslog_cfg as meta
+                return meta._meta_table['Syslog.Suppression.Rules']['meta_info']
+
+        @property
+        def _common_path(self):
+
+            return '/Cisco-IOS-XR-infra-syslog-cfg:syslog/Cisco-IOS-XR-infra-correlator-cfg:suppression'
+
+        def is_config(self):
+            ''' Returns True if this instance represents config data else returns False '''
+            return True
+
+        def _has_data(self):
+            if not self.is_config():
+                return False
+            if self.rules is not None and self.rules._has_data():
+                return True
+
+            return False
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_syslog_cfg as meta
+            return meta._meta_table['Syslog.Suppression']['meta_info']
+
     @property
     def _common_path(self):
 
@@ -4557,6 +7064,9 @@ class Syslog(object):
             return True
 
         if self.console_logging is not None and self.console_logging._has_data():
+            return True
+
+        if self.correlator is not None and self.correlator._has_data():
             return True
 
         if self.enable_console_logging is not None:
@@ -4593,6 +7103,9 @@ class Syslog(object):
             return True
 
         if self.suppress_duplicates is not None:
+            return True
+
+        if self.suppression is not None and self.suppression._has_data():
             return True
 
         if self.trap_logging is not None and self.trap_logging._has_data():

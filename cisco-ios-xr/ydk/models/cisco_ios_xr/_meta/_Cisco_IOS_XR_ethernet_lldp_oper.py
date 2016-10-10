@@ -19,6 +19,57 @@ _meta_table = {
             'ipv4':'IPV4',
             'ipv6':'IPV6',
         }, 'Cisco-IOS-XR-ethernet-lldp-oper', _yang_ns._namespaces['Cisco-IOS-XR-ethernet-lldp-oper']),
+    'Lldp.GlobalLldp.LldpInfo' : {
+        'meta_info' : _MetaInfoClass('Lldp.GlobalLldp.LldpInfo',
+            False, 
+            [
+            _MetaInfoClassMember('hold-time', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                Length  of time  (in sec)                       
+                that receiver must keep this                    
+                packet
+                ''',
+                'hold_time',
+                'Cisco-IOS-XR-ethernet-lldp-oper', False),
+            _MetaInfoClassMember('re-init', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                Delay (in sec) for LLDP                         
+                initialization on any                           
+                interface
+                ''',
+                're_init',
+                'Cisco-IOS-XR-ethernet-lldp-oper', False),
+            _MetaInfoClassMember('timer', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                Rate at which LLDP packets                      
+                are sent (in sec)
+                ''',
+                'timer',
+                'Cisco-IOS-XR-ethernet-lldp-oper', False),
+            ],
+            'Cisco-IOS-XR-ethernet-lldp-oper',
+            'lldp-info',
+            _yang_ns._namespaces['Cisco-IOS-XR-ethernet-lldp-oper'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_lldp_oper'
+        ),
+    },
+    'Lldp.GlobalLldp' : {
+        'meta_info' : _MetaInfoClass('Lldp.GlobalLldp',
+            False, 
+            [
+            _MetaInfoClassMember('lldp-info', REFERENCE_CLASS, 'LldpInfo' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_lldp_oper', 'Lldp.GlobalLldp.LldpInfo', 
+                [], [], 
+                '''                The LLDP Global Information of this box
+                ''',
+                'lldp_info',
+                'Cisco-IOS-XR-ethernet-lldp-oper', False),
+            ],
+            'Cisco-IOS-XR-ethernet-lldp-oper',
+            'global-lldp',
+            _yang_ns._namespaces['Cisco-IOS-XR-ethernet-lldp-oper'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_lldp_oper'
+        ),
+    },
     'Lldp.Nodes.Node.Neighbors.Devices.Device.LldpNeighbor.Detail.NetworkAddresses.LldpAddrEntry.Address' : {
         'meta_info' : _MetaInfoClass('Lldp.Nodes.Node.Neighbors.Devices.Device.LldpNeighbor.Detail.NetworkAddresses.LldpAddrEntry.Address',
             False, 
@@ -59,13 +110,13 @@ _meta_table = {
                 'address',
                 'Cisco-IOS-XR-ethernet-lldp-oper', False),
             _MetaInfoClassMember('if-num', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Interface num
                 ''',
                 'if_num',
                 'Cisco-IOS-XR-ethernet-lldp-oper', False),
             _MetaInfoClassMember('ma-subtype', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                MA sub type
                 ''',
                 'ma_subtype',
@@ -111,7 +162,7 @@ _meta_table = {
                 'enabled_capabilities',
                 'Cisco-IOS-XR-ethernet-lldp-oper', False),
             _MetaInfoClassMember('media-attachment-unit-type', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Media Attachment Unit type
                 ''',
                 'media_attachment_unit_type',
@@ -135,7 +186,7 @@ _meta_table = {
                 'port_description',
                 'Cisco-IOS-XR-ethernet-lldp-oper', False),
             _MetaInfoClassMember('port-vlan-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Vlan ID
                 ''',
                 'port_vlan_id',
@@ -159,7 +210,7 @@ _meta_table = {
                 'system_name',
                 'Cisco-IOS-XR-ethernet-lldp-oper', False),
             _MetaInfoClassMember('time-remaining', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Time remaining
                 ''',
                 'time_remaining',
@@ -176,7 +227,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('tlv-type', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                Unknown TLV type
                 ''',
                 'tlv_type',
@@ -216,19 +267,19 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('oui', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Organizationally Unique Identifier
                 ''',
                 'oui',
                 'Cisco-IOS-XR-ethernet-lldp-oper', False),
             _MetaInfoClassMember('tlv-info-indes', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                lldpRemOrgDefInfoIndex
                 ''',
                 'tlv_info_indes',
                 'Cisco-IOS-XR-ethernet-lldp-oper', False),
             _MetaInfoClassMember('tlv-subtype', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                Org Def TLV subtype
                 ''',
                 'tlv_subtype',
@@ -268,19 +319,19 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('chassis-id-len', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                Chassis ID length
                 ''',
                 'chassis_id_len',
                 'Cisco-IOS-XR-ethernet-lldp-oper', False),
             _MetaInfoClassMember('chassis-id-sub-type', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                Chassis ID sub type
                 ''',
                 'chassis_id_sub_type',
                 'Cisco-IOS-XR-ethernet-lldp-oper', False),
             _MetaInfoClassMember('combined-capabilities', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Supported and combined cpabilities
                 ''',
                 'combined_capabilities',
@@ -292,31 +343,31 @@ _meta_table = {
                 'org_def_tlv_list',
                 'Cisco-IOS-XR-ethernet-lldp-oper', False),
             _MetaInfoClassMember('port-id-len', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                Port ID length
                 ''',
                 'port_id_len',
                 'Cisco-IOS-XR-ethernet-lldp-oper', False),
             _MetaInfoClassMember('port-id-sub-type', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                Port ID sub type
                 ''',
                 'port_id_sub_type',
                 'Cisco-IOS-XR-ethernet-lldp-oper', False),
             _MetaInfoClassMember('rem-index', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                lldpRemIndex
                 ''',
                 'rem_index',
                 'Cisco-IOS-XR-ethernet-lldp-oper', False),
             _MetaInfoClassMember('rem-local-port-num', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                LldpPortNumber
                 ''',
                 'rem_local_port_num',
                 'Cisco-IOS-XR-ethernet-lldp-oper', False),
             _MetaInfoClassMember('rem-time-mark', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                TimeFilter
                 ''',
                 'rem_time_mark',
@@ -363,13 +414,13 @@ _meta_table = {
                 'enabled_capabilities',
                 'Cisco-IOS-XR-ethernet-lldp-oper', False),
             _MetaInfoClassMember('header-version', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                Version number
                 ''',
                 'header_version',
                 'Cisco-IOS-XR-ethernet-lldp-oper', False),
             _MetaInfoClassMember('hold-time', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                Remaining hold time
                 ''',
                 'hold_time',
@@ -393,13 +444,13 @@ _meta_table = {
                 'port_id_detail',
                 'Cisco-IOS-XR-ethernet-lldp-oper', False),
             _MetaInfoClassMember('receiving-interface-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Interface the neighbor entry was received on 
                 ''',
                 'receiving_interface_name',
                 'Cisco-IOS-XR-ethernet-lldp-oper', False),
             _MetaInfoClassMember('receiving-parent-interface-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Parent Interface the neighbor entry was
                 received on 
                 ''',
@@ -421,7 +472,13 @@ _meta_table = {
                 '''                The neighboring device identifier
                 ''',
                 'device_id',
-                'Cisco-IOS-XR-ethernet-lldp-oper', True),
+                'Cisco-IOS-XR-ethernet-lldp-oper', False),
+            _MetaInfoClassMember('interface-name', ATTRIBUTE, 'str' , None, None, 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                '''                The interface name
+                ''',
+                'interface_name',
+                'Cisco-IOS-XR-ethernet-lldp-oper', False),
             _MetaInfoClassMember('lldp-neighbor', REFERENCE_LIST, 'LldpNeighbor' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_lldp_oper', 'Lldp.Nodes.Node.Neighbors.Devices.Device.LldpNeighbor', 
                 [], [], 
                 '''                lldp neighbor
@@ -493,13 +550,13 @@ _meta_table = {
                 'address',
                 'Cisco-IOS-XR-ethernet-lldp-oper', False),
             _MetaInfoClassMember('if-num', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Interface num
                 ''',
                 'if_num',
                 'Cisco-IOS-XR-ethernet-lldp-oper', False),
             _MetaInfoClassMember('ma-subtype', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                MA sub type
                 ''',
                 'ma_subtype',
@@ -545,7 +602,7 @@ _meta_table = {
                 'enabled_capabilities',
                 'Cisco-IOS-XR-ethernet-lldp-oper', False),
             _MetaInfoClassMember('media-attachment-unit-type', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Media Attachment Unit type
                 ''',
                 'media_attachment_unit_type',
@@ -569,7 +626,7 @@ _meta_table = {
                 'port_description',
                 'Cisco-IOS-XR-ethernet-lldp-oper', False),
             _MetaInfoClassMember('port-vlan-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Vlan ID
                 ''',
                 'port_vlan_id',
@@ -593,7 +650,7 @@ _meta_table = {
                 'system_name',
                 'Cisco-IOS-XR-ethernet-lldp-oper', False),
             _MetaInfoClassMember('time-remaining', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Time remaining
                 ''',
                 'time_remaining',
@@ -610,7 +667,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('tlv-type', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                Unknown TLV type
                 ''',
                 'tlv_type',
@@ -650,19 +707,19 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('oui', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Organizationally Unique Identifier
                 ''',
                 'oui',
                 'Cisco-IOS-XR-ethernet-lldp-oper', False),
             _MetaInfoClassMember('tlv-info-indes', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                lldpRemOrgDefInfoIndex
                 ''',
                 'tlv_info_indes',
                 'Cisco-IOS-XR-ethernet-lldp-oper', False),
             _MetaInfoClassMember('tlv-subtype', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                Org Def TLV subtype
                 ''',
                 'tlv_subtype',
@@ -702,19 +759,19 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('chassis-id-len', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                Chassis ID length
                 ''',
                 'chassis_id_len',
                 'Cisco-IOS-XR-ethernet-lldp-oper', False),
             _MetaInfoClassMember('chassis-id-sub-type', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                Chassis ID sub type
                 ''',
                 'chassis_id_sub_type',
                 'Cisco-IOS-XR-ethernet-lldp-oper', False),
             _MetaInfoClassMember('combined-capabilities', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Supported and combined cpabilities
                 ''',
                 'combined_capabilities',
@@ -726,31 +783,31 @@ _meta_table = {
                 'org_def_tlv_list',
                 'Cisco-IOS-XR-ethernet-lldp-oper', False),
             _MetaInfoClassMember('port-id-len', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                Port ID length
                 ''',
                 'port_id_len',
                 'Cisco-IOS-XR-ethernet-lldp-oper', False),
             _MetaInfoClassMember('port-id-sub-type', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                Port ID sub type
                 ''',
                 'port_id_sub_type',
                 'Cisco-IOS-XR-ethernet-lldp-oper', False),
             _MetaInfoClassMember('rem-index', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                lldpRemIndex
                 ''',
                 'rem_index',
                 'Cisco-IOS-XR-ethernet-lldp-oper', False),
             _MetaInfoClassMember('rem-local-port-num', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                LldpPortNumber
                 ''',
                 'rem_local_port_num',
                 'Cisco-IOS-XR-ethernet-lldp-oper', False),
             _MetaInfoClassMember('rem-time-mark', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                TimeFilter
                 ''',
                 'rem_time_mark',
@@ -797,13 +854,13 @@ _meta_table = {
                 'enabled_capabilities',
                 'Cisco-IOS-XR-ethernet-lldp-oper', False),
             _MetaInfoClassMember('header-version', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                Version number
                 ''',
                 'header_version',
                 'Cisco-IOS-XR-ethernet-lldp-oper', False),
             _MetaInfoClassMember('hold-time', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                Remaining hold time
                 ''',
                 'hold_time',
@@ -827,13 +884,13 @@ _meta_table = {
                 'port_id_detail',
                 'Cisco-IOS-XR-ethernet-lldp-oper', False),
             _MetaInfoClassMember('receiving-interface-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Interface the neighbor entry was received on 
                 ''',
                 'receiving_interface_name',
                 'Cisco-IOS-XR-ethernet-lldp-oper', False),
             _MetaInfoClassMember('receiving-parent-interface-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Parent Interface the neighbor entry was
                 received on 
                 ''',
@@ -857,7 +914,7 @@ _meta_table = {
                 'device_id',
                 'Cisco-IOS-XR-ethernet-lldp-oper', False),
             _MetaInfoClassMember('interface-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                The interface name
                 ''',
                 'interface_name',
@@ -933,13 +990,13 @@ _meta_table = {
                 'address',
                 'Cisco-IOS-XR-ethernet-lldp-oper', False),
             _MetaInfoClassMember('if-num', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Interface num
                 ''',
                 'if_num',
                 'Cisco-IOS-XR-ethernet-lldp-oper', False),
             _MetaInfoClassMember('ma-subtype', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                MA sub type
                 ''',
                 'ma_subtype',
@@ -985,7 +1042,7 @@ _meta_table = {
                 'enabled_capabilities',
                 'Cisco-IOS-XR-ethernet-lldp-oper', False),
             _MetaInfoClassMember('media-attachment-unit-type', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Media Attachment Unit type
                 ''',
                 'media_attachment_unit_type',
@@ -1009,7 +1066,7 @@ _meta_table = {
                 'port_description',
                 'Cisco-IOS-XR-ethernet-lldp-oper', False),
             _MetaInfoClassMember('port-vlan-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Vlan ID
                 ''',
                 'port_vlan_id',
@@ -1033,7 +1090,7 @@ _meta_table = {
                 'system_name',
                 'Cisco-IOS-XR-ethernet-lldp-oper', False),
             _MetaInfoClassMember('time-remaining', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Time remaining
                 ''',
                 'time_remaining',
@@ -1050,7 +1107,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('tlv-type', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                Unknown TLV type
                 ''',
                 'tlv_type',
@@ -1090,19 +1147,19 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('oui', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Organizationally Unique Identifier
                 ''',
                 'oui',
                 'Cisco-IOS-XR-ethernet-lldp-oper', False),
             _MetaInfoClassMember('tlv-info-indes', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                lldpRemOrgDefInfoIndex
                 ''',
                 'tlv_info_indes',
                 'Cisco-IOS-XR-ethernet-lldp-oper', False),
             _MetaInfoClassMember('tlv-subtype', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                Org Def TLV subtype
                 ''',
                 'tlv_subtype',
@@ -1142,19 +1199,19 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('chassis-id-len', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                Chassis ID length
                 ''',
                 'chassis_id_len',
                 'Cisco-IOS-XR-ethernet-lldp-oper', False),
             _MetaInfoClassMember('chassis-id-sub-type', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                Chassis ID sub type
                 ''',
                 'chassis_id_sub_type',
                 'Cisco-IOS-XR-ethernet-lldp-oper', False),
             _MetaInfoClassMember('combined-capabilities', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Supported and combined cpabilities
                 ''',
                 'combined_capabilities',
@@ -1166,31 +1223,31 @@ _meta_table = {
                 'org_def_tlv_list',
                 'Cisco-IOS-XR-ethernet-lldp-oper', False),
             _MetaInfoClassMember('port-id-len', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                Port ID length
                 ''',
                 'port_id_len',
                 'Cisco-IOS-XR-ethernet-lldp-oper', False),
             _MetaInfoClassMember('port-id-sub-type', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                Port ID sub type
                 ''',
                 'port_id_sub_type',
                 'Cisco-IOS-XR-ethernet-lldp-oper', False),
             _MetaInfoClassMember('rem-index', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                lldpRemIndex
                 ''',
                 'rem_index',
                 'Cisco-IOS-XR-ethernet-lldp-oper', False),
             _MetaInfoClassMember('rem-local-port-num', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                LldpPortNumber
                 ''',
                 'rem_local_port_num',
                 'Cisco-IOS-XR-ethernet-lldp-oper', False),
             _MetaInfoClassMember('rem-time-mark', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                TimeFilter
                 ''',
                 'rem_time_mark',
@@ -1237,13 +1294,13 @@ _meta_table = {
                 'enabled_capabilities',
                 'Cisco-IOS-XR-ethernet-lldp-oper', False),
             _MetaInfoClassMember('header-version', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                Version number
                 ''',
                 'header_version',
                 'Cisco-IOS-XR-ethernet-lldp-oper', False),
             _MetaInfoClassMember('hold-time', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                Remaining hold time
                 ''',
                 'hold_time',
@@ -1267,13 +1324,13 @@ _meta_table = {
                 'port_id_detail',
                 'Cisco-IOS-XR-ethernet-lldp-oper', False),
             _MetaInfoClassMember('receiving-interface-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Interface the neighbor entry was received on 
                 ''',
                 'receiving_interface_name',
                 'Cisco-IOS-XR-ethernet-lldp-oper', False),
             _MetaInfoClassMember('receiving-parent-interface-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Parent Interface the neighbor entry was
                 received on 
                 ''',
@@ -1297,7 +1354,7 @@ _meta_table = {
                 'device_id',
                 'Cisco-IOS-XR-ethernet-lldp-oper', False),
             _MetaInfoClassMember('interface-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                The interface name
                 ''',
                 'interface_name',
@@ -1403,13 +1460,13 @@ _meta_table = {
                 'address',
                 'Cisco-IOS-XR-ethernet-lldp-oper', False),
             _MetaInfoClassMember('if-num', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Interface num
                 ''',
                 'if_num',
                 'Cisco-IOS-XR-ethernet-lldp-oper', False),
             _MetaInfoClassMember('ma-subtype', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                MA sub type
                 ''',
                 'ma_subtype',
@@ -1443,19 +1500,19 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('interface-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                The interface name
                 ''',
                 'interface_name',
                 'Cisco-IOS-XR-ethernet-lldp-oper', True),
             _MetaInfoClassMember('if-index', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                ifIndex
                 ''',
                 'if_index',
                 'Cisco-IOS-XR-ethernet-lldp-oper', False),
             _MetaInfoClassMember('interface-name-xr', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Interface
                 ''',
                 'interface_name_xr',
@@ -1479,13 +1536,13 @@ _meta_table = {
                 'port_id',
                 'Cisco-IOS-XR-ethernet-lldp-oper', False),
             _MetaInfoClassMember('port-id-sub-type', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                Port ID sub type
                 ''',
                 'port_id_sub_type',
                 'Cisco-IOS-XR-ethernet-lldp-oper', False),
             _MetaInfoClassMember('rx-enabled', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                RX Enabled
                 ''',
                 'rx_enabled',
@@ -1497,7 +1554,7 @@ _meta_table = {
                 'rx_state',
                 'Cisco-IOS-XR-ethernet-lldp-oper', False),
             _MetaInfoClassMember('tx-enabled', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                TX Enabled
                 ''',
                 'tx_enabled',
@@ -1538,67 +1595,67 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('aged-out-entries', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Aged out entries
                 ''',
                 'aged_out_entries',
                 'Cisco-IOS-XR-ethernet-lldp-oper', False),
             _MetaInfoClassMember('bad-packets', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Bad packet received and dropped
                 ''',
                 'bad_packets',
                 'Cisco-IOS-XR-ethernet-lldp-oper', False),
             _MetaInfoClassMember('discarded-packets', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Discarded packets
                 ''',
                 'discarded_packets',
                 'Cisco-IOS-XR-ethernet-lldp-oper', False),
             _MetaInfoClassMember('discarded-tl-vs', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Discarded TLVs
                 ''',
                 'discarded_tl_vs',
                 'Cisco-IOS-XR-ethernet-lldp-oper', False),
             _MetaInfoClassMember('encapsulation-errors', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Transmission errors
                 ''',
                 'encapsulation_errors',
                 'Cisco-IOS-XR-ethernet-lldp-oper', False),
             _MetaInfoClassMember('out-of-memory-errors', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Out-of-memory conditions
                 ''',
                 'out_of_memory_errors',
                 'Cisco-IOS-XR-ethernet-lldp-oper', False),
             _MetaInfoClassMember('queue-overflow-errors', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Queue overflows
                 ''',
                 'queue_overflow_errors',
                 'Cisco-IOS-XR-ethernet-lldp-oper', False),
             _MetaInfoClassMember('received-packets', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Received packets
                 ''',
                 'received_packets',
                 'Cisco-IOS-XR-ethernet-lldp-oper', False),
             _MetaInfoClassMember('table-overflow-errors', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Table overflows
                 ''',
                 'table_overflow_errors',
                 'Cisco-IOS-XR-ethernet-lldp-oper', False),
             _MetaInfoClassMember('transmitted-packets', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Transmitted packets
                 ''',
                 'transmitted_packets',
                 'Cisco-IOS-XR-ethernet-lldp-oper', False),
             _MetaInfoClassMember('unrecognized-tl-vs', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Unrecognized TLVs
                 ''',
                 'unrecognized_tl_vs',
@@ -1667,6 +1724,12 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Lldp',
             False, 
             [
+            _MetaInfoClassMember('global-lldp', REFERENCE_CLASS, 'GlobalLldp' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_lldp_oper', 'Lldp.GlobalLldp', 
+                [], [], 
+                '''                Global LLDP data
+                ''',
+                'global_lldp',
+                'Cisco-IOS-XR-ethernet-lldp-oper', False),
             _MetaInfoClassMember('nodes', REFERENCE_CLASS, 'Nodes' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_lldp_oper', 'Lldp.Nodes', 
                 [], [], 
                 '''                Per node LLDP operational data
@@ -1681,6 +1744,7 @@ _meta_table = {
         ),
     },
 }
+_meta_table['Lldp.GlobalLldp.LldpInfo']['meta_info'].parent =_meta_table['Lldp.GlobalLldp']['meta_info']
 _meta_table['Lldp.Nodes.Node.Neighbors.Devices.Device.LldpNeighbor.Detail.NetworkAddresses.LldpAddrEntry.Address']['meta_info'].parent =_meta_table['Lldp.Nodes.Node.Neighbors.Devices.Device.LldpNeighbor.Detail.NetworkAddresses.LldpAddrEntry']['meta_info']
 _meta_table['Lldp.Nodes.Node.Neighbors.Devices.Device.LldpNeighbor.Detail.NetworkAddresses.LldpAddrEntry']['meta_info'].parent =_meta_table['Lldp.Nodes.Node.Neighbors.Devices.Device.LldpNeighbor.Detail.NetworkAddresses']['meta_info']
 _meta_table['Lldp.Nodes.Node.Neighbors.Devices.Device.LldpNeighbor.Detail.NetworkAddresses']['meta_info'].parent =_meta_table['Lldp.Nodes.Node.Neighbors.Devices.Device.LldpNeighbor.Detail']['meta_info']
@@ -1725,4 +1789,5 @@ _meta_table['Lldp.Nodes.Node.Neighbors']['meta_info'].parent =_meta_table['Lldp.
 _meta_table['Lldp.Nodes.Node.Interfaces']['meta_info'].parent =_meta_table['Lldp.Nodes.Node']['meta_info']
 _meta_table['Lldp.Nodes.Node.Statistics']['meta_info'].parent =_meta_table['Lldp.Nodes.Node']['meta_info']
 _meta_table['Lldp.Nodes.Node']['meta_info'].parent =_meta_table['Lldp.Nodes']['meta_info']
+_meta_table['Lldp.GlobalLldp']['meta_info'].parent =_meta_table['Lldp']['meta_info']
 _meta_table['Lldp.Nodes']['meta_info'].parent =_meta_table['Lldp']['meta_info']

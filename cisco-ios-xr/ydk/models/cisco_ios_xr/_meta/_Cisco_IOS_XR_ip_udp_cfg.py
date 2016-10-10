@@ -19,13 +19,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('udp-in-q-threads', ATTRIBUTE, 'int' , None, None, 
-                [(1, 16)], [], 
+                [('1', '16')], [], 
                 '''                InQ Threads
                 ''',
                 'udp_in_q_threads',
                 'Cisco-IOS-XR-ip-udp-cfg', False),
             _MetaInfoClassMember('udp-out-q-threads', ATTRIBUTE, 'int' , None, None, 
-                [(1, 16)], [], 
+                [('1', '16')], [], 
                 '''                OutQ Threads
                 ''',
                 'udp_out_q_threads',
@@ -48,13 +48,13 @@ _meta_table = {
                 'directoryname',
                 'Cisco-IOS-XR-ip-udp-cfg', False),
             _MetaInfoClassMember('max-file-size-files', ATTRIBUTE, 'int' , None, None, 
-                [(1024, 4294967295)], [], 
+                [('1024', '4294967295')], [], 
                 '''                Set size of debug files in bytes
                 ''',
                 'max_file_size_files',
                 'Cisco-IOS-XR-ip-udp-cfg', False),
             _MetaInfoClassMember('max-udp-debug-files', ATTRIBUTE, 'int' , None, None, 
-                [(1, 5000)], [], 
+                [('1', '5000')], [], 
                 '''                Set number of Debug files
                 ''',
                 'max_udp_debug_files',
@@ -83,7 +83,7 @@ _meta_table = {
                 'num_thread',
                 'Cisco-IOS-XR-ip-udp-cfg', False),
             _MetaInfoClassMember('receive-q', ATTRIBUTE, 'int' , None, None, 
-                [(40, 800)], [], 
+                [('40', '800')], [], 
                 '''                UDP receive Queue Size
                 ''',
                 'receive_q',

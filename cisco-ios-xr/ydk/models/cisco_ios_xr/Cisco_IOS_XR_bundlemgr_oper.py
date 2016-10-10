@@ -12,7 +12,7 @@ for the following management objects\:
   lacp\-bundle\-members\: lacp bundle members
   bundles\-adjacency\: bundles adjacency
 
-Copyright (c) 2013\-2015 by Cisco Systems, Inc.
+Copyright (c) 2013\-2016 by Cisco Systems, Inc.
 All rights reserved.
 
 """
@@ -579,7 +579,23 @@ class BmMbrStateReasonEnum(Enum):
 
     	network
 
-    .. data:: BM_MBR_STATE_REASON_COUNT = 70
+    .. data:: BM_MBR_STATE_REASON_BFD_IPV6_STARTING = 70
+
+    	Link is waiting for BFDv6 session to start
+
+    .. data:: BM_MBR_STATE_REASON_BFD_IPV6_DOWN = 71
+
+    	BFDv6 state of this link is Down
+
+    .. data:: BM_MBR_STATE_REASON_BFD_IPV6_NBR_UNCONFIG = 72
+
+    	BFDv6 session is unconfigured on the remote end
+
+    .. data:: BM_MBR_STATE_REASON_TIMER_RUNNING = 73
+
+    	LACP delay timer is running
+
+    .. data:: BM_MBR_STATE_REASON_COUNT = 74
 
     	Enumeration maximum value
 
@@ -725,7 +741,15 @@ class BmMbrStateReasonEnum(Enum):
 
     BM_MBR_STATE_REASON_SINGLETON_PE_ISOLATED = 69
 
-    BM_MBR_STATE_REASON_COUNT = 70
+    BM_MBR_STATE_REASON_BFD_IPV6_STARTING = 70
+
+    BM_MBR_STATE_REASON_BFD_IPV6_DOWN = 71
+
+    BM_MBR_STATE_REASON_BFD_IPV6_NBR_UNCONFIG = 72
+
+    BM_MBR_STATE_REASON_TIMER_RUNNING = 73
+
+    BM_MBR_STATE_REASON_COUNT = 74
 
 
     @staticmethod
@@ -2264,7 +2288,7 @@ class LacpBundles(object):
             	LACP Bundle interface
             	**type**\:  str
             
-            	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+            	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
             
             .. attribute:: data
             
@@ -2388,7 +2412,7 @@ class LacpBundles(object):
                     	Bundle interface name
                     	**type**\:  str
                     
-                    	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+                    	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
                     
                     .. attribute:: bundle_status
                     
@@ -2452,6 +2476,11 @@ class LacpBundles(object):
                     	The status of the BFD (IPv4) feature on the bundle
                     	**type**\:  :py:class:`BmFeatureStatusEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmFeatureStatusEnum>`
                     
+                    .. attribute:: ipv6bfd_status
+                    
+                    	The status of the BFD (IPv6) feature on the bundle
+                    	**type**\:  :py:class:`BmFeatureStatusEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmFeatureStatusEnum>`
+                    
                     .. attribute:: is_active
                     
                     	Indicates the active/standby redundancy state of the device for the bundle
@@ -2472,19 +2501,17 @@ class LacpBundles(object):
                     	The status of the link order signaling feature on the bundle
                     	**type**\:  :py:class:`BmFeatureStatusEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmFeatureStatusEnum>`
                     
+                    .. attribute:: load_balance_hash_type
+                    
+                    	The type of hash to use for load balancing
+                    	**type**\:  str
+                    
                     .. attribute:: load_balance_locality_threshold
                     
                     	The number of links required per rack for localized load balancing
                     	**type**\:  int
                     
                     	**range:** 0..65535
-                    
-                    .. attribute:: load_balance_type
-                    
-                    	The type of hash to use for load balancing
-                    	**type**\:  int
-                    
-                    	**range:** 0..255
                     
                     .. attribute:: mac_address
                     
@@ -2501,7 +2528,7 @@ class LacpBundles(object):
                     	The name of the member that supplied the MAC address
                     	**type**\:  str
                     
-                    	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+                    	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
                     
                     .. attribute:: maximize_threshold_value_band_width
                     
@@ -2558,7 +2585,7 @@ class LacpBundles(object):
                     	Primary bundle member (no longer applicable)
                     	**type**\:  str
                     
-                    	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+                    	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
                     
                     .. attribute:: recovery_delay
                     
@@ -2624,12 +2651,13 @@ class LacpBundles(object):
                         self.iccp_group_id = None
                         self.inter_chassis = None
                         self.ipv4bfd_status = None
+                        self.ipv6bfd_status = None
                         self.is_active = None
                         self.lacp_nonrevertive = None
                         self.lacp_status = None
                         self.link_order_status = None
+                        self.load_balance_hash_type = None
                         self.load_balance_locality_threshold = None
-                        self.load_balance_type = None
                         self.mac_address = LacpBundles.Bundles.Bundle.Data.ActorBundleData.MacAddress()
                         self.mac_address.parent = self
                         self.mac_source = None
@@ -2955,6 +2983,9 @@ class LacpBundles(object):
                         if self.ipv4bfd_status is not None:
                             return True
 
+                        if self.ipv6bfd_status is not None:
+                            return True
+
                         if self.is_active is not None:
                             return True
 
@@ -2967,10 +2998,10 @@ class LacpBundles(object):
                         if self.link_order_status is not None:
                             return True
 
-                        if self.load_balance_locality_threshold is not None:
+                        if self.load_balance_hash_type is not None:
                             return True
 
-                        if self.load_balance_type is not None:
+                        if self.load_balance_locality_threshold is not None:
                             return True
 
                         if self.mac_address is not None and self.mac_address._has_data():
@@ -3210,7 +3241,7 @@ class LacpBundles(object):
                     	Member interface
                     	**type**\:  str
                     
-                    	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+                    	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
                     
                     .. attribute:: bandwidth
                     
@@ -3218,6 +3249,11 @@ class LacpBundles(object):
                     	**type**\:  int
                     
                     	**range:** 0..4294967295
+                    
+                    .. attribute:: counters
+                    
+                    	Counters data about member link
+                    	**type**\:  :py:class:`Counters <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.LacpBundles.Bundles.Bundle.Members.Member.Counters>`
                     
                     .. attribute:: iccp_node
                     
@@ -3231,7 +3267,12 @@ class LacpBundles(object):
                     	Member's interface name
                     	**type**\:  str
                     
-                    	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+                    	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+                    
+                    .. attribute:: link_data
+                    
+                    	Lacp data about member link
+                    	**type**\:  :py:class:`LinkData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.LacpBundles.Bundles.Bundle.Members.Member.LinkData>`
                     
                     .. attribute:: link_order_number
                     
@@ -3292,8 +3333,12 @@ class LacpBundles(object):
                         self.parent = None
                         self.member_interface = None
                         self.bandwidth = None
+                        self.counters = LacpBundles.Bundles.Bundle.Members.Member.Counters()
+                        self.counters.parent = self
                         self.iccp_node = None
                         self.interface_name = None
+                        self.link_data = LacpBundles.Bundles.Bundle.Members.Member.LinkData()
+                        self.link_data.parent = self
                         self.link_order_number = None
                         self.mac_address = LacpBundles.Bundles.Bundle.Members.Member.MacAddress()
                         self.mac_address.parent = self
@@ -3304,6 +3349,342 @@ class LacpBundles(object):
                         self.port_number = None
                         self.port_priority = None
                         self.underlying_link_id = None
+
+
+                    class Counters(object):
+                        """
+                        Counters data about member link
+                        
+                        .. attribute:: defaulted
+                        
+                        	State flag set to Defaulted
+                        	**type**\:  int
+                        
+                        	**range:** 0..4294967295
+                        
+                        .. attribute:: excess_lacpd_us_received
+                        
+                        	LACPDUs received that exceed the rate limit
+                        	**type**\:  int
+                        
+                        	**range:** 0..4294967295
+                        
+                        .. attribute:: excess_marker_packets_received
+                        
+                        	Marker packets received that exceed the rate limit
+                        	**type**\:  int
+                        
+                        	**range:** 0..4294967295
+                        
+                        .. attribute:: expired
+                        
+                        	State flag set to Expired
+                        	**type**\:  int
+                        
+                        	**range:** 0..4294967295
+                        
+                        .. attribute:: illegal_packets_received
+                        
+                        	Illegal and unknown packets received
+                        	**type**\:  int
+                        
+                        	**range:** 0..4294967295
+                        
+                        .. attribute:: lacpd_us_received
+                        
+                        	LACPDUs received
+                        	**type**\:  int
+                        
+                        	**range:** 0..4294967295
+                        
+                        .. attribute:: lacpd_us_transmitted
+                        
+                        	LACPDUs transmitted
+                        	**type**\:  int
+                        
+                        	**range:** 0..4294967295
+                        
+                        .. attribute:: last_cleared_nsec
+                        
+                        	Last time counters cleared (nsec) (deprecated)
+                        	**type**\:  int
+                        
+                        	**range:** 0..4294967295
+                        
+                        .. attribute:: last_cleared_sec
+                        
+                        	Last time counters cleared (s) (deprecated)
+                        	**type**\:  int
+                        
+                        	**range:** 0..4294967295
+                        
+                        .. attribute:: marker_packets_received
+                        
+                        	Marker packets received
+                        	**type**\:  int
+                        
+                        	**range:** 0..4294967295
+                        
+                        .. attribute:: marker_responses_transmitted
+                        
+                        	Marker response packets transmitted
+                        	**type**\:  int
+                        
+                        	**range:** 0..4294967295
+                        
+                        
+
+                        """
+
+                        _prefix = 'bundlemgr-oper'
+                        _revision = '2015-11-09'
+
+                        def __init__(self):
+                            self.parent = None
+                            self.defaulted = None
+                            self.excess_lacpd_us_received = None
+                            self.excess_marker_packets_received = None
+                            self.expired = None
+                            self.illegal_packets_received = None
+                            self.lacpd_us_received = None
+                            self.lacpd_us_transmitted = None
+                            self.last_cleared_nsec = None
+                            self.last_cleared_sec = None
+                            self.marker_packets_received = None
+                            self.marker_responses_transmitted = None
+
+                        @property
+                        def _common_path(self):
+                            if self.parent is None:
+                                raise YPYModelError('parent is not set . Cannot derive path.')
+
+                            return self.parent._common_path +'/Cisco-IOS-XR-bundlemgr-oper:counters'
+
+                        def is_config(self):
+                            ''' Returns True if this instance represents config data else returns False '''
+                            return False
+
+                        def _has_data(self):
+                            if not self.is_config():
+                                return False
+                            if self.defaulted is not None:
+                                return True
+
+                            if self.excess_lacpd_us_received is not None:
+                                return True
+
+                            if self.excess_marker_packets_received is not None:
+                                return True
+
+                            if self.expired is not None:
+                                return True
+
+                            if self.illegal_packets_received is not None:
+                                return True
+
+                            if self.lacpd_us_received is not None:
+                                return True
+
+                            if self.lacpd_us_transmitted is not None:
+                                return True
+
+                            if self.last_cleared_nsec is not None:
+                                return True
+
+                            if self.last_cleared_sec is not None:
+                                return True
+
+                            if self.marker_packets_received is not None:
+                                return True
+
+                            if self.marker_responses_transmitted is not None:
+                                return True
+
+                            return False
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_bundlemgr_oper as meta
+                            return meta._meta_table['LacpBundles.Bundles.Bundle.Members.Member.Counters']['meta_info']
+
+
+                    class LinkData(object):
+                        """
+                        Lacp data about member link
+                        
+                        .. attribute:: actor_operational_key
+                        
+                        	Operational key for this port
+                        	**type**\:  int
+                        
+                        	**range:** 0..65535
+                        
+                        .. attribute:: actor_port_id
+                        
+                        	Port number of this port
+                        	**type**\:  int
+                        
+                        	**range:** 0..65535
+                        
+                        .. attribute:: actor_port_priority
+                        
+                        	Priority of this port
+                        	**type**\:  int
+                        
+                        	**range:** 0..65535
+                        
+                        .. attribute:: actor_port_state
+                        
+                        	LACP state of this port
+                        	**type**\:  int
+                        
+                        	**range:** 0..255
+                        
+                        .. attribute:: attached_aggregator_id
+                        
+                        	MIB ifindex of attached bundle
+                        	**type**\:  int
+                        
+                        	**range:** 0..4294967295
+                        
+                        .. attribute:: interface_handle
+                        
+                        	Member's interface handle
+                        	**type**\:  str
+                        
+                        	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+                        
+                        .. attribute:: partner_operational_key
+                        
+                        	Operational key for partner port
+                        	**type**\:  int
+                        
+                        	**range:** 0..65535
+                        
+                        .. attribute:: partner_port_id
+                        
+                        	Port number of the partner's port
+                        	**type**\:  int
+                        
+                        	**range:** 0..65535
+                        
+                        .. attribute:: partner_port_priority
+                        
+                        	Priority of the partner's port
+                        	**type**\:  int
+                        
+                        	**range:** 0..65535
+                        
+                        .. attribute:: partner_port_state
+                        
+                        	LACP state of the partner's port
+                        	**type**\:  int
+                        
+                        	**range:** 0..255
+                        
+                        .. attribute:: partner_system_mac_address
+                        
+                        	MAC Address used to identify the partner system
+                        	**type**\:  str
+                        
+                        	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
+                        
+                        .. attribute:: partner_system_priority
+                        
+                        	System priority of partner system
+                        	**type**\:  int
+                        
+                        	**range:** 0..65535
+                        
+                        .. attribute:: selected_aggregator_id
+                        
+                        	MIB ifindex of selected bundle
+                        	**type**\:  int
+                        
+                        	**range:** 0..4294967295
+                        
+                        
+
+                        """
+
+                        _prefix = 'bundlemgr-oper'
+                        _revision = '2015-11-09'
+
+                        def __init__(self):
+                            self.parent = None
+                            self.actor_operational_key = None
+                            self.actor_port_id = None
+                            self.actor_port_priority = None
+                            self.actor_port_state = None
+                            self.attached_aggregator_id = None
+                            self.interface_handle = None
+                            self.partner_operational_key = None
+                            self.partner_port_id = None
+                            self.partner_port_priority = None
+                            self.partner_port_state = None
+                            self.partner_system_mac_address = None
+                            self.partner_system_priority = None
+                            self.selected_aggregator_id = None
+
+                        @property
+                        def _common_path(self):
+                            if self.parent is None:
+                                raise YPYModelError('parent is not set . Cannot derive path.')
+
+                            return self.parent._common_path +'/Cisco-IOS-XR-bundlemgr-oper:link-data'
+
+                        def is_config(self):
+                            ''' Returns True if this instance represents config data else returns False '''
+                            return False
+
+                        def _has_data(self):
+                            if not self.is_config():
+                                return False
+                            if self.actor_operational_key is not None:
+                                return True
+
+                            if self.actor_port_id is not None:
+                                return True
+
+                            if self.actor_port_priority is not None:
+                                return True
+
+                            if self.actor_port_state is not None:
+                                return True
+
+                            if self.attached_aggregator_id is not None:
+                                return True
+
+                            if self.interface_handle is not None:
+                                return True
+
+                            if self.partner_operational_key is not None:
+                                return True
+
+                            if self.partner_port_id is not None:
+                                return True
+
+                            if self.partner_port_priority is not None:
+                                return True
+
+                            if self.partner_port_state is not None:
+                                return True
+
+                            if self.partner_system_mac_address is not None:
+                                return True
+
+                            if self.partner_system_priority is not None:
+                                return True
+
+                            if self.selected_aggregator_id is not None:
+                                return True
+
+                            return False
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_bundlemgr_oper as meta
+                            return meta._meta_table['LacpBundles.Bundles.Bundle.Members.Member.LinkData']['meta_info']
 
 
                     class MemberMuxData(object):
@@ -3522,10 +3903,16 @@ class LacpBundles(object):
                         if self.bandwidth is not None:
                             return True
 
+                        if self.counters is not None and self.counters._has_data():
+                            return True
+
                         if self.iccp_node is not None:
                             return True
 
                         if self.interface_name is not None:
+                            return True
+
+                        if self.link_data is not None and self.link_data._has_data():
                             return True
 
                         if self.link_order_number is not None:
@@ -3856,7 +4243,7 @@ class BundleInformation(object):
                 	Bundle interface
                 	**type**\:  str
                 
-                	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+                	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
                 
                 .. attribute:: bfd_counters_bundle_children_members
                 
@@ -3980,7 +4367,7 @@ class BundleInformation(object):
                         .. attribute:: last_time_cleared
                         
                         	Timestamp when counters were last cleared (deprecated)
-                        	**type**\:  long
+                        	**type**\:  int
                         
                         	**range:** 0..18446744073709551615
                         
@@ -4020,7 +4407,7 @@ class BundleInformation(object):
                         .. attribute:: time_since_cleared
                         
                         	Elapsed time in nsecs since counters were last cleared
-                        	**type**\:  long
+                        	**type**\:  int
                         
                         	**range:** 0..18446744073709551615
                         
@@ -4172,7 +4559,7 @@ class BundleInformation(object):
                         .. attribute:: last_time_cleared
                         
                         	Timestamp when counters were last cleared (deprecated)
-                        	**type**\:  long
+                        	**type**\:  int
                         
                         	**range:** 0..18446744073709551615
                         
@@ -4212,7 +4599,7 @@ class BundleInformation(object):
                         .. attribute:: time_since_cleared
                         
                         	Elapsed time in nsecs since counters were last cleared
-                        	**type**\:  long
+                        	**type**\:  int
                         
                         	**range:** 0..18446744073709551615
                         
@@ -4490,7 +4877,7 @@ class BundleInformation(object):
                     .. attribute:: last_time_cleared
                     
                     	Timestamp when counters were last cleared (deprecated)
-                    	**type**\:  long
+                    	**type**\:  int
                     
                     	**range:** 0..18446744073709551615
                     
@@ -4530,7 +4917,7 @@ class BundleInformation(object):
                     .. attribute:: time_since_cleared
                     
                     	Elapsed time in nsecs since counters were last cleared
-                    	**type**\:  long
+                    	**type**\:  int
                     
                     	**range:** 0..18446744073709551615
                     
@@ -4739,7 +5126,7 @@ class BundleInformation(object):
                 	Bundle interface
                 	**type**\:  str
                 
-                	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+                	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
                 
                 .. attribute:: scheduled_actions_bundle_item
                 
@@ -4806,7 +5193,7 @@ class BundleInformation(object):
                         .. attribute:: time_remaining
                         
                         	Seconds left before action
-                        	**type**\:  long
+                        	**type**\:  int
                         
                         	**range:** 0..18446744073709551615
                         
@@ -5018,7 +5405,7 @@ class BundleInformation(object):
                 	Bundle interface
                 	**type**\:  str
                 
-                	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+                	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
                 
                 .. attribute:: bundle_bundle_children_members
                 
@@ -5118,7 +5505,7 @@ class BundleInformation(object):
                         	Bundle interface name
                         	**type**\:  str
                         
-                        	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+                        	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
                         
                         .. attribute:: bundle_status
                         
@@ -5182,6 +5569,11 @@ class BundleInformation(object):
                         	The status of the BFD (IPv4) feature on the bundle
                         	**type**\:  :py:class:`BmFeatureStatusEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmFeatureStatusEnum>`
                         
+                        .. attribute:: ipv6bfd_status
+                        
+                        	The status of the BFD (IPv6) feature on the bundle
+                        	**type**\:  :py:class:`BmFeatureStatusEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmFeatureStatusEnum>`
+                        
                         .. attribute:: is_active
                         
                         	Indicates the active/standby redundancy state of the device for the bundle
@@ -5202,19 +5594,17 @@ class BundleInformation(object):
                         	The status of the link order signaling feature on the bundle
                         	**type**\:  :py:class:`BmFeatureStatusEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmFeatureStatusEnum>`
                         
+                        .. attribute:: load_balance_hash_type
+                        
+                        	The type of hash to use for load balancing
+                        	**type**\:  str
+                        
                         .. attribute:: load_balance_locality_threshold
                         
                         	The number of links required per rack for localized load balancing
                         	**type**\:  int
                         
                         	**range:** 0..65535
-                        
-                        .. attribute:: load_balance_type
-                        
-                        	The type of hash to use for load balancing
-                        	**type**\:  int
-                        
-                        	**range:** 0..255
                         
                         .. attribute:: mac_address
                         
@@ -5231,7 +5621,7 @@ class BundleInformation(object):
                         	The name of the member that supplied the MAC address
                         	**type**\:  str
                         
-                        	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+                        	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
                         
                         .. attribute:: maximize_threshold_value_band_width
                         
@@ -5288,7 +5678,7 @@ class BundleInformation(object):
                         	Primary bundle member (no longer applicable)
                         	**type**\:  str
                         
-                        	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+                        	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
                         
                         .. attribute:: recovery_delay
                         
@@ -5354,12 +5744,13 @@ class BundleInformation(object):
                             self.iccp_group_id = None
                             self.inter_chassis = None
                             self.ipv4bfd_status = None
+                            self.ipv6bfd_status = None
                             self.is_active = None
                             self.lacp_nonrevertive = None
                             self.lacp_status = None
                             self.link_order_status = None
+                            self.load_balance_hash_type = None
                             self.load_balance_locality_threshold = None
-                            self.load_balance_type = None
                             self.mac_address = BundleInformation.Bundle.BundleBundles.BundleBundle.BundleBundleDescendant.BundleData.MacAddress()
                             self.mac_address.parent = self
                             self.mac_source = None
@@ -5685,6 +6076,9 @@ class BundleInformation(object):
                             if self.ipv4bfd_status is not None:
                                 return True
 
+                            if self.ipv6bfd_status is not None:
+                                return True
+
                             if self.is_active is not None:
                                 return True
 
@@ -5697,10 +6091,10 @@ class BundleInformation(object):
                             if self.link_order_status is not None:
                                 return True
 
-                            if self.load_balance_locality_threshold is not None:
+                            if self.load_balance_hash_type is not None:
                                 return True
 
-                            if self.load_balance_type is not None:
+                            if self.load_balance_locality_threshold is not None:
                                 return True
 
                             if self.mac_address is not None and self.mac_address._has_data():
@@ -5776,6 +6170,11 @@ class BundleInformation(object):
                         
                         	**range:** 0..4294967295
                         
+                        .. attribute:: counters
+                        
+                        	Counters data about member link
+                        	**type**\:  :py:class:`Counters <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.Bundle.BundleBundles.BundleBundle.BundleBundleDescendant.MemberData.Counters>`
+                        
                         .. attribute:: iccp_node
                         
                         	Location of member
@@ -5788,7 +6187,12 @@ class BundleInformation(object):
                         	Member's interface name
                         	**type**\:  str
                         
-                        	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+                        	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+                        
+                        .. attribute:: link_data
+                        
+                        	Lacp data about member link
+                        	**type**\:  :py:class:`LinkData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.Bundle.BundleBundles.BundleBundle.BundleBundleDescendant.MemberData.LinkData>`
                         
                         .. attribute:: link_order_number
                         
@@ -5848,8 +6252,12 @@ class BundleInformation(object):
                         def __init__(self):
                             self.parent = None
                             self.bandwidth = None
+                            self.counters = BundleInformation.Bundle.BundleBundles.BundleBundle.BundleBundleDescendant.MemberData.Counters()
+                            self.counters.parent = self
                             self.iccp_node = None
                             self.interface_name = None
+                            self.link_data = BundleInformation.Bundle.BundleBundles.BundleBundle.BundleBundleDescendant.MemberData.LinkData()
+                            self.link_data.parent = self
                             self.link_order_number = None
                             self.mac_address = BundleInformation.Bundle.BundleBundles.BundleBundle.BundleBundleDescendant.MemberData.MacAddress()
                             self.mac_address.parent = self
@@ -5860,6 +6268,342 @@ class BundleInformation(object):
                             self.port_number = None
                             self.port_priority = None
                             self.underlying_link_id = None
+
+
+                        class Counters(object):
+                            """
+                            Counters data about member link
+                            
+                            .. attribute:: defaulted
+                            
+                            	State flag set to Defaulted
+                            	**type**\:  int
+                            
+                            	**range:** 0..4294967295
+                            
+                            .. attribute:: excess_lacpd_us_received
+                            
+                            	LACPDUs received that exceed the rate limit
+                            	**type**\:  int
+                            
+                            	**range:** 0..4294967295
+                            
+                            .. attribute:: excess_marker_packets_received
+                            
+                            	Marker packets received that exceed the rate limit
+                            	**type**\:  int
+                            
+                            	**range:** 0..4294967295
+                            
+                            .. attribute:: expired
+                            
+                            	State flag set to Expired
+                            	**type**\:  int
+                            
+                            	**range:** 0..4294967295
+                            
+                            .. attribute:: illegal_packets_received
+                            
+                            	Illegal and unknown packets received
+                            	**type**\:  int
+                            
+                            	**range:** 0..4294967295
+                            
+                            .. attribute:: lacpd_us_received
+                            
+                            	LACPDUs received
+                            	**type**\:  int
+                            
+                            	**range:** 0..4294967295
+                            
+                            .. attribute:: lacpd_us_transmitted
+                            
+                            	LACPDUs transmitted
+                            	**type**\:  int
+                            
+                            	**range:** 0..4294967295
+                            
+                            .. attribute:: last_cleared_nsec
+                            
+                            	Last time counters cleared (nsec) (deprecated)
+                            	**type**\:  int
+                            
+                            	**range:** 0..4294967295
+                            
+                            .. attribute:: last_cleared_sec
+                            
+                            	Last time counters cleared (s) (deprecated)
+                            	**type**\:  int
+                            
+                            	**range:** 0..4294967295
+                            
+                            .. attribute:: marker_packets_received
+                            
+                            	Marker packets received
+                            	**type**\:  int
+                            
+                            	**range:** 0..4294967295
+                            
+                            .. attribute:: marker_responses_transmitted
+                            
+                            	Marker response packets transmitted
+                            	**type**\:  int
+                            
+                            	**range:** 0..4294967295
+                            
+                            
+
+                            """
+
+                            _prefix = 'bundlemgr-oper'
+                            _revision = '2015-11-09'
+
+                            def __init__(self):
+                                self.parent = None
+                                self.defaulted = None
+                                self.excess_lacpd_us_received = None
+                                self.excess_marker_packets_received = None
+                                self.expired = None
+                                self.illegal_packets_received = None
+                                self.lacpd_us_received = None
+                                self.lacpd_us_transmitted = None
+                                self.last_cleared_nsec = None
+                                self.last_cleared_sec = None
+                                self.marker_packets_received = None
+                                self.marker_responses_transmitted = None
+
+                            @property
+                            def _common_path(self):
+                                if self.parent is None:
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                return self.parent._common_path +'/Cisco-IOS-XR-bundlemgr-oper:counters'
+
+                            def is_config(self):
+                                ''' Returns True if this instance represents config data else returns False '''
+                                return False
+
+                            def _has_data(self):
+                                if not self.is_config():
+                                    return False
+                                if self.defaulted is not None:
+                                    return True
+
+                                if self.excess_lacpd_us_received is not None:
+                                    return True
+
+                                if self.excess_marker_packets_received is not None:
+                                    return True
+
+                                if self.expired is not None:
+                                    return True
+
+                                if self.illegal_packets_received is not None:
+                                    return True
+
+                                if self.lacpd_us_received is not None:
+                                    return True
+
+                                if self.lacpd_us_transmitted is not None:
+                                    return True
+
+                                if self.last_cleared_nsec is not None:
+                                    return True
+
+                                if self.last_cleared_sec is not None:
+                                    return True
+
+                                if self.marker_packets_received is not None:
+                                    return True
+
+                                if self.marker_responses_transmitted is not None:
+                                    return True
+
+                                return False
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_bundlemgr_oper as meta
+                                return meta._meta_table['BundleInformation.Bundle.BundleBundles.BundleBundle.BundleBundleDescendant.MemberData.Counters']['meta_info']
+
+
+                        class LinkData(object):
+                            """
+                            Lacp data about member link
+                            
+                            .. attribute:: actor_operational_key
+                            
+                            	Operational key for this port
+                            	**type**\:  int
+                            
+                            	**range:** 0..65535
+                            
+                            .. attribute:: actor_port_id
+                            
+                            	Port number of this port
+                            	**type**\:  int
+                            
+                            	**range:** 0..65535
+                            
+                            .. attribute:: actor_port_priority
+                            
+                            	Priority of this port
+                            	**type**\:  int
+                            
+                            	**range:** 0..65535
+                            
+                            .. attribute:: actor_port_state
+                            
+                            	LACP state of this port
+                            	**type**\:  int
+                            
+                            	**range:** 0..255
+                            
+                            .. attribute:: attached_aggregator_id
+                            
+                            	MIB ifindex of attached bundle
+                            	**type**\:  int
+                            
+                            	**range:** 0..4294967295
+                            
+                            .. attribute:: interface_handle
+                            
+                            	Member's interface handle
+                            	**type**\:  str
+                            
+                            	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+                            
+                            .. attribute:: partner_operational_key
+                            
+                            	Operational key for partner port
+                            	**type**\:  int
+                            
+                            	**range:** 0..65535
+                            
+                            .. attribute:: partner_port_id
+                            
+                            	Port number of the partner's port
+                            	**type**\:  int
+                            
+                            	**range:** 0..65535
+                            
+                            .. attribute:: partner_port_priority
+                            
+                            	Priority of the partner's port
+                            	**type**\:  int
+                            
+                            	**range:** 0..65535
+                            
+                            .. attribute:: partner_port_state
+                            
+                            	LACP state of the partner's port
+                            	**type**\:  int
+                            
+                            	**range:** 0..255
+                            
+                            .. attribute:: partner_system_mac_address
+                            
+                            	MAC Address used to identify the partner system
+                            	**type**\:  str
+                            
+                            	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
+                            
+                            .. attribute:: partner_system_priority
+                            
+                            	System priority of partner system
+                            	**type**\:  int
+                            
+                            	**range:** 0..65535
+                            
+                            .. attribute:: selected_aggregator_id
+                            
+                            	MIB ifindex of selected bundle
+                            	**type**\:  int
+                            
+                            	**range:** 0..4294967295
+                            
+                            
+
+                            """
+
+                            _prefix = 'bundlemgr-oper'
+                            _revision = '2015-11-09'
+
+                            def __init__(self):
+                                self.parent = None
+                                self.actor_operational_key = None
+                                self.actor_port_id = None
+                                self.actor_port_priority = None
+                                self.actor_port_state = None
+                                self.attached_aggregator_id = None
+                                self.interface_handle = None
+                                self.partner_operational_key = None
+                                self.partner_port_id = None
+                                self.partner_port_priority = None
+                                self.partner_port_state = None
+                                self.partner_system_mac_address = None
+                                self.partner_system_priority = None
+                                self.selected_aggregator_id = None
+
+                            @property
+                            def _common_path(self):
+                                if self.parent is None:
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                return self.parent._common_path +'/Cisco-IOS-XR-bundlemgr-oper:link-data'
+
+                            def is_config(self):
+                                ''' Returns True if this instance represents config data else returns False '''
+                                return False
+
+                            def _has_data(self):
+                                if not self.is_config():
+                                    return False
+                                if self.actor_operational_key is not None:
+                                    return True
+
+                                if self.actor_port_id is not None:
+                                    return True
+
+                                if self.actor_port_priority is not None:
+                                    return True
+
+                                if self.actor_port_state is not None:
+                                    return True
+
+                                if self.attached_aggregator_id is not None:
+                                    return True
+
+                                if self.interface_handle is not None:
+                                    return True
+
+                                if self.partner_operational_key is not None:
+                                    return True
+
+                                if self.partner_port_id is not None:
+                                    return True
+
+                                if self.partner_port_priority is not None:
+                                    return True
+
+                                if self.partner_port_state is not None:
+                                    return True
+
+                                if self.partner_system_mac_address is not None:
+                                    return True
+
+                                if self.partner_system_priority is not None:
+                                    return True
+
+                                if self.selected_aggregator_id is not None:
+                                    return True
+
+                                return False
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_bundlemgr_oper as meta
+                                return meta._meta_table['BundleInformation.Bundle.BundleBundles.BundleBundle.BundleBundleDescendant.MemberData.LinkData']['meta_info']
 
 
                         class MemberMuxData(object):
@@ -6073,10 +6817,16 @@ class BundleInformation(object):
                             if self.bandwidth is not None:
                                 return True
 
+                            if self.counters is not None and self.counters._has_data():
+                                return True
+
                             if self.iccp_node is not None:
                                 return True
 
                             if self.interface_name is not None:
+                                return True
+
+                            if self.link_data is not None and self.link_data._has_data():
                                 return True
 
                             if self.link_order_number is not None:
@@ -6181,6 +6931,11 @@ class BundleInformation(object):
                         
                         	**range:** 0..4294967295
                         
+                        .. attribute:: counters
+                        
+                        	Counters data about member link
+                        	**type**\:  :py:class:`Counters <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.Bundle.BundleBundles.BundleBundle.BundleBundleChildrenMembers.BundleBundleChildrenMember.Counters>`
+                        
                         .. attribute:: iccp_node
                         
                         	Location of member
@@ -6193,7 +6948,12 @@ class BundleInformation(object):
                         	Member's interface name
                         	**type**\:  str
                         
-                        	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+                        	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+                        
+                        .. attribute:: link_data
+                        
+                        	Lacp data about member link
+                        	**type**\:  :py:class:`LinkData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.Bundle.BundleBundles.BundleBundle.BundleBundleChildrenMembers.BundleBundleChildrenMember.LinkData>`
                         
                         .. attribute:: link_order_number
                         
@@ -6254,8 +7014,12 @@ class BundleInformation(object):
                             self.parent = None
                             self.member_interface = None
                             self.bandwidth = None
+                            self.counters = BundleInformation.Bundle.BundleBundles.BundleBundle.BundleBundleChildrenMembers.BundleBundleChildrenMember.Counters()
+                            self.counters.parent = self
                             self.iccp_node = None
                             self.interface_name = None
+                            self.link_data = BundleInformation.Bundle.BundleBundles.BundleBundle.BundleBundleChildrenMembers.BundleBundleChildrenMember.LinkData()
+                            self.link_data.parent = self
                             self.link_order_number = None
                             self.mac_address = BundleInformation.Bundle.BundleBundles.BundleBundle.BundleBundleChildrenMembers.BundleBundleChildrenMember.MacAddress()
                             self.mac_address.parent = self
@@ -6266,6 +7030,342 @@ class BundleInformation(object):
                             self.port_number = None
                             self.port_priority = None
                             self.underlying_link_id = None
+
+
+                        class Counters(object):
+                            """
+                            Counters data about member link
+                            
+                            .. attribute:: defaulted
+                            
+                            	State flag set to Defaulted
+                            	**type**\:  int
+                            
+                            	**range:** 0..4294967295
+                            
+                            .. attribute:: excess_lacpd_us_received
+                            
+                            	LACPDUs received that exceed the rate limit
+                            	**type**\:  int
+                            
+                            	**range:** 0..4294967295
+                            
+                            .. attribute:: excess_marker_packets_received
+                            
+                            	Marker packets received that exceed the rate limit
+                            	**type**\:  int
+                            
+                            	**range:** 0..4294967295
+                            
+                            .. attribute:: expired
+                            
+                            	State flag set to Expired
+                            	**type**\:  int
+                            
+                            	**range:** 0..4294967295
+                            
+                            .. attribute:: illegal_packets_received
+                            
+                            	Illegal and unknown packets received
+                            	**type**\:  int
+                            
+                            	**range:** 0..4294967295
+                            
+                            .. attribute:: lacpd_us_received
+                            
+                            	LACPDUs received
+                            	**type**\:  int
+                            
+                            	**range:** 0..4294967295
+                            
+                            .. attribute:: lacpd_us_transmitted
+                            
+                            	LACPDUs transmitted
+                            	**type**\:  int
+                            
+                            	**range:** 0..4294967295
+                            
+                            .. attribute:: last_cleared_nsec
+                            
+                            	Last time counters cleared (nsec) (deprecated)
+                            	**type**\:  int
+                            
+                            	**range:** 0..4294967295
+                            
+                            .. attribute:: last_cleared_sec
+                            
+                            	Last time counters cleared (s) (deprecated)
+                            	**type**\:  int
+                            
+                            	**range:** 0..4294967295
+                            
+                            .. attribute:: marker_packets_received
+                            
+                            	Marker packets received
+                            	**type**\:  int
+                            
+                            	**range:** 0..4294967295
+                            
+                            .. attribute:: marker_responses_transmitted
+                            
+                            	Marker response packets transmitted
+                            	**type**\:  int
+                            
+                            	**range:** 0..4294967295
+                            
+                            
+
+                            """
+
+                            _prefix = 'bundlemgr-oper'
+                            _revision = '2015-11-09'
+
+                            def __init__(self):
+                                self.parent = None
+                                self.defaulted = None
+                                self.excess_lacpd_us_received = None
+                                self.excess_marker_packets_received = None
+                                self.expired = None
+                                self.illegal_packets_received = None
+                                self.lacpd_us_received = None
+                                self.lacpd_us_transmitted = None
+                                self.last_cleared_nsec = None
+                                self.last_cleared_sec = None
+                                self.marker_packets_received = None
+                                self.marker_responses_transmitted = None
+
+                            @property
+                            def _common_path(self):
+                                if self.parent is None:
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                return self.parent._common_path +'/Cisco-IOS-XR-bundlemgr-oper:counters'
+
+                            def is_config(self):
+                                ''' Returns True if this instance represents config data else returns False '''
+                                return False
+
+                            def _has_data(self):
+                                if not self.is_config():
+                                    return False
+                                if self.defaulted is not None:
+                                    return True
+
+                                if self.excess_lacpd_us_received is not None:
+                                    return True
+
+                                if self.excess_marker_packets_received is not None:
+                                    return True
+
+                                if self.expired is not None:
+                                    return True
+
+                                if self.illegal_packets_received is not None:
+                                    return True
+
+                                if self.lacpd_us_received is not None:
+                                    return True
+
+                                if self.lacpd_us_transmitted is not None:
+                                    return True
+
+                                if self.last_cleared_nsec is not None:
+                                    return True
+
+                                if self.last_cleared_sec is not None:
+                                    return True
+
+                                if self.marker_packets_received is not None:
+                                    return True
+
+                                if self.marker_responses_transmitted is not None:
+                                    return True
+
+                                return False
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_bundlemgr_oper as meta
+                                return meta._meta_table['BundleInformation.Bundle.BundleBundles.BundleBundle.BundleBundleChildrenMembers.BundleBundleChildrenMember.Counters']['meta_info']
+
+
+                        class LinkData(object):
+                            """
+                            Lacp data about member link
+                            
+                            .. attribute:: actor_operational_key
+                            
+                            	Operational key for this port
+                            	**type**\:  int
+                            
+                            	**range:** 0..65535
+                            
+                            .. attribute:: actor_port_id
+                            
+                            	Port number of this port
+                            	**type**\:  int
+                            
+                            	**range:** 0..65535
+                            
+                            .. attribute:: actor_port_priority
+                            
+                            	Priority of this port
+                            	**type**\:  int
+                            
+                            	**range:** 0..65535
+                            
+                            .. attribute:: actor_port_state
+                            
+                            	LACP state of this port
+                            	**type**\:  int
+                            
+                            	**range:** 0..255
+                            
+                            .. attribute:: attached_aggregator_id
+                            
+                            	MIB ifindex of attached bundle
+                            	**type**\:  int
+                            
+                            	**range:** 0..4294967295
+                            
+                            .. attribute:: interface_handle
+                            
+                            	Member's interface handle
+                            	**type**\:  str
+                            
+                            	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+                            
+                            .. attribute:: partner_operational_key
+                            
+                            	Operational key for partner port
+                            	**type**\:  int
+                            
+                            	**range:** 0..65535
+                            
+                            .. attribute:: partner_port_id
+                            
+                            	Port number of the partner's port
+                            	**type**\:  int
+                            
+                            	**range:** 0..65535
+                            
+                            .. attribute:: partner_port_priority
+                            
+                            	Priority of the partner's port
+                            	**type**\:  int
+                            
+                            	**range:** 0..65535
+                            
+                            .. attribute:: partner_port_state
+                            
+                            	LACP state of the partner's port
+                            	**type**\:  int
+                            
+                            	**range:** 0..255
+                            
+                            .. attribute:: partner_system_mac_address
+                            
+                            	MAC Address used to identify the partner system
+                            	**type**\:  str
+                            
+                            	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
+                            
+                            .. attribute:: partner_system_priority
+                            
+                            	System priority of partner system
+                            	**type**\:  int
+                            
+                            	**range:** 0..65535
+                            
+                            .. attribute:: selected_aggregator_id
+                            
+                            	MIB ifindex of selected bundle
+                            	**type**\:  int
+                            
+                            	**range:** 0..4294967295
+                            
+                            
+
+                            """
+
+                            _prefix = 'bundlemgr-oper'
+                            _revision = '2015-11-09'
+
+                            def __init__(self):
+                                self.parent = None
+                                self.actor_operational_key = None
+                                self.actor_port_id = None
+                                self.actor_port_priority = None
+                                self.actor_port_state = None
+                                self.attached_aggregator_id = None
+                                self.interface_handle = None
+                                self.partner_operational_key = None
+                                self.partner_port_id = None
+                                self.partner_port_priority = None
+                                self.partner_port_state = None
+                                self.partner_system_mac_address = None
+                                self.partner_system_priority = None
+                                self.selected_aggregator_id = None
+
+                            @property
+                            def _common_path(self):
+                                if self.parent is None:
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                return self.parent._common_path +'/Cisco-IOS-XR-bundlemgr-oper:link-data'
+
+                            def is_config(self):
+                                ''' Returns True if this instance represents config data else returns False '''
+                                return False
+
+                            def _has_data(self):
+                                if not self.is_config():
+                                    return False
+                                if self.actor_operational_key is not None:
+                                    return True
+
+                                if self.actor_port_id is not None:
+                                    return True
+
+                                if self.actor_port_priority is not None:
+                                    return True
+
+                                if self.actor_port_state is not None:
+                                    return True
+
+                                if self.attached_aggregator_id is not None:
+                                    return True
+
+                                if self.interface_handle is not None:
+                                    return True
+
+                                if self.partner_operational_key is not None:
+                                    return True
+
+                                if self.partner_port_id is not None:
+                                    return True
+
+                                if self.partner_port_priority is not None:
+                                    return True
+
+                                if self.partner_port_state is not None:
+                                    return True
+
+                                if self.partner_system_mac_address is not None:
+                                    return True
+
+                                if self.partner_system_priority is not None:
+                                    return True
+
+                                if self.selected_aggregator_id is not None:
+                                    return True
+
+                                return False
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_bundlemgr_oper as meta
+                                return meta._meta_table['BundleInformation.Bundle.BundleBundles.BundleBundle.BundleBundleChildrenMembers.BundleBundleChildrenMember.LinkData']['meta_info']
 
 
                         class MemberMuxData(object):
@@ -6484,10 +7584,16 @@ class BundleInformation(object):
                             if self.bandwidth is not None:
                                 return True
 
+                            if self.counters is not None and self.counters._has_data():
+                                return True
+
                             if self.iccp_node is not None:
                                 return True
 
                             if self.interface_name is not None:
+                                return True
+
+                            if self.link_data is not None and self.link_data._has_data():
                                 return True
 
                             if self.link_order_number is not None:
@@ -6583,7 +7689,7 @@ class BundleInformation(object):
                     	Bundle interface name
                     	**type**\:  str
                     
-                    	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+                    	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
                     
                     .. attribute:: bundle_status
                     
@@ -6647,6 +7753,11 @@ class BundleInformation(object):
                     	The status of the BFD (IPv4) feature on the bundle
                     	**type**\:  :py:class:`BmFeatureStatusEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmFeatureStatusEnum>`
                     
+                    .. attribute:: ipv6bfd_status
+                    
+                    	The status of the BFD (IPv6) feature on the bundle
+                    	**type**\:  :py:class:`BmFeatureStatusEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmFeatureStatusEnum>`
+                    
                     .. attribute:: is_active
                     
                     	Indicates the active/standby redundancy state of the device for the bundle
@@ -6667,19 +7778,17 @@ class BundleInformation(object):
                     	The status of the link order signaling feature on the bundle
                     	**type**\:  :py:class:`BmFeatureStatusEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmFeatureStatusEnum>`
                     
+                    .. attribute:: load_balance_hash_type
+                    
+                    	The type of hash to use for load balancing
+                    	**type**\:  str
+                    
                     .. attribute:: load_balance_locality_threshold
                     
                     	The number of links required per rack for localized load balancing
                     	**type**\:  int
                     
                     	**range:** 0..65535
-                    
-                    .. attribute:: load_balance_type
-                    
-                    	The type of hash to use for load balancing
-                    	**type**\:  int
-                    
-                    	**range:** 0..255
                     
                     .. attribute:: mac_address
                     
@@ -6696,7 +7805,7 @@ class BundleInformation(object):
                     	The name of the member that supplied the MAC address
                     	**type**\:  str
                     
-                    	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+                    	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
                     
                     .. attribute:: maximize_threshold_value_band_width
                     
@@ -6753,7 +7862,7 @@ class BundleInformation(object):
                     	Primary bundle member (no longer applicable)
                     	**type**\:  str
                     
-                    	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+                    	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
                     
                     .. attribute:: recovery_delay
                     
@@ -6819,12 +7928,13 @@ class BundleInformation(object):
                         self.iccp_group_id = None
                         self.inter_chassis = None
                         self.ipv4bfd_status = None
+                        self.ipv6bfd_status = None
                         self.is_active = None
                         self.lacp_nonrevertive = None
                         self.lacp_status = None
                         self.link_order_status = None
+                        self.load_balance_hash_type = None
                         self.load_balance_locality_threshold = None
-                        self.load_balance_type = None
                         self.mac_address = BundleInformation.Bundle.BundleBundles.BundleBundle.BundleBundleItem.MacAddress()
                         self.mac_address.parent = self
                         self.mac_source = None
@@ -7150,6 +8260,9 @@ class BundleInformation(object):
                         if self.ipv4bfd_status is not None:
                             return True
 
+                        if self.ipv6bfd_status is not None:
+                            return True
+
                         if self.is_active is not None:
                             return True
 
@@ -7162,10 +8275,10 @@ class BundleInformation(object):
                         if self.link_order_status is not None:
                             return True
 
-                        if self.load_balance_locality_threshold is not None:
+                        if self.load_balance_hash_type is not None:
                             return True
 
-                        if self.load_balance_type is not None:
+                        if self.load_balance_locality_threshold is not None:
                             return True
 
                         if self.mac_address is not None and self.mac_address._has_data():
@@ -7411,7 +8524,7 @@ class BundleInformation(object):
                         	Bundle interface name
                         	**type**\:  str
                         
-                        	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+                        	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
                         
                         .. attribute:: bundle_status
                         
@@ -7475,6 +8588,11 @@ class BundleInformation(object):
                         	The status of the BFD (IPv4) feature on the bundle
                         	**type**\:  :py:class:`BmFeatureStatusEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmFeatureStatusEnum>`
                         
+                        .. attribute:: ipv6bfd_status
+                        
+                        	The status of the BFD (IPv6) feature on the bundle
+                        	**type**\:  :py:class:`BmFeatureStatusEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmFeatureStatusEnum>`
+                        
                         .. attribute:: is_active
                         
                         	Indicates the active/standby redundancy state of the device for the bundle
@@ -7495,19 +8613,17 @@ class BundleInformation(object):
                         	The status of the link order signaling feature on the bundle
                         	**type**\:  :py:class:`BmFeatureStatusEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmFeatureStatusEnum>`
                         
+                        .. attribute:: load_balance_hash_type
+                        
+                        	The type of hash to use for load balancing
+                        	**type**\:  str
+                        
                         .. attribute:: load_balance_locality_threshold
                         
                         	The number of links required per rack for localized load balancing
                         	**type**\:  int
                         
                         	**range:** 0..65535
-                        
-                        .. attribute:: load_balance_type
-                        
-                        	The type of hash to use for load balancing
-                        	**type**\:  int
-                        
-                        	**range:** 0..255
                         
                         .. attribute:: mac_address
                         
@@ -7524,7 +8640,7 @@ class BundleInformation(object):
                         	The name of the member that supplied the MAC address
                         	**type**\:  str
                         
-                        	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+                        	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
                         
                         .. attribute:: maximize_threshold_value_band_width
                         
@@ -7581,7 +8697,7 @@ class BundleInformation(object):
                         	Primary bundle member (no longer applicable)
                         	**type**\:  str
                         
-                        	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+                        	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
                         
                         .. attribute:: recovery_delay
                         
@@ -7647,12 +8763,13 @@ class BundleInformation(object):
                             self.iccp_group_id = None
                             self.inter_chassis = None
                             self.ipv4bfd_status = None
+                            self.ipv6bfd_status = None
                             self.is_active = None
                             self.lacp_nonrevertive = None
                             self.lacp_status = None
                             self.link_order_status = None
+                            self.load_balance_hash_type = None
                             self.load_balance_locality_threshold = None
-                            self.load_balance_type = None
                             self.mac_address = BundleInformation.Bundle.BundleMembers.BundleMember.BundleMemberAncestor.BundleData.MacAddress()
                             self.mac_address.parent = self
                             self.mac_source = None
@@ -7978,6 +9095,9 @@ class BundleInformation(object):
                             if self.ipv4bfd_status is not None:
                                 return True
 
+                            if self.ipv6bfd_status is not None:
+                                return True
+
                             if self.is_active is not None:
                                 return True
 
@@ -7990,10 +9110,10 @@ class BundleInformation(object):
                             if self.link_order_status is not None:
                                 return True
 
-                            if self.load_balance_locality_threshold is not None:
+                            if self.load_balance_hash_type is not None:
                                 return True
 
-                            if self.load_balance_type is not None:
+                            if self.load_balance_locality_threshold is not None:
                                 return True
 
                             if self.mac_address is not None and self.mac_address._has_data():
@@ -8069,6 +9189,11 @@ class BundleInformation(object):
                         
                         	**range:** 0..4294967295
                         
+                        .. attribute:: counters
+                        
+                        	Counters data about member link
+                        	**type**\:  :py:class:`Counters <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.Bundle.BundleMembers.BundleMember.BundleMemberAncestor.MemberData.Counters>`
+                        
                         .. attribute:: iccp_node
                         
                         	Location of member
@@ -8081,7 +9206,12 @@ class BundleInformation(object):
                         	Member's interface name
                         	**type**\:  str
                         
-                        	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+                        	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+                        
+                        .. attribute:: link_data
+                        
+                        	Lacp data about member link
+                        	**type**\:  :py:class:`LinkData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.Bundle.BundleMembers.BundleMember.BundleMemberAncestor.MemberData.LinkData>`
                         
                         .. attribute:: link_order_number
                         
@@ -8141,8 +9271,12 @@ class BundleInformation(object):
                         def __init__(self):
                             self.parent = None
                             self.bandwidth = None
+                            self.counters = BundleInformation.Bundle.BundleMembers.BundleMember.BundleMemberAncestor.MemberData.Counters()
+                            self.counters.parent = self
                             self.iccp_node = None
                             self.interface_name = None
+                            self.link_data = BundleInformation.Bundle.BundleMembers.BundleMember.BundleMemberAncestor.MemberData.LinkData()
+                            self.link_data.parent = self
                             self.link_order_number = None
                             self.mac_address = BundleInformation.Bundle.BundleMembers.BundleMember.BundleMemberAncestor.MemberData.MacAddress()
                             self.mac_address.parent = self
@@ -8153,6 +9287,342 @@ class BundleInformation(object):
                             self.port_number = None
                             self.port_priority = None
                             self.underlying_link_id = None
+
+
+                        class Counters(object):
+                            """
+                            Counters data about member link
+                            
+                            .. attribute:: defaulted
+                            
+                            	State flag set to Defaulted
+                            	**type**\:  int
+                            
+                            	**range:** 0..4294967295
+                            
+                            .. attribute:: excess_lacpd_us_received
+                            
+                            	LACPDUs received that exceed the rate limit
+                            	**type**\:  int
+                            
+                            	**range:** 0..4294967295
+                            
+                            .. attribute:: excess_marker_packets_received
+                            
+                            	Marker packets received that exceed the rate limit
+                            	**type**\:  int
+                            
+                            	**range:** 0..4294967295
+                            
+                            .. attribute:: expired
+                            
+                            	State flag set to Expired
+                            	**type**\:  int
+                            
+                            	**range:** 0..4294967295
+                            
+                            .. attribute:: illegal_packets_received
+                            
+                            	Illegal and unknown packets received
+                            	**type**\:  int
+                            
+                            	**range:** 0..4294967295
+                            
+                            .. attribute:: lacpd_us_received
+                            
+                            	LACPDUs received
+                            	**type**\:  int
+                            
+                            	**range:** 0..4294967295
+                            
+                            .. attribute:: lacpd_us_transmitted
+                            
+                            	LACPDUs transmitted
+                            	**type**\:  int
+                            
+                            	**range:** 0..4294967295
+                            
+                            .. attribute:: last_cleared_nsec
+                            
+                            	Last time counters cleared (nsec) (deprecated)
+                            	**type**\:  int
+                            
+                            	**range:** 0..4294967295
+                            
+                            .. attribute:: last_cleared_sec
+                            
+                            	Last time counters cleared (s) (deprecated)
+                            	**type**\:  int
+                            
+                            	**range:** 0..4294967295
+                            
+                            .. attribute:: marker_packets_received
+                            
+                            	Marker packets received
+                            	**type**\:  int
+                            
+                            	**range:** 0..4294967295
+                            
+                            .. attribute:: marker_responses_transmitted
+                            
+                            	Marker response packets transmitted
+                            	**type**\:  int
+                            
+                            	**range:** 0..4294967295
+                            
+                            
+
+                            """
+
+                            _prefix = 'bundlemgr-oper'
+                            _revision = '2015-11-09'
+
+                            def __init__(self):
+                                self.parent = None
+                                self.defaulted = None
+                                self.excess_lacpd_us_received = None
+                                self.excess_marker_packets_received = None
+                                self.expired = None
+                                self.illegal_packets_received = None
+                                self.lacpd_us_received = None
+                                self.lacpd_us_transmitted = None
+                                self.last_cleared_nsec = None
+                                self.last_cleared_sec = None
+                                self.marker_packets_received = None
+                                self.marker_responses_transmitted = None
+
+                            @property
+                            def _common_path(self):
+                                if self.parent is None:
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                return self.parent._common_path +'/Cisco-IOS-XR-bundlemgr-oper:counters'
+
+                            def is_config(self):
+                                ''' Returns True if this instance represents config data else returns False '''
+                                return False
+
+                            def _has_data(self):
+                                if not self.is_config():
+                                    return False
+                                if self.defaulted is not None:
+                                    return True
+
+                                if self.excess_lacpd_us_received is not None:
+                                    return True
+
+                                if self.excess_marker_packets_received is not None:
+                                    return True
+
+                                if self.expired is not None:
+                                    return True
+
+                                if self.illegal_packets_received is not None:
+                                    return True
+
+                                if self.lacpd_us_received is not None:
+                                    return True
+
+                                if self.lacpd_us_transmitted is not None:
+                                    return True
+
+                                if self.last_cleared_nsec is not None:
+                                    return True
+
+                                if self.last_cleared_sec is not None:
+                                    return True
+
+                                if self.marker_packets_received is not None:
+                                    return True
+
+                                if self.marker_responses_transmitted is not None:
+                                    return True
+
+                                return False
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_bundlemgr_oper as meta
+                                return meta._meta_table['BundleInformation.Bundle.BundleMembers.BundleMember.BundleMemberAncestor.MemberData.Counters']['meta_info']
+
+
+                        class LinkData(object):
+                            """
+                            Lacp data about member link
+                            
+                            .. attribute:: actor_operational_key
+                            
+                            	Operational key for this port
+                            	**type**\:  int
+                            
+                            	**range:** 0..65535
+                            
+                            .. attribute:: actor_port_id
+                            
+                            	Port number of this port
+                            	**type**\:  int
+                            
+                            	**range:** 0..65535
+                            
+                            .. attribute:: actor_port_priority
+                            
+                            	Priority of this port
+                            	**type**\:  int
+                            
+                            	**range:** 0..65535
+                            
+                            .. attribute:: actor_port_state
+                            
+                            	LACP state of this port
+                            	**type**\:  int
+                            
+                            	**range:** 0..255
+                            
+                            .. attribute:: attached_aggregator_id
+                            
+                            	MIB ifindex of attached bundle
+                            	**type**\:  int
+                            
+                            	**range:** 0..4294967295
+                            
+                            .. attribute:: interface_handle
+                            
+                            	Member's interface handle
+                            	**type**\:  str
+                            
+                            	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+                            
+                            .. attribute:: partner_operational_key
+                            
+                            	Operational key for partner port
+                            	**type**\:  int
+                            
+                            	**range:** 0..65535
+                            
+                            .. attribute:: partner_port_id
+                            
+                            	Port number of the partner's port
+                            	**type**\:  int
+                            
+                            	**range:** 0..65535
+                            
+                            .. attribute:: partner_port_priority
+                            
+                            	Priority of the partner's port
+                            	**type**\:  int
+                            
+                            	**range:** 0..65535
+                            
+                            .. attribute:: partner_port_state
+                            
+                            	LACP state of the partner's port
+                            	**type**\:  int
+                            
+                            	**range:** 0..255
+                            
+                            .. attribute:: partner_system_mac_address
+                            
+                            	MAC Address used to identify the partner system
+                            	**type**\:  str
+                            
+                            	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
+                            
+                            .. attribute:: partner_system_priority
+                            
+                            	System priority of partner system
+                            	**type**\:  int
+                            
+                            	**range:** 0..65535
+                            
+                            .. attribute:: selected_aggregator_id
+                            
+                            	MIB ifindex of selected bundle
+                            	**type**\:  int
+                            
+                            	**range:** 0..4294967295
+                            
+                            
+
+                            """
+
+                            _prefix = 'bundlemgr-oper'
+                            _revision = '2015-11-09'
+
+                            def __init__(self):
+                                self.parent = None
+                                self.actor_operational_key = None
+                                self.actor_port_id = None
+                                self.actor_port_priority = None
+                                self.actor_port_state = None
+                                self.attached_aggregator_id = None
+                                self.interface_handle = None
+                                self.partner_operational_key = None
+                                self.partner_port_id = None
+                                self.partner_port_priority = None
+                                self.partner_port_state = None
+                                self.partner_system_mac_address = None
+                                self.partner_system_priority = None
+                                self.selected_aggregator_id = None
+
+                            @property
+                            def _common_path(self):
+                                if self.parent is None:
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                return self.parent._common_path +'/Cisco-IOS-XR-bundlemgr-oper:link-data'
+
+                            def is_config(self):
+                                ''' Returns True if this instance represents config data else returns False '''
+                                return False
+
+                            def _has_data(self):
+                                if not self.is_config():
+                                    return False
+                                if self.actor_operational_key is not None:
+                                    return True
+
+                                if self.actor_port_id is not None:
+                                    return True
+
+                                if self.actor_port_priority is not None:
+                                    return True
+
+                                if self.actor_port_state is not None:
+                                    return True
+
+                                if self.attached_aggregator_id is not None:
+                                    return True
+
+                                if self.interface_handle is not None:
+                                    return True
+
+                                if self.partner_operational_key is not None:
+                                    return True
+
+                                if self.partner_port_id is not None:
+                                    return True
+
+                                if self.partner_port_priority is not None:
+                                    return True
+
+                                if self.partner_port_state is not None:
+                                    return True
+
+                                if self.partner_system_mac_address is not None:
+                                    return True
+
+                                if self.partner_system_priority is not None:
+                                    return True
+
+                                if self.selected_aggregator_id is not None:
+                                    return True
+
+                                return False
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_bundlemgr_oper as meta
+                                return meta._meta_table['BundleInformation.Bundle.BundleMembers.BundleMember.BundleMemberAncestor.MemberData.LinkData']['meta_info']
 
 
                         class MemberMuxData(object):
@@ -8366,10 +9836,16 @@ class BundleInformation(object):
                             if self.bandwidth is not None:
                                 return True
 
+                            if self.counters is not None and self.counters._has_data():
+                                return True
+
                             if self.iccp_node is not None:
                                 return True
 
                             if self.interface_name is not None:
+                                return True
+
+                            if self.link_data is not None and self.link_data._has_data():
                                 return True
 
                             if self.link_order_number is not None:
@@ -8444,6 +9920,11 @@ class BundleInformation(object):
                     
                     	**range:** 0..4294967295
                     
+                    .. attribute:: counters
+                    
+                    	Counters data about member link
+                    	**type**\:  :py:class:`Counters <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.Bundle.BundleMembers.BundleMember.BundleMemberItem.Counters>`
+                    
                     .. attribute:: iccp_node
                     
                     	Location of member
@@ -8456,7 +9937,12 @@ class BundleInformation(object):
                     	Member's interface name
                     	**type**\:  str
                     
-                    	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+                    	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+                    
+                    .. attribute:: link_data
+                    
+                    	Lacp data about member link
+                    	**type**\:  :py:class:`LinkData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.Bundle.BundleMembers.BundleMember.BundleMemberItem.LinkData>`
                     
                     .. attribute:: link_order_number
                     
@@ -8516,8 +10002,12 @@ class BundleInformation(object):
                     def __init__(self):
                         self.parent = None
                         self.bandwidth = None
+                        self.counters = BundleInformation.Bundle.BundleMembers.BundleMember.BundleMemberItem.Counters()
+                        self.counters.parent = self
                         self.iccp_node = None
                         self.interface_name = None
+                        self.link_data = BundleInformation.Bundle.BundleMembers.BundleMember.BundleMemberItem.LinkData()
+                        self.link_data.parent = self
                         self.link_order_number = None
                         self.mac_address = BundleInformation.Bundle.BundleMembers.BundleMember.BundleMemberItem.MacAddress()
                         self.mac_address.parent = self
@@ -8528,6 +10018,342 @@ class BundleInformation(object):
                         self.port_number = None
                         self.port_priority = None
                         self.underlying_link_id = None
+
+
+                    class Counters(object):
+                        """
+                        Counters data about member link
+                        
+                        .. attribute:: defaulted
+                        
+                        	State flag set to Defaulted
+                        	**type**\:  int
+                        
+                        	**range:** 0..4294967295
+                        
+                        .. attribute:: excess_lacpd_us_received
+                        
+                        	LACPDUs received that exceed the rate limit
+                        	**type**\:  int
+                        
+                        	**range:** 0..4294967295
+                        
+                        .. attribute:: excess_marker_packets_received
+                        
+                        	Marker packets received that exceed the rate limit
+                        	**type**\:  int
+                        
+                        	**range:** 0..4294967295
+                        
+                        .. attribute:: expired
+                        
+                        	State flag set to Expired
+                        	**type**\:  int
+                        
+                        	**range:** 0..4294967295
+                        
+                        .. attribute:: illegal_packets_received
+                        
+                        	Illegal and unknown packets received
+                        	**type**\:  int
+                        
+                        	**range:** 0..4294967295
+                        
+                        .. attribute:: lacpd_us_received
+                        
+                        	LACPDUs received
+                        	**type**\:  int
+                        
+                        	**range:** 0..4294967295
+                        
+                        .. attribute:: lacpd_us_transmitted
+                        
+                        	LACPDUs transmitted
+                        	**type**\:  int
+                        
+                        	**range:** 0..4294967295
+                        
+                        .. attribute:: last_cleared_nsec
+                        
+                        	Last time counters cleared (nsec) (deprecated)
+                        	**type**\:  int
+                        
+                        	**range:** 0..4294967295
+                        
+                        .. attribute:: last_cleared_sec
+                        
+                        	Last time counters cleared (s) (deprecated)
+                        	**type**\:  int
+                        
+                        	**range:** 0..4294967295
+                        
+                        .. attribute:: marker_packets_received
+                        
+                        	Marker packets received
+                        	**type**\:  int
+                        
+                        	**range:** 0..4294967295
+                        
+                        .. attribute:: marker_responses_transmitted
+                        
+                        	Marker response packets transmitted
+                        	**type**\:  int
+                        
+                        	**range:** 0..4294967295
+                        
+                        
+
+                        """
+
+                        _prefix = 'bundlemgr-oper'
+                        _revision = '2015-11-09'
+
+                        def __init__(self):
+                            self.parent = None
+                            self.defaulted = None
+                            self.excess_lacpd_us_received = None
+                            self.excess_marker_packets_received = None
+                            self.expired = None
+                            self.illegal_packets_received = None
+                            self.lacpd_us_received = None
+                            self.lacpd_us_transmitted = None
+                            self.last_cleared_nsec = None
+                            self.last_cleared_sec = None
+                            self.marker_packets_received = None
+                            self.marker_responses_transmitted = None
+
+                        @property
+                        def _common_path(self):
+                            if self.parent is None:
+                                raise YPYModelError('parent is not set . Cannot derive path.')
+
+                            return self.parent._common_path +'/Cisco-IOS-XR-bundlemgr-oper:counters'
+
+                        def is_config(self):
+                            ''' Returns True if this instance represents config data else returns False '''
+                            return False
+
+                        def _has_data(self):
+                            if not self.is_config():
+                                return False
+                            if self.defaulted is not None:
+                                return True
+
+                            if self.excess_lacpd_us_received is not None:
+                                return True
+
+                            if self.excess_marker_packets_received is not None:
+                                return True
+
+                            if self.expired is not None:
+                                return True
+
+                            if self.illegal_packets_received is not None:
+                                return True
+
+                            if self.lacpd_us_received is not None:
+                                return True
+
+                            if self.lacpd_us_transmitted is not None:
+                                return True
+
+                            if self.last_cleared_nsec is not None:
+                                return True
+
+                            if self.last_cleared_sec is not None:
+                                return True
+
+                            if self.marker_packets_received is not None:
+                                return True
+
+                            if self.marker_responses_transmitted is not None:
+                                return True
+
+                            return False
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_bundlemgr_oper as meta
+                            return meta._meta_table['BundleInformation.Bundle.BundleMembers.BundleMember.BundleMemberItem.Counters']['meta_info']
+
+
+                    class LinkData(object):
+                        """
+                        Lacp data about member link
+                        
+                        .. attribute:: actor_operational_key
+                        
+                        	Operational key for this port
+                        	**type**\:  int
+                        
+                        	**range:** 0..65535
+                        
+                        .. attribute:: actor_port_id
+                        
+                        	Port number of this port
+                        	**type**\:  int
+                        
+                        	**range:** 0..65535
+                        
+                        .. attribute:: actor_port_priority
+                        
+                        	Priority of this port
+                        	**type**\:  int
+                        
+                        	**range:** 0..65535
+                        
+                        .. attribute:: actor_port_state
+                        
+                        	LACP state of this port
+                        	**type**\:  int
+                        
+                        	**range:** 0..255
+                        
+                        .. attribute:: attached_aggregator_id
+                        
+                        	MIB ifindex of attached bundle
+                        	**type**\:  int
+                        
+                        	**range:** 0..4294967295
+                        
+                        .. attribute:: interface_handle
+                        
+                        	Member's interface handle
+                        	**type**\:  str
+                        
+                        	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+                        
+                        .. attribute:: partner_operational_key
+                        
+                        	Operational key for partner port
+                        	**type**\:  int
+                        
+                        	**range:** 0..65535
+                        
+                        .. attribute:: partner_port_id
+                        
+                        	Port number of the partner's port
+                        	**type**\:  int
+                        
+                        	**range:** 0..65535
+                        
+                        .. attribute:: partner_port_priority
+                        
+                        	Priority of the partner's port
+                        	**type**\:  int
+                        
+                        	**range:** 0..65535
+                        
+                        .. attribute:: partner_port_state
+                        
+                        	LACP state of the partner's port
+                        	**type**\:  int
+                        
+                        	**range:** 0..255
+                        
+                        .. attribute:: partner_system_mac_address
+                        
+                        	MAC Address used to identify the partner system
+                        	**type**\:  str
+                        
+                        	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
+                        
+                        .. attribute:: partner_system_priority
+                        
+                        	System priority of partner system
+                        	**type**\:  int
+                        
+                        	**range:** 0..65535
+                        
+                        .. attribute:: selected_aggregator_id
+                        
+                        	MIB ifindex of selected bundle
+                        	**type**\:  int
+                        
+                        	**range:** 0..4294967295
+                        
+                        
+
+                        """
+
+                        _prefix = 'bundlemgr-oper'
+                        _revision = '2015-11-09'
+
+                        def __init__(self):
+                            self.parent = None
+                            self.actor_operational_key = None
+                            self.actor_port_id = None
+                            self.actor_port_priority = None
+                            self.actor_port_state = None
+                            self.attached_aggregator_id = None
+                            self.interface_handle = None
+                            self.partner_operational_key = None
+                            self.partner_port_id = None
+                            self.partner_port_priority = None
+                            self.partner_port_state = None
+                            self.partner_system_mac_address = None
+                            self.partner_system_priority = None
+                            self.selected_aggregator_id = None
+
+                        @property
+                        def _common_path(self):
+                            if self.parent is None:
+                                raise YPYModelError('parent is not set . Cannot derive path.')
+
+                            return self.parent._common_path +'/Cisco-IOS-XR-bundlemgr-oper:link-data'
+
+                        def is_config(self):
+                            ''' Returns True if this instance represents config data else returns False '''
+                            return False
+
+                        def _has_data(self):
+                            if not self.is_config():
+                                return False
+                            if self.actor_operational_key is not None:
+                                return True
+
+                            if self.actor_port_id is not None:
+                                return True
+
+                            if self.actor_port_priority is not None:
+                                return True
+
+                            if self.actor_port_state is not None:
+                                return True
+
+                            if self.attached_aggregator_id is not None:
+                                return True
+
+                            if self.interface_handle is not None:
+                                return True
+
+                            if self.partner_operational_key is not None:
+                                return True
+
+                            if self.partner_port_id is not None:
+                                return True
+
+                            if self.partner_port_priority is not None:
+                                return True
+
+                            if self.partner_port_state is not None:
+                                return True
+
+                            if self.partner_system_mac_address is not None:
+                                return True
+
+                            if self.partner_system_priority is not None:
+                                return True
+
+                            if self.selected_aggregator_id is not None:
+                                return True
+
+                            return False
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_bundlemgr_oper as meta
+                            return meta._meta_table['BundleInformation.Bundle.BundleMembers.BundleMember.BundleMemberItem.LinkData']['meta_info']
 
 
                     class MemberMuxData(object):
@@ -8741,10 +10567,16 @@ class BundleInformation(object):
                         if self.bandwidth is not None:
                             return True
 
+                        if self.counters is not None and self.counters._has_data():
+                            return True
+
                         if self.iccp_node is not None:
                             return True
 
                         if self.interface_name is not None:
+                            return True
+
+                        if self.link_data is not None and self.link_data._has_data():
                             return True
 
                         if self.link_order_number is not None:
@@ -9035,7 +10867,7 @@ class BundleInformation(object):
                             .. attribute:: time_stamp
                             
                             	Time stamp of the event
-                            	**type**\:  long
+                            	**type**\:  int
                             
                             	**range:** 0..18446744073709551615
                             
@@ -9177,7 +11009,7 @@ class BundleInformation(object):
                             .. attribute:: time_stamp
                             
                             	Time stamp of the event
-                            	**type**\:  long
+                            	**type**\:  int
                             
                             	**range:** 0..18446744073709551615
                             
@@ -9319,7 +11151,7 @@ class BundleInformation(object):
                             .. attribute:: time_stamp
                             
                             	Time stamp of the event
-                            	**type**\:  long
+                            	**type**\:  int
                             
                             	**range:** 0..18446744073709551615
                             
@@ -9698,7 +11530,7 @@ class BundleInformation(object):
                             .. attribute:: time_stamp
                             
                             	Time stamp of the event
-                            	**type**\:  long
+                            	**type**\:  int
                             
                             	**range:** 0..18446744073709551615
                             
@@ -9840,7 +11672,7 @@ class BundleInformation(object):
                             .. attribute:: time_stamp
                             
                             	Time stamp of the event
-                            	**type**\:  long
+                            	**type**\:  int
                             
                             	**range:** 0..18446744073709551615
                             
@@ -9982,7 +11814,7 @@ class BundleInformation(object):
                             .. attribute:: time_stamp
                             
                             	Time stamp of the event
-                            	**type**\:  long
+                            	**type**\:  int
                             
                             	**range:** 0..18446744073709551615
                             
@@ -10252,7 +12084,7 @@ class BundleInformation(object):
                 	Bundle interface
                 	**type**\:  str
                 
-                	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+                	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
                 
                 .. attribute:: events_rg_bundle_ancestor
                 
@@ -10361,7 +12193,7 @@ class BundleInformation(object):
                             .. attribute:: time_stamp
                             
                             	Time stamp of the event
-                            	**type**\:  long
+                            	**type**\:  int
                             
                             	**range:** 0..18446744073709551615
                             
@@ -10503,7 +12335,7 @@ class BundleInformation(object):
                             .. attribute:: time_stamp
                             
                             	Time stamp of the event
-                            	**type**\:  long
+                            	**type**\:  int
                             
                             	**range:** 0..18446744073709551615
                             
@@ -10645,7 +12477,7 @@ class BundleInformation(object):
                             .. attribute:: time_stamp
                             
                             	Time stamp of the event
-                            	**type**\:  long
+                            	**type**\:  int
                             
                             	**range:** 0..18446744073709551615
                             
@@ -10972,7 +12804,7 @@ class BundleInformation(object):
                 	Bundle interface
                 	**type**\:  str
                 
-                	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+                	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
                 
                 .. attribute:: lacp_bundle_children_members
                 
@@ -11103,7 +12935,7 @@ class BundleInformation(object):
                         	Bundle interface name
                         	**type**\:  str
                         
-                        	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+                        	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
                         
                         .. attribute:: bundle_status
                         
@@ -11167,6 +12999,11 @@ class BundleInformation(object):
                         	The status of the BFD (IPv4) feature on the bundle
                         	**type**\:  :py:class:`BmFeatureStatusEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmFeatureStatusEnum>`
                         
+                        .. attribute:: ipv6bfd_status
+                        
+                        	The status of the BFD (IPv6) feature on the bundle
+                        	**type**\:  :py:class:`BmFeatureStatusEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmFeatureStatusEnum>`
+                        
                         .. attribute:: is_active
                         
                         	Indicates the active/standby redundancy state of the device for the bundle
@@ -11187,19 +13024,17 @@ class BundleInformation(object):
                         	The status of the link order signaling feature on the bundle
                         	**type**\:  :py:class:`BmFeatureStatusEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmFeatureStatusEnum>`
                         
+                        .. attribute:: load_balance_hash_type
+                        
+                        	The type of hash to use for load balancing
+                        	**type**\:  str
+                        
                         .. attribute:: load_balance_locality_threshold
                         
                         	The number of links required per rack for localized load balancing
                         	**type**\:  int
                         
                         	**range:** 0..65535
-                        
-                        .. attribute:: load_balance_type
-                        
-                        	The type of hash to use for load balancing
-                        	**type**\:  int
-                        
-                        	**range:** 0..255
                         
                         .. attribute:: mac_address
                         
@@ -11216,7 +13051,7 @@ class BundleInformation(object):
                         	The name of the member that supplied the MAC address
                         	**type**\:  str
                         
-                        	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+                        	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
                         
                         .. attribute:: maximize_threshold_value_band_width
                         
@@ -11273,7 +13108,7 @@ class BundleInformation(object):
                         	Primary bundle member (no longer applicable)
                         	**type**\:  str
                         
-                        	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+                        	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
                         
                         .. attribute:: recovery_delay
                         
@@ -11339,12 +13174,13 @@ class BundleInformation(object):
                             self.iccp_group_id = None
                             self.inter_chassis = None
                             self.ipv4bfd_status = None
+                            self.ipv6bfd_status = None
                             self.is_active = None
                             self.lacp_nonrevertive = None
                             self.lacp_status = None
                             self.link_order_status = None
+                            self.load_balance_hash_type = None
                             self.load_balance_locality_threshold = None
-                            self.load_balance_type = None
                             self.mac_address = BundleInformation.Lacp.LacpBundles.LacpBundle.LacpBundleItem.ActorBundleData.MacAddress()
                             self.mac_address.parent = self
                             self.mac_source = None
@@ -11670,6 +13506,9 @@ class BundleInformation(object):
                             if self.ipv4bfd_status is not None:
                                 return True
 
+                            if self.ipv6bfd_status is not None:
+                                return True
+
                             if self.is_active is not None:
                                 return True
 
@@ -11682,10 +13521,10 @@ class BundleInformation(object):
                             if self.link_order_status is not None:
                                 return True
 
-                            if self.load_balance_locality_threshold is not None:
+                            if self.load_balance_hash_type is not None:
                                 return True
 
-                            if self.load_balance_type is not None:
+                            if self.load_balance_locality_threshold is not None:
                                 return True
 
                             if self.mac_address is not None and self.mac_address._has_data():
@@ -12019,7 +13858,7 @@ class BundleInformation(object):
                             	Bundle interface name
                             	**type**\:  str
                             
-                            	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+                            	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
                             
                             .. attribute:: bundle_status
                             
@@ -12083,6 +13922,11 @@ class BundleInformation(object):
                             	The status of the BFD (IPv4) feature on the bundle
                             	**type**\:  :py:class:`BmFeatureStatusEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmFeatureStatusEnum>`
                             
+                            .. attribute:: ipv6bfd_status
+                            
+                            	The status of the BFD (IPv6) feature on the bundle
+                            	**type**\:  :py:class:`BmFeatureStatusEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmFeatureStatusEnum>`
+                            
                             .. attribute:: is_active
                             
                             	Indicates the active/standby redundancy state of the device for the bundle
@@ -12103,19 +13947,17 @@ class BundleInformation(object):
                             	The status of the link order signaling feature on the bundle
                             	**type**\:  :py:class:`BmFeatureStatusEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmFeatureStatusEnum>`
                             
+                            .. attribute:: load_balance_hash_type
+                            
+                            	The type of hash to use for load balancing
+                            	**type**\:  str
+                            
                             .. attribute:: load_balance_locality_threshold
                             
                             	The number of links required per rack for localized load balancing
                             	**type**\:  int
                             
                             	**range:** 0..65535
-                            
-                            .. attribute:: load_balance_type
-                            
-                            	The type of hash to use for load balancing
-                            	**type**\:  int
-                            
-                            	**range:** 0..255
                             
                             .. attribute:: mac_address
                             
@@ -12132,7 +13974,7 @@ class BundleInformation(object):
                             	The name of the member that supplied the MAC address
                             	**type**\:  str
                             
-                            	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+                            	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
                             
                             .. attribute:: maximize_threshold_value_band_width
                             
@@ -12189,7 +14031,7 @@ class BundleInformation(object):
                             	Primary bundle member (no longer applicable)
                             	**type**\:  str
                             
-                            	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+                            	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
                             
                             .. attribute:: recovery_delay
                             
@@ -12255,12 +14097,13 @@ class BundleInformation(object):
                                 self.iccp_group_id = None
                                 self.inter_chassis = None
                                 self.ipv4bfd_status = None
+                                self.ipv6bfd_status = None
                                 self.is_active = None
                                 self.lacp_nonrevertive = None
                                 self.lacp_status = None
                                 self.link_order_status = None
+                                self.load_balance_hash_type = None
                                 self.load_balance_locality_threshold = None
-                                self.load_balance_type = None
                                 self.mac_address = BundleInformation.Lacp.LacpBundles.LacpBundle.LacpBundleDescendant.BundleData.ActorBundleData.MacAddress()
                                 self.mac_address.parent = self
                                 self.mac_source = None
@@ -12586,6 +14429,9 @@ class BundleInformation(object):
                                 if self.ipv4bfd_status is not None:
                                     return True
 
+                                if self.ipv6bfd_status is not None:
+                                    return True
+
                                 if self.is_active is not None:
                                     return True
 
@@ -12598,10 +14444,10 @@ class BundleInformation(object):
                                 if self.link_order_status is not None:
                                     return True
 
-                                if self.load_balance_locality_threshold is not None:
+                                if self.load_balance_hash_type is not None:
                                     return True
 
-                                if self.load_balance_type is not None:
+                                if self.load_balance_locality_threshold is not None:
                                     return True
 
                                 if self.mac_address is not None and self.mac_address._has_data():
@@ -13543,7 +15389,7 @@ class BundleInformation(object):
                                 	Member's interface handle
                                 	**type**\:  str
                                 
-                                	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+                                	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
                                 
                                 
 
@@ -14516,7 +16362,7 @@ class BundleInformation(object):
                                 	Member's interface handle
                                 	**type**\:  str
                                 
-                                	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+                                	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
                                 
                                 
 
@@ -14969,7 +16815,7 @@ class BundleInformation(object):
                             	Bundle interface name
                             	**type**\:  str
                             
-                            	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+                            	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
                             
                             .. attribute:: bundle_status
                             
@@ -15033,6 +16879,11 @@ class BundleInformation(object):
                             	The status of the BFD (IPv4) feature on the bundle
                             	**type**\:  :py:class:`BmFeatureStatusEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmFeatureStatusEnum>`
                             
+                            .. attribute:: ipv6bfd_status
+                            
+                            	The status of the BFD (IPv6) feature on the bundle
+                            	**type**\:  :py:class:`BmFeatureStatusEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmFeatureStatusEnum>`
+                            
                             .. attribute:: is_active
                             
                             	Indicates the active/standby redundancy state of the device for the bundle
@@ -15053,19 +16904,17 @@ class BundleInformation(object):
                             	The status of the link order signaling feature on the bundle
                             	**type**\:  :py:class:`BmFeatureStatusEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmFeatureStatusEnum>`
                             
+                            .. attribute:: load_balance_hash_type
+                            
+                            	The type of hash to use for load balancing
+                            	**type**\:  str
+                            
                             .. attribute:: load_balance_locality_threshold
                             
                             	The number of links required per rack for localized load balancing
                             	**type**\:  int
                             
                             	**range:** 0..65535
-                            
-                            .. attribute:: load_balance_type
-                            
-                            	The type of hash to use for load balancing
-                            	**type**\:  int
-                            
-                            	**range:** 0..255
                             
                             .. attribute:: mac_address
                             
@@ -15082,7 +16931,7 @@ class BundleInformation(object):
                             	The name of the member that supplied the MAC address
                             	**type**\:  str
                             
-                            	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+                            	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
                             
                             .. attribute:: maximize_threshold_value_band_width
                             
@@ -15139,7 +16988,7 @@ class BundleInformation(object):
                             	Primary bundle member (no longer applicable)
                             	**type**\:  str
                             
-                            	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+                            	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
                             
                             .. attribute:: recovery_delay
                             
@@ -15205,12 +17054,13 @@ class BundleInformation(object):
                                 self.iccp_group_id = None
                                 self.inter_chassis = None
                                 self.ipv4bfd_status = None
+                                self.ipv6bfd_status = None
                                 self.is_active = None
                                 self.lacp_nonrevertive = None
                                 self.lacp_status = None
                                 self.link_order_status = None
+                                self.load_balance_hash_type = None
                                 self.load_balance_locality_threshold = None
-                                self.load_balance_type = None
                                 self.mac_address = BundleInformation.Lacp.LacpMembers.LacpMember.LacpMemberAncestor.BundleData.ActorBundleData.MacAddress()
                                 self.mac_address.parent = self
                                 self.mac_source = None
@@ -15536,6 +17386,9 @@ class BundleInformation(object):
                                 if self.ipv4bfd_status is not None:
                                     return True
 
+                                if self.ipv6bfd_status is not None:
+                                    return True
+
                                 if self.is_active is not None:
                                     return True
 
@@ -15548,10 +17401,10 @@ class BundleInformation(object):
                                 if self.link_order_status is not None:
                                     return True
 
-                                if self.load_balance_locality_threshold is not None:
+                                if self.load_balance_hash_type is not None:
                                     return True
 
-                                if self.load_balance_type is not None:
+                                if self.load_balance_locality_threshold is not None:
                                     return True
 
                                 if self.mac_address is not None and self.mac_address._has_data():
@@ -16493,7 +18346,7 @@ class BundleInformation(object):
                                 	Member's interface handle
                                 	**type**\:  str
                                 
-                                	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+                                	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
                                 
                                 
 
@@ -17437,7 +19290,7 @@ class BundleInformation(object):
                             	Member's interface handle
                             	**type**\:  str
                             
-                            	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+                            	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
                             
                             
 
@@ -17869,7 +19722,7 @@ class BundleInformation(object):
                             .. attribute:: last_time_cleared
                             
                             	Time in nsecs from boot when counters were last cleared (deprecated)
-                            	**type**\:  long
+                            	**type**\:  int
                             
                             	**range:** 0..18446744073709551615
                             
@@ -17881,7 +19734,7 @@ class BundleInformation(object):
                             .. attribute:: time_since_cleared
                             
                             	Elapsed time in nsecs since counters were last cleared
-                            	**type**\:  long
+                            	**type**\:  int
                             
                             	**range:** 0..18446744073709551615
                             
@@ -18006,7 +19859,7 @@ class BundleInformation(object):
                             .. attribute:: last_time_cleared
                             
                             	Time in nsecs from boot when counters were last cleared (deprecated)
-                            	**type**\:  long
+                            	**type**\:  int
                             
                             	**range:** 0..18446744073709551615
                             
@@ -18018,7 +19871,7 @@ class BundleInformation(object):
                             .. attribute:: time_since_cleared
                             
                             	Elapsed time in nsecs since counters were last cleared
-                            	**type**\:  long
+                            	**type**\:  int
                             
                             	**range:** 0..18446744073709551615
                             
@@ -18171,14 +20024,14 @@ class BundleInformation(object):
                                 .. attribute:: last_time_cleared
                                 
                                 	Time in nsecs from boot when counters were last cleared (deprecated)
-                                	**type**\:  long
+                                	**type**\:  int
                                 
                                 	**range:** 0..18446744073709551615
                                 
                                 .. attribute:: last_unexpected_event
                                 
                                 	Elapsed time in nsecs since last unexpected event
-                                	**type**\:  long
+                                	**type**\:  int
                                 
                                 	**range:** 0..18446744073709551615
                                 
@@ -18225,7 +20078,7 @@ class BundleInformation(object):
                                 .. attribute:: time_since_cleared
                                 
                                 	Elapsed time in nsecs since counters were last cleared
-                                	**type**\:  long
+                                	**type**\:  int
                                 
                                 	**range:** 0..18446744073709551615
                                 
@@ -18503,7 +20356,7 @@ class BundleInformation(object):
                                 .. attribute:: last_time_cleared
                                 
                                 	Time in nsecs from boot when counters were last cleared (deprecated)
-                                	**type**\:  long
+                                	**type**\:  int
                                 
                                 	**range:** 0..18446744073709551615
                                 
@@ -18515,7 +20368,7 @@ class BundleInformation(object):
                                 .. attribute:: time_since_cleared
                                 
                                 	Elapsed time in nsecs since counters were last cleared
-                                	**type**\:  long
+                                	**type**\:  int
                                 
                                 	**range:** 0..18446744073709551615
                                 
@@ -18640,7 +20493,7 @@ class BundleInformation(object):
                                 .. attribute:: last_time_cleared
                                 
                                 	Time in nsecs from boot when counters were last cleared (deprecated)
-                                	**type**\:  long
+                                	**type**\:  int
                                 
                                 	**range:** 0..18446744073709551615
                                 
@@ -18652,7 +20505,7 @@ class BundleInformation(object):
                                 .. attribute:: time_since_cleared
                                 
                                 	Elapsed time in nsecs since counters were last cleared
-                                	**type**\:  long
+                                	**type**\:  int
                                 
                                 	**range:** 0..18446744073709551615
                                 
@@ -18835,14 +20688,14 @@ class BundleInformation(object):
                                 .. attribute:: last_time_cleared
                                 
                                 	Time in nsecs from boot when counters were last cleared (deprecated)
-                                	**type**\:  long
+                                	**type**\:  int
                                 
                                 	**range:** 0..18446744073709551615
                                 
                                 .. attribute:: last_unexpected_event
                                 
                                 	Elapsed time in nsecs since last unexpected event
-                                	**type**\:  long
+                                	**type**\:  int
                                 
                                 	**range:** 0..18446744073709551615
                                 
@@ -18889,7 +20742,7 @@ class BundleInformation(object):
                                 .. attribute:: time_since_cleared
                                 
                                 	Elapsed time in nsecs since counters were last cleared
-                                	**type**\:  long
+                                	**type**\:  int
                                 
                                 	**range:** 0..18446744073709551615
                                 
@@ -19199,7 +21052,7 @@ class BundleInformation(object):
                 	Bundle interface
                 	**type**\:  str
                 
-                	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+                	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
                 
                 .. attribute:: bundle_item
                 
@@ -19325,7 +21178,7 @@ class BundleInformation(object):
                                 .. attribute:: last_time_cleared
                                 
                                 	Time in nsecs from boot when counters were last cleared (deprecated)
-                                	**type**\:  long
+                                	**type**\:  int
                                 
                                 	**range:** 0..18446744073709551615
                                 
@@ -19337,7 +21190,7 @@ class BundleInformation(object):
                                 .. attribute:: time_since_cleared
                                 
                                 	Elapsed time in nsecs since counters were last cleared
-                                	**type**\:  long
+                                	**type**\:  int
                                 
                                 	**range:** 0..18446744073709551615
                                 
@@ -19462,7 +21315,7 @@ class BundleInformation(object):
                                 .. attribute:: last_time_cleared
                                 
                                 	Time in nsecs from boot when counters were last cleared (deprecated)
-                                	**type**\:  long
+                                	**type**\:  int
                                 
                                 	**range:** 0..18446744073709551615
                                 
@@ -19474,7 +21327,7 @@ class BundleInformation(object):
                                 .. attribute:: time_since_cleared
                                 
                                 	Elapsed time in nsecs since counters were last cleared
-                                	**type**\:  long
+                                	**type**\:  int
                                 
                                 	**range:** 0..18446744073709551615
                                 
@@ -19627,14 +21480,14 @@ class BundleInformation(object):
                                     .. attribute:: last_time_cleared
                                     
                                     	Time in nsecs from boot when counters were last cleared (deprecated)
-                                    	**type**\:  long
+                                    	**type**\:  int
                                     
                                     	**range:** 0..18446744073709551615
                                     
                                     .. attribute:: last_unexpected_event
                                     
                                     	Elapsed time in nsecs since last unexpected event
-                                    	**type**\:  long
+                                    	**type**\:  int
                                     
                                     	**range:** 0..18446744073709551615
                                     
@@ -19681,7 +21534,7 @@ class BundleInformation(object):
                                     .. attribute:: time_since_cleared
                                     
                                     	Elapsed time in nsecs since counters were last cleared
-                                    	**type**\:  long
+                                    	**type**\:  int
                                     
                                     	**range:** 0..18446744073709551615
                                     
@@ -19959,7 +21812,7 @@ class BundleInformation(object):
                                     .. attribute:: last_time_cleared
                                     
                                     	Time in nsecs from boot when counters were last cleared (deprecated)
-                                    	**type**\:  long
+                                    	**type**\:  int
                                     
                                     	**range:** 0..18446744073709551615
                                     
@@ -19971,7 +21824,7 @@ class BundleInformation(object):
                                     .. attribute:: time_since_cleared
                                     
                                     	Elapsed time in nsecs since counters were last cleared
-                                    	**type**\:  long
+                                    	**type**\:  int
                                     
                                     	**range:** 0..18446744073709551615
                                     
@@ -20096,7 +21949,7 @@ class BundleInformation(object):
                                     .. attribute:: last_time_cleared
                                     
                                     	Time in nsecs from boot when counters were last cleared (deprecated)
-                                    	**type**\:  long
+                                    	**type**\:  int
                                     
                                     	**range:** 0..18446744073709551615
                                     
@@ -20108,7 +21961,7 @@ class BundleInformation(object):
                                     .. attribute:: time_since_cleared
                                     
                                     	Elapsed time in nsecs since counters were last cleared
-                                    	**type**\:  long
+                                    	**type**\:  int
                                     
                                     	**range:** 0..18446744073709551615
                                     
@@ -20291,14 +22144,14 @@ class BundleInformation(object):
                                     .. attribute:: last_time_cleared
                                     
                                     	Time in nsecs from boot when counters were last cleared (deprecated)
-                                    	**type**\:  long
+                                    	**type**\:  int
                                     
                                     	**range:** 0..18446744073709551615
                                     
                                     .. attribute:: last_unexpected_event
                                     
                                     	Elapsed time in nsecs since last unexpected event
-                                    	**type**\:  long
+                                    	**type**\:  int
                                     
                                     	**range:** 0..18446744073709551615
                                     
@@ -20345,7 +22198,7 @@ class BundleInformation(object):
                                     .. attribute:: time_since_cleared
                                     
                                     	Elapsed time in nsecs since counters were last cleared
-                                    	**type**\:  long
+                                    	**type**\:  int
                                     
                                     	**range:** 0..18446744073709551615
                                     
@@ -20783,7 +22636,7 @@ class BundleInformation(object):
                             .. attribute:: last_time_cleared
                             
                             	Time in nsecs from boot when counters were last cleared (deprecated)
-                            	**type**\:  long
+                            	**type**\:  int
                             
                             	**range:** 0..18446744073709551615
                             
@@ -20795,7 +22648,7 @@ class BundleInformation(object):
                             .. attribute:: time_since_cleared
                             
                             	Elapsed time in nsecs since counters were last cleared
-                            	**type**\:  long
+                            	**type**\:  int
                             
                             	**range:** 0..18446744073709551615
                             
@@ -20920,7 +22773,7 @@ class BundleInformation(object):
                             .. attribute:: last_time_cleared
                             
                             	Time in nsecs from boot when counters were last cleared (deprecated)
-                            	**type**\:  long
+                            	**type**\:  int
                             
                             	**range:** 0..18446744073709551615
                             
@@ -20932,7 +22785,7 @@ class BundleInformation(object):
                             .. attribute:: time_since_cleared
                             
                             	Elapsed time in nsecs since counters were last cleared
-                            	**type**\:  long
+                            	**type**\:  int
                             
                             	**range:** 0..18446744073709551615
                             
@@ -21085,14 +22938,14 @@ class BundleInformation(object):
                                 .. attribute:: last_time_cleared
                                 
                                 	Time in nsecs from boot when counters were last cleared (deprecated)
-                                	**type**\:  long
+                                	**type**\:  int
                                 
                                 	**range:** 0..18446744073709551615
                                 
                                 .. attribute:: last_unexpected_event
                                 
                                 	Elapsed time in nsecs since last unexpected event
-                                	**type**\:  long
+                                	**type**\:  int
                                 
                                 	**range:** 0..18446744073709551615
                                 
@@ -21139,7 +22992,7 @@ class BundleInformation(object):
                                 .. attribute:: time_since_cleared
                                 
                                 	Elapsed time in nsecs since counters were last cleared
-                                	**type**\:  long
+                                	**type**\:  int
                                 
                                 	**range:** 0..18446744073709551615
                                 
@@ -21417,7 +23270,7 @@ class BundleInformation(object):
                                 .. attribute:: last_time_cleared
                                 
                                 	Time in nsecs from boot when counters were last cleared (deprecated)
-                                	**type**\:  long
+                                	**type**\:  int
                                 
                                 	**range:** 0..18446744073709551615
                                 
@@ -21429,7 +23282,7 @@ class BundleInformation(object):
                                 .. attribute:: time_since_cleared
                                 
                                 	Elapsed time in nsecs since counters were last cleared
-                                	**type**\:  long
+                                	**type**\:  int
                                 
                                 	**range:** 0..18446744073709551615
                                 
@@ -21554,7 +23407,7 @@ class BundleInformation(object):
                                 .. attribute:: last_time_cleared
                                 
                                 	Time in nsecs from boot when counters were last cleared (deprecated)
-                                	**type**\:  long
+                                	**type**\:  int
                                 
                                 	**range:** 0..18446744073709551615
                                 
@@ -21566,7 +23419,7 @@ class BundleInformation(object):
                                 .. attribute:: time_since_cleared
                                 
                                 	Elapsed time in nsecs since counters were last cleared
-                                	**type**\:  long
+                                	**type**\:  int
                                 
                                 	**range:** 0..18446744073709551615
                                 
@@ -21749,14 +23602,14 @@ class BundleInformation(object):
                                 .. attribute:: last_time_cleared
                                 
                                 	Time in nsecs from boot when counters were last cleared (deprecated)
-                                	**type**\:  long
+                                	**type**\:  int
                                 
                                 	**range:** 0..18446744073709551615
                                 
                                 .. attribute:: last_unexpected_event
                                 
                                 	Elapsed time in nsecs since last unexpected event
-                                	**type**\:  long
+                                	**type**\:  int
                                 
                                 	**range:** 0..18446744073709551615
                                 
@@ -21803,7 +23656,7 @@ class BundleInformation(object):
                                 .. attribute:: time_since_cleared
                                 
                                 	Elapsed time in nsecs since counters were last cleared
-                                	**type**\:  long
+                                	**type**\:  int
                                 
                                 	**range:** 0..18446744073709551615
                                 
@@ -22165,7 +24018,7 @@ class BundleInformation(object):
                 	Bundle interface
                 	**type**\:  str
                 
-                	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+                	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
                 
                 .. attribute:: protect_bundle_item
                 
@@ -22195,7 +24048,7 @@ class BundleInformation(object):
                     	Bundle's interface handle
                     	**type**\:  str
                     
-                    	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+                    	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
                     
                     .. attribute:: event_type
                     
@@ -22244,7 +24097,7 @@ class BundleInformation(object):
                     .. attribute:: time_stamp
                     
                     	Last event for the bundle
-                    	**type**\:  long
+                    	**type**\:  int
                     
                     	**range:** 0..18446744073709551615
                     
@@ -22292,7 +24145,7 @@ class BundleInformation(object):
                         	Member's interface handle
                         	**type**\:  str
                         
-                        	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+                        	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
                         
                         .. attribute:: link_order_number
                         
@@ -22321,7 +24174,7 @@ class BundleInformation(object):
                         .. attribute:: time_stamp
                         
                         	Last event for the member
-                        	**type**\:  long
+                        	**type**\:  int
                         
                         	**range:** 0..18446744073709551615
                         
@@ -22588,7 +24441,7 @@ class BundleInformation(object):
                 	Bundle interface
                 	**type**\:  str
                 
-                	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+                	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
                 
                 .. attribute:: mlacp_bundle_item_brief
                 
@@ -22669,7 +24522,7 @@ class BundleInformation(object):
                             .. attribute:: connect_timer_running
                             
                             	Time remaining on connect timer innsecs
-                            	**type**\:  long
+                            	**type**\:  int
                             
                             	**range:** 0..18446744073709551615
                             
@@ -22973,7 +24826,7 @@ class BundleInformation(object):
                             .. attribute:: redundancy_object_id
                             
                             	Redundancy Object ID of the bundle
-                            	**type**\:  long
+                            	**type**\:  int
                             
                             	**range:** 0..18446744073709551615
                             
@@ -23157,7 +25010,7 @@ class BundleInformation(object):
                                 	Member's interface handle (local device's members only)
                                 	**type**\:  str
                                 
-                                	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+                                	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
                                 
                                 .. attribute:: member_state
                                 
@@ -23486,7 +25339,7 @@ class BundleInformation(object):
                         .. attribute:: connect_timer_running
                         
                         	Time remaining on connect timer innsecs
-                        	**type**\:  long
+                        	**type**\:  int
                         
                         	**range:** 0..18446744073709551615
                         
@@ -23790,7 +25643,7 @@ class BundleInformation(object):
                         .. attribute:: redundancy_object_id
                         
                         	Redundancy Object ID of the bundle
-                        	**type**\:  long
+                        	**type**\:  int
                         
                         	**range:** 0..18446744073709551615
                         
@@ -23974,7 +25827,7 @@ class BundleInformation(object):
                             	Member's interface handle (local device's members only)
                             	**type**\:  str
                             
-                            	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+                            	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
                             
                             .. attribute:: member_state
                             
@@ -24274,7 +26127,7 @@ class BundleInformation(object):
                 	Bundle interface
                 	**type**\:  str
                 
-                	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+                	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
                 
                 .. attribute:: mlacp_bundle_item
                 
@@ -24355,7 +26208,7 @@ class BundleInformation(object):
                             .. attribute:: connect_timer_running
                             
                             	Time remaining on connect timer innsecs
-                            	**type**\:  long
+                            	**type**\:  int
                             
                             	**range:** 0..18446744073709551615
                             
@@ -24659,7 +26512,7 @@ class BundleInformation(object):
                             .. attribute:: redundancy_object_id
                             
                             	Redundancy Object ID of the bundle
-                            	**type**\:  long
+                            	**type**\:  int
                             
                             	**range:** 0..18446744073709551615
                             
@@ -24843,7 +26696,7 @@ class BundleInformation(object):
                                 	Member's interface handle (local device's members only)
                                 	**type**\:  str
                                 
-                                	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+                                	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
                                 
                                 .. attribute:: member_state
                                 
@@ -25172,7 +27025,7 @@ class BundleInformation(object):
                         .. attribute:: connect_timer_running
                         
                         	Time remaining on connect timer innsecs
-                        	**type**\:  long
+                        	**type**\:  int
                         
                         	**range:** 0..18446744073709551615
                         
@@ -25476,7 +27329,7 @@ class BundleInformation(object):
                         .. attribute:: redundancy_object_id
                         
                         	Redundancy Object ID of the bundle
-                        	**type**\:  long
+                        	**type**\:  int
                         
                         	**range:** 0..18446744073709551615
                         
@@ -25660,7 +27513,7 @@ class BundleInformation(object):
                             	Member's interface handle (local device's members only)
                             	**type**\:  str
                             
-                            	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+                            	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
                             
                             .. attribute:: member_state
                             
@@ -26255,7 +28108,7 @@ class BundleInformation(object):
                             .. attribute:: time_stamp
                             
                             	Time stamp of the event
-                            	**type**\:  long
+                            	**type**\:  int
                             
                             	**range:** 0..18446744073709551615
                             
@@ -26397,7 +28250,7 @@ class BundleInformation(object):
                             .. attribute:: time_stamp
                             
                             	Time stamp of the event
-                            	**type**\:  long
+                            	**type**\:  int
                             
                             	**range:** 0..18446744073709551615
                             
@@ -26539,7 +28392,7 @@ class BundleInformation(object):
                             .. attribute:: time_stamp
                             
                             	Time stamp of the event
-                            	**type**\:  long
+                            	**type**\:  int
                             
                             	**range:** 0..18446744073709551615
                             
@@ -26814,7 +28667,7 @@ class BundleInformation(object):
                             .. attribute:: time_stamp
                             
                             	Time stamp of the event
-                            	**type**\:  long
+                            	**type**\:  int
                             
                             	**range:** 0..18446744073709551615
                             
@@ -26956,7 +28809,7 @@ class BundleInformation(object):
                             .. attribute:: time_stamp
                             
                             	Time stamp of the event
-                            	**type**\:  long
+                            	**type**\:  int
                             
                             	**range:** 0..18446744073709551615
                             
@@ -27098,7 +28951,7 @@ class BundleInformation(object):
                             .. attribute:: time_stamp
                             
                             	Time stamp of the event
-                            	**type**\:  long
+                            	**type**\:  int
                             
                             	**range:** 0..18446744073709551615
                             
@@ -27371,7 +29224,7 @@ class BundleInformation(object):
                 	Bundle interface
                 	**type**\:  str
                 
-                	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+                	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
                 
                 .. attribute:: events_bundle_ancestor
                 
@@ -27501,7 +29354,7 @@ class BundleInformation(object):
                             .. attribute:: time_stamp
                             
                             	Time stamp of the event
-                            	**type**\:  long
+                            	**type**\:  int
                             
                             	**range:** 0..18446744073709551615
                             
@@ -27643,7 +29496,7 @@ class BundleInformation(object):
                             .. attribute:: time_stamp
                             
                             	Time stamp of the event
-                            	**type**\:  long
+                            	**type**\:  int
                             
                             	**range:** 0..18446744073709551615
                             
@@ -27785,7 +29638,7 @@ class BundleInformation(object):
                             .. attribute:: time_stamp
                             
                             	Time stamp of the event
-                            	**type**\:  long
+                            	**type**\:  int
                             
                             	**range:** 0..18446744073709551615
                             
@@ -28060,7 +29913,7 @@ class BundleInformation(object):
                             .. attribute:: time_stamp
                             
                             	Time stamp of the event
-                            	**type**\:  long
+                            	**type**\:  int
                             
                             	**range:** 0..18446744073709551615
                             
@@ -28202,7 +30055,7 @@ class BundleInformation(object):
                             .. attribute:: time_stamp
                             
                             	Time stamp of the event
-                            	**type**\:  long
+                            	**type**\:  int
                             
                             	**range:** 0..18446744073709551615
                             
@@ -28344,7 +30197,7 @@ class BundleInformation(object):
                             .. attribute:: time_stamp
                             
                             	Time stamp of the event
-                            	**type**\:  long
+                            	**type**\:  int
                             
                             	**range:** 0..18446744073709551615
                             
@@ -28642,7 +30495,7 @@ class BundleInformation(object):
                                 .. attribute:: time_stamp
                                 
                                 	Time stamp of the event
-                                	**type**\:  long
+                                	**type**\:  int
                                 
                                 	**range:** 0..18446744073709551615
                                 
@@ -28784,7 +30637,7 @@ class BundleInformation(object):
                                 .. attribute:: time_stamp
                                 
                                 	Time stamp of the event
-                                	**type**\:  long
+                                	**type**\:  int
                                 
                                 	**range:** 0..18446744073709551615
                                 
@@ -28926,7 +30779,7 @@ class BundleInformation(object):
                                 .. attribute:: time_stamp
                                 
                                 	Time stamp of the event
-                                	**type**\:  long
+                                	**type**\:  int
                                 
                                 	**range:** 0..18446744073709551615
                                 
@@ -29256,7 +31109,7 @@ class BundleInformation(object):
                                 .. attribute:: time_stamp
                                 
                                 	Time stamp of the event
-                                	**type**\:  long
+                                	**type**\:  int
                                 
                                 	**range:** 0..18446744073709551615
                                 
@@ -29398,7 +31251,7 @@ class BundleInformation(object):
                                 .. attribute:: time_stamp
                                 
                                 	Time stamp of the event
-                                	**type**\:  long
+                                	**type**\:  int
                                 
                                 	**range:** 0..18446744073709551615
                                 
@@ -29540,7 +31393,7 @@ class BundleInformation(object):
                                 .. attribute:: time_stamp
                                 
                                 	Time stamp of the event
-                                	**type**\:  long
+                                	**type**\:  int
                                 
                                 	**range:** 0..18446744073709551615
                                 
@@ -30020,7 +31873,7 @@ class BundleInformation(object):
                             .. attribute:: time_stamp
                             
                             	Time stamp of the event
-                            	**type**\:  long
+                            	**type**\:  int
                             
                             	**range:** 0..18446744073709551615
                             
@@ -30162,7 +32015,7 @@ class BundleInformation(object):
                             .. attribute:: time_stamp
                             
                             	Time stamp of the event
-                            	**type**\:  long
+                            	**type**\:  int
                             
                             	**range:** 0..18446744073709551615
                             
@@ -30304,7 +32157,7 @@ class BundleInformation(object):
                             .. attribute:: time_stamp
                             
                             	Time stamp of the event
-                            	**type**\:  long
+                            	**type**\:  int
                             
                             	**range:** 0..18446744073709551615
                             
@@ -30575,7 +32428,7 @@ class BundleInformation(object):
                 	Bundle interface
                 	**type**\:  str
                 
-                	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+                	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
                 
                 .. attribute:: events_bdl_bundle_item
                 
@@ -30684,7 +32537,7 @@ class BundleInformation(object):
                             .. attribute:: time_stamp
                             
                             	Time stamp of the event
-                            	**type**\:  long
+                            	**type**\:  int
                             
                             	**range:** 0..18446744073709551615
                             
@@ -30826,7 +32679,7 @@ class BundleInformation(object):
                             .. attribute:: time_stamp
                             
                             	Time stamp of the event
-                            	**type**\:  long
+                            	**type**\:  int
                             
                             	**range:** 0..18446744073709551615
                             
@@ -30968,7 +32821,7 @@ class BundleInformation(object):
                             .. attribute:: time_stamp
                             
                             	Time stamp of the event
-                            	**type**\:  long
+                            	**type**\:  int
                             
                             	**range:** 0..18446744073709551615
                             
@@ -31370,7 +33223,7 @@ class BundleInformation(object):
                                 .. attribute:: time_stamp
                                 
                                 	Time stamp of the event
-                                	**type**\:  long
+                                	**type**\:  int
                                 
                                 	**range:** 0..18446744073709551615
                                 
@@ -31512,7 +33365,7 @@ class BundleInformation(object):
                                 .. attribute:: time_stamp
                                 
                                 	Time stamp of the event
-                                	**type**\:  long
+                                	**type**\:  int
                                 
                                 	**range:** 0..18446744073709551615
                                 
@@ -31654,7 +33507,7 @@ class BundleInformation(object):
                                 .. attribute:: time_stamp
                                 
                                 	Time stamp of the event
-                                	**type**\:  long
+                                	**type**\:  int
                                 
                                 	**range:** 0..18446744073709551615
                                 
@@ -31978,7 +33831,7 @@ class BundleInformation(object):
             	Bundle interface
             	**type**\:  str
             
-            	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+            	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
             
             .. attribute:: bundle_brief_item
             
@@ -32034,7 +33887,7 @@ class BundleInformation(object):
                 	Bundle interface name
                 	**type**\:  str
                 
-                	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+                	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
                 
                 .. attribute:: bundle_status
                 
@@ -32098,6 +33951,11 @@ class BundleInformation(object):
                 	The status of the BFD (IPv4) feature on the bundle
                 	**type**\:  :py:class:`BmFeatureStatusEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmFeatureStatusEnum>`
                 
+                .. attribute:: ipv6bfd_status
+                
+                	The status of the BFD (IPv6) feature on the bundle
+                	**type**\:  :py:class:`BmFeatureStatusEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmFeatureStatusEnum>`
+                
                 .. attribute:: is_active
                 
                 	Indicates the active/standby redundancy state of the device for the bundle
@@ -32118,19 +33976,17 @@ class BundleInformation(object):
                 	The status of the link order signaling feature on the bundle
                 	**type**\:  :py:class:`BmFeatureStatusEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmFeatureStatusEnum>`
                 
+                .. attribute:: load_balance_hash_type
+                
+                	The type of hash to use for load balancing
+                	**type**\:  str
+                
                 .. attribute:: load_balance_locality_threshold
                 
                 	The number of links required per rack for localized load balancing
                 	**type**\:  int
                 
                 	**range:** 0..65535
-                
-                .. attribute:: load_balance_type
-                
-                	The type of hash to use for load balancing
-                	**type**\:  int
-                
-                	**range:** 0..255
                 
                 .. attribute:: mac_address
                 
@@ -32147,7 +34003,7 @@ class BundleInformation(object):
                 	The name of the member that supplied the MAC address
                 	**type**\:  str
                 
-                	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+                	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
                 
                 .. attribute:: maximize_threshold_value_band_width
                 
@@ -32204,7 +34060,7 @@ class BundleInformation(object):
                 	Primary bundle member (no longer applicable)
                 	**type**\:  str
                 
-                	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+                	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
                 
                 .. attribute:: recovery_delay
                 
@@ -32270,12 +34126,13 @@ class BundleInformation(object):
                     self.iccp_group_id = None
                     self.inter_chassis = None
                     self.ipv4bfd_status = None
+                    self.ipv6bfd_status = None
                     self.is_active = None
                     self.lacp_nonrevertive = None
                     self.lacp_status = None
                     self.link_order_status = None
+                    self.load_balance_hash_type = None
                     self.load_balance_locality_threshold = None
-                    self.load_balance_type = None
                     self.mac_address = BundleInformation.BundleBriefs.BundleBrief.BundleBriefItem.MacAddress()
                     self.mac_address.parent = self
                     self.mac_source = None
@@ -32601,6 +34458,9 @@ class BundleInformation(object):
                     if self.ipv4bfd_status is not None:
                         return True
 
+                    if self.ipv6bfd_status is not None:
+                        return True
+
                     if self.is_active is not None:
                         return True
 
@@ -32613,10 +34473,10 @@ class BundleInformation(object):
                     if self.link_order_status is not None:
                         return True
 
-                    if self.load_balance_locality_threshold is not None:
+                    if self.load_balance_hash_type is not None:
                         return True
 
-                    if self.load_balance_type is not None:
+                    if self.load_balance_locality_threshold is not None:
                         return True
 
                     if self.mac_address is not None and self.mac_address._has_data():
@@ -32802,7 +34662,7 @@ class BundleInformation(object):
                 	Bundle interface
                 	**type**\:  str
                 
-                	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+                	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
                 
                 .. attribute:: events_mbr_bundle_children_members
                 
@@ -32949,7 +34809,7 @@ class BundleInformation(object):
                                 .. attribute:: time_stamp
                                 
                                 	Time stamp of the event
-                                	**type**\:  long
+                                	**type**\:  int
                                 
                                 	**range:** 0..18446744073709551615
                                 
@@ -33091,7 +34951,7 @@ class BundleInformation(object):
                                 .. attribute:: time_stamp
                                 
                                 	Time stamp of the event
-                                	**type**\:  long
+                                	**type**\:  int
                                 
                                 	**range:** 0..18446744073709551615
                                 
@@ -33233,7 +35093,7 @@ class BundleInformation(object):
                                 .. attribute:: time_stamp
                                 
                                 	Time stamp of the event
-                                	**type**\:  long
+                                	**type**\:  int
                                 
                                 	**range:** 0..18446744073709551615
                                 
@@ -33562,7 +35422,7 @@ class BundleInformation(object):
                                 .. attribute:: time_stamp
                                 
                                 	Time stamp of the event
-                                	**type**\:  long
+                                	**type**\:  int
                                 
                                 	**range:** 0..18446744073709551615
                                 
@@ -33704,7 +35564,7 @@ class BundleInformation(object):
                                 .. attribute:: time_stamp
                                 
                                 	Time stamp of the event
-                                	**type**\:  long
+                                	**type**\:  int
                                 
                                 	**range:** 0..18446744073709551615
                                 
@@ -33846,7 +35706,7 @@ class BundleInformation(object):
                                 .. attribute:: time_stamp
                                 
                                 	Time stamp of the event
-                                	**type**\:  long
+                                	**type**\:  int
                                 
                                 	**range:** 0..18446744073709551615
                                 
@@ -34253,7 +36113,7 @@ class BundleInformation(object):
                             .. attribute:: time_stamp
                             
                             	Time stamp of the event
-                            	**type**\:  long
+                            	**type**\:  int
                             
                             	**range:** 0..18446744073709551615
                             
@@ -34395,7 +36255,7 @@ class BundleInformation(object):
                             .. attribute:: time_stamp
                             
                             	Time stamp of the event
-                            	**type**\:  long
+                            	**type**\:  int
                             
                             	**range:** 0..18446744073709551615
                             
@@ -34537,7 +36397,7 @@ class BundleInformation(object):
                             .. attribute:: time_stamp
                             
                             	Time stamp of the event
-                            	**type**\:  long
+                            	**type**\:  int
                             
                             	**range:** 0..18446744073709551615
                             
@@ -34954,7 +36814,7 @@ class BundleInformation(object):
                                 .. attribute:: time_stamp
                                 
                                 	Time stamp of the event
-                                	**type**\:  long
+                                	**type**\:  int
                                 
                                 	**range:** 0..18446744073709551615
                                 
@@ -35096,7 +36956,7 @@ class BundleInformation(object):
                                 .. attribute:: time_stamp
                                 
                                 	Time stamp of the event
-                                	**type**\:  long
+                                	**type**\:  int
                                 
                                 	**range:** 0..18446744073709551615
                                 
@@ -35238,7 +37098,7 @@ class BundleInformation(object):
                                 .. attribute:: time_stamp
                                 
                                 	Time stamp of the event
-                                	**type**\:  long
+                                	**type**\:  int
                                 
                                 	**range:** 0..18446744073709551615
                                 
@@ -35567,7 +37427,7 @@ class BundleInformation(object):
                                 .. attribute:: time_stamp
                                 
                                 	Time stamp of the event
-                                	**type**\:  long
+                                	**type**\:  int
                                 
                                 	**range:** 0..18446744073709551615
                                 
@@ -35709,7 +37569,7 @@ class BundleInformation(object):
                                 .. attribute:: time_stamp
                                 
                                 	Time stamp of the event
-                                	**type**\:  long
+                                	**type**\:  int
                                 
                                 	**range:** 0..18446744073709551615
                                 
@@ -35851,7 +37711,7 @@ class BundleInformation(object):
                                 .. attribute:: time_stamp
                                 
                                 	Time stamp of the event
-                                	**type**\:  long
+                                	**type**\:  int
                                 
                                 	**range:** 0..18446744073709551615
                                 
@@ -36299,21 +38159,21 @@ class BundleInformation(object):
                         .. attribute:: last_time_cleared
                         
                         	Time in nsecs from boot when counters were last cleared (deprecated)
-                        	**type**\:  long
+                        	**type**\:  int
                         
                         	**range:** 0..18446744073709551615
                         
                         .. attribute:: last_unexpected_event
                         
                         	Elapsed time in nsecs since last unexpected event
-                        	**type**\:  long
+                        	**type**\:  int
                         
                         	**range:** 0..18446744073709551615
                         
                         .. attribute:: time_since_cleared
                         
                         	Elapsed time in nsecs since counters were last cleared
-                        	**type**\:  long
+                        	**type**\:  int
                         
                         	**range:** 0..18446744073709551615
                         
@@ -37161,21 +39021,21 @@ class BundleInformation(object):
                         .. attribute:: last_time_cleared
                         
                         	Time in nsecs from boot when counters were last cleared (deprecated)
-                        	**type**\:  long
+                        	**type**\:  int
                         
                         	**range:** 0..18446744073709551615
                         
                         .. attribute:: last_unexpected_event
                         
                         	Elapsed time in nsecs since last unexpected event
-                        	**type**\:  long
+                        	**type**\:  int
                         
                         	**range:** 0..18446744073709551615
                         
                         .. attribute:: time_since_cleared
                         
                         	Elapsed time in nsecs since counters were last cleared
-                        	**type**\:  long
+                        	**type**\:  int
                         
                         	**range:** 0..18446744073709551615
                         
@@ -38023,21 +39883,21 @@ class BundleInformation(object):
                         .. attribute:: last_time_cleared
                         
                         	Time in nsecs from boot when counters were last cleared (deprecated)
-                        	**type**\:  long
+                        	**type**\:  int
                         
                         	**range:** 0..18446744073709551615
                         
                         .. attribute:: last_unexpected_event
                         
                         	Elapsed time in nsecs since last unexpected event
-                        	**type**\:  long
+                        	**type**\:  int
                         
                         	**range:** 0..18446744073709551615
                         
                         .. attribute:: time_since_cleared
                         
                         	Elapsed time in nsecs since counters were last cleared
-                        	**type**\:  long
+                        	**type**\:  int
                         
                         	**range:** 0..18446744073709551615
                         
@@ -38885,21 +40745,21 @@ class BundleInformation(object):
                         .. attribute:: last_time_cleared
                         
                         	Time in nsecs from boot when counters were last cleared (deprecated)
-                        	**type**\:  long
+                        	**type**\:  int
                         
                         	**range:** 0..18446744073709551615
                         
                         .. attribute:: last_unexpected_event
                         
                         	Elapsed time in nsecs since last unexpected event
-                        	**type**\:  long
+                        	**type**\:  int
                         
                         	**range:** 0..18446744073709551615
                         
                         .. attribute:: time_since_cleared
                         
                         	Elapsed time in nsecs since counters were last cleared
-                        	**type**\:  long
+                        	**type**\:  int
                         
                         	**range:** 0..18446744073709551615
                         
@@ -40536,7 +42396,7 @@ class BundleInformation(object):
                                 .. attribute:: last_time_cleared
                                 
                                 	Time in nsecs from boot when counters were last cleared (deprecated)
-                                	**type**\:  long
+                                	**type**\:  int
                                 
                                 	**range:** 0..18446744073709551615
                                 
@@ -40548,7 +42408,7 @@ class BundleInformation(object):
                                 .. attribute:: time_since_cleared
                                 
                                 	Elapsed time in nsecs since counters were last cleared
-                                	**type**\:  long
+                                	**type**\:  int
                                 
                                 	**range:** 0..18446744073709551615
                                 
@@ -40798,7 +42658,7 @@ class BundleInformation(object):
                                 .. attribute:: last_time_cleared
                                 
                                 	Time in nsecs from boot when counters were last cleared (deprecated)
-                                	**type**\:  long
+                                	**type**\:  int
                                 
                                 	**range:** 0..18446744073709551615
                                 
@@ -40810,7 +42670,7 @@ class BundleInformation(object):
                                 .. attribute:: time_since_cleared
                                 
                                 	Elapsed time in nsecs since counters were last cleared
-                                	**type**\:  long
+                                	**type**\:  int
                                 
                                 	**range:** 0..18446744073709551615
                                 
@@ -40963,14 +42823,14 @@ class BundleInformation(object):
                                     .. attribute:: last_time_cleared
                                     
                                     	Time in nsecs from boot when counters were last cleared (deprecated)
-                                    	**type**\:  long
+                                    	**type**\:  int
                                     
                                     	**range:** 0..18446744073709551615
                                     
                                     .. attribute:: last_unexpected_event
                                     
                                     	Elapsed time in nsecs since last unexpected event
-                                    	**type**\:  long
+                                    	**type**\:  int
                                     
                                     	**range:** 0..18446744073709551615
                                     
@@ -41017,7 +42877,7 @@ class BundleInformation(object):
                                     .. attribute:: time_since_cleared
                                     
                                     	Elapsed time in nsecs since counters were last cleared
-                                    	**type**\:  long
+                                    	**type**\:  int
                                     
                                     	**range:** 0..18446744073709551615
                                     
@@ -41253,14 +43113,14 @@ class BundleInformation(object):
                                 .. attribute:: last_time_cleared
                                 
                                 	Time in nsecs from boot when counters were last cleared (deprecated)
-                                	**type**\:  long
+                                	**type**\:  int
                                 
                                 	**range:** 0..18446744073709551615
                                 
                                 .. attribute:: last_unexpected_event
                                 
                                 	Elapsed time in nsecs since last unexpected event
-                                	**type**\:  long
+                                	**type**\:  int
                                 
                                 	**range:** 0..18446744073709551615
                                 
@@ -41307,7 +43167,7 @@ class BundleInformation(object):
                                 .. attribute:: time_since_cleared
                                 
                                 	Elapsed time in nsecs since counters were last cleared
-                                	**type**\:  long
+                                	**type**\:  int
                                 
                                 	**range:** 0..18446744073709551615
                                 
@@ -41742,7 +43602,7 @@ class BundleInformation(object):
                                 .. attribute:: last_time_cleared
                                 
                                 	Time in nsecs from boot when counters were last cleared (deprecated)
-                                	**type**\:  long
+                                	**type**\:  int
                                 
                                 	**range:** 0..18446744073709551615
                                 
@@ -41754,7 +43614,7 @@ class BundleInformation(object):
                                 .. attribute:: time_since_cleared
                                 
                                 	Elapsed time in nsecs since counters were last cleared
-                                	**type**\:  long
+                                	**type**\:  int
                                 
                                 	**range:** 0..18446744073709551615
                                 
@@ -42004,7 +43864,7 @@ class BundleInformation(object):
                                 .. attribute:: last_time_cleared
                                 
                                 	Time in nsecs from boot when counters were last cleared (deprecated)
-                                	**type**\:  long
+                                	**type**\:  int
                                 
                                 	**range:** 0..18446744073709551615
                                 
@@ -42016,7 +43876,7 @@ class BundleInformation(object):
                                 .. attribute:: time_since_cleared
                                 
                                 	Elapsed time in nsecs since counters were last cleared
-                                	**type**\:  long
+                                	**type**\:  int
                                 
                                 	**range:** 0..18446744073709551615
                                 
@@ -42169,14 +44029,14 @@ class BundleInformation(object):
                                     .. attribute:: last_time_cleared
                                     
                                     	Time in nsecs from boot when counters were last cleared (deprecated)
-                                    	**type**\:  long
+                                    	**type**\:  int
                                     
                                     	**range:** 0..18446744073709551615
                                     
                                     .. attribute:: last_unexpected_event
                                     
                                     	Elapsed time in nsecs since last unexpected event
-                                    	**type**\:  long
+                                    	**type**\:  int
                                     
                                     	**range:** 0..18446744073709551615
                                     
@@ -42223,7 +44083,7 @@ class BundleInformation(object):
                                     .. attribute:: time_since_cleared
                                     
                                     	Elapsed time in nsecs since counters were last cleared
-                                    	**type**\:  long
+                                    	**type**\:  int
                                     
                                     	**range:** 0..18446744073709551615
                                     
@@ -42459,14 +44319,14 @@ class BundleInformation(object):
                                 .. attribute:: last_time_cleared
                                 
                                 	Time in nsecs from boot when counters were last cleared (deprecated)
-                                	**type**\:  long
+                                	**type**\:  int
                                 
                                 	**range:** 0..18446744073709551615
                                 
                                 .. attribute:: last_unexpected_event
                                 
                                 	Elapsed time in nsecs since last unexpected event
-                                	**type**\:  long
+                                	**type**\:  int
                                 
                                 	**range:** 0..18446744073709551615
                                 
@@ -42513,7 +44373,7 @@ class BundleInformation(object):
                                 .. attribute:: time_since_cleared
                                 
                                 	Elapsed time in nsecs since counters were last cleared
-                                	**type**\:  long
+                                	**type**\:  int
                                 
                                 	**range:** 0..18446744073709551615
                                 
@@ -42826,7 +44686,7 @@ class BundleInformation(object):
                 	Bundle interface
                 	**type**\:  str
                 
-                	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+                	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
                 
                 .. attribute:: bundle_item
                 
@@ -42928,7 +44788,7 @@ class BundleInformation(object):
                             .. attribute:: last_time_cleared
                             
                             	Time in nsecs from boot when counters were last cleared (deprecated)
-                            	**type**\:  long
+                            	**type**\:  int
                             
                             	**range:** 0..18446744073709551615
                             
@@ -42940,7 +44800,7 @@ class BundleInformation(object):
                             .. attribute:: time_since_cleared
                             
                             	Elapsed time in nsecs since counters were last cleared
-                            	**type**\:  long
+                            	**type**\:  int
                             
                             	**range:** 0..18446744073709551615
                             
@@ -43190,7 +45050,7 @@ class BundleInformation(object):
                             .. attribute:: last_time_cleared
                             
                             	Time in nsecs from boot when counters were last cleared (deprecated)
-                            	**type**\:  long
+                            	**type**\:  int
                             
                             	**range:** 0..18446744073709551615
                             
@@ -43202,7 +45062,7 @@ class BundleInformation(object):
                             .. attribute:: time_since_cleared
                             
                             	Elapsed time in nsecs since counters were last cleared
-                            	**type**\:  long
+                            	**type**\:  int
                             
                             	**range:** 0..18446744073709551615
                             
@@ -43355,14 +45215,14 @@ class BundleInformation(object):
                                 .. attribute:: last_time_cleared
                                 
                                 	Time in nsecs from boot when counters were last cleared (deprecated)
-                                	**type**\:  long
+                                	**type**\:  int
                                 
                                 	**range:** 0..18446744073709551615
                                 
                                 .. attribute:: last_unexpected_event
                                 
                                 	Elapsed time in nsecs since last unexpected event
-                                	**type**\:  long
+                                	**type**\:  int
                                 
                                 	**range:** 0..18446744073709551615
                                 
@@ -43409,7 +45269,7 @@ class BundleInformation(object):
                                 .. attribute:: time_since_cleared
                                 
                                 	Elapsed time in nsecs since counters were last cleared
-                                	**type**\:  long
+                                	**type**\:  int
                                 
                                 	**range:** 0..18446744073709551615
                                 
@@ -43645,14 +45505,14 @@ class BundleInformation(object):
                             .. attribute:: last_time_cleared
                             
                             	Time in nsecs from boot when counters were last cleared (deprecated)
-                            	**type**\:  long
+                            	**type**\:  int
                             
                             	**range:** 0..18446744073709551615
                             
                             .. attribute:: last_unexpected_event
                             
                             	Elapsed time in nsecs since last unexpected event
-                            	**type**\:  long
+                            	**type**\:  int
                             
                             	**range:** 0..18446744073709551615
                             
@@ -43699,7 +45559,7 @@ class BundleInformation(object):
                             .. attribute:: time_since_cleared
                             
                             	Elapsed time in nsecs since counters were last cleared
-                            	**type**\:  long
+                            	**type**\:  int
                             
                             	**range:** 0..18446744073709551615
                             
@@ -44109,7 +45969,7 @@ class BundleInformation(object):
                                 .. attribute:: last_time_cleared
                                 
                                 	Time in nsecs from boot when counters were last cleared (deprecated)
-                                	**type**\:  long
+                                	**type**\:  int
                                 
                                 	**range:** 0..18446744073709551615
                                 
@@ -44121,7 +45981,7 @@ class BundleInformation(object):
                                 .. attribute:: time_since_cleared
                                 
                                 	Elapsed time in nsecs since counters were last cleared
-                                	**type**\:  long
+                                	**type**\:  int
                                 
                                 	**range:** 0..18446744073709551615
                                 
@@ -44371,7 +46231,7 @@ class BundleInformation(object):
                                 .. attribute:: last_time_cleared
                                 
                                 	Time in nsecs from boot when counters were last cleared (deprecated)
-                                	**type**\:  long
+                                	**type**\:  int
                                 
                                 	**range:** 0..18446744073709551615
                                 
@@ -44383,7 +46243,7 @@ class BundleInformation(object):
                                 .. attribute:: time_since_cleared
                                 
                                 	Elapsed time in nsecs since counters were last cleared
-                                	**type**\:  long
+                                	**type**\:  int
                                 
                                 	**range:** 0..18446744073709551615
                                 
@@ -44536,14 +46396,14 @@ class BundleInformation(object):
                                     .. attribute:: last_time_cleared
                                     
                                     	Time in nsecs from boot when counters were last cleared (deprecated)
-                                    	**type**\:  long
+                                    	**type**\:  int
                                     
                                     	**range:** 0..18446744073709551615
                                     
                                     .. attribute:: last_unexpected_event
                                     
                                     	Elapsed time in nsecs since last unexpected event
-                                    	**type**\:  long
+                                    	**type**\:  int
                                     
                                     	**range:** 0..18446744073709551615
                                     
@@ -44590,7 +46450,7 @@ class BundleInformation(object):
                                     .. attribute:: time_since_cleared
                                     
                                     	Elapsed time in nsecs since counters were last cleared
-                                    	**type**\:  long
+                                    	**type**\:  int
                                     
                                     	**range:** 0..18446744073709551615
                                     
@@ -44826,14 +46686,14 @@ class BundleInformation(object):
                                 .. attribute:: last_time_cleared
                                 
                                 	Time in nsecs from boot when counters were last cleared (deprecated)
-                                	**type**\:  long
+                                	**type**\:  int
                                 
                                 	**range:** 0..18446744073709551615
                                 
                                 .. attribute:: last_unexpected_event
                                 
                                 	Elapsed time in nsecs since last unexpected event
-                                	**type**\:  long
+                                	**type**\:  int
                                 
                                 	**range:** 0..18446744073709551615
                                 
@@ -44880,7 +46740,7 @@ class BundleInformation(object):
                                 .. attribute:: time_since_cleared
                                 
                                 	Elapsed time in nsecs since counters were last cleared
-                                	**type**\:  long
+                                	**type**\:  int
                                 
                                 	**range:** 0..18446744073709551615
                                 
@@ -45578,7 +47438,7 @@ class Bundles(object):
             	Bundle interface
             	**type**\:  str
             
-            	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+            	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
             
             .. attribute:: data
             
@@ -45641,7 +47501,7 @@ class Bundles(object):
                 	Bundle interface name
                 	**type**\:  str
                 
-                	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+                	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
                 
                 .. attribute:: bundle_status
                 
@@ -45705,6 +47565,11 @@ class Bundles(object):
                 	The status of the BFD (IPv4) feature on the bundle
                 	**type**\:  :py:class:`BmFeatureStatusEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmFeatureStatusEnum>`
                 
+                .. attribute:: ipv6bfd_status
+                
+                	The status of the BFD (IPv6) feature on the bundle
+                	**type**\:  :py:class:`BmFeatureStatusEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmFeatureStatusEnum>`
+                
                 .. attribute:: is_active
                 
                 	Indicates the active/standby redundancy state of the device for the bundle
@@ -45725,19 +47590,17 @@ class Bundles(object):
                 	The status of the link order signaling feature on the bundle
                 	**type**\:  :py:class:`BmFeatureStatusEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmFeatureStatusEnum>`
                 
+                .. attribute:: load_balance_hash_type
+                
+                	The type of hash to use for load balancing
+                	**type**\:  str
+                
                 .. attribute:: load_balance_locality_threshold
                 
                 	The number of links required per rack for localized load balancing
                 	**type**\:  int
                 
                 	**range:** 0..65535
-                
-                .. attribute:: load_balance_type
-                
-                	The type of hash to use for load balancing
-                	**type**\:  int
-                
-                	**range:** 0..255
                 
                 .. attribute:: mac_address
                 
@@ -45754,7 +47617,7 @@ class Bundles(object):
                 	The name of the member that supplied the MAC address
                 	**type**\:  str
                 
-                	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+                	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
                 
                 .. attribute:: maximize_threshold_value_band_width
                 
@@ -45811,7 +47674,7 @@ class Bundles(object):
                 	Primary bundle member (no longer applicable)
                 	**type**\:  str
                 
-                	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+                	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
                 
                 .. attribute:: recovery_delay
                 
@@ -45877,12 +47740,13 @@ class Bundles(object):
                     self.iccp_group_id = None
                     self.inter_chassis = None
                     self.ipv4bfd_status = None
+                    self.ipv6bfd_status = None
                     self.is_active = None
                     self.lacp_nonrevertive = None
                     self.lacp_status = None
                     self.link_order_status = None
+                    self.load_balance_hash_type = None
                     self.load_balance_locality_threshold = None
-                    self.load_balance_type = None
                     self.mac_address = Bundles.Bundles.Bundle.Data.MacAddress()
                     self.mac_address.parent = self
                     self.mac_source = None
@@ -46208,6 +48072,9 @@ class Bundles(object):
                     if self.ipv4bfd_status is not None:
                         return True
 
+                    if self.ipv6bfd_status is not None:
+                        return True
+
                     if self.is_active is not None:
                         return True
 
@@ -46220,10 +48087,10 @@ class Bundles(object):
                     if self.link_order_status is not None:
                         return True
 
-                    if self.load_balance_locality_threshold is not None:
+                    if self.load_balance_hash_type is not None:
                         return True
 
-                    if self.load_balance_type is not None:
+                    if self.load_balance_locality_threshold is not None:
                         return True
 
                     if self.mac_address is not None and self.mac_address._has_data():
@@ -46320,7 +48187,7 @@ class Bundles(object):
                     	Member interface
                     	**type**\:  str
                     
-                    	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+                    	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
                     
                     .. attribute:: bandwidth
                     
@@ -46328,6 +48195,11 @@ class Bundles(object):
                     	**type**\:  int
                     
                     	**range:** 0..4294967295
+                    
+                    .. attribute:: counters
+                    
+                    	Counters data about member link
+                    	**type**\:  :py:class:`Counters <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.Bundles.Bundles.Bundle.Members.Member.Counters>`
                     
                     .. attribute:: iccp_node
                     
@@ -46341,7 +48213,12 @@ class Bundles(object):
                     	Member's interface name
                     	**type**\:  str
                     
-                    	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+                    	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+                    
+                    .. attribute:: link_data
+                    
+                    	Lacp data about member link
+                    	**type**\:  :py:class:`LinkData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.Bundles.Bundles.Bundle.Members.Member.LinkData>`
                     
                     .. attribute:: link_order_number
                     
@@ -46402,8 +48279,12 @@ class Bundles(object):
                         self.parent = None
                         self.member_interface = None
                         self.bandwidth = None
+                        self.counters = Bundles.Bundles.Bundle.Members.Member.Counters()
+                        self.counters.parent = self
                         self.iccp_node = None
                         self.interface_name = None
+                        self.link_data = Bundles.Bundles.Bundle.Members.Member.LinkData()
+                        self.link_data.parent = self
                         self.link_order_number = None
                         self.mac_address = Bundles.Bundles.Bundle.Members.Member.MacAddress()
                         self.mac_address.parent = self
@@ -46414,6 +48295,342 @@ class Bundles(object):
                         self.port_number = None
                         self.port_priority = None
                         self.underlying_link_id = None
+
+
+                    class Counters(object):
+                        """
+                        Counters data about member link
+                        
+                        .. attribute:: defaulted
+                        
+                        	State flag set to Defaulted
+                        	**type**\:  int
+                        
+                        	**range:** 0..4294967295
+                        
+                        .. attribute:: excess_lacpd_us_received
+                        
+                        	LACPDUs received that exceed the rate limit
+                        	**type**\:  int
+                        
+                        	**range:** 0..4294967295
+                        
+                        .. attribute:: excess_marker_packets_received
+                        
+                        	Marker packets received that exceed the rate limit
+                        	**type**\:  int
+                        
+                        	**range:** 0..4294967295
+                        
+                        .. attribute:: expired
+                        
+                        	State flag set to Expired
+                        	**type**\:  int
+                        
+                        	**range:** 0..4294967295
+                        
+                        .. attribute:: illegal_packets_received
+                        
+                        	Illegal and unknown packets received
+                        	**type**\:  int
+                        
+                        	**range:** 0..4294967295
+                        
+                        .. attribute:: lacpd_us_received
+                        
+                        	LACPDUs received
+                        	**type**\:  int
+                        
+                        	**range:** 0..4294967295
+                        
+                        .. attribute:: lacpd_us_transmitted
+                        
+                        	LACPDUs transmitted
+                        	**type**\:  int
+                        
+                        	**range:** 0..4294967295
+                        
+                        .. attribute:: last_cleared_nsec
+                        
+                        	Last time counters cleared (nsec) (deprecated)
+                        	**type**\:  int
+                        
+                        	**range:** 0..4294967295
+                        
+                        .. attribute:: last_cleared_sec
+                        
+                        	Last time counters cleared (s) (deprecated)
+                        	**type**\:  int
+                        
+                        	**range:** 0..4294967295
+                        
+                        .. attribute:: marker_packets_received
+                        
+                        	Marker packets received
+                        	**type**\:  int
+                        
+                        	**range:** 0..4294967295
+                        
+                        .. attribute:: marker_responses_transmitted
+                        
+                        	Marker response packets transmitted
+                        	**type**\:  int
+                        
+                        	**range:** 0..4294967295
+                        
+                        
+
+                        """
+
+                        _prefix = 'bundlemgr-oper'
+                        _revision = '2015-11-09'
+
+                        def __init__(self):
+                            self.parent = None
+                            self.defaulted = None
+                            self.excess_lacpd_us_received = None
+                            self.excess_marker_packets_received = None
+                            self.expired = None
+                            self.illegal_packets_received = None
+                            self.lacpd_us_received = None
+                            self.lacpd_us_transmitted = None
+                            self.last_cleared_nsec = None
+                            self.last_cleared_sec = None
+                            self.marker_packets_received = None
+                            self.marker_responses_transmitted = None
+
+                        @property
+                        def _common_path(self):
+                            if self.parent is None:
+                                raise YPYModelError('parent is not set . Cannot derive path.')
+
+                            return self.parent._common_path +'/Cisco-IOS-XR-bundlemgr-oper:counters'
+
+                        def is_config(self):
+                            ''' Returns True if this instance represents config data else returns False '''
+                            return False
+
+                        def _has_data(self):
+                            if not self.is_config():
+                                return False
+                            if self.defaulted is not None:
+                                return True
+
+                            if self.excess_lacpd_us_received is not None:
+                                return True
+
+                            if self.excess_marker_packets_received is not None:
+                                return True
+
+                            if self.expired is not None:
+                                return True
+
+                            if self.illegal_packets_received is not None:
+                                return True
+
+                            if self.lacpd_us_received is not None:
+                                return True
+
+                            if self.lacpd_us_transmitted is not None:
+                                return True
+
+                            if self.last_cleared_nsec is not None:
+                                return True
+
+                            if self.last_cleared_sec is not None:
+                                return True
+
+                            if self.marker_packets_received is not None:
+                                return True
+
+                            if self.marker_responses_transmitted is not None:
+                                return True
+
+                            return False
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_bundlemgr_oper as meta
+                            return meta._meta_table['Bundles.Bundles.Bundle.Members.Member.Counters']['meta_info']
+
+
+                    class LinkData(object):
+                        """
+                        Lacp data about member link
+                        
+                        .. attribute:: actor_operational_key
+                        
+                        	Operational key for this port
+                        	**type**\:  int
+                        
+                        	**range:** 0..65535
+                        
+                        .. attribute:: actor_port_id
+                        
+                        	Port number of this port
+                        	**type**\:  int
+                        
+                        	**range:** 0..65535
+                        
+                        .. attribute:: actor_port_priority
+                        
+                        	Priority of this port
+                        	**type**\:  int
+                        
+                        	**range:** 0..65535
+                        
+                        .. attribute:: actor_port_state
+                        
+                        	LACP state of this port
+                        	**type**\:  int
+                        
+                        	**range:** 0..255
+                        
+                        .. attribute:: attached_aggregator_id
+                        
+                        	MIB ifindex of attached bundle
+                        	**type**\:  int
+                        
+                        	**range:** 0..4294967295
+                        
+                        .. attribute:: interface_handle
+                        
+                        	Member's interface handle
+                        	**type**\:  str
+                        
+                        	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+                        
+                        .. attribute:: partner_operational_key
+                        
+                        	Operational key for partner port
+                        	**type**\:  int
+                        
+                        	**range:** 0..65535
+                        
+                        .. attribute:: partner_port_id
+                        
+                        	Port number of the partner's port
+                        	**type**\:  int
+                        
+                        	**range:** 0..65535
+                        
+                        .. attribute:: partner_port_priority
+                        
+                        	Priority of the partner's port
+                        	**type**\:  int
+                        
+                        	**range:** 0..65535
+                        
+                        .. attribute:: partner_port_state
+                        
+                        	LACP state of the partner's port
+                        	**type**\:  int
+                        
+                        	**range:** 0..255
+                        
+                        .. attribute:: partner_system_mac_address
+                        
+                        	MAC Address used to identify the partner system
+                        	**type**\:  str
+                        
+                        	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
+                        
+                        .. attribute:: partner_system_priority
+                        
+                        	System priority of partner system
+                        	**type**\:  int
+                        
+                        	**range:** 0..65535
+                        
+                        .. attribute:: selected_aggregator_id
+                        
+                        	MIB ifindex of selected bundle
+                        	**type**\:  int
+                        
+                        	**range:** 0..4294967295
+                        
+                        
+
+                        """
+
+                        _prefix = 'bundlemgr-oper'
+                        _revision = '2015-11-09'
+
+                        def __init__(self):
+                            self.parent = None
+                            self.actor_operational_key = None
+                            self.actor_port_id = None
+                            self.actor_port_priority = None
+                            self.actor_port_state = None
+                            self.attached_aggregator_id = None
+                            self.interface_handle = None
+                            self.partner_operational_key = None
+                            self.partner_port_id = None
+                            self.partner_port_priority = None
+                            self.partner_port_state = None
+                            self.partner_system_mac_address = None
+                            self.partner_system_priority = None
+                            self.selected_aggregator_id = None
+
+                        @property
+                        def _common_path(self):
+                            if self.parent is None:
+                                raise YPYModelError('parent is not set . Cannot derive path.')
+
+                            return self.parent._common_path +'/Cisco-IOS-XR-bundlemgr-oper:link-data'
+
+                        def is_config(self):
+                            ''' Returns True if this instance represents config data else returns False '''
+                            return False
+
+                        def _has_data(self):
+                            if not self.is_config():
+                                return False
+                            if self.actor_operational_key is not None:
+                                return True
+
+                            if self.actor_port_id is not None:
+                                return True
+
+                            if self.actor_port_priority is not None:
+                                return True
+
+                            if self.actor_port_state is not None:
+                                return True
+
+                            if self.attached_aggregator_id is not None:
+                                return True
+
+                            if self.interface_handle is not None:
+                                return True
+
+                            if self.partner_operational_key is not None:
+                                return True
+
+                            if self.partner_port_id is not None:
+                                return True
+
+                            if self.partner_port_priority is not None:
+                                return True
+
+                            if self.partner_port_state is not None:
+                                return True
+
+                            if self.partner_system_mac_address is not None:
+                                return True
+
+                            if self.partner_system_priority is not None:
+                                return True
+
+                            if self.selected_aggregator_id is not None:
+                                return True
+
+                            return False
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_bundlemgr_oper as meta
+                            return meta._meta_table['Bundles.Bundles.Bundle.Members.Member.LinkData']['meta_info']
 
 
                     class MemberMuxData(object):
@@ -46632,10 +48849,16 @@ class Bundles(object):
                         if self.bandwidth is not None:
                             return True
 
+                        if self.counters is not None and self.counters._has_data():
+                            return True
+
                         if self.iccp_node is not None:
                             return True
 
                         if self.interface_name is not None:
+                            return True
+
+                        if self.link_data is not None and self.link_data._has_data():
                             return True
 
                         if self.link_order_number is not None:
@@ -46866,21 +49089,21 @@ class LacpBundleMembers(object):
                 .. attribute:: time_since_cleared
                 
                 	Time elapsed since counters were last cleared (in nanoseconds)
-                	**type**\:  long
+                	**type**\:  int
                 
                 	**range:** 0..18446744073709551615
                 
                 .. attribute:: time_since_last_updated
                 
                 	Time elapsed since statistics were last updated (in nanoseconds)
-                	**type**\:  long
+                	**type**\:  int
                 
                 	**range:** 0..18446744073709551615
                 
                 .. attribute:: time_since_unexpected_event
                 
                 	Time elapsed since last unexpected event (in nanoseconds)
-                	**type**\:  long
+                	**type**\:  int
                 
                 	**range:** 0..18446744073709551615
                 
@@ -47048,7 +49271,7 @@ class LacpBundleMembers(object):
             	Member interface
             	**type**\:  str
             
-            	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+            	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
             
             .. attribute:: counters
             
@@ -47120,7 +49343,7 @@ class LacpBundleMembers(object):
                 	Member's interface handle
                 	**type**\:  str
                 
-                	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+                	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
                 
                 .. attribute:: partner_operational_key
                 
@@ -47339,21 +49562,21 @@ class LacpBundleMembers(object):
                 .. attribute:: time_since_cleared
                 
                 	Time elapsed since counters last cleared (nsec)
-                	**type**\:  long
+                	**type**\:  int
                 
                 	**range:** 0..18446744073709551615
                 
                 .. attribute:: time_since_last_lacpdu_received
                 
                 	Time elapsed since last LACPDU received (nsec)
-                	**type**\:  long
+                	**type**\:  int
                 
                 	**range:** 0..18446744073709551615
                 
                 .. attribute:: time_since_unexpected_event
                 
                 	Time elapsed since last unexpected event (nsec)
-                	**type**\:  long
+                	**type**\:  int
                 
                 	**range:** 0..18446744073709551615
                 
@@ -47637,7 +49860,7 @@ class BundlesAdjacency(object):
                     	Bundle interface
                     	**type**\:  str
                     
-                    	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+                    	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
                     
                     .. attribute:: member_count
                     
@@ -47692,7 +49915,7 @@ class BundlesAdjacency(object):
                         	Sub interface
                         	**type**\:  str
                         
-                        	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+                        	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
                         
                         .. attribute:: load_balance_data
                         
@@ -47903,7 +50126,7 @@ class BundlesAdjacency(object):
                     	Bundle interface
                     	**type**\:  str
                     
-                    	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+                    	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
                     
                     .. attribute:: bundle_info
                     
@@ -47998,7 +50221,7 @@ class BundlesAdjacency(object):
                             	Bundle interface
                             	**type**\:  str
                             
-                            	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+                            	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
                             
                             .. attribute:: member_count
                             
@@ -48053,7 +50276,7 @@ class BundlesAdjacency(object):
                                 	Sub interface
                                 	**type**\:  str
                                 
-                                	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+                                	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
                                 
                                 .. attribute:: load_balance_data
                                 
@@ -48289,7 +50512,7 @@ class BundlesAdjacency(object):
                             	Member interface
                             	**type**\:  str
                             
-                            	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+                            	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
                             
                             .. attribute:: link_id
                             
@@ -48362,7 +50585,7 @@ class BundlesAdjacency(object):
                             	Sub interface
                             	**type**\:  str
                             
-                            	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+                            	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
                             
                             .. attribute:: load_balance_data
                             

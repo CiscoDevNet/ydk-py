@@ -64,7 +64,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('int', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Integer format in NTP reference code
                 ''',
                 'int',
@@ -81,7 +81,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('frac', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Fractional format in NTP reference code
                 ''',
                 'frac',
@@ -121,7 +121,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('int', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Integer format in NTP reference code
                 ''',
                 'int',
@@ -138,7 +138,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('frac', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Fractional format in NTP reference code
                 ''',
                 'frac',
@@ -178,7 +178,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('clock-period', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Clock period in nanosecs
                 ''',
                 'clock_period',
@@ -196,7 +196,7 @@ _meta_table = {
                 'is_updated',
                 'Cisco-IOS-XR-ip-ntp-admin-oper', False),
             _MetaInfoClassMember('last-update', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Last Update
                 ''',
                 'last_update',
@@ -208,7 +208,7 @@ _meta_table = {
                 'loop_filter_state',
                 'Cisco-IOS-XR-ip-ntp-admin-oper', False),
             _MetaInfoClassMember('poll-interval', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                Peer poll interval
                 ''',
                 'poll_interval',
@@ -238,7 +238,7 @@ _meta_table = {
                 'sys_offset',
                 'Cisco-IOS-XR-ip-ntp-admin-oper', False),
             _MetaInfoClassMember('sys-precision', ATTRIBUTE, 'int' , None, None, 
-                [(-128, 127)], [], 
+                [('-128', '127')], [], 
                 '''                Precision
                 ''',
                 'sys_precision',
@@ -268,7 +268,7 @@ _meta_table = {
                 'sys_root_dispersion',
                 'Cisco-IOS-XR-ip-ntp-admin-oper', False),
             _MetaInfoClassMember('sys-stratum', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                Stratum
                 ''',
                 'sys_stratum',
@@ -309,7 +309,7 @@ _meta_table = {
                 'host_mode',
                 'Cisco-IOS-XR-ip-ntp-admin-oper', False),
             _MetaInfoClassMember('host-poll', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                Host poll
                 ''',
                 'host_poll',
@@ -333,7 +333,7 @@ _meta_table = {
                 'offset',
                 'Cisco-IOS-XR-ip-ntp-admin-oper', False),
             _MetaInfoClassMember('reachability', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                Reachability
                 ''',
                 'reachability',
@@ -351,7 +351,7 @@ _meta_table = {
                 'status',
                 'Cisco-IOS-XR-ip-ntp-admin-oper', False),
             _MetaInfoClassMember('stratum', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                Peer stratum
                 ''',
                 'stratum',
@@ -374,7 +374,7 @@ _meta_table = {
                 'peer_info_common',
                 'Cisco-IOS-XR-ip-ntp-admin-oper', False),
             _MetaInfoClassMember('time-since', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Time since last frame received (-1=none)
                 ''',
                 'time_since',
@@ -444,7 +444,7 @@ _meta_table = {
                 'host_mode',
                 'Cisco-IOS-XR-ip-ntp-admin-oper', False),
             _MetaInfoClassMember('host-poll', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                Host poll
                 ''',
                 'host_poll',
@@ -468,7 +468,7 @@ _meta_table = {
                 'offset',
                 'Cisco-IOS-XR-ip-ntp-admin-oper', False),
             _MetaInfoClassMember('reachability', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                Reachability
                 ''',
                 'reachability',
@@ -486,7 +486,7 @@ _meta_table = {
                 'status',
                 'Cisco-IOS-XR-ip-ntp-admin-oper', False),
             _MetaInfoClassMember('stratum', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                Peer stratum
                 ''',
                 'stratum',
@@ -503,7 +503,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('int', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Integer format in NTP reference code
                 ''',
                 'int',
@@ -520,7 +520,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('frac', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Fractional format in NTP reference code
                 ''',
                 'frac',
@@ -560,7 +560,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('int', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Integer format in NTP reference code
                 ''',
                 'int',
@@ -577,7 +577,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('frac', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Fractional format in NTP reference code
                 ''',
                 'frac',
@@ -617,7 +617,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('int', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Integer format in NTP reference code
                 ''',
                 'int',
@@ -634,7 +634,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('frac', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Fractional format in NTP reference code
                 ''',
                 'frac',
@@ -674,7 +674,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('int', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Integer format in NTP reference code
                 ''',
                 'int',
@@ -691,7 +691,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('frac', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Fractional format in NTP reference code
                 ''',
                 'frac',
@@ -766,7 +766,7 @@ _meta_table = {
                 'filter_detail',
                 'Cisco-IOS-XR-ip-ntp-admin-oper', False, max_elements=8),
             _MetaInfoClassMember('filter-index', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Index into filter shift register
                 ''',
                 'filter_index',
@@ -808,13 +808,13 @@ _meta_table = {
                 'peer_mode',
                 'Cisco-IOS-XR-ip-ntp-admin-oper', False),
             _MetaInfoClassMember('poll-interval', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                Peer poll interval
                 ''',
                 'poll_interval',
                 'Cisco-IOS-XR-ip-ntp-admin-oper', False),
             _MetaInfoClassMember('precision', ATTRIBUTE, 'int' , None, None, 
-                [(-128, 127)], [], 
+                [('-128', '127')], [], 
                 '''                Precision
                 ''',
                 'precision',
@@ -856,7 +856,7 @@ _meta_table = {
                 'transmit_time',
                 'Cisco-IOS-XR-ip-ntp-admin-oper', False),
             _MetaInfoClassMember('version', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                NTP version
                 ''',
                 'version',
@@ -902,7 +902,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('number', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                The instance number
                 ''',
                 'number',
@@ -955,7 +955,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('number', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                The slot number
                 ''',
                 'number',
@@ -995,7 +995,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('number', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                The rack number
                 ''',
                 'number',

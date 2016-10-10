@@ -48,7 +48,7 @@ _meta_table = {
                 'timezone_name',
                 'ietf-system', False),
             _MetaInfoClassMember('timezone-utc-offset', ATTRIBUTE, 'int' , None, None, 
-                [(-1500, 1500)], [], 
+                [('-1500', '1500')], [], 
                 '''                The number of minutes to add to UTC time to
                 identify the time zone for this system.  For example,
                 'UTC - 8:00 hours' would be represented as '-480'.
@@ -101,7 +101,7 @@ _meta_table = {
                         'ietf-system', False),
                 ]),
             _MetaInfoClassMember('port', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                The port number of the NTP server.
                 ''',
                 'port',
@@ -215,7 +215,7 @@ _meta_table = {
                         'ietf-system', False),
                 ]),
             _MetaInfoClassMember('port', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                The UDP and TCP port number of the DNS server.
                 ''',
                 'port',
@@ -256,7 +256,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('attempts', ATTRIBUTE, 'int' , None, None, 
-                [(1, 255)], [], 
+                [('1', '255')], [], 
                 '''                The number of times the resolver will send a query to
                 all of its name servers before giving up and returning
                 an error to the calling application.
@@ -264,7 +264,7 @@ _meta_table = {
                 'attempts',
                 'ietf-system', False),
             _MetaInfoClassMember('timeout', ATTRIBUTE, 'int' , None, None, 
-                [(1, 255)], [], 
+                [('1', '255')], [], 
                 '''                The amount of time the resolver will wait for a
                 response from each remote name server before
                 retrying the query via a different name server.
@@ -358,7 +358,7 @@ _meta_table = {
                         'ietf-system', False),
                 ]),
             _MetaInfoClassMember('authentication-port', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                The port number of the RADIUS server.
                 ''',
                 'authentication_port',
@@ -413,14 +413,14 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('attempts', ATTRIBUTE, 'int' , None, None, 
-                [(1, 255)], [], 
+                [('1', '255')], [], 
                 '''                The number of times the device will send a query to
                 all of its RADIUS servers before giving up.
                 ''',
                 'attempts',
                 'ietf-system', False),
             _MetaInfoClassMember('timeout', ATTRIBUTE, 'int' , None, None, 
-                [(1, 255)], [], 
+                [('1', '255')], [], 
                 '''                The number of seconds the device will wait for a
                 response from each RADIUS server before trying with a
                 different server.

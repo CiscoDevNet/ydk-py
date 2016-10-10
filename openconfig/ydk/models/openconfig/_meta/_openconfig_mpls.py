@@ -210,7 +210,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('cost', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                The cost of the SRLG to the computation
                 algorithm
                 ''',
@@ -230,7 +230,7 @@ _meta_table = {
                 'name',
                 'openconfig-mpls', False),
             _MetaInfoClassMember('value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                group ID for the SRLG
                 ''',
                 'value',
@@ -247,7 +247,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('cost', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                The cost of the SRLG to the computation
                 algorithm
                 ''',
@@ -267,7 +267,7 @@ _meta_table = {
                 'name',
                 'openconfig-mpls', False),
             _MetaInfoClassMember('value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                group ID for the SRLG
                 ''',
                 'value',
@@ -507,7 +507,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('delta-percentage', ATTRIBUTE, 'int' , None, None, 
-                [(0, 100)], [], 
+                [('0', '100')], [], 
                 '''                The percentage of the maximum-reservable-bandwidth
                 considered as the delta that results in an IGP update
                 being flooded
@@ -515,7 +515,7 @@ _meta_table = {
                 'delta_percentage',
                 'openconfig-mpls', False),
             _MetaInfoClassMember('down-thresholds', REFERENCE_LEAFLIST, 'int' , None, None, 
-                [(0, 100)], [], 
+                [('0', '100')], [], 
                 '''                The thresholds (expressed as a percentage of the maximum
                 reservable bandwidth) at which bandwidth updates are to be
                 triggered when the bandwidth is decreasing.
@@ -550,7 +550,7 @@ _meta_table = {
                 'threshold_type',
                 'openconfig-mpls', False),
             _MetaInfoClassMember('up-down-thresholds', REFERENCE_LEAFLIST, 'int' , None, None, 
-                [(0, 100)], [], 
+                [('0', '100')], [], 
                 '''                The thresholds (expressed as a percentage of the maximum
                 reservable bandwidth of the interface) at which bandwidth
                 updates are flooded - used both when the bandwidth is
@@ -559,7 +559,7 @@ _meta_table = {
                 'up_down_thresholds',
                 'openconfig-mpls', False),
             _MetaInfoClassMember('up-thresholds', REFERENCE_LEAFLIST, 'int' , None, None, 
-                [(0, 100)], [], 
+                [('0', '100')], [], 
                 '''                The thresholds (expressed as a percentage of the maximum
                 reservable bandwidth) at which bandwidth updates are to be
                 triggered when the bandwidth is increasing.
@@ -588,7 +588,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('delta-percentage', ATTRIBUTE, 'int' , None, None, 
-                [(0, 100)], [], 
+                [('0', '100')], [], 
                 '''                The percentage of the maximum-reservable-bandwidth
                 considered as the delta that results in an IGP update
                 being flooded
@@ -596,7 +596,7 @@ _meta_table = {
                 'delta_percentage',
                 'openconfig-mpls', False),
             _MetaInfoClassMember('down-thresholds', REFERENCE_LEAFLIST, 'int' , None, None, 
-                [(0, 100)], [], 
+                [('0', '100')], [], 
                 '''                The thresholds (expressed as a percentage of the maximum
                 reservable bandwidth) at which bandwidth updates are to be
                 triggered when the bandwidth is decreasing.
@@ -631,7 +631,7 @@ _meta_table = {
                 'threshold_type',
                 'openconfig-mpls', False),
             _MetaInfoClassMember('up-down-thresholds', REFERENCE_LEAFLIST, 'int' , None, None, 
-                [(0, 100)], [], 
+                [('0', '100')], [], 
                 '''                The thresholds (expressed as a percentage of the maximum
                 reservable bandwidth of the interface) at which bandwidth
                 updates are flooded - used both when the bandwidth is
@@ -640,7 +640,7 @@ _meta_table = {
                 'up_down_thresholds',
                 'openconfig-mpls', False),
             _MetaInfoClassMember('up-thresholds', REFERENCE_LEAFLIST, 'int' , None, None, 
-                [(0, 100)], [], 
+                [('0', '100')], [], 
                 '''                The thresholds (expressed as a percentage of the maximum
                 reservable bandwidth) at which bandwidth updates are to be
                 triggered when the bandwidth is increasing.
@@ -689,7 +689,7 @@ _meta_table = {
                 'admin_group_name',
                 'openconfig-mpls', False),
             _MetaInfoClassMember('bit-position', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                bit-position value for mpls admin-group. The value
                 for the admin group is an integer that represents one
                 of the bit positions in the admin-group bitmask. Values
@@ -717,7 +717,7 @@ _meta_table = {
                 'admin_group_name',
                 'openconfig-mpls', False),
             _MetaInfoClassMember('bit-position', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                bit-position value for mpls admin-group. The value
                 for the admin group is an integer that represents one
                 of the bit positions in the admin-group bitmask. Values
@@ -786,21 +786,21 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('cleanup-delay', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                delay the removal of old te lsp for a specified
                 amount of time
                 ''',
                 'cleanup_delay',
                 'openconfig-mpls', False),
             _MetaInfoClassMember('install-delay', ATTRIBUTE, 'int' , None, None, 
-                [(0, 3600)], [], 
+                [('0', '3600')], [], 
                 '''                delay the use of newly installed te lsp for a
                 specified amount of time.
                 ''',
                 'install_delay',
                 'openconfig-mpls', False),
             _MetaInfoClassMember('reoptimize-timer', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                frequency of reoptimization of
                 a traffic engineered LSP
                 ''',
@@ -818,21 +818,21 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('cleanup-delay', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                delay the removal of old te lsp for a specified
                 amount of time
                 ''',
                 'cleanup_delay',
                 'openconfig-mpls', False),
             _MetaInfoClassMember('install-delay', ATTRIBUTE, 'int' , None, None, 
-                [(0, 3600)], [], 
+                [('0', '3600')], [], 
                 '''                delay the use of newly installed te lsp for a
                 specified amount of time.
                 ''',
                 'install_delay',
                 'openconfig-mpls', False),
             _MetaInfoClassMember('reoptimize-timer', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                frequency of reoptimization of
                 a traffic engineered LSP
                 ''',
@@ -932,7 +932,7 @@ _meta_table = {
                 'srlg_membership',
                 'openconfig-mpls', False),
             _MetaInfoClassMember('te-metric', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                TE specific metric for the link
                 ''',
                 'te_metric',
@@ -968,7 +968,7 @@ _meta_table = {
                 'srlg_membership',
                 'openconfig-mpls', False),
             _MetaInfoClassMember('te-metric', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                TE specific metric for the link
                 ''',
                 'te_metric',
@@ -995,7 +995,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('delta-percentage', ATTRIBUTE, 'int' , None, None, 
-                [(0, 100)], [], 
+                [('0', '100')], [], 
                 '''                The percentage of the maximum-reservable-bandwidth
                 considered as the delta that results in an IGP update
                 being flooded
@@ -1003,7 +1003,7 @@ _meta_table = {
                 'delta_percentage',
                 'openconfig-mpls', False),
             _MetaInfoClassMember('down-thresholds', REFERENCE_LEAFLIST, 'int' , None, None, 
-                [(0, 100)], [], 
+                [('0', '100')], [], 
                 '''                The thresholds (expressed as a percentage of the maximum
                 reservable bandwidth) at which bandwidth updates are to be
                 triggered when the bandwidth is decreasing.
@@ -1038,7 +1038,7 @@ _meta_table = {
                 'threshold_type',
                 'openconfig-mpls', False),
             _MetaInfoClassMember('up-down-thresholds', REFERENCE_LEAFLIST, 'int' , None, None, 
-                [(0, 100)], [], 
+                [('0', '100')], [], 
                 '''                The thresholds (expressed as a percentage of the maximum
                 reservable bandwidth of the interface) at which bandwidth
                 updates are flooded - used both when the bandwidth is
@@ -1047,7 +1047,7 @@ _meta_table = {
                 'up_down_thresholds',
                 'openconfig-mpls', False),
             _MetaInfoClassMember('up-thresholds', REFERENCE_LEAFLIST, 'int' , None, None, 
-                [(0, 100)], [], 
+                [('0', '100')], [], 
                 '''                The thresholds (expressed as a percentage of the maximum
                 reservable bandwidth) at which bandwidth updates are to be
                 triggered when the bandwidth is increasing.
@@ -1076,7 +1076,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('delta-percentage', ATTRIBUTE, 'int' , None, None, 
-                [(0, 100)], [], 
+                [('0', '100')], [], 
                 '''                The percentage of the maximum-reservable-bandwidth
                 considered as the delta that results in an IGP update
                 being flooded
@@ -1084,7 +1084,7 @@ _meta_table = {
                 'delta_percentage',
                 'openconfig-mpls', False),
             _MetaInfoClassMember('down-thresholds', REFERENCE_LEAFLIST, 'int' , None, None, 
-                [(0, 100)], [], 
+                [('0', '100')], [], 
                 '''                The thresholds (expressed as a percentage of the maximum
                 reservable bandwidth) at which bandwidth updates are to be
                 triggered when the bandwidth is decreasing.
@@ -1119,7 +1119,7 @@ _meta_table = {
                 'threshold_type',
                 'openconfig-mpls', False),
             _MetaInfoClassMember('up-down-thresholds', REFERENCE_LEAFLIST, 'int' , None, None, 
-                [(0, 100)], [], 
+                [('0', '100')], [], 
                 '''                The thresholds (expressed as a percentage of the maximum
                 reservable bandwidth of the interface) at which bandwidth
                 updates are flooded - used both when the bandwidth is
@@ -1128,7 +1128,7 @@ _meta_table = {
                 'up_down_thresholds',
                 'openconfig-mpls', False),
             _MetaInfoClassMember('up-thresholds', REFERENCE_LEAFLIST, 'int' , None, None, 
-                [(0, 100)], [], 
+                [('0', '100')], [], 
                 '''                The thresholds (expressed as a percentage of the maximum
                 reservable bandwidth) at which bandwidth updates are to be
                 triggered when the bandwidth is increasing.
@@ -1266,7 +1266,7 @@ _meta_table = {
                         'openconfig-mpls', True),
                 ]),
             _MetaInfoClassMember('destination-port', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                RSVP source port
                 ''',
                 'destination_port',
@@ -1291,7 +1291,7 @@ _meta_table = {
                         'openconfig-mpls', True),
                 ]),
             _MetaInfoClassMember('source-port', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                RSVP source port
                 ''',
                 'source_port',
@@ -1310,7 +1310,7 @@ _meta_table = {
                 'label_in',
                 'openconfig-mpls', False, [
                     _MetaInfoClassMember('label-in', ATTRIBUTE, 'int' , None, None, 
-                        [(16, 1048575)], [], 
+                        [('16', '1048575')], [], 
                         '''                        Incoming MPLS label associated with this RSVP session
                         ''',
                         'label_in',
@@ -1329,7 +1329,7 @@ _meta_table = {
                 'label_out',
                 'openconfig-mpls', False, [
                     _MetaInfoClassMember('label-out', ATTRIBUTE, 'int' , None, None, 
-                        [(16, 1048575)], [], 
+                        [('16', '1048575')], [], 
                         '''                        Outgoing MPLS label associated with this RSVP session
                         ''',
                         'label_out',
@@ -1348,7 +1348,7 @@ _meta_table = {
                 'status',
                 'openconfig-mpls', False),
             _MetaInfoClassMember('tunnel-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                Unique identifier of RSVP session
                 ''',
                 'tunnel_id',
@@ -1523,13 +1523,13 @@ _meta_table = {
                 'enable',
                 'openconfig-mpls', False),
             _MetaInfoClassMember('recovery-time', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                RSVP state recovery time
                 ''',
                 'recovery_time',
                 'openconfig-mpls', False),
             _MetaInfoClassMember('restart-time', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Graceful restart time (seconds).
                 ''',
                 'restart_time',
@@ -1552,13 +1552,13 @@ _meta_table = {
                 'enable',
                 'openconfig-mpls', False),
             _MetaInfoClassMember('recovery-time', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                RSVP state recovery time
                 ''',
                 'recovery_time',
                 'openconfig-mpls', False),
             _MetaInfoClassMember('restart-time', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Graceful restart time (seconds).
                 ''',
                 'restart_time',
@@ -1606,7 +1606,7 @@ _meta_table = {
                 'enable',
                 'openconfig-mpls', False),
             _MetaInfoClassMember('soft-preemption-timeout', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                Timeout value for soft preemption to revert
                 to hard preemption
                 ''',
@@ -1630,7 +1630,7 @@ _meta_table = {
                 'enable',
                 'openconfig-mpls', False),
             _MetaInfoClassMember('soft-preemption-timeout', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                Timeout value for soft preemption to revert
                 to hard preemption
                 ''',
@@ -1673,7 +1673,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('hello-interval', ATTRIBUTE, 'int' , None, None, 
-                [(1000, 60000)], [], 
+                [('1000', '60000')], [], 
                 '''                set the interval in ms between RSVP hello
                 messages
                 ''',
@@ -1699,7 +1699,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('hello-interval', ATTRIBUTE, 'int' , None, None, 
-                [(1000, 60000)], [], 
+                [('1000', '60000')], [], 
                 '''                set the interval in ms between RSVP hello
                 messages
                 ''',
@@ -1748,129 +1748,129 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Mpls.SignalingProtocols.RsvpTe.Global.State.Counters',
             False, 
             [
-            _MetaInfoClassMember('in-ack-messages', ATTRIBUTE, 'long' , None, None, 
-                [(0, 18446744073709551615L)], [], 
+            _MetaInfoClassMember('in-ack-messages', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
                 '''                Number of received RSVP refresh reduction ack
                 messages
                 ''',
                 'in_ack_messages',
                 'openconfig-mpls', False),
-            _MetaInfoClassMember('in-hello-messages', ATTRIBUTE, 'long' , None, None, 
-                [(0, 18446744073709551615L)], [], 
+            _MetaInfoClassMember('in-hello-messages', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
                 '''                Number of received RSVP hello messages
                 ''',
                 'in_hello_messages',
                 'openconfig-mpls', False),
-            _MetaInfoClassMember('in-path-error-messages', ATTRIBUTE, 'long' , None, None, 
-                [(0, 18446744073709551615L)], [], 
+            _MetaInfoClassMember('in-path-error-messages', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
                 '''                Number of received RSVP Path Error messages
                 ''',
                 'in_path_error_messages',
                 'openconfig-mpls', False),
-            _MetaInfoClassMember('in-path-messages', ATTRIBUTE, 'long' , None, None, 
-                [(0, 18446744073709551615L)], [], 
+            _MetaInfoClassMember('in-path-messages', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
                 '''                Number of received RSVP Path messages
                 ''',
                 'in_path_messages',
                 'openconfig-mpls', False),
-            _MetaInfoClassMember('in-path-tear-messages', ATTRIBUTE, 'long' , None, None, 
-                [(0, 18446744073709551615L)], [], 
+            _MetaInfoClassMember('in-path-tear-messages', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
                 '''                Number of received RSVP Path Tear messages
                 ''',
                 'in_path_tear_messages',
                 'openconfig-mpls', False),
-            _MetaInfoClassMember('in-reservation-error-messages', ATTRIBUTE, 'long' , None, None, 
-                [(0, 18446744073709551615L)], [], 
+            _MetaInfoClassMember('in-reservation-error-messages', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
                 '''                Number of received RSVP Resv Error messages
                 ''',
                 'in_reservation_error_messages',
                 'openconfig-mpls', False),
-            _MetaInfoClassMember('in-reservation-messages', ATTRIBUTE, 'long' , None, None, 
-                [(0, 18446744073709551615L)], [], 
+            _MetaInfoClassMember('in-reservation-messages', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
                 '''                Number of received RSVP Resv messages
                 ''',
                 'in_reservation_messages',
                 'openconfig-mpls', False),
-            _MetaInfoClassMember('in-reservation-tear-messages', ATTRIBUTE, 'long' , None, None, 
-                [(0, 18446744073709551615L)], [], 
+            _MetaInfoClassMember('in-reservation-tear-messages', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
                 '''                Number of received RSVP Resv Tear messages
                 ''',
                 'in_reservation_tear_messages',
                 'openconfig-mpls', False),
-            _MetaInfoClassMember('in-srefresh-messages', ATTRIBUTE, 'long' , None, None, 
-                [(0, 18446744073709551615L)], [], 
+            _MetaInfoClassMember('in-srefresh-messages', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
                 '''                Number of received RSVP summary refresh messages
                 ''',
                 'in_srefresh_messages',
                 'openconfig-mpls', False),
-            _MetaInfoClassMember('out-ack-messages', ATTRIBUTE, 'long' , None, None, 
-                [(0, 18446744073709551615L)], [], 
+            _MetaInfoClassMember('out-ack-messages', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
                 '''                Number of sent RSVP refresh reduction ack messages
                 ''',
                 'out_ack_messages',
                 'openconfig-mpls', False),
-            _MetaInfoClassMember('out-hello-messages', ATTRIBUTE, 'long' , None, None, 
-                [(0, 18446744073709551615L)], [], 
+            _MetaInfoClassMember('out-hello-messages', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
                 '''                Number of sent RSVP hello messages
                 ''',
                 'out_hello_messages',
                 'openconfig-mpls', False),
-            _MetaInfoClassMember('out-path-error-messages', ATTRIBUTE, 'long' , None, None, 
-                [(0, 18446744073709551615L)], [], 
+            _MetaInfoClassMember('out-path-error-messages', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
                 '''                Number of sent RSVP Path Error messages
                 ''',
                 'out_path_error_messages',
                 'openconfig-mpls', False),
-            _MetaInfoClassMember('out-path-messages', ATTRIBUTE, 'long' , None, None, 
-                [(0, 18446744073709551615L)], [], 
+            _MetaInfoClassMember('out-path-messages', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
                 '''                Number of sent RSVP PATH messages
                 ''',
                 'out_path_messages',
                 'openconfig-mpls', False),
-            _MetaInfoClassMember('out-path-tear-messages', ATTRIBUTE, 'long' , None, None, 
-                [(0, 18446744073709551615L)], [], 
+            _MetaInfoClassMember('out-path-tear-messages', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
                 '''                Number of sent RSVP Path Tear messages
                 ''',
                 'out_path_tear_messages',
                 'openconfig-mpls', False),
-            _MetaInfoClassMember('out-reservation-error-messages', ATTRIBUTE, 'long' , None, None, 
-                [(0, 18446744073709551615L)], [], 
+            _MetaInfoClassMember('out-reservation-error-messages', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
                 '''                Number of sent RSVP Resv Error messages
                 ''',
                 'out_reservation_error_messages',
                 'openconfig-mpls', False),
-            _MetaInfoClassMember('out-reservation-messages', ATTRIBUTE, 'long' , None, None, 
-                [(0, 18446744073709551615L)], [], 
+            _MetaInfoClassMember('out-reservation-messages', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
                 '''                Number of sent RSVP Resv messages
                 ''',
                 'out_reservation_messages',
                 'openconfig-mpls', False),
-            _MetaInfoClassMember('out-reservation-tear-messages', ATTRIBUTE, 'long' , None, None, 
-                [(0, 18446744073709551615L)], [], 
+            _MetaInfoClassMember('out-reservation-tear-messages', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
                 '''                Number of sent RSVP Resv Tear messages
                 ''',
                 'out_reservation_tear_messages',
                 'openconfig-mpls', False),
-            _MetaInfoClassMember('out-srefresh-messages', ATTRIBUTE, 'long' , None, None, 
-                [(0, 18446744073709551615L)], [], 
+            _MetaInfoClassMember('out-srefresh-messages', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
                 '''                Number of sent RSVP summary refresh messages
                 ''',
                 'out_srefresh_messages',
                 'openconfig-mpls', False),
-            _MetaInfoClassMember('path-timeouts', ATTRIBUTE, 'long' , None, None, 
-                [(0, 18446744073709551615L)], [], 
+            _MetaInfoClassMember('path-timeouts', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
                 '''                TODO
                 ''',
                 'path_timeouts',
                 'openconfig-mpls', False),
-            _MetaInfoClassMember('rate-limited-messages', ATTRIBUTE, 'long' , None, None, 
-                [(0, 18446744073709551615L)], [], 
+            _MetaInfoClassMember('rate-limited-messages', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
                 '''                RSVP messages dropped due to rate limiting
                 ''',
                 'rate_limited_messages',
                 'openconfig-mpls', False),
-            _MetaInfoClassMember('reservation-timeouts', ATTRIBUTE, 'long' , None, None, 
-                [(0, 18446744073709551615L)], [], 
+            _MetaInfoClassMember('reservation-timeouts', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
                 '''                TODO
                 ''',
                 'reservation_timeouts',
@@ -1958,19 +1958,19 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('priority', ATTRIBUTE, 'int' , None, None, 
-                [(0, 7)], [], 
+                [('0', '7')], [], 
                 '''                RSVP priority level for LSPs traversing the interface
                 ''',
                 'priority',
                 'openconfig-mpls', True),
-            _MetaInfoClassMember('available-bandwidth', ATTRIBUTE, 'long' , None, None, 
-                [(0, 18446744073709551615L)], [], 
+            _MetaInfoClassMember('available-bandwidth', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
                 '''                Bandwidth currently available
                 ''',
                 'available_bandwidth',
                 'openconfig-mpls', False),
-            _MetaInfoClassMember('reserved-bandwidth', ATTRIBUTE, 'long' , None, None, 
-                [(0, 18446744073709551615L)], [], 
+            _MetaInfoClassMember('reserved-bandwidth', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
                 '''                Bandwidth currently reserved
                 ''',
                 'reserved_bandwidth',
@@ -1986,111 +1986,111 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Mpls.SignalingProtocols.RsvpTe.InterfaceAttributes.Interface.State.Counters',
             False, 
             [
-            _MetaInfoClassMember('in-ack-messages', ATTRIBUTE, 'long' , None, None, 
-                [(0, 18446744073709551615L)], [], 
+            _MetaInfoClassMember('in-ack-messages', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
                 '''                Number of received RSVP refresh reduction ack
                 messages
                 ''',
                 'in_ack_messages',
                 'openconfig-mpls', False),
-            _MetaInfoClassMember('in-hello-messages', ATTRIBUTE, 'long' , None, None, 
-                [(0, 18446744073709551615L)], [], 
+            _MetaInfoClassMember('in-hello-messages', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
                 '''                Number of received RSVP hello messages
                 ''',
                 'in_hello_messages',
                 'openconfig-mpls', False),
-            _MetaInfoClassMember('in-path-error-messages', ATTRIBUTE, 'long' , None, None, 
-                [(0, 18446744073709551615L)], [], 
+            _MetaInfoClassMember('in-path-error-messages', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
                 '''                Number of received RSVP Path Error messages
                 ''',
                 'in_path_error_messages',
                 'openconfig-mpls', False),
-            _MetaInfoClassMember('in-path-messages', ATTRIBUTE, 'long' , None, None, 
-                [(0, 18446744073709551615L)], [], 
+            _MetaInfoClassMember('in-path-messages', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
                 '''                Number of received RSVP Path messages
                 ''',
                 'in_path_messages',
                 'openconfig-mpls', False),
-            _MetaInfoClassMember('in-path-tear-messages', ATTRIBUTE, 'long' , None, None, 
-                [(0, 18446744073709551615L)], [], 
+            _MetaInfoClassMember('in-path-tear-messages', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
                 '''                Number of received RSVP Path Tear messages
                 ''',
                 'in_path_tear_messages',
                 'openconfig-mpls', False),
-            _MetaInfoClassMember('in-reservation-error-messages', ATTRIBUTE, 'long' , None, None, 
-                [(0, 18446744073709551615L)], [], 
+            _MetaInfoClassMember('in-reservation-error-messages', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
                 '''                Number of received RSVP Resv Error messages
                 ''',
                 'in_reservation_error_messages',
                 'openconfig-mpls', False),
-            _MetaInfoClassMember('in-reservation-messages', ATTRIBUTE, 'long' , None, None, 
-                [(0, 18446744073709551615L)], [], 
+            _MetaInfoClassMember('in-reservation-messages', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
                 '''                Number of received RSVP Resv messages
                 ''',
                 'in_reservation_messages',
                 'openconfig-mpls', False),
-            _MetaInfoClassMember('in-reservation-tear-messages', ATTRIBUTE, 'long' , None, None, 
-                [(0, 18446744073709551615L)], [], 
+            _MetaInfoClassMember('in-reservation-tear-messages', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
                 '''                Number of received RSVP Resv Tear messages
                 ''',
                 'in_reservation_tear_messages',
                 'openconfig-mpls', False),
-            _MetaInfoClassMember('in-srefresh-messages', ATTRIBUTE, 'long' , None, None, 
-                [(0, 18446744073709551615L)], [], 
+            _MetaInfoClassMember('in-srefresh-messages', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
                 '''                Number of received RSVP summary refresh messages
                 ''',
                 'in_srefresh_messages',
                 'openconfig-mpls', False),
-            _MetaInfoClassMember('out-ack-messages', ATTRIBUTE, 'long' , None, None, 
-                [(0, 18446744073709551615L)], [], 
+            _MetaInfoClassMember('out-ack-messages', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
                 '''                Number of sent RSVP refresh reduction ack messages
                 ''',
                 'out_ack_messages',
                 'openconfig-mpls', False),
-            _MetaInfoClassMember('out-hello-messages', ATTRIBUTE, 'long' , None, None, 
-                [(0, 18446744073709551615L)], [], 
+            _MetaInfoClassMember('out-hello-messages', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
                 '''                Number of sent RSVP hello messages
                 ''',
                 'out_hello_messages',
                 'openconfig-mpls', False),
-            _MetaInfoClassMember('out-path-error-messages', ATTRIBUTE, 'long' , None, None, 
-                [(0, 18446744073709551615L)], [], 
+            _MetaInfoClassMember('out-path-error-messages', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
                 '''                Number of sent RSVP Path Error messages
                 ''',
                 'out_path_error_messages',
                 'openconfig-mpls', False),
-            _MetaInfoClassMember('out-path-messages', ATTRIBUTE, 'long' , None, None, 
-                [(0, 18446744073709551615L)], [], 
+            _MetaInfoClassMember('out-path-messages', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
                 '''                Number of sent RSVP PATH messages
                 ''',
                 'out_path_messages',
                 'openconfig-mpls', False),
-            _MetaInfoClassMember('out-path-tear-messages', ATTRIBUTE, 'long' , None, None, 
-                [(0, 18446744073709551615L)], [], 
+            _MetaInfoClassMember('out-path-tear-messages', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
                 '''                Number of sent RSVP Path Tear messages
                 ''',
                 'out_path_tear_messages',
                 'openconfig-mpls', False),
-            _MetaInfoClassMember('out-reservation-error-messages', ATTRIBUTE, 'long' , None, None, 
-                [(0, 18446744073709551615L)], [], 
+            _MetaInfoClassMember('out-reservation-error-messages', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
                 '''                Number of sent RSVP Resv Error messages
                 ''',
                 'out_reservation_error_messages',
                 'openconfig-mpls', False),
-            _MetaInfoClassMember('out-reservation-messages', ATTRIBUTE, 'long' , None, None, 
-                [(0, 18446744073709551615L)], [], 
+            _MetaInfoClassMember('out-reservation-messages', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
                 '''                Number of sent RSVP Resv messages
                 ''',
                 'out_reservation_messages',
                 'openconfig-mpls', False),
-            _MetaInfoClassMember('out-reservation-tear-messages', ATTRIBUTE, 'long' , None, None, 
-                [(0, 18446744073709551615L)], [], 
+            _MetaInfoClassMember('out-reservation-tear-messages', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
                 '''                Number of sent RSVP Resv Tear messages
                 ''',
                 'out_reservation_tear_messages',
                 'openconfig-mpls', False),
-            _MetaInfoClassMember('out-srefresh-messages', ATTRIBUTE, 'long' , None, None, 
-                [(0, 18446744073709551615L)], [], 
+            _MetaInfoClassMember('out-srefresh-messages', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
                 '''                Number of sent RSVP summary refresh messages
                 ''',
                 'out_srefresh_messages',
@@ -2106,8 +2106,8 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Mpls.SignalingProtocols.RsvpTe.InterfaceAttributes.Interface.State',
             False, 
             [
-            _MetaInfoClassMember('active-reservation-count', ATTRIBUTE, 'long' , None, None, 
-                [(0, 18446744073709551615L)], [], 
+            _MetaInfoClassMember('active-reservation-count', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
                 '''                Number of active RSVP reservations
                 ''',
                 'active_reservation_count',
@@ -2125,8 +2125,8 @@ _meta_table = {
                 ''',
                 'counters',
                 'openconfig-mpls', False),
-            _MetaInfoClassMember('highwater-mark', ATTRIBUTE, 'long' , None, None, 
-                [(0, 18446744073709551615L)], [], 
+            _MetaInfoClassMember('highwater-mark', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
                 '''                Maximum bandwidth ever reserved
                 ''',
                 'highwater_mark',
@@ -2143,7 +2143,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('hello-interval', ATTRIBUTE, 'int' , None, None, 
-                [(1000, 60000)], [], 
+                [('1000', '60000')], [], 
                 '''                set the interval in ms between RSVP hello
                 messages
                 ''',
@@ -2169,7 +2169,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('hello-interval', ATTRIBUTE, 'int' , None, None, 
-                [(1000, 60000)], [], 
+                [('1000', '60000')], [], 
                 '''                set the interval in ms between RSVP hello
                 messages
                 ''',
@@ -2292,7 +2292,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('subscription', ATTRIBUTE, 'int' , None, None, 
-                [(0, 100)], [], 
+                [('0', '100')], [], 
                 '''                percentage of the interface bandwidth that
                 RSVP can reserve
                 ''',
@@ -2310,7 +2310,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('subscription', ATTRIBUTE, 'int' , None, None, 
-                [(0, 100)], [], 
+                [('0', '100')], [], 
                 '''                percentage of the interface bandwidth that
                 RSVP can reserve
                 ''',
@@ -2353,7 +2353,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('bypass-optimize-interval', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                interval between periodic optimization
                 of the bypass LSPs
                 ''',
@@ -2378,7 +2378,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('bypass-optimize-interval', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                interval between periodic optimization
                 of the bypass LSPs
                 ''',
@@ -2534,13 +2534,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('lower-bound', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Lower value in the block.
                 ''',
                 'lower_bound',
                 'openconfig-mpls', False),
             _MetaInfoClassMember('upper-bound', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Upper value in the block.
                 ''',
                 'upper_bound',
@@ -2557,31 +2557,31 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('free', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of SRGB indexes that have not yet been allocated
                 ''',
                 'free',
                 'openconfig-mpls', False),
             _MetaInfoClassMember('lower-bound', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Lower value in the block.
                 ''',
                 'lower_bound',
                 'openconfig-mpls', False),
             _MetaInfoClassMember('size', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of indexes in the SRGB block
                 ''',
                 'size',
                 'openconfig-mpls', False),
             _MetaInfoClassMember('upper-bound', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Upper value in the block.
                 ''',
                 'upper_bound',
                 'openconfig-mpls', False),
             _MetaInfoClassMember('used', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of SRGB indexes that are currently allocated
                 ''',
                 'used',
@@ -2598,13 +2598,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('lower-bound', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Lower value in the block.
                 ''',
                 'lower_bound',
                 'openconfig-mpls', True),
             _MetaInfoClassMember('upper-bound', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Upper value in the block.
                 ''',
                 'upper_bound',
@@ -2683,7 +2683,7 @@ _meta_table = {
                 'advertise',
                 'openconfig-mpls', False),
             _MetaInfoClassMember('groups', REFERENCE_LEAFLIST, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Specifies the groups to which this interface belongs.
                 Setting a value in this list results in an additional AdjSID
                 being advertised, with the S-bit set to 1. The AdjSID is
@@ -2715,7 +2715,7 @@ _meta_table = {
                 'advertise',
                 'openconfig-mpls', False),
             _MetaInfoClassMember('groups', REFERENCE_LEAFLIST, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Specifies the groups to which this interface belongs.
                 Setting a value in this list results in an additional AdjSID
                 being advertised, with the S-bit set to 1. The AdjSID is
@@ -2943,7 +2943,7 @@ _meta_table = {
                 'hop_type',
                 'openconfig-mpls', False),
             _MetaInfoClassMember('index', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                Index of this explicit route object to express
                 the order of hops in the path
                 ''',
@@ -2986,7 +2986,7 @@ _meta_table = {
                 'hop_type',
                 'openconfig-mpls', False),
             _MetaInfoClassMember('index', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                Index of this explicit route object to express
                 the order of hops in the path
                 ''',
@@ -3004,7 +3004,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('index', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                Index of this explicit route object,
                 to express the order of hops in path
                 ''',
@@ -3085,7 +3085,7 @@ _meta_table = {
                 'description',
                 'openconfig-mpls', False),
             _MetaInfoClassMember('hold-priority', ATTRIBUTE, 'int' , None, None, 
-                [(0, 7)], [], 
+                [('0', '7')], [], 
                 '''                preemption priority once the LSP is established,
                 lower is higher priority; default 0 indicates other LSPs
                 will not preempt the LSPs once established
@@ -3100,7 +3100,7 @@ _meta_table = {
                 'local_id',
                 'openconfig-mpls', False, [
                     _MetaInfoClassMember('local-id', ATTRIBUTE, 'int' , None, None, 
-                        [(0, 4294967295)], [], 
+                        [('0', '4294967295')], [], 
                         '''                        locally signficant optional identifier for the
                         tunnel; may be a numerical or string value
                         ''',
@@ -3127,7 +3127,7 @@ _meta_table = {
                         'metric',
                         'openconfig-mpls', False),
                     _MetaInfoClassMember('metric', ATTRIBUTE, 'int' , None, None, 
-                        [(0, 4294967295)], [], 
+                        [('0', '4294967295')], [], 
                         '''                        LSP metric, either explicit or IGP
                         ''',
                         'metric',
@@ -3140,7 +3140,7 @@ _meta_table = {
                 'name',
                 'openconfig-mpls', False),
             _MetaInfoClassMember('preference', ATTRIBUTE, 'int' , None, None, 
-                [(1, 255)], [], 
+                [('1', '255')], [], 
                 '''                Specifies a preference for this tunnel.
                 A lower number signifies a better preference
                 ''',
@@ -3154,14 +3154,14 @@ _meta_table = {
                 'protection_style_requested',
                 'openconfig-mpls', False),
             _MetaInfoClassMember('reoptimize-timer', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                frequency of reoptimization of
                 a traffic engineered LSP
                 ''',
                 'reoptimize_timer',
                 'openconfig-mpls', False),
             _MetaInfoClassMember('setup-priority', ATTRIBUTE, 'int' , None, None, 
-                [(0, 7)], [], 
+                [('0', '7')], [], 
                 '''                RSVP-TE preemption priority during LSP setup, lower is
                 higher priority; default 7 indicates that LSP will not
                 preempt established LSPs during setup
@@ -3216,8 +3216,8 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Mpls.Lsps.ConstrainedPath.Tunnel.State.Counters',
             False, 
             [
-            _MetaInfoClassMember('bytes', ATTRIBUTE, 'long' , None, None, 
-                [(0, 18446744073709551615L)], [], 
+            _MetaInfoClassMember('bytes', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
                 '''                Number of bytes that have been forwarded over the
                 label switched path.
                 ''',
@@ -3245,21 +3245,21 @@ _meta_table = {
                 ''',
                 'online_time',
                 'openconfig-mpls', False),
-            _MetaInfoClassMember('packets', ATTRIBUTE, 'long' , None, None, 
-                [(0, 18446744073709551615L)], [], 
+            _MetaInfoClassMember('packets', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
                 '''                Number of pacets that have been forwarded over the
                 label switched path.
                 ''',
                 'packets',
                 'openconfig-mpls', False),
-            _MetaInfoClassMember('path-changes', ATTRIBUTE, 'long' , None, None, 
-                [(0, 18446744073709551615L)], [], 
+            _MetaInfoClassMember('path-changes', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
                 '''                Number of path changes for the label switched path
                 ''',
                 'path_changes',
                 'openconfig-mpls', False),
-            _MetaInfoClassMember('state-changes', ATTRIBUTE, 'long' , None, None, 
-                [(0, 18446744073709551615L)], [], 
+            _MetaInfoClassMember('state-changes', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
                 '''                Number of state changes for the label switched path
                 ''',
                 'state_changes',
@@ -3295,7 +3295,7 @@ _meta_table = {
                 'description',
                 'openconfig-mpls', False),
             _MetaInfoClassMember('hold-priority', ATTRIBUTE, 'int' , None, None, 
-                [(0, 7)], [], 
+                [('0', '7')], [], 
                 '''                preemption priority once the LSP is established,
                 lower is higher priority; default 0 indicates other LSPs
                 will not preempt the LSPs once established
@@ -3310,7 +3310,7 @@ _meta_table = {
                 'local_id',
                 'openconfig-mpls', False, [
                     _MetaInfoClassMember('local-id', ATTRIBUTE, 'int' , None, None, 
-                        [(0, 4294967295)], [], 
+                        [('0', '4294967295')], [], 
                         '''                        locally signficant optional identifier for the
                         tunnel; may be a numerical or string value
                         ''',
@@ -3337,7 +3337,7 @@ _meta_table = {
                         'metric',
                         'openconfig-mpls', False),
                     _MetaInfoClassMember('metric', ATTRIBUTE, 'int' , None, None, 
-                        [(0, 4294967295)], [], 
+                        [('0', '4294967295')], [], 
                         '''                        LSP metric, either explicit or IGP
                         ''',
                         'metric',
@@ -3356,7 +3356,7 @@ _meta_table = {
                 'oper_status',
                 'openconfig-mpls', False),
             _MetaInfoClassMember('preference', ATTRIBUTE, 'int' , None, None, 
-                [(1, 255)], [], 
+                [('1', '255')], [], 
                 '''                Specifies a preference for this tunnel.
                 A lower number signifies a better preference
                 ''',
@@ -3370,7 +3370,7 @@ _meta_table = {
                 'protection_style_requested',
                 'openconfig-mpls', False),
             _MetaInfoClassMember('reoptimize-timer', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                frequency of reoptimization of
                 a traffic engineered LSP
                 ''',
@@ -3384,7 +3384,7 @@ _meta_table = {
                 'role',
                 'openconfig-mpls', False),
             _MetaInfoClassMember('setup-priority', ATTRIBUTE, 'int' , None, None, 
-                [(0, 7)], [], 
+                [('0', '7')], [], 
                 '''                RSVP-TE preemption priority during LSP setup, lower is
                 higher priority; default 7 indicates that LSP will not
                 preempt established LSPs during setup
@@ -3440,7 +3440,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('set-bandwidth', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                set bandwidth explicitly, e.g., using
                 offline calculation
                 ''',
@@ -3465,7 +3465,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('set-bandwidth', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                set bandwidth explicitly, e.g., using
                 offline calculation
                 ''',
@@ -3490,14 +3490,14 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('adjust-interval', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                time in seconds between adjustments to
                 LSP bandwidth
                 ''',
                 'adjust_interval',
                 'openconfig-mpls', False),
             _MetaInfoClassMember('adjust-threshold', ATTRIBUTE, 'int' , None, None, 
-                [(0, 100)], [], 
+                [('0', '100')], [], 
                 '''                percentage difference between the LSP's
                 specified bandwidth and its current bandwidth
                 allocation -- if the difference is greater than the
@@ -3514,14 +3514,14 @@ _meta_table = {
                 'enabled',
                 'openconfig-mpls', False),
             _MetaInfoClassMember('max-bw', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                set the maximum bandwidth in Mbps for an
                 auto-bandwidth LSP
                 ''',
                 'max_bw',
                 'openconfig-mpls', False),
             _MetaInfoClassMember('min-bw', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                set the minimum bandwidth in Mbps for an
                 auto-bandwidth LSP
                 ''',
@@ -3539,14 +3539,14 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('adjust-interval', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                time in seconds between adjustments to
                 LSP bandwidth
                 ''',
                 'adjust_interval',
                 'openconfig-mpls', False),
             _MetaInfoClassMember('adjust-threshold', ATTRIBUTE, 'int' , None, None, 
-                [(0, 100)], [], 
+                [('0', '100')], [], 
                 '''                percentage difference between the LSP's
                 specified bandwidth and its current bandwidth
                 allocation -- if the difference is greater than the
@@ -3563,14 +3563,14 @@ _meta_table = {
                 'enabled',
                 'openconfig-mpls', False),
             _MetaInfoClassMember('max-bw', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                set the maximum bandwidth in Mbps for an
                 auto-bandwidth LSP
                 ''',
                 'max_bw',
                 'openconfig-mpls', False),
             _MetaInfoClassMember('min-bw', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                set the minimum bandwidth in Mbps for an
                 auto-bandwidth LSP
                 ''',
@@ -3595,14 +3595,14 @@ _meta_table = {
                 'enabled',
                 'openconfig-mpls', False),
             _MetaInfoClassMember('overflow-threshold', ATTRIBUTE, 'int' , None, None, 
-                [(0, 100)], [], 
+                [('0', '100')], [], 
                 '''                bandwidth percentage change to trigger
                 an overflow event
                 ''',
                 'overflow_threshold',
                 'openconfig-mpls', False),
             _MetaInfoClassMember('trigger-event-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                number of consecutive overflow sample
                 events needed to trigger an overflow adjustment
                 ''',
@@ -3627,14 +3627,14 @@ _meta_table = {
                 'enabled',
                 'openconfig-mpls', False),
             _MetaInfoClassMember('overflow-threshold', ATTRIBUTE, 'int' , None, None, 
-                [(0, 100)], [], 
+                [('0', '100')], [], 
                 '''                bandwidth percentage change to trigger
                 an overflow event
                 ''',
                 'overflow_threshold',
                 'openconfig-mpls', False),
             _MetaInfoClassMember('trigger-event-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                number of consecutive overflow sample
                 events needed to trigger an overflow adjustment
                 ''',
@@ -3684,14 +3684,14 @@ _meta_table = {
                 'enabled',
                 'openconfig-mpls', False),
             _MetaInfoClassMember('trigger-event-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                number of consecutive underflow sample
                 events needed to trigger an underflow adjustment
                 ''',
                 'trigger_event_count',
                 'openconfig-mpls', False),
             _MetaInfoClassMember('underflow-threshold', ATTRIBUTE, 'int' , None, None, 
-                [(0, 100)], [], 
+                [('0', '100')], [], 
                 '''                bandwidth percentage change to trigger
                 and underflow event
                 ''',
@@ -3716,14 +3716,14 @@ _meta_table = {
                 'enabled',
                 'openconfig-mpls', False),
             _MetaInfoClassMember('trigger-event-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                number of consecutive underflow sample
                 events needed to trigger an underflow adjustment
                 ''',
                 'trigger_event_count',
                 'openconfig-mpls', False),
             _MetaInfoClassMember('underflow-threshold', ATTRIBUTE, 'int' , None, None, 
-                [(0, 100)], [], 
+                [('0', '100')], [], 
                 '''                bandwidth percentage change to trigger
                 and underflow event
                 ''',
@@ -3909,7 +3909,7 @@ _meta_table = {
                 'explicit_path_name',
                 'openconfig-mpls', False),
             _MetaInfoClassMember('hold-priority', ATTRIBUTE, 'int' , None, None, 
-                [(0, 7)], [], 
+                [('0', '7')], [], 
                 '''                preemption priority once the LSP is established,
                 lower is higher priority; default 0 indicates other LSPs
                 will not preempt the LSPs once established
@@ -3953,21 +3953,21 @@ _meta_table = {
                         'openconfig-mpls', False),
                 ]),
             _MetaInfoClassMember('preference', ATTRIBUTE, 'int' , None, None, 
-                [(1, 255)], [], 
+                [('1', '255')], [], 
                 '''                Specifies a preference for this path. The lower the
                 number higher the preference
                 ''',
                 'preference',
                 'openconfig-mpls', False),
             _MetaInfoClassMember('retry-timer', ATTRIBUTE, 'int' , None, None, 
-                [(1, 600)], [], 
+                [('1', '600')], [], 
                 '''                sets the time between attempts to establish the
                 LSP
                 ''',
                 'retry_timer',
                 'openconfig-mpls', False),
             _MetaInfoClassMember('setup-priority', ATTRIBUTE, 'int' , None, None, 
-                [(0, 7)], [], 
+                [('0', '7')], [], 
                 '''                RSVP-TE preemption priority during LSP setup, lower is
                 higher priority; default 7 indicates that LSP will not
                 preempt established LSPs during setup
@@ -4005,7 +4005,7 @@ _meta_table = {
                 'explicit_path_name',
                 'openconfig-mpls', False),
             _MetaInfoClassMember('hold-priority', ATTRIBUTE, 'int' , None, None, 
-                [(0, 7)], [], 
+                [('0', '7')], [], 
                 '''                preemption priority once the LSP is established,
                 lower is higher priority; default 0 indicates other LSPs
                 will not preempt the LSPs once established
@@ -4049,21 +4049,21 @@ _meta_table = {
                         'openconfig-mpls', False),
                 ]),
             _MetaInfoClassMember('preference', ATTRIBUTE, 'int' , None, None, 
-                [(1, 255)], [], 
+                [('1', '255')], [], 
                 '''                Specifies a preference for this path. The lower the
                 number higher the preference
                 ''',
                 'preference',
                 'openconfig-mpls', False),
             _MetaInfoClassMember('retry-timer', ATTRIBUTE, 'int' , None, None, 
-                [(1, 600)], [], 
+                [('1', '600')], [], 
                 '''                sets the time between attempts to establish the
                 LSP
                 ''',
                 'retry_timer',
                 'openconfig-mpls', False),
             _MetaInfoClassMember('setup-priority', ATTRIBUTE, 'int' , None, None, 
-                [(0, 7)], [], 
+                [('0', '7')], [], 
                 '''                RSVP-TE preemption priority during LSP setup, lower is
                 higher priority; default 7 indicates that LSP will not
                 preempt established LSPs during setup
@@ -4088,7 +4088,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('priority', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                The priority of the specified secondary path option. Higher
                 priority options are less preferable - such that a secondary
                 path reference with a priority of 0 is the most preferred
@@ -4121,7 +4121,7 @@ _meta_table = {
                 'active',
                 'openconfig-mpls', False),
             _MetaInfoClassMember('priority', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                The priority of the specified secondary path option. Higher
                 priority options are less preferable - such that a secondary
                 path reference with a priority of 0 is the most preferred
@@ -4349,7 +4349,7 @@ _meta_table = {
                 'explicit_path_name',
                 'openconfig-mpls', False),
             _MetaInfoClassMember('hold-priority', ATTRIBUTE, 'int' , None, None, 
-                [(0, 7)], [], 
+                [('0', '7')], [], 
                 '''                preemption priority once the LSP is established,
                 lower is higher priority; default 0 indicates other LSPs
                 will not preempt the LSPs once established
@@ -4393,21 +4393,21 @@ _meta_table = {
                         'openconfig-mpls', False),
                 ]),
             _MetaInfoClassMember('preference', ATTRIBUTE, 'int' , None, None, 
-                [(1, 255)], [], 
+                [('1', '255')], [], 
                 '''                Specifies a preference for this path. The lower the
                 number higher the preference
                 ''',
                 'preference',
                 'openconfig-mpls', False),
             _MetaInfoClassMember('retry-timer', ATTRIBUTE, 'int' , None, None, 
-                [(1, 600)], [], 
+                [('1', '600')], [], 
                 '''                sets the time between attempts to establish the
                 LSP
                 ''',
                 'retry_timer',
                 'openconfig-mpls', False),
             _MetaInfoClassMember('setup-priority', ATTRIBUTE, 'int' , None, None, 
-                [(0, 7)], [], 
+                [('0', '7')], [], 
                 '''                RSVP-TE preemption priority during LSP setup, lower is
                 higher priority; default 7 indicates that LSP will not
                 preempt established LSPs during setup
@@ -4445,7 +4445,7 @@ _meta_table = {
                 'explicit_path_name',
                 'openconfig-mpls', False),
             _MetaInfoClassMember('hold-priority', ATTRIBUTE, 'int' , None, None, 
-                [(0, 7)], [], 
+                [('0', '7')], [], 
                 '''                preemption priority once the LSP is established,
                 lower is higher priority; default 0 indicates other LSPs
                 will not preempt the LSPs once established
@@ -4489,21 +4489,21 @@ _meta_table = {
                         'openconfig-mpls', False),
                 ]),
             _MetaInfoClassMember('preference', ATTRIBUTE, 'int' , None, None, 
-                [(1, 255)], [], 
+                [('1', '255')], [], 
                 '''                Specifies a preference for this path. The lower the
                 number higher the preference
                 ''',
                 'preference',
                 'openconfig-mpls', False),
             _MetaInfoClassMember('retry-timer', ATTRIBUTE, 'int' , None, None, 
-                [(1, 600)], [], 
+                [('1', '600')], [], 
                 '''                sets the time between attempts to establish the
                 LSP
                 ''',
                 'retry_timer',
                 'openconfig-mpls', False),
             _MetaInfoClassMember('setup-priority', ATTRIBUTE, 'int' , None, None, 
-                [(0, 7)], [], 
+                [('0', '7')], [], 
                 '''                RSVP-TE preemption priority during LSP setup, lower is
                 higher priority; default 7 indicates that LSP will not
                 preempt established LSPs during setup
@@ -5206,7 +5206,7 @@ _meta_table = {
                 'incoming_label',
                 'openconfig-mpls', False, [
                     _MetaInfoClassMember('incoming-label', ATTRIBUTE, 'int' , None, None, 
-                        [(16, 1048575)], [], 
+                        [('16', '1048575')], [], 
                         '''                        label value on the incoming packet
                         ''',
                         'incoming_label',
@@ -5245,7 +5245,7 @@ _meta_table = {
                 'push_label',
                 'openconfig-mpls', False, [
                     _MetaInfoClassMember('push-label', ATTRIBUTE, 'int' , None, None, 
-                        [(16, 1048575)], [], 
+                        [('16', '1048575')], [], 
                         '''                        label value to push at the current hop for the
                         LSP
                         ''',
@@ -5277,7 +5277,7 @@ _meta_table = {
                 'incoming_label',
                 'openconfig-mpls', False, [
                     _MetaInfoClassMember('incoming-label', ATTRIBUTE, 'int' , None, None, 
-                        [(16, 1048575)], [], 
+                        [('16', '1048575')], [], 
                         '''                        label value on the incoming packet
                         ''',
                         'incoming_label',
@@ -5316,7 +5316,7 @@ _meta_table = {
                 'push_label',
                 'openconfig-mpls', False, [
                     _MetaInfoClassMember('push-label', ATTRIBUTE, 'int' , None, None, 
-                        [(16, 1048575)], [], 
+                        [('16', '1048575')], [], 
                         '''                        label value to push at the current hop for the
                         LSP
                         ''',
@@ -5348,7 +5348,7 @@ _meta_table = {
                 'incoming_label',
                 'openconfig-mpls', False, [
                     _MetaInfoClassMember('incoming-label', ATTRIBUTE, 'int' , None, None, 
-                        [(16, 1048575)], [], 
+                        [('16', '1048575')], [], 
                         '''                        label value on the incoming packet
                         ''',
                         'incoming_label',
@@ -5387,7 +5387,7 @@ _meta_table = {
                 'push_label',
                 'openconfig-mpls', False, [
                     _MetaInfoClassMember('push-label', ATTRIBUTE, 'int' , None, None, 
-                        [(16, 1048575)], [], 
+                        [('16', '1048575')], [], 
                         '''                        label value to push at the current hop for the
                         LSP
                         ''',

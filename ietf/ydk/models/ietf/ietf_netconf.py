@@ -28,7 +28,6 @@ from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
 from ydk.errors import YPYError, YPYModelError
 
 
-from ydk.models.ietf.ietf_netconf_with_defaults import WithDefaultsModeEnum
 
 class EditOperationTypeEnum(Enum):
     """

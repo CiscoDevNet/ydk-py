@@ -18,62 +18,62 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('MemorySummary.Nodes.Node.Summary',
             False, 
             [
-            _MetaInfoClassMember('boot-ram-size', ATTRIBUTE, 'long' , None, None, 
-                [(0, 18446744073709551615L)], [], 
+            _MetaInfoClassMember('boot-ram-size', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
                 '''                Boot RAM size in bytes
                 ''',
                 'boot_ram_size',
                 'Cisco-IOS-XR-nto-misc-oper', False),
-            _MetaInfoClassMember('flash-system', ATTRIBUTE, 'long' , None, None, 
-                [(0, 18446744073709551615L)], [], 
+            _MetaInfoClassMember('flash-system', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
                 '''                Flash System size in bytes
                 ''',
                 'flash_system',
                 'Cisco-IOS-XR-nto-misc-oper', False),
-            _MetaInfoClassMember('free-application-memory', ATTRIBUTE, 'long' , None, None, 
-                [(0, 18446744073709551615L)], [], 
+            _MetaInfoClassMember('free-application-memory', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
                 '''                Application memory available in bytes
                 ''',
                 'free_application_memory',
                 'Cisco-IOS-XR-nto-misc-oper', False),
-            _MetaInfoClassMember('free-physical-memory', ATTRIBUTE, 'long' , None, None, 
-                [(0, 18446744073709551615L)], [], 
+            _MetaInfoClassMember('free-physical-memory', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
                 '''                Physical memory available in bytes
                 ''',
                 'free_physical_memory',
                 'Cisco-IOS-XR-nto-misc-oper', False),
-            _MetaInfoClassMember('image-memory', ATTRIBUTE, 'long' , None, None, 
-                [(0, 18446744073709551615L)], [], 
+            _MetaInfoClassMember('image-memory', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
                 '''                Image memory size in bytes
                 ''',
                 'image_memory',
                 'Cisco-IOS-XR-nto-misc-oper', False),
-            _MetaInfoClassMember('io-memory', ATTRIBUTE, 'long' , None, None, 
-                [(0, 18446744073709551615L)], [], 
+            _MetaInfoClassMember('io-memory', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
                 '''                IO memory size in bytes
                 ''',
                 'io_memory',
                 'Cisco-IOS-XR-nto-misc-oper', False),
             _MetaInfoClassMember('page-size', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Page size in bytes
                 ''',
                 'page_size',
                 'Cisco-IOS-XR-nto-misc-oper', False),
-            _MetaInfoClassMember('ram-memory', ATTRIBUTE, 'long' , None, None, 
-                [(0, 18446744073709551615L)], [], 
+            _MetaInfoClassMember('ram-memory', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
                 '''                Physical memory size in bytes
                 ''',
                 'ram_memory',
                 'Cisco-IOS-XR-nto-misc-oper', False),
-            _MetaInfoClassMember('reserved-memory', ATTRIBUTE, 'long' , None, None, 
-                [(0, 18446744073709551615L)], [], 
+            _MetaInfoClassMember('reserved-memory', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
                 '''                Reserved memory size in bytes
                 ''',
                 'reserved_memory',
                 'Cisco-IOS-XR-nto-misc-oper', False),
-            _MetaInfoClassMember('system-ram-memory', ATTRIBUTE, 'long' , None, None, 
-                [(0, 18446744073709551615L)], [], 
+            _MetaInfoClassMember('system-ram-memory', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
                 '''                Application memory size in bytes
                 ''',
                 'system_ram_memory',
@@ -81,6 +81,77 @@ _meta_table = {
             ],
             'Cisco-IOS-XR-nto-misc-oper',
             'summary',
+            _yang_ns._namespaces['Cisco-IOS-XR-nto-misc-oper'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_nto_misc_oper'
+        ),
+    },
+    'MemorySummary.Nodes.Node.Detail' : {
+        'meta_info' : _MetaInfoClass('MemorySummary.Nodes.Node.Detail',
+            False, 
+            [
+            _MetaInfoClassMember('boot-ram-size', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                Boot RAM size in bytes
+                ''',
+                'boot_ram_size',
+                'Cisco-IOS-XR-nto-misc-oper', False),
+            _MetaInfoClassMember('flash-system', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                Flash System size in bytes
+                ''',
+                'flash_system',
+                'Cisco-IOS-XR-nto-misc-oper', False),
+            _MetaInfoClassMember('free-application-memory', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                Application memory available in bytes
+                ''',
+                'free_application_memory',
+                'Cisco-IOS-XR-nto-misc-oper', False),
+            _MetaInfoClassMember('free-physical-memory', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                Physical memory available in bytes
+                ''',
+                'free_physical_memory',
+                'Cisco-IOS-XR-nto-misc-oper', False),
+            _MetaInfoClassMember('image-memory', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                Image memory size in bytes
+                ''',
+                'image_memory',
+                'Cisco-IOS-XR-nto-misc-oper', False),
+            _MetaInfoClassMember('io-memory', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                IO memory size in bytes
+                ''',
+                'io_memory',
+                'Cisco-IOS-XR-nto-misc-oper', False),
+            _MetaInfoClassMember('page-size', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                Page size in bytes
+                ''',
+                'page_size',
+                'Cisco-IOS-XR-nto-misc-oper', False),
+            _MetaInfoClassMember('ram-memory', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                Physical memory size in bytes
+                ''',
+                'ram_memory',
+                'Cisco-IOS-XR-nto-misc-oper', False),
+            _MetaInfoClassMember('reserved-memory', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                Reserved memory size in bytes
+                ''',
+                'reserved_memory',
+                'Cisco-IOS-XR-nto-misc-oper', False),
+            _MetaInfoClassMember('system-ram-memory', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                Application memory size in bytes
+                ''',
+                'system_ram_memory',
+                'Cisco-IOS-XR-nto-misc-oper', False),
+            ],
+            'Cisco-IOS-XR-nto-misc-oper',
+            'detail',
             _yang_ns._namespaces['Cisco-IOS-XR-nto-misc-oper'],
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_nto_misc_oper'
         ),
@@ -95,6 +166,13 @@ _meta_table = {
                 ''',
                 'node_name',
                 'Cisco-IOS-XR-nto-misc-oper', True),
+            _MetaInfoClassMember('detail', REFERENCE_CLASS, 'Detail' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_nto_misc_oper', 'MemorySummary.Nodes.Node.Detail', 
+                [], [], 
+                '''                Detail Memory summary information for a
+                specific node
+                ''',
+                'detail',
+                'Cisco-IOS-XR-nto-misc-oper', False),
             _MetaInfoClassMember('summary', REFERENCE_CLASS, 'Summary' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_nto_misc_oper', 'MemorySummary.Nodes.Node.Summary', 
                 [], [], 
                 '''                Memory summary information for a specific node
@@ -144,5 +222,6 @@ _meta_table = {
     },
 }
 _meta_table['MemorySummary.Nodes.Node.Summary']['meta_info'].parent =_meta_table['MemorySummary.Nodes.Node']['meta_info']
+_meta_table['MemorySummary.Nodes.Node.Detail']['meta_info'].parent =_meta_table['MemorySummary.Nodes.Node']['meta_info']
 _meta_table['MemorySummary.Nodes.Node']['meta_info'].parent =_meta_table['MemorySummary.Nodes']['meta_info']
 _meta_table['MemorySummary.Nodes']['meta_info'].parent =_meta_table['MemorySummary']['meta_info']

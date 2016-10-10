@@ -7,7 +7,7 @@ This module contains definitions
 for the following management objects\:
   cdp\: CDP operational data
 
-Copyright (c) 2013\-2015 by Cisco Systems, Inc.
+Copyright (c) 2013\-2016 by Cisco Systems, Inc.
 All rights reserved.
 
 """
@@ -99,7 +99,7 @@ class Cdp(object):
     """
 
     _prefix = 'cdp-oper'
-    _revision = '2015-01-07'
+    _revision = '2015-07-30'
 
     def __init__(self):
         self.nodes = Cdp.Nodes()
@@ -120,7 +120,7 @@ class Cdp(object):
         """
 
         _prefix = 'cdp-oper'
-        _revision = '2015-01-07'
+        _revision = '2015-07-30'
 
         def __init__(self):
             self.parent = None
@@ -160,7 +160,7 @@ class Cdp(object):
             """
 
             _prefix = 'cdp-oper'
-            _revision = '2015-01-07'
+            _revision = '2015-07-30'
 
             def __init__(self):
                 self.parent = None
@@ -197,7 +197,7 @@ class Cdp(object):
                 """
 
                 _prefix = 'cdp-oper'
-                _revision = '2015-01-07'
+                _revision = '2015-07-30'
 
                 def __init__(self):
                     self.parent = None
@@ -223,7 +223,7 @@ class Cdp(object):
                     """
 
                     _prefix = 'cdp-oper'
-                    _revision = '2015-01-07'
+                    _revision = '2015-07-30'
 
                     def __init__(self):
                         self.parent = None
@@ -252,14 +252,14 @@ class Cdp(object):
                         	The interface name
                         	**type**\:  str
                         
-                        	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+                        	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
                         
                         
 
                         """
 
                         _prefix = 'cdp-oper'
-                        _revision = '2015-01-07'
+                        _revision = '2015-07-30'
 
                         def __init__(self):
                             self.parent = None
@@ -318,14 +318,14 @@ class Cdp(object):
                             	Interface the neighbor entry was received on 
                             	**type**\:  str
                             
-                            	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+                            	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
                             
                             
 
                             """
 
                             _prefix = 'cdp-oper'
-                            _revision = '2015-01-07'
+                            _revision = '2015-07-30'
 
                             def __init__(self):
                                 self.parent = None
@@ -386,7 +386,7 @@ class Cdp(object):
                                 """
 
                                 _prefix = 'cdp-oper'
-                                _revision = '2015-01-07'
+                                _revision = '2015-07-30'
 
                                 def __init__(self):
                                     self.parent = None
@@ -415,7 +415,7 @@ class Cdp(object):
                                     """
 
                                     _prefix = 'cdp-oper'
-                                    _revision = '2015-01-07'
+                                    _revision = '2015-07-30'
 
                                     def __init__(self):
                                         self.parent = None
@@ -438,7 +438,7 @@ class Cdp(object):
                                         """
 
                                         _prefix = 'cdp-oper'
-                                        _revision = '2015-01-07'
+                                        _revision = '2015-07-30'
 
                                         def __init__(self):
                                             self.parent = None
@@ -474,7 +474,7 @@ class Cdp(object):
                                             """
 
                                             _prefix = 'cdp-oper'
-                                            _revision = '2015-01-07'
+                                            _revision = '2015-07-30'
 
                                             def __init__(self):
                                                 self.parent = None
@@ -577,7 +577,7 @@ class Cdp(object):
                                     """
 
                                     _prefix = 'cdp-oper'
-                                    _revision = '2015-01-07'
+                                    _revision = '2015-07-30'
 
                                     def __init__(self):
                                         self.parent = None
@@ -602,7 +602,7 @@ class Cdp(object):
                                         """
 
                                         _prefix = 'cdp-oper'
-                                        _revision = '2015-01-07'
+                                        _revision = '2015-07-30'
 
                                         def __init__(self):
                                             self.parent = None
@@ -818,7 +818,7 @@ class Cdp(object):
                     """
 
                     _prefix = 'cdp-oper'
-                    _revision = '2015-01-07'
+                    _revision = '2015-07-30'
 
                     def __init__(self):
                         self.parent = None
@@ -847,7 +847,7 @@ class Cdp(object):
                         """
 
                         _prefix = 'cdp-oper'
-                        _revision = '2015-01-07'
+                        _revision = '2015-07-30'
 
                         def __init__(self):
                             self.parent = None
@@ -905,14 +905,14 @@ class Cdp(object):
                             	Interface the neighbor entry was received on 
                             	**type**\:  str
                             
-                            	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+                            	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
                             
                             
 
                             """
 
                             _prefix = 'cdp-oper'
-                            _revision = '2015-01-07'
+                            _revision = '2015-07-30'
 
                             def __init__(self):
                                 self.parent = None
@@ -973,7 +973,7 @@ class Cdp(object):
                                 """
 
                                 _prefix = 'cdp-oper'
-                                _revision = '2015-01-07'
+                                _revision = '2015-07-30'
 
                                 def __init__(self):
                                     self.parent = None
@@ -1002,7 +1002,7 @@ class Cdp(object):
                                     """
 
                                     _prefix = 'cdp-oper'
-                                    _revision = '2015-01-07'
+                                    _revision = '2015-07-30'
 
                                     def __init__(self):
                                         self.parent = None
@@ -1025,7 +1025,7 @@ class Cdp(object):
                                         """
 
                                         _prefix = 'cdp-oper'
-                                        _revision = '2015-01-07'
+                                        _revision = '2015-07-30'
 
                                         def __init__(self):
                                             self.parent = None
@@ -1061,7 +1061,7 @@ class Cdp(object):
                                             """
 
                                             _prefix = 'cdp-oper'
-                                            _revision = '2015-01-07'
+                                            _revision = '2015-07-30'
 
                                             def __init__(self):
                                                 self.parent = None
@@ -1164,7 +1164,7 @@ class Cdp(object):
                                     """
 
                                     _prefix = 'cdp-oper'
-                                    _revision = '2015-01-07'
+                                    _revision = '2015-07-30'
 
                                     def __init__(self):
                                         self.parent = None
@@ -1189,7 +1189,7 @@ class Cdp(object):
                                         """
 
                                         _prefix = 'cdp-oper'
-                                        _revision = '2015-01-07'
+                                        _revision = '2015-07-30'
 
                                         def __init__(self):
                                             self.parent = None
@@ -1404,7 +1404,7 @@ class Cdp(object):
                     """
 
                     _prefix = 'cdp-oper'
-                    _revision = '2015-01-07'
+                    _revision = '2015-07-30'
 
                     def __init__(self):
                         self.parent = None
@@ -1432,14 +1432,14 @@ class Cdp(object):
                         	The interface name
                         	**type**\:  str
                         
-                        	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+                        	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
                         
                         
 
                         """
 
                         _prefix = 'cdp-oper'
-                        _revision = '2015-01-07'
+                        _revision = '2015-07-30'
 
                         def __init__(self):
                             self.parent = None
@@ -1498,14 +1498,14 @@ class Cdp(object):
                             	Interface the neighbor entry was received on 
                             	**type**\:  str
                             
-                            	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+                            	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
                             
                             
 
                             """
 
                             _prefix = 'cdp-oper'
-                            _revision = '2015-01-07'
+                            _revision = '2015-07-30'
 
                             def __init__(self):
                                 self.parent = None
@@ -1566,7 +1566,7 @@ class Cdp(object):
                                 """
 
                                 _prefix = 'cdp-oper'
-                                _revision = '2015-01-07'
+                                _revision = '2015-07-30'
 
                                 def __init__(self):
                                     self.parent = None
@@ -1595,7 +1595,7 @@ class Cdp(object):
                                     """
 
                                     _prefix = 'cdp-oper'
-                                    _revision = '2015-01-07'
+                                    _revision = '2015-07-30'
 
                                     def __init__(self):
                                         self.parent = None
@@ -1618,7 +1618,7 @@ class Cdp(object):
                                         """
 
                                         _prefix = 'cdp-oper'
-                                        _revision = '2015-01-07'
+                                        _revision = '2015-07-30'
 
                                         def __init__(self):
                                             self.parent = None
@@ -1654,7 +1654,7 @@ class Cdp(object):
                                             """
 
                                             _prefix = 'cdp-oper'
-                                            _revision = '2015-01-07'
+                                            _revision = '2015-07-30'
 
                                             def __init__(self):
                                                 self.parent = None
@@ -1757,7 +1757,7 @@ class Cdp(object):
                                     """
 
                                     _prefix = 'cdp-oper'
-                                    _revision = '2015-01-07'
+                                    _revision = '2015-07-30'
 
                                     def __init__(self):
                                         self.parent = None
@@ -1782,7 +1782,7 @@ class Cdp(object):
                                         """
 
                                         _prefix = 'cdp-oper'
-                                        _revision = '2015-01-07'
+                                        _revision = '2015-07-30'
 
                                         def __init__(self):
                                             self.parent = None
@@ -2121,7 +2121,7 @@ class Cdp(object):
                 """
 
                 _prefix = 'cdp-oper'
-                _revision = '2015-01-07'
+                _revision = '2015-07-30'
 
                 def __init__(self):
                     self.parent = None
@@ -2219,7 +2219,7 @@ class Cdp(object):
                 """
 
                 _prefix = 'cdp-oper'
-                _revision = '2015-01-07'
+                _revision = '2015-07-30'
 
                 def __init__(self):
                     self.parent = None
@@ -2238,7 +2238,7 @@ class Cdp(object):
                     	The interface name
                     	**type**\:  str
                     
-                    	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+                    	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
                     
                     .. attribute:: basecaps_state
                     
@@ -2264,14 +2264,14 @@ class Cdp(object):
                     	Interface
                     	**type**\:  str
                     
-                    	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+                    	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
                     
                     
 
                     """
 
                     _prefix = 'cdp-oper'
-                    _revision = '2015-01-07'
+                    _revision = '2015-07-30'
 
                     def __init__(self):
                         self.parent = None

@@ -27,13 +27,18 @@ from ydk._core._dm_meta_info import ATTRIBUTE, REFERENCE_ENUM_CLASS, REFERENCE_L
 
 import logging
 import importlib
+from functools import reduce
+
+import sys
+if sys.version_info > (3,):
+    long = int
 
 
 def validate_entity(entity, optype):
     errors = []
     validate_entity_delegate(entity, optype, errors)
     if len(errors) > 0:
-        _errors = map((lambda t: '%s: (%s, %s)' % t), errors)
+        _errors = list(map((lambda t: '%s: (%s, %s)' % t), errors))
         _errors.insert(0, '')
         errmsg = '\n  '.join(_errors)
         raise YPYModelError(errmsg)
@@ -63,7 +68,6 @@ def validate_entity_delegate(entity, optype, errors):
         if  member.mtype in (ATTRIBUTE, REFERENCE_ENUM_CLASS, REFERENCE_LIST, REFERENCE_LEAFLIST):
             _dm_validate_value(member, value, entity, optype, errors)
 
-
 def _dm_validate_value(meta, value, parent, optype, errors):
     if value is None:
         return value
@@ -71,13 +75,17 @@ def _dm_validate_value(meta, value, parent, optype, errors):
         value = value.item
 
     if meta._ptype == 'Empty':
-        exec 'from ydk.types import Empty'
+        exec('from ydk.types import Empty')
     elif meta._ptype == 'Decimal64':
-        exec 'from ydk.types import Decimal64'
+        exec('from ydk.types import Decimal64')
     elif 'Enum' in meta._ptype:
         exec_import = 'from %s import %s' \
             % (meta.pmodule_name, meta.clazz_name.split('.')[0])
-        exec exec_import
+        exec(exec_import)
+    elif meta._ptype == 'str' and meta.mtype != REFERENCE_LEAFLIST and isinstance(value, bytes):
+        new_value = str(value.decode())
+        setattr(parent, meta.presentation_name, new_value)
+        value = new_value
 
     isNumber = False
     path = '%s.%s' % (parent.i_meta.name, meta.presentation_name)
@@ -161,7 +169,7 @@ def _dm_validate_value(meta, value, parent, optype, errors):
             # enum, etc.
             return value
 
-    elif isinstance(value, (int, long)) and meta._ptype in ('int', 'long'):
+    elif isinstance(value, (int, long)) and meta._ptype == 'int':
         return _validate_number(meta, value, parent, errors)
 
     elif isinstance(value, YLeafList) and meta.mtype == REFERENCE_LEAFLIST:
@@ -172,8 +180,13 @@ def _dm_validate_value(meta, value, parent, optype, errors):
         value_len = len([v for v in value if v is not None])
 
         if min_elements <= value_len <= max_elements and value_len == len(value):
-            for v in value:
+            for i in range(len(value)):
+                v = value [i]
+                if meta.ptype == 'str' and isinstance(value[i], bytes):
+                    v = str(value[i].decode())
+                    value[i] = v
                 _dm_validate_value(meta, v, parent, optype, errors)
+            setattr(parent, meta.presentation_name, value)
         else:
             errmsg = "Invalid leaflist length, length = %d" % value_len
             _handle_error(meta, parent, errors, errmsg)
@@ -200,6 +213,8 @@ def _validate_number(meta, value, parent, errors):
         for prange in meta._range:
             if type(prange) == tuple:
                 pmin, pmax = prange
+                if meta.ptype == 'int':
+                    pmin, pmax = int(pmin), int(pmax)
                 if value >= pmin and value <= pmax:
                     valid = True
                     break
@@ -209,7 +224,13 @@ def _validate_number(meta, value, parent, errors):
                     break
         if not valid:
             errcode = YPYErrorCode.INVALID_VALUE
-            _range = str(meta._range) if len(meta._range) > 1 else str(meta._range[0])
+            _range = None
+            size = len(meta._range)
+            if size > 1:
+                _range = str(meta._range)
+            else:
+                lower, upper = meta._range[0]
+                _range = '(%s, %s)' % (lower, upper)
             errmsg = '{}: {} not in range {}'.format(errcode.value, value, _range)
             _handle_error(meta, parent, errors, errmsg, errcode)
     return value

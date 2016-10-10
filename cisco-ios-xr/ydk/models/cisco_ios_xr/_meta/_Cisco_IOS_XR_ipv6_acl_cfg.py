@@ -25,13 +25,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('sequence-number', ATTRIBUTE, 'int' , None, None, 
-                [(1, 2147483646)], [], 
+                [('1', '2147483646')], [], 
                 '''                Sequence number of prefix list
                 ''',
                 'sequence_number',
                 'Cisco-IOS-XR-ipv6-acl-cfg', True),
             _MetaInfoClassMember('exact-prefix-length', ATTRIBUTE, 'int' , None, None, 
-                [(0, 128)], [], 
+                [('0', '128')], [], 
                 '''                If exact prefix length matching specified,
                 set the length of prefix to be matched
                 ''',
@@ -77,7 +77,7 @@ _meta_table = {
                 'match_min_length',
                 'Cisco-IOS-XR-ipv6-acl-cfg', False),
             _MetaInfoClassMember('max-prefix-length', ATTRIBUTE, 'int' , None, None, 
-                [(0, 128)], [], 
+                [('0', '128')], [], 
                 '''                If maximum length prefix matching specified,
                 set the maximum length of prefix to be
                 matched
@@ -85,7 +85,7 @@ _meta_table = {
                 'max_prefix_length',
                 'Cisco-IOS-XR-ipv6-acl-cfg', False),
             _MetaInfoClassMember('min-prefix-length', ATTRIBUTE, 'int' , None, None, 
-                [(0, 128)], [], 
+                [('0', '128')], [], 
                 '''                If minimum length prefix matching specified,
                 set the minimum length of prefix to be
                 matched
@@ -99,7 +99,7 @@ _meta_table = {
                 'prefix',
                 'Cisco-IOS-XR-ipv6-acl-cfg', False),
             _MetaInfoClassMember('prefix-mask', ATTRIBUTE, 'int' , None, None, 
-                [(0, 128)], [], 
+                [('0', '128')], [], 
                 '''                MaskLength of IPv6 address prefix
                 ''',
                 'prefix_mask',
@@ -190,13 +190,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('rate', ATTRIBUTE, 'int' , None, None, 
-                [(1, 1000)], [], 
+                [('1', '1000')], [], 
                 '''                Log update rate (log messages per second)
                 ''',
                 'rate',
                 'Cisco-IOS-XR-ipv6-acl-cfg', False),
             _MetaInfoClassMember('threshold', ATTRIBUTE, 'int' , None, None, 
-                [(1, 2147483647)], [], 
+                [('1', '2147483647')], [], 
                 '''                Log update threshold (number of hits)
                 ''',
                 'threshold',
@@ -229,7 +229,7 @@ _meta_table = {
                 'source_mask',
                 'Cisco-IOS-XR-ipv6-acl-cfg', False),
             _MetaInfoClassMember('source-wild-card-bits', ATTRIBUTE, 'int' , None, None, 
-                [(0, 128)], [], 
+                [('0', '128')], [], 
                 '''                Wildcard bits to apply to source-address
                 (if specified), leave unspecified for no
                 wildcarding.
@@ -265,7 +265,7 @@ _meta_table = {
                 'destination_mask',
                 'Cisco-IOS-XR-ipv6-acl-cfg', False),
             _MetaInfoClassMember('destination-wild-card-bits', ATTRIBUTE, 'int' , None, None, 
-                [(0, 128)], [], 
+                [('0', '128')], [], 
                 '''                Wildcard bits to apply to destination 
                 destination-address (if specified), 
                 leave unspecified for no wildcarding.
@@ -300,7 +300,7 @@ _meta_table = {
                         'first_source_port',
                         'Cisco-IOS-XR-ipv6-acl-cfg', False),
                     _MetaInfoClassMember('first-source-port', ATTRIBUTE, 'int' , None, None, 
-                        [(0, 65535)], [], 
+                        [('0', '65535')], [], 
                         '''                        First source port for comparison, 
                         leave unspecified if source port comparison is
                         not to be performed.
@@ -325,7 +325,7 @@ _meta_table = {
                         'second_source_port',
                         'Cisco-IOS-XR-ipv6-acl-cfg', False),
                     _MetaInfoClassMember('second-source-port', ATTRIBUTE, 'int' , None, None, 
-                        [(0, 65535)], [], 
+                        [('0', '65535')], [], 
                         '''                        Second source port for comparion, 
                         leave unspecified if source port comparison is
                         not to be performed.
@@ -376,7 +376,7 @@ _meta_table = {
                         'first_destination_port',
                         'Cisco-IOS-XR-ipv6-acl-cfg', False),
                     _MetaInfoClassMember('first-destination-port', ATTRIBUTE, 'int' , None, None, 
-                        [(0, 65535)], [], 
+                        [('0', '65535')], [], 
                         '''                        First destination port for comparison, leave 
                         unspecified if destination port comparison is
                         not to be performed.
@@ -401,7 +401,7 @@ _meta_table = {
                         'second_destination_port',
                         'Cisco-IOS-XR-ipv6-acl-cfg', False),
                     _MetaInfoClassMember('second-destination-port', ATTRIBUTE, 'int' , None, None, 
-                        [(0, 65535)], [], 
+                        [('0', '65535')], [], 
                         '''                        Second destination port for comparion, leave 
                         unspecified if destination port comparison is
                         not to be performed.
@@ -454,7 +454,7 @@ _meta_table = {
                         'tcp_bits',
                         'Cisco-IOS-XR-ipv6-acl-cfg', False),
                     _MetaInfoClassMember('tcp-bits', ATTRIBUTE, 'int' , None, None, 
-                        [(0, 32)], [], 
+                        [('0', '32')], [], 
                         '''                        TCP bits to match. Leave unspecified if 
                         comparison of TCP bits is not required.
                         ''',
@@ -476,7 +476,7 @@ _meta_table = {
                         'tcp_bits_mask',
                         'Cisco-IOS-XR-ipv6-acl-cfg', False),
                     _MetaInfoClassMember('tcp-bits-mask', ATTRIBUTE, 'int' , None, None, 
-                        [(0, 32)], [], 
+                        [('0', '32')], [], 
                         '''                        TCP bits mask to use for flexible TCP matching.
                         Leave unspecified if it is not required.
                         ''',
@@ -503,7 +503,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('packet-length-max', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                Maximum packet length for comparion, leave 
                 unspecified if packet length comparison is not
                 to be performed or if only the minimum packet 
@@ -512,7 +512,7 @@ _meta_table = {
                 'packet_length_max',
                 'Cisco-IOS-XR-ipv6-acl-cfg', False),
             _MetaInfoClassMember('packet-length-min', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                Minimum packet length for comparison, leave 
                 unspecified if packet length comparison is not
                 to be performed or if only the maximum packet
@@ -540,7 +540,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('time-to-live-max', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                Maximum TTL for comparion, leave unspecified if
                 TTL comparison is not to be performed or if only
                 the minimum TTL should be considered.
@@ -548,7 +548,7 @@ _meta_table = {
                 'time_to_live_max',
                 'Cisco-IOS-XR-ipv6-acl-cfg', False),
             _MetaInfoClassMember('time-to-live-min', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                TTL value for comparison OR Minimum TTL value 
                 for TTL range comparision, leave unspecified if
                 TTL classification is not required.
@@ -692,12 +692,53 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_acl_cfg'
         ),
     },
+    'Ipv6AclAndPrefixList.Accesses.Access.AccessListEntries.AccessListEntry.HeaderFlags' : {
+        'meta_info' : _MetaInfoClass('Ipv6AclAndPrefixList.Accesses.Access.AccessListEntries.AccessListEntry.HeaderFlags',
+            False, 
+            [
+            _MetaInfoClassMember('authen', ATTRIBUTE, 'Empty' , None, None, 
+                [], [], 
+                '''                Match if authen header is present.
+                ''',
+                'authen',
+                'Cisco-IOS-XR-ipv6-acl-cfg', False),
+            _MetaInfoClassMember('destopts', ATTRIBUTE, 'Empty' , None, None, 
+                [], [], 
+                '''                Match if destops header is present.
+                ''',
+                'destopts',
+                'Cisco-IOS-XR-ipv6-acl-cfg', False),
+            _MetaInfoClassMember('fragments', ATTRIBUTE, 'Empty' , None, None, 
+                [], [], 
+                '''                Match if fragments header is present.
+                ''',
+                'fragments',
+                'Cisco-IOS-XR-ipv6-acl-cfg', False),
+            _MetaInfoClassMember('hop-by-hop', ATTRIBUTE, 'Empty' , None, None, 
+                [], [], 
+                '''                Match if hop-by-hop header is present.
+                ''',
+                'hop_by_hop',
+                'Cisco-IOS-XR-ipv6-acl-cfg', False),
+            _MetaInfoClassMember('routing', ATTRIBUTE, 'Empty' , None, None, 
+                [], [], 
+                '''                Match if routing header is present.
+                ''',
+                'routing',
+                'Cisco-IOS-XR-ipv6-acl-cfg', False),
+            ],
+            'Cisco-IOS-XR-ipv6-acl-cfg',
+            'header-flags',
+            _yang_ns._namespaces['Cisco-IOS-XR-ipv6-acl-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_acl_cfg'
+        ),
+    },
     'Ipv6AclAndPrefixList.Accesses.Access.AccessListEntries.AccessListEntry' : {
         'meta_info' : _MetaInfoClass('Ipv6AclAndPrefixList.Accesses.Access.AccessListEntries.AccessListEntry',
             False, 
             [
             _MetaInfoClassMember('sequence-number', ATTRIBUTE, 'int' , None, None, 
-                [(1, 2147483646)], [], 
+                [('1', '2147483646')], [], 
                 '''                Sequence number of access list entry
                 ''',
                 'sequence_number',
@@ -755,7 +796,7 @@ _meta_table = {
                         'dscp',
                         'Cisco-IOS-XR-ipv6-acl-cfg', False),
                     _MetaInfoClassMember('dscp', ATTRIBUTE, 'int' , None, None, 
-                        [(0, 64)], [], 
+                        [('0', '64')], [], 
                         '''                        DSCP value to match (if a protocol was specified),
                         leave unspecified if DSCP comparion is not to be
                         performed.
@@ -770,9 +811,9 @@ _meta_table = {
                 ''',
                 'grant',
                 'Cisco-IOS-XR-ipv6-acl-cfg', False),
-            _MetaInfoClassMember('header-flags', ATTRIBUTE, 'Empty' , None, None, 
+            _MetaInfoClassMember('header-flags', REFERENCE_CLASS, 'HeaderFlags' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_acl_cfg', 'Ipv6AclAndPrefixList.Accesses.Access.AccessListEntries.AccessListEntry.HeaderFlags', 
                 [], [], 
-                '''                Match if routing header is present.
+                '''                Match if header-flag is present.
                 ''',
                 'header_flags',
                 'Cisco-IOS-XR-ipv6-acl-cfg', False),
@@ -824,7 +865,7 @@ _meta_table = {
                         'precedence',
                         'Cisco-IOS-XR-ipv6-acl-cfg', False),
                     _MetaInfoClassMember('precedence', ATTRIBUTE, 'int' , None, None, 
-                        [(0, 7)], [], 
+                        [('0', '7')], [], 
                         '''                        Precedence value to match (if a protocol was 
                         specified), leave unspecified if precedence 
                         comparion is not to be performed.
@@ -845,7 +886,7 @@ _meta_table = {
                         'protocol',
                         'Cisco-IOS-XR-ipv6-acl-cfg', False),
                     _MetaInfoClassMember('protocol', ATTRIBUTE, 'int' , None, None, 
-                        [(0, 255)], [], 
+                        [('0', '255')], [], 
                         '''                        Protocol to match.
                         ''',
                         'protocol',
@@ -856,6 +897,12 @@ _meta_table = {
                 '''                Comments or a description for the access list.
                 ''',
                 'remark',
+                'Cisco-IOS-XR-ipv6-acl-cfg', False),
+            _MetaInfoClassMember('sequence-str', ATTRIBUTE, 'str' , None, None, 
+                [(1, 64)], [], 
+                '''                Sequence String for the ace.
+                ''',
+                'sequence_str',
                 'Cisco-IOS-XR-ipv6-acl-cfg', False),
             _MetaInfoClassMember('source-network', REFERENCE_CLASS, 'SourceNetwork' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_acl_cfg', 'Ipv6AclAndPrefixList.Accesses.Access.AccessListEntries.AccessListEntry.SourceNetwork', 
                 [], [], 
@@ -1004,6 +1051,7 @@ _meta_table['Ipv6AclAndPrefixList.Accesses.Access.AccessListEntries.AccessListEn
 _meta_table['Ipv6AclAndPrefixList.Accesses.Access.AccessListEntries.AccessListEntry.PacketLength']['meta_info'].parent =_meta_table['Ipv6AclAndPrefixList.Accesses.Access.AccessListEntries.AccessListEntry']['meta_info']
 _meta_table['Ipv6AclAndPrefixList.Accesses.Access.AccessListEntries.AccessListEntry.TimeToLive']['meta_info'].parent =_meta_table['Ipv6AclAndPrefixList.Accesses.Access.AccessListEntries.AccessListEntry']['meta_info']
 _meta_table['Ipv6AclAndPrefixList.Accesses.Access.AccessListEntries.AccessListEntry.NextHop']['meta_info'].parent =_meta_table['Ipv6AclAndPrefixList.Accesses.Access.AccessListEntries.AccessListEntry']['meta_info']
+_meta_table['Ipv6AclAndPrefixList.Accesses.Access.AccessListEntries.AccessListEntry.HeaderFlags']['meta_info'].parent =_meta_table['Ipv6AclAndPrefixList.Accesses.Access.AccessListEntries.AccessListEntry']['meta_info']
 _meta_table['Ipv6AclAndPrefixList.Accesses.Access.AccessListEntries.AccessListEntry']['meta_info'].parent =_meta_table['Ipv6AclAndPrefixList.Accesses.Access.AccessListEntries']['meta_info']
 _meta_table['Ipv6AclAndPrefixList.Accesses.Access.AccessListEntries']['meta_info'].parent =_meta_table['Ipv6AclAndPrefixList.Accesses.Access']['meta_info']
 _meta_table['Ipv6AclAndPrefixList.Accesses.Access']['meta_info'].parent =_meta_table['Ipv6AclAndPrefixList.Accesses']['meta_info']

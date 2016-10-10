@@ -7,7 +7,7 @@ This module contains definitions
 for the following management objects\:
   platform\-qos\: DNX QoS EA operational data
 
-Copyright (c) 2013\-2015 by Cisco Systems, Inc.
+Copyright (c) 2013\-2016 by Cisco Systems, Inc.
 All rights reserved.
 
 """
@@ -240,13 +240,29 @@ class DnxQoseaShowMarkEnum(Enum):
 
     	Inner COS
 
-    .. data:: DSCP_TUNNEL = 9
+    .. data:: UN_SUPPORTED9 = 9
+
+    	Unsupported type 9
+
+    .. data:: UN_SUPPORTED10 = 10
+
+    	Unsupported type 10
+
+    .. data:: DSCP_TUNNEL = 11
 
     	DSCP tunnel
 
-    .. data:: PRECEDENCE_TUNNEL = 10
+    .. data:: PRECEDENCE_TUNNEL = 12
 
     	Precedence tunnel
+
+    .. data:: DEI = 13
+
+    	DEI
+
+    .. data:: DEI_IMPOSITION = 14
+
+    	DEI Imposition
 
     """
 
@@ -268,9 +284,17 @@ class DnxQoseaShowMarkEnum(Enum):
 
     INNER_COS = 8
 
-    DSCP_TUNNEL = 9
+    UN_SUPPORTED9 = 9
 
-    PRECEDENCE_TUNNEL = 10
+    UN_SUPPORTED10 = 10
+
+    DSCP_TUNNEL = 11
+
+    PRECEDENCE_TUNNEL = 12
+
+    DEI = 13
+
+    DEI_IMPOSITION = 14
 
 
     @staticmethod
@@ -304,123 +328,6 @@ class DnxQoseaShowPolicyStatusEnum(Enum):
     def _meta_info():
         from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ncs5500_qos_oper as meta
         return meta._meta_table['DnxQoseaShowPolicyStatusEnum']
-
-
-class DnxQoseaShowPolicyUnitEnum(Enum):
-    """
-    DnxQoseaShowPolicyUnitEnum
-
-    Policy parameter unit type
-
-    .. data:: INVALID = 0
-
-    	Invalid uint type
-
-    .. data:: BYTES = 1
-
-    	Units in bytes
-
-    .. data:: KILO_BYTES = 2
-
-    	Units in kilobytes
-
-    .. data:: MEGA_BYTES = 3
-
-    	Units in megabytes
-
-    .. data:: GIGA_BYTES = 4
-
-    	Units in gigabytes
-
-    .. data:: BITS_PER_SECOND = 5
-
-    	Units in bits per second
-
-    .. data:: KILO_BITS_PER_SECOND = 6
-
-    	Units in kilo bits per second
-
-    .. data:: MEGA_BITS_PER_SECOND = 7
-
-    	Units in mega bits per second
-
-    .. data:: GIGA_BITS_PER_SECOND = 8
-
-    	Units in giga bits per second
-
-    .. data:: CELLS_PER_SECOND = 9
-
-    	Units in cells per second
-
-    .. data:: PACKETS_PER_SECOND = 10
-
-    	Units in Packets Per Second
-
-    .. data:: MICROSECONDS = 11
-
-    	Units in microseconds
-
-    .. data:: MILLISECONDS = 12
-
-    	Units in milliseconds
-
-    .. data:: PACKETS = 13
-
-    	Units in packets
-
-    .. data:: CELLS = 14
-
-    	Units in cells
-
-    .. data:: PERCENT = 15
-
-    	Units in percentage
-
-    .. data:: RATIO = 16
-
-    	Units in ratio
-
-    """
-
-    INVALID = 0
-
-    BYTES = 1
-
-    KILO_BYTES = 2
-
-    MEGA_BYTES = 3
-
-    GIGA_BYTES = 4
-
-    BITS_PER_SECOND = 5
-
-    KILO_BITS_PER_SECOND = 6
-
-    MEGA_BITS_PER_SECOND = 7
-
-    GIGA_BITS_PER_SECOND = 8
-
-    CELLS_PER_SECOND = 9
-
-    PACKETS_PER_SECOND = 10
-
-    MICROSECONDS = 11
-
-    MILLISECONDS = 12
-
-    PACKETS = 13
-
-    CELLS = 14
-
-    PERCENT = 15
-
-    RATIO = 16
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ncs5500_qos_oper as meta
-        return meta._meta_table['DnxQoseaShowPolicyUnitEnum']
 
 
 class DnxQoseaShowQueueEnum(Enum):
@@ -523,6 +430,165 @@ class DnxQoseaShowWredEnum(Enum):
     def _meta_info():
         from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ncs5500_qos_oper as meta
         return meta._meta_table['DnxQoseaShowWredEnum']
+
+
+class PolicyParamUnitEnum(Enum):
+    """
+    PolicyParamUnitEnum
+
+    Policy param unit
+
+    .. data:: POLICY_PARAM_UNIT_INVALID = 0
+
+    	policy param unit invalid
+
+    .. data:: POLICY_PARAM_UNIT_BYTES = 1
+
+    	policy param unit bytes
+
+    .. data:: POLICY_PARAM_UNIT_KBYTES = 2
+
+    	policy param unit kbytes
+
+    .. data:: POLICY_PARAM_UNIT_MBYTES = 3
+
+    	policy param unit mbytes
+
+    .. data:: POLICY_PARAM_UNIT_GBYTES = 4
+
+    	policy param unit gbytes
+
+    .. data:: POLICY_PARAM_UNIT_BITSPS = 5
+
+    	policy param unit bitsps
+
+    .. data:: POLICY_PARAM_UNIT_KBITSPS = 6
+
+    	policy param unit kbitsps
+
+    .. data:: POLICY_PARAM_UNIT_MBITSPS = 7
+
+    	policy param unit mbitsps
+
+    .. data:: POLICY_PARAM_UNIT_GBITSPS = 8
+
+    	policy param unit gbitsps
+
+    .. data:: POLICY_PARAM_UNIT_CELLS_PS = 9
+
+    	policy param unit cells ps
+
+    .. data:: POLICY_PARAM_UNIT_PACKETS_PS = 10
+
+    	policy param unit packets ps
+
+    .. data:: POLICY_PARAM_UNIT_US = 11
+
+    	policy param unit us
+
+    .. data:: POLICY_PARAM_UNIT_MS = 12
+
+    	policy param unit ms
+
+    .. data:: POLICY_PARAM_UNIT_SECONDS = 13
+
+    	policy param unit seconds
+
+    .. data:: POLICY_PARAM_UNIT_PACKETS = 14
+
+    	policy param unit packets
+
+    .. data:: POLICY_PARAM_UNIT_CELLS = 15
+
+    	policy param unit cells
+
+    .. data:: POLICY_PARAM_UNIT_PERCENT = 16
+
+    	policy param unit percent
+
+    .. data:: POLICY_PARAM_UNIT_PER_THOUSAND = 17
+
+    	policy param unit per thousand
+
+    .. data:: POLICY_PARAM_UNIT_PER_MILLION = 18
+
+    	policy param unit per million
+
+    .. data:: POLICY_PARAM_UNIT_HZ = 19
+
+    	policy param unit hz
+
+    .. data:: POLICY_PARAM_UNIT_KHZ = 20
+
+    	policy param unit khz
+
+    .. data:: POLICY_PARAM_UNIT_MHZ = 21
+
+    	policy param unit mhz
+
+    .. data:: POLICY_PARAM_UNIT_RATIO = 22
+
+    	policy param unit ratio
+
+    .. data:: POLICY_PARAM_UNIT_MAX = 23
+
+    	policy param unit max
+
+    """
+
+    POLICY_PARAM_UNIT_INVALID = 0
+
+    POLICY_PARAM_UNIT_BYTES = 1
+
+    POLICY_PARAM_UNIT_KBYTES = 2
+
+    POLICY_PARAM_UNIT_MBYTES = 3
+
+    POLICY_PARAM_UNIT_GBYTES = 4
+
+    POLICY_PARAM_UNIT_BITSPS = 5
+
+    POLICY_PARAM_UNIT_KBITSPS = 6
+
+    POLICY_PARAM_UNIT_MBITSPS = 7
+
+    POLICY_PARAM_UNIT_GBITSPS = 8
+
+    POLICY_PARAM_UNIT_CELLS_PS = 9
+
+    POLICY_PARAM_UNIT_PACKETS_PS = 10
+
+    POLICY_PARAM_UNIT_US = 11
+
+    POLICY_PARAM_UNIT_MS = 12
+
+    POLICY_PARAM_UNIT_SECONDS = 13
+
+    POLICY_PARAM_UNIT_PACKETS = 14
+
+    POLICY_PARAM_UNIT_CELLS = 15
+
+    POLICY_PARAM_UNIT_PERCENT = 16
+
+    POLICY_PARAM_UNIT_PER_THOUSAND = 17
+
+    POLICY_PARAM_UNIT_PER_MILLION = 18
+
+    POLICY_PARAM_UNIT_HZ = 19
+
+    POLICY_PARAM_UNIT_KHZ = 20
+
+    POLICY_PARAM_UNIT_MHZ = 21
+
+    POLICY_PARAM_UNIT_RATIO = 22
+
+    POLICY_PARAM_UNIT_MAX = 23
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ncs5500_qos_oper as meta
+        return meta._meta_table['PolicyParamUnitEnum']
 
 
 class QosPolicyAccountEnumEnum(Enum):
@@ -692,7 +758,7 @@ class PlatformQos(object):
                     	Bundle interface name
                     	**type**\:  str
                     
-                    	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+                    	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
                     
                     .. attribute:: classes
                     
@@ -773,7 +839,7 @@ class PlatformQos(object):
                             	Member interface
                             	**type**\:  str
                             
-                            	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+                            	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
                             
                             .. attribute:: classes
                             
@@ -865,7 +931,7 @@ class PlatformQos(object):
                                 .. attribute:: voq_stats_handle
                                 
                                 	VOQ stats handle
-                                	**type**\:  long
+                                	**type**\:  int
                                 
                                 	**range:** 0..18446744073709551615
                                 
@@ -1101,14 +1167,14 @@ class PlatformQos(object):
                                     .. attribute:: hardware_queue_limit_bytes
                                     
                                     	Hardware queue limit in bytes
-                                    	**type**\:  long
+                                    	**type**\:  int
                                     
                                     	**range:** 0..18446744073709551615
                                     
                                     .. attribute:: hardware_queue_limit_microseconds
                                     
                                     	Hardware queue limit in microseconds
-                                    	**type**\:  long
+                                    	**type**\:  int
                                     
                                     	**range:** 0..18446744073709551615
                                     
@@ -1144,7 +1210,7 @@ class PlatformQos(object):
                                     .. attribute:: policer_stats_handle
                                     
                                     	PolicerStatsHandle
-                                    	**type**\:  long
+                                    	**type**\:  int
                                     
                                     	**range:** 0..18446744073709551615
                                     
@@ -1238,7 +1304,7 @@ class PlatformQos(object):
                                         .. attribute:: policy_unit
                                         
                                         	Policy unit
-                                        	**type**\:  :py:class:`DnxQoseaShowPolicyUnitEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowPolicyUnitEnum>`
+                                        	**type**\:  :py:class:`PolicyParamUnitEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PolicyParamUnitEnum>`
                                         
                                         .. attribute:: policy_value
                                         
@@ -1294,7 +1360,7 @@ class PlatformQos(object):
                                         .. attribute:: policy_unit
                                         
                                         	Policy unit
-                                        	**type**\:  :py:class:`DnxQoseaShowPolicyUnitEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowPolicyUnitEnum>`
+                                        	**type**\:  :py:class:`PolicyParamUnitEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PolicyParamUnitEnum>`
                                         
                                         .. attribute:: policy_value
                                         
@@ -1350,7 +1416,7 @@ class PlatformQos(object):
                                         .. attribute:: policy_unit
                                         
                                         	Policy unit
-                                        	**type**\:  :py:class:`DnxQoseaShowPolicyUnitEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowPolicyUnitEnum>`
+                                        	**type**\:  :py:class:`PolicyParamUnitEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PolicyParamUnitEnum>`
                                         
                                         .. attribute:: policy_value
                                         
@@ -1406,7 +1472,7 @@ class PlatformQos(object):
                                         .. attribute:: policy_unit
                                         
                                         	Policy unit
-                                        	**type**\:  :py:class:`DnxQoseaShowPolicyUnitEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowPolicyUnitEnum>`
+                                        	**type**\:  :py:class:`PolicyParamUnitEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PolicyParamUnitEnum>`
                                         
                                         .. attribute:: policy_value
                                         
@@ -1462,7 +1528,7 @@ class PlatformQos(object):
                                         .. attribute:: policy_unit
                                         
                                         	Policy unit
-                                        	**type**\:  :py:class:`DnxQoseaShowPolicyUnitEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowPolicyUnitEnum>`
+                                        	**type**\:  :py:class:`PolicyParamUnitEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PolicyParamUnitEnum>`
                                         
                                         .. attribute:: policy_value
                                         
@@ -1518,7 +1584,7 @@ class PlatformQos(object):
                                         .. attribute:: policy_unit
                                         
                                         	Policy unit
-                                        	**type**\:  :py:class:`DnxQoseaShowPolicyUnitEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowPolicyUnitEnum>`
+                                        	**type**\:  :py:class:`PolicyParamUnitEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PolicyParamUnitEnum>`
                                         
                                         .. attribute:: policy_value
                                         
@@ -1574,7 +1640,7 @@ class PlatformQos(object):
                                         .. attribute:: policy_unit
                                         
                                         	Policy unit
-                                        	**type**\:  :py:class:`DnxQoseaShowPolicyUnitEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowPolicyUnitEnum>`
+                                        	**type**\:  :py:class:`PolicyParamUnitEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PolicyParamUnitEnum>`
                                         
                                         .. attribute:: policy_value
                                         
@@ -2321,7 +2387,7 @@ class PlatformQos(object):
                                             .. attribute:: policy_unit
                                             
                                             	Policy unit
-                                            	**type**\:  :py:class:`DnxQoseaShowPolicyUnitEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowPolicyUnitEnum>`
+                                            	**type**\:  :py:class:`PolicyParamUnitEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PolicyParamUnitEnum>`
                                             
                                             .. attribute:: policy_value
                                             
@@ -2377,7 +2443,7 @@ class PlatformQos(object):
                                             .. attribute:: policy_unit
                                             
                                             	Policy unit
-                                            	**type**\:  :py:class:`DnxQoseaShowPolicyUnitEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowPolicyUnitEnum>`
+                                            	**type**\:  :py:class:`PolicyParamUnitEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PolicyParamUnitEnum>`
                                             
                                             .. attribute:: policy_value
                                             
@@ -2752,7 +2818,7 @@ class PlatformQos(object):
                         .. attribute:: voq_stats_handle
                         
                         	VOQ stats handle
-                        	**type**\:  long
+                        	**type**\:  int
                         
                         	**range:** 0..18446744073709551615
                         
@@ -2988,14 +3054,14 @@ class PlatformQos(object):
                             .. attribute:: hardware_queue_limit_bytes
                             
                             	Hardware queue limit in bytes
-                            	**type**\:  long
+                            	**type**\:  int
                             
                             	**range:** 0..18446744073709551615
                             
                             .. attribute:: hardware_queue_limit_microseconds
                             
                             	Hardware queue limit in microseconds
-                            	**type**\:  long
+                            	**type**\:  int
                             
                             	**range:** 0..18446744073709551615
                             
@@ -3031,7 +3097,7 @@ class PlatformQos(object):
                             .. attribute:: policer_stats_handle
                             
                             	PolicerStatsHandle
-                            	**type**\:  long
+                            	**type**\:  int
                             
                             	**range:** 0..18446744073709551615
                             
@@ -3125,7 +3191,7 @@ class PlatformQos(object):
                                 .. attribute:: policy_unit
                                 
                                 	Policy unit
-                                	**type**\:  :py:class:`DnxQoseaShowPolicyUnitEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowPolicyUnitEnum>`
+                                	**type**\:  :py:class:`PolicyParamUnitEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PolicyParamUnitEnum>`
                                 
                                 .. attribute:: policy_value
                                 
@@ -3181,7 +3247,7 @@ class PlatformQos(object):
                                 .. attribute:: policy_unit
                                 
                                 	Policy unit
-                                	**type**\:  :py:class:`DnxQoseaShowPolicyUnitEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowPolicyUnitEnum>`
+                                	**type**\:  :py:class:`PolicyParamUnitEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PolicyParamUnitEnum>`
                                 
                                 .. attribute:: policy_value
                                 
@@ -3237,7 +3303,7 @@ class PlatformQos(object):
                                 .. attribute:: policy_unit
                                 
                                 	Policy unit
-                                	**type**\:  :py:class:`DnxQoseaShowPolicyUnitEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowPolicyUnitEnum>`
+                                	**type**\:  :py:class:`PolicyParamUnitEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PolicyParamUnitEnum>`
                                 
                                 .. attribute:: policy_value
                                 
@@ -3293,7 +3359,7 @@ class PlatformQos(object):
                                 .. attribute:: policy_unit
                                 
                                 	Policy unit
-                                	**type**\:  :py:class:`DnxQoseaShowPolicyUnitEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowPolicyUnitEnum>`
+                                	**type**\:  :py:class:`PolicyParamUnitEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PolicyParamUnitEnum>`
                                 
                                 .. attribute:: policy_value
                                 
@@ -3349,7 +3415,7 @@ class PlatformQos(object):
                                 .. attribute:: policy_unit
                                 
                                 	Policy unit
-                                	**type**\:  :py:class:`DnxQoseaShowPolicyUnitEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowPolicyUnitEnum>`
+                                	**type**\:  :py:class:`PolicyParamUnitEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PolicyParamUnitEnum>`
                                 
                                 .. attribute:: policy_value
                                 
@@ -3405,7 +3471,7 @@ class PlatformQos(object):
                                 .. attribute:: policy_unit
                                 
                                 	Policy unit
-                                	**type**\:  :py:class:`DnxQoseaShowPolicyUnitEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowPolicyUnitEnum>`
+                                	**type**\:  :py:class:`PolicyParamUnitEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PolicyParamUnitEnum>`
                                 
                                 .. attribute:: policy_value
                                 
@@ -3461,7 +3527,7 @@ class PlatformQos(object):
                                 .. attribute:: policy_unit
                                 
                                 	Policy unit
-                                	**type**\:  :py:class:`DnxQoseaShowPolicyUnitEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowPolicyUnitEnum>`
+                                	**type**\:  :py:class:`PolicyParamUnitEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PolicyParamUnitEnum>`
                                 
                                 .. attribute:: policy_value
                                 
@@ -4208,7 +4274,7 @@ class PlatformQos(object):
                                     .. attribute:: policy_unit
                                     
                                     	Policy unit
-                                    	**type**\:  :py:class:`DnxQoseaShowPolicyUnitEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowPolicyUnitEnum>`
+                                    	**type**\:  :py:class:`PolicyParamUnitEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PolicyParamUnitEnum>`
                                     
                                     .. attribute:: policy_value
                                     
@@ -4264,7 +4330,7 @@ class PlatformQos(object):
                                     .. attribute:: policy_unit
                                     
                                     	Policy unit
-                                    	**type**\:  :py:class:`DnxQoseaShowPolicyUnitEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowPolicyUnitEnum>`
+                                    	**type**\:  :py:class:`PolicyParamUnitEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PolicyParamUnitEnum>`
                                     
                                     .. attribute:: policy_value
                                     
@@ -4616,7 +4682,7 @@ class PlatformQos(object):
                     	The name of the interface
                     	**type**\:  str
                     
-                    	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+                    	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
                     
                     .. attribute:: classes
                     
@@ -4714,7 +4780,7 @@ class PlatformQos(object):
                         .. attribute:: voq_stats_handle
                         
                         	VOQ stats handle
-                        	**type**\:  long
+                        	**type**\:  int
                         
                         	**range:** 0..18446744073709551615
                         
@@ -4950,14 +5016,14 @@ class PlatformQos(object):
                             .. attribute:: hardware_queue_limit_bytes
                             
                             	Hardware queue limit in bytes
-                            	**type**\:  long
+                            	**type**\:  int
                             
                             	**range:** 0..18446744073709551615
                             
                             .. attribute:: hardware_queue_limit_microseconds
                             
                             	Hardware queue limit in microseconds
-                            	**type**\:  long
+                            	**type**\:  int
                             
                             	**range:** 0..18446744073709551615
                             
@@ -4993,7 +5059,7 @@ class PlatformQos(object):
                             .. attribute:: policer_stats_handle
                             
                             	PolicerStatsHandle
-                            	**type**\:  long
+                            	**type**\:  int
                             
                             	**range:** 0..18446744073709551615
                             
@@ -5087,7 +5153,7 @@ class PlatformQos(object):
                                 .. attribute:: policy_unit
                                 
                                 	Policy unit
-                                	**type**\:  :py:class:`DnxQoseaShowPolicyUnitEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowPolicyUnitEnum>`
+                                	**type**\:  :py:class:`PolicyParamUnitEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PolicyParamUnitEnum>`
                                 
                                 .. attribute:: policy_value
                                 
@@ -5143,7 +5209,7 @@ class PlatformQos(object):
                                 .. attribute:: policy_unit
                                 
                                 	Policy unit
-                                	**type**\:  :py:class:`DnxQoseaShowPolicyUnitEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowPolicyUnitEnum>`
+                                	**type**\:  :py:class:`PolicyParamUnitEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PolicyParamUnitEnum>`
                                 
                                 .. attribute:: policy_value
                                 
@@ -5199,7 +5265,7 @@ class PlatformQos(object):
                                 .. attribute:: policy_unit
                                 
                                 	Policy unit
-                                	**type**\:  :py:class:`DnxQoseaShowPolicyUnitEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowPolicyUnitEnum>`
+                                	**type**\:  :py:class:`PolicyParamUnitEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PolicyParamUnitEnum>`
                                 
                                 .. attribute:: policy_value
                                 
@@ -5255,7 +5321,7 @@ class PlatformQos(object):
                                 .. attribute:: policy_unit
                                 
                                 	Policy unit
-                                	**type**\:  :py:class:`DnxQoseaShowPolicyUnitEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowPolicyUnitEnum>`
+                                	**type**\:  :py:class:`PolicyParamUnitEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PolicyParamUnitEnum>`
                                 
                                 .. attribute:: policy_value
                                 
@@ -5311,7 +5377,7 @@ class PlatformQos(object):
                                 .. attribute:: policy_unit
                                 
                                 	Policy unit
-                                	**type**\:  :py:class:`DnxQoseaShowPolicyUnitEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowPolicyUnitEnum>`
+                                	**type**\:  :py:class:`PolicyParamUnitEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PolicyParamUnitEnum>`
                                 
                                 .. attribute:: policy_value
                                 
@@ -5367,7 +5433,7 @@ class PlatformQos(object):
                                 .. attribute:: policy_unit
                                 
                                 	Policy unit
-                                	**type**\:  :py:class:`DnxQoseaShowPolicyUnitEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowPolicyUnitEnum>`
+                                	**type**\:  :py:class:`PolicyParamUnitEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PolicyParamUnitEnum>`
                                 
                                 .. attribute:: policy_value
                                 
@@ -5423,7 +5489,7 @@ class PlatformQos(object):
                                 .. attribute:: policy_unit
                                 
                                 	Policy unit
-                                	**type**\:  :py:class:`DnxQoseaShowPolicyUnitEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowPolicyUnitEnum>`
+                                	**type**\:  :py:class:`PolicyParamUnitEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PolicyParamUnitEnum>`
                                 
                                 .. attribute:: policy_value
                                 
@@ -6170,7 +6236,7 @@ class PlatformQos(object):
                                     .. attribute:: policy_unit
                                     
                                     	Policy unit
-                                    	**type**\:  :py:class:`DnxQoseaShowPolicyUnitEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowPolicyUnitEnum>`
+                                    	**type**\:  :py:class:`PolicyParamUnitEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PolicyParamUnitEnum>`
                                     
                                     .. attribute:: policy_value
                                     
@@ -6226,7 +6292,7 @@ class PlatformQos(object):
                                     .. attribute:: policy_unit
                                     
                                     	Policy unit
-                                    	**type**\:  :py:class:`DnxQoseaShowPolicyUnitEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.DnxQoseaShowPolicyUnitEnum>`
+                                    	**type**\:  :py:class:`PolicyParamUnitEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper.PolicyParamUnitEnum>`
                                     
                                     .. attribute:: policy_value
                                     
@@ -6572,7 +6638,7 @@ class PlatformQos(object):
                     	The name of the remote interface
                     	**type**\:  str
                     
-                    	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+                    	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
                     
                     .. attribute:: interface_handle
                     
@@ -6610,7 +6676,7 @@ class PlatformQos(object):
                     .. attribute:: virtual_output_queue_statistics_handle
                     
                     	Virtual output queue statistics handle
-                    	**type**\:  long
+                    	**type**\:  int
                     
                     	**range:** 0..18446744073709551615
                     
@@ -6644,6 +6710,13 @@ class PlatformQos(object):
                         	**type**\:  int
                         
                         	**range:** 0..4294967295
+                        
+                        .. attribute:: class_name
+                        
+                        	Class Name
+                        	**type**\:  str
+                        
+                        	**range:** 0..64
                         
                         .. attribute:: cos_q
                         
@@ -6686,6 +6759,7 @@ class PlatformQos(object):
                         def __init__(self):
                             self.parent = None
                             self.class_id = None
+                            self.class_name = None
                             self.cos_q = None
                             self.hardware_queue_limit = None
                             self.hw_wred = YList()
@@ -6849,6 +6923,9 @@ class PlatformQos(object):
                             if not self.is_config():
                                 return False
                             if self.class_id is not None:
+                                return True
+
+                            if self.class_name is not None:
                                 return True
 
                             if self.cos_q is not None:

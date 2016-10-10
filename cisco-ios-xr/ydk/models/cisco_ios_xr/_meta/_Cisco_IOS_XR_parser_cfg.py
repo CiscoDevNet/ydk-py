@@ -185,7 +185,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('size', ATTRIBUTE, 'int' , None, None, 
-                [(1000, 5000)], [], 
+                [('1000', '5000')], [], 
                 '''                maximum number of commands in history
                 ''',
                 'size',
@@ -193,6 +193,40 @@ _meta_table = {
             ],
             'Cisco-IOS-XR-parser-cfg',
             'history',
+            _yang_ns._namespaces['Cisco-IOS-XR-parser-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_parser_cfg'
+        ),
+    },
+    'Parser.InterfaceDisplay' : {
+        'meta_info' : _MetaInfoClass('Parser.InterfaceDisplay',
+            False, 
+            [
+            _MetaInfoClassMember('slot-order', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Configure Interface display order as slot order
+                ''',
+                'slot_order',
+                'Cisco-IOS-XR-parser-cfg', False),
+            ],
+            'Cisco-IOS-XR-parser-cfg',
+            'interface-display',
+            _yang_ns._namespaces['Cisco-IOS-XR-parser-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_parser_cfg'
+        ),
+    },
+    'Parser.NetmaskFormat' : {
+        'meta_info' : _MetaInfoClass('Parser.NetmaskFormat',
+            False, 
+            [
+            _MetaInfoClassMember('bit-count', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Enable ipv4 netmask-format as bit-count
+                ''',
+                'bit_count',
+                'Cisco-IOS-XR-parser-cfg', False),
+            ],
+            'Cisco-IOS-XR-parser-cfg',
+            'netmask-format',
             _yang_ns._namespaces['Cisco-IOS-XR-parser-cfg'],
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_parser_cfg'
         ),
@@ -276,6 +310,18 @@ _meta_table = {
                 ''',
                 'indentation',
                 'Cisco-IOS-XR-parser-cfg', False),
+            _MetaInfoClassMember('interface-display', REFERENCE_CLASS, 'InterfaceDisplay' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_parser_cfg', 'Parser.InterfaceDisplay', 
+                [], [], 
+                '''                Configure the Interface display order
+                ''',
+                'interface_display',
+                'Cisco-IOS-XR-parser-cfg', False),
+            _MetaInfoClassMember('netmask-format', REFERENCE_CLASS, 'NetmaskFormat' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_parser_cfg', 'Parser.NetmaskFormat', 
+                [], [], 
+                '''                Ipv4 netmask-format to be configured
+                ''',
+                'netmask_format',
+                'Cisco-IOS-XR-parser-cfg', False),
             _MetaInfoClassMember('submode-exit', REFERENCE_CLASS, 'SubmodeExit' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_parser_cfg', 'Parser.SubmodeExit', 
                 [], [], 
                 '''                Exit submode when only '!' seen in interactive
@@ -301,5 +347,7 @@ _meta_table['Parser.Configuration.Disable']['meta_info'].parent =_meta_table['Pa
 _meta_table['Parser.Indentation']['meta_info'].parent =_meta_table['Parser']['meta_info']
 _meta_table['Parser.Alias']['meta_info'].parent =_meta_table['Parser']['meta_info']
 _meta_table['Parser.History']['meta_info'].parent =_meta_table['Parser']['meta_info']
+_meta_table['Parser.InterfaceDisplay']['meta_info'].parent =_meta_table['Parser']['meta_info']
+_meta_table['Parser.NetmaskFormat']['meta_info'].parent =_meta_table['Parser']['meta_info']
 _meta_table['Parser.Configuration']['meta_info'].parent =_meta_table['Parser']['meta_info']
 _meta_table['Parser.SubmodeExit']['meta_info'].parent =_meta_table['Parser']['meta_info']

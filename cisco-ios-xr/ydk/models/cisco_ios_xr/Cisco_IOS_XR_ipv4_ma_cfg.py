@@ -8,7 +8,7 @@ for the following management objects\:
   ipv4\-network\-global\: IPv4 network global configuration data
   subscriber\-pta\: subscriber pta
 
-Copyright (c) 2013\-2015 by Cisco Systems, Inc.
+Copyright (c) 2013\-2016 by Cisco Systems, Inc.
 All rights reserved.
 
 """
@@ -71,11 +71,6 @@ class Ipv4NetworkGlobal(object):
     """
     IPv4 network global configuration data
     
-    .. attribute:: icmp
-    
-    	ICMP options
-    	**type**\:  :py:class:`Icmp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ma_cfg.Ipv4NetworkGlobal.Icmp>`
-    
     .. attribute:: qppb
     
     	QPPB
@@ -113,8 +108,6 @@ class Ipv4NetworkGlobal(object):
     _revision = '2015-07-30'
 
     def __init__(self):
-        self.icmp = Ipv4NetworkGlobal.Icmp()
-        self.icmp.parent = self
         self.qppb = Ipv4NetworkGlobal.Qppb()
         self.qppb.parent = self
         self.reassemble_max_packets = None
@@ -122,150 +115,6 @@ class Ipv4NetworkGlobal(object):
         self.source_route = None
         self.unnumbered = Ipv4NetworkGlobal.Unnumbered()
         self.unnumbered.parent = self
-
-
-    class Icmp(object):
-        """
-        ICMP options
-        
-        .. attribute:: rate_limit
-        
-        	Rate limit generation of ICMP messages
-        	**type**\:  :py:class:`RateLimit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ma_cfg.Ipv4NetworkGlobal.Icmp.RateLimit>`
-        
-        
-
-        """
-
-        _prefix = 'ipv4-ma-cfg'
-        _revision = '2015-07-30'
-
-        def __init__(self):
-            self.parent = None
-            self.rate_limit = Ipv4NetworkGlobal.Icmp.RateLimit()
-            self.rate_limit.parent = self
-
-
-        class RateLimit(object):
-            """
-            Rate limit generation of ICMP messages
-            
-            .. attribute:: unreachable
-            
-            	Destination Unreachable rate limiting
-            	**type**\:  :py:class:`Unreachable <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ma_cfg.Ipv4NetworkGlobal.Icmp.RateLimit.Unreachable>`
-            
-            
-
-            """
-
-            _prefix = 'ipv4-ma-cfg'
-            _revision = '2015-07-30'
-
-            def __init__(self):
-                self.parent = None
-                self.unreachable = Ipv4NetworkGlobal.Icmp.RateLimit.Unreachable()
-                self.unreachable.parent = self
-
-
-            class Unreachable(object):
-                """
-                Destination Unreachable rate limiting
-                
-                .. attribute:: df
-                
-                	Destination Unreachable DF packets requiring fragmentation response rate limit value in milliseconds
-                	**type**\:  int
-                
-                	**range:** 1..4294967295
-                
-                .. attribute:: rate
-                
-                	Destination Unreachable packet response rate limit value in milliseconds
-                	**type**\:  int
-                
-                	**range:** 1..4294967295
-                
-                
-
-                """
-
-                _prefix = 'ipv4-ma-cfg'
-                _revision = '2015-07-30'
-
-                def __init__(self):
-                    self.parent = None
-                    self.df = None
-                    self.rate = None
-
-                @property
-                def _common_path(self):
-
-                    return '/Cisco-IOS-XR-ipv4-ma-cfg:ipv4-network-global/Cisco-IOS-XR-ipv4-ma-cfg:icmp/Cisco-IOS-XR-ipv4-ma-cfg:rate-limit/Cisco-IOS-XR-ipv4-ma-cfg:unreachable'
-
-                def is_config(self):
-                    ''' Returns True if this instance represents config data else returns False '''
-                    return True
-
-                def _has_data(self):
-                    if not self.is_config():
-                        return False
-                    if self.df is not None:
-                        return True
-
-                    if self.rate is not None:
-                        return True
-
-                    return False
-
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_ma_cfg as meta
-                    return meta._meta_table['Ipv4NetworkGlobal.Icmp.RateLimit.Unreachable']['meta_info']
-
-            @property
-            def _common_path(self):
-
-                return '/Cisco-IOS-XR-ipv4-ma-cfg:ipv4-network-global/Cisco-IOS-XR-ipv4-ma-cfg:icmp/Cisco-IOS-XR-ipv4-ma-cfg:rate-limit'
-
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
-                return True
-
-            def _has_data(self):
-                if not self.is_config():
-                    return False
-                if self.unreachable is not None and self.unreachable._has_data():
-                    return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_ma_cfg as meta
-                return meta._meta_table['Ipv4NetworkGlobal.Icmp.RateLimit']['meta_info']
-
-        @property
-        def _common_path(self):
-
-            return '/Cisco-IOS-XR-ipv4-ma-cfg:ipv4-network-global/Cisco-IOS-XR-ipv4-ma-cfg:icmp'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
-            return True
-
-        def _has_data(self):
-            if not self.is_config():
-                return False
-            if self.rate_limit is not None and self.rate_limit._has_data():
-                return True
-
-            return False
-
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_ma_cfg as meta
-            return meta._meta_table['Ipv4NetworkGlobal.Icmp']['meta_info']
 
 
     class Unnumbered(object):
@@ -463,9 +312,6 @@ class Ipv4NetworkGlobal(object):
     def _has_data(self):
         if not self.is_config():
             return False
-        if self.icmp is not None and self.icmp._has_data():
-            return True
-
         if self.qppb is not None and self.qppb._has_data():
             return True
 

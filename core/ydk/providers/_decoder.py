@@ -18,7 +18,6 @@
    Decoder.
 
 """
-
 from lxml import etree
 from ydk._core._dm_meta_info import ATTRIBUTE, REFERENCE_CLASS, REFERENCE_LEAFLIST, \
             REFERENCE_LIST, REFERENCE_IDENTITY_CLASS, REFERENCE_ENUM_CLASS, \
@@ -31,12 +30,13 @@ from ydk.errors import YPYServiceProviderError, YPYErrorCode
 import logging
 import re
 import importlib
+from functools import reduce
 
 
 class XmlDecoder(object):
 
     def decode(self, payload):
-        payload_tree = etree.fromstring(payload)
+        payload_tree = etree.fromstring(payload.encode('utf-8'))
         top_entity = self._get_top_entity(payload_tree)
         rt = payload_tree.getroottree().getroot()
         curr_rt = get_root(rt, top_entity, _yang_ns._namespaces)
@@ -45,7 +45,7 @@ class XmlDecoder(object):
 
     def get_top_container_for_namespace(self, namespace, text):
         entity_import = _yang_ns._namespace_package_map[(namespace, text)]
-        exec entity_import
+        exec(entity_import)
         top_entity = eval('%s()' % entity_import.split()[-1])
         return top_entity
 
@@ -60,7 +60,7 @@ class XmlDecoder(object):
         payload = payload_convert(payload)
         if payload is None:
             return top_entity
-        rt = etree.fromstring(payload).getroottree().getroot()
+        rt = etree.fromstring(payload.encode('utf-8')).getroottree().getroot()
         curr_rt = get_root(rt, top_entity, _yang_ns._namespaces)
         XmlDecoder._bind_to_object_helper(curr_rt, top_entity, active_deviation_tables, pretty_p='|-')
 
@@ -121,8 +121,6 @@ class XmlDecoder(object):
             return Empty()
         elif member.ptype == 'int' and is_digit(elem.text):
             return int(elem.text)
-        elif member.ptype == 'long':
-            return long(elem.text)
         elif member.ptype == 'str':
             return elem.text
         elif member.ptype == 'bool':
@@ -188,8 +186,6 @@ class XmlDecoder(object):
                     potential_str_value = rt[0].text
                     continue
                 return rt[0].text
-            elif contained_member.ptype == 'long' and rt[0].text is not None and is_digit(rt[0].text):
-                return long(rt[0].text)
             elif contained_member.ptype == 'int' and rt[0].text is not None and is_digit(rt[0].text):
                 return int(rt[0].text)
             elif contained_member.ptype == 'Decimal64' and rt[0].text is not None:
@@ -303,12 +299,12 @@ def payload_convert(payload):
     # TODO add feature to detect types of payload: JSON or xml
     # drop namespaces and key_val pairs
     rt_new = etree.Element('rpc-reply')
-    rt = etree.fromstring(payload)
+    rt = etree.fromstring(payload.encode('utf-8'))
     chchs = rt.getchildren()[0].getchildren()
     for ch in chchs:
         rt_new.append(ch)
 
-    return etree.tostring(rt_new, pretty_print=True)
+    return etree.tostring(rt_new, pretty_print=True, encoding='utf-8').decode('utf-8')
 
 def is_digit(n):
     try:

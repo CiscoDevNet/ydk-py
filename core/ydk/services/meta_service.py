@@ -95,7 +95,7 @@ class MetaService(Service):
             if len(deviation_tables) == 0:
                 inject_imeta_helper(entity, deviation_tables)
             else:
-                for deviation_table in deviation_tables.values():
+                for deviation_table in list(deviation_tables.values()):
                     inject_imeta_helper(entity, deviation_table)
 
 

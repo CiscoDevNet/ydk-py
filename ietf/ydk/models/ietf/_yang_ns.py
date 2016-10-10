@@ -5,7 +5,9 @@ _global_ietf_interfaces_nsp = 'urn:ietf:params:xml:ns:yang:ietf-interfaces'
 _global_ietf_interfaces_ext_nsp = 'urn:ietf:params:xml:ns:yang:ietf-interfaces-ext'
 _global_ietf_netconf_nsp = 'urn:ietf:params:xml:ns:netconf:base:1.0'
 _global_ietf_netconf_acm_nsp = 'urn:ietf:params:xml:ns:yang:ietf-netconf-acm'
+_global_ietf_netconf_monitoring_nsp = 'urn:ietf:params:xml:ns:yang:ietf-netconf-monitoring'
 _global_ietf_netconf_with_defaults_nsp = 'urn:ietf:params:xml:ns:yang:ietf-netconf-with-defaults'
+_global_ietf_syslog_types_nsp = 'urn:ietf:params:xml:ns:yang:ietf-syslog-types'
 _global_ietf_system_nsp = 'urn:ietf:params:xml:ns:yang:ietf-system'
 _global_ietf_yang_smiv2_nsp = 'urn:ietf:params:xml:ns:yang:ietf-yang-smiv2'
 _global_ietf_yang_types_nsp = 'urn:ietf:params:xml:ns:yang:ietf-yang-types'
@@ -17,7 +19,9 @@ _namespaces = { \
     'ietf-interfaces-ext' : 'urn:ietf:params:xml:ns:yang:ietf-interfaces-ext', 
     'ietf-netconf' : 'urn:ietf:params:xml:ns:netconf:base:1.0', 
     'ietf-netconf-acm' : 'urn:ietf:params:xml:ns:yang:ietf-netconf-acm', 
+    'ietf-netconf-monitoring' : 'urn:ietf:params:xml:ns:yang:ietf-netconf-monitoring', 
     'ietf-netconf-with-defaults' : 'urn:ietf:params:xml:ns:yang:ietf-netconf-with-defaults', 
+    'ietf-syslog-types' : 'urn:ietf:params:xml:ns:yang:ietf-syslog-types', 
     'ietf-system' : 'urn:ietf:params:xml:ns:yang:ietf-system', 
     'ietf-yang-smiv2' : 'urn:ietf:params:xml:ns:yang:ietf-yang-smiv2', 
     'ietf-yang-types' : 'urn:ietf:params:xml:ns:yang:ietf-yang-types', 
@@ -298,6 +302,43 @@ _identity_map = { \
     ('iana-if-type', 'x25ple'):('ydk.models.ietf.iana_if_type', 'X25PleIdentity'),
     ('iana-if-type', 'x86Laps'):('ydk.models.ietf.iana_if_type', 'X86LapsIdentity'),
     ('ietf-interfaces', 'interface-type'):('ydk.models.ietf.ietf_interfaces', 'InterfaceTypeIdentity'),
+    ('ietf-netconf-monitoring', 'netconf-beep'):('ydk.models.ietf.ietf_netconf_monitoring', 'NetconfBeepIdentity'),
+    ('ietf-netconf-monitoring', 'netconf-soap-over-beep'):('ydk.models.ietf.ietf_netconf_monitoring', 'NetconfSoapOverBeepIdentity'),
+    ('ietf-netconf-monitoring', 'netconf-soap-over-https'):('ydk.models.ietf.ietf_netconf_monitoring', 'NetconfSoapOverHttpsIdentity'),
+    ('ietf-netconf-monitoring', 'netconf-ssh'):('ydk.models.ietf.ietf_netconf_monitoring', 'NetconfSshIdentity'),
+    ('ietf-netconf-monitoring', 'netconf-tls'):('ydk.models.ietf.ietf_netconf_monitoring', 'NetconfTlsIdentity'),
+    ('ietf-netconf-monitoring', 'rnc'):('ydk.models.ietf.ietf_netconf_monitoring', 'RncIdentity'),
+    ('ietf-netconf-monitoring', 'rng'):('ydk.models.ietf.ietf_netconf_monitoring', 'RngIdentity'),
+    ('ietf-netconf-monitoring', 'schema-format'):('ydk.models.ietf.ietf_netconf_monitoring', 'SchemaFormatIdentity'),
+    ('ietf-netconf-monitoring', 'transport'):('ydk.models.ietf.ietf_netconf_monitoring', 'TransportIdentity'),
+    ('ietf-netconf-monitoring', 'xsd'):('ydk.models.ietf.ietf_netconf_monitoring', 'XsdIdentity'),
+    ('ietf-netconf-monitoring', 'yang'):('ydk.models.ietf.ietf_netconf_monitoring', 'YangIdentity'),
+    ('ietf-netconf-monitoring', 'yin'):('ydk.models.ietf.ietf_netconf_monitoring', 'YinIdentity'),
+    ('ietf-syslog-types', 'audit'):('ydk.models.ietf.ietf_syslog_types', 'AuditIdentity'),
+    ('ietf-syslog-types', 'auth'):('ydk.models.ietf.ietf_syslog_types', 'AuthIdentity'),
+    ('ietf-syslog-types', 'authpriv'):('ydk.models.ietf.ietf_syslog_types', 'AuthprivIdentity'),
+    ('ietf-syslog-types', 'console'):('ydk.models.ietf.ietf_syslog_types', 'ConsoleIdentity'),
+    ('ietf-syslog-types', 'cron2'):('ydk.models.ietf.ietf_syslog_types', 'Cron2Identity'),
+    ('ietf-syslog-types', 'cron'):('ydk.models.ietf.ietf_syslog_types', 'CronIdentity'),
+    ('ietf-syslog-types', 'daemon'):('ydk.models.ietf.ietf_syslog_types', 'DaemonIdentity'),
+    ('ietf-syslog-types', 'ftp'):('ydk.models.ietf.ietf_syslog_types', 'FtpIdentity'),
+    ('ietf-syslog-types', 'kern'):('ydk.models.ietf.ietf_syslog_types', 'KernIdentity'),
+    ('ietf-syslog-types', 'local0'):('ydk.models.ietf.ietf_syslog_types', 'Local0Identity'),
+    ('ietf-syslog-types', 'local1'):('ydk.models.ietf.ietf_syslog_types', 'Local1Identity'),
+    ('ietf-syslog-types', 'local2'):('ydk.models.ietf.ietf_syslog_types', 'Local2Identity'),
+    ('ietf-syslog-types', 'local3'):('ydk.models.ietf.ietf_syslog_types', 'Local3Identity'),
+    ('ietf-syslog-types', 'local4'):('ydk.models.ietf.ietf_syslog_types', 'Local4Identity'),
+    ('ietf-syslog-types', 'local5'):('ydk.models.ietf.ietf_syslog_types', 'Local5Identity'),
+    ('ietf-syslog-types', 'local6'):('ydk.models.ietf.ietf_syslog_types', 'Local6Identity'),
+    ('ietf-syslog-types', 'local7'):('ydk.models.ietf.ietf_syslog_types', 'Local7Identity'),
+    ('ietf-syslog-types', 'lpr'):('ydk.models.ietf.ietf_syslog_types', 'LprIdentity'),
+    ('ietf-syslog-types', 'mail'):('ydk.models.ietf.ietf_syslog_types', 'MailIdentity'),
+    ('ietf-syslog-types', 'news'):('ydk.models.ietf.ietf_syslog_types', 'NewsIdentity'),
+    ('ietf-syslog-types', 'ntp'):('ydk.models.ietf.ietf_syslog_types', 'NtpIdentity'),
+    ('ietf-syslog-types', 'syslog-facility'):('ydk.models.ietf.ietf_syslog_types', 'SyslogFacilityIdentity'),
+    ('ietf-syslog-types', 'syslog'):('ydk.models.ietf.ietf_syslog_types', 'SyslogIdentity'),
+    ('ietf-syslog-types', 'user'):('ydk.models.ietf.ietf_syslog_types', 'UserIdentity'),
+    ('ietf-syslog-types', 'uucp'):('ydk.models.ietf.ietf_syslog_types', 'UucpIdentity'),
     ('ietf-system', 'authentication-method'):('ydk.models.ietf.ietf_system', 'AuthenticationMethodIdentity'),
     ('ietf-system', 'local-users'):('ydk.models.ietf.ietf_system', 'LocalUsersIdentity'),
     ('ietf-system', 'radius-authentication-type'):('ydk.models.ietf.ietf_system', 'RadiusAuthenticationTypeIdentity'),
@@ -311,6 +352,7 @@ _namespace_package_map = { \
 ('urn:ietf:params:xml:ns:yang:ietf-interfaces', 'interfaces') : 'from ydk.models.ietf.ietf_interfaces import Interfaces', 
 ('urn:ietf:params:xml:ns:yang:ietf-interfaces', 'interfaces-state') : 'from ydk.models.ietf.ietf_interfaces import InterfacesState', 
 ('urn:ietf:params:xml:ns:yang:ietf-netconf-acm', 'nacm') : 'from ydk.models.ietf.ietf_netconf_acm import Nacm', 
+('urn:ietf:params:xml:ns:yang:ietf-netconf-monitoring', 'netconf-state') : 'from ydk.models.ietf.ietf_netconf_monitoring import NetconfState', 
 ('urn:ietf:params:xml:ns:yang:ietf-system', 'system') : 'from ydk.models.ietf.ietf_system import System', 
 ('urn:ietf:params:xml:ns:yang:ietf-system', 'system-state') : 'from ydk.models.ietf.ietf_system import SystemState', 
 }

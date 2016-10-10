@@ -40,11 +40,21 @@ _meta_table = {
             'newinfo':'NEWINFO',
             'periodic':'PERIODIC',
         }, 'Cisco-IOS-XR-aaa-lib-cfg', _yang_ns._namespaces['Cisco-IOS-XR-aaa-lib-cfg']),
+    'AaaAccountingRpFailoverEnum' : _MetaInfoEnum('AaaAccountingRpFailoverEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg',
+        {
+            'not-set':'NOT_SET',
+            'set':'SET',
+        }, 'Cisco-IOS-XR-aaa-lib-cfg', _yang_ns._namespaces['Cisco-IOS-XR-aaa-lib-cfg']),
     'AaaAccountingEnum' : _MetaInfoEnum('AaaAccountingEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg',
         {
             'not-set':'NOT_SET',
             'start-stop':'START_STOP',
             'stop-only':'STOP_ONLY',
+        }, 'Cisco-IOS-XR-aaa-lib-cfg', _yang_ns._namespaces['Cisco-IOS-XR-aaa-lib-cfg']),
+    'AaaAccountingBroadcastEnum' : _MetaInfoEnum('AaaAccountingBroadcastEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg',
+        {
+            'not-set':'NOT_SET',
+            'set':'SET',
         }, 'Cisco-IOS-XR-aaa-lib-cfg', _yang_ns._namespaces['Cisco-IOS-XR-aaa-lib-cfg']),
     'Aaa.Accountings.Accounting' : {
         'meta_info' : _MetaInfoClass('Aaa.Accountings.Accounting',
@@ -63,7 +73,7 @@ _meta_table = {
                 ''',
                 'type',
                 'Cisco-IOS-XR-aaa-lib-cfg', True),
-            _MetaInfoClassMember('broadcast', ATTRIBUTE, 'Empty' , None, None, 
+            _MetaInfoClassMember('broadcast', REFERENCE_ENUM_CLASS, 'AaaAccountingBroadcastEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg', 'AaaAccountingBroadcastEnum', 
                 [], [], 
                 '''                Broadcast
                 ''',
@@ -75,7 +85,7 @@ _meta_table = {
                 ''',
                 'method',
                 'Cisco-IOS-XR-aaa-lib-cfg', False, max_elements=4),
-            _MetaInfoClassMember('rp-failover', ATTRIBUTE, 'Empty' , None, None, 
+            _MetaInfoClassMember('rp-failover', REFERENCE_ENUM_CLASS, 'AaaAccountingRpFailoverEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg', 'AaaAccountingRpFailoverEnum', 
                 [], [], 
                 '''                rpfailover
                 ''',
@@ -175,7 +185,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('periodic-interval', ATTRIBUTE, 'int' , None, None, 
-                [(0, 35791394)], [], 
+                [('0', '35791394')], [], 
                 '''                Periodic update interval in minutes
                 ''',
                 'periodic_interval',
@@ -322,13 +332,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('acct-port-number', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                Accounting Port number (standard port 1646)
                 ''',
                 'acct_port_number',
                 'Cisco-IOS-XR-aaa-protocol-radius-cfg', True),
             _MetaInfoClassMember('auth-port-number', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                Authentication Port number (standard port
                 1645)
                 ''',
@@ -354,7 +364,7 @@ _meta_table = {
                         'Cisco-IOS-XR-aaa-protocol-radius-cfg', True),
                 ]),
             _MetaInfoClassMember('ordering-index', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                This is used to sort the servers in the
                 order of precedence
                 ''',
@@ -389,13 +399,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('acct-port-number', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                Accounting Port number (standard port 1646)
                 ''',
                 'acct_port_number',
                 'Cisco-IOS-XR-aaa-protocol-radius-cfg', True),
             _MetaInfoClassMember('auth-port-number', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                Authentication Port number (standard port
                 1645)
                 ''',
@@ -421,14 +431,14 @@ _meta_table = {
                         'Cisco-IOS-XR-aaa-protocol-radius-cfg', True),
                 ]),
             _MetaInfoClassMember('ordering-index', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                This is used to sort the servers in the
                 order of precedence
                 ''',
                 'ordering_index',
                 'Cisco-IOS-XR-aaa-protocol-radius-cfg', True),
             _MetaInfoClassMember('idle-time', ATTRIBUTE, 'int' , None, None, 
-                [(1, 60)], [], 
+                [('1', '60')], [], 
                 '''                Idle time for the radius Server
                 ''',
                 'idle_time',
@@ -452,14 +462,14 @@ _meta_table = {
                 'private_key',
                 'Cisco-IOS-XR-aaa-protocol-radius-cfg', False),
             _MetaInfoClassMember('private-retransmit', ATTRIBUTE, 'int' , None, None, 
-                [(1, 100)], [], 
+                [('1', '100')], [], 
                 '''                Number of times to retransmit a request to
                 the RADIUS server
                 ''',
                 'private_retransmit',
                 'Cisco-IOS-XR-aaa-protocol-radius-cfg', False),
             _MetaInfoClassMember('private-timeout', ATTRIBUTE, 'int' , None, None, 
-                [(1, 1000)], [], 
+                [('1', '1000')], [], 
                 '''                Time to wait for a RADIUS server to reply
                 ''',
                 'private_timeout',
@@ -500,21 +510,21 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('access', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                To flow control the number of access requests
                 sent to a radius server
                 ''',
                 'access',
                 'Cisco-IOS-XR-aaa-protocol-radius-cfg', False),
             _MetaInfoClassMember('access-timeout', ATTRIBUTE, 'int' , None, None, 
-                [(1, 10)], [], 
+                [('1', '10')], [], 
                 '''                Specify the number of timeouts exceeding
                 which a throttled access request is dropped
                 ''',
                 'access_timeout',
                 'Cisco-IOS-XR-aaa-protocol-radius-cfg', False),
             _MetaInfoClassMember('accounting', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                To flow control the number of accounting
                 requests sent to a radius server
                 ''',
@@ -532,20 +542,20 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('batch-size', ATTRIBUTE, 'int' , None, None, 
-                [(1, 1500)], [], 
+                [('1', '1500')], [], 
                 '''                Batch size for selection of the server
                 ''',
                 'batch_size',
                 'Cisco-IOS-XR-aaa-protocol-radius-cfg', False),
             _MetaInfoClassMember('ignore-preferred-server', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Disable preferred server for this Server
                 Group
                 ''',
                 'ignore_preferred_server',
                 'Cisco-IOS-XR-aaa-protocol-radius-cfg', False),
             _MetaInfoClassMember('least-outstanding', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Pick the server with the least transactions
                 outstanding
                 ''',
@@ -663,38 +673,6 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg'
         ),
     },
-    'Aaa.ServerGroups.RadiusServerGroups.RadiusServerGroup.Throttle' : {
-        'meta_info' : _MetaInfoClass('Aaa.ServerGroups.RadiusServerGroups.RadiusServerGroup.Throttle',
-            False, 
-            [
-            _MetaInfoClassMember('access', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
-                '''                To flow control the number of access requests
-                sent to a radius server
-                ''',
-                'access',
-                'Cisco-IOS-XR-aaa-protocol-radius-cfg', False),
-            _MetaInfoClassMember('access-timeout', ATTRIBUTE, 'int' , None, None, 
-                [(1, 10)], [], 
-                '''                Specify the number of timeouts exceeding which
-                a throttled access request is dropped
-                ''',
-                'access_timeout',
-                'Cisco-IOS-XR-aaa-protocol-radius-cfg', False),
-            _MetaInfoClassMember('accounting', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
-                '''                To flow control the number of accounting
-                requests sent to a radius server
-                ''',
-                'accounting',
-                'Cisco-IOS-XR-aaa-protocol-radius-cfg', False),
-            ],
-            'Cisco-IOS-XR-aaa-protocol-radius-cfg',
-            'throttle',
-            _yang_ns._namespaces['Cisco-IOS-XR-aaa-protocol-radius-cfg'],
-        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg'
-        ),
-    },
     'Aaa.ServerGroups.RadiusServerGroups.RadiusServerGroup' : {
         'meta_info' : _MetaInfoClass('Aaa.ServerGroups.RadiusServerGroups.RadiusServerGroup',
             False, 
@@ -718,7 +696,7 @@ _meta_table = {
                 'authorization',
                 'Cisco-IOS-XR-aaa-protocol-radius-cfg', False),
             _MetaInfoClassMember('dead-time', ATTRIBUTE, 'int' , None, None, 
-                [(1, 1440)], [], 
+                [('1', '1440')], [], 
                 '''                This indicates the length of time (in minutes)
                 for which RADIUS servers present in this group
                 remain marked as dead
@@ -751,17 +729,11 @@ _meta_table = {
                 'servers',
                 'Cisco-IOS-XR-aaa-protocol-radius-cfg', False),
             _MetaInfoClassMember('source-interface', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Specify interface for source address in RADIUS
                 packets
                 ''',
                 'source_interface',
-                'Cisco-IOS-XR-aaa-protocol-radius-cfg', False),
-            _MetaInfoClassMember('throttle', REFERENCE_CLASS, 'Throttle' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg', 'Aaa.ServerGroups.RadiusServerGroups.RadiusServerGroup.Throttle', 
-                [], [], 
-                '''                Radius throttling options
-                ''',
-                'throttle',
                 'Cisco-IOS-XR-aaa-protocol-radius-cfg', False),
             _MetaInfoClassMember('vrf', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
@@ -817,7 +789,7 @@ _meta_table = {
                         'Cisco-IOS-XR-aaa-tacacs-cfg', True),
                 ]),
             _MetaInfoClassMember('ordering-index', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                This is used to sort the servers in the
                 order of precedence
                 ''',
@@ -871,14 +843,14 @@ _meta_table = {
                         'Cisco-IOS-XR-aaa-tacacs-cfg', True),
                 ]),
             _MetaInfoClassMember('ordering-index', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                This is used to sort the servers in the
                 order of precedence
                 ''',
                 'ordering_index',
                 'Cisco-IOS-XR-aaa-tacacs-cfg', True),
             _MetaInfoClassMember('port-number', ATTRIBUTE, 'int' , None, None, 
-                [(1, 65535)], [], 
+                [('1', '65535')], [], 
                 '''                Port number (standard 49)
                 ''',
                 'port_number',
@@ -890,7 +862,7 @@ _meta_table = {
                 'key',
                 'Cisco-IOS-XR-aaa-tacacs-cfg', False),
             _MetaInfoClassMember('timeout', ATTRIBUTE, 'int' , None, None, 
-                [(1, 1000)], [], 
+                [('1', '1000')], [], 
                 '''                Time to wait for a TACACS+ server to reply
                 ''',
                 'timeout',
@@ -1039,6 +1011,13 @@ _meta_table = {
                 '''                Username
                 ''',
                 'name',
+                'Cisco-IOS-XR-aaa-locald-cfg', True),
+            _MetaInfoClassMember('ordering-index', ATTRIBUTE, 'int' , None, None, 
+                [('-2147483648', '2147483647')], [], 
+                '''                This is used to sort the users in the order of
+                precedence
+                ''',
+                'ordering_index',
                 'Cisco-IOS-XR-aaa-locald-cfg', True),
             _MetaInfoClassMember('password', ATTRIBUTE, 'str' , None, None, 
                 [], ['(!.+)|([^!].+)'], 
@@ -1337,13 +1316,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('acct-port-number', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                Accounting Port number (standard port 1646)
                 ''',
                 'acct_port_number',
                 'Cisco-IOS-XR-aaa-protocol-radius-cfg', True),
             _MetaInfoClassMember('auth-port-number', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                Authentication Port number (standard port
                 1645)
                 ''',
@@ -1369,7 +1348,7 @@ _meta_table = {
                         'Cisco-IOS-XR-aaa-protocol-radius-cfg', True),
                 ]),
             _MetaInfoClassMember('ordering-index', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                This is used to sort the servers in the order
                 of precedence
                 ''',
@@ -1382,20 +1361,20 @@ _meta_table = {
                 'host_key',
                 'Cisco-IOS-XR-aaa-protocol-radius-cfg', False),
             _MetaInfoClassMember('host-retransmit', ATTRIBUTE, 'int' , None, None, 
-                [(1, 100)], [], 
+                [('1', '100')], [], 
                 '''                Number of times to retransmit a request to
                 the RADIUS server
                 ''',
                 'host_retransmit',
                 'Cisco-IOS-XR-aaa-protocol-radius-cfg', False),
             _MetaInfoClassMember('host-timeout', ATTRIBUTE, 'int' , None, None, 
-                [(1, 1000)], [], 
+                [('1', '1000')], [], 
                 '''                Time to wait for a RADIUS server to reply
                 ''',
                 'host_timeout',
                 'Cisco-IOS-XR-aaa-protocol-radius-cfg', False),
             _MetaInfoClassMember('idle-time', ATTRIBUTE, 'int' , None, None, 
-                [(1, 1000)], [], 
+                [('1', '1000')], [], 
                 '''                Idle time for RADIUS server
                 ''',
                 'idle_time',
@@ -1447,7 +1426,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('time', ATTRIBUTE, 'int' , None, None, 
-                [(1, 120)], [], 
+                [('1', '120')], [], 
                 '''                The minimum amount of time which must elapse
                 since the router last received a valid RADIUS
                 packet from the server prior to marking it
@@ -1456,7 +1435,7 @@ _meta_table = {
                 'time',
                 'Cisco-IOS-XR-aaa-protocol-radius-cfg', False),
             _MetaInfoClassMember('tries', ATTRIBUTE, 'int' , None, None, 
-                [(1, 100)], [], 
+                [('1', '100')], [], 
                 '''                The number of consecutive timeouts the router
                 must experience in order to mark the server as
                 dead. All transmissions, including the initial
@@ -1476,7 +1455,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('null-username', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Disallow null-username
                 ''',
                 'null_username',
@@ -1505,7 +1484,7 @@ _meta_table = {
                         'dscp',
                         'Cisco-IOS-XR-aaa-protocol-radius-cfg', False),
                     _MetaInfoClassMember('dscp', ATTRIBUTE, 'int' , None, None, 
-                        [(0, 63)], [], 
+                        [('0', '63')], [], 
                         '''                        Specify the DSCP value
                         ''',
                         'dscp',
@@ -1642,7 +1621,7 @@ _meta_table = {
                 'ignore',
                 'Cisco-IOS-XR-aaa-protocol-radius-cfg', False),
             _MetaInfoClassMember('port', ATTRIBUTE, 'int' , None, None, 
-                [(1000, 5000)], [], 
+                [('1000', '5000')], [], 
                 '''                Specify the COA server port to listen on
                 ''',
                 'port',
@@ -1665,13 +1644,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('batch-size', ATTRIBUTE, 'int' , None, None, 
-                [(1, 1500)], [], 
+                [('1', '1500')], [], 
                 '''                Batch size for selection of the server
                 ''',
                 'batch_size',
                 'Cisco-IOS-XR-aaa-protocol-radius-cfg', False),
             _MetaInfoClassMember('ignore-preferred-server', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Disable preferred server for this Server
                 Group
                 ''',
@@ -1718,58 +1697,6 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg'
         ),
     },
-    'Aaa.Radius.Vsa.Attribute.Ignore' : {
-        'meta_info' : _MetaInfoClass('Aaa.Radius.Vsa.Attribute.Ignore',
-            False, 
-            [
-            _MetaInfoClassMember('unknown', ATTRIBUTE, 'Empty' , None, None, 
-                [], [], 
-                '''                Ignore the VSA and no prefix will reject the
-                unkown VSA 
-                ''',
-                'unknown',
-                'Cisco-IOS-XR-aaa-protocol-radius-cfg', False),
-            ],
-            'Cisco-IOS-XR-aaa-protocol-radius-cfg',
-            'ignore',
-            _yang_ns._namespaces['Cisco-IOS-XR-aaa-protocol-radius-cfg'],
-        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg'
-        ),
-    },
-    'Aaa.Radius.Vsa.Attribute' : {
-        'meta_info' : _MetaInfoClass('Aaa.Radius.Vsa.Attribute',
-            False, 
-            [
-            _MetaInfoClassMember('ignore', REFERENCE_CLASS, 'Ignore' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg', 'Aaa.Radius.Vsa.Attribute.Ignore', 
-                [], [], 
-                '''                Ignore the VSA 
-                ''',
-                'ignore',
-                'Cisco-IOS-XR-aaa-protocol-radius-cfg', False),
-            ],
-            'Cisco-IOS-XR-aaa-protocol-radius-cfg',
-            'attribute',
-            _yang_ns._namespaces['Cisco-IOS-XR-aaa-protocol-radius-cfg'],
-        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg'
-        ),
-    },
-    'Aaa.Radius.Vsa' : {
-        'meta_info' : _MetaInfoClass('Aaa.Radius.Vsa',
-            False, 
-            [
-            _MetaInfoClassMember('attribute', REFERENCE_CLASS, 'Attribute' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg', 'Aaa.Radius.Vsa.Attribute', 
-                [], [], 
-                '''                Vendor Specific Attribute 
-                ''',
-                'attribute',
-                'Cisco-IOS-XR-aaa-protocol-radius-cfg', False),
-            ],
-            'Cisco-IOS-XR-aaa-protocol-radius-cfg',
-            'vsa',
-            _yang_ns._namespaces['Cisco-IOS-XR-aaa-protocol-radius-cfg'],
-        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg'
-        ),
-    },
     'Aaa.Radius.Vrfs.Vrf' : {
         'meta_info' : _MetaInfoClass('Aaa.Radius.Vrfs.Vrf',
             False, 
@@ -1781,7 +1708,7 @@ _meta_table = {
                 'vrf_name',
                 'Cisco-IOS-XR-aaa-protocol-radius-cfg', True),
             _MetaInfoClassMember('source-interface', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Specify interface for source address in
                 RADIUS packets
                 ''',
@@ -1811,6 +1738,90 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg'
         ),
     },
+    'Aaa.Radius.Throttle' : {
+        'meta_info' : _MetaInfoClass('Aaa.Radius.Throttle',
+            False, 
+            [
+            _MetaInfoClassMember('access', ATTRIBUTE, 'int' , None, None, 
+                [('0', '65535')], [], 
+                '''                To flow control the number of access requests
+                sent to a radius server
+                ''',
+                'access',
+                'Cisco-IOS-XR-aaa-protocol-radius-cfg', False),
+            _MetaInfoClassMember('access-timeout', ATTRIBUTE, 'int' , None, None, 
+                [('1', '10')], [], 
+                '''                Specify the number of timeouts exceeding which
+                a throttled access request is dropped
+                ''',
+                'access_timeout',
+                'Cisco-IOS-XR-aaa-protocol-radius-cfg', False),
+            _MetaInfoClassMember('accounting', ATTRIBUTE, 'int' , None, None, 
+                [('0', '65535')], [], 
+                '''                To flow control the number of accounting
+                requests sent to a radius server
+                ''',
+                'accounting',
+                'Cisco-IOS-XR-aaa-protocol-radius-cfg', False),
+            ],
+            'Cisco-IOS-XR-aaa-protocol-radius-cfg',
+            'throttle',
+            _yang_ns._namespaces['Cisco-IOS-XR-aaa-protocol-radius-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg'
+        ),
+    },
+    'Aaa.Radius.Vsa.Attribute.Ignore' : {
+        'meta_info' : _MetaInfoClass('Aaa.Radius.Vsa.Attribute.Ignore',
+            False, 
+            [
+            _MetaInfoClassMember('unknown', ATTRIBUTE, 'Empty' , None, None, 
+                [], [], 
+                '''                Ignore the VSA and no prefix will reject the
+                unknown VSA
+                ''',
+                'unknown',
+                'Cisco-IOS-XR-aaa-protocol-radius-cfg', False),
+            ],
+            'Cisco-IOS-XR-aaa-protocol-radius-cfg',
+            'ignore',
+            _yang_ns._namespaces['Cisco-IOS-XR-aaa-protocol-radius-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg'
+        ),
+    },
+    'Aaa.Radius.Vsa.Attribute' : {
+        'meta_info' : _MetaInfoClass('Aaa.Radius.Vsa.Attribute',
+            False, 
+            [
+            _MetaInfoClassMember('ignore', REFERENCE_CLASS, 'Ignore' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg', 'Aaa.Radius.Vsa.Attribute.Ignore', 
+                [], [], 
+                '''                Ignore the VSA
+                ''',
+                'ignore',
+                'Cisco-IOS-XR-aaa-protocol-radius-cfg', False),
+            ],
+            'Cisco-IOS-XR-aaa-protocol-radius-cfg',
+            'attribute',
+            _yang_ns._namespaces['Cisco-IOS-XR-aaa-protocol-radius-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg'
+        ),
+    },
+    'Aaa.Radius.Vsa' : {
+        'meta_info' : _MetaInfoClass('Aaa.Radius.Vsa',
+            False, 
+            [
+            _MetaInfoClassMember('attribute', REFERENCE_CLASS, 'Attribute' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg', 'Aaa.Radius.Vsa.Attribute', 
+                [], [], 
+                '''                Vendor Specific Attribute
+                ''',
+                'attribute',
+                'Cisco-IOS-XR-aaa-protocol-radius-cfg', False),
+            ],
+            'Cisco-IOS-XR-aaa-protocol-radius-cfg',
+            'vsa',
+            _yang_ns._namespaces['Cisco-IOS-XR-aaa-protocol-radius-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg'
+        ),
+    },
     'Aaa.Radius.Ipv4' : {
         'meta_info' : _MetaInfoClass('Aaa.Radius.Ipv4',
             False, 
@@ -1828,7 +1839,7 @@ _meta_table = {
                         'dscp',
                         'Cisco-IOS-XR-aaa-protocol-radius-cfg', False),
                     _MetaInfoClassMember('dscp', ATTRIBUTE, 'int' , None, None, 
-                        [(0, 63)], [], 
+                        [('0', '63')], [], 
                         '''                        Specify the DSCP value
                         ''',
                         'dscp',
@@ -1991,38 +2002,6 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg'
         ),
     },
-    'Aaa.Radius.Throttle' : {
-        'meta_info' : _MetaInfoClass('Aaa.Radius.Throttle',
-            False, 
-            [
-            _MetaInfoClassMember('access', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
-                '''                To flow control the number of access requests
-                sent to a radius server
-                ''',
-                'access',
-                'Cisco-IOS-XR-aaa-protocol-radius-cfg', False),
-            _MetaInfoClassMember('access-timeout', ATTRIBUTE, 'int' , None, None, 
-                [(1, 10)], [], 
-                '''                Specify the number of timeouts exceeding which
-                a throttled access request is dropped
-                ''',
-                'access_timeout',
-                'Cisco-IOS-XR-aaa-protocol-radius-cfg', False),
-            _MetaInfoClassMember('accounting', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
-                '''                To flow control the number of accounting
-                requests sent to a radius server
-                ''',
-                'accounting',
-                'Cisco-IOS-XR-aaa-protocol-radius-cfg', False),
-            ],
-            'Cisco-IOS-XR-aaa-protocol-radius-cfg',
-            'throttle',
-            _yang_ns._namespaces['Cisco-IOS-XR-aaa-protocol-radius-cfg'],
-        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg'
-        ),
-    },
     'Aaa.Radius' : {
         'meta_info' : _MetaInfoClass('Aaa.Radius',
             False, 
@@ -2040,7 +2019,7 @@ _meta_table = {
                 'dead_criteria',
                 'Cisco-IOS-XR-aaa-protocol-radius-cfg', False),
             _MetaInfoClassMember('dead-time', ATTRIBUTE, 'int' , None, None, 
-                [(1, 1440)], [], 
+                [('1', '1440')], [], 
                 '''                This indicates the length of time (in minutes)
                 for which a RADIUS server remains marked as
                 dead
@@ -2066,7 +2045,7 @@ _meta_table = {
                 'hosts',
                 'Cisco-IOS-XR-aaa-protocol-radius-cfg', False),
             _MetaInfoClassMember('idle-time', ATTRIBUTE, 'int' , None, None, 
-                [(1, 1000)], [], 
+                [('1', '1000')], [], 
                 '''                Idle time for RADIUS server
                 ''',
                 'idle_time',
@@ -2114,7 +2093,7 @@ _meta_table = {
                 'radius_attribute',
                 'Cisco-IOS-XR-aaa-protocol-radius-cfg', False),
             _MetaInfoClassMember('retransmit', ATTRIBUTE, 'int' , None, None, 
-                [(1, 100)], [], 
+                [('1', '100')], [], 
                 '''                Number of times to retransmit a request to the
                 RADIUS server
                 ''',
@@ -2133,7 +2112,7 @@ _meta_table = {
                 'throttle',
                 'Cisco-IOS-XR-aaa-protocol-radius-cfg', False),
             _MetaInfoClassMember('timeout', ATTRIBUTE, 'int' , None, None, 
-                [(1, 1000)], [], 
+                [('1', '1000')], [], 
                 '''                Time to wait for a RADIUS server to reply
                 ''',
                 'timeout',
@@ -2152,7 +2131,8 @@ _meta_table = {
                 'Cisco-IOS-XR-aaa-protocol-radius-cfg', False),
             _MetaInfoClassMember('vsa', REFERENCE_CLASS, 'Vsa' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg', 'Aaa.Radius.Vsa', 
                 [], [], 
-                '''                VSA  ignore configuration for RADIUS server
+                '''                Unknown VSA (Vendor Specific Attribute) ignore
+                configuration for RADIUS server
                 ''',
                 'vsa',
                 'Cisco-IOS-XR-aaa-protocol-radius-cfg', False),
@@ -2180,7 +2160,7 @@ _meta_table = {
                         'dscp',
                         'Cisco-IOS-XR-aaa-tacacs-cfg', False),
                     _MetaInfoClassMember('dscp', ATTRIBUTE, 'int' , None, None, 
-                        [(0, 63)], [], 
+                        [('0', '63')], [], 
                         '''                        Specify the DSCP value
                         ''',
                         'dscp',
@@ -2217,14 +2197,14 @@ _meta_table = {
                         'Cisco-IOS-XR-aaa-tacacs-cfg', True),
                 ]),
             _MetaInfoClassMember('ordering-index', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                This is used to sort the servers in the order
                 of precedence
                 ''',
                 'ordering_index',
                 'Cisco-IOS-XR-aaa-tacacs-cfg', True),
             _MetaInfoClassMember('port-number', ATTRIBUTE, 'int' , None, None, 
-                [(1, 65535)], [], 
+                [('1', '65535')], [], 
                 '''                Port number (standard 49)
                 ''',
                 'port_number',
@@ -2243,7 +2223,7 @@ _meta_table = {
                 'single_connect',
                 'Cisco-IOS-XR-aaa-tacacs-cfg', False),
             _MetaInfoClassMember('timeout', ATTRIBUTE, 'int' , None, None, 
-                [(1, 1000)], [], 
+                [('1', '1000')], [], 
                 '''                Time to wait for a TACACS+ server to reply
                 ''',
                 'timeout',
@@ -2289,7 +2269,7 @@ _meta_table = {
                         'dscp',
                         'Cisco-IOS-XR-aaa-tacacs-cfg', False),
                     _MetaInfoClassMember('dscp', ATTRIBUTE, 'int' , None, None, 
-                        [(0, 63)], [], 
+                        [('0', '63')], [], 
                         '''                        Specify the DSCP value
                         ''',
                         'dscp',
@@ -2313,7 +2293,7 @@ _meta_table = {
                 'vrf_name',
                 'Cisco-IOS-XR-aaa-tacacs-cfg', True),
             _MetaInfoClassMember('source-interface', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Specify interface for source address in
                 TACACS+ packets
                 ''',
@@ -2379,7 +2359,7 @@ _meta_table = {
                 'single_connect',
                 'Cisco-IOS-XR-aaa-tacacs-cfg', False),
             _MetaInfoClassMember('timeout', ATTRIBUTE, 'int' , None, None, 
-                [(1, 1000)], [], 
+                [('1', '1000')], [], 
                 '''                Time to wait for a TACACS+ server to reply
                 ''',
                 'timeout',
@@ -2494,7 +2474,6 @@ _meta_table['Aaa.ServerGroups.RadiusServerGroups.RadiusServerGroup.PrivateServer
 _meta_table['Aaa.ServerGroups.RadiusServerGroups.RadiusServerGroup.ServerGroupThrottle']['meta_info'].parent =_meta_table['Aaa.ServerGroups.RadiusServerGroups.RadiusServerGroup']['meta_info']
 _meta_table['Aaa.ServerGroups.RadiusServerGroups.RadiusServerGroup.LoadBalance']['meta_info'].parent =_meta_table['Aaa.ServerGroups.RadiusServerGroups.RadiusServerGroup']['meta_info']
 _meta_table['Aaa.ServerGroups.RadiusServerGroups.RadiusServerGroup.Authorization']['meta_info'].parent =_meta_table['Aaa.ServerGroups.RadiusServerGroups.RadiusServerGroup']['meta_info']
-_meta_table['Aaa.ServerGroups.RadiusServerGroups.RadiusServerGroup.Throttle']['meta_info'].parent =_meta_table['Aaa.ServerGroups.RadiusServerGroups.RadiusServerGroup']['meta_info']
 _meta_table['Aaa.ServerGroups.RadiusServerGroups.RadiusServerGroup']['meta_info'].parent =_meta_table['Aaa.ServerGroups.RadiusServerGroups']['meta_info']
 _meta_table['Aaa.ServerGroups.TacacsServerGroups.TacacsServerGroup.Servers.Server']['meta_info'].parent =_meta_table['Aaa.ServerGroups.TacacsServerGroups.TacacsServerGroup.Servers']['meta_info']
 _meta_table['Aaa.ServerGroups.TacacsServerGroups.TacacsServerGroup.PrivateServers.PrivateServer']['meta_info'].parent =_meta_table['Aaa.ServerGroups.TacacsServerGroups.TacacsServerGroup.PrivateServers']['meta_info']
@@ -2522,9 +2501,9 @@ _meta_table['Aaa.Radius.DynamicAuthorization.Clients.ClientVrfName']['meta_info'
 _meta_table['Aaa.Radius.DynamicAuthorization.Clients']['meta_info'].parent =_meta_table['Aaa.Radius.DynamicAuthorization']['meta_info']
 _meta_table['Aaa.Radius.LoadBalanceOptions.LoadBalanceMethod.BatchSize']['meta_info'].parent =_meta_table['Aaa.Radius.LoadBalanceOptions.LoadBalanceMethod']['meta_info']
 _meta_table['Aaa.Radius.LoadBalanceOptions.LoadBalanceMethod']['meta_info'].parent =_meta_table['Aaa.Radius.LoadBalanceOptions']['meta_info']
+_meta_table['Aaa.Radius.Vrfs.Vrf']['meta_info'].parent =_meta_table['Aaa.Radius.Vrfs']['meta_info']
 _meta_table['Aaa.Radius.Vsa.Attribute.Ignore']['meta_info'].parent =_meta_table['Aaa.Radius.Vsa.Attribute']['meta_info']
 _meta_table['Aaa.Radius.Vsa.Attribute']['meta_info'].parent =_meta_table['Aaa.Radius.Vsa']['meta_info']
-_meta_table['Aaa.Radius.Vrfs.Vrf']['meta_info'].parent =_meta_table['Aaa.Radius.Vrfs']['meta_info']
 _meta_table['Aaa.Radius.RadiusAttribute.AcctMultiSessionId.IncludeParentSessionId']['meta_info'].parent =_meta_table['Aaa.Radius.RadiusAttribute.AcctMultiSessionId']['meta_info']
 _meta_table['Aaa.Radius.RadiusAttribute.AcctSessionId.PrependNasPortId']['meta_info'].parent =_meta_table['Aaa.Radius.RadiusAttribute.AcctSessionId']['meta_info']
 _meta_table['Aaa.Radius.RadiusAttribute.AcctMultiSessionId']['meta_info'].parent =_meta_table['Aaa.Radius.RadiusAttribute']['meta_info']
@@ -2536,13 +2515,13 @@ _meta_table['Aaa.Radius.Disallow']['meta_info'].parent =_meta_table['Aaa.Radius'
 _meta_table['Aaa.Radius.Ipv6']['meta_info'].parent =_meta_table['Aaa.Radius']['meta_info']
 _meta_table['Aaa.Radius.DynamicAuthorization']['meta_info'].parent =_meta_table['Aaa.Radius']['meta_info']
 _meta_table['Aaa.Radius.LoadBalanceOptions']['meta_info'].parent =_meta_table['Aaa.Radius']['meta_info']
-_meta_table['Aaa.Radius.Vsa']['meta_info'].parent =_meta_table['Aaa.Radius']['meta_info']
 _meta_table['Aaa.Radius.Vrfs']['meta_info'].parent =_meta_table['Aaa.Radius']['meta_info']
+_meta_table['Aaa.Radius.Throttle']['meta_info'].parent =_meta_table['Aaa.Radius']['meta_info']
+_meta_table['Aaa.Radius.Vsa']['meta_info'].parent =_meta_table['Aaa.Radius']['meta_info']
 _meta_table['Aaa.Radius.Ipv4']['meta_info'].parent =_meta_table['Aaa.Radius']['meta_info']
 _meta_table['Aaa.Radius.RadiusAttribute']['meta_info'].parent =_meta_table['Aaa.Radius']['meta_info']
 _meta_table['Aaa.Radius.Attributes']['meta_info'].parent =_meta_table['Aaa.Radius']['meta_info']
 _meta_table['Aaa.Radius.SourcePort']['meta_info'].parent =_meta_table['Aaa.Radius']['meta_info']
-_meta_table['Aaa.Radius.Throttle']['meta_info'].parent =_meta_table['Aaa.Radius']['meta_info']
 _meta_table['Aaa.Tacacs.Hosts.Host']['meta_info'].parent =_meta_table['Aaa.Tacacs.Hosts']['meta_info']
 _meta_table['Aaa.Tacacs.Vrfs.Vrf']['meta_info'].parent =_meta_table['Aaa.Tacacs.Vrfs']['meta_info']
 _meta_table['Aaa.Tacacs.Ipv6']['meta_info'].parent =_meta_table['Aaa.Tacacs']['meta_info']

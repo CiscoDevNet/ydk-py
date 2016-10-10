@@ -464,6 +464,6 @@ def _get_rpc_datastore_object(datastore, rpc_datastore_type):
 def payload_convert(payload):
     from lxml import etree
 
-    rt = etree.fromstring(payload)
+    rt = etree.fromstring(payload.encode('utf-8'))
     chchs = rt.getchildren()[0].getchildren()
-    return etree.tostring(chchs[0], pretty_print=True)
+    return etree.tostring(chchs[0], pretty_print=True, encoding='utf-8').decode('utf-8')

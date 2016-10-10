@@ -14,101 +14,113 @@ from ydk.errors import YPYError, YPYModelError
 from ydk.providers._importer import _yang_ns
 
 _meta_table = {
-    'EthernetPmdTypeIdentity' : {
-        'meta_info' : _MetaInfoClass('EthernetPmdTypeIdentity',
+    'LoopbackModeTypeEnum' : _MetaInfoEnum('LoopbackModeTypeEnum', 'ydk.models.openconfig.openconfig_transport_types',
+        {
+            'NONE':'NONE',
+            'FACILITY':'FACILITY',
+            'TERMINAL':'TERMINAL',
+        }, 'openconfig-transport-types', _yang_ns._namespaces['openconfig-transport-types']),
+    'AdminStateTypeEnum' : _MetaInfoEnum('AdminStateTypeEnum', 'ydk.models.openconfig.openconfig_transport_types',
+        {
+            'ENABLED':'ENABLED',
+            'DISABLED':'DISABLED',
+            'MAINT':'MAINT',
+        }, 'openconfig-transport-types', _yang_ns._namespaces['openconfig-transport-types']),
+    'Sonet_Application_CodeIdentity' : {
+        'meta_info' : _MetaInfoClass('Sonet_Application_CodeIdentity',
             False, 
             [
             ],
             'openconfig-transport-types',
-            'ethernet-pmd-type',
+            'SONET_APPLICATION_CODE',
             _yang_ns._namespaces['openconfig-transport-types'],
         'ydk.models.openconfig.openconfig_transport_types'
         ),
     },
-    'OtnApplicationCodeIdentity' : {
-        'meta_info' : _MetaInfoClass('OtnApplicationCodeIdentity',
+    'Otn_Application_CodeIdentity' : {
+        'meta_info' : _MetaInfoClass('Otn_Application_CodeIdentity',
             False, 
             [
             ],
             'openconfig-transport-types',
-            'otn-application-code',
+            'OTN_APPLICATION_CODE',
             _yang_ns._namespaces['openconfig-transport-types'],
         'ydk.models.openconfig.openconfig_transport_types'
         ),
     },
-    'SonetApplicationCodeIdentity' : {
-        'meta_info' : _MetaInfoClass('SonetApplicationCodeIdentity',
+    'Transceiver_Form_Factor_TypeIdentity' : {
+        'meta_info' : _MetaInfoClass('Transceiver_Form_Factor_TypeIdentity',
             False, 
             [
             ],
             'openconfig-transport-types',
-            'sonet-application-code',
+            'TRANSCEIVER_FORM_FACTOR_TYPE',
             _yang_ns._namespaces['openconfig-transport-types'],
         'ydk.models.openconfig.openconfig_transport_types'
         ),
     },
-    'TransceiverFormFactorTypeIdentity' : {
-        'meta_info' : _MetaInfoClass('TransceiverFormFactorTypeIdentity',
+    'Logical_Element_Protocol_TypeIdentity' : {
+        'meta_info' : _MetaInfoClass('Logical_Element_Protocol_TypeIdentity',
             False, 
             [
             ],
             'openconfig-transport-types',
-            'transceiver-form-factor-type',
+            'LOGICAL_ELEMENT_PROTOCOL_TYPE',
             _yang_ns._namespaces['openconfig-transport-types'],
         'ydk.models.openconfig.openconfig_transport_types'
         ),
     },
-    'LogicalElementProtocolTypeIdentity' : {
-        'meta_info' : _MetaInfoClass('LogicalElementProtocolTypeIdentity',
+    'Tributary_Rate_Class_TypeIdentity' : {
+        'meta_info' : _MetaInfoClass('Tributary_Rate_Class_TypeIdentity',
             False, 
             [
             ],
             'openconfig-transport-types',
-            'logical-element-protocol-type',
+            'TRIBUTARY_RATE_CLASS_TYPE',
             _yang_ns._namespaces['openconfig-transport-types'],
         'ydk.models.openconfig.openconfig_transport_types'
         ),
     },
-    'TributaryProtocolTypeIdentity' : {
-        'meta_info' : _MetaInfoClass('TributaryProtocolTypeIdentity',
+    'Ethernet_Pmd_TypeIdentity' : {
+        'meta_info' : _MetaInfoClass('Ethernet_Pmd_TypeIdentity',
             False, 
             [
             ],
             'openconfig-transport-types',
-            'tributary-protocol-type',
+            'ETHERNET_PMD_TYPE',
             _yang_ns._namespaces['openconfig-transport-types'],
         'ydk.models.openconfig.openconfig_transport_types'
         ),
     },
-    'TributaryRateClassTypeIdentity' : {
-        'meta_info' : _MetaInfoClass('TributaryRateClassTypeIdentity',
+    'Fiber_Connector_TypeIdentity' : {
+        'meta_info' : _MetaInfoClass('Fiber_Connector_TypeIdentity',
             False, 
             [
             ],
             'openconfig-transport-types',
-            'tributary-rate-class-type',
+            'FIBER_CONNECTOR_TYPE',
             _yang_ns._namespaces['openconfig-transport-types'],
         'ydk.models.openconfig.openconfig_transport_types'
         ),
     },
-    'FiberConnectorTypeIdentity' : {
-        'meta_info' : _MetaInfoClass('FiberConnectorTypeIdentity',
+    'Optical_ChannelIdentity' : {
+        'meta_info' : _MetaInfoClass('Optical_ChannelIdentity',
             False, 
             [
             ],
             'openconfig-transport-types',
-            'fiber-connector-type',
+            'OPTICAL_CHANNEL',
             _yang_ns._namespaces['openconfig-transport-types'],
         'ydk.models.openconfig.openconfig_transport_types'
         ),
     },
-    'ProtOc192Identity' : {
-        'meta_info' : _MetaInfoClass('ProtOc192Identity',
+    'Tributary_Protocol_TypeIdentity' : {
+        'meta_info' : _MetaInfoClass('Tributary_Protocol_TypeIdentity',
             False, 
             [
             ],
             'openconfig-transport-types',
-            'prot-OC192',
+            'TRIBUTARY_PROTOCOL_TYPE',
             _yang_ns._namespaces['openconfig-transport-types'],
         'ydk.models.openconfig.openconfig_transport_types'
         ),
@@ -124,24 +136,57 @@ _meta_table = {
         'ydk.models.openconfig.openconfig_transport_types'
         ),
     },
-    'Prot100G_MlgIdentity' : {
-        'meta_info' : _MetaInfoClass('Prot100G_MlgIdentity',
+    'Qsfp28Identity' : {
+        'meta_info' : _MetaInfoClass('Qsfp28Identity',
             False, 
             [
             ],
             'openconfig-transport-types',
-            'prot-100G_MLG',
+            'QSFP28',
             _yang_ns._namespaces['openconfig-transport-types'],
         'ydk.models.openconfig.openconfig_transport_types'
         ),
     },
-    'Eth100GbaseEr4Identity' : {
-        'meta_info' : _MetaInfoClass('Eth100GbaseEr4Identity',
+    'Eth_40Gbase_Sr4Identity' : {
+        'meta_info' : _MetaInfoClass('Eth_40Gbase_Sr4Identity',
             False, 
             [
             ],
             'openconfig-transport-types',
-            'eth-100GBASE-ER4',
+            'ETH_40GBASE_SR4',
+            _yang_ns._namespaces['openconfig-transport-types'],
+        'ydk.models.openconfig.openconfig_transport_types'
+        ),
+    },
+    'Eth_10Gbase_LrmIdentity' : {
+        'meta_info' : _MetaInfoClass('Eth_10Gbase_LrmIdentity',
+            False, 
+            [
+            ],
+            'openconfig-transport-types',
+            'ETH_10GBASE_LRM',
+            _yang_ns._namespaces['openconfig-transport-types'],
+        'ydk.models.openconfig.openconfig_transport_types'
+        ),
+    },
+    'Eth_4X10Gbase_SrIdentity' : {
+        'meta_info' : _MetaInfoClass('Eth_4X10Gbase_SrIdentity',
+            False, 
+            [
+            ],
+            'openconfig-transport-types',
+            'ETH_4X10GBASE_SR',
+            _yang_ns._namespaces['openconfig-transport-types'],
+        'ydk.models.openconfig.openconfig_transport_types'
+        ),
+    },
+    'Eth_100G_AocIdentity' : {
+        'meta_info' : _MetaInfoClass('Eth_100G_AocIdentity',
+            False, 
+            [
+            ],
+            'openconfig-transport-types',
+            'ETH_100G_AOC',
             _yang_ns._namespaces['openconfig-transport-types'],
         'ydk.models.openconfig.openconfig_transport_types'
         ),
@@ -157,310 +202,266 @@ _meta_table = {
         'ydk.models.openconfig.openconfig_transport_types'
         ),
     },
-    'Eth100G_AocIdentity' : {
-        'meta_info' : _MetaInfoClass('Eth100G_AocIdentity',
+    'Sonet_UndefinedIdentity' : {
+        'meta_info' : _MetaInfoClass('Sonet_UndefinedIdentity',
             False, 
             [
             ],
             'openconfig-transport-types',
-            'eth-100G_AOC',
+            'SONET_UNDEFINED',
             _yang_ns._namespaces['openconfig-transport-types'],
         'ydk.models.openconfig.openconfig_transport_types'
         ),
     },
-    'Eth10GbaseLrmIdentity' : {
-        'meta_info' : _MetaInfoClass('Eth10GbaseLrmIdentity',
+    'P1L1_2D2Identity' : {
+        'meta_info' : _MetaInfoClass('P1L1_2D2Identity',
             False, 
             [
             ],
             'openconfig-transport-types',
-            'eth-10GBASE-LRM',
+            'P1L1_2D2',
             _yang_ns._namespaces['openconfig-transport-types'],
         'ydk.models.openconfig.openconfig_transport_types'
         ),
     },
-    'ProtOdu4Identity' : {
-        'meta_info' : _MetaInfoClass('ProtOdu4Identity',
+    'P1L1_2D1Identity' : {
+        'meta_info' : _MetaInfoClass('P1L1_2D1Identity',
             False, 
             [
             ],
             'openconfig-transport-types',
-            'prot-ODU4',
+            'P1L1_2D1',
             _yang_ns._namespaces['openconfig-transport-types'],
         'ydk.models.openconfig.openconfig_transport_types'
         ),
     },
-    'P1L12D2Identity' : {
-        'meta_info' : _MetaInfoClass('P1L12D2Identity',
+    'Trib_Rate_10GIdentity' : {
+        'meta_info' : _MetaInfoClass('Trib_Rate_10GIdentity',
             False, 
             [
             ],
             'openconfig-transport-types',
-            'P1L1-2D2',
+            'TRIB_RATE_10G',
             _yang_ns._namespaces['openconfig-transport-types'],
         'ydk.models.openconfig.openconfig_transport_types'
         ),
     },
-    'Qsfp28Identity' : {
-        'meta_info' : _MetaInfoClass('Qsfp28Identity',
+    'Prot_Otu2EIdentity' : {
+        'meta_info' : _MetaInfoClass('Prot_Otu2EIdentity',
             False, 
             [
             ],
             'openconfig-transport-types',
-            'QSFP28',
+            'PROT_OTU2E',
             _yang_ns._namespaces['openconfig-transport-types'],
         'ydk.models.openconfig.openconfig_transport_types'
         ),
     },
-    'Prot10Ge_LanIdentity' : {
-        'meta_info' : _MetaInfoClass('Prot10Ge_LanIdentity',
+    'Eth_100Gbase_Sr4Identity' : {
+        'meta_info' : _MetaInfoClass('Eth_100Gbase_Sr4Identity',
             False, 
             [
             ],
             'openconfig-transport-types',
-            'prot-10GE_LAN',
+            'ETH_100GBASE_SR4',
             _yang_ns._namespaces['openconfig-transport-types'],
         'ydk.models.openconfig.openconfig_transport_types'
         ),
     },
-    'Eth10GbaseErIdentity' : {
-        'meta_info' : _MetaInfoClass('Eth10GbaseErIdentity',
+    'Eth_10Gbase_ZrIdentity' : {
+        'meta_info' : _MetaInfoClass('Eth_10Gbase_ZrIdentity',
             False, 
             [
             ],
             'openconfig-transport-types',
-            'eth-10GBASE-ER',
+            'ETH_10GBASE_ZR',
             _yang_ns._namespaces['openconfig-transport-types'],
         'ydk.models.openconfig.openconfig_transport_types'
         ),
     },
-    'Sfp_PlusIdentity' : {
-        'meta_info' : _MetaInfoClass('Sfp_PlusIdentity',
+    'Sc_ConnectorIdentity' : {
+        'meta_info' : _MetaInfoClass('Sc_ConnectorIdentity',
             False, 
             [
             ],
             'openconfig-transport-types',
-            'SFP_plus',
+            'SC_CONNECTOR',
             _yang_ns._namespaces['openconfig-transport-types'],
         'ydk.models.openconfig.openconfig_transport_types'
         ),
     },
-    'Eth100GbaseCr4Identity' : {
-        'meta_info' : _MetaInfoClass('Eth100GbaseCr4Identity',
+    'Vsr2000_3R3Identity' : {
+        'meta_info' : _MetaInfoClass('Vsr2000_3R3Identity',
             False, 
             [
             ],
             'openconfig-transport-types',
-            'eth-100GBASE-CR4',
+            'VSR2000_3R3',
             _yang_ns._namespaces['openconfig-transport-types'],
         'ydk.models.openconfig.openconfig_transport_types'
         ),
     },
-    'P1L12D1Identity' : {
-        'meta_info' : _MetaInfoClass('P1L12D1Identity',
+    'Eth_100Gbase_Er4Identity' : {
+        'meta_info' : _MetaInfoClass('Eth_100Gbase_Er4Identity',
             False, 
             [
             ],
             'openconfig-transport-types',
-            'P1L1-2D1',
+            'ETH_100GBASE_ER4',
             _yang_ns._namespaces['openconfig-transport-types'],
         'ydk.models.openconfig.openconfig_transport_types'
         ),
     },
-    'SfpIdentity' : {
-        'meta_info' : _MetaInfoClass('SfpIdentity',
+    'Otn_UndefinedIdentity' : {
+        'meta_info' : _MetaInfoClass('Otn_UndefinedIdentity',
             False, 
             [
             ],
             'openconfig-transport-types',
-            'SFP',
+            'OTN_UNDEFINED',
             _yang_ns._namespaces['openconfig-transport-types'],
         'ydk.models.openconfig.openconfig_transport_types'
         ),
     },
-    'ProtOtu4Identity' : {
-        'meta_info' : _MetaInfoClass('ProtOtu4Identity',
+    'Eth_40Gbase_Er4Identity' : {
+        'meta_info' : _MetaInfoClass('Eth_40Gbase_Er4Identity',
             False, 
             [
             ],
             'openconfig-transport-types',
-            'prot-OTU4',
+            'ETH_40GBASE_ER4',
             _yang_ns._namespaces['openconfig-transport-types'],
         'ydk.models.openconfig.openconfig_transport_types'
         ),
     },
-    'Eth40GbaseEr4Identity' : {
-        'meta_info' : _MetaInfoClass('Eth40GbaseEr4Identity',
+    'Prot_Odu2EIdentity' : {
+        'meta_info' : _MetaInfoClass('Prot_Odu2EIdentity',
             False, 
             [
             ],
             'openconfig-transport-types',
-            'eth-40GBASE-ER4',
+            'PROT_ODU2E',
             _yang_ns._namespaces['openconfig-transport-types'],
         'ydk.models.openconfig.openconfig_transport_types'
         ),
     },
-    'Eth100GbasePsm4Identity' : {
-        'meta_info' : _MetaInfoClass('Eth100GbasePsm4Identity',
+    'Eth_100G_AccIdentity' : {
+        'meta_info' : _MetaInfoClass('Eth_100G_AccIdentity',
             False, 
             [
             ],
             'openconfig-transport-types',
-            'eth-100GBASE-PSM4',
+            'ETH_100G_ACC',
             _yang_ns._namespaces['openconfig-transport-types'],
         'ydk.models.openconfig.openconfig_transport_types'
         ),
     },
-    'Eth40GbaseCr4Identity' : {
-        'meta_info' : _MetaInfoClass('Eth40GbaseCr4Identity',
+    'Prot_Oc768Identity' : {
+        'meta_info' : _MetaInfoClass('Prot_Oc768Identity',
             False, 
             [
             ],
             'openconfig-transport-types',
-            'eth-40GBASE-CR4',
+            'PROT_OC768',
             _yang_ns._namespaces['openconfig-transport-types'],
         'ydk.models.openconfig.openconfig_transport_types'
         ),
     },
-    'SonetUndefinedIdentity' : {
-        'meta_info' : _MetaInfoClass('SonetUndefinedIdentity',
+    'Eth_UndefinedIdentity' : {
+        'meta_info' : _MetaInfoClass('Eth_UndefinedIdentity',
             False, 
             [
             ],
             'openconfig-transport-types',
-            'sonet-undefined',
+            'ETH_UNDEFINED',
             _yang_ns._namespaces['openconfig-transport-types'],
         'ydk.models.openconfig.openconfig_transport_types'
         ),
     },
-    'Eth100GbaseClr4Identity' : {
-        'meta_info' : _MetaInfoClass('Eth100GbaseClr4Identity',
+    'Prot_10Ge_WanIdentity' : {
+        'meta_info' : _MetaInfoClass('Prot_10Ge_WanIdentity',
             False, 
             [
             ],
             'openconfig-transport-types',
-            'eth-100GBASE-CLR4',
+            'PROT_10GE_WAN',
             _yang_ns._namespaces['openconfig-transport-types'],
         'ydk.models.openconfig.openconfig_transport_types'
         ),
     },
-    'Prot10Ge_WanIdentity' : {
-        'meta_info' : _MetaInfoClass('Prot10Ge_WanIdentity',
+    'Eth_40Gbase_Lr4Identity' : {
+        'meta_info' : _MetaInfoClass('Eth_40Gbase_Lr4Identity',
             False, 
             [
             ],
             'openconfig-transport-types',
-            'prot-10GE_WAN',
+            'ETH_40GBASE_LR4',
             _yang_ns._namespaces['openconfig-transport-types'],
         'ydk.models.openconfig.openconfig_transport_types'
         ),
     },
-    'ProtStm64Identity' : {
-        'meta_info' : _MetaInfoClass('ProtStm64Identity',
+    'Eth_40Gbase_Psm4Identity' : {
+        'meta_info' : _MetaInfoClass('Eth_40Gbase_Psm4Identity',
             False, 
             [
             ],
             'openconfig-transport-types',
-            'prot-STM64',
+            'ETH_40GBASE_PSM4',
             _yang_ns._namespaces['openconfig-transport-types'],
         'ydk.models.openconfig.openconfig_transport_types'
         ),
     },
-    'Eth100GbaseCwdm4Identity' : {
-        'meta_info' : _MetaInfoClass('Eth100GbaseCwdm4Identity',
+    'Trib_Rate_40GIdentity' : {
+        'meta_info' : _MetaInfoClass('Trib_Rate_40GIdentity',
             False, 
             [
             ],
             'openconfig-transport-types',
-            'eth-100GBASE-CWDM4',
+            'TRIB_RATE_40G',
             _yang_ns._namespaces['openconfig-transport-types'],
         'ydk.models.openconfig.openconfig_transport_types'
         ),
     },
-    'ProtOc48Identity' : {
-        'meta_info' : _MetaInfoClass('ProtOc48Identity',
+    'Vsr2000_3R2Identity' : {
+        'meta_info' : _MetaInfoClass('Vsr2000_3R2Identity',
             False, 
             [
             ],
             'openconfig-transport-types',
-            'prot-OC48',
+            'VSR2000_3R2',
             _yang_ns._namespaces['openconfig-transport-types'],
         'ydk.models.openconfig.openconfig_transport_types'
         ),
     },
-    'NonPluggableIdentity' : {
-        'meta_info' : _MetaInfoClass('NonPluggableIdentity',
+    'Prot_Stm16Identity' : {
+        'meta_info' : _MetaInfoClass('Prot_Stm16Identity',
             False, 
             [
             ],
             'openconfig-transport-types',
-            'non-pluggable',
+            'PROT_STM16',
             _yang_ns._namespaces['openconfig-transport-types'],
         'ydk.models.openconfig.openconfig_transport_types'
         ),
     },
-    'Eth100G_AccIdentity' : {
-        'meta_info' : _MetaInfoClass('Eth100G_AccIdentity',
+    'Prot_OtucnIdentity' : {
+        'meta_info' : _MetaInfoClass('Prot_OtucnIdentity',
             False, 
             [
             ],
             'openconfig-transport-types',
-            'eth-100G_ACC',
+            'PROT_OTUCN',
             _yang_ns._namespaces['openconfig-transport-types'],
         'ydk.models.openconfig.openconfig_transport_types'
         ),
     },
-    'Prot1GeIdentity' : {
-        'meta_info' : _MetaInfoClass('Prot1GeIdentity',
+    'Cfp2_AcoIdentity' : {
+        'meta_info' : _MetaInfoClass('Cfp2_AcoIdentity',
             False, 
             [
             ],
             'openconfig-transport-types',
-            'prot-1GE',
-            _yang_ns._namespaces['openconfig-transport-types'],
-        'ydk.models.openconfig.openconfig_transport_types'
-        ),
-    },
-    'Eth40GbaseSr4Identity' : {
-        'meta_info' : _MetaInfoClass('Eth40GbaseSr4Identity',
-            False, 
-            [
-            ],
-            'openconfig-transport-types',
-            'eth-40GBASE-SR4',
-            _yang_ns._namespaces['openconfig-transport-types'],
-        'ydk.models.openconfig.openconfig_transport_types'
-        ),
-    },
-    'Eth40GbasePsm4Identity' : {
-        'meta_info' : _MetaInfoClass('Eth40GbasePsm4Identity',
-            False, 
-            [
-            ],
-            'openconfig-transport-types',
-            'eth-40GBASE-PSM4',
-            _yang_ns._namespaces['openconfig-transport-types'],
-        'ydk.models.openconfig.openconfig_transport_types'
-        ),
-    },
-    'OtherIdentity' : {
-        'meta_info' : _MetaInfoClass('OtherIdentity',
-            False, 
-            [
-            ],
-            'openconfig-transport-types',
-            'other',
-            _yang_ns._namespaces['openconfig-transport-types'],
-        'ydk.models.openconfig.openconfig_transport_types'
-        ),
-    },
-    'TribRate40GIdentity' : {
-        'meta_info' : _MetaInfoClass('TribRate40GIdentity',
-            False, 
-            [
-            ],
-            'openconfig-transport-types',
-            'trib-rate-40G',
+            'CFP2_ACO',
             _yang_ns._namespaces['openconfig-transport-types'],
         'ydk.models.openconfig.openconfig_transport_types'
         ),
@@ -487,277 +488,266 @@ _meta_table = {
         'ydk.models.openconfig.openconfig_transport_types'
         ),
     },
-    'Eth10GbaseSrIdentity' : {
-        'meta_info' : _MetaInfoClass('Eth10GbaseSrIdentity',
+    'Prot_1GeIdentity' : {
+        'meta_info' : _MetaInfoClass('Prot_1GeIdentity',
             False, 
             [
             ],
             'openconfig-transport-types',
-            'eth-10GBASE-SR',
+            'PROT_1GE',
             _yang_ns._namespaces['openconfig-transport-types'],
         'ydk.models.openconfig.openconfig_transport_types'
         ),
     },
-    'EthUndefinedIdentity' : {
-        'meta_info' : _MetaInfoClass('EthUndefinedIdentity',
+    'Vsr2000_3R5Identity' : {
+        'meta_info' : _MetaInfoClass('Vsr2000_3R5Identity',
             False, 
             [
             ],
             'openconfig-transport-types',
-            'eth-undefined',
+            'VSR2000_3R5',
             _yang_ns._namespaces['openconfig-transport-types'],
         'ydk.models.openconfig.openconfig_transport_types'
         ),
     },
-    'TribRate10GIdentity' : {
-        'meta_info' : _MetaInfoClass('TribRate10GIdentity',
+    'Prot_100GeIdentity' : {
+        'meta_info' : _MetaInfoClass('Prot_100GeIdentity',
             False, 
             [
             ],
             'openconfig-transport-types',
-            'trib-rate-10G',
+            'PROT_100GE',
             _yang_ns._namespaces['openconfig-transport-types'],
         'ydk.models.openconfig.openconfig_transport_types'
         ),
     },
-    'Eth100GbaseSr4Identity' : {
-        'meta_info' : _MetaInfoClass('Eth100GbaseSr4Identity',
+    'Prot_Otu3Identity' : {
+        'meta_info' : _MetaInfoClass('Prot_Otu3Identity',
             False, 
             [
             ],
             'openconfig-transport-types',
-            'eth-100GBASE-SR4',
+            'PROT_OTU3',
             _yang_ns._namespaces['openconfig-transport-types'],
         'ydk.models.openconfig.openconfig_transport_types'
         ),
     },
-    'OtnUndefinedIdentity' : {
-        'meta_info' : _MetaInfoClass('OtnUndefinedIdentity',
+    'Prot_Otu2Identity' : {
+        'meta_info' : _MetaInfoClass('Prot_Otu2Identity',
             False, 
             [
             ],
             'openconfig-transport-types',
-            'otn-undefined',
+            'PROT_OTU2',
             _yang_ns._namespaces['openconfig-transport-types'],
         'ydk.models.openconfig.openconfig_transport_types'
         ),
     },
-    'TribRate1GIdentity' : {
-        'meta_info' : _MetaInfoClass('TribRate1GIdentity',
+    'Prot_Otu4Identity' : {
+        'meta_info' : _MetaInfoClass('Prot_Otu4Identity',
             False, 
             [
             ],
             'openconfig-transport-types',
-            'trib-rate-1G',
+            'PROT_OTU4',
             _yang_ns._namespaces['openconfig-transport-types'],
         'ydk.models.openconfig.openconfig_transport_types'
         ),
     },
-    'Eth100GbaseLr4Identity' : {
-        'meta_info' : _MetaInfoClass('Eth100GbaseLr4Identity',
+    'Prot_EthernetIdentity' : {
+        'meta_info' : _MetaInfoClass('Prot_EthernetIdentity',
             False, 
             [
             ],
             'openconfig-transport-types',
-            'eth-100GBASE-LR4',
+            'PROT_ETHERNET',
             _yang_ns._namespaces['openconfig-transport-types'],
         'ydk.models.openconfig.openconfig_transport_types'
         ),
     },
-    'TribRate2__Dot__5GIdentity' : {
-        'meta_info' : _MetaInfoClass('TribRate2__Dot__5GIdentity',
+    'Trib_Rate_100GIdentity' : {
+        'meta_info' : _MetaInfoClass('Trib_Rate_100GIdentity',
             False, 
             [
             ],
             'openconfig-transport-types',
-            'trib-rate-2.5G',
+            'TRIB_RATE_100G',
             _yang_ns._namespaces['openconfig-transport-types'],
         'ydk.models.openconfig.openconfig_transport_types'
         ),
     },
-    'Prot100GeIdentity' : {
-        'meta_info' : _MetaInfoClass('Prot100GeIdentity',
+    'Prot_Stm256Identity' : {
+        'meta_info' : _MetaInfoClass('Prot_Stm256Identity',
             False, 
             [
             ],
             'openconfig-transport-types',
-            'prot-100GE',
+            'PROT_STM256',
             _yang_ns._namespaces['openconfig-transport-types'],
         'ydk.models.openconfig.openconfig_transport_types'
         ),
     },
-    'ProtStm256Identity' : {
-        'meta_info' : _MetaInfoClass('ProtStm256Identity',
+    'Prot_OtnIdentity' : {
+        'meta_info' : _MetaInfoClass('Prot_OtnIdentity',
             False, 
             [
             ],
             'openconfig-transport-types',
-            'prot-STM256',
+            'PROT_OTN',
             _yang_ns._namespaces['openconfig-transport-types'],
         'ydk.models.openconfig.openconfig_transport_types'
         ),
     },
-    'LcConnectorIdentity' : {
-        'meta_info' : _MetaInfoClass('LcConnectorIdentity',
+    'Eth_10Gbase_LrIdentity' : {
+        'meta_info' : _MetaInfoClass('Eth_10Gbase_LrIdentity',
             False, 
             [
             ],
             'openconfig-transport-types',
-            'lc-connector',
+            'ETH_10GBASE_LR',
             _yang_ns._namespaces['openconfig-transport-types'],
         'ydk.models.openconfig.openconfig_transport_types'
         ),
     },
-    'ProtOdu3Identity' : {
-        'meta_info' : _MetaInfoClass('ProtOdu3Identity',
+    'Eth_100Gbase_Sr10Identity' : {
+        'meta_info' : _MetaInfoClass('Eth_100Gbase_Sr10Identity',
             False, 
             [
             ],
             'openconfig-transport-types',
-            'prot-ODU3',
+            'ETH_100GBASE_SR10',
             _yang_ns._namespaces['openconfig-transport-types'],
         'ydk.models.openconfig.openconfig_transport_types'
         ),
     },
-    'ProtOc768Identity' : {
-        'meta_info' : _MetaInfoClass('ProtOc768Identity',
+    'Eth_4X10Gbase_LrIdentity' : {
+        'meta_info' : _MetaInfoClass('Eth_4X10Gbase_LrIdentity',
             False, 
             [
             ],
             'openconfig-transport-types',
-            'prot-OC768',
+            'ETH_4X10GBASE_LR',
             _yang_ns._namespaces['openconfig-transport-types'],
         'ydk.models.openconfig.openconfig_transport_types'
         ),
     },
-    'Eth4X10GbaseSrIdentity' : {
-        'meta_info' : _MetaInfoClass('Eth4X10GbaseSrIdentity',
+    'Sfp_PlusIdentity' : {
+        'meta_info' : _MetaInfoClass('Sfp_PlusIdentity',
             False, 
             [
             ],
             'openconfig-transport-types',
-            'eth-4x10GBASE-SR',
+            'SFP_PLUS',
             _yang_ns._namespaces['openconfig-transport-types'],
         'ydk.models.openconfig.openconfig_transport_types'
         ),
     },
-    'Eth4X10GbaseLrIdentity' : {
-        'meta_info' : _MetaInfoClass('Eth4X10GbaseLrIdentity',
+    'Non_PluggableIdentity' : {
+        'meta_info' : _MetaInfoClass('Non_PluggableIdentity',
             False, 
             [
             ],
             'openconfig-transport-types',
-            'eth-4x10GBASE-LR',
+            'NON_PLUGGABLE',
             _yang_ns._namespaces['openconfig-transport-types'],
         'ydk.models.openconfig.openconfig_transport_types'
         ),
     },
-    'Eth10GbaseZrIdentity' : {
-        'meta_info' : _MetaInfoClass('Eth10GbaseZrIdentity',
+    'OtherIdentity' : {
+        'meta_info' : _MetaInfoClass('OtherIdentity',
             False, 
             [
             ],
             'openconfig-transport-types',
-            'eth-10GBASE-ZR',
+            'OTHER',
             _yang_ns._namespaces['openconfig-transport-types'],
         'ydk.models.openconfig.openconfig_transport_types'
         ),
     },
-    'ProtOtu2EIdentity' : {
-        'meta_info' : _MetaInfoClass('ProtOtu2EIdentity',
+    'Prot_10Ge_LanIdentity' : {
+        'meta_info' : _MetaInfoClass('Prot_10Ge_LanIdentity',
             False, 
             [
             ],
             'openconfig-transport-types',
-            'prot-OTU2e',
+            'PROT_10GE_LAN',
             _yang_ns._namespaces['openconfig-transport-types'],
         'ydk.models.openconfig.openconfig_transport_types'
         ),
     },
-    'ScConnectorIdentity' : {
-        'meta_info' : _MetaInfoClass('ScConnectorIdentity',
+    'Prot_Oc48Identity' : {
+        'meta_info' : _MetaInfoClass('Prot_Oc48Identity',
             False, 
             [
             ],
             'openconfig-transport-types',
-            'sc-connector',
+            'PROT_OC48',
             _yang_ns._namespaces['openconfig-transport-types'],
         'ydk.models.openconfig.openconfig_transport_types'
         ),
     },
-    'Vsr20003R2Identity' : {
-        'meta_info' : _MetaInfoClass('Vsr20003R2Identity',
+    'P1S1_2D2Identity' : {
+        'meta_info' : _MetaInfoClass('P1S1_2D2Identity',
             False, 
             [
             ],
             'openconfig-transport-types',
-            'VSR2000-3R2',
+            'P1S1_2D2',
             _yang_ns._namespaces['openconfig-transport-types'],
         'ydk.models.openconfig.openconfig_transport_types'
         ),
     },
-    'ProtOdu2Identity' : {
-        'meta_info' : _MetaInfoClass('ProtOdu2Identity',
+    'Prot_Oc192Identity' : {
+        'meta_info' : _MetaInfoClass('Prot_Oc192Identity',
             False, 
             [
             ],
             'openconfig-transport-types',
-            'prot-ODU2',
+            'PROT_OC192',
             _yang_ns._namespaces['openconfig-transport-types'],
         'ydk.models.openconfig.openconfig_transport_types'
         ),
     },
-    'ProtEthernetIdentity' : {
-        'meta_info' : _MetaInfoClass('ProtEthernetIdentity',
+    'Eth_100Gbase_Lr4Identity' : {
+        'meta_info' : _MetaInfoClass('Eth_100Gbase_Lr4Identity',
             False, 
             [
             ],
             'openconfig-transport-types',
-            'prot-ethernet',
+            'ETH_100GBASE_LR4',
             _yang_ns._namespaces['openconfig-transport-types'],
         'ydk.models.openconfig.openconfig_transport_types'
         ),
     },
-    'Prot40GeIdentity' : {
-        'meta_info' : _MetaInfoClass('Prot40GeIdentity',
+    'Trib_Rate_1GIdentity' : {
+        'meta_info' : _MetaInfoClass('Trib_Rate_1GIdentity',
             False, 
             [
             ],
             'openconfig-transport-types',
-            'prot-40GE',
+            'TRIB_RATE_1G',
             _yang_ns._namespaces['openconfig-transport-types'],
         'ydk.models.openconfig.openconfig_transport_types'
         ),
     },
-    'ProtOtu3Identity' : {
-        'meta_info' : _MetaInfoClass('ProtOtu3Identity',
+    'Prot_40GeIdentity' : {
+        'meta_info' : _MetaInfoClass('Prot_40GeIdentity',
             False, 
             [
             ],
             'openconfig-transport-types',
-            'prot-OTU3',
+            'PROT_40GE',
             _yang_ns._namespaces['openconfig-transport-types'],
         'ydk.models.openconfig.openconfig_transport_types'
         ),
     },
-    'ProtOtu2Identity' : {
-        'meta_info' : _MetaInfoClass('ProtOtu2Identity',
+    'Eth_100Gbase_Clr4Identity' : {
+        'meta_info' : _MetaInfoClass('Eth_100Gbase_Clr4Identity',
             False, 
             [
             ],
             'openconfig-transport-types',
-            'prot-OTU2',
-            _yang_ns._namespaces['openconfig-transport-types'],
-        'ydk.models.openconfig.openconfig_transport_types'
-        ),
-    },
-    'Vsr20003R5Identity' : {
-        'meta_info' : _MetaInfoClass('Vsr20003R5Identity',
-            False, 
-            [
-            ],
-            'openconfig-transport-types',
-            'VSR2000-3R5',
+            'ETH_100GBASE_CLR4',
             _yang_ns._namespaces['openconfig-transport-types'],
         'ydk.models.openconfig.openconfig_transport_types'
         ),
@@ -773,134 +763,178 @@ _meta_table = {
         'ydk.models.openconfig.openconfig_transport_types'
         ),
     },
-    'ProtStm16Identity' : {
-        'meta_info' : _MetaInfoClass('ProtStm16Identity',
+    'Mpo_ConnectorIdentity' : {
+        'meta_info' : _MetaInfoClass('Mpo_ConnectorIdentity',
             False, 
             [
             ],
             'openconfig-transport-types',
-            'prot-STM16',
+            'MPO_CONNECTOR',
             _yang_ns._namespaces['openconfig-transport-types'],
         'ydk.models.openconfig.openconfig_transport_types'
         ),
     },
-    'ProtOtnIdentity' : {
-        'meta_info' : _MetaInfoClass('ProtOtnIdentity',
+    'Prot_100G_MlgIdentity' : {
+        'meta_info' : _MetaInfoClass('Prot_100G_MlgIdentity',
             False, 
             [
             ],
             'openconfig-transport-types',
-            'prot-otn',
+            'PROT_100G_MLG',
             _yang_ns._namespaces['openconfig-transport-types'],
         'ydk.models.openconfig.openconfig_transport_types'
         ),
     },
-    'ProtOdu2EIdentity' : {
-        'meta_info' : _MetaInfoClass('ProtOdu2EIdentity',
+    'Trib_Rate_2__Dot__5GIdentity' : {
+        'meta_info' : _MetaInfoClass('Trib_Rate_2__Dot__5GIdentity',
             False, 
             [
             ],
             'openconfig-transport-types',
-            'prot-ODU2e',
+            'TRIB_RATE_2.5G',
             _yang_ns._namespaces['openconfig-transport-types'],
         'ydk.models.openconfig.openconfig_transport_types'
         ),
     },
-    'Eth40GbaseLr4Identity' : {
-        'meta_info' : _MetaInfoClass('Eth40GbaseLr4Identity',
+    'Eth_10Gbase_SrIdentity' : {
+        'meta_info' : _MetaInfoClass('Eth_10Gbase_SrIdentity',
             False, 
             [
             ],
             'openconfig-transport-types',
-            'eth-40GBASE-LR4',
+            'ETH_10GBASE_SR',
             _yang_ns._namespaces['openconfig-transport-types'],
         'ydk.models.openconfig.openconfig_transport_types'
         ),
     },
-    'Vsr20003R3Identity' : {
-        'meta_info' : _MetaInfoClass('Vsr20003R3Identity',
+    'Eth_100Gbase_Cwdm4Identity' : {
+        'meta_info' : _MetaInfoClass('Eth_100Gbase_Cwdm4Identity',
             False, 
             [
             ],
             'openconfig-transport-types',
-            'VSR2000-3R3',
+            'ETH_100GBASE_CWDM4',
             _yang_ns._namespaces['openconfig-transport-types'],
         'ydk.models.openconfig.openconfig_transport_types'
         ),
     },
-    'ProtOtu1EIdentity' : {
-        'meta_info' : _MetaInfoClass('ProtOtu1EIdentity',
+    'SfpIdentity' : {
+        'meta_info' : _MetaInfoClass('SfpIdentity',
             False, 
             [
             ],
             'openconfig-transport-types',
-            'prot-OTU1e',
+            'SFP',
             _yang_ns._namespaces['openconfig-transport-types'],
         'ydk.models.openconfig.openconfig_transport_types'
         ),
     },
-    'ProtOtucnIdentity' : {
-        'meta_info' : _MetaInfoClass('ProtOtucnIdentity',
+    'Eth_100Gbase_Psm4Identity' : {
+        'meta_info' : _MetaInfoClass('Eth_100Gbase_Psm4Identity',
             False, 
             [
             ],
             'openconfig-transport-types',
-            'prot-OTUCn',
+            'ETH_100GBASE_PSM4',
             _yang_ns._namespaces['openconfig-transport-types'],
         'ydk.models.openconfig.openconfig_transport_types'
         ),
     },
-    'Eth100GbaseSr10Identity' : {
-        'meta_info' : _MetaInfoClass('Eth100GbaseSr10Identity',
+    'Eth_40Gbase_Cr4Identity' : {
+        'meta_info' : _MetaInfoClass('Eth_40Gbase_Cr4Identity',
             False, 
             [
             ],
             'openconfig-transport-types',
-            'eth-100GBASE-SR10',
+            'ETH_40GBASE_CR4',
             _yang_ns._namespaces['openconfig-transport-types'],
         'ydk.models.openconfig.openconfig_transport_types'
         ),
     },
-    'Eth10GbaseLrIdentity' : {
-        'meta_info' : _MetaInfoClass('Eth10GbaseLrIdentity',
+    'Prot_Odu3Identity' : {
+        'meta_info' : _MetaInfoClass('Prot_Odu3Identity',
             False, 
             [
             ],
             'openconfig-transport-types',
-            'eth-10GBASE-LR',
+            'PROT_ODU3',
             _yang_ns._namespaces['openconfig-transport-types'],
         'ydk.models.openconfig.openconfig_transport_types'
         ),
     },
-    'P1S12D2Identity' : {
-        'meta_info' : _MetaInfoClass('P1S12D2Identity',
+    'Prot_Odu2Identity' : {
+        'meta_info' : _MetaInfoClass('Prot_Odu2Identity',
             False, 
             [
             ],
             'openconfig-transport-types',
-            'P1S1-2D2',
+            'PROT_ODU2',
             _yang_ns._namespaces['openconfig-transport-types'],
         'ydk.models.openconfig.openconfig_transport_types'
         ),
     },
-    'MpoConnectorIdentity' : {
-        'meta_info' : _MetaInfoClass('MpoConnectorIdentity',
+    'Prot_Odu4Identity' : {
+        'meta_info' : _MetaInfoClass('Prot_Odu4Identity',
             False, 
             [
             ],
             'openconfig-transport-types',
-            'mpo-connector',
+            'PROT_ODU4',
             _yang_ns._namespaces['openconfig-transport-types'],
         'ydk.models.openconfig.openconfig_transport_types'
         ),
     },
-    'TribRate100GIdentity' : {
-        'meta_info' : _MetaInfoClass('TribRate100GIdentity',
+    'Eth_100Gbase_Cr4Identity' : {
+        'meta_info' : _MetaInfoClass('Eth_100Gbase_Cr4Identity',
             False, 
             [
             ],
             'openconfig-transport-types',
-            'trib-rate-100G',
+            'ETH_100GBASE_CR4',
+            _yang_ns._namespaces['openconfig-transport-types'],
+        'ydk.models.openconfig.openconfig_transport_types'
+        ),
+    },
+    'Lc_ConnectorIdentity' : {
+        'meta_info' : _MetaInfoClass('Lc_ConnectorIdentity',
+            False, 
+            [
+            ],
+            'openconfig-transport-types',
+            'LC_CONNECTOR',
+            _yang_ns._namespaces['openconfig-transport-types'],
+        'ydk.models.openconfig.openconfig_transport_types'
+        ),
+    },
+    'Prot_Stm64Identity' : {
+        'meta_info' : _MetaInfoClass('Prot_Stm64Identity',
+            False, 
+            [
+            ],
+            'openconfig-transport-types',
+            'PROT_STM64',
+            _yang_ns._namespaces['openconfig-transport-types'],
+        'ydk.models.openconfig.openconfig_transport_types'
+        ),
+    },
+    'Prot_Otu1EIdentity' : {
+        'meta_info' : _MetaInfoClass('Prot_Otu1EIdentity',
+            False, 
+            [
+            ],
+            'openconfig-transport-types',
+            'PROT_OTU1E',
+            _yang_ns._namespaces['openconfig-transport-types'],
+        'ydk.models.openconfig.openconfig_transport_types'
+        ),
+    },
+    'Eth_10Gbase_ErIdentity' : {
+        'meta_info' : _MetaInfoClass('Eth_10Gbase_ErIdentity',
+            False, 
+            [
+            ],
+            'openconfig-transport-types',
+            'ETH_10GBASE_ER',
             _yang_ns._namespaces['openconfig-transport-types'],
         'ydk.models.openconfig.openconfig_transport_types'
         ),

@@ -40,6 +40,12 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Rsvp.Neighbors.Neighbor.Authentication',
             False, 
             [
+            _MetaInfoClassMember('enable', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Enable or disable RSVP authentication
+                ''',
+                'enable',
+                'Cisco-IOS-XR-ip-rsvp-cfg', False),
             _MetaInfoClassMember('key-chain', ATTRIBUTE, 'str' , None, None, 
                 [(0, 32)], [], 
                 '''                Key chain to authenticate RSVP signalling
@@ -48,14 +54,14 @@ _meta_table = {
                 'key_chain',
                 'Cisco-IOS-XR-ip-rsvp-cfg', False),
             _MetaInfoClassMember('life-time', ATTRIBUTE, 'int' , None, None, 
-                [(30, 86400)], [], 
+                [('30', '86400')], [], 
                 '''                Life time (in seconds) for each security
                 association
                 ''',
                 'life_time',
                 'Cisco-IOS-XR-ip-rsvp-cfg', False),
             _MetaInfoClassMember('window-size', ATTRIBUTE, 'int' , None, None, 
-                [(1, 64)], [], 
+                [('1', '64')], [], 
                 '''                Window-size to limit number of out-of-order
                 messages
                 ''',
@@ -113,7 +119,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('missed-messages', ATTRIBUTE, 'int' , None, None, 
-                [(1, 110000)], [], 
+                [('1', '110000')], [], 
                 '''                Configure max number of consecutive missed
                 messages for state expiry for out-of-band
                 tunnels
@@ -121,7 +127,7 @@ _meta_table = {
                 'missed_messages',
                 'Cisco-IOS-XR-ip-rsvp-cfg', False),
             _MetaInfoClassMember('refresh-interval', ATTRIBUTE, 'int' , None, None, 
-                [(180, 86400)], [], 
+                [('180', '86400')], [], 
                 '''                Configure interval between successive refreshes
                 for out-of-band tunnels
                 ''',
@@ -156,7 +162,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('controller-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Name of controller
                 ''',
                 'controller_name',
@@ -225,19 +231,19 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('bc0-percent', ATTRIBUTE, 'int' , None, None, 
-                [(0, 10000)], [], 
+                [('0', '10000')], [], 
                 '''                Default BC0 pool I/F % B/W 
                 ''',
                 'bc0_percent',
                 'Cisco-IOS-XR-ip-rsvp-cfg', False),
             _MetaInfoClassMember('bc1-percent', ATTRIBUTE, 'int' , None, None, 
-                [(0, 10000)], [], 
+                [('0', '10000')], [], 
                 '''                Default BC1 pool I/F % B/W 
                 ''',
                 'bc1_percent',
                 'Cisco-IOS-XR-ip-rsvp-cfg', False),
             _MetaInfoClassMember('max-res-percent', ATTRIBUTE, 'int' , None, None, 
-                [(0, 10000)], [], 
+                [('0', '10000')], [], 
                 '''                Default maximum reservable I/F % B/W 
                 ''',
                 'max_res_percent',
@@ -254,13 +260,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('bc0-percent', ATTRIBUTE, 'int' , None, None, 
-                [(0, 10000)], [], 
+                [('0', '10000')], [], 
                 '''                Default BC0 pool I/F % B/W 
                 ''',
                 'bc0_percent',
                 'Cisco-IOS-XR-ip-rsvp-cfg', False),
             _MetaInfoClassMember('bc1-percent', ATTRIBUTE, 'int' , None, None, 
-                [(0, 10000)], [], 
+                [('0', '10000')], [], 
                 '''                Default BC1 pool I/F % B/W 
                 ''',
                 'bc1_percent',
@@ -319,7 +325,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('bundle-message-max-size', ATTRIBUTE, 'int' , None, None, 
-                [(512, 65000)], [], 
+                [('512', '65000')], [], 
                 '''                Configure maximum size of a single RSVP
                 Bundle message
                 ''',
@@ -332,21 +338,21 @@ _meta_table = {
                 'disable',
                 'Cisco-IOS-XR-ip-rsvp-cfg', False),
             _MetaInfoClassMember('reliable-ack-hold-time', ATTRIBUTE, 'int' , None, None, 
-                [(100, 5000)], [], 
+                [('100', '5000')], [], 
                 '''                Configure hold time for sending RSVP ACK
                 message(s)
                 ''',
                 'reliable_ack_hold_time',
                 'Cisco-IOS-XR-ip-rsvp-cfg', False),
             _MetaInfoClassMember('reliable-ack-max-size', ATTRIBUTE, 'int' , None, None, 
-                [(20, 65000)], [], 
+                [('20', '65000')], [], 
                 '''                Configure max size of a single RSVP ACK
                 message
                 ''',
                 'reliable_ack_max_size',
                 'Cisco-IOS-XR-ip-rsvp-cfg', False),
             _MetaInfoClassMember('reliable-retransmit-time', ATTRIBUTE, 'int' , None, None, 
-                [(100, 10000)], [], 
+                [('100', '10000')], [], 
                 '''                Configure min delay to wait for an ACK
                 before a retransmit
                 ''',
@@ -360,7 +366,7 @@ _meta_table = {
                 'reliable_s_refresh',
                 'Cisco-IOS-XR-ip-rsvp-cfg', False),
             _MetaInfoClassMember('summary-max-size', ATTRIBUTE, 'int' , None, None, 
-                [(20, 65000)], [], 
+                [('20', '65000')], [], 
                 '''                Configure max size of a single RSVP summary
                 refresh message
                 ''',
@@ -378,13 +384,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('interval-size', ATTRIBUTE, 'int' , None, None, 
-                [(250, 2000)], [], 
+                [('250', '2000')], [], 
                 '''                Size of an interval (milliseconds)
                 ''',
                 'interval_size',
                 'Cisco-IOS-XR-ip-rsvp-cfg', False),
             _MetaInfoClassMember('messages-per-interval', ATTRIBUTE, 'int' , None, None, 
-                [(1, 500)], [], 
+                [('1', '500')], [], 
                 '''                Number of messages to be sent per interval
                 ''',
                 'messages_per_interval',
@@ -401,7 +407,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('missed-messages', ATTRIBUTE, 'int' , None, None, 
-                [(1, 110000)], [], 
+                [('1', '110000')], [], 
                 '''                Configure max number of consecutive missed
                 messages for state expiry for out-of-band
                 tunnels
@@ -409,7 +415,7 @@ _meta_table = {
                 'missed_messages',
                 'Cisco-IOS-XR-ip-rsvp-cfg', False),
             _MetaInfoClassMember('refresh-interval', ATTRIBUTE, 'int' , None, None, 
-                [(180, 86400)], [], 
+                [('180', '86400')], [], 
                 '''                Configure interval between successive refreshes
                 for out-of-band tunnels
                 ''',
@@ -427,7 +433,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('dscp', ATTRIBUTE, 'int' , None, None, 
-                [(0, 63)], [], 
+                [('0', '63')], [], 
                 '''                Differentiated Services Code Point (DSCP)
                 ''',
                 'dscp',
@@ -447,7 +453,7 @@ _meta_table = {
                 'interval_rate',
                 'Cisco-IOS-XR-ip-rsvp-cfg', False),
             _MetaInfoClassMember('missed-messages', ATTRIBUTE, 'int' , None, None, 
-                [(1, 8)], [], 
+                [('1', '8')], [], 
                 '''                Configure max number of consecutive missed
                 messages for state expiry
                 ''',
@@ -466,7 +472,7 @@ _meta_table = {
                 'pacing',
                 'Cisco-IOS-XR-ip-rsvp-cfg', False),
             _MetaInfoClassMember('refresh-interval', ATTRIBUTE, 'int' , None, None, 
-                [(10, 180)], [], 
+                [('10', '180')], [], 
                 '''                Configure interval between successive
                 refreshes
                 ''',
@@ -496,28 +502,28 @@ _meta_table = {
                 'bandwidth_mode',
                 'Cisco-IOS-XR-ip-rsvp-cfg', False),
             _MetaInfoClassMember('bc0-bandwidth', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Reservable bandwidth in BC0 (Kbps or percent
                 of physical bandwidth)
                 ''',
                 'bc0_bandwidth',
                 'Cisco-IOS-XR-ip-rsvp-cfg', False),
             _MetaInfoClassMember('bc1-bandwidth', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Reservable bandwidth in BC1 (Kbps or percent
                 of physical bandwidth)
                 ''',
                 'bc1_bandwidth',
                 'Cisco-IOS-XR-ip-rsvp-cfg', False),
             _MetaInfoClassMember('max-resv-bandwidth', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Maximum reservable bandwidth (Kbps or
                 percent of physical bandwidth)
                 ''',
                 'max_resv_bandwidth',
                 'Cisco-IOS-XR-ip-rsvp-cfg', False),
             _MetaInfoClassMember('max-resv-flow', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Largest reservable flow (Kbps or percent of
                 physical bandwidth)
                 ''',
@@ -541,7 +547,7 @@ _meta_table = {
                 'bandwidth_mode',
                 'Cisco-IOS-XR-ip-rsvp-cfg', False),
             _MetaInfoClassMember('bc0-bandwidth', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Reservable bandwidth in BC0 (Kbps or percent
                 of physical bandwidth)
                 ''',
@@ -554,7 +560,7 @@ _meta_table = {
                 'bc0_keyword',
                 'Cisco-IOS-XR-ip-rsvp-cfg', False),
             _MetaInfoClassMember('bc1-bandwidth', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Reservable bandwidth in BC1 (Kbps or percent
                 of physical bandwidth)
                 ''',
@@ -567,7 +573,7 @@ _meta_table = {
                 'bc1_keyword',
                 'Cisco-IOS-XR-ip-rsvp-cfg', False),
             _MetaInfoClassMember('max-resv-flow', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Largest reservable flow (Kbps or percent of
                 physical bandwidth)
                 ''',
@@ -613,6 +619,12 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Rsvp.Interfaces.Interface.Authentication',
             False, 
             [
+            _MetaInfoClassMember('enable', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Enable or disable RSVP authentication
+                ''',
+                'enable',
+                'Cisco-IOS-XR-ip-rsvp-cfg', False),
             _MetaInfoClassMember('key-chain', ATTRIBUTE, 'str' , None, None, 
                 [(0, 32)], [], 
                 '''                Key chain to authenticate RSVP signalling
@@ -621,14 +633,14 @@ _meta_table = {
                 'key_chain',
                 'Cisco-IOS-XR-ip-rsvp-cfg', False),
             _MetaInfoClassMember('life-time', ATTRIBUTE, 'int' , None, None, 
-                [(30, 86400)], [], 
+                [('30', '86400')], [], 
                 '''                Life time (in seconds) for each security
                 association
                 ''',
                 'life_time',
                 'Cisco-IOS-XR-ip-rsvp-cfg', False),
             _MetaInfoClassMember('window-size', ATTRIBUTE, 'int' , None, None, 
-                [(1, 64)], [], 
+                [('1', '64')], [], 
                 '''                Window-size to limit number of out-of-order
                 messages
                 ''',
@@ -646,7 +658,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('name', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Name of interface
                 ''',
                 'name',
@@ -720,14 +732,20 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Rsvp.Signalling.GracefulRestart',
             False, 
             [
-            _MetaInfoClassMember('enable', ATTRIBUTE, 'Empty' , None, None, 
+            _MetaInfoClassMember('enable', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
                 '''                Enable RSVP graceful restart
                 ''',
                 'enable',
                 'Cisco-IOS-XR-ip-rsvp-cfg', False),
+            _MetaInfoClassMember('recovery-time', ATTRIBUTE, 'int' , None, None, 
+                [('0', '3600')], [], 
+                '''                Graceful restart recovery time (seconds)
+                ''',
+                'recovery_time',
+                'Cisco-IOS-XR-ip-rsvp-cfg', False),
             _MetaInfoClassMember('restart-time', ATTRIBUTE, 'int' , None, None, 
-                [(60, 3600)], [], 
+                [('60', '3600')], [], 
                 '''                Graceful restart time (seconds)
                 ''',
                 'restart_time',
@@ -839,14 +857,14 @@ _meta_table = {
                 'graceful_restart',
                 'Cisco-IOS-XR-ip-rsvp-cfg', False),
             _MetaInfoClassMember('hello-graceful-restart-interval', ATTRIBUTE, 'int' , None, None, 
-                [(3000, 30000)], [], 
+                [('3000', '30000')], [], 
                 '''                Configure interval between successive Hello
                 messages
                 ''',
                 'hello_graceful_restart_interval',
                 'Cisco-IOS-XR-ip-rsvp-cfg', False),
             _MetaInfoClassMember('hello-graceful-restart-misses', ATTRIBUTE, 'int' , None, None, 
-                [(1, 10)], [], 
+                [('1', '10')], [], 
                 '''                Configure max number of consecutive missed
                 Hello messages
                 ''',
@@ -875,6 +893,12 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Rsvp.Authentication',
             False, 
             [
+            _MetaInfoClassMember('enable', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Enable or disable RSVP authentication
+                ''',
+                'enable',
+                'Cisco-IOS-XR-ip-rsvp-cfg', False),
             _MetaInfoClassMember('key-chain', ATTRIBUTE, 'str' , None, None, 
                 [(0, 32)], [], 
                 '''                Key chain to authenticate RSVP signalling
@@ -883,14 +907,14 @@ _meta_table = {
                 'key_chain',
                 'Cisco-IOS-XR-ip-rsvp-cfg', False),
             _MetaInfoClassMember('life-time', ATTRIBUTE, 'int' , None, None, 
-                [(30, 86400)], [], 
+                [('30', '86400')], [], 
                 '''                Life time (in seconds) for each security
                 association
                 ''',
                 'life_time',
                 'Cisco-IOS-XR-ip-rsvp-cfg', False),
             _MetaInfoClassMember('window-size', ATTRIBUTE, 'int' , None, None, 
-                [(1, 64)], [], 
+                [('1', '64')], [], 
                 '''                Window-size to limit number of out-of-order
                 messages
                 ''',

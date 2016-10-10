@@ -7,7 +7,7 @@ This module contains definitions
 for the following management objects\:
   srms\: Segment Routing Mapping Server operational data
 
-Copyright (c) 2013\-2015 by Cisco Systems, Inc.
+Copyright (c) 2013\-2016 by Cisco Systems, Inc.
 All rights reserved.
 
 """
@@ -22,33 +22,6 @@ from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
 
 from ydk.errors import YPYError, YPYModelError
 
-
-
-class SrmsMiActionEBEnum(Enum):
-    """
-    SrmsMiActionEBEnum
-
-    Srms mi action e b
-
-    .. data:: NONE = 0
-
-    	None
-
-    .. data:: ADD = 1
-
-    	Add
-
-    """
-
-    NONE = 0
-
-    ADD = 1
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_segment_routing_ms_oper as meta
-        return meta._meta_table['SrmsMiActionEBEnum']
 
 
 class SrmsMiAfEBEnum(Enum):
@@ -82,6 +55,33 @@ class SrmsMiAfEBEnum(Enum):
     def _meta_info():
         from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_segment_routing_ms_oper as meta
         return meta._meta_table['SrmsMiAfEBEnum']
+
+
+class SrmsMiFlagEBEnum(Enum):
+    """
+    SrmsMiFlagEBEnum
+
+    Srms mi flag e b
+
+    .. data:: FALSE = 0
+
+    	False
+
+    .. data:: TRUE = 1
+
+    	True
+
+    """
+
+    FALSE = 0
+
+    TRUE = 1
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_segment_routing_ms_oper as meta
+        return meta._meta_table['SrmsMiFlagEBEnum']
 
 
 class SrmsMiSrcEBEnum(Enum):
@@ -206,11 +206,6 @@ class Srms(object):
                 Instead, SID map information must be retrieved
                 individually for each prefix of interest.
                 
-                .. attribute:: action
-                
-                	action
-                	**type**\:  :py:class:`SrmsMiActionEBEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_segment_routing_ms_oper.SrmsMiActionEBEnum>`
-                
                 .. attribute:: addr
                 
                 	addr
@@ -218,17 +213,15 @@ class Srms(object):
                 
                 .. attribute:: area
                 
-                	area
-                	**type**\:  long
+                	Area (OSPF) or Level (ISIS)
+                	**type**\:  str
                 
-                	**range:** 0..18446744073709551615
+                	**range:** 0..30
                 
-                .. attribute:: flags
+                .. attribute:: flag_attached
                 
-                	flags
-                	**type**\:  int
-                
-                	**range:** 0..4294967295
+                	Attached flag
+                	**type**\:  :py:class:`SrmsMiFlagEBEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_segment_routing_ms_oper.SrmsMiFlagEBEnum>`
                 
                 .. attribute:: ip
                 
@@ -236,6 +229,20 @@ class Srms(object):
                 	**type**\:  str
                 
                 	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
+                
+                .. attribute:: last_prefix
+                
+                	Last IP Prefix
+                	**type**\:  str
+                
+                	**range:** 0..50
+                
+                .. attribute:: last_sid_index
+                
+                	Last SID Index
+                	**type**\:  int
+                
+                	**range:** 0..4294967295
                 
                 .. attribute:: prefix
                 
@@ -246,28 +253,28 @@ class Srms(object):
                 
                 .. attribute:: prefix_xr
                 
-                	prefix xr
+                	Prefix length
                 	**type**\:  int
                 
                 	**range:** 0..255
                 
                 .. attribute:: router
                 
-                	router
-                	**type**\:  long
+                	Router ID
+                	**type**\:  str
                 
-                	**range:** 0..18446744073709551615
+                	**range:** 0..30
                 
                 .. attribute:: sid_count
                 
-                	sid count
+                	SID range
                 	**type**\:  int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: sid_start
                 
-                	sid start
+                	Starting SID
                 	**type**\:  int
                 
                 	**range:** 0..4294967295
@@ -286,12 +293,13 @@ class Srms(object):
 
                 def __init__(self):
                     self.parent = None
-                    self.action = None
                     self.addr = Srms.Mapping.MappingIpv4.MappingMi.Addr()
                     self.addr.parent = self
                     self.area = None
-                    self.flags = None
+                    self.flag_attached = None
                     self.ip = None
+                    self.last_prefix = None
+                    self.last_sid_index = None
                     self.prefix = None
                     self.prefix_xr = None
                     self.router = None
@@ -376,19 +384,22 @@ class Srms(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.action is not None:
-                        return True
-
                     if self.addr is not None and self.addr._has_data():
                         return True
 
                     if self.area is not None:
                         return True
 
-                    if self.flags is not None:
+                    if self.flag_attached is not None:
                         return True
 
                     if self.ip is not None:
+                        return True
+
+                    if self.last_prefix is not None:
+                        return True
+
+                    if self.last_sid_index is not None:
                         return True
 
                     if self.prefix is not None:
@@ -472,11 +483,6 @@ class Srms(object):
                 Instead, SID map information must be retrieved
                 individually for each prefix of interest.
                 
-                .. attribute:: action
-                
-                	action
-                	**type**\:  :py:class:`SrmsMiActionEBEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_segment_routing_ms_oper.SrmsMiActionEBEnum>`
-                
                 .. attribute:: addr
                 
                 	addr
@@ -484,17 +490,15 @@ class Srms(object):
                 
                 .. attribute:: area
                 
-                	area
-                	**type**\:  long
+                	Area (OSPF) or Level (ISIS)
+                	**type**\:  str
                 
-                	**range:** 0..18446744073709551615
+                	**range:** 0..30
                 
-                .. attribute:: flags
+                .. attribute:: flag_attached
                 
-                	flags
-                	**type**\:  int
-                
-                	**range:** 0..4294967295
+                	Attached flag
+                	**type**\:  :py:class:`SrmsMiFlagEBEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_segment_routing_ms_oper.SrmsMiFlagEBEnum>`
                 
                 .. attribute:: ip
                 
@@ -502,6 +506,20 @@ class Srms(object):
                 	**type**\:  str
                 
                 	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
+                
+                .. attribute:: last_prefix
+                
+                	Last IP Prefix
+                	**type**\:  str
+                
+                	**range:** 0..50
+                
+                .. attribute:: last_sid_index
+                
+                	Last SID Index
+                	**type**\:  int
+                
+                	**range:** 0..4294967295
                 
                 .. attribute:: prefix
                 
@@ -512,28 +530,28 @@ class Srms(object):
                 
                 .. attribute:: prefix_xr
                 
-                	prefix xr
+                	Prefix length
                 	**type**\:  int
                 
                 	**range:** 0..255
                 
                 .. attribute:: router
                 
-                	router
-                	**type**\:  long
+                	Router ID
+                	**type**\:  str
                 
-                	**range:** 0..18446744073709551615
+                	**range:** 0..30
                 
                 .. attribute:: sid_count
                 
-                	sid count
+                	SID range
                 	**type**\:  int
                 
                 	**range:** 0..4294967295
                 
                 .. attribute:: sid_start
                 
-                	sid start
+                	Starting SID
                 	**type**\:  int
                 
                 	**range:** 0..4294967295
@@ -552,12 +570,13 @@ class Srms(object):
 
                 def __init__(self):
                     self.parent = None
-                    self.action = None
                     self.addr = Srms.Mapping.MappingIpv6.MappingMi.Addr()
                     self.addr.parent = self
                     self.area = None
-                    self.flags = None
+                    self.flag_attached = None
                     self.ip = None
+                    self.last_prefix = None
+                    self.last_sid_index = None
                     self.prefix = None
                     self.prefix_xr = None
                     self.router = None
@@ -642,19 +661,22 @@ class Srms(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.action is not None:
-                        return True
-
                     if self.addr is not None and self.addr._has_data():
                         return True
 
                     if self.area is not None:
                         return True
 
-                    if self.flags is not None:
+                    if self.flag_attached is not None:
                         return True
 
                     if self.ip is not None:
+                        return True
+
+                    if self.last_prefix is not None:
+                        return True
+
+                    if self.last_sid_index is not None:
                         return True
 
                     if self.prefix is not None:
@@ -824,11 +846,6 @@ class Srms(object):
                     
                     	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                     
-                    .. attribute:: action
-                    
-                    	action
-                    	**type**\:  :py:class:`SrmsMiActionEBEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_segment_routing_ms_oper.SrmsMiActionEBEnum>`
-                    
                     .. attribute:: addr
                     
                     	addr
@@ -836,42 +853,54 @@ class Srms(object):
                     
                     .. attribute:: area
                     
-                    	area
-                    	**type**\:  long
+                    	Area (OSPF) or Level (ISIS)
+                    	**type**\:  str
                     
-                    	**range:** 0..18446744073709551615
+                    	**range:** 0..30
                     
-                    .. attribute:: flags
+                    .. attribute:: flag_attached
                     
-                    	flags
+                    	Attached flag
+                    	**type**\:  :py:class:`SrmsMiFlagEBEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_segment_routing_ms_oper.SrmsMiFlagEBEnum>`
+                    
+                    .. attribute:: last_prefix
+                    
+                    	Last IP Prefix
+                    	**type**\:  str
+                    
+                    	**range:** 0..50
+                    
+                    .. attribute:: last_sid_index
+                    
+                    	Last SID Index
                     	**type**\:  int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: prefix_xr
                     
-                    	prefix xr
+                    	Prefix length
                     	**type**\:  int
                     
                     	**range:** 0..255
                     
                     .. attribute:: router
                     
-                    	router
-                    	**type**\:  long
+                    	Router ID
+                    	**type**\:  str
                     
-                    	**range:** 0..18446744073709551615
+                    	**range:** 0..30
                     
                     .. attribute:: sid_count
                     
-                    	sid count
+                    	SID range
                     	**type**\:  int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: sid_start
                     
-                    	sid start
+                    	Starting SID
                     	**type**\:  int
                     
                     	**range:** 0..4294967295
@@ -891,11 +920,12 @@ class Srms(object):
                     def __init__(self):
                         self.parent = None
                         self.mi_id = None
-                        self.action = None
                         self.addr = Srms.Policy.PolicyIpv4.PolicyIpv4Backup.PolicyMi.Addr()
                         self.addr.parent = self
                         self.area = None
-                        self.flags = None
+                        self.flag_attached = None
+                        self.last_prefix = None
+                        self.last_sid_index = None
                         self.prefix_xr = None
                         self.router = None
                         self.sid_count = None
@@ -986,16 +1016,19 @@ class Srms(object):
                         if self.mi_id is not None:
                             return True
 
-                        if self.action is not None:
-                            return True
-
                         if self.addr is not None and self.addr._has_data():
                             return True
 
                         if self.area is not None:
                             return True
 
-                        if self.flags is not None:
+                        if self.flag_attached is not None:
+                            return True
+
+                        if self.last_prefix is not None:
+                            return True
+
+                        if self.last_sid_index is not None:
                             return True
 
                         if self.prefix_xr is not None:
@@ -1079,11 +1112,6 @@ class Srms(object):
                     
                     	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                     
-                    .. attribute:: action
-                    
-                    	action
-                    	**type**\:  :py:class:`SrmsMiActionEBEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_segment_routing_ms_oper.SrmsMiActionEBEnum>`
-                    
                     .. attribute:: addr
                     
                     	addr
@@ -1091,42 +1119,54 @@ class Srms(object):
                     
                     .. attribute:: area
                     
-                    	area
-                    	**type**\:  long
+                    	Area (OSPF) or Level (ISIS)
+                    	**type**\:  str
                     
-                    	**range:** 0..18446744073709551615
+                    	**range:** 0..30
                     
-                    .. attribute:: flags
+                    .. attribute:: flag_attached
                     
-                    	flags
+                    	Attached flag
+                    	**type**\:  :py:class:`SrmsMiFlagEBEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_segment_routing_ms_oper.SrmsMiFlagEBEnum>`
+                    
+                    .. attribute:: last_prefix
+                    
+                    	Last IP Prefix
+                    	**type**\:  str
+                    
+                    	**range:** 0..50
+                    
+                    .. attribute:: last_sid_index
+                    
+                    	Last SID Index
                     	**type**\:  int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: prefix_xr
                     
-                    	prefix xr
+                    	Prefix length
                     	**type**\:  int
                     
                     	**range:** 0..255
                     
                     .. attribute:: router
                     
-                    	router
-                    	**type**\:  long
+                    	Router ID
+                    	**type**\:  str
                     
-                    	**range:** 0..18446744073709551615
+                    	**range:** 0..30
                     
                     .. attribute:: sid_count
                     
-                    	sid count
+                    	SID range
                     	**type**\:  int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: sid_start
                     
-                    	sid start
+                    	Starting SID
                     	**type**\:  int
                     
                     	**range:** 0..4294967295
@@ -1146,11 +1186,12 @@ class Srms(object):
                     def __init__(self):
                         self.parent = None
                         self.mi_id = None
-                        self.action = None
                         self.addr = Srms.Policy.PolicyIpv4.PolicyIpv4Active.PolicyMi.Addr()
                         self.addr.parent = self
                         self.area = None
-                        self.flags = None
+                        self.flag_attached = None
+                        self.last_prefix = None
+                        self.last_sid_index = None
                         self.prefix_xr = None
                         self.router = None
                         self.sid_count = None
@@ -1241,16 +1282,19 @@ class Srms(object):
                         if self.mi_id is not None:
                             return True
 
-                        if self.action is not None:
-                            return True
-
                         if self.addr is not None and self.addr._has_data():
                             return True
 
                         if self.area is not None:
                             return True
 
-                        if self.flags is not None:
+                        if self.flag_attached is not None:
+                            return True
+
+                        if self.last_prefix is not None:
+                            return True
+
+                        if self.last_sid_index is not None:
                             return True
 
                         if self.prefix_xr is not None:
@@ -1388,11 +1432,6 @@ class Srms(object):
                     
                     	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                     
-                    .. attribute:: action
-                    
-                    	action
-                    	**type**\:  :py:class:`SrmsMiActionEBEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_segment_routing_ms_oper.SrmsMiActionEBEnum>`
-                    
                     .. attribute:: addr
                     
                     	addr
@@ -1400,42 +1439,54 @@ class Srms(object):
                     
                     .. attribute:: area
                     
-                    	area
-                    	**type**\:  long
+                    	Area (OSPF) or Level (ISIS)
+                    	**type**\:  str
                     
-                    	**range:** 0..18446744073709551615
+                    	**range:** 0..30
                     
-                    .. attribute:: flags
+                    .. attribute:: flag_attached
                     
-                    	flags
+                    	Attached flag
+                    	**type**\:  :py:class:`SrmsMiFlagEBEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_segment_routing_ms_oper.SrmsMiFlagEBEnum>`
+                    
+                    .. attribute:: last_prefix
+                    
+                    	Last IP Prefix
+                    	**type**\:  str
+                    
+                    	**range:** 0..50
+                    
+                    .. attribute:: last_sid_index
+                    
+                    	Last SID Index
                     	**type**\:  int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: prefix_xr
                     
-                    	prefix xr
+                    	Prefix length
                     	**type**\:  int
                     
                     	**range:** 0..255
                     
                     .. attribute:: router
                     
-                    	router
-                    	**type**\:  long
+                    	Router ID
+                    	**type**\:  str
                     
-                    	**range:** 0..18446744073709551615
+                    	**range:** 0..30
                     
                     .. attribute:: sid_count
                     
-                    	sid count
+                    	SID range
                     	**type**\:  int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: sid_start
                     
-                    	sid start
+                    	Starting SID
                     	**type**\:  int
                     
                     	**range:** 0..4294967295
@@ -1455,11 +1506,12 @@ class Srms(object):
                     def __init__(self):
                         self.parent = None
                         self.mi_id = None
-                        self.action = None
                         self.addr = Srms.Policy.PolicyIpv6.PolicyIpv6Backup.PolicyMi.Addr()
                         self.addr.parent = self
                         self.area = None
-                        self.flags = None
+                        self.flag_attached = None
+                        self.last_prefix = None
+                        self.last_sid_index = None
                         self.prefix_xr = None
                         self.router = None
                         self.sid_count = None
@@ -1550,16 +1602,19 @@ class Srms(object):
                         if self.mi_id is not None:
                             return True
 
-                        if self.action is not None:
-                            return True
-
                         if self.addr is not None and self.addr._has_data():
                             return True
 
                         if self.area is not None:
                             return True
 
-                        if self.flags is not None:
+                        if self.flag_attached is not None:
+                            return True
+
+                        if self.last_prefix is not None:
+                            return True
+
+                        if self.last_sid_index is not None:
                             return True
 
                         if self.prefix_xr is not None:
@@ -1643,11 +1698,6 @@ class Srms(object):
                     
                     	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                     
-                    .. attribute:: action
-                    
-                    	action
-                    	**type**\:  :py:class:`SrmsMiActionEBEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_segment_routing_ms_oper.SrmsMiActionEBEnum>`
-                    
                     .. attribute:: addr
                     
                     	addr
@@ -1655,42 +1705,54 @@ class Srms(object):
                     
                     .. attribute:: area
                     
-                    	area
-                    	**type**\:  long
+                    	Area (OSPF) or Level (ISIS)
+                    	**type**\:  str
                     
-                    	**range:** 0..18446744073709551615
+                    	**range:** 0..30
                     
-                    .. attribute:: flags
+                    .. attribute:: flag_attached
                     
-                    	flags
+                    	Attached flag
+                    	**type**\:  :py:class:`SrmsMiFlagEBEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_segment_routing_ms_oper.SrmsMiFlagEBEnum>`
+                    
+                    .. attribute:: last_prefix
+                    
+                    	Last IP Prefix
+                    	**type**\:  str
+                    
+                    	**range:** 0..50
+                    
+                    .. attribute:: last_sid_index
+                    
+                    	Last SID Index
                     	**type**\:  int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: prefix_xr
                     
-                    	prefix xr
+                    	Prefix length
                     	**type**\:  int
                     
                     	**range:** 0..255
                     
                     .. attribute:: router
                     
-                    	router
-                    	**type**\:  long
+                    	Router ID
+                    	**type**\:  str
                     
-                    	**range:** 0..18446744073709551615
+                    	**range:** 0..30
                     
                     .. attribute:: sid_count
                     
-                    	sid count
+                    	SID range
                     	**type**\:  int
                     
                     	**range:** 0..4294967295
                     
                     .. attribute:: sid_start
                     
-                    	sid start
+                    	Starting SID
                     	**type**\:  int
                     
                     	**range:** 0..4294967295
@@ -1710,11 +1772,12 @@ class Srms(object):
                     def __init__(self):
                         self.parent = None
                         self.mi_id = None
-                        self.action = None
                         self.addr = Srms.Policy.PolicyIpv6.PolicyIpv6Active.PolicyMi.Addr()
                         self.addr.parent = self
                         self.area = None
-                        self.flags = None
+                        self.flag_attached = None
+                        self.last_prefix = None
+                        self.last_sid_index = None
                         self.prefix_xr = None
                         self.router = None
                         self.sid_count = None
@@ -1805,16 +1868,19 @@ class Srms(object):
                         if self.mi_id is not None:
                             return True
 
-                        if self.action is not None:
-                            return True
-
                         if self.addr is not None and self.addr._has_data():
                             return True
 
                         if self.area is not None:
                             return True
 
-                        if self.flags is not None:
+                        if self.flag_attached is not None:
+                            return True
+
+                        if self.last_prefix is not None:
+                            return True
+
+                        if self.last_sid_index is not None:
                             return True
 
                         if self.prefix_xr is not None:

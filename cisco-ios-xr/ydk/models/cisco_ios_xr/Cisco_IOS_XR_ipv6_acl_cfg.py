@@ -7,7 +7,7 @@ This module contains definitions
 for the following management objects\:
   ipv6\-acl\-and\-prefix\-list\: IPv6 ACL configuration data
 
-Copyright (c) 2013\-2015 by Cisco Systems, Inc.
+Copyright (c) 2013\-2016 by Cisco Systems, Inc.
 All rights reserved.
 
 """
@@ -23,19 +23,6 @@ from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
 from ydk.errors import YPYError, YPYModelError
 
 
-from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_acl_datatypes import Ipv6AclDscpNumberEnum
-from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_acl_datatypes import Ipv6AclGrantEnumEnum
-from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_acl_datatypes import Ipv6AclIcmpTypeCodeEnumEnum
-from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_acl_datatypes import Ipv6AclLoggingEnumEnum
-from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_acl_datatypes import Ipv6AclOperatorEnumEnum
-from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_acl_datatypes import Ipv6AclPortNumberEnum
-from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_acl_datatypes import Ipv6AclPrecedenceNumberEnum
-from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_acl_datatypes import Ipv6AclProtocolNumberEnum
-from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_acl_datatypes import Ipv6AclTcpBitsNumberEnum
-from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_acl_datatypes import Ipv6AclTcpMatchOperatorEnumEnum
-from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_acl_datatypes import Ipv6PrefixMatchExactLengthEnum
-from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_acl_datatypes import Ipv6PrefixMatchMaxLengthEnum
-from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_acl_datatypes import Ipv6PrefixMatchMinLengthEnum
 
 class NextHopTypeEnum(Enum):
     """
@@ -637,8 +624,8 @@ class Ipv6AclAndPrefixList(object):
                     
                     .. attribute:: header_flags
                     
-                    	Match if routing header is present
-                    	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                    	Match if header\-flag is present
+                    	**type**\:  :py:class:`HeaderFlags <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_acl_cfg.Ipv6AclAndPrefixList.Accesses.Access.AccessListEntries.AccessListEntry.HeaderFlags>`
                     
                     .. attribute:: icmp
                     
@@ -700,6 +687,13 @@ class Ipv6AclAndPrefixList(object):
                     	Comments or a description for the access list
                     	**type**\:  str
                     
+                    .. attribute:: sequence_str
+                    
+                    	Sequence String for the ace
+                    	**type**\:  str
+                    
+                    	**range:** 1..64
+                    
                     .. attribute:: source_network
                     
                     	Source network settings
@@ -754,7 +748,8 @@ class Ipv6AclAndPrefixList(object):
                         self.destination_prefix_group = None
                         self.dscp = None
                         self.grant = None
-                        self.header_flags = None
+                        self.header_flags = Ipv6AclAndPrefixList.Accesses.Access.AccessListEntries.AccessListEntry.HeaderFlags()
+                        self.header_flags.parent = self
                         self.icmp = Ipv6AclAndPrefixList.Accesses.Access.AccessListEntries.AccessListEntry.Icmp()
                         self.icmp.parent = self
                         self.icmp_off = None
@@ -766,6 +761,7 @@ class Ipv6AclAndPrefixList(object):
                         self.precedence = None
                         self.protocol = None
                         self.remark = None
+                        self.sequence_str = None
                         self.source_network = Ipv6AclAndPrefixList.Accesses.Access.AccessListEntries.AccessListEntry.SourceNetwork()
                         self.source_network.parent = self
                         self.source_port = Ipv6AclAndPrefixList.Accesses.Access.AccessListEntries.AccessListEntry.SourcePort()
@@ -1613,6 +1609,87 @@ class Ipv6AclAndPrefixList(object):
                             from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_acl_cfg as meta
                             return meta._meta_table['Ipv6AclAndPrefixList.Accesses.Access.AccessListEntries.AccessListEntry.NextHop']['meta_info']
 
+
+                    class HeaderFlags(object):
+                        """
+                        Match if header\-flag is present.
+                        
+                        .. attribute:: authen
+                        
+                        	Match if authen header is present
+                        	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                        
+                        .. attribute:: destopts
+                        
+                        	Match if destops header is present
+                        	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                        
+                        .. attribute:: fragments
+                        
+                        	Match if fragments header is present
+                        	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                        
+                        .. attribute:: hop_by_hop
+                        
+                        	Match if hop\-by\-hop header is present
+                        	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                        
+                        .. attribute:: routing
+                        
+                        	Match if routing header is present
+                        	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                        
+                        
+
+                        """
+
+                        _prefix = 'ipv6-acl-cfg'
+                        _revision = '2015-11-09'
+
+                        def __init__(self):
+                            self.parent = None
+                            self.authen = None
+                            self.destopts = None
+                            self.fragments = None
+                            self.hop_by_hop = None
+                            self.routing = None
+
+                        @property
+                        def _common_path(self):
+                            if self.parent is None:
+                                raise YPYModelError('parent is not set . Cannot derive path.')
+
+                            return self.parent._common_path +'/Cisco-IOS-XR-ipv6-acl-cfg:header-flags'
+
+                        def is_config(self):
+                            ''' Returns True if this instance represents config data else returns False '''
+                            return True
+
+                        def _has_data(self):
+                            if not self.is_config():
+                                return False
+                            if self.authen is not None:
+                                return True
+
+                            if self.destopts is not None:
+                                return True
+
+                            if self.fragments is not None:
+                                return True
+
+                            if self.hop_by_hop is not None:
+                                return True
+
+                            if self.routing is not None:
+                                return True
+
+                            return False
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_acl_cfg as meta
+                            return meta._meta_table['Ipv6AclAndPrefixList.Accesses.Access.AccessListEntries.AccessListEntry.HeaderFlags']['meta_info']
+
                     @property
                     def _common_path(self):
                         if self.parent is None:
@@ -1656,7 +1733,7 @@ class Ipv6AclAndPrefixList(object):
                         if self.grant is not None:
                             return True
 
-                        if self.header_flags is not None:
+                        if self.header_flags is not None and self.header_flags._has_data():
                             return True
 
                         if self.icmp is not None and self.icmp._has_data():
@@ -1681,6 +1758,9 @@ class Ipv6AclAndPrefixList(object):
                             return True
 
                         if self.remark is not None:
+                            return True
+
+                        if self.sequence_str is not None:
                             return True
 
                         if self.source_network is not None and self.source_network._has_data():

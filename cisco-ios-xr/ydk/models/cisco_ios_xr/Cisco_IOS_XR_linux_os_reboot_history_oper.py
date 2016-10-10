@@ -7,7 +7,7 @@ This module contains definitions
 for the following management objects\:
   reboot\-history\: Reboot History information
 
-Copyright (c) 2013\-2015 by Cisco Systems, Inc.
+Copyright (c) 2013\-2016 by Cisco Systems, Inc.
 All rights reserved.
 
 """

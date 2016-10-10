@@ -38,13 +38,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('vpn-index', ATTRIBUTE, 'int' , None, None, 
-                [(0, 16777215)], [], 
+                [('0', '16777215')], [], 
                 '''                Index of VPNID Index
                 ''',
                 'vpn_index',
                 'Cisco-IOS-XR-infra-rsi-cfg', False),
             _MetaInfoClassMember('vpn-oui', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                OUI of VPNID OUI
                 ''',
                 'vpn_oui',
@@ -61,25 +61,25 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('as', ATTRIBUTE, 'int' , None, None, 
-                [(1, 4294967295)], [], 
+                [('1', '4294967295')], [], 
                 '''                AS number
                 ''',
                 'as_',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', True),
             _MetaInfoClassMember('as-index', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                AS number Index
                 ''',
                 'as_index',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', True),
             _MetaInfoClassMember('as-xx', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                AS number
                 ''',
                 'as_xx',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', True),
             _MetaInfoClassMember('stitching-rt', ATTRIBUTE, 'int' , None, None, 
-                [(0, 1)], [], 
+                [('0', '1')], [], 
                 '''                Stitching RT
                 ''',
                 'stitching_rt',
@@ -102,13 +102,13 @@ _meta_table = {
                 'address',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', True),
             _MetaInfoClassMember('address-index', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                IP address Index
                 ''',
                 'address_index',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', True),
             _MetaInfoClassMember('stitching-rt', ATTRIBUTE, 'int' , None, None, 
-                [(0, 1)], [], 
+                [('0', '1')], [], 
                 '''                Stitching RT
                 ''',
                 'stitching_rt',
@@ -188,25 +188,25 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('as', ATTRIBUTE, 'int' , None, None, 
-                [(1, 4294967295)], [], 
+                [('1', '4294967295')], [], 
                 '''                AS number
                 ''',
                 'as_',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', True),
             _MetaInfoClassMember('as-index', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                AS number Index
                 ''',
                 'as_index',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', True),
             _MetaInfoClassMember('as-xx', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                AS number
                 ''',
                 'as_xx',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', True),
             _MetaInfoClassMember('stitching-rt', ATTRIBUTE, 'int' , None, None, 
-                [(0, 1)], [], 
+                [('0', '1')], [], 
                 '''                Stitching RT
                 ''',
                 'stitching_rt',
@@ -229,13 +229,13 @@ _meta_table = {
                 'address',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', True),
             _MetaInfoClassMember('address-index', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                IP address Index
                 ''',
                 'address_index',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', True),
             _MetaInfoClassMember('stitching-rt', ATTRIBUTE, 'int' , None, None, 
-                [(0, 1)], [], 
+                [('0', '1')], [], 
                 '''                Stitching RT
                 ''',
                 'stitching_rt',
@@ -310,6 +310,54 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rsi_cfg'
         ),
     },
+    'Vrfs.Vrf.Afs.Af.Bgp.VrfToGlobalExportRoutePolicy' : {
+        'meta_info' : _MetaInfoClass('Vrfs.Vrf.Afs.Af.Bgp.VrfToGlobalExportRoutePolicy',
+            False, 
+            [
+            _MetaInfoClassMember('allow-imported-vpn', ATTRIBUTE, 'Empty' , None, None, 
+                [], [], 
+                '''                Enable imported VPN paths to be exported to
+                Default VRF
+                ''',
+                'allow_imported_vpn',
+                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
+            _MetaInfoClassMember('route-policy-name', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Vrf to global export route policy
+                ''',
+                'route_policy_name',
+                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
+            ],
+            'Cisco-IOS-XR-ipv4-bgp-cfg',
+            'vrf-to-global-export-route-policy',
+            _yang_ns._namespaces['Cisco-IOS-XR-ipv4-bgp-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rsi_cfg'
+        ),
+    },
+    'Vrfs.Vrf.Afs.Af.Bgp.ExportAllowImportedVpn' : {
+        'meta_info' : _MetaInfoClass('Vrfs.Vrf.Afs.Af.Bgp.ExportAllowImportedVpn',
+            False, 
+            [
+            _MetaInfoClassMember('allow-imported-vpn', ATTRIBUTE, 'Empty' , None, None, 
+                [], [], 
+                '''                Enable imported VPN paths to be exported to
+                non-default VRF
+                ''',
+                'allow_imported_vpn',
+                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
+            _MetaInfoClassMember('import-stitching-rt', ATTRIBUTE, 'Empty' , None, None, 
+                [], [], 
+                '''                Use stitchng RTs to import extranet paths
+                ''',
+                'import_stitching_rt',
+                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
+            ],
+            'Cisco-IOS-XR-ipv4-bgp-cfg',
+            'export-allow-imported-vpn',
+            _yang_ns._namespaces['Cisco-IOS-XR-ipv4-bgp-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rsi_cfg'
+        ),
+    },
     'Vrfs.Vrf.Afs.Af.Bgp.GlobalToVrfImportRoutePolicy' : {
         'meta_info' : _MetaInfoClass('Vrfs.Vrf.Afs.Af.Bgp.GlobalToVrfImportRoutePolicy',
             False, 
@@ -337,6 +385,13 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Vrfs.Vrf.Afs.Af.Bgp',
             False, 
             [
+            _MetaInfoClassMember('export-allow-imported-vpn', REFERENCE_CLASS, 'ExportAllowImportedVpn' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rsi_cfg', 'Vrfs.Vrf.Afs.Af.Bgp.ExportAllowImportedVpn', 
+                [], [], 
+                '''                Allow export of imported paths to non-default
+                VRF
+                ''',
+                'export_allow_imported_vpn',
+                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
             _MetaInfoClassMember('export-route-policy', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
                 '''                Route policy for export filtering
@@ -367,7 +422,7 @@ _meta_table = {
                 ''',
                 'import_route_targets',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('vrf-to-global-export-route-policy', ATTRIBUTE, 'str' , None, None, 
+            _MetaInfoClassMember('vrf-to-global-export-route-policy', REFERENCE_CLASS, 'VrfToGlobalExportRoutePolicy' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rsi_cfg', 'Vrfs.Vrf.Afs.Af.Bgp.VrfToGlobalExportRoutePolicy', 
                 [], [], 
                 '''                Route policy for vrf to global export filtering
                 ''',
@@ -614,7 +669,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('group-name-index', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Group name index
                 ''',
                 'group_name_index',
@@ -683,7 +738,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('srlg-index', ATTRIBUTE, 'int' , None, None, 
-                [(1, 65535)], [], 
+                [('1', '65535')], [], 
                 '''                SRLG index
                 ''',
                 'srlg_index',
@@ -695,7 +750,7 @@ _meta_table = {
                 'srlg_priority',
                 'Cisco-IOS-XR-infra-rsi-cfg', False),
             _MetaInfoClassMember('srlg-value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                SRLG value
                 ''',
                 'srlg_value',
@@ -763,7 +818,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('interface-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Interface name
                 ''',
                 'interface_name',
@@ -833,7 +888,7 @@ _meta_table = {
                 'srlg_name',
                 'Cisco-IOS-XR-infra-rsi-cfg', True),
             _MetaInfoClassMember('srlg-value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                SRLG value
                 ''',
                 'srlg_value',
@@ -867,7 +922,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('srlg-index', ATTRIBUTE, 'int' , None, None, 
-                [(1, 65535)], [], 
+                [('1', '65535')], [], 
                 '''                SRLG index
                 ''',
                 'srlg_index',
@@ -879,7 +934,7 @@ _meta_table = {
                 'srlg_priority',
                 'Cisco-IOS-XR-infra-rsi-cfg', False),
             _MetaInfoClassMember('srlg-value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                SRLG value
                 ''',
                 'srlg_value',
@@ -959,7 +1014,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('srlg-index', ATTRIBUTE, 'int' , None, None, 
-                [(1, 65535)], [], 
+                [('1', '65535')], [], 
                 '''                SRLG index
                 ''',
                 'srlg_index',
@@ -971,7 +1026,7 @@ _meta_table = {
                 'srlg_priority',
                 'Cisco-IOS-XR-infra-rsi-cfg', False),
             _MetaInfoClassMember('srlg-value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                SRLG value
                 ''',
                 'srlg_value',
@@ -1196,6 +1251,8 @@ _meta_table['Vrfs.Vrf.Afs.Af.Bgp.ExportRouteTargets.RouteTargets.RouteTarget']['
 _meta_table['Vrfs.Vrf.Afs.Af.Bgp.ExportRouteTargets.RouteTargets']['meta_info'].parent =_meta_table['Vrfs.Vrf.Afs.Af.Bgp.ExportRouteTargets']['meta_info']
 _meta_table['Vrfs.Vrf.Afs.Af.Bgp.ImportRouteTargets']['meta_info'].parent =_meta_table['Vrfs.Vrf.Afs.Af.Bgp']['meta_info']
 _meta_table['Vrfs.Vrf.Afs.Af.Bgp.ExportRouteTargets']['meta_info'].parent =_meta_table['Vrfs.Vrf.Afs.Af.Bgp']['meta_info']
+_meta_table['Vrfs.Vrf.Afs.Af.Bgp.VrfToGlobalExportRoutePolicy']['meta_info'].parent =_meta_table['Vrfs.Vrf.Afs.Af.Bgp']['meta_info']
+_meta_table['Vrfs.Vrf.Afs.Af.Bgp.ExportAllowImportedVpn']['meta_info'].parent =_meta_table['Vrfs.Vrf.Afs.Af.Bgp']['meta_info']
 _meta_table['Vrfs.Vrf.Afs.Af.Bgp.GlobalToVrfImportRoutePolicy']['meta_info'].parent =_meta_table['Vrfs.Vrf.Afs.Af.Bgp']['meta_info']
 _meta_table['Vrfs.Vrf.Afs.Af.Bgp']['meta_info'].parent =_meta_table['Vrfs.Vrf.Afs.Af']['meta_info']
 _meta_table['Vrfs.Vrf.Afs.Af']['meta_info'].parent =_meta_table['Vrfs.Vrf.Afs']['meta_info']

@@ -19,19 +19,19 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('absolute-timeout', ATTRIBUTE, 'int' , None, None, 
-                [(0, 10000)], [], 
+                [('0', '10000')], [], 
                 '''                Absolute timeout for line disconnection
                 ''',
                 'absolute_timeout',
                 'Cisco-IOS-XR-tty-server-cfg', False),
             _MetaInfoClassMember('length', ATTRIBUTE, 'int' , None, None, 
-                [(0, 512)], [], 
+                [('0', '512')], [], 
                 '''                Number of lines on a screen.
                 ''',
                 'length',
                 'Cisco-IOS-XR-tty-server-cfg', False),
             _MetaInfoClassMember('width', ATTRIBUTE, 'int' , None, None, 
-                [(0, 512)], [], 
+                [('0', '512')], [], 
                 '''                Number of characters on a screen line.
                 ''',
                 'width',
@@ -195,7 +195,7 @@ _meta_table = {
                 'authorization',
                 'Cisco-IOS-XR-tty-server-cfg', False),
             _MetaInfoClassMember('login-timeout', ATTRIBUTE, 'int' , None, None, 
-                [(0, 300)], [], 
+                [('0', '300')], [], 
                 '''                Timeouts for any user input during login
                 sequence
                 ''',
@@ -231,13 +231,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('minutes', ATTRIBUTE, 'int' , None, None, 
-                [(0, 35791)], [], 
+                [('0', '35791')], [], 
                 '''                Timeout in minutes
                 ''',
                 'minutes',
                 'Cisco-IOS-XR-tty-server-cfg', False),
             _MetaInfoClassMember('seconds', ATTRIBUTE, 'int' , None, None, 
-                [(0, 2147483)], [], 
+                [('0', '2147483')], [], 
                 '''                Timeout in seconds
                 ''',
                 'seconds',
@@ -278,7 +278,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('none', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Not used
                 ''',
                 'none',
@@ -313,7 +313,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('none', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Not used
                 ''',
                 'none',
@@ -355,7 +355,7 @@ _meta_table = {
                 'direction',
                 'Cisco-IOS-XR-tty-management-cfg', False),
             _MetaInfoClassMember('timeout', ATTRIBUTE, 'int' , None, None, 
-                [(0, 35791)], [], 
+                [('0', '35791')], [], 
                 '''                Session timeout interval in minutes
                 ''',
                 'timeout',
@@ -404,7 +404,7 @@ _meta_table = {
                         'disconnect_character',
                         'Cisco-IOS-XR-tty-management-cfg', False),
                     _MetaInfoClassMember('disconnect-character', ATTRIBUTE, 'int' , None, None, 
-                        [(0, 255)], [], 
+                        [('0', '255')], [], 
                         '''                        Disconnect character's decimal equivalent value
                         or Character 
                         ''',
@@ -426,7 +426,7 @@ _meta_table = {
                         'escape_character',
                         'Cisco-IOS-XR-tty-management-cfg', False),
                     _MetaInfoClassMember('escape-character', ATTRIBUTE, 'int' , None, None, 
-                        [(0, 255)], [], 
+                        [('0', '255')], [], 
                         '''                        Escape character or ASCII decimal equivalent
                         value orspecial strings NONE,DEFAULT,BREAK
                         ''',
@@ -434,7 +434,7 @@ _meta_table = {
                         'Cisco-IOS-XR-tty-management-cfg', False),
                 ]),
             _MetaInfoClassMember('session-limit', ATTRIBUTE, 'int' , None, None, 
-                [(0, 20)], [], 
+                [('0', '20')], [], 
                 '''                The number of outgoing connections
                 ''',
                 'session_limit',

@@ -25,13 +25,13 @@ _meta_table = {
                 'port_type',
                 'Cisco-IOS-XR-icpe-infra-cfg', True),
             _MetaInfoClassMember('slot', ATTRIBUTE, 'int' , None, None, 
-                [(0, 8)], [], 
+                [('0', '8')], [], 
                 '''                Slot
                 ''',
                 'slot',
                 'Cisco-IOS-XR-icpe-infra-cfg', True),
             _MetaInfoClassMember('sub-slot', ATTRIBUTE, 'int' , None, None, 
-                [(0, 8)], [], 
+                [('0', '8')], [], 
                 '''                Sub slot
                 ''',
                 'sub_slot',
@@ -95,7 +95,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('host-priority', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                Priority for this host for the given satellite
                 ''',
                 'host_priority',
@@ -112,7 +112,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('satellite-id', ATTRIBUTE, 'int' , None, None, 
-                [(100, 65534)], [], 
+                [('100', '65534')], [], 
                 '''                Satellite ID
                 ''',
                 'satellite_id',
@@ -130,6 +130,13 @@ _meta_table = {
                 ''',
                 'connection_info',
                 'Cisco-IOS-XR-icpe-infra-cfg', False),
+            _MetaInfoClassMember('delayed-switchback', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                Timer (in seconds) for delaying switchback in a
+                dual home setup
+                ''',
+                'delayed_switchback',
+                'Cisco-IOS-XR-icpe-infra-cfg', False),
             _MetaInfoClassMember('description', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
                 '''                Satellite Description
@@ -143,7 +150,7 @@ _meta_table = {
                 'device_name',
                 'Cisco-IOS-XR-icpe-infra-cfg', False),
             _MetaInfoClassMember('disc-timeout', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Discovery timeout for the satellite
                 ''',
                 'disc_timeout',
@@ -191,6 +198,12 @@ _meta_table = {
                 ''',
                 'serial_number',
                 'Cisco-IOS-XR-icpe-infra-cfg', False),
+            _MetaInfoClassMember('timeout-warning', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                Discovery timeout warning for the satellite
+                ''',
+                'timeout_warning',
+                'Cisco-IOS-XR-icpe-infra-cfg', False),
             _MetaInfoClassMember('type', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
                 '''                Satellite Type
@@ -198,7 +211,7 @@ _meta_table = {
                 'type',
                 'Cisco-IOS-XR-icpe-infra-cfg', False),
             _MetaInfoClassMember('upgrade-on-connect', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                Satellite Upgrade on Connection
                 ''',
                 'upgrade_on_connect',
@@ -238,19 +251,19 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('mac1', ATTRIBUTE, 'int' , None, None, 
-                [(0, 2147483647)], [], 
+                [('0', '2147483647')], [], 
                 '''                First two bytes of MAC address
                 ''',
                 'mac1',
                 'Cisco-IOS-XR-icpe-infra-cfg', False),
             _MetaInfoClassMember('mac2', ATTRIBUTE, 'int' , None, None, 
-                [(0, 2147483647)], [], 
+                [('0', '2147483647')], [], 
                 '''                Second two bytes of MAC address
                 ''',
                 'mac2',
                 'Cisco-IOS-XR-icpe-infra-cfg', False),
             _MetaInfoClassMember('mac3', ATTRIBUTE, 'int' , None, None, 
-                [(0, 2147483647)], [], 
+                [('0', '2147483647')], [], 
                 '''                Third two bytes of MAC address
                 ''',
                 'mac3',

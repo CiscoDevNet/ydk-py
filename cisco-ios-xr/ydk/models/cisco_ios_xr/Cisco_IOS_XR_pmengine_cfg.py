@@ -7,7 +7,7 @@ This YANG module augments the
   Cisco\-IOS\-XR\-ifmgr\-cfg
 module with configuration data.
 
-Copyright (c) 2013\-2015 by Cisco Systems, Inc.
+Copyright (c) 2013\-2016 by Cisco Systems, Inc.
 All rights reserved.
 
 """
@@ -30,9 +30,17 @@ class EtherReportEnum(Enum):
 
     Ether report
 
-    .. data:: REPORT_RX_PKT = 524290
+    .. data:: REPORT_RX_PKT = 524288
 
     	PM Ether rx pkt report
+
+    .. data:: REPORT_RX_UTIL = 524289
+
+    	PM Ether rx util report
+
+    .. data:: REPORT_TX_UTIL = 524290
+
+    	PM Ether tx util report
 
     .. data:: REPORT_STAT_PKT = 524291
 
@@ -302,9 +310,33 @@ class EtherReportEnum(Enum):
 
     	PM out pkts 1024_1058 octets report
 
+    .. data:: REPORT_TX_UNDER_SIZE_D_PKT = 524358
+
+    	PM tx undersized pkt report
+
+    .. data:: REPORT_TX_OVER_SIZE_D_PKT = 524359
+
+    	PM tx oversized pkt report
+
+    .. data:: REPORT_TX_FRAGMENTS = 524360
+
+    	PM tx fragments report
+
+    .. data:: REPORT_TX_JABBER = 524361
+
+    	PM tx jabber report
+
+    .. data:: REPORT_TX_BAD_FCS = 524362
+
+    	PM tx bad fcs report
+
     """
 
-    REPORT_RX_PKT = 524290
+    REPORT_RX_PKT = 524288
+
+    REPORT_RX_UTIL = 524289
+
+    REPORT_TX_UTIL = 524290
 
     REPORT_STAT_PKT = 524291
 
@@ -440,6 +472,16 @@ class EtherReportEnum(Enum):
 
     REPORT_OUT_PKTS_1024_1518_OCTETS = 524357
 
+    REPORT_TX_UNDER_SIZE_D_PKT = 524358
+
+    REPORT_TX_OVER_SIZE_D_PKT = 524359
+
+    REPORT_TX_FRAGMENTS = 524360
+
+    REPORT_TX_JABBER = 524361
+
+    REPORT_TX_BAD_FCS = 524362
+
 
     @staticmethod
     def _meta_info():
@@ -453,9 +495,17 @@ class EtherThresholdEnum(Enum):
 
     Ether threshold
 
-    .. data:: THRESH_RX_PKT = 8388610
+    .. data:: THRESH_RX_PKT = 8388608
 
     	PM Ether rx pkt threshold
+
+    .. data:: THRESH_RX_UTIL = 8388609
+
+    	PM Ether rx util threshold
+
+    .. data:: THRESH_TX_UTIL = 8388610
+
+    	PM Ether tx util threshold
 
     .. data:: THRESH_STAT_PKT = 8388611
 
@@ -725,9 +775,33 @@ class EtherThresholdEnum(Enum):
 
     	PM out pkts 1024_1058 octets threshold
 
+    .. data:: THRESH_TX_UNDER_SIZE_D_PKT = 8388678
+
+    	PM tx undersized pkt threshold
+
+    .. data:: THRESH_TX_OVER_SIZE_D_PKT = 8388679
+
+    	PM tx oversized pkt threshold
+
+    .. data:: THRESH_TX_FRAGMENTS = 8388680
+
+    	PM tx fragments threshold
+
+    .. data:: THRESH_TX_JABBER = 8388681
+
+    	PM tx jabber threshold
+
+    .. data:: THRESH_TX_BAD_FCS = 8388682
+
+    	PM tx bad fcs threshold
+
     """
 
-    THRESH_RX_PKT = 8388610
+    THRESH_RX_PKT = 8388608
+
+    THRESH_RX_UTIL = 8388609
+
+    THRESH_TX_UTIL = 8388610
 
     THRESH_STAT_PKT = 8388611
 
@@ -863,6 +937,16 @@ class EtherThresholdEnum(Enum):
 
     THRESH_OUT_PKTS_1024_1518_OCTETS = 8388677
 
+    THRESH_TX_UNDER_SIZE_D_PKT = 8388678
+
+    THRESH_TX_OVER_SIZE_D_PKT = 8388679
+
+    THRESH_TX_FRAGMENTS = 8388680
+
+    THRESH_TX_JABBER = 8388681
+
+    THRESH_TX_BAD_FCS = 8388682
+
 
     @staticmethod
     def _meta_info():
@@ -884,11 +968,59 @@ class FecReportEnum(Enum):
 
     	PM Fec uc words report
 
+    .. data:: REPORT_PRE_FEC_BER_MAX = 131081
+
+    	PM Fec pre fec ber max report
+
+    .. data:: REPORT_POST_FEC_BER_MAX = 131082
+
+    	PM Fec post fec ber max report
+
+    .. data:: REPORT_Q_MAX = 131083
+
+    	PM Fec Q max report
+
+    .. data:: REPORT_Q_MARGIN_MAX = 131084
+
+    	PM Fec Q_margin max report
+
+    .. data:: REPORT_PRE_FEC_BER_MIN = 131085
+
+    	PM Fec pre fec ber min report
+
+    .. data:: REPORT_POST_FEC_BER_MIN = 131086
+
+    	PM Fec post fec ber min report
+
+    .. data:: REPORT_Q_MIN = 131087
+
+    	PM Fec Q min report
+
+    .. data:: REPORT_Q_MARGIN_MIN = 131088
+
+    	PM Fec Q_margin min report
+
     """
 
     REPORT_EC_BITS = 131072
 
     REPORT_UC_WORDS = 131076
+
+    REPORT_PRE_FEC_BER_MAX = 131081
+
+    REPORT_POST_FEC_BER_MAX = 131082
+
+    REPORT_Q_MAX = 131083
+
+    REPORT_Q_MARGIN_MAX = 131084
+
+    REPORT_PRE_FEC_BER_MIN = 131085
+
+    REPORT_POST_FEC_BER_MIN = 131086
+
+    REPORT_Q_MIN = 131087
+
+    REPORT_Q_MARGIN_MIN = 131088
 
 
     @staticmethod
@@ -911,11 +1043,59 @@ class FecThresholdEnum(Enum):
 
     	PM Fec uc words threshold
 
+    .. data:: THRESH_PRE_FEC_BER_MAX = 131081
+
+    	PM Fec pre-fe-ber max threshold
+
+    .. data:: THRESH_POST_FEC_BER_MAX = 131082
+
+    	PM Fec post-fec-ber max threshold
+
+    .. data:: THRESH_Q_MAX = 131083
+
+    	PM Fec Q max threshold
+
+    .. data:: THRESH_Q_MARGIN_MAX = 131084
+
+    	PM Fec uc words max threshold
+
+    .. data:: THRESH_PRE_FEC_BER_MIN = 131085
+
+    	PM Fec pre-fe-ber min threshold
+
+    .. data:: THRESH_POST_FEC_BER_MIN = 131086
+
+    	PM Fec post-fec-ber min threshold
+
+    .. data:: THRESH_Q_MIN = 131087
+
+    	PM Fec Q min threshold
+
+    .. data:: THRESH_Q_MARGIN_MIN = 131088
+
+    	PM Fec uc words min threshold
+
     """
 
     THRESH_EC_BITS = 131072
 
     THRESH_UC_WORDS = 131076
+
+    THRESH_PRE_FEC_BER_MAX = 131081
+
+    THRESH_POST_FEC_BER_MAX = 131082
+
+    THRESH_Q_MAX = 131083
+
+    THRESH_Q_MARGIN_MAX = 131084
+
+    THRESH_PRE_FEC_BER_MIN = 131085
+
+    THRESH_POST_FEC_BER_MIN = 131086
+
+    THRESH_Q_MIN = 131087
+
+    THRESH_Q_MARGIN_MIN = 131088
 
 
     @staticmethod
@@ -1493,11 +1673,11 @@ class OpticsThresholdEnum(Enum):
 
     .. data:: THRESH_OPT_MIN = 65550
 
-    	PM Optics opt min threshold
+    	PM Optics opt min threshold in dbm or uW
 
     .. data:: THRESH_OPR_MIN = 65551
 
-    	PM Optics opr min threshold
+    	PM Optics opr min threshold in dbm or uW
 
     .. data:: THRESH_LBC_MIN = 65552
 
@@ -1537,11 +1717,11 @@ class OpticsThresholdEnum(Enum):
 
     .. data:: THRESH_OPT_MAX = 65564
 
-    	PM Optics opt max threshold
+    	PM Optics opt max threshold in dbm or uW
 
     .. data:: THRESH_OPR_MAX = 65565
 
-    	PM Optics opr max threshold
+    	PM Optics opr max threshold in dbm or uW
 
     .. data:: THRESH_LBC_MAX = 65566
 

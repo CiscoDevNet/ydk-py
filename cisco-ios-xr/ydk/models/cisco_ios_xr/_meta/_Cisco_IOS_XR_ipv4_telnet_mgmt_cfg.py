@@ -19,7 +19,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('dscp', ATTRIBUTE, 'int' , None, None, 
-                [(0, 63)], [], 
+                [('0', '63')], [], 
                 '''                Specify the DSCP value
                 ''',
                 'dscp',

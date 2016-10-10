@@ -7,7 +7,7 @@ This module contains definitions
 for the following management objects\:
   mpls\-lsd\: MPLS LSD configuration data
 
-Copyright (c) 2013\-2015 by Cisco Systems, Inc.
+Copyright (c) 2013\-2016 by Cisco Systems, Inc.
 All rights reserved.
 
 """
@@ -71,6 +71,16 @@ class MplsLsd(object):
     	Disable LSD application reg delay
     	**type**\:  :py:class:`Empty <ydk.types.Empty>`
     
+    .. attribute:: ipv4
+    
+    	Configure IPv4 parameters
+    	**type**\:  :py:class:`Ipv4 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_cfg.MplsLsd.Ipv4>`
+    
+    .. attribute:: ipv6
+    
+    	Configure IPv6 parameters
+    	**type**\:  :py:class:`Ipv6 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_cfg.MplsLsd.Ipv6>`
+    
     .. attribute:: label_databases
     
     	Table of label databases
@@ -80,13 +90,6 @@ class MplsLsd(object):
     
     	Enable MPLS Entropy Label
     	**type**\:  :py:class:`Empty <ydk.types.Empty>`
-    
-    .. attribute:: mpls_ip_ttl_expiration_pop
-    
-    	Number of labels to pop upon MPLS TTL expiry
-    	**type**\:  int
-    
-    	**range:** 1..10
     
     .. attribute:: mpls_ip_ttl_propagate_disable
     
@@ -102,11 +105,104 @@ class MplsLsd(object):
 
     def __init__(self):
         self.app_reg_delay_disable = None
+        self.ipv4 = MplsLsd.Ipv4()
+        self.ipv4.parent = self
+        self.ipv6 = MplsLsd.Ipv6()
+        self.ipv6.parent = self
         self.label_databases = MplsLsd.LabelDatabases()
         self.label_databases.parent = self
         self.mpls_entropy_label = None
-        self.mpls_ip_ttl_expiration_pop = None
         self.mpls_ip_ttl_propagate_disable = None
+
+
+    class Ipv6(object):
+        """
+        Configure IPv6 parameters
+        
+        .. attribute:: ttl_expiration_pop
+        
+        	Number of labels to pop upon MPLS IP TTL expiry
+        	**type**\:  int
+        
+        	**range:** 1..10
+        
+        
+
+        """
+
+        _prefix = 'mpls-lsd-cfg'
+        _revision = '2015-11-09'
+
+        def __init__(self):
+            self.parent = None
+            self.ttl_expiration_pop = None
+
+        @property
+        def _common_path(self):
+
+            return '/Cisco-IOS-XR-mpls-lsd-cfg:mpls-lsd/Cisco-IOS-XR-mpls-lsd-cfg:ipv6'
+
+        def is_config(self):
+            ''' Returns True if this instance represents config data else returns False '''
+            return True
+
+        def _has_data(self):
+            if not self.is_config():
+                return False
+            if self.ttl_expiration_pop is not None:
+                return True
+
+            return False
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_lsd_cfg as meta
+            return meta._meta_table['MplsLsd.Ipv6']['meta_info']
+
+
+    class Ipv4(object):
+        """
+        Configure IPv4 parameters
+        
+        .. attribute:: ttl_expiration_pop
+        
+        	Number of labels to pop upon MPLS IP TTL expiry
+        	**type**\:  int
+        
+        	**range:** 1..10
+        
+        
+
+        """
+
+        _prefix = 'mpls-lsd-cfg'
+        _revision = '2015-11-09'
+
+        def __init__(self):
+            self.parent = None
+            self.ttl_expiration_pop = None
+
+        @property
+        def _common_path(self):
+
+            return '/Cisco-IOS-XR-mpls-lsd-cfg:mpls-lsd/Cisco-IOS-XR-mpls-lsd-cfg:ipv4'
+
+        def is_config(self):
+            ''' Returns True if this instance represents config data else returns False '''
+            return True
+
+        def _has_data(self):
+            if not self.is_config():
+                return False
+            if self.ttl_expiration_pop is not None:
+                return True
+
+            return False
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_lsd_cfg as meta
+            return meta._meta_table['MplsLsd.Ipv4']['meta_info']
 
 
     class LabelDatabases(object):
@@ -307,13 +403,16 @@ class MplsLsd(object):
         if self.app_reg_delay_disable is not None:
             return True
 
+        if self.ipv4 is not None and self.ipv4._has_data():
+            return True
+
+        if self.ipv6 is not None and self.ipv6._has_data():
+            return True
+
         if self.label_databases is not None and self.label_databases._has_data():
             return True
 
         if self.mpls_entropy_label is not None:
-            return True
-
-        if self.mpls_ip_ttl_expiration_pop is not None:
             return True
 
         if self.mpls_ip_ttl_propagate_disable is not None:

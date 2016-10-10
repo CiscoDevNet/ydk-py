@@ -33,13 +33,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('baud-rate', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Inbound/Outbound baud rate in bps
                 ''',
                 'baud_rate',
                 'Cisco-IOS-XR-tty-server-oper', False),
             _MetaInfoClassMember('data-bits', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of databits
                 ''',
                 'data_bits',
@@ -51,37 +51,37 @@ _meta_table = {
                 'exec_disabled',
                 'Cisco-IOS-XR-tty-server-oper', False),
             _MetaInfoClassMember('framing-error-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Framing error count
                 ''',
                 'framing_error_count',
                 'Cisco-IOS-XR-tty-server-oper', False),
             _MetaInfoClassMember('hardware-flow-control-status', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Hardware flow control status
                 ''',
                 'hardware_flow_control_status',
                 'Cisco-IOS-XR-tty-server-oper', False),
             _MetaInfoClassMember('overrun-error-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Overrun error count
                 ''',
                 'overrun_error_count',
                 'Cisco-IOS-XR-tty-server-oper', False),
             _MetaInfoClassMember('parity-error-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Parity error count
                 ''',
                 'parity_error_count',
                 'Cisco-IOS-XR-tty-server-oper', False),
             _MetaInfoClassMember('parity-status', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Parity status
                 ''',
                 'parity_status',
                 'Cisco-IOS-XR-tty-server-oper', False),
             _MetaInfoClassMember('stop-bits', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of stopbits
                 ''',
                 'stop_bits',
@@ -98,7 +98,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('absolute-timeout', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Absolute timeout period
                 ''',
                 'absolute_timeout',
@@ -116,19 +116,19 @@ _meta_table = {
                 'domain_lookup_enabled',
                 'Cisco-IOS-XR-tty-server-oper', False),
             _MetaInfoClassMember('flow-control-start-character', ATTRIBUTE, 'int' , None, None, 
-                [(-128, 127)], [], 
+                [('-128', '127')], [], 
                 '''                Software flow control start char
                 ''',
                 'flow_control_start_character',
                 'Cisco-IOS-XR-tty-server-oper', False),
             _MetaInfoClassMember('flow-control-stop-character', ATTRIBUTE, 'int' , None, None, 
-                [(-128, 127)], [], 
+                [('-128', '127')], [], 
                 '''                Software flow control stop char
                 ''',
                 'flow_control_stop_character',
                 'Cisco-IOS-XR-tty-server-oper', False),
             _MetaInfoClassMember('idle-time', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                TTY idle time
                 ''',
                 'idle_time',
@@ -146,7 +146,7 @@ _meta_table = {
                 'private_flag',
                 'Cisco-IOS-XR-tty-server-oper', False),
             _MetaInfoClassMember('terminal-length', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Terminal length
                 ''',
                 'terminal_length',
@@ -158,7 +158,7 @@ _meta_table = {
                 'terminal_type',
                 'Cisco-IOS-XR-tty-server-oper', False),
             _MetaInfoClassMember('terminal-width', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Line width
                 ''',
                 'terminal_width',
@@ -308,7 +308,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('none', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Not used
                 ''',
                 'none',
@@ -459,7 +459,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('host-address-family', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Incoming host address family
                 ''',
                 'host_address_family',
@@ -471,7 +471,7 @@ _meta_table = {
                 'incoming_host_address',
                 'Cisco-IOS-XR-tty-server-oper', False),
             _MetaInfoClassMember('service', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Input transport
                 ''',
                 'service',
@@ -488,7 +488,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('absolute-timeout', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Absolute timeout period
                 ''',
                 'absolute_timeout',
@@ -506,19 +506,19 @@ _meta_table = {
                 'domain_lookup_enabled',
                 'Cisco-IOS-XR-tty-server-oper', False),
             _MetaInfoClassMember('flow-control-start-character', ATTRIBUTE, 'int' , None, None, 
-                [(-128, 127)], [], 
+                [('-128', '127')], [], 
                 '''                Software flow control start char
                 ''',
                 'flow_control_start_character',
                 'Cisco-IOS-XR-tty-server-oper', False),
             _MetaInfoClassMember('flow-control-stop-character', ATTRIBUTE, 'int' , None, None, 
-                [(-128, 127)], [], 
+                [('-128', '127')], [], 
                 '''                Software flow control stop char
                 ''',
                 'flow_control_stop_character',
                 'Cisco-IOS-XR-tty-server-oper', False),
             _MetaInfoClassMember('idle-time', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                TTY idle time
                 ''',
                 'idle_time',
@@ -536,7 +536,7 @@ _meta_table = {
                 'private_flag',
                 'Cisco-IOS-XR-tty-server-oper', False),
             _MetaInfoClassMember('terminal-length', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Terminal length
                 ''',
                 'terminal_length',
@@ -548,7 +548,7 @@ _meta_table = {
                 'terminal_type',
                 'Cisco-IOS-XR-tty-server-oper', False),
             _MetaInfoClassMember('terminal-width', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Line width
                 ''',
                 'terminal_width',
@@ -698,7 +698,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('none', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Not used
                 ''',
                 'none',
@@ -809,7 +809,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('connection-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                Connection ID [1-20]
                 ''',
                 'connection_id',
@@ -827,7 +827,7 @@ _meta_table = {
                 'host_name',
                 'Cisco-IOS-XR-tty-management-oper', False),
             _MetaInfoClassMember('idle-time', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Elapsed time since session was suspended (in
                 seconds)
                 ''',
@@ -874,7 +874,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('line-number', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                VTY Line number
                 ''',
                 'line_number',
@@ -932,13 +932,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('baud-rate', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Inbound/Outbound baud rate in bps
                 ''',
                 'baud_rate',
                 'Cisco-IOS-XR-tty-server-oper', False),
             _MetaInfoClassMember('data-bits', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of databits
                 ''',
                 'data_bits',
@@ -950,37 +950,37 @@ _meta_table = {
                 'exec_disabled',
                 'Cisco-IOS-XR-tty-server-oper', False),
             _MetaInfoClassMember('framing-error-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Framing error count
                 ''',
                 'framing_error_count',
                 'Cisco-IOS-XR-tty-server-oper', False),
             _MetaInfoClassMember('hardware-flow-control-status', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Hardware flow control status
                 ''',
                 'hardware_flow_control_status',
                 'Cisco-IOS-XR-tty-server-oper', False),
             _MetaInfoClassMember('overrun-error-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Overrun error count
                 ''',
                 'overrun_error_count',
                 'Cisco-IOS-XR-tty-server-oper', False),
             _MetaInfoClassMember('parity-error-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Parity error count
                 ''',
                 'parity_error_count',
                 'Cisco-IOS-XR-tty-server-oper', False),
             _MetaInfoClassMember('parity-status', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Parity status
                 ''',
                 'parity_status',
                 'Cisco-IOS-XR-tty-server-oper', False),
             _MetaInfoClassMember('stop-bits', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of stopbits
                 ''',
                 'stop_bits',
@@ -997,7 +997,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('absolute-timeout', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Absolute timeout period
                 ''',
                 'absolute_timeout',
@@ -1015,19 +1015,19 @@ _meta_table = {
                 'domain_lookup_enabled',
                 'Cisco-IOS-XR-tty-server-oper', False),
             _MetaInfoClassMember('flow-control-start-character', ATTRIBUTE, 'int' , None, None, 
-                [(-128, 127)], [], 
+                [('-128', '127')], [], 
                 '''                Software flow control start char
                 ''',
                 'flow_control_start_character',
                 'Cisco-IOS-XR-tty-server-oper', False),
             _MetaInfoClassMember('flow-control-stop-character', ATTRIBUTE, 'int' , None, None, 
-                [(-128, 127)], [], 
+                [('-128', '127')], [], 
                 '''                Software flow control stop char
                 ''',
                 'flow_control_stop_character',
                 'Cisco-IOS-XR-tty-server-oper', False),
             _MetaInfoClassMember('idle-time', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                TTY idle time
                 ''',
                 'idle_time',
@@ -1045,7 +1045,7 @@ _meta_table = {
                 'private_flag',
                 'Cisco-IOS-XR-tty-server-oper', False),
             _MetaInfoClassMember('terminal-length', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Terminal length
                 ''',
                 'terminal_length',
@@ -1057,7 +1057,7 @@ _meta_table = {
                 'terminal_type',
                 'Cisco-IOS-XR-tty-server-oper', False),
             _MetaInfoClassMember('terminal-width', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Line width
                 ''',
                 'terminal_width',
@@ -1207,7 +1207,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('none', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Not used
                 ''',
                 'none',

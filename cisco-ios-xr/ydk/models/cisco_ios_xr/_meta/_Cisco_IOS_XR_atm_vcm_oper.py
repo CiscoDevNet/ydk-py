@@ -125,20 +125,20 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('local-max-cells-packed-per-packet', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                Local configuration of maximum number of cells
                 to be packed per packet
                 ''',
                 'local_max_cells_packed_per_packet',
                 'Cisco-IOS-XR-atm-vcm-oper', False),
             _MetaInfoClassMember('max-cell-packed-timeout', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                Maximum cell packing timeout inmicro seconds
                 ''',
                 'max_cell_packed_timeout',
                 'Cisco-IOS-XR-atm-vcm-oper', False),
             _MetaInfoClassMember('negotiated-max-cells-packed-per-packet', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                Negotiated value of maximum number of cells to
                 be packed per packed
                 ''',
@@ -156,7 +156,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('interface-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Interface name
                 ''',
                 'interface_name',
@@ -169,7 +169,7 @@ _meta_table = {
                 'amin_status',
                 'Cisco-IOS-XR-atm-vcm-oper', False),
             _MetaInfoClassMember('burst-rate', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Burst size in cells
                 ''',
                 'burst_rate',
@@ -201,13 +201,13 @@ _meta_table = {
                 'internal_state',
                 'Cisco-IOS-XR-atm-vcm-oper', False),
             _MetaInfoClassMember('last-state-change-time', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Time when VC was last changed
                 ''',
                 'last_state_change_time',
                 'Cisco-IOS-XR-atm-vcm-oper', False),
             _MetaInfoClassMember('main-interface', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Main Interface handle
                 ''',
                 'main_interface',
@@ -220,7 +220,7 @@ _meta_table = {
                 'oper_status',
                 'Cisco-IOS-XR-atm-vcm-oper', False),
             _MetaInfoClassMember('peak-cell-rate', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Peak cell rate in Kbps
                 ''',
                 'peak_cell_rate',
@@ -234,7 +234,7 @@ _meta_table = {
                 'qos_inherit_level',
                 'Cisco-IOS-XR-atm-vcm-oper', False),
             _MetaInfoClassMember('receive-mtu', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Receive MTU
                 ''',
                 'receive_mtu',
@@ -246,13 +246,13 @@ _meta_table = {
                 'shape',
                 'Cisco-IOS-XR-atm-vcm-oper', False),
             _MetaInfoClassMember('sub-interface', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Subinterface handle
                 ''',
                 'sub_interface',
                 'Cisco-IOS-XR-atm-vcm-oper', False),
             _MetaInfoClassMember('sustained-cell-rate', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Sustained cell rate in Kbps
                 ''',
                 'sustained_cell_rate',
@@ -264,7 +264,7 @@ _meta_table = {
                 'test_mode',
                 'Cisco-IOS-XR-atm-vcm-oper', False),
             _MetaInfoClassMember('transmit-mtu', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Transmit MTU
                 ''',
                 'transmit_mtu',
@@ -276,7 +276,7 @@ _meta_table = {
                 'type',
                 'Cisco-IOS-XR-atm-vcm-oper', False),
             _MetaInfoClassMember('vc-interface', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                VC Interfcace handle
                 ''',
                 'vc_interface',
@@ -294,25 +294,25 @@ _meta_table = {
                 'vc_onvp_tunnel',
                 'Cisco-IOS-XR-atm-vcm-oper', False),
             _MetaInfoClassMember('vci', ATTRIBUTE, 'int' , None, None, 
-                [(1, 65535)], [], 
+                [('1', '65535')], [], 
                 '''                VCI
                 ''',
                 'vci',
                 'Cisco-IOS-XR-atm-vcm-oper', False),
             _MetaInfoClassMember('vci-xr', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                VC VCI value
                 ''',
                 'vci_xr',
                 'Cisco-IOS-XR-atm-vcm-oper', False),
             _MetaInfoClassMember('vpi', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4095)], [], 
+                [('0', '4095')], [], 
                 '''                VPI
                 ''',
                 'vpi',
                 'Cisco-IOS-XR-atm-vcm-oper', False),
             _MetaInfoClassMember('vpi-xr', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                VC VPI value
                 ''',
                 'vpi_xr',
@@ -346,20 +346,20 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('local-max-cells-packed-per-packet', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                Local configuration of maximum number of cells
                 to be packed per packet
                 ''',
                 'local_max_cells_packed_per_packet',
                 'Cisco-IOS-XR-atm-vcm-oper', False),
             _MetaInfoClassMember('max-cell-packed-timeout', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                Maximum cell packing timeout inmicro seconds
                 ''',
                 'max_cell_packed_timeout',
                 'Cisco-IOS-XR-atm-vcm-oper', False),
             _MetaInfoClassMember('negotiated-max-cells-packed-per-packet', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                Negotiated value of maximum number of cells to
                 be packed per packed
                 ''',
@@ -389,43 +389,43 @@ _meta_table = {
                 'cell_packing_mode',
                 'Cisco-IOS-XR-atm-vcm-oper', False),
             _MetaInfoClassMember('interface-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Interface name
                 ''',
                 'interface_name',
                 'Cisco-IOS-XR-atm-vcm-oper', False),
             _MetaInfoClassMember('pci', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                PCI
                 ''',
                 'pci',
                 'Cisco-IOS-XR-atm-vcm-oper', False),
-            _MetaInfoClassMember('received-average-cells-packets', ATTRIBUTE, 'long' , None, None, 
-                [(0, 18446744073709551615L)], [], 
+            _MetaInfoClassMember('received-average-cells-packets', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
                 '''                Average cells/packets received
                 ''',
                 'received_average_cells_packets',
                 'Cisco-IOS-XR-atm-vcm-oper', False),
-            _MetaInfoClassMember('sent-cells-packets', ATTRIBUTE, 'long' , None, None, 
-                [(0, 18446744073709551615L)], [], 
+            _MetaInfoClassMember('sent-cells-packets', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
                 '''                Average cells/packets sent
                 ''',
                 'sent_cells_packets',
                 'Cisco-IOS-XR-atm-vcm-oper', False),
             _MetaInfoClassMember('sub-interface-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Sub-interface name
                 ''',
                 'sub_interface_name',
                 'Cisco-IOS-XR-atm-vcm-oper', False),
             _MetaInfoClassMember('vci', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                VCI
                 ''',
                 'vci',
                 'Cisco-IOS-XR-atm-vcm-oper', False),
             _MetaInfoClassMember('vpi', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                VPI
                 ''',
                 'vpi',
@@ -459,20 +459,20 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('local-max-cells-packed-per-packet', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                Local configuration of maximum number of cells
                 to be packed per packet
                 ''',
                 'local_max_cells_packed_per_packet',
                 'Cisco-IOS-XR-atm-vcm-oper', False),
             _MetaInfoClassMember('max-cell-packed-timeout', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                Maximum cell packing timeout inmicro seconds
                 ''',
                 'max_cell_packed_timeout',
                 'Cisco-IOS-XR-atm-vcm-oper', False),
             _MetaInfoClassMember('negotiated-max-cells-packed-per-packet', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                Negotiated value of maximum number of cells to
                 be packed per packed
                 ''',
@@ -490,7 +490,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('interface-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Interface name
                 ''',
                 'interface_name',
@@ -503,7 +503,7 @@ _meta_table = {
                 'amin_status',
                 'Cisco-IOS-XR-atm-vcm-oper', False),
             _MetaInfoClassMember('burst-rate', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Burst size in cells
                 ''',
                 'burst_rate',
@@ -535,13 +535,13 @@ _meta_table = {
                 'internal_state',
                 'Cisco-IOS-XR-atm-vcm-oper', False),
             _MetaInfoClassMember('last-state-change-time', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Time when VC was last changed
                 ''',
                 'last_state_change_time',
                 'Cisco-IOS-XR-atm-vcm-oper', False),
             _MetaInfoClassMember('main-interface', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Main Interface handle
                 ''',
                 'main_interface',
@@ -554,7 +554,7 @@ _meta_table = {
                 'oper_status',
                 'Cisco-IOS-XR-atm-vcm-oper', False),
             _MetaInfoClassMember('peak-cell-rate', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Peak cell rate in Kbps
                 ''',
                 'peak_cell_rate',
@@ -568,7 +568,7 @@ _meta_table = {
                 'qos_inherit_level',
                 'Cisco-IOS-XR-atm-vcm-oper', False),
             _MetaInfoClassMember('receive-mtu', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Receive MTU
                 ''',
                 'receive_mtu',
@@ -580,13 +580,13 @@ _meta_table = {
                 'shape',
                 'Cisco-IOS-XR-atm-vcm-oper', False),
             _MetaInfoClassMember('sub-interface', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Subinterface handle
                 ''',
                 'sub_interface',
                 'Cisco-IOS-XR-atm-vcm-oper', False),
             _MetaInfoClassMember('sustained-cell-rate', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Sustained cell rate in Kbps
                 ''',
                 'sustained_cell_rate',
@@ -598,7 +598,7 @@ _meta_table = {
                 'test_mode',
                 'Cisco-IOS-XR-atm-vcm-oper', False),
             _MetaInfoClassMember('transmit-mtu', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Transmit MTU
                 ''',
                 'transmit_mtu',
@@ -610,7 +610,7 @@ _meta_table = {
                 'type',
                 'Cisco-IOS-XR-atm-vcm-oper', False),
             _MetaInfoClassMember('vc-interface', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                VC Interfcace handle
                 ''',
                 'vc_interface',
@@ -628,19 +628,19 @@ _meta_table = {
                 'vc_onvp_tunnel',
                 'Cisco-IOS-XR-atm-vcm-oper', False),
             _MetaInfoClassMember('vci-xr', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                VC VCI value
                 ''',
                 'vci_xr',
                 'Cisco-IOS-XR-atm-vcm-oper', False),
             _MetaInfoClassMember('vpi', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                VPI
                 ''',
                 'vpi',
                 'Cisco-IOS-XR-atm-vcm-oper', False),
             _MetaInfoClassMember('vpi-xr', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                VC VPI value
                 ''',
                 'vpi_xr',
@@ -697,19 +697,19 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('average-output-rate', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Average output rate
                 ''',
                 'average_output_rate',
                 'Cisco-IOS-XR-atm-vcm-oper', False),
             _MetaInfoClassMember('burst-output-rate', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Burst output rate
                 ''',
                 'burst_output_rate',
                 'Cisco-IOS-XR-atm-vcm-oper', False),
             _MetaInfoClassMember('peak-output-rate', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Peak output rate in Kbps
                 ''',
                 'peak_output_rate',
@@ -785,7 +785,7 @@ _meta_table = {
                 'manage_level',
                 'Cisco-IOS-XR-atm-vcm-oper', False),
             _MetaInfoClassMember('pvc-frequency', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                PVC Frequency
                 ''',
                 'pvc_frequency',
@@ -802,13 +802,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('down-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Down Count
                 ''',
                 'down_count',
                 'Cisco-IOS-XR-atm-vcm-oper', False),
             _MetaInfoClassMember('retry-frequency', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Retry frequency
                 ''',
                 'retry_frequency',
@@ -820,7 +820,7 @@ _meta_table = {
                 'retry_inherit_level',
                 'Cisco-IOS-XR-atm-vcm-oper', False),
             _MetaInfoClassMember('retry-up-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Retry Count
                 ''',
                 'retry_up_count',
@@ -843,13 +843,13 @@ _meta_table = {
                 'ais_rdi_inherit_level',
                 'Cisco-IOS-XR-atm-vcm-oper', False),
             _MetaInfoClassMember('ais-rdi-up-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                AIS RDI up count
                 ''',
                 'ais_rdi_up_count',
                 'Cisco-IOS-XR-atm-vcm-oper', False),
             _MetaInfoClassMember('ais-rdi-up-time', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Time (in seconds) with no AIS/RDI cells before
                 declaring a VC as up
                 ''',
@@ -908,7 +908,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('vpi', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                VPI
                 ''',
                 'vpi',
@@ -920,7 +920,7 @@ _meta_table = {
                 'oam_config',
                 'Cisco-IOS-XR-atm-vcm-oper', False),
             _MetaInfoClassMember('sub-interface-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Sub-interface handle
                 ''',
                 'sub_interface_name',
@@ -932,7 +932,7 @@ _meta_table = {
                 'vc_class_not_supported',
                 'Cisco-IOS-XR-atm-vcm-oper', False),
             _MetaInfoClassMember('vci', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                VCI
                 ''',
                 'vci',
@@ -966,20 +966,20 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('local-max-cells-packed-per-packet', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                Local configuration of maximum number of cells
                 to be packed per packet
                 ''',
                 'local_max_cells_packed_per_packet',
                 'Cisco-IOS-XR-atm-vcm-oper', False),
             _MetaInfoClassMember('max-cell-packed-timeout', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                Maximum cell packing timeout inmicro seconds
                 ''',
                 'max_cell_packed_timeout',
                 'Cisco-IOS-XR-atm-vcm-oper', False),
             _MetaInfoClassMember('negotiated-max-cells-packed-per-packet', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                Negotiated value of maximum number of cells to
                 be packed per packed
                 ''',
@@ -997,7 +997,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('interface-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Interface name
                 ''',
                 'interface_name',
@@ -1009,74 +1009,74 @@ _meta_table = {
                 'cell_packing_data',
                 'Cisco-IOS-XR-atm-vcm-oper', False),
             _MetaInfoClassMember('configured-layer2pv-cs', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of Layer 2 PVCs configured
                 ''',
                 'configured_layer2pv_cs',
                 'Cisco-IOS-XR-atm-vcm-oper', False),
             _MetaInfoClassMember('configured-layer2pv-ps', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of Layer 2 PVPs configured
                 ''',
                 'configured_layer2pv_ps',
                 'Cisco-IOS-XR-atm-vcm-oper', False),
             _MetaInfoClassMember('configured-layer3pv-cs', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of Layer 3 PVCs configured
                 ''',
                 'configured_layer3pv_cs',
                 'Cisco-IOS-XR-atm-vcm-oper', False),
             _MetaInfoClassMember('configured-layer3vp-tunnels', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of Layer 3 VP tunnels configured
                 ''',
                 'configured_layer3vp_tunnels',
                 'Cisco-IOS-XR-atm-vcm-oper', False),
             _MetaInfoClassMember('currently-failing-layer2pv-cs', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of currently failing Layer 2 PVCs
                 ''',
                 'currently_failing_layer2pv_cs',
                 'Cisco-IOS-XR-atm-vcm-oper', False),
             _MetaInfoClassMember('currently-failing-layer2pv-ps', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of currently failing Layer 2 PVPs
                 ''',
                 'currently_failing_layer2pv_ps',
                 'Cisco-IOS-XR-atm-vcm-oper', False),
             _MetaInfoClassMember('currently-failing-layer3pv-cs', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of currently failing Layer 3 PVCs
                 ''',
                 'currently_failing_layer3pv_cs',
                 'Cisco-IOS-XR-atm-vcm-oper', False),
             _MetaInfoClassMember('currently-failing-layer3vp-tunnels', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of currently failing Layer 3 VP tunnels
                 ''',
                 'currently_failing_layer3vp_tunnels',
                 'Cisco-IOS-XR-atm-vcm-oper', False),
             _MetaInfoClassMember('ilmi-vci', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                ILMI VCI
                 ''',
                 'ilmi_vci',
                 'Cisco-IOS-XR-atm-vcm-oper', False),
             _MetaInfoClassMember('ilmi-vpi', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                ILMI VPI
                 ''',
                 'ilmi_vpi',
                 'Cisco-IOS-XR-atm-vcm-oper', False),
             _MetaInfoClassMember('l2-cell-packing-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                Number of L2 attachment circuits with the cell
                 packing feature enabled on this main interface
                 ''',
                 'l2_cell_packing_count',
                 'Cisco-IOS-XR-atm-vcm-oper', False),
             _MetaInfoClassMember('main-interface', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Main Interface handle
                 ''',
                 'main_interface',
@@ -1088,7 +1088,7 @@ _meta_table = {
                 'port_type',
                 'Cisco-IOS-XR-atm-vcm-oper', False),
             _MetaInfoClassMember('pvc-failures', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of PVC Failures
                 ''',
                 'pvc_failures',
@@ -1100,7 +1100,7 @@ _meta_table = {
                 'pvc_failures_trap_enable',
                 'Cisco-IOS-XR-atm-vcm-oper', False),
             _MetaInfoClassMember('pvc-notification-interval', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                PVC trap notification interval
                 ''',
                 'pvc_notification_interval',
@@ -1134,7 +1134,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('interface-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Interface name
                 ''',
                 'interface_name',
@@ -1147,13 +1147,13 @@ _meta_table = {
                 'amin_status',
                 'Cisco-IOS-XR-atm-vcm-oper', False),
             _MetaInfoClassMember('burst-rate', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Burst size in cells
                 ''',
                 'burst_rate',
                 'Cisco-IOS-XR-atm-vcm-oper', False),
             _MetaInfoClassMember('data-vc-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of Data PVCs under this VP-tunnel
                 ''',
                 'data_vc_count',
@@ -1171,13 +1171,13 @@ _meta_table = {
                 'internal_state',
                 'Cisco-IOS-XR-atm-vcm-oper', False),
             _MetaInfoClassMember('last-vp-state-change-time', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Time when VP-Tunnel state was last changed
                 ''',
                 'last_vp_state_change_time',
                 'Cisco-IOS-XR-atm-vcm-oper', False),
             _MetaInfoClassMember('main-interface', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Main Interface handle
                 ''',
                 'main_interface',
@@ -1190,7 +1190,7 @@ _meta_table = {
                 'oper_status',
                 'Cisco-IOS-XR-atm-vcm-oper', False),
             _MetaInfoClassMember('peak-cell-rate', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Peak cell rate in Kbps
                 ''',
                 'peak_cell_rate',
@@ -1202,25 +1202,25 @@ _meta_table = {
                 'shape',
                 'Cisco-IOS-XR-atm-vcm-oper', False),
             _MetaInfoClassMember('sustained-cell-rate', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Sustained cell rate in Kbps
                 ''',
                 'sustained_cell_rate',
                 'Cisco-IOS-XR-atm-vcm-oper', False),
             _MetaInfoClassMember('vp-interface', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                VP Interfcace handle
                 ''',
                 'vp_interface',
                 'Cisco-IOS-XR-atm-vcm-oper', False),
             _MetaInfoClassMember('vpi', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                VPI
                 ''',
                 'vpi',
                 'Cisco-IOS-XR-atm-vcm-oper', False),
             _MetaInfoClassMember('vpi-xr', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                VP-Tunnel VPI value
                 ''',
                 'vpi_xr',

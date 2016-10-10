@@ -10,7 +10,7 @@ for the following management objects\:
   mpls\-forwarding\: mpls forwarding
   fib\-mpls\: fib mpls
 
-Copyright (c) 2013\-2015 by Cisco Systems, Inc.
+Copyright (c) 2013\-2016 by Cisco Systems, Inc.
 All rights reserved.
 
 """
@@ -226,6 +226,45 @@ class FibLoadshareShowEnum(Enum):
     def _meta_info():
         from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_fib_common_oper as meta
         return meta._meta_table['FibLoadshareShowEnum']
+
+
+class FibMplsLlcEntryBagEnum(Enum):
+    """
+    FibMplsLlcEntryBagEnum
+
+    Fib mpls llc entry bag
+
+    .. data:: FIB_MPLS_LLC_BAG_TYPE_XC = 1
+
+    	fib mpls llc bag type xc
+
+    .. data:: FIB_MPLS_LLC_BAG_TYPE_PFX = 2
+
+    	fib mpls llc bag type pfx
+
+    .. data:: FIB_MPLS_LLC_BAG_TYPE_LSM = 3
+
+    	fib mpls llc bag type lsm
+
+    .. data:: FIB_MPLS_LLC_BAG_TYPE_MAX = 4
+
+    	fib mpls llc bag type max
+
+    """
+
+    FIB_MPLS_LLC_BAG_TYPE_XC = 1
+
+    FIB_MPLS_LLC_BAG_TYPE_PFX = 2
+
+    FIB_MPLS_LLC_BAG_TYPE_LSM = 3
+
+    FIB_MPLS_LLC_BAG_TYPE_MAX = 4
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_fib_common_oper as meta
+        return meta._meta_table['FibMplsLlcEntryBagEnum']
 
 
 class FibNehEnum(Enum):
@@ -832,161 +871,161 @@ class FibStatistics(object):
                 .. attribute:: acl_in_rpf_packets
                 
                 	ACL in RPF pkt
-                	**type**\:  long
+                	**type**\:  int
                 
                 	**range:** 0..18446744073709551615
                 
                 .. attribute:: checksum_error_packets
                 
                 	checksum error pkt
-                	**type**\:  long
+                	**type**\:  int
                 
                 	**range:** 0..18446744073709551615
                 
                 .. attribute:: df_unreachable_packets
                 
                 	DF unreachable pkt
-                	**type**\:  long
+                	**type**\:  int
                 
                 	**range:** 0..18446744073709551615
                 
                 .. attribute:: discard_packets
                 
                 	discard pkt
-                	**type**\:  long
+                	**type**\:  int
                 
                 	**range:** 0..18446744073709551615
                 
                 .. attribute:: encapsulation_failure_packets
                 
                 	encapsulation failure pkt
-                	**type**\:  long
+                	**type**\:  int
                 
                 	**range:** 0..18446744073709551615
                 
                 .. attribute:: fragmenation_consumed_packets
                 
                 	frag consumed packet pkt
-                	**type**\:  long
+                	**type**\:  int
                 
                 	**range:** 0..18446744073709551615
                 
                 .. attribute:: fragmenation_failure_packets
                 
                 	fragmenation failure pkt
-                	**type**\:  long
+                	**type**\:  int
                 
                 	**range:** 0..18446744073709551615
                 
                 .. attribute:: gre_error_drop
                 
                 	GRE processing errors
-                	**type**\:  long
+                	**type**\:  int
                 
                 	**range:** 0..18446744073709551615
                 
                 .. attribute:: gre_lookup_failed_drop
                 
                 	GRE tunnel lookup failed drop pkt
-                	**type**\:  long
+                	**type**\:  int
                 
                 	**range:** 0..18446744073709551615
                 
                 .. attribute:: incomplete_adjacency_packets
                 
                 	incomplete adjacency pkt
-                	**type**\:  long
+                	**type**\:  int
                 
                 	**range:** 0..18446744073709551615
                 
                 .. attribute:: lisp_decap_error_drops
                 
                 	Lisp decap error drops
-                	**type**\:  long
+                	**type**\:  int
                 
                 	**range:** 0..18446744073709551615
                 
                 .. attribute:: lisp_encap_error_drops
                 
                 	Lisp encap error drops
-                	**type**\:  long
+                	**type**\:  int
                 
                 	**range:** 0..18446744073709551615
                 
                 .. attribute:: lisp_punt_drops
                 
                 	LISP Punt drops
-                	**type**\:  long
+                	**type**\:  int
                 
                 	**range:** 0..18446744073709551615
                 
                 .. attribute:: mpls_disabled_interface
                 
                 	mpls disabled in interface
-                	**type**\:  long
+                	**type**\:  int
                 
                 	**range:** 0..18446744073709551615
                 
                 .. attribute:: multi_label_drops
                 
                 	Drops for the packets with multi[le labels
-                	**type**\:  long
+                	**type**\:  int
                 
                 	**range:** 0..18446744073709551615
                 
                 .. attribute:: no_route_packets
                 
                 	no route pkt
-                	**type**\:  long
+                	**type**\:  int
                 
                 	**range:** 0..18446744073709551615
                 
                 .. attribute:: null_packets
                 
                 	null0 pkt
-                	**type**\:  long
+                	**type**\:  int
                 
                 	**range:** 0..18446744073709551615
                 
                 .. attribute:: punt_unreachable_packets
                 
                 	Punt generate unreach pkt
-                	**type**\:  long
+                	**type**\:  int
                 
                 	**range:** 0..18446744073709551615
                 
                 .. attribute:: rp_destination_drop_packets
                 
                 	rp dest drop pkt
-                	**type**\:  long
+                	**type**\:  int
                 
                 	**range:** 0..18446744073709551615
                 
                 .. attribute:: rpf_check_failure_packets
                 
                 	RPF check failures pkt
-                	**type**\:  long
+                	**type**\:  int
                 
                 	**range:** 0..18446744073709551615
                 
                 .. attribute:: total_number_of_drop_packets
                 
                 	the total number of drop pkt
-                	**type**\:  long
+                	**type**\:  int
                 
                 	**range:** 0..18446744073709551615
                 
                 .. attribute:: unresolved_prefix_packets
                 
                 	unresolved prefix pkt
-                	**type**\:  long
+                	**type**\:  int
                 
                 	**range:** 0..18446744073709551615
                 
                 .. attribute:: unsupported_feature_packets
                 
                 	unsupported feature pkt
-                	**type**\:  long
+                	**type**\:  int
                 
                 	**range:** 0..18446744073709551615
                 
@@ -1293,6 +1332,16 @@ class Fib(object):
                     	Protocol Name 
                     	**type**\:  :py:class:`FibProtocolEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.FibProtocolEnum>`
                     
+                    .. attribute:: external_client_summaries
+                    
+                    	External Client Summary Table
+                    	**type**\:  :py:class:`ExternalClientSummaries <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.Fib.Nodes.Node.Protocols.Protocol.ExternalClientSummaries>`
+                    
+                    .. attribute:: external_summary_all
+                    
+                    	Summary for all external clients
+                    	**type**\:  :py:class:`ExternalSummaryAll <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.Fib.Nodes.Node.Protocols.Protocol.ExternalSummaryAll>`
+                    
                     .. attribute:: frr_log
                     
                     	Table of Fast Reroute activation logs
@@ -1328,6 +1377,10 @@ class Fib(object):
                     def __init__(self):
                         self.parent = None
                         self.protocol_name = None
+                        self.external_client_summaries = Fib.Nodes.Node.Protocols.Protocol.ExternalClientSummaries()
+                        self.external_client_summaries.parent = self
+                        self.external_summary_all = Fib.Nodes.Node.Protocols.Protocol.ExternalSummaryAll()
+                        self.external_summary_all.parent = self
                         self.frr_log = Fib.Nodes.Node.Protocols.Protocol.FrrLog()
                         self.frr_log.parent = self
                         self.issu_state = Fib.Nodes.Node.Protocols.Protocol.IssuState()
@@ -1382,7 +1435,7 @@ class Fib(object):
                         .. attribute:: fis_issu_error_ts
                         
                         	ISSU error sent to ISSUMGR timetstamp
-                        	**type**\:  long
+                        	**type**\:  int
                         
                         	**range:** 0..18446744073709551615
                         
@@ -1680,6 +1733,136 @@ class Fib(object):
                             return meta._meta_table['Fib.Nodes.Node.Protocols.Protocol.IssuState']['meta_info']
 
 
+                    class ExternalSummaryAll(object):
+                        """
+                        Summary for all external clients
+                        
+                        .. attribute:: sesa_num_client
+                        
+                        	Client information
+                        	**type**\:  int
+                        
+                        	**range:** 0..4294967295
+                        
+                        .. attribute:: sesa_pl_sum
+                        
+                        	External pathlist summary
+                        	**type**\:  :py:class:`SesaPlSum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.Fib.Nodes.Node.Protocols.Protocol.ExternalSummaryAll.SesaPlSum>`
+                        
+                        
+
+                        """
+
+                        _prefix = 'fib-common-oper'
+                        _revision = '2015-11-09'
+
+                        def __init__(self):
+                            self.parent = None
+                            self.sesa_num_client = None
+                            self.sesa_pl_sum = Fib.Nodes.Node.Protocols.Protocol.ExternalSummaryAll.SesaPlSum()
+                            self.sesa_pl_sum.parent = self
+
+
+                        class SesaPlSum(object):
+                            """
+                            External pathlist summary
+                            
+                            .. attribute:: sep_num_ecd_pathlist
+                            
+                            	Number of ECD pathlists
+                            	**type**\:  int
+                            
+                            	**range:** 0..4294967295
+                            
+                            .. attribute:: sep_num_ecd_pl_per_interest
+                            
+                            	Number of ECD pathlists per interest
+                            	**type**\:  list of int
+                            
+                            	**range:** 0..4294967295
+                            
+                            .. attribute:: sep_num_ecd_pl_unresolved
+                            
+                            	Number of ECD pathlists unresolved
+                            	**type**\:  int
+                            
+                            	**range:** 0..4294967295
+                            
+                            
+
+                            """
+
+                            _prefix = 'fib-common-oper'
+                            _revision = '2015-11-09'
+
+                            def __init__(self):
+                                self.parent = None
+                                self.sep_num_ecd_pathlist = None
+                                self.sep_num_ecd_pl_per_interest = YLeafList()
+                                self.sep_num_ecd_pl_per_interest.parent = self
+                                self.sep_num_ecd_pl_per_interest.name = 'sep_num_ecd_pl_per_interest'
+                                self.sep_num_ecd_pl_unresolved = None
+
+                            @property
+                            def _common_path(self):
+                                if self.parent is None:
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                return self.parent._common_path +'/Cisco-IOS-XR-fib-common-oper:sesa-pl-sum'
+
+                            def is_config(self):
+                                ''' Returns True if this instance represents config data else returns False '''
+                                return False
+
+                            def _has_data(self):
+                                if not self.is_config():
+                                    return False
+                                if self.sep_num_ecd_pathlist is not None:
+                                    return True
+
+                                if self.sep_num_ecd_pl_per_interest is not None:
+                                    for child in self.sep_num_ecd_pl_per_interest:
+                                        if child is not None:
+                                            return True
+
+                                if self.sep_num_ecd_pl_unresolved is not None:
+                                    return True
+
+                                return False
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_fib_common_oper as meta
+                                return meta._meta_table['Fib.Nodes.Node.Protocols.Protocol.ExternalSummaryAll.SesaPlSum']['meta_info']
+
+                        @property
+                        def _common_path(self):
+                            if self.parent is None:
+                                raise YPYModelError('parent is not set . Cannot derive path.')
+
+                            return self.parent._common_path +'/Cisco-IOS-XR-fib-common-oper:external-summary-all'
+
+                        def is_config(self):
+                            ''' Returns True if this instance represents config data else returns False '''
+                            return False
+
+                        def _has_data(self):
+                            if not self.is_config():
+                                return False
+                            if self.sesa_num_client is not None:
+                                return True
+
+                            if self.sesa_pl_sum is not None and self.sesa_pl_sum._has_data():
+                                return True
+
+                            return False
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_fib_common_oper as meta
+                            return meta._meta_table['Fib.Nodes.Node.Protocols.Protocol.ExternalSummaryAll']['meta_info']
+
+
                     class FrrLog(object):
                         """
                         Table of Fast Reroute activation logs
@@ -1734,7 +1917,7 @@ class Fib(object):
                                 	Interface Name
                                 	**type**\:  str
                                 
-                                	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+                                	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
                                 
                                 .. attribute:: logs
                                 
@@ -1794,14 +1977,14 @@ class Fib(object):
                                         	bundle member
                                         	**type**\:  str
                                         
-                                        	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+                                        	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
                                         
                                         .. attribute:: frr_interface_name
                                         
                                         	Interface assoc w frr nh
                                         	**type**\:  str
                                         
-                                        	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+                                        	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
                                         
                                         .. attribute:: frr_prefix
                                         
@@ -2358,10 +2541,15 @@ class Fib(object):
                                     	Route attributes summary flag
                                     	**type**\:  bool
                                     
+                                    .. attribute:: route_for_external_reach_linecard_flag
+                                    
+                                    	Route destined for Line Card that support External Reach only
+                                    	**type**\:  bool
+                                    
                                     .. attribute:: time_of_last_update_in_msec
                                     
                                     	The time of last update in msec
-                                    	**type**\:  long
+                                    	**type**\:  int
                                     
                                     	**range:** 0..18446744073709551615
                                     
@@ -2375,7 +2563,7 @@ class Fib(object):
                                     .. attribute:: version_of_route
                                     
                                     	The version of the route
-                                    	**type**\:  long
+                                    	**type**\:  int
                                     
                                     	**range:** 0..18446744073709551615
                                     
@@ -2427,6 +2615,7 @@ class Fib(object):
                                         self.purgable_after_purge_interval = None
                                         self.ref_counter_of_ldi_lw_ldi = None
                                         self.route_attribute_flag = None
+                                        self.route_for_external_reach_linecard_flag = None
                                         self.time_of_last_update_in_msec = None
                                         self.type_of_ldi_lw_ldi = None
                                         self.version_of_route = None
@@ -2496,7 +2685,7 @@ class Fib(object):
                                         .. attribute:: bytes_through_fib_entry
                                         
                                         	Bytes through this FIB entry
-                                        	**type**\:  long
+                                        	**type**\:  int
                                         
                                         	**range:** 0..18446744073709551615
                                         
@@ -2595,7 +2784,7 @@ class Fib(object):
                                         .. attribute:: ldi_time_of_last_update_in_msec
                                         
                                         	The time of last update for LDI in msec
-                                        	**type**\:  long
+                                        	**type**\:  int
                                         
                                         	**range:** 0..18446744073709551615
                                         
@@ -2612,7 +2801,7 @@ class Fib(object):
                                         .. attribute:: lwldi_time_of_last_update_in_msec
                                         
                                         	The time of last update for LW\-LDI in msec
-                                        	**type**\:  long
+                                        	**type**\:  int
                                         
                                         	**range:** 0..18446744073709551615
                                         
@@ -2626,7 +2815,7 @@ class Fib(object):
                                         .. attribute:: packets_through_fib_entry
                                         
                                         	Packets through this FIB entry
-                                        	**type**\:  long
+                                        	**type**\:  int
                                         
                                         	**range:** 0..18446744073709551615
                                         
@@ -2647,7 +2836,7 @@ class Fib(object):
                                         .. attribute:: pl_time_of_last_update_in_msec
                                         
                                         	The time of last update for PL in msec
-                                        	**type**\:  long
+                                        	**type**\:  int
                                         
                                         	**range:** 0..18446744073709551615
                                         
@@ -2764,7 +2953,7 @@ class Fib(object):
                                             .. attribute:: bytes_through_load_information
                                             
                                             	Bytes through this loadinfo
-                                            	**type**\:  long
+                                            	**type**\:  int
                                             
                                             	**range:** 0..18446744073709551615
                                             
@@ -2805,7 +2994,7 @@ class Fib(object):
                                             .. attribute:: packets_through_load_information
                                             
                                             	Packets through this loadinfo
-                                            	**type**\:  long
+                                            	**type**\:  int
                                             
                                             	**range:** 0..18446744073709551615
                                             
@@ -2824,14 +3013,14 @@ class Fib(object):
                                             .. attribute:: total_bytes_through_load_information
                                             
                                             	Total bytes through this loadinfo
-                                            	**type**\:  long
+                                            	**type**\:  int
                                             
                                             	**range:** 0..18446744073709551615
                                             
                                             .. attribute:: total_packets_through_load_information
                                             
                                             	Total packets through this loadinfo
-                                            	**type**\:  long
+                                            	**type**\:  int
                                             
                                             	**range:** 0..18446744073709551615
                                             
@@ -2873,7 +3062,7 @@ class Fib(object):
                                                 	Interface handle
                                                 	**type**\:  list of str
                                                 
-                                                	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+                                                	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
                                                 
                                                 .. attribute:: is_pbts_info_valid
                                                 
@@ -3585,7 +3774,7 @@ class Fib(object):
                                             	Interface handle
                                             	**type**\:  str
                                             
-                                            	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+                                            	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
                                             
                                             .. attribute:: brief_next_hop_prefix
                                             
@@ -3642,7 +3831,7 @@ class Fib(object):
                                             	Parent Interface Handle
                                             	**type**\:  str
                                             
-                                            	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+                                            	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
                                             
                                             .. attribute:: path_dlb
                                             
@@ -3776,7 +3965,7 @@ class Fib(object):
                                                 	Interface associated with this path
                                                 	**type**\:  str
                                                 
-                                                	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+                                                	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
                                                 
                                                 .. attribute:: ip_address_to_recurse
                                                 
@@ -3804,7 +3993,7 @@ class Fib(object):
                                                 	Next hop interface
                                                 	**type**\:  str
                                                 
-                                                	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+                                                	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
                                                 
                                                 .. attribute:: next_hop_mask_length
                                                 
@@ -4360,7 +4549,7 @@ class Fib(object):
                                                     	OutInterface
                                                     	**type**\:  str
                                                     
-                                                    	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+                                                    	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
                                                     
                                                     
 
@@ -4683,6 +4872,9 @@ class Fib(object):
                                         if self.route_attribute_flag is not None:
                                             return True
 
+                                        if self.route_for_external_reach_linecard_flag is not None:
+                                            return True
+
                                         if self.time_of_last_update_in_msec is not None:
                                             return True
 
@@ -4743,7 +4935,7 @@ class Fib(object):
                                 .. attribute:: cef_version_mismatch_route_drops
                                 
                                 	the number of routes dropped due to version mismatch
-                                	**type**\:  long
+                                	**type**\:  int
                                 
                                 	**range:** 0..18446744073709551615
                                 
@@ -4754,6 +4946,11 @@ class Fib(object):
                                 
                                 	**range:** 0..4294967295
                                 
+                                .. attribute:: cross_shared_load_sharing_element
+                                
+                                	Cross\-table shared load sharing element
+                                	**type**\:  :py:class:`CrossSharedLoadSharingElement <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.Summary.CrossSharedLoadSharingElement>`
+                                
                                 .. attribute:: delete_cache_num_entries
                                 
                                 	Number of entries in the route delete cache
@@ -4761,23 +4958,14 @@ class Fib(object):
                                 
                                 	**range:** 0..4294967295
                                 
+                                .. attribute:: exclusive_load_sharing_element
+                                
+                                	Exclusive load sharing element
+                                	**type**\:  :py:class:`ExclusiveLoadSharingElement <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.Summary.ExclusiveLoadSharingElement>`
+                                
                                 .. attribute:: existing_leaves_revisions
                                 
                                 	Number of entries present on addition
-                                	**type**\:  int
-                                
-                                	**range:** 0..4294967295
-                                
-                                .. attribute:: explicit_load_sharing_element_bytes
-                                
-                                	Memory used by Explicit LDIs in bytes
-                                	**type**\:  int
-                                
-                                	**range:** 0..4294967295
-                                
-                                .. attribute:: explicit_load_sharing_elements
-                                
-                                	Explicit load share elements
                                 	**type**\:  int
                                 
                                 	**range:** 0..4294967295
@@ -4824,6 +5012,11 @@ class Fib(object):
                                 
                                 	**range:** 0..4294967295
                                 
+                                .. attribute:: label_shared_load_sharing_element
+                                
+                                	Label\-shared load sharing element
+                                	**type**\:  :py:class:`LabelSharedLoadSharingElement <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.Summary.LabelSharedLoadSharingElement>`
+                                
                                 .. attribute:: ldi_backwalks
                                 
                                 	pd backwalks on LDI modify with backup path
@@ -4833,7 +5026,7 @@ class Fib(object):
                                 
                                 .. attribute:: leaves_used_bytes
                                 
-                                	Total Bytes used by leaves
+                                	Total memory used by leaves
                                 	**type**\:  int
                                 
                                 	**range:** 0..4294967295
@@ -4866,17 +5059,17 @@ class Fib(object):
                                 
                                 .. attribute:: load_sharing_elements
                                 
-                                	Count of load share elements
+                                	Count of load sharing elements
                                 	**type**\:  int
                                 
                                 	**range:** 0..4294967295
                                 
                                 .. attribute:: load_sharing_references
                                 
-                                	Count of load share references
+                                	Count of load sharing references
                                 	**type**\:  int
                                 
-                                	**range:** 0..4294967295
+                                	**range:** 0..18446744073709551615
                                 
                                 .. attribute:: max_resolution_timer
                                 
@@ -4941,23 +5134,21 @@ class Fib(object):
                                 
                                 	**range:** 0..4294967295
                                 
-                                .. attribute:: shared_ldi_bytes
+                                .. attribute:: shared_load_sharing_element
                                 
-                                	Memory used by Shared LDIs in bytes
-                                	**type**\:  int
-                                
-                                	**range:** 0..4294967295
-                                
-                                .. attribute:: shared_load_sharing_elements
-                                
-                                	Shared load share elements
-                                	**type**\:  int
-                                
-                                	**range:** 0..4294967295
+                                	Shared load sharing element
+                                	**type**\:  :py:class:`SharedLoadSharingElement <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.Summary.SharedLoadSharingElement>`
                                 
                                 .. attribute:: slow_process_timer
                                 
                                 	IP CEF slow processing time in seconds
+                                	**type**\:  int
+                                
+                                	**range:** 0..4294967295
+                                
+                                .. attribute:: ss_drop_pl_count
+                                
+                                	Number of dropped pathlists
                                 	**type**\:  int
                                 
                                 	**range:** 0..4294967295
@@ -5002,7 +5193,7 @@ class Fib(object):
                                 	VXLAN local Interface handle
                                 	**type**\:  str
                                 
-                                	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+                                	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
                                 
                                 .. attribute:: stale_prefix_deletes
                                 
@@ -5013,7 +5204,7 @@ class Fib(object):
                                 
                                 .. attribute:: total_load_share_element_bytes
                                 
-                                	Total Bytes used by load share elem
+                                	Total memory used by load sharing elements
                                 	**type**\:  int
                                 
                                 	**range:** 0..4294967295
@@ -5037,16 +5228,20 @@ class Fib(object):
                                     self.cef_route_drops = None
                                     self.cef_version_mismatch_route_drops = None
                                     self.cefl_bl_recycled_routes = None
+                                    self.cross_shared_load_sharing_element = Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.Summary.CrossSharedLoadSharingElement()
+                                    self.cross_shared_load_sharing_element.parent = self
                                     self.delete_cache_num_entries = None
+                                    self.exclusive_load_sharing_element = Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.Summary.ExclusiveLoadSharingElement()
+                                    self.exclusive_load_sharing_element.parent = self
                                     self.existing_leaves_revisions = None
-                                    self.explicit_load_sharing_element_bytes = None
-                                    self.explicit_load_sharing_elements = None
                                     self.extended_prefixes = None
                                     self.fib_default_prefix = None
                                     self.fib_default_prefix_mask_length = None
                                     self.forwarding_elements = None
                                     self.imposition_prefixes = None
                                     self.incomplete_next_hops = None
+                                    self.label_shared_load_sharing_element = Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.Summary.LabelSharedLoadSharingElement()
+                                    self.label_shared_load_sharing_element.parent = self
                                     self.ldi_backwalks = None
                                     self.leaves_used_bytes = None
                                     self.lisp_eid_prefixes = None
@@ -5064,9 +5259,10 @@ class Fib(object):
                                     self.reresolve_entries = None
                                     self.resolution_timer = None
                                     self.routes = None
-                                    self.shared_ldi_bytes = None
-                                    self.shared_load_sharing_elements = None
+                                    self.shared_load_sharing_element = Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.Summary.SharedLoadSharingElement()
+                                    self.shared_load_sharing_element.parent = self
                                     self.slow_process_timer = None
+                                    self.ss_drop_pl_count = None
                                     self.ss_prot_route_count = None
                                     self.ss_tbl_id = None
                                     self.ss_tbl_id_ptr = None
@@ -5076,6 +5272,546 @@ class Fib(object):
                                     self.stale_prefix_deletes = None
                                     self.total_load_share_element_bytes = None
                                     self.unresolve_entries = None
+
+
+                                class ExclusiveLoadSharingElement(object):
+                                    """
+                                    Exclusive load sharing element
+                                    
+                                    .. attribute:: platform_shared_load_info_elements
+                                    
+                                    	Count of platform shared Loadinfo elements
+                                    	**type**\:  int
+                                    
+                                    	**range:** 0..4294967295
+                                    
+                                    .. attribute:: platform_shared_path_list_elements
+                                    
+                                    	Count of platform shared Pathlist elements
+                                    	**type**\:  int
+                                    
+                                    	**range:** 0..4294967295
+                                    
+                                    .. attribute:: recursive_load_info_elements
+                                    
+                                    	Count of recursive Loadinfo elements
+                                    	**type**\:  int
+                                    
+                                    	**range:** 0..4294967295
+                                    
+                                    .. attribute:: recursive_path_list_elements
+                                    
+                                    	Count of recursive Pathlist elements
+                                    	**type**\:  int
+                                    
+                                    	**range:** 0..4294967295
+                                    
+                                    .. attribute:: retry_path_list_elements
+                                    
+                                    	Count of Pathlist elements in retry
+                                    	**type**\:  int
+                                    
+                                    	**range:** 0..4294967295
+                                    
+                                    .. attribute:: total_load_info_elements
+                                    
+                                    	Total count of Loadinfo elements
+                                    	**type**\:  int
+                                    
+                                    	**range:** 0..4294967295
+                                    
+                                    .. attribute:: total_load_sharing_element_bytes
+                                    
+                                    	Total memory used by load sharing elements in bytes
+                                    	**type**\:  int
+                                    
+                                    	**range:** 0..4294967295
+                                    
+                                    .. attribute:: total_load_sharing_element_references
+                                    
+                                    	Total count of references to load sharing elements
+                                    	**type**\:  int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    .. attribute:: total_path_list_elements
+                                    
+                                    	Total count of Pathlist elements
+                                    	**type**\:  int
+                                    
+                                    	**range:** 0..4294967295
+                                    
+                                    
+
+                                    """
+
+                                    _prefix = 'fib-common-oper'
+                                    _revision = '2015-11-09'
+
+                                    def __init__(self):
+                                        self.parent = None
+                                        self.platform_shared_load_info_elements = None
+                                        self.platform_shared_path_list_elements = None
+                                        self.recursive_load_info_elements = None
+                                        self.recursive_path_list_elements = None
+                                        self.retry_path_list_elements = None
+                                        self.total_load_info_elements = None
+                                        self.total_load_sharing_element_bytes = None
+                                        self.total_load_sharing_element_references = None
+                                        self.total_path_list_elements = None
+
+                                    @property
+                                    def _common_path(self):
+                                        if self.parent is None:
+                                            raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                        return self.parent._common_path +'/Cisco-IOS-XR-fib-common-oper:exclusive-load-sharing-element'
+
+                                    def is_config(self):
+                                        ''' Returns True if this instance represents config data else returns False '''
+                                        return False
+
+                                    def _has_data(self):
+                                        if not self.is_config():
+                                            return False
+                                        if self.platform_shared_load_info_elements is not None:
+                                            return True
+
+                                        if self.platform_shared_path_list_elements is not None:
+                                            return True
+
+                                        if self.recursive_load_info_elements is not None:
+                                            return True
+
+                                        if self.recursive_path_list_elements is not None:
+                                            return True
+
+                                        if self.retry_path_list_elements is not None:
+                                            return True
+
+                                        if self.total_load_info_elements is not None:
+                                            return True
+
+                                        if self.total_load_sharing_element_bytes is not None:
+                                            return True
+
+                                        if self.total_load_sharing_element_references is not None:
+                                            return True
+
+                                        if self.total_path_list_elements is not None:
+                                            return True
+
+                                        return False
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_fib_common_oper as meta
+                                        return meta._meta_table['Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.Summary.ExclusiveLoadSharingElement']['meta_info']
+
+
+                                class SharedLoadSharingElement(object):
+                                    """
+                                    Shared load sharing element
+                                    
+                                    .. attribute:: platform_shared_load_info_elements
+                                    
+                                    	Count of platform shared Loadinfo elements
+                                    	**type**\:  int
+                                    
+                                    	**range:** 0..4294967295
+                                    
+                                    .. attribute:: platform_shared_path_list_elements
+                                    
+                                    	Count of platform shared Pathlist elements
+                                    	**type**\:  int
+                                    
+                                    	**range:** 0..4294967295
+                                    
+                                    .. attribute:: recursive_load_info_elements
+                                    
+                                    	Count of recursive Loadinfo elements
+                                    	**type**\:  int
+                                    
+                                    	**range:** 0..4294967295
+                                    
+                                    .. attribute:: recursive_path_list_elements
+                                    
+                                    	Count of recursive Pathlist elements
+                                    	**type**\:  int
+                                    
+                                    	**range:** 0..4294967295
+                                    
+                                    .. attribute:: retry_path_list_elements
+                                    
+                                    	Count of Pathlist elements in retry
+                                    	**type**\:  int
+                                    
+                                    	**range:** 0..4294967295
+                                    
+                                    .. attribute:: total_load_info_elements
+                                    
+                                    	Total count of Loadinfo elements
+                                    	**type**\:  int
+                                    
+                                    	**range:** 0..4294967295
+                                    
+                                    .. attribute:: total_load_sharing_element_bytes
+                                    
+                                    	Total memory used by load sharing elements in bytes
+                                    	**type**\:  int
+                                    
+                                    	**range:** 0..4294967295
+                                    
+                                    .. attribute:: total_load_sharing_element_references
+                                    
+                                    	Total count of references to load sharing elements
+                                    	**type**\:  int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    .. attribute:: total_path_list_elements
+                                    
+                                    	Total count of Pathlist elements
+                                    	**type**\:  int
+                                    
+                                    	**range:** 0..4294967295
+                                    
+                                    
+
+                                    """
+
+                                    _prefix = 'fib-common-oper'
+                                    _revision = '2015-11-09'
+
+                                    def __init__(self):
+                                        self.parent = None
+                                        self.platform_shared_load_info_elements = None
+                                        self.platform_shared_path_list_elements = None
+                                        self.recursive_load_info_elements = None
+                                        self.recursive_path_list_elements = None
+                                        self.retry_path_list_elements = None
+                                        self.total_load_info_elements = None
+                                        self.total_load_sharing_element_bytes = None
+                                        self.total_load_sharing_element_references = None
+                                        self.total_path_list_elements = None
+
+                                    @property
+                                    def _common_path(self):
+                                        if self.parent is None:
+                                            raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                        return self.parent._common_path +'/Cisco-IOS-XR-fib-common-oper:shared-load-sharing-element'
+
+                                    def is_config(self):
+                                        ''' Returns True if this instance represents config data else returns False '''
+                                        return False
+
+                                    def _has_data(self):
+                                        if not self.is_config():
+                                            return False
+                                        if self.platform_shared_load_info_elements is not None:
+                                            return True
+
+                                        if self.platform_shared_path_list_elements is not None:
+                                            return True
+
+                                        if self.recursive_load_info_elements is not None:
+                                            return True
+
+                                        if self.recursive_path_list_elements is not None:
+                                            return True
+
+                                        if self.retry_path_list_elements is not None:
+                                            return True
+
+                                        if self.total_load_info_elements is not None:
+                                            return True
+
+                                        if self.total_load_sharing_element_bytes is not None:
+                                            return True
+
+                                        if self.total_load_sharing_element_references is not None:
+                                            return True
+
+                                        if self.total_path_list_elements is not None:
+                                            return True
+
+                                        return False
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_fib_common_oper as meta
+                                        return meta._meta_table['Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.Summary.SharedLoadSharingElement']['meta_info']
+
+
+                                class CrossSharedLoadSharingElement(object):
+                                    """
+                                    Cross\-table shared load sharing element
+                                    
+                                    .. attribute:: platform_shared_load_info_elements
+                                    
+                                    	Count of platform shared Loadinfo elements
+                                    	**type**\:  int
+                                    
+                                    	**range:** 0..4294967295
+                                    
+                                    .. attribute:: platform_shared_path_list_elements
+                                    
+                                    	Count of platform shared Pathlist elements
+                                    	**type**\:  int
+                                    
+                                    	**range:** 0..4294967295
+                                    
+                                    .. attribute:: recursive_load_info_elements
+                                    
+                                    	Count of recursive Loadinfo elements
+                                    	**type**\:  int
+                                    
+                                    	**range:** 0..4294967295
+                                    
+                                    .. attribute:: recursive_path_list_elements
+                                    
+                                    	Count of recursive Pathlist elements
+                                    	**type**\:  int
+                                    
+                                    	**range:** 0..4294967295
+                                    
+                                    .. attribute:: retry_path_list_elements
+                                    
+                                    	Count of Pathlist elements in retry
+                                    	**type**\:  int
+                                    
+                                    	**range:** 0..4294967295
+                                    
+                                    .. attribute:: total_load_info_elements
+                                    
+                                    	Total count of Loadinfo elements
+                                    	**type**\:  int
+                                    
+                                    	**range:** 0..4294967295
+                                    
+                                    .. attribute:: total_load_sharing_element_bytes
+                                    
+                                    	Total memory used by load sharing elements in bytes
+                                    	**type**\:  int
+                                    
+                                    	**range:** 0..4294967295
+                                    
+                                    .. attribute:: total_load_sharing_element_references
+                                    
+                                    	Total count of references to load sharing elements
+                                    	**type**\:  int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    .. attribute:: total_path_list_elements
+                                    
+                                    	Total count of Pathlist elements
+                                    	**type**\:  int
+                                    
+                                    	**range:** 0..4294967295
+                                    
+                                    
+
+                                    """
+
+                                    _prefix = 'fib-common-oper'
+                                    _revision = '2015-11-09'
+
+                                    def __init__(self):
+                                        self.parent = None
+                                        self.platform_shared_load_info_elements = None
+                                        self.platform_shared_path_list_elements = None
+                                        self.recursive_load_info_elements = None
+                                        self.recursive_path_list_elements = None
+                                        self.retry_path_list_elements = None
+                                        self.total_load_info_elements = None
+                                        self.total_load_sharing_element_bytes = None
+                                        self.total_load_sharing_element_references = None
+                                        self.total_path_list_elements = None
+
+                                    @property
+                                    def _common_path(self):
+                                        if self.parent is None:
+                                            raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                        return self.parent._common_path +'/Cisco-IOS-XR-fib-common-oper:cross-shared-load-sharing-element'
+
+                                    def is_config(self):
+                                        ''' Returns True if this instance represents config data else returns False '''
+                                        return False
+
+                                    def _has_data(self):
+                                        if not self.is_config():
+                                            return False
+                                        if self.platform_shared_load_info_elements is not None:
+                                            return True
+
+                                        if self.platform_shared_path_list_elements is not None:
+                                            return True
+
+                                        if self.recursive_load_info_elements is not None:
+                                            return True
+
+                                        if self.recursive_path_list_elements is not None:
+                                            return True
+
+                                        if self.retry_path_list_elements is not None:
+                                            return True
+
+                                        if self.total_load_info_elements is not None:
+                                            return True
+
+                                        if self.total_load_sharing_element_bytes is not None:
+                                            return True
+
+                                        if self.total_load_sharing_element_references is not None:
+                                            return True
+
+                                        if self.total_path_list_elements is not None:
+                                            return True
+
+                                        return False
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_fib_common_oper as meta
+                                        return meta._meta_table['Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.Summary.CrossSharedLoadSharingElement']['meta_info']
+
+
+                                class LabelSharedLoadSharingElement(object):
+                                    """
+                                    Label\-shared load sharing element
+                                    
+                                    .. attribute:: platform_shared_load_info_elements
+                                    
+                                    	Count of platform shared Loadinfo elements
+                                    	**type**\:  int
+                                    
+                                    	**range:** 0..4294967295
+                                    
+                                    .. attribute:: platform_shared_path_list_elements
+                                    
+                                    	Count of platform shared Pathlist elements
+                                    	**type**\:  int
+                                    
+                                    	**range:** 0..4294967295
+                                    
+                                    .. attribute:: recursive_load_info_elements
+                                    
+                                    	Count of recursive Loadinfo elements
+                                    	**type**\:  int
+                                    
+                                    	**range:** 0..4294967295
+                                    
+                                    .. attribute:: recursive_path_list_elements
+                                    
+                                    	Count of recursive Pathlist elements
+                                    	**type**\:  int
+                                    
+                                    	**range:** 0..4294967295
+                                    
+                                    .. attribute:: retry_path_list_elements
+                                    
+                                    	Count of Pathlist elements in retry
+                                    	**type**\:  int
+                                    
+                                    	**range:** 0..4294967295
+                                    
+                                    .. attribute:: total_load_info_elements
+                                    
+                                    	Total count of Loadinfo elements
+                                    	**type**\:  int
+                                    
+                                    	**range:** 0..4294967295
+                                    
+                                    .. attribute:: total_load_sharing_element_bytes
+                                    
+                                    	Total memory used by load sharing elements in bytes
+                                    	**type**\:  int
+                                    
+                                    	**range:** 0..4294967295
+                                    
+                                    .. attribute:: total_load_sharing_element_references
+                                    
+                                    	Total count of references to load sharing elements
+                                    	**type**\:  int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    .. attribute:: total_path_list_elements
+                                    
+                                    	Total count of Pathlist elements
+                                    	**type**\:  int
+                                    
+                                    	**range:** 0..4294967295
+                                    
+                                    
+
+                                    """
+
+                                    _prefix = 'fib-common-oper'
+                                    _revision = '2015-11-09'
+
+                                    def __init__(self):
+                                        self.parent = None
+                                        self.platform_shared_load_info_elements = None
+                                        self.platform_shared_path_list_elements = None
+                                        self.recursive_load_info_elements = None
+                                        self.recursive_path_list_elements = None
+                                        self.retry_path_list_elements = None
+                                        self.total_load_info_elements = None
+                                        self.total_load_sharing_element_bytes = None
+                                        self.total_load_sharing_element_references = None
+                                        self.total_path_list_elements = None
+
+                                    @property
+                                    def _common_path(self):
+                                        if self.parent is None:
+                                            raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                        return self.parent._common_path +'/Cisco-IOS-XR-fib-common-oper:label-shared-load-sharing-element'
+
+                                    def is_config(self):
+                                        ''' Returns True if this instance represents config data else returns False '''
+                                        return False
+
+                                    def _has_data(self):
+                                        if not self.is_config():
+                                            return False
+                                        if self.platform_shared_load_info_elements is not None:
+                                            return True
+
+                                        if self.platform_shared_path_list_elements is not None:
+                                            return True
+
+                                        if self.recursive_load_info_elements is not None:
+                                            return True
+
+                                        if self.recursive_path_list_elements is not None:
+                                            return True
+
+                                        if self.retry_path_list_elements is not None:
+                                            return True
+
+                                        if self.total_load_info_elements is not None:
+                                            return True
+
+                                        if self.total_load_sharing_element_bytes is not None:
+                                            return True
+
+                                        if self.total_load_sharing_element_references is not None:
+                                            return True
+
+                                        if self.total_path_list_elements is not None:
+                                            return True
+
+                                        return False
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_fib_common_oper as meta
+                                        return meta._meta_table['Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.Summary.LabelSharedLoadSharingElement']['meta_info']
 
                                 @property
                                 def _common_path(self):
@@ -5100,16 +5836,16 @@ class Fib(object):
                                     if self.cefl_bl_recycled_routes is not None:
                                         return True
 
+                                    if self.cross_shared_load_sharing_element is not None and self.cross_shared_load_sharing_element._has_data():
+                                        return True
+
                                     if self.delete_cache_num_entries is not None:
                                         return True
 
+                                    if self.exclusive_load_sharing_element is not None and self.exclusive_load_sharing_element._has_data():
+                                        return True
+
                                     if self.existing_leaves_revisions is not None:
-                                        return True
-
-                                    if self.explicit_load_sharing_element_bytes is not None:
-                                        return True
-
-                                    if self.explicit_load_sharing_elements is not None:
                                         return True
 
                                     if self.extended_prefixes is not None:
@@ -5128,6 +5864,9 @@ class Fib(object):
                                         return True
 
                                     if self.incomplete_next_hops is not None:
+                                        return True
+
+                                    if self.label_shared_load_sharing_element is not None and self.label_shared_load_sharing_element._has_data():
                                         return True
 
                                     if self.ldi_backwalks is not None:
@@ -5181,13 +5920,13 @@ class Fib(object):
                                     if self.routes is not None:
                                         return True
 
-                                    if self.shared_ldi_bytes is not None:
-                                        return True
-
-                                    if self.shared_load_sharing_elements is not None:
+                                    if self.shared_load_sharing_element is not None and self.shared_load_sharing_element._has_data():
                                         return True
 
                                     if self.slow_process_timer is not None:
+                                        return True
+
+                                    if self.ss_drop_pl_count is not None:
                                         return True
 
                                     if self.ss_prot_route_count is not None:
@@ -5308,7 +6047,7 @@ class Fib(object):
                                             	Interface Name
                                             	**type**\:  str
                                             
-                                            	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+                                            	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
                                             
                                             .. attribute:: detail_fib_int_information
                                             
@@ -5397,28 +6136,28 @@ class Fib(object):
                                             .. attribute:: number_of_input_bytes
                                             
                                             	Number of input bytes
-                                            	**type**\:  long
+                                            	**type**\:  int
                                             
                                             	**range:** 0..18446744073709551615
                                             
                                             .. attribute:: number_of_input_packets
                                             
                                             	Number of input packets
-                                            	**type**\:  long
+                                            	**type**\:  int
                                             
                                             	**range:** 0..18446744073709551615
                                             
                                             .. attribute:: number_of_output_bytes
                                             
                                             	Number of output bytes
-                                            	**type**\:  long
+                                            	**type**\:  int
                                             
                                             	**range:** 0..18446744073709551615
                                             
                                             .. attribute:: number_of_output_packets
                                             
                                             	Number of output packets
-                                            	**type**\:  long
+                                            	**type**\:  int
                                             
                                             	**range:** 0..18446744073709551615
                                             
@@ -5432,7 +6171,7 @@ class Fib(object):
                                             	Interface handle
                                             	**type**\:  str
                                             
-                                            	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+                                            	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
                                             
                                             .. attribute:: per_packet_load_balancing_flag
                                             
@@ -6509,10 +7248,15 @@ class Fib(object):
                                     	Route attributes summary flag
                                     	**type**\:  bool
                                     
+                                    .. attribute:: route_for_external_reach_linecard_flag
+                                    
+                                    	Route destined for Line Card that support External Reach only
+                                    	**type**\:  bool
+                                    
                                     .. attribute:: time_of_last_update_in_msec
                                     
                                     	The time of last update in msec
-                                    	**type**\:  long
+                                    	**type**\:  int
                                     
                                     	**range:** 0..18446744073709551615
                                     
@@ -6526,7 +7270,7 @@ class Fib(object):
                                     .. attribute:: version_of_route
                                     
                                     	The version of the route
-                                    	**type**\:  long
+                                    	**type**\:  int
                                     
                                     	**range:** 0..18446744073709551615
                                     
@@ -6578,6 +7322,7 @@ class Fib(object):
                                         self.purgable_after_purge_interval = None
                                         self.ref_counter_of_ldi_lw_ldi = None
                                         self.route_attribute_flag = None
+                                        self.route_for_external_reach_linecard_flag = None
                                         self.time_of_last_update_in_msec = None
                                         self.type_of_ldi_lw_ldi = None
                                         self.version_of_route = None
@@ -6647,7 +7392,7 @@ class Fib(object):
                                         .. attribute:: bytes_through_fib_entry
                                         
                                         	Bytes through this FIB entry
-                                        	**type**\:  long
+                                        	**type**\:  int
                                         
                                         	**range:** 0..18446744073709551615
                                         
@@ -6746,7 +7491,7 @@ class Fib(object):
                                         .. attribute:: ldi_time_of_last_update_in_msec
                                         
                                         	The time of last update for LDI in msec
-                                        	**type**\:  long
+                                        	**type**\:  int
                                         
                                         	**range:** 0..18446744073709551615
                                         
@@ -6763,7 +7508,7 @@ class Fib(object):
                                         .. attribute:: lwldi_time_of_last_update_in_msec
                                         
                                         	The time of last update for LW\-LDI in msec
-                                        	**type**\:  long
+                                        	**type**\:  int
                                         
                                         	**range:** 0..18446744073709551615
                                         
@@ -6777,7 +7522,7 @@ class Fib(object):
                                         .. attribute:: packets_through_fib_entry
                                         
                                         	Packets through this FIB entry
-                                        	**type**\:  long
+                                        	**type**\:  int
                                         
                                         	**range:** 0..18446744073709551615
                                         
@@ -6798,7 +7543,7 @@ class Fib(object):
                                         .. attribute:: pl_time_of_last_update_in_msec
                                         
                                         	The time of last update for PL in msec
-                                        	**type**\:  long
+                                        	**type**\:  int
                                         
                                         	**range:** 0..18446744073709551615
                                         
@@ -6915,7 +7660,7 @@ class Fib(object):
                                             .. attribute:: bytes_through_load_information
                                             
                                             	Bytes through this loadinfo
-                                            	**type**\:  long
+                                            	**type**\:  int
                                             
                                             	**range:** 0..18446744073709551615
                                             
@@ -6956,7 +7701,7 @@ class Fib(object):
                                             .. attribute:: packets_through_load_information
                                             
                                             	Packets through this loadinfo
-                                            	**type**\:  long
+                                            	**type**\:  int
                                             
                                             	**range:** 0..18446744073709551615
                                             
@@ -6975,14 +7720,14 @@ class Fib(object):
                                             .. attribute:: total_bytes_through_load_information
                                             
                                             	Total bytes through this loadinfo
-                                            	**type**\:  long
+                                            	**type**\:  int
                                             
                                             	**range:** 0..18446744073709551615
                                             
                                             .. attribute:: total_packets_through_load_information
                                             
                                             	Total packets through this loadinfo
-                                            	**type**\:  long
+                                            	**type**\:  int
                                             
                                             	**range:** 0..18446744073709551615
                                             
@@ -7024,7 +7769,7 @@ class Fib(object):
                                                 	Interface handle
                                                 	**type**\:  list of str
                                                 
-                                                	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+                                                	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
                                                 
                                                 .. attribute:: is_pbts_info_valid
                                                 
@@ -7736,7 +8481,7 @@ class Fib(object):
                                             	Interface handle
                                             	**type**\:  str
                                             
-                                            	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+                                            	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
                                             
                                             .. attribute:: brief_next_hop_prefix
                                             
@@ -7793,7 +8538,7 @@ class Fib(object):
                                             	Parent Interface Handle
                                             	**type**\:  str
                                             
-                                            	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+                                            	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
                                             
                                             .. attribute:: path_dlb
                                             
@@ -7927,7 +8672,7 @@ class Fib(object):
                                                 	Interface associated with this path
                                                 	**type**\:  str
                                                 
-                                                	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+                                                	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
                                                 
                                                 .. attribute:: ip_address_to_recurse
                                                 
@@ -7955,7 +8700,7 @@ class Fib(object):
                                                 	Next hop interface
                                                 	**type**\:  str
                                                 
-                                                	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+                                                	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
                                                 
                                                 .. attribute:: next_hop_mask_length
                                                 
@@ -8511,7 +9256,7 @@ class Fib(object):
                                                     	OutInterface
                                                     	**type**\:  str
                                                     
-                                                    	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+                                                    	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
                                                     
                                                     
 
@@ -8834,6 +9579,9 @@ class Fib(object):
                                         if self.route_attribute_flag is not None:
                                             return True
 
+                                        if self.route_for_external_reach_linecard_flag is not None:
+                                            return True
+
                                         if self.time_of_last_update_in_msec is not None:
                                             return True
 
@@ -8944,6 +9692,271 @@ class Fib(object):
                             return meta._meta_table['Fib.Nodes.Node.Protocols.Protocol.Vrfs']['meta_info']
 
 
+                    class ExternalClientSummaries(object):
+                        """
+                        External Client Summary Table
+                        
+                        .. attribute:: external_client_summary
+                        
+                        	Summary of the external clients
+                        	**type**\: list of  :py:class:`ExternalClientSummary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.Fib.Nodes.Node.Protocols.Protocol.ExternalClientSummaries.ExternalClientSummary>`
+                        
+                        
+
+                        """
+
+                        _prefix = 'fib-common-oper'
+                        _revision = '2015-11-09'
+
+                        def __init__(self):
+                            self.parent = None
+                            self.external_client_summary = YList()
+                            self.external_client_summary.parent = self
+                            self.external_client_summary.name = 'external_client_summary'
+
+
+                        class ExternalClientSummary(object):
+                            """
+                            Summary of the external clients
+                            
+                            .. attribute:: ecd_ver
+                            
+                            	Ecd Version
+                            	**type**\:  int
+                            
+                            	**range:** \-2147483648..2147483647
+                            
+                            .. attribute:: id
+                            
+                            	ID of the client\: ECDv1 is component id, ECDv2 is client id
+                            	**type**\:  int
+                            
+                            	**range:** \-2147483648..2147483647
+                            
+                            .. attribute:: ses_client_name
+                            
+                            	External client name
+                            	**type**\:  str
+                            
+                            .. attribute:: ses_client_pulsed_time
+                            
+                            	Client pulsed timestamp
+                            	**type**\:  int
+                            
+                            	**range:** 0..18446744073709551615
+                            
+                            .. attribute:: ses_comp_id
+                            
+                            	component\-id of the client
+                            	**type**\:  int
+                            
+                            	**range:** 0..4294967295
+                            
+                            .. attribute:: ses_ecd_version
+                            
+                            	ECD version
+                            	**type**\:  int
+                            
+                            	**range:** 0..4294967295
+                            
+                            .. attribute:: ses_feci_fib_proto
+                            
+                            	Registration proto
+                            	**type**\:  int
+                            
+                            	**range:** 0..4294967295
+                            
+                            .. attribute:: ses_num_pending
+                            
+                            	Number of pending notifs
+                            	**type**\:  int
+                            
+                            	**range:** 0..4294967295
+                            
+                            .. attribute:: ses_num_regs
+                            
+                            	Number of registrations
+                            	**type**\:  int
+                            
+                            	**range:** 0..4294967295
+                            
+                            .. attribute:: ses_pl_sum
+                            
+                            	ECD pathlist summary
+                            	**type**\:  :py:class:`SesPlSum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.Fib.Nodes.Node.Protocols.Protocol.ExternalClientSummaries.ExternalClientSummary.SesPlSum>`
+                            
+                            
+
+                            """
+
+                            _prefix = 'fib-common-oper'
+                            _revision = '2015-11-09'
+
+                            def __init__(self):
+                                self.parent = None
+                                self.ecd_ver = None
+                                self.id = None
+                                self.ses_client_name = None
+                                self.ses_client_pulsed_time = None
+                                self.ses_comp_id = None
+                                self.ses_ecd_version = None
+                                self.ses_feci_fib_proto = None
+                                self.ses_num_pending = None
+                                self.ses_num_regs = None
+                                self.ses_pl_sum = Fib.Nodes.Node.Protocols.Protocol.ExternalClientSummaries.ExternalClientSummary.SesPlSum()
+                                self.ses_pl_sum.parent = self
+
+
+                            class SesPlSum(object):
+                                """
+                                ECD pathlist summary
+                                
+                                .. attribute:: sep_num_ecd_pathlist
+                                
+                                	Number of ECD pathlists
+                                	**type**\:  int
+                                
+                                	**range:** 0..4294967295
+                                
+                                .. attribute:: sep_num_ecd_pl_per_interest
+                                
+                                	Number of ECD pathlists per interest
+                                	**type**\:  list of int
+                                
+                                	**range:** 0..4294967295
+                                
+                                .. attribute:: sep_num_ecd_pl_unresolved
+                                
+                                	Number of ECD pathlists unresolved
+                                	**type**\:  int
+                                
+                                	**range:** 0..4294967295
+                                
+                                
+
+                                """
+
+                                _prefix = 'fib-common-oper'
+                                _revision = '2015-11-09'
+
+                                def __init__(self):
+                                    self.parent = None
+                                    self.sep_num_ecd_pathlist = None
+                                    self.sep_num_ecd_pl_per_interest = YLeafList()
+                                    self.sep_num_ecd_pl_per_interest.parent = self
+                                    self.sep_num_ecd_pl_per_interest.name = 'sep_num_ecd_pl_per_interest'
+                                    self.sep_num_ecd_pl_unresolved = None
+
+                                @property
+                                def _common_path(self):
+                                    if self.parent is None:
+                                        raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                    return self.parent._common_path +'/Cisco-IOS-XR-fib-common-oper:ses-pl-sum'
+
+                                def is_config(self):
+                                    ''' Returns True if this instance represents config data else returns False '''
+                                    return False
+
+                                def _has_data(self):
+                                    if not self.is_config():
+                                        return False
+                                    if self.sep_num_ecd_pathlist is not None:
+                                        return True
+
+                                    if self.sep_num_ecd_pl_per_interest is not None:
+                                        for child in self.sep_num_ecd_pl_per_interest:
+                                            if child is not None:
+                                                return True
+
+                                    if self.sep_num_ecd_pl_unresolved is not None:
+                                        return True
+
+                                    return False
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_fib_common_oper as meta
+                                    return meta._meta_table['Fib.Nodes.Node.Protocols.Protocol.ExternalClientSummaries.ExternalClientSummary.SesPlSum']['meta_info']
+
+                            @property
+                            def _common_path(self):
+                                if self.parent is None:
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                return self.parent._common_path +'/Cisco-IOS-XR-fib-common-oper:external-client-summary'
+
+                            def is_config(self):
+                                ''' Returns True if this instance represents config data else returns False '''
+                                return False
+
+                            def _has_data(self):
+                                if not self.is_config():
+                                    return False
+                                if self.ecd_ver is not None:
+                                    return True
+
+                                if self.id is not None:
+                                    return True
+
+                                if self.ses_client_name is not None:
+                                    return True
+
+                                if self.ses_client_pulsed_time is not None:
+                                    return True
+
+                                if self.ses_comp_id is not None:
+                                    return True
+
+                                if self.ses_ecd_version is not None:
+                                    return True
+
+                                if self.ses_feci_fib_proto is not None:
+                                    return True
+
+                                if self.ses_num_pending is not None:
+                                    return True
+
+                                if self.ses_num_regs is not None:
+                                    return True
+
+                                if self.ses_pl_sum is not None and self.ses_pl_sum._has_data():
+                                    return True
+
+                                return False
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_fib_common_oper as meta
+                                return meta._meta_table['Fib.Nodes.Node.Protocols.Protocol.ExternalClientSummaries.ExternalClientSummary']['meta_info']
+
+                        @property
+                        def _common_path(self):
+                            if self.parent is None:
+                                raise YPYModelError('parent is not set . Cannot derive path.')
+
+                            return self.parent._common_path +'/Cisco-IOS-XR-fib-common-oper:external-client-summaries'
+
+                        def is_config(self):
+                            ''' Returns True if this instance represents config data else returns False '''
+                            return False
+
+                        def _has_data(self):
+                            if not self.is_config():
+                                return False
+                            if self.external_client_summary is not None:
+                                for child_ref in self.external_client_summary:
+                                    if child_ref._has_data():
+                                        return True
+
+                            return False
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_fib_common_oper as meta
+                            return meta._meta_table['Fib.Nodes.Node.Protocols.Protocol.ExternalClientSummaries']['meta_info']
+
+
                     class Misc(object):
                         """
                         CEF misc hidden data
@@ -8951,14 +9964,14 @@ class Fib(object):
                         .. attribute:: mi_clock_time
                         
                         	clock download time
-                        	**type**\:  long
+                        	**type**\:  int
                         
                         	**range:** 0..18446744073709551615
                         
                         .. attribute:: mi_cpu_time
                         
                         	CPU download time
-                        	**type**\:  long
+                        	**type**\:  int
                         
                         	**range:** 0..18446744073709551615
                         
@@ -9102,21 +10115,21 @@ class Fib(object):
                         .. attribute:: mi_pfi_ifh_del
                         
                         	number of pfi ifh delete notif
-                        	**type**\:  long
+                        	**type**\:  int
                         
                         	**range:** 0..18446744073709551615
                         
                         .. attribute:: mi_pfi_ifh_stale
                         
                         	number of stale ifh removed
-                        	**type**\:  long
+                        	**type**\:  int
                         
                         	**range:** 0..18446744073709551615
                         
                         .. attribute:: mi_pfi_ifh_upd
                         
                         	number of pfi ifh create notif
-                        	**type**\:  long
+                        	**type**\:  int
                         
                         	**range:** 0..18446744073709551615
                         
@@ -9143,28 +10156,28 @@ class Fib(object):
                         .. attribute:: mi_shm_reset_ts
                         
                         	Last FIB shared memory reset time stamp
-                        	**type**\:  long
+                        	**type**\:  int
                         
                         	**range:** 0..18446744073709551615
                         
                         .. attribute:: mi_tot_dnld_time
                         
                         	total download time
-                        	**type**\:  long
+                        	**type**\:  int
                         
                         	**range:** 0..18446744073709551615
                         
                         .. attribute:: mi_tot_gtrie_time
                         
                         	total time spent in gtrie operations
-                        	**type**\:  long
+                        	**type**\:  int
                         
                         	**range:** 0..18446744073709551615
                         
                         .. attribute:: mi_tot_plat_upd_time
                         
                         	total platform update time
-                        	**type**\:  long
+                        	**type**\:  int
                         
                         	**range:** 0..18446744073709551615
                         
@@ -9281,7 +10294,7 @@ class Fib(object):
                             .. attribute:: fis_issu_error_ts
                             
                             	ISSU error sent to ISSUMGR timetstamp
-                            	**type**\:  long
+                            	**type**\:  int
                             
                             	**range:** 0..18446744073709551615
                             
@@ -9694,6 +10707,11 @@ class Fib(object):
                             	Plat ready cb register
                             	**type**\:  bool
                             
+                            .. attribute:: fpc_platf_temp_back_walk_reqd
+                            
+                            	Backwalk dependents is required
+                            	**type**\:  bool
+                            
                             .. attribute:: fpc_platf_v4_upd_disable
                             
                             	V4 update disable
@@ -9715,6 +10733,11 @@ class Fib(object):
                             
                             	Fallback VRF support
                             	**type**\: list of  :py:class:`FpcResolveViaTable <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.Fib.Nodes.Node.Protocols.Protocol.Misc.MiPlatCapabilities.FpcResolveViaTable>`
+                            
+                            .. attribute:: fpc_slowpath_ingress_inject_reqd
+                            
+                            	Slowpath ingress inject required
+                            	**type**\:  bool
                             
                             .. attribute:: fpc_stats_support
                             
@@ -9755,12 +10778,14 @@ class Fib(object):
                                 self.fpc_num_paths_per_pbts_class = None
                                 self.fpc_pbts_defclass_support = None
                                 self.fpc_platf_ready_cb_wait = None
+                                self.fpc_platf_temp_back_walk_reqd = None
                                 self.fpc_platf_v4_upd_disable = None
                                 self.fpc_platf_v6_upd_disable = None
                                 self.fpc_prefix_filter_support = None
                                 self.fpc_resolve_via_table = YList()
                                 self.fpc_resolve_via_table.parent = self
                                 self.fpc_resolve_via_table.name = 'fpc_resolve_via_table'
+                                self.fpc_slowpath_ingress_inject_reqd = None
                                 self.fpc_stats_support = None
 
 
@@ -10020,6 +11045,9 @@ class Fib(object):
                                 if self.fpc_platf_ready_cb_wait is not None:
                                     return True
 
+                                if self.fpc_platf_temp_back_walk_reqd is not None:
+                                    return True
+
                                 if self.fpc_platf_v4_upd_disable is not None:
                                     return True
 
@@ -10033,6 +11061,9 @@ class Fib(object):
                                     for child_ref in self.fpc_resolve_via_table:
                                         if child_ref._has_data():
                                             return True
+
+                                if self.fpc_slowpath_ingress_inject_reqd is not None:
+                                    return True
 
                                 if self.fpc_stats_support is not None:
                                     return True
@@ -10052,91 +11083,91 @@ class Fib(object):
                             .. attribute:: fpd_adj_del
                             
                             	the number of adjacency deletes
-                            	**type**\:  long
+                            	**type**\:  int
                             
                             	**range:** 0..18446744073709551615
                             
                             .. attribute:: fpd_adj_drops
                             
                             	 number of adj updates dropped because of OOR
-                            	**type**\:  long
+                            	**type**\:  int
                             
                             	**range:** 0..18446744073709551615
                             
                             .. attribute:: fpd_adj_msg
                             
                             	number of AIB messages
-                            	**type**\:  long
+                            	**type**\:  int
                             
                             	**range:** 0..18446744073709551615
                             
                             .. attribute:: fpd_adj_tx_retry_nh_found
                             
                             	number of TX adj retries that found or created NH
-                            	**type**\:  long
+                            	**type**\:  int
                             
                             	**range:** 0..18446744073709551615
                             
                             .. attribute:: fpd_adj_tx_retry_obj_reinit
                             
                             	number of times TX NH retry objects updated
-                            	**type**\:  long
+                            	**type**\:  int
                             
                             	**range:** 0..18446744073709551615
                             
                             .. attribute:: fpd_adj_upd
                             
                             	the number of adjacency updates
-                            	**type**\:  long
+                            	**type**\:  int
                             
                             	**range:** 0..18446744073709551615
                             
                             .. attribute:: fpd_adj_upd_tx
                             
                             	number of TX adjacency updates from AIB
-                            	**type**\:  long
+                            	**type**\:  int
                             
                             	**range:** 0..18446744073709551615
                             
                             .. attribute:: fpd_adj_upd_tx_nh_found
                             
                             	number of TX adjacency updates that found or created NH
-                            	**type**\:  long
+                            	**type**\:  int
                             
                             	**range:** 0..18446744073709551615
                             
                             .. attribute:: fpd_adj_upd_tx_retry_created
                             
                             	number of TX adjacency updates that went to retry
-                            	**type**\:  long
+                            	**type**\:  int
                             
                             	**range:** 0..18446744073709551615
                             
                             .. attribute:: fpd_bcdl_msgs
                             
                             	the number of bcdl msgs
-                            	**type**\:  long
+                            	**type**\:  int
                             
                             	**range:** 0..18446744073709551615
                             
                             .. attribute:: fpd_gbltbl_entries
                             
                             	the number of fib entries in global tbl
-                            	**type**\:  long
+                            	**type**\:  int
                             
                             	**range:** 0..18446744073709551615
                             
                             .. attribute:: fpd_gbltbl_rej_entries
                             
                             	the number of fib entries in global retry tbl
-                            	**type**\:  long
+                            	**type**\:  int
                             
                             	**range:** 0..18446744073709551615
                             
                             .. attribute:: fpd_gbltbl_src_entry
                             
                             	Number of global routes from                     each route source
-                            	**type**\:  list of long
+                            	**type**\:  list of int
                             
                             	**range:** 0..18446744073709551615
                             
@@ -10148,98 +11179,98 @@ class Fib(object):
                             .. attribute:: fpd_lbl_recycled
                             
                             	the number of routes handled with recycled label
-                            	**type**\:  long
+                            	**type**\:  int
                             
                             	**range:** 0..18446744073709551615
                             
                             .. attribute:: fpd_ldi_avg_backup_activate_time
                             
                             	avg ldi mod time for backup activation
-                            	**type**\:  long
+                            	**type**\:  int
                             
                             	**range:** 0..18446744073709551615
                             
                             .. attribute:: fpd_ldi_backup_activate_count
                             
                             	number of ldi backup path activications
-                            	**type**\:  long
+                            	**type**\:  int
                             
                             	**range:** 0..18446744073709551615
                             
                             .. attribute:: fpd_ldi_last_backup_activate_time
                             
                             	ldi mod time for last backup activation
-                            	**type**\:  long
+                            	**type**\:  int
                             
                             	**range:** 0..18446744073709551615
                             
                             .. attribute:: fpd_ldi_max_backup_activate_time
                             
                             	max ldi mod time for backup activation
-                            	**type**\:  long
+                            	**type**\:  int
                             
                             	**range:** 0..18446744073709551615
                             
                             .. attribute:: fpd_ldi_min_backup_activate_time
                             
                             	min ldi mod time for backup activation
-                            	**type**\:  long
+                            	**type**\:  int
                             
                             	**range:** 0..18446744073709551615
                             
                             .. attribute:: fpd_ldi_num_correct_fixup
                             
                             	the number of corrected fixup LDIs
-                            	**type**\:  long
+                            	**type**\:  int
                             
                             	**range:** 0..18446744073709551615
                             
                             .. attribute:: fpd_ldi_num_del_refcnt
                             
                             	the number of deleted with non\-zero refcount
-                            	**type**\:  long
+                            	**type**\:  int
                             
                             	**range:** 0..18446744073709551615
                             
                             .. attribute:: fpd_ldi_num_fixedup
                             
                             	the number of fixup LDIs
-                            	**type**\:  long
+                            	**type**\:  int
                             
                             	**range:** 0..18446744073709551615
                             
                             .. attribute:: fpd_ldi_total_backup_activate_time
                             
                             	total ldi mod time for backup activation
-                            	**type**\:  long
+                            	**type**\:  int
                             
                             	**range:** 0..18446744073709551615
                             
                             .. attribute:: fpd_num_allocs
                             
                             	the number of allocs for this proto
-                            	**type**\:  long
+                            	**type**\:  int
                             
                             	**range:** 0..18446744073709551615
                             
                             .. attribute:: fpd_num_frees
                             
                             	the number of frees for this proto
-                            	**type**\:  long
+                            	**type**\:  int
                             
                             	**range:** 0..18446744073709551615
                             
                             .. attribute:: fpd_num_retry
                             
                             	the number of retries of each type
-                            	**type**\:  list of long
+                            	**type**\:  list of int
                             
                             	**range:** 0..18446744073709551615
                             
                             .. attribute:: fpd_num_retry_touts
                             
                             	the number of retry timeouts
-                            	**type**\:  long
+                            	**type**\:  int
                             
                             	**range:** 0..18446744073709551615
                             
@@ -10253,63 +11284,63 @@ class Fib(object):
                             .. attribute:: fpd_pl_backup_disable_count
                             
                             	 number of PLs unmarked to include backup path
-                            	**type**\:  long
+                            	**type**\:  int
                             
                             	**range:** 0..18446744073709551615
                             
                             .. attribute:: fpd_pl_backup_enable_count
                             
                             	number of PLs marked to include backup path
-                            	**type**\:  long
+                            	**type**\:  int
                             
                             	**range:** 0..18446744073709551615
                             
                             .. attribute:: fpd_pl_fast_nfn_count
                             
                             	number of PLs visited on fast notification
-                            	**type**\:  long
+                            	**type**\:  int
                             
                             	**range:** 0..18446744073709551615
                             
                             .. attribute:: fpd_pl_inline_res_q
                             
                             	the number of PLs linked to resolving tables for inline res
-                            	**type**\:  long
+                            	**type**\:  int
                             
                             	**range:** 0..18446744073709551615
                             
                             .. attribute:: fpd_pl_num_correct_fixup
                             
                             	the number of corrected fixup PLs
-                            	**type**\:  long
+                            	**type**\:  int
                             
                             	**range:** 0..18446744073709551615
                             
                             .. attribute:: fpd_pl_num_queued_fixedup
                             
                             	the number of PL queued for fixup
-                            	**type**\:  long
+                            	**type**\:  int
                             
                             	**range:** 0..18446744073709551615
                             
                             .. attribute:: fpd_pl_retry_add_exist
                             
                             	the number PLs added to retry while already in retry
-                            	**type**\:  long
+                            	**type**\:  int
                             
                             	**range:** 0..18446744073709551615
                             
                             .. attribute:: fpd_pl_with_backup_create_count
                             
                             	number of pl creates with backu path
-                            	**type**\:  long
+                            	**type**\:  int
                             
                             	**range:** 0..18446744073709551615
                             
                             .. attribute:: fpd_pl_with_backup_del_count
                             
                             	number of pl deletes with backup path
-                            	**type**\:  long
+                            	**type**\:  int
                             
                             	**range:** 0..18446744073709551615
                             
@@ -10321,7 +11352,7 @@ class Fib(object):
                             .. attribute:: fpd_recursion_constraint_count
                             
                             	number of resolution failures because of recursion constraint
-                            	**type**\:  long
+                            	**type**\:  int
                             
                             	**range:** 0..18446744073709551615
                             
@@ -10335,70 +11366,70 @@ class Fib(object):
                             .. attribute:: fpd_route_del
                             
                             	the number of route deletes
-                            	**type**\:  long
+                            	**type**\:  int
                             
                             	**range:** 0..18446744073709551615
                             
                             .. attribute:: fpd_route_drops
                             
                             	the number of routes dropped
-                            	**type**\:  long
+                            	**type**\:  int
                             
                             	**range:** 0..18446744073709551615
                             
                             .. attribute:: fpd_route_rcv
                             
                             	the number of routes received
-                            	**type**\:  long
+                            	**type**\:  int
                             
                             	**range:** 0..18446744073709551615
                             
                             .. attribute:: fpd_route_upd
                             
                             	the number of route updates
-                            	**type**\:  long
+                            	**type**\:  int
                             
                             	**range:** 0..18446744073709551615
                             
                             .. attribute:: fpd_te_rcv
                             
                             	the number of TE upds received
-                            	**type**\:  long
+                            	**type**\:  int
                             
                             	**range:** 0..18446744073709551615
                             
                             .. attribute:: fpd_te_version_mismatch_drops
                             
                             	the number of TE upds dropped because of version mismatch
-                            	**type**\:  long
+                            	**type**\:  int
                             
                             	**range:** 0..18446744073709551615
                             
                             .. attribute:: fpd_version_mismatch_drops
                             
                             	the number of routes dropped because of version mismatch
-                            	**type**\:  long
+                            	**type**\:  int
                             
                             	**range:** 0..18446744073709551615
                             
                             .. attribute:: fpd_vrftbl_entries
                             
                             	the number of fib entries in vrf tbls
-                            	**type**\:  long
+                            	**type**\:  int
                             
                             	**range:** 0..18446744073709551615
                             
                             .. attribute:: fpd_vrftbl_rej_entries
                             
                             	the number of fib entries in vrf retry tbls
-                            	**type**\:  long
+                            	**type**\:  int
                             
                             	**range:** 0..18446744073709551615
                             
                             .. attribute:: fpd_vrftbl_src_entry
                             
                             	Number of vrf routes from                        each route source
-                            	**type**\:  list of long
+                            	**type**\:  list of int
                             
                             	**range:** 0..18446744073709551615
                             
@@ -10479,14 +11510,14 @@ class Fib(object):
                                 .. attribute:: fpus_num_failure
                                 
                                 	Number of unsuccessful updates
-                                	**type**\:  long
+                                	**type**\:  int
                                 
                                 	**range:** 0..18446744073709551615
                                 
                                 .. attribute:: fpus_num_success
                                 
                                 	Number of successful updates
-                                	**type**\:  long
+                                	**type**\:  int
                                 
                                 	**range:** 0..18446744073709551615
                                 
@@ -10498,7 +11529,7 @@ class Fib(object):
                                 .. attribute:: fpus_upd_total_time
                                 
                                 	Total time for all pd updates
-                                	**type**\:  long
+                                	**type**\:  int
                                 
                                 	**range:** 0..18446744073709551615
                                 
@@ -10523,45 +11554,22 @@ class Fib(object):
                                     """
                                     Array of max time info indexed by object type
                                     
-                                    .. attribute:: fos_max_action_type
+                                    .. attribute:: fos_obj_act_stat
                                     
-                                    	The action that took max time
-                                    	**type**\:  int
-                                    
-                                    	**range:** 0..4294967295
-                                    
-                                    .. attribute:: fos_max_time
-                                    
-                                    	Time for the update
-                                    	**type**\:  long
-                                    
-                                    	**range:** 0..18446744073709551615
-                                    
-                                    .. attribute:: fos_max_tstamp
-                                    
-                                    	Time stamp of max update
-                                    	**type**\:  long
-                                    
-                                    	**range:** 0..18446744073709551615
+                                    	Array of max time info indexed by action type
+                                    	**type**\: list of  :py:class:`FosObjActStat <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.Fib.Nodes.Node.Protocols.Protocol.Misc.MiProtoDbgStat.FpdPlatfUpdStats.FpusObjStat.FosObjActStat>`
                                     
                                     .. attribute:: fos_tot_upd_time
                                     
                                     	Total time for updates
-                                    	**type**\:  long
+                                    	**type**\:  int
                                     
                                     	**range:** 0..18446744073709551615
                                     
                                     .. attribute:: fos_tot_updates
                                     
                                     	Total number of updates
-                                    	**type**\:  long
-                                    
-                                    	**range:** 0..18446744073709551615
-                                    
-                                    .. attribute:: fos_tot_updates_zero
-                                    
-                                    	Total number of updates with zero timing (due to timestamp granularity)
-                                    	**type**\:  long
+                                    	**type**\:  int
                                     
                                     	**range:** 0..18446744073709551615
                                     
@@ -10574,12 +11582,124 @@ class Fib(object):
 
                                     def __init__(self):
                                         self.parent = None
-                                        self.fos_max_action_type = None
-                                        self.fos_max_time = None
-                                        self.fos_max_tstamp = None
+                                        self.fos_obj_act_stat = YList()
+                                        self.fos_obj_act_stat.parent = self
+                                        self.fos_obj_act_stat.name = 'fos_obj_act_stat'
                                         self.fos_tot_upd_time = None
                                         self.fos_tot_updates = None
-                                        self.fos_tot_updates_zero = None
+
+
+                                    class FosObjActStat(object):
+                                        """
+                                        Array of max time info indexed by action type
+                                        
+                                        .. attribute:: foas_max_time
+                                        
+                                        	Time for the update
+                                        	**type**\:  int
+                                        
+                                        	**range:** 0..18446744073709551615
+                                        
+                                        .. attribute:: foas_max_tstamp
+                                        
+                                        	Time stamp of max update
+                                        	**type**\:  int
+                                        
+                                        	**range:** 0..18446744073709551615
+                                        
+                                        .. attribute:: foas_num_failure
+                                        
+                                        	Total number of failed updates
+                                        	**type**\:  int
+                                        
+                                        	**range:** 0..18446744073709551615
+                                        
+                                        .. attribute:: foas_num_success
+                                        
+                                        	Total number of successful updates
+                                        	**type**\:  int
+                                        
+                                        	**range:** 0..18446744073709551615
+                                        
+                                        .. attribute:: foas_tot_upd_time
+                                        
+                                        	Total time for updates
+                                        	**type**\:  int
+                                        
+                                        	**range:** 0..18446744073709551615
+                                        
+                                        .. attribute:: foas_tot_updates
+                                        
+                                        	Total number of updates
+                                        	**type**\:  int
+                                        
+                                        	**range:** 0..18446744073709551615
+                                        
+                                        .. attribute:: foas_tot_updates_zero
+                                        
+                                        	Total number of updates that took zero time
+                                        	**type**\:  int
+                                        
+                                        	**range:** 0..18446744073709551615
+                                        
+                                        
+
+                                        """
+
+                                        _prefix = 'fib-common-oper'
+                                        _revision = '2015-11-09'
+
+                                        def __init__(self):
+                                            self.parent = None
+                                            self.foas_max_time = None
+                                            self.foas_max_tstamp = None
+                                            self.foas_num_failure = None
+                                            self.foas_num_success = None
+                                            self.foas_tot_upd_time = None
+                                            self.foas_tot_updates = None
+                                            self.foas_tot_updates_zero = None
+
+                                        @property
+                                        def _common_path(self):
+                                            if self.parent is None:
+                                                raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                            return self.parent._common_path +'/Cisco-IOS-XR-fib-common-oper:fos-obj-act-stat'
+
+                                        def is_config(self):
+                                            ''' Returns True if this instance represents config data else returns False '''
+                                            return False
+
+                                        def _has_data(self):
+                                            if not self.is_config():
+                                                return False
+                                            if self.foas_max_time is not None:
+                                                return True
+
+                                            if self.foas_max_tstamp is not None:
+                                                return True
+
+                                            if self.foas_num_failure is not None:
+                                                return True
+
+                                            if self.foas_num_success is not None:
+                                                return True
+
+                                            if self.foas_tot_upd_time is not None:
+                                                return True
+
+                                            if self.foas_tot_updates is not None:
+                                                return True
+
+                                            if self.foas_tot_updates_zero is not None:
+                                                return True
+
+                                            return False
+
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_fib_common_oper as meta
+                                            return meta._meta_table['Fib.Nodes.Node.Protocols.Protocol.Misc.MiProtoDbgStat.FpdPlatfUpdStats.FpusObjStat.FosObjActStat']['meta_info']
 
                                     @property
                                     def _common_path(self):
@@ -10595,22 +11715,15 @@ class Fib(object):
                                     def _has_data(self):
                                         if not self.is_config():
                                             return False
-                                        if self.fos_max_action_type is not None:
-                                            return True
-
-                                        if self.fos_max_time is not None:
-                                            return True
-
-                                        if self.fos_max_tstamp is not None:
-                                            return True
+                                        if self.fos_obj_act_stat is not None:
+                                            for child_ref in self.fos_obj_act_stat:
+                                                if child_ref._has_data():
+                                                    return True
 
                                         if self.fos_tot_upd_time is not None:
                                             return True
 
                                         if self.fos_tot_updates is not None:
-                                            return True
-
-                                        if self.fos_tot_updates_zero is not None:
                                             return True
 
                                         return False
@@ -10668,21 +11781,21 @@ class Fib(object):
                                 .. attribute:: fgt_num_failure
                                 
                                 	Number of unsuccessful updates
-                                	**type**\:  long
+                                	**type**\:  int
                                 
                                 	**range:** 0..18446744073709551615
                                 
                                 .. attribute:: fgt_num_success
                                 
                                 	Number of successful updates
-                                	**type**\:  long
+                                	**type**\:  int
                                 
                                 	**range:** 0..18446744073709551615
                                 
                                 .. attribute:: fgt_upd_total_time
                                 
                                 	Total time for all pd updates
-                                	**type**\:  long
+                                	**type**\:  int
                                 
                                 	**range:** 0..18446744073709551615
                                 
@@ -10717,35 +11830,35 @@ class Fib(object):
                                     .. attribute:: fgft_max_time
                                     
                                     	Time for the update
-                                    	**type**\:  long
+                                    	**type**\:  int
                                     
                                     	**range:** 0..18446744073709551615
                                     
                                     .. attribute:: fgft_max_tstamp
                                     
                                     	Time stamp of max update
-                                    	**type**\:  long
+                                    	**type**\:  int
                                     
                                     	**range:** 0..18446744073709551615
                                     
                                     .. attribute:: fgft_tot_upd_time
                                     
                                     	Total time for updates
-                                    	**type**\:  long
+                                    	**type**\:  int
                                     
                                     	**range:** 0..18446744073709551615
                                     
                                     .. attribute:: fgft_tot_updates
                                     
                                     	Total number of updates
-                                    	**type**\:  long
+                                    	**type**\:  int
                                     
                                     	**range:** 0..18446744073709551615
                                     
                                     .. attribute:: fgft_tot_updates_zero
                                     
                                     	Total number of updates with zero timing (due to timestamp granularity)
-                                    	**type**\:  long
+                                    	**type**\:  int
                                     
                                     	**range:** 0..18446744073709551615
                                     
@@ -11079,7 +12192,7 @@ class Fib(object):
                             .. attribute:: msec_time
                             
                             	msec time
-                            	**type**\:  long
+                            	**type**\:  int
                             
                             	**range:** 0..18446744073709551615
                             
@@ -11560,6 +12673,11 @@ class Fib(object):
                                 """
                                 CEF Local\-label conflicts entry
                                 
+                                .. attribute:: ext
+                                
+                                	ext
+                                	**type**\:  :py:class:`Ext <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.Fib.Nodes.Node.Protocols.Protocol.LocalLabel.Conflicts.Conflict.Ext>`
+                                
                                 .. attribute:: label
                                 
                                 	Local label
@@ -11586,26 +12704,12 @@ class Fib(object):
                                 
                                 	**range:** 0..4294967295
                                 
-                                .. attribute:: pfx
-                                
-                                	pfx
-                                	**type**\:  str
-                                
-                                	**range:** 0..52
-                                
                                 .. attribute:: pfx_tbl_id
                                 
                                 	Table ID of IP prefix
                                 	**type**\:  int
                                 
                                 	**range:** \-2147483648..2147483647
-                                
-                                .. attribute:: pfx_tblid
-                                
-                                	pfx tblid
-                                	**type**\:  int
-                                
-                                	**range:** 0..4294967295
                                 
                                 .. attribute:: prefix
                                 
@@ -11624,7 +12728,7 @@ class Fib(object):
                                 .. attribute:: retry_ts
                                 
                                 	retry ts
-                                	**type**\:  long
+                                	**type**\:  int
                                 
                                 	**range:** 0..18446744073709551615
                                 
@@ -11640,17 +12744,10 @@ class Fib(object):
                                 
                                 	**range:** 0..4294967295
                                 
-                                .. attribute:: type
-                                
-                                	type
-                                	**type**\:  int
-                                
-                                	**range:** 0..255
-                                
                                 .. attribute:: update_ts
                                 
                                 	update ts
-                                	**type**\:  long
+                                	**type**\:  int
                                 
                                 	**range:** 0..18446744073709551615
                                 
@@ -11663,20 +12760,200 @@ class Fib(object):
 
                                 def __init__(self):
                                     self.parent = None
+                                    self.ext = Fib.Nodes.Node.Protocols.Protocol.LocalLabel.Conflicts.Conflict.Ext()
+                                    self.ext.parent = self
                                     self.label = None
                                     self.ll_ctype = None
                                     self.local_label = None
                                     self.num_retries = None
-                                    self.pfx = None
                                     self.pfx_tbl_id = None
-                                    self.pfx_tblid = None
                                     self.prefix = None
                                     self.prefix_len = None
                                     self.retry_ts = None
                                     self.source = None
                                     self.source_xr = None
-                                    self.type = None
                                     self.update_ts = None
+
+
+                                class Ext(object):
+                                    """
+                                    ext
+                                    
+                                    .. attribute:: lsm
+                                    
+                                    	lsm
+                                    	**type**\:  :py:class:`Lsm <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.Fib.Nodes.Node.Protocols.Protocol.LocalLabel.Conflicts.Conflict.Ext.Lsm>`
+                                    
+                                    .. attribute:: pfx
+                                    
+                                    	pfx
+                                    	**type**\:  :py:class:`Pfx <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.Fib.Nodes.Node.Protocols.Protocol.LocalLabel.Conflicts.Conflict.Ext.Pfx>`
+                                    
+                                    .. attribute:: type
+                                    
+                                    	type
+                                    	**type**\:  :py:class:`FibMplsLlcEntryBagEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.FibMplsLlcEntryBagEnum>`
+                                    
+                                    
+
+                                    """
+
+                                    _prefix = 'fib-common-oper'
+                                    _revision = '2015-11-09'
+
+                                    def __init__(self):
+                                        self.parent = None
+                                        self.lsm = Fib.Nodes.Node.Protocols.Protocol.LocalLabel.Conflicts.Conflict.Ext.Lsm()
+                                        self.lsm.parent = self
+                                        self.pfx = Fib.Nodes.Node.Protocols.Protocol.LocalLabel.Conflicts.Conflict.Ext.Pfx()
+                                        self.pfx.parent = self
+                                        self.type = None
+
+
+                                    class Pfx(object):
+                                        """
+                                        pfx
+                                        
+                                        .. attribute:: pfx
+                                        
+                                        	pfx
+                                        	**type**\:  str
+                                        
+                                        	**range:** 0..52
+                                        
+                                        .. attribute:: tbl_id
+                                        
+                                        	tbl id
+                                        	**type**\:  int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        
+
+                                        """
+
+                                        _prefix = 'fib-common-oper'
+                                        _revision = '2015-11-09'
+
+                                        def __init__(self):
+                                            self.parent = None
+                                            self.pfx = None
+                                            self.tbl_id = None
+
+                                        @property
+                                        def _common_path(self):
+                                            if self.parent is None:
+                                                raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                            return self.parent._common_path +'/Cisco-IOS-XR-fib-common-oper:pfx'
+
+                                        def is_config(self):
+                                            ''' Returns True if this instance represents config data else returns False '''
+                                            return False
+
+                                        def _has_data(self):
+                                            if not self.is_config():
+                                                return False
+                                            if self.pfx is not None:
+                                                return True
+
+                                            if self.tbl_id is not None:
+                                                return True
+
+                                            return False
+
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_fib_common_oper as meta
+                                            return meta._meta_table['Fib.Nodes.Node.Protocols.Protocol.LocalLabel.Conflicts.Conflict.Ext.Pfx']['meta_info']
+
+
+                                    class Lsm(object):
+                                        """
+                                        lsm
+                                        
+                                        .. attribute:: mcast_id
+                                        
+                                        	mcast id
+                                        	**type**\:  int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        .. attribute:: nh
+                                        
+                                        	nh
+                                        	**type**\:  str
+                                        
+                                        	**range:** 0..52
+                                        
+                                        
+
+                                        """
+
+                                        _prefix = 'fib-common-oper'
+                                        _revision = '2015-11-09'
+
+                                        def __init__(self):
+                                            self.parent = None
+                                            self.mcast_id = None
+                                            self.nh = None
+
+                                        @property
+                                        def _common_path(self):
+                                            if self.parent is None:
+                                                raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                            return self.parent._common_path +'/Cisco-IOS-XR-fib-common-oper:lsm'
+
+                                        def is_config(self):
+                                            ''' Returns True if this instance represents config data else returns False '''
+                                            return False
+
+                                        def _has_data(self):
+                                            if not self.is_config():
+                                                return False
+                                            if self.mcast_id is not None:
+                                                return True
+
+                                            if self.nh is not None:
+                                                return True
+
+                                            return False
+
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_fib_common_oper as meta
+                                            return meta._meta_table['Fib.Nodes.Node.Protocols.Protocol.LocalLabel.Conflicts.Conflict.Ext.Lsm']['meta_info']
+
+                                    @property
+                                    def _common_path(self):
+                                        if self.parent is None:
+                                            raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                        return self.parent._common_path +'/Cisco-IOS-XR-fib-common-oper:ext'
+
+                                    def is_config(self):
+                                        ''' Returns True if this instance represents config data else returns False '''
+                                        return False
+
+                                    def _has_data(self):
+                                        if not self.is_config():
+                                            return False
+                                        if self.lsm is not None and self.lsm._has_data():
+                                            return True
+
+                                        if self.pfx is not None and self.pfx._has_data():
+                                            return True
+
+                                        if self.type is not None:
+                                            return True
+
+                                        return False
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_fib_common_oper as meta
+                                        return meta._meta_table['Fib.Nodes.Node.Protocols.Protocol.LocalLabel.Conflicts.Conflict.Ext']['meta_info']
 
                                 @property
                                 def _common_path(self):
@@ -11692,6 +12969,9 @@ class Fib(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
+                                    if self.ext is not None and self.ext._has_data():
+                                        return True
+
                                     if self.label is not None:
                                         return True
 
@@ -11704,13 +12984,7 @@ class Fib(object):
                                     if self.num_retries is not None:
                                         return True
 
-                                    if self.pfx is not None:
-                                        return True
-
                                     if self.pfx_tbl_id is not None:
-                                        return True
-
-                                    if self.pfx_tblid is not None:
                                         return True
 
                                     if self.prefix is not None:
@@ -11726,9 +13000,6 @@ class Fib(object):
                                         return True
 
                                     if self.source_xr is not None:
-                                        return True
-
-                                    if self.type is not None:
                                         return True
 
                                     if self.update_ts is not None:
@@ -11808,6 +13079,12 @@ class Fib(object):
                         if not self.is_config():
                             return False
                         if self.protocol_name is not None:
+                            return True
+
+                        if self.external_client_summaries is not None and self.external_client_summaries._has_data():
+                            return True
+
+                        if self.external_summary_all is not None and self.external_summary_all._has_data():
                             return True
 
                         if self.frr_log is not None and self.frr_log._has_data():
@@ -12027,21 +13304,21 @@ class MplsForwarding(object):
                 .. attribute:: global_dropped_packets
                 
                 	Number of global FIB packets dropped
-                	**type**\:  long
+                	**type**\:  int
                 
                 	**range:** 0..18446744073709551615
                 
                 .. attribute:: global_failed_lookups
                 
                 	Number of global failed lookups
-                	**type**\:  long
+                	**type**\:  int
                 
                 	**range:** 0..18446744073709551615
                 
                 .. attribute:: global_fragmented_packets
                 
                 	Number of global FIB packets fragmented
-                	**type**\:  long
+                	**type**\:  int
                 
                 	**range:** 0..18446744073709551615
                 
@@ -12459,8 +13736,8 @@ class MplsForwarding(object):
                         
                         .. attribute:: label_information
                         
-                        	Label\-info in FIB leaf
-                        	**type**\:  :py:class:`LabelInformation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.MplsForwarding.Nodes.Node.LabelFib.ForwardingDetails.ForwardingDetail.LabelInformation>`
+                        	Label\-infos in FIB leaf
+                        	**type**\: list of  :py:class:`LabelInformation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.MplsForwarding.Nodes.Node.LabelFib.ForwardingDetails.ForwardingDetail.LabelInformation>`
                         
                         .. attribute:: label_value
                         
@@ -12526,7 +13803,7 @@ class MplsForwarding(object):
                         .. attribute:: leaf_time_in_milli_seconds
                         
                         	The time of last update in msec
-                        	**type**\:  long
+                        	**type**\:  int
                         
                         	**range:** 0..18446744073709551615
                         
@@ -12602,8 +13879,9 @@ class MplsForwarding(object):
                             self.eos = None
                             self.eos_bit = None
                             self.hardware_information = None
-                            self.label_information = MplsForwarding.Nodes.Node.LabelFib.ForwardingDetails.ForwardingDetail.LabelInformation()
+                            self.label_information = YList()
                             self.label_information.parent = self
+                            self.label_information.name = 'label_information'
                             self.label_value = None
                             self.ldi_flags = None
                             self.ldi_information = MplsForwarding.Nodes.Node.LabelFib.ForwardingDetails.ForwardingDetail.LdiInformation()
@@ -12625,452 +13903,6 @@ class MplsForwarding(object):
                             self.multicast_label = None
                             self.path_list_flags = None
                             self.path_list_referance_count = None
-
-
-                        class LabelInformation(object):
-                            """
-                            Label\-info in FIB leaf
-                            
-                            .. attribute:: mpls_adj_info
-                            
-                            	mpls adj info
-                            	**type**\: list of  :py:class:`MplsAdjInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.MplsForwarding.Nodes.Node.LabelFib.ForwardingDetails.ForwardingDetail.LabelInformation.MplsAdjInfo>`
-                            
-                            
-
-                            """
-
-                            _prefix = 'fib-common-oper'
-                            _revision = '2015-11-09'
-
-                            def __init__(self):
-                                self.parent = None
-                                self.mpls_adj_info = YList()
-                                self.mpls_adj_info.parent = self
-                                self.mpls_adj_info.name = 'mpls_adj_info'
-
-
-                            class MplsAdjInfo(object):
-                                """
-                                mpls adj info
-                                
-                                .. attribute:: label_information_detail
-                                
-                                	Detail label info
-                                	**type**\:  :py:class:`LabelInformationDetail <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.MplsForwarding.Nodes.Node.LabelFib.ForwardingDetails.ForwardingDetail.LabelInformation.MplsAdjInfo.LabelInformationDetail>`
-                                
-                                .. attribute:: label_information_next_hop_protocol
-                                
-                                	The address family (v4/v6) 
-                                	**type**\:  :py:class:`ProtoEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.ProtoEnum>`
-                                
-                                .. attribute:: label_information_next_hop_string
-                                
-                                	Next hop address in string format
-                                	**type**\:  str
-                                
-                                	**range:** 0..60
-                                
-                                .. attribute:: label_information_next_hop_type
-                                
-                                	NHinfo Type
-                                	**type**\:  :py:class:`NextHopEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.NextHopEnum>`
-                                
-                                .. attribute:: label_information_path_index
-                                
-                                	LabelInformationPathIndex
-                                	**type**\:  int
-                                
-                                	**range:** 0..4294967295
-                                
-                                .. attribute:: label_information_route_version
-                                
-                                	The version of the route
-                                	**type**\:  long
-                                
-                                	**range:** 0..18446744073709551615
-                                
-                                .. attribute:: label_information_time_in_milli_seconds
-                                
-                                	The time of last update in msec
-                                	**type**\:  long
-                                
-                                	**range:** 0..18446744073709551615
-                                
-                                .. attribute:: label_information_type
-                                
-                                	Label\-Info type
-                                	**type**\:  int
-                                
-                                	**range:** 0..4294967295
-                                
-                                .. attribute:: local_label
-                                
-                                	Local label
-                                	**type**\:  int
-                                
-                                	**range:** 0..4294967295
-                                
-                                .. attribute:: mpls_adjacency_flags
-                                
-                                	MPLS Adjacency flags
-                                	**type**\:  int
-                                
-                                	**range:** 0..4294967295
-                                
-                                .. attribute:: outgoing_interface
-                                
-                                	Outgoing interface
-                                	**type**\:  str
-                                
-                                	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
-                                
-                                .. attribute:: outgoing_interface_string
-                                
-                                	Output Interface in string format
-                                	**type**\:  str
-                                
-                                	**range:** 0..64
-                                
-                                .. attribute:: outgoing_label
-                                
-                                	Outgoing label
-                                	**type**\:  int
-                                
-                                	**range:** 0..4294967295
-                                
-                                .. attribute:: outgoing_label_string
-                                
-                                	Output Label in string format
-                                	**type**\:  str
-                                
-                                	**range:** 0..64
-                                
-                                .. attribute:: outgoing_physical_interface
-                                
-                                	Outgoing Physical Interface
-                                	**type**\:  str
-                                
-                                	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
-                                
-                                .. attribute:: prefix_or_id
-                                
-                                	Prefix Or ID
-                                	**type**\:  str
-                                
-                                	**range:** 0..64
-                                
-                                .. attribute:: tunnel_id_present
-                                
-                                	Tunnel id present?
-                                	**type**\:  bool
-                                
-                                .. attribute:: tunnel_interface
-                                
-                                	Tunnel Interface
-                                	**type**\:  str
-                                
-                                	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
-                                
-                                .. attribute:: tx_bytes
-                                
-                                	Bytes transmitted per LSP
-                                	**type**\:  long
-                                
-                                	**range:** 0..18446744073709551615
-                                
-                                .. attribute:: tx_packets
-                                
-                                	Packets transmitted per LSP
-                                	**type**\:  long
-                                
-                                	**range:** 0..18446744073709551615
-                                
-                                
-
-                                """
-
-                                _prefix = 'fib-common-oper'
-                                _revision = '2015-11-09'
-
-                                def __init__(self):
-                                    self.parent = None
-                                    self.label_information_detail = MplsForwarding.Nodes.Node.LabelFib.ForwardingDetails.ForwardingDetail.LabelInformation.MplsAdjInfo.LabelInformationDetail()
-                                    self.label_information_detail.parent = self
-                                    self.label_information_next_hop_protocol = None
-                                    self.label_information_next_hop_string = None
-                                    self.label_information_next_hop_type = None
-                                    self.label_information_path_index = None
-                                    self.label_information_route_version = None
-                                    self.label_information_time_in_milli_seconds = None
-                                    self.label_information_type = None
-                                    self.local_label = None
-                                    self.mpls_adjacency_flags = None
-                                    self.outgoing_interface = None
-                                    self.outgoing_interface_string = None
-                                    self.outgoing_label = None
-                                    self.outgoing_label_string = None
-                                    self.outgoing_physical_interface = None
-                                    self.prefix_or_id = None
-                                    self.tunnel_id_present = None
-                                    self.tunnel_interface = None
-                                    self.tx_bytes = None
-                                    self.tx_packets = None
-
-
-                                class LabelInformationDetail(object):
-                                    """
-                                    Detail label info
-                                    
-                                    .. attribute:: l3_mtu
-                                    
-                                    	L3 MTU
-                                    	**type**\:  int
-                                    
-                                    	**range:** 0..4294967295
-                                    
-                                    .. attribute:: label_stack
-                                    
-                                    	Label stack
-                                    	**type**\:  list of int
-                                    
-                                    	**range:** 0..4294967295
-                                    
-                                    .. attribute:: mac_size
-                                    
-                                    	Length of L2 encapsulation
-                                    	**type**\:  int
-                                    
-                                    	**range:** 0..4294967295
-                                    
-                                    .. attribute:: next_hop_interface
-                                    
-                                    	Next hop interface
-                                    	**type**\:  str
-                                    
-                                    	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
-                                    
-                                    .. attribute:: next_hop_protocol
-                                    
-                                    	The address family (V4/V6) 
-                                    	**type**\:  :py:class:`ProtoEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.ProtoEnum>`
-                                    
-                                    .. attribute:: next_hop_string
-                                    
-                                    	Next hop address in string format
-                                    	**type**\:  str
-                                    
-                                    	**pattern:** ([0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2})\*)?
-                                    
-                                    .. attribute:: status
-                                    
-                                    	Status
-                                    	**type**\:  int
-                                    
-                                    	**range:** \-2147483648..2147483647
-                                    
-                                    .. attribute:: total_encapsulation_size
-                                    
-                                    	Total encapsulation size\: L2 + MPLS
-                                    	**type**\:  int
-                                    
-                                    	**range:** 0..4294967295
-                                    
-                                    .. attribute:: transmit_number_of_bytes_switched
-                                    
-                                    	Number of Bytes switched
-                                    	**type**\:  long
-                                    
-                                    	**range:** 0..18446744073709551615
-                                    
-                                    .. attribute:: transmit_number_of_packets_switched
-                                    
-                                    	Number of packets switched
-                                    	**type**\:  long
-                                    
-                                    	**range:** 0..18446744073709551615
-                                    
-                                    
-
-                                    """
-
-                                    _prefix = 'fib-common-oper'
-                                    _revision = '2015-11-09'
-
-                                    def __init__(self):
-                                        self.parent = None
-                                        self.l3_mtu = None
-                                        self.label_stack = YLeafList()
-                                        self.label_stack.parent = self
-                                        self.label_stack.name = 'label_stack'
-                                        self.mac_size = None
-                                        self.next_hop_interface = None
-                                        self.next_hop_protocol = None
-                                        self.next_hop_string = None
-                                        self.status = None
-                                        self.total_encapsulation_size = None
-                                        self.transmit_number_of_bytes_switched = None
-                                        self.transmit_number_of_packets_switched = None
-
-                                    @property
-                                    def _common_path(self):
-                                        if self.parent is None:
-                                            raise YPYModelError('parent is not set . Cannot derive path.')
-
-                                        return self.parent._common_path +'/Cisco-IOS-XR-fib-common-oper:label-information-detail'
-
-                                    def is_config(self):
-                                        ''' Returns True if this instance represents config data else returns False '''
-                                        return False
-
-                                    def _has_data(self):
-                                        if not self.is_config():
-                                            return False
-                                        if self.l3_mtu is not None:
-                                            return True
-
-                                        if self.label_stack is not None:
-                                            for child in self.label_stack:
-                                                if child is not None:
-                                                    return True
-
-                                        if self.mac_size is not None:
-                                            return True
-
-                                        if self.next_hop_interface is not None:
-                                            return True
-
-                                        if self.next_hop_protocol is not None:
-                                            return True
-
-                                        if self.next_hop_string is not None:
-                                            return True
-
-                                        if self.status is not None:
-                                            return True
-
-                                        if self.total_encapsulation_size is not None:
-                                            return True
-
-                                        if self.transmit_number_of_bytes_switched is not None:
-                                            return True
-
-                                        if self.transmit_number_of_packets_switched is not None:
-                                            return True
-
-                                        return False
-
-                                    @staticmethod
-                                    def _meta_info():
-                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_fib_common_oper as meta
-                                        return meta._meta_table['MplsForwarding.Nodes.Node.LabelFib.ForwardingDetails.ForwardingDetail.LabelInformation.MplsAdjInfo.LabelInformationDetail']['meta_info']
-
-                                @property
-                                def _common_path(self):
-                                    if self.parent is None:
-                                        raise YPYModelError('parent is not set . Cannot derive path.')
-
-                                    return self.parent._common_path +'/Cisco-IOS-XR-fib-common-oper:mpls-adj-info'
-
-                                def is_config(self):
-                                    ''' Returns True if this instance represents config data else returns False '''
-                                    return False
-
-                                def _has_data(self):
-                                    if not self.is_config():
-                                        return False
-                                    if self.label_information_detail is not None and self.label_information_detail._has_data():
-                                        return True
-
-                                    if self.label_information_next_hop_protocol is not None:
-                                        return True
-
-                                    if self.label_information_next_hop_string is not None:
-                                        return True
-
-                                    if self.label_information_next_hop_type is not None:
-                                        return True
-
-                                    if self.label_information_path_index is not None:
-                                        return True
-
-                                    if self.label_information_route_version is not None:
-                                        return True
-
-                                    if self.label_information_time_in_milli_seconds is not None:
-                                        return True
-
-                                    if self.label_information_type is not None:
-                                        return True
-
-                                    if self.local_label is not None:
-                                        return True
-
-                                    if self.mpls_adjacency_flags is not None:
-                                        return True
-
-                                    if self.outgoing_interface is not None:
-                                        return True
-
-                                    if self.outgoing_interface_string is not None:
-                                        return True
-
-                                    if self.outgoing_label is not None:
-                                        return True
-
-                                    if self.outgoing_label_string is not None:
-                                        return True
-
-                                    if self.outgoing_physical_interface is not None:
-                                        return True
-
-                                    if self.prefix_or_id is not None:
-                                        return True
-
-                                    if self.tunnel_id_present is not None:
-                                        return True
-
-                                    if self.tunnel_interface is not None:
-                                        return True
-
-                                    if self.tx_bytes is not None:
-                                        return True
-
-                                    if self.tx_packets is not None:
-                                        return True
-
-                                    return False
-
-                                @staticmethod
-                                def _meta_info():
-                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_fib_common_oper as meta
-                                    return meta._meta_table['MplsForwarding.Nodes.Node.LabelFib.ForwardingDetails.ForwardingDetail.LabelInformation.MplsAdjInfo']['meta_info']
-
-                            @property
-                            def _common_path(self):
-                                if self.parent is None:
-                                    raise YPYModelError('parent is not set . Cannot derive path.')
-
-                                return self.parent._common_path +'/Cisco-IOS-XR-fib-common-oper:label-information'
-
-                            def is_config(self):
-                                ''' Returns True if this instance represents config data else returns False '''
-                                return False
-
-                            def _has_data(self):
-                                if not self.is_config():
-                                    return False
-                                if self.mpls_adj_info is not None:
-                                    for child_ref in self.mpls_adj_info:
-                                        if child_ref._has_data():
-                                            return True
-
-                                return False
-
-                            @staticmethod
-                            def _meta_info():
-                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_fib_common_oper as meta
-                                return meta._meta_table['MplsForwarding.Nodes.Node.LabelFib.ForwardingDetails.ForwardingDetail.LabelInformation']['meta_info']
 
 
                         class LdiInformation(object):
@@ -13206,7 +14038,7 @@ class MplsForwarding(object):
                             	multicast mpls tunnel
                             	**type**\:  str
                             
-                            	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+                            	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
                             
                             .. attribute:: multicast_tunnel_lspvif
                             
@@ -13309,6 +14141,393 @@ class MplsForwarding(object):
                                 from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_fib_common_oper as meta
                                 return meta._meta_table['MplsForwarding.Nodes.Node.LabelFib.ForwardingDetails.ForwardingDetail.MulticastInformation']['meta_info']
 
+
+                        class LabelInformation(object):
+                            """
+                            Label\-infos in FIB leaf
+                            
+                            .. attribute:: label_information_detail
+                            
+                            	Detail label info
+                            	**type**\:  :py:class:`LabelInformationDetail <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.MplsForwarding.Nodes.Node.LabelFib.ForwardingDetails.ForwardingDetail.LabelInformation.LabelInformationDetail>`
+                            
+                            .. attribute:: label_information_next_hop_protocol
+                            
+                            	The address family (v4/v6) 
+                            	**type**\:  :py:class:`ProtoEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.ProtoEnum>`
+                            
+                            .. attribute:: label_information_next_hop_string
+                            
+                            	Next hop address in string format
+                            	**type**\:  str
+                            
+                            .. attribute:: label_information_next_hop_type
+                            
+                            	NHinfo Type
+                            	**type**\:  :py:class:`NextHopEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.NextHopEnum>`
+                            
+                            .. attribute:: label_information_path_index
+                            
+                            	LabelInformationPathIndex
+                            	**type**\:  int
+                            
+                            	**range:** 0..4294967295
+                            
+                            .. attribute:: label_information_route_version
+                            
+                            	The version of the route
+                            	**type**\:  int
+                            
+                            	**range:** 0..18446744073709551615
+                            
+                            .. attribute:: label_information_time_in_milli_seconds
+                            
+                            	The time of last update in msec
+                            	**type**\:  int
+                            
+                            	**range:** 0..18446744073709551615
+                            
+                            .. attribute:: label_information_type
+                            
+                            	Label\-Info type
+                            	**type**\:  int
+                            
+                            	**range:** 0..4294967295
+                            
+                            .. attribute:: local_label
+                            
+                            	Local label
+                            	**type**\:  int
+                            
+                            	**range:** 0..4294967295
+                            
+                            .. attribute:: mpls_adjacency_flags
+                            
+                            	MPLS Adjacency flags
+                            	**type**\:  int
+                            
+                            	**range:** 0..4294967295
+                            
+                            .. attribute:: outgoing_interface
+                            
+                            	Outgoing interface
+                            	**type**\:  str
+                            
+                            	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+                            
+                            .. attribute:: outgoing_interface_string
+                            
+                            	Output Interface in string format
+                            	**type**\:  str
+                            
+                            .. attribute:: outgoing_label
+                            
+                            	Outgoing label
+                            	**type**\:  int
+                            
+                            	**range:** 0..4294967295
+                            
+                            .. attribute:: outgoing_label_string
+                            
+                            	Output Label in string format
+                            	**type**\:  str
+                            
+                            .. attribute:: outgoing_physical_interface
+                            
+                            	Outgoing Physical Interface
+                            	**type**\:  str
+                            
+                            	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+                            
+                            .. attribute:: prefix_or_id
+                            
+                            	Prefix Or ID
+                            	**type**\:  str
+                            
+                            .. attribute:: tunnel_id_present
+                            
+                            	Tunnel id present?
+                            	**type**\:  bool
+                            
+                            .. attribute:: tunnel_interface
+                            
+                            	Tunnel Interface
+                            	**type**\:  str
+                            
+                            	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+                            
+                            .. attribute:: tx_bytes
+                            
+                            	Bytes transmitted per LSP
+                            	**type**\:  int
+                            
+                            	**range:** 0..18446744073709551615
+                            
+                            .. attribute:: tx_packets
+                            
+                            	Packets transmitted per LSP
+                            	**type**\:  int
+                            
+                            	**range:** 0..18446744073709551615
+                            
+                            
+
+                            """
+
+                            _prefix = 'fib-common-oper'
+                            _revision = '2015-11-09'
+
+                            def __init__(self):
+                                self.parent = None
+                                self.label_information_detail = MplsForwarding.Nodes.Node.LabelFib.ForwardingDetails.ForwardingDetail.LabelInformation.LabelInformationDetail()
+                                self.label_information_detail.parent = self
+                                self.label_information_next_hop_protocol = None
+                                self.label_information_next_hop_string = None
+                                self.label_information_next_hop_type = None
+                                self.label_information_path_index = None
+                                self.label_information_route_version = None
+                                self.label_information_time_in_milli_seconds = None
+                                self.label_information_type = None
+                                self.local_label = None
+                                self.mpls_adjacency_flags = None
+                                self.outgoing_interface = None
+                                self.outgoing_interface_string = None
+                                self.outgoing_label = None
+                                self.outgoing_label_string = None
+                                self.outgoing_physical_interface = None
+                                self.prefix_or_id = None
+                                self.tunnel_id_present = None
+                                self.tunnel_interface = None
+                                self.tx_bytes = None
+                                self.tx_packets = None
+
+
+                            class LabelInformationDetail(object):
+                                """
+                                Detail label info
+                                
+                                .. attribute:: l3_mtu
+                                
+                                	L3 MTU
+                                	**type**\:  int
+                                
+                                	**range:** 0..4294967295
+                                
+                                .. attribute:: label_stack
+                                
+                                	Label stack
+                                	**type**\:  list of int
+                                
+                                	**range:** 0..4294967295
+                                
+                                .. attribute:: mac_size
+                                
+                                	Length of L2 encapsulation
+                                	**type**\:  int
+                                
+                                	**range:** 0..4294967295
+                                
+                                .. attribute:: next_hop_interface
+                                
+                                	Next hop interface
+                                	**type**\:  str
+                                
+                                	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+                                
+                                .. attribute:: next_hop_protocol
+                                
+                                	The address family (V4/V6) 
+                                	**type**\:  :py:class:`ProtoEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.ProtoEnum>`
+                                
+                                .. attribute:: next_hop_string
+                                
+                                	Next hop address in string format
+                                	**type**\:  str
+                                
+                                .. attribute:: status
+                                
+                                	Status
+                                	**type**\:  int
+                                
+                                	**range:** \-2147483648..2147483647
+                                
+                                .. attribute:: total_encapsulation_size
+                                
+                                	Total encapsulation size\: L2 + MPLS
+                                	**type**\:  int
+                                
+                                	**range:** 0..4294967295
+                                
+                                .. attribute:: transmit_number_of_bytes_switched
+                                
+                                	Number of Bytes switched
+                                	**type**\:  int
+                                
+                                	**range:** 0..18446744073709551615
+                                
+                                .. attribute:: transmit_number_of_packets_switched
+                                
+                                	Number of packets switched
+                                	**type**\:  int
+                                
+                                	**range:** 0..18446744073709551615
+                                
+                                
+
+                                """
+
+                                _prefix = 'fib-common-oper'
+                                _revision = '2015-11-09'
+
+                                def __init__(self):
+                                    self.parent = None
+                                    self.l3_mtu = None
+                                    self.label_stack = YLeafList()
+                                    self.label_stack.parent = self
+                                    self.label_stack.name = 'label_stack'
+                                    self.mac_size = None
+                                    self.next_hop_interface = None
+                                    self.next_hop_protocol = None
+                                    self.next_hop_string = None
+                                    self.status = None
+                                    self.total_encapsulation_size = None
+                                    self.transmit_number_of_bytes_switched = None
+                                    self.transmit_number_of_packets_switched = None
+
+                                @property
+                                def _common_path(self):
+                                    if self.parent is None:
+                                        raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                    return self.parent._common_path +'/Cisco-IOS-XR-fib-common-oper:label-information-detail'
+
+                                def is_config(self):
+                                    ''' Returns True if this instance represents config data else returns False '''
+                                    return False
+
+                                def _has_data(self):
+                                    if not self.is_config():
+                                        return False
+                                    if self.l3_mtu is not None:
+                                        return True
+
+                                    if self.label_stack is not None:
+                                        for child in self.label_stack:
+                                            if child is not None:
+                                                return True
+
+                                    if self.mac_size is not None:
+                                        return True
+
+                                    if self.next_hop_interface is not None:
+                                        return True
+
+                                    if self.next_hop_protocol is not None:
+                                        return True
+
+                                    if self.next_hop_string is not None:
+                                        return True
+
+                                    if self.status is not None:
+                                        return True
+
+                                    if self.total_encapsulation_size is not None:
+                                        return True
+
+                                    if self.transmit_number_of_bytes_switched is not None:
+                                        return True
+
+                                    if self.transmit_number_of_packets_switched is not None:
+                                        return True
+
+                                    return False
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_fib_common_oper as meta
+                                    return meta._meta_table['MplsForwarding.Nodes.Node.LabelFib.ForwardingDetails.ForwardingDetail.LabelInformation.LabelInformationDetail']['meta_info']
+
+                            @property
+                            def _common_path(self):
+                                if self.parent is None:
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                return self.parent._common_path +'/Cisco-IOS-XR-fib-common-oper:label-information'
+
+                            def is_config(self):
+                                ''' Returns True if this instance represents config data else returns False '''
+                                return False
+
+                            def _has_data(self):
+                                if not self.is_config():
+                                    return False
+                                if self.label_information_detail is not None and self.label_information_detail._has_data():
+                                    return True
+
+                                if self.label_information_next_hop_protocol is not None:
+                                    return True
+
+                                if self.label_information_next_hop_string is not None:
+                                    return True
+
+                                if self.label_information_next_hop_type is not None:
+                                    return True
+
+                                if self.label_information_path_index is not None:
+                                    return True
+
+                                if self.label_information_route_version is not None:
+                                    return True
+
+                                if self.label_information_time_in_milli_seconds is not None:
+                                    return True
+
+                                if self.label_information_type is not None:
+                                    return True
+
+                                if self.local_label is not None:
+                                    return True
+
+                                if self.mpls_adjacency_flags is not None:
+                                    return True
+
+                                if self.outgoing_interface is not None:
+                                    return True
+
+                                if self.outgoing_interface_string is not None:
+                                    return True
+
+                                if self.outgoing_label is not None:
+                                    return True
+
+                                if self.outgoing_label_string is not None:
+                                    return True
+
+                                if self.outgoing_physical_interface is not None:
+                                    return True
+
+                                if self.prefix_or_id is not None:
+                                    return True
+
+                                if self.tunnel_id_present is not None:
+                                    return True
+
+                                if self.tunnel_interface is not None:
+                                    return True
+
+                                if self.tx_bytes is not None:
+                                    return True
+
+                                if self.tx_packets is not None:
+                                    return True
+
+                                return False
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_fib_common_oper as meta
+                                return meta._meta_table['MplsForwarding.Nodes.Node.LabelFib.ForwardingDetails.ForwardingDetail.LabelInformation']['meta_info']
+
                         @property
                         def _common_path(self):
                             if self.parent is None:
@@ -13335,8 +14554,10 @@ class MplsForwarding(object):
                             if self.hardware_information is not None:
                                 return True
 
-                            if self.label_information is not None and self.label_information._has_data():
-                                return True
+                            if self.label_information is not None:
+                                for child_ref in self.label_information:
+                                    if child_ref._has_data():
+                                        return True
 
                             if self.label_value is not None:
                                 return True
@@ -13484,8 +14705,8 @@ class MplsForwarding(object):
                         
                         .. attribute:: label_information
                         
-                        	Label\-info in FIB leaf
-                        	**type**\:  :py:class:`LabelInformation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.MplsForwarding.Nodes.Node.LabelFib.Informations.Information.LabelInformation>`
+                        	Label\-infos in FIB leaf
+                        	**type**\: list of  :py:class:`LabelInformation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.MplsForwarding.Nodes.Node.LabelFib.Informations.Information.LabelInformation>`
                         
                         .. attribute:: label_value
                         
@@ -13551,7 +14772,7 @@ class MplsForwarding(object):
                         .. attribute:: leaf_time_in_milli_seconds
                         
                         	The time of last update in msec
-                        	**type**\:  long
+                        	**type**\:  int
                         
                         	**range:** 0..18446744073709551615
                         
@@ -13627,8 +14848,9 @@ class MplsForwarding(object):
                             self.eos = None
                             self.eos_bit = None
                             self.hardware_information = None
-                            self.label_information = MplsForwarding.Nodes.Node.LabelFib.Informations.Information.LabelInformation()
+                            self.label_information = YList()
                             self.label_information.parent = self
+                            self.label_information.name = 'label_information'
                             self.label_value = None
                             self.ldi_flags = None
                             self.ldi_information = MplsForwarding.Nodes.Node.LabelFib.Informations.Information.LdiInformation()
@@ -13650,452 +14872,6 @@ class MplsForwarding(object):
                             self.multicast_label = None
                             self.path_list_flags = None
                             self.path_list_referance_count = None
-
-
-                        class LabelInformation(object):
-                            """
-                            Label\-info in FIB leaf
-                            
-                            .. attribute:: mpls_adj_info
-                            
-                            	mpls adj info
-                            	**type**\: list of  :py:class:`MplsAdjInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.MplsForwarding.Nodes.Node.LabelFib.Informations.Information.LabelInformation.MplsAdjInfo>`
-                            
-                            
-
-                            """
-
-                            _prefix = 'fib-common-oper'
-                            _revision = '2015-11-09'
-
-                            def __init__(self):
-                                self.parent = None
-                                self.mpls_adj_info = YList()
-                                self.mpls_adj_info.parent = self
-                                self.mpls_adj_info.name = 'mpls_adj_info'
-
-
-                            class MplsAdjInfo(object):
-                                """
-                                mpls adj info
-                                
-                                .. attribute:: label_information_detail
-                                
-                                	Detail label info
-                                	**type**\:  :py:class:`LabelInformationDetail <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.MplsForwarding.Nodes.Node.LabelFib.Informations.Information.LabelInformation.MplsAdjInfo.LabelInformationDetail>`
-                                
-                                .. attribute:: label_information_next_hop_protocol
-                                
-                                	The address family (v4/v6) 
-                                	**type**\:  :py:class:`ProtoEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.ProtoEnum>`
-                                
-                                .. attribute:: label_information_next_hop_string
-                                
-                                	Next hop address in string format
-                                	**type**\:  str
-                                
-                                	**range:** 0..60
-                                
-                                .. attribute:: label_information_next_hop_type
-                                
-                                	NHinfo Type
-                                	**type**\:  :py:class:`NextHopEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.NextHopEnum>`
-                                
-                                .. attribute:: label_information_path_index
-                                
-                                	LabelInformationPathIndex
-                                	**type**\:  int
-                                
-                                	**range:** 0..4294967295
-                                
-                                .. attribute:: label_information_route_version
-                                
-                                	The version of the route
-                                	**type**\:  long
-                                
-                                	**range:** 0..18446744073709551615
-                                
-                                .. attribute:: label_information_time_in_milli_seconds
-                                
-                                	The time of last update in msec
-                                	**type**\:  long
-                                
-                                	**range:** 0..18446744073709551615
-                                
-                                .. attribute:: label_information_type
-                                
-                                	Label\-Info type
-                                	**type**\:  int
-                                
-                                	**range:** 0..4294967295
-                                
-                                .. attribute:: local_label
-                                
-                                	Local label
-                                	**type**\:  int
-                                
-                                	**range:** 0..4294967295
-                                
-                                .. attribute:: mpls_adjacency_flags
-                                
-                                	MPLS Adjacency flags
-                                	**type**\:  int
-                                
-                                	**range:** 0..4294967295
-                                
-                                .. attribute:: outgoing_interface
-                                
-                                	Outgoing interface
-                                	**type**\:  str
-                                
-                                	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
-                                
-                                .. attribute:: outgoing_interface_string
-                                
-                                	Output Interface in string format
-                                	**type**\:  str
-                                
-                                	**range:** 0..64
-                                
-                                .. attribute:: outgoing_label
-                                
-                                	Outgoing label
-                                	**type**\:  int
-                                
-                                	**range:** 0..4294967295
-                                
-                                .. attribute:: outgoing_label_string
-                                
-                                	Output Label in string format
-                                	**type**\:  str
-                                
-                                	**range:** 0..64
-                                
-                                .. attribute:: outgoing_physical_interface
-                                
-                                	Outgoing Physical Interface
-                                	**type**\:  str
-                                
-                                	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
-                                
-                                .. attribute:: prefix_or_id
-                                
-                                	Prefix Or ID
-                                	**type**\:  str
-                                
-                                	**range:** 0..64
-                                
-                                .. attribute:: tunnel_id_present
-                                
-                                	Tunnel id present?
-                                	**type**\:  bool
-                                
-                                .. attribute:: tunnel_interface
-                                
-                                	Tunnel Interface
-                                	**type**\:  str
-                                
-                                	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
-                                
-                                .. attribute:: tx_bytes
-                                
-                                	Bytes transmitted per LSP
-                                	**type**\:  long
-                                
-                                	**range:** 0..18446744073709551615
-                                
-                                .. attribute:: tx_packets
-                                
-                                	Packets transmitted per LSP
-                                	**type**\:  long
-                                
-                                	**range:** 0..18446744073709551615
-                                
-                                
-
-                                """
-
-                                _prefix = 'fib-common-oper'
-                                _revision = '2015-11-09'
-
-                                def __init__(self):
-                                    self.parent = None
-                                    self.label_information_detail = MplsForwarding.Nodes.Node.LabelFib.Informations.Information.LabelInformation.MplsAdjInfo.LabelInformationDetail()
-                                    self.label_information_detail.parent = self
-                                    self.label_information_next_hop_protocol = None
-                                    self.label_information_next_hop_string = None
-                                    self.label_information_next_hop_type = None
-                                    self.label_information_path_index = None
-                                    self.label_information_route_version = None
-                                    self.label_information_time_in_milli_seconds = None
-                                    self.label_information_type = None
-                                    self.local_label = None
-                                    self.mpls_adjacency_flags = None
-                                    self.outgoing_interface = None
-                                    self.outgoing_interface_string = None
-                                    self.outgoing_label = None
-                                    self.outgoing_label_string = None
-                                    self.outgoing_physical_interface = None
-                                    self.prefix_or_id = None
-                                    self.tunnel_id_present = None
-                                    self.tunnel_interface = None
-                                    self.tx_bytes = None
-                                    self.tx_packets = None
-
-
-                                class LabelInformationDetail(object):
-                                    """
-                                    Detail label info
-                                    
-                                    .. attribute:: l3_mtu
-                                    
-                                    	L3 MTU
-                                    	**type**\:  int
-                                    
-                                    	**range:** 0..4294967295
-                                    
-                                    .. attribute:: label_stack
-                                    
-                                    	Label stack
-                                    	**type**\:  list of int
-                                    
-                                    	**range:** 0..4294967295
-                                    
-                                    .. attribute:: mac_size
-                                    
-                                    	Length of L2 encapsulation
-                                    	**type**\:  int
-                                    
-                                    	**range:** 0..4294967295
-                                    
-                                    .. attribute:: next_hop_interface
-                                    
-                                    	Next hop interface
-                                    	**type**\:  str
-                                    
-                                    	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
-                                    
-                                    .. attribute:: next_hop_protocol
-                                    
-                                    	The address family (V4/V6) 
-                                    	**type**\:  :py:class:`ProtoEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.ProtoEnum>`
-                                    
-                                    .. attribute:: next_hop_string
-                                    
-                                    	Next hop address in string format
-                                    	**type**\:  str
-                                    
-                                    	**pattern:** ([0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2})\*)?
-                                    
-                                    .. attribute:: status
-                                    
-                                    	Status
-                                    	**type**\:  int
-                                    
-                                    	**range:** \-2147483648..2147483647
-                                    
-                                    .. attribute:: total_encapsulation_size
-                                    
-                                    	Total encapsulation size\: L2 + MPLS
-                                    	**type**\:  int
-                                    
-                                    	**range:** 0..4294967295
-                                    
-                                    .. attribute:: transmit_number_of_bytes_switched
-                                    
-                                    	Number of Bytes switched
-                                    	**type**\:  long
-                                    
-                                    	**range:** 0..18446744073709551615
-                                    
-                                    .. attribute:: transmit_number_of_packets_switched
-                                    
-                                    	Number of packets switched
-                                    	**type**\:  long
-                                    
-                                    	**range:** 0..18446744073709551615
-                                    
-                                    
-
-                                    """
-
-                                    _prefix = 'fib-common-oper'
-                                    _revision = '2015-11-09'
-
-                                    def __init__(self):
-                                        self.parent = None
-                                        self.l3_mtu = None
-                                        self.label_stack = YLeafList()
-                                        self.label_stack.parent = self
-                                        self.label_stack.name = 'label_stack'
-                                        self.mac_size = None
-                                        self.next_hop_interface = None
-                                        self.next_hop_protocol = None
-                                        self.next_hop_string = None
-                                        self.status = None
-                                        self.total_encapsulation_size = None
-                                        self.transmit_number_of_bytes_switched = None
-                                        self.transmit_number_of_packets_switched = None
-
-                                    @property
-                                    def _common_path(self):
-                                        if self.parent is None:
-                                            raise YPYModelError('parent is not set . Cannot derive path.')
-
-                                        return self.parent._common_path +'/Cisco-IOS-XR-fib-common-oper:label-information-detail'
-
-                                    def is_config(self):
-                                        ''' Returns True if this instance represents config data else returns False '''
-                                        return False
-
-                                    def _has_data(self):
-                                        if not self.is_config():
-                                            return False
-                                        if self.l3_mtu is not None:
-                                            return True
-
-                                        if self.label_stack is not None:
-                                            for child in self.label_stack:
-                                                if child is not None:
-                                                    return True
-
-                                        if self.mac_size is not None:
-                                            return True
-
-                                        if self.next_hop_interface is not None:
-                                            return True
-
-                                        if self.next_hop_protocol is not None:
-                                            return True
-
-                                        if self.next_hop_string is not None:
-                                            return True
-
-                                        if self.status is not None:
-                                            return True
-
-                                        if self.total_encapsulation_size is not None:
-                                            return True
-
-                                        if self.transmit_number_of_bytes_switched is not None:
-                                            return True
-
-                                        if self.transmit_number_of_packets_switched is not None:
-                                            return True
-
-                                        return False
-
-                                    @staticmethod
-                                    def _meta_info():
-                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_fib_common_oper as meta
-                                        return meta._meta_table['MplsForwarding.Nodes.Node.LabelFib.Informations.Information.LabelInformation.MplsAdjInfo.LabelInformationDetail']['meta_info']
-
-                                @property
-                                def _common_path(self):
-                                    if self.parent is None:
-                                        raise YPYModelError('parent is not set . Cannot derive path.')
-
-                                    return self.parent._common_path +'/Cisco-IOS-XR-fib-common-oper:mpls-adj-info'
-
-                                def is_config(self):
-                                    ''' Returns True if this instance represents config data else returns False '''
-                                    return False
-
-                                def _has_data(self):
-                                    if not self.is_config():
-                                        return False
-                                    if self.label_information_detail is not None and self.label_information_detail._has_data():
-                                        return True
-
-                                    if self.label_information_next_hop_protocol is not None:
-                                        return True
-
-                                    if self.label_information_next_hop_string is not None:
-                                        return True
-
-                                    if self.label_information_next_hop_type is not None:
-                                        return True
-
-                                    if self.label_information_path_index is not None:
-                                        return True
-
-                                    if self.label_information_route_version is not None:
-                                        return True
-
-                                    if self.label_information_time_in_milli_seconds is not None:
-                                        return True
-
-                                    if self.label_information_type is not None:
-                                        return True
-
-                                    if self.local_label is not None:
-                                        return True
-
-                                    if self.mpls_adjacency_flags is not None:
-                                        return True
-
-                                    if self.outgoing_interface is not None:
-                                        return True
-
-                                    if self.outgoing_interface_string is not None:
-                                        return True
-
-                                    if self.outgoing_label is not None:
-                                        return True
-
-                                    if self.outgoing_label_string is not None:
-                                        return True
-
-                                    if self.outgoing_physical_interface is not None:
-                                        return True
-
-                                    if self.prefix_or_id is not None:
-                                        return True
-
-                                    if self.tunnel_id_present is not None:
-                                        return True
-
-                                    if self.tunnel_interface is not None:
-                                        return True
-
-                                    if self.tx_bytes is not None:
-                                        return True
-
-                                    if self.tx_packets is not None:
-                                        return True
-
-                                    return False
-
-                                @staticmethod
-                                def _meta_info():
-                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_fib_common_oper as meta
-                                    return meta._meta_table['MplsForwarding.Nodes.Node.LabelFib.Informations.Information.LabelInformation.MplsAdjInfo']['meta_info']
-
-                            @property
-                            def _common_path(self):
-                                if self.parent is None:
-                                    raise YPYModelError('parent is not set . Cannot derive path.')
-
-                                return self.parent._common_path +'/Cisco-IOS-XR-fib-common-oper:label-information'
-
-                            def is_config(self):
-                                ''' Returns True if this instance represents config data else returns False '''
-                                return False
-
-                            def _has_data(self):
-                                if not self.is_config():
-                                    return False
-                                if self.mpls_adj_info is not None:
-                                    for child_ref in self.mpls_adj_info:
-                                        if child_ref._has_data():
-                                            return True
-
-                                return False
-
-                            @staticmethod
-                            def _meta_info():
-                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_fib_common_oper as meta
-                                return meta._meta_table['MplsForwarding.Nodes.Node.LabelFib.Informations.Information.LabelInformation']['meta_info']
 
 
                         class LdiInformation(object):
@@ -14231,7 +15007,7 @@ class MplsForwarding(object):
                             	multicast mpls tunnel
                             	**type**\:  str
                             
-                            	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+                            	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
                             
                             .. attribute:: multicast_tunnel_lspvif
                             
@@ -14334,6 +15110,393 @@ class MplsForwarding(object):
                                 from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_fib_common_oper as meta
                                 return meta._meta_table['MplsForwarding.Nodes.Node.LabelFib.Informations.Information.MulticastInformation']['meta_info']
 
+
+                        class LabelInformation(object):
+                            """
+                            Label\-infos in FIB leaf
+                            
+                            .. attribute:: label_information_detail
+                            
+                            	Detail label info
+                            	**type**\:  :py:class:`LabelInformationDetail <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.MplsForwarding.Nodes.Node.LabelFib.Informations.Information.LabelInformation.LabelInformationDetail>`
+                            
+                            .. attribute:: label_information_next_hop_protocol
+                            
+                            	The address family (v4/v6) 
+                            	**type**\:  :py:class:`ProtoEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.ProtoEnum>`
+                            
+                            .. attribute:: label_information_next_hop_string
+                            
+                            	Next hop address in string format
+                            	**type**\:  str
+                            
+                            .. attribute:: label_information_next_hop_type
+                            
+                            	NHinfo Type
+                            	**type**\:  :py:class:`NextHopEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.NextHopEnum>`
+                            
+                            .. attribute:: label_information_path_index
+                            
+                            	LabelInformationPathIndex
+                            	**type**\:  int
+                            
+                            	**range:** 0..4294967295
+                            
+                            .. attribute:: label_information_route_version
+                            
+                            	The version of the route
+                            	**type**\:  int
+                            
+                            	**range:** 0..18446744073709551615
+                            
+                            .. attribute:: label_information_time_in_milli_seconds
+                            
+                            	The time of last update in msec
+                            	**type**\:  int
+                            
+                            	**range:** 0..18446744073709551615
+                            
+                            .. attribute:: label_information_type
+                            
+                            	Label\-Info type
+                            	**type**\:  int
+                            
+                            	**range:** 0..4294967295
+                            
+                            .. attribute:: local_label
+                            
+                            	Local label
+                            	**type**\:  int
+                            
+                            	**range:** 0..4294967295
+                            
+                            .. attribute:: mpls_adjacency_flags
+                            
+                            	MPLS Adjacency flags
+                            	**type**\:  int
+                            
+                            	**range:** 0..4294967295
+                            
+                            .. attribute:: outgoing_interface
+                            
+                            	Outgoing interface
+                            	**type**\:  str
+                            
+                            	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+                            
+                            .. attribute:: outgoing_interface_string
+                            
+                            	Output Interface in string format
+                            	**type**\:  str
+                            
+                            .. attribute:: outgoing_label
+                            
+                            	Outgoing label
+                            	**type**\:  int
+                            
+                            	**range:** 0..4294967295
+                            
+                            .. attribute:: outgoing_label_string
+                            
+                            	Output Label in string format
+                            	**type**\:  str
+                            
+                            .. attribute:: outgoing_physical_interface
+                            
+                            	Outgoing Physical Interface
+                            	**type**\:  str
+                            
+                            	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+                            
+                            .. attribute:: prefix_or_id
+                            
+                            	Prefix Or ID
+                            	**type**\:  str
+                            
+                            .. attribute:: tunnel_id_present
+                            
+                            	Tunnel id present?
+                            	**type**\:  bool
+                            
+                            .. attribute:: tunnel_interface
+                            
+                            	Tunnel Interface
+                            	**type**\:  str
+                            
+                            	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+                            
+                            .. attribute:: tx_bytes
+                            
+                            	Bytes transmitted per LSP
+                            	**type**\:  int
+                            
+                            	**range:** 0..18446744073709551615
+                            
+                            .. attribute:: tx_packets
+                            
+                            	Packets transmitted per LSP
+                            	**type**\:  int
+                            
+                            	**range:** 0..18446744073709551615
+                            
+                            
+
+                            """
+
+                            _prefix = 'fib-common-oper'
+                            _revision = '2015-11-09'
+
+                            def __init__(self):
+                                self.parent = None
+                                self.label_information_detail = MplsForwarding.Nodes.Node.LabelFib.Informations.Information.LabelInformation.LabelInformationDetail()
+                                self.label_information_detail.parent = self
+                                self.label_information_next_hop_protocol = None
+                                self.label_information_next_hop_string = None
+                                self.label_information_next_hop_type = None
+                                self.label_information_path_index = None
+                                self.label_information_route_version = None
+                                self.label_information_time_in_milli_seconds = None
+                                self.label_information_type = None
+                                self.local_label = None
+                                self.mpls_adjacency_flags = None
+                                self.outgoing_interface = None
+                                self.outgoing_interface_string = None
+                                self.outgoing_label = None
+                                self.outgoing_label_string = None
+                                self.outgoing_physical_interface = None
+                                self.prefix_or_id = None
+                                self.tunnel_id_present = None
+                                self.tunnel_interface = None
+                                self.tx_bytes = None
+                                self.tx_packets = None
+
+
+                            class LabelInformationDetail(object):
+                                """
+                                Detail label info
+                                
+                                .. attribute:: l3_mtu
+                                
+                                	L3 MTU
+                                	**type**\:  int
+                                
+                                	**range:** 0..4294967295
+                                
+                                .. attribute:: label_stack
+                                
+                                	Label stack
+                                	**type**\:  list of int
+                                
+                                	**range:** 0..4294967295
+                                
+                                .. attribute:: mac_size
+                                
+                                	Length of L2 encapsulation
+                                	**type**\:  int
+                                
+                                	**range:** 0..4294967295
+                                
+                                .. attribute:: next_hop_interface
+                                
+                                	Next hop interface
+                                	**type**\:  str
+                                
+                                	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+                                
+                                .. attribute:: next_hop_protocol
+                                
+                                	The address family (V4/V6) 
+                                	**type**\:  :py:class:`ProtoEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper.ProtoEnum>`
+                                
+                                .. attribute:: next_hop_string
+                                
+                                	Next hop address in string format
+                                	**type**\:  str
+                                
+                                .. attribute:: status
+                                
+                                	Status
+                                	**type**\:  int
+                                
+                                	**range:** \-2147483648..2147483647
+                                
+                                .. attribute:: total_encapsulation_size
+                                
+                                	Total encapsulation size\: L2 + MPLS
+                                	**type**\:  int
+                                
+                                	**range:** 0..4294967295
+                                
+                                .. attribute:: transmit_number_of_bytes_switched
+                                
+                                	Number of Bytes switched
+                                	**type**\:  int
+                                
+                                	**range:** 0..18446744073709551615
+                                
+                                .. attribute:: transmit_number_of_packets_switched
+                                
+                                	Number of packets switched
+                                	**type**\:  int
+                                
+                                	**range:** 0..18446744073709551615
+                                
+                                
+
+                                """
+
+                                _prefix = 'fib-common-oper'
+                                _revision = '2015-11-09'
+
+                                def __init__(self):
+                                    self.parent = None
+                                    self.l3_mtu = None
+                                    self.label_stack = YLeafList()
+                                    self.label_stack.parent = self
+                                    self.label_stack.name = 'label_stack'
+                                    self.mac_size = None
+                                    self.next_hop_interface = None
+                                    self.next_hop_protocol = None
+                                    self.next_hop_string = None
+                                    self.status = None
+                                    self.total_encapsulation_size = None
+                                    self.transmit_number_of_bytes_switched = None
+                                    self.transmit_number_of_packets_switched = None
+
+                                @property
+                                def _common_path(self):
+                                    if self.parent is None:
+                                        raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                    return self.parent._common_path +'/Cisco-IOS-XR-fib-common-oper:label-information-detail'
+
+                                def is_config(self):
+                                    ''' Returns True if this instance represents config data else returns False '''
+                                    return False
+
+                                def _has_data(self):
+                                    if not self.is_config():
+                                        return False
+                                    if self.l3_mtu is not None:
+                                        return True
+
+                                    if self.label_stack is not None:
+                                        for child in self.label_stack:
+                                            if child is not None:
+                                                return True
+
+                                    if self.mac_size is not None:
+                                        return True
+
+                                    if self.next_hop_interface is not None:
+                                        return True
+
+                                    if self.next_hop_protocol is not None:
+                                        return True
+
+                                    if self.next_hop_string is not None:
+                                        return True
+
+                                    if self.status is not None:
+                                        return True
+
+                                    if self.total_encapsulation_size is not None:
+                                        return True
+
+                                    if self.transmit_number_of_bytes_switched is not None:
+                                        return True
+
+                                    if self.transmit_number_of_packets_switched is not None:
+                                        return True
+
+                                    return False
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_fib_common_oper as meta
+                                    return meta._meta_table['MplsForwarding.Nodes.Node.LabelFib.Informations.Information.LabelInformation.LabelInformationDetail']['meta_info']
+
+                            @property
+                            def _common_path(self):
+                                if self.parent is None:
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                return self.parent._common_path +'/Cisco-IOS-XR-fib-common-oper:label-information'
+
+                            def is_config(self):
+                                ''' Returns True if this instance represents config data else returns False '''
+                                return False
+
+                            def _has_data(self):
+                                if not self.is_config():
+                                    return False
+                                if self.label_information_detail is not None and self.label_information_detail._has_data():
+                                    return True
+
+                                if self.label_information_next_hop_protocol is not None:
+                                    return True
+
+                                if self.label_information_next_hop_string is not None:
+                                    return True
+
+                                if self.label_information_next_hop_type is not None:
+                                    return True
+
+                                if self.label_information_path_index is not None:
+                                    return True
+
+                                if self.label_information_route_version is not None:
+                                    return True
+
+                                if self.label_information_time_in_milli_seconds is not None:
+                                    return True
+
+                                if self.label_information_type is not None:
+                                    return True
+
+                                if self.local_label is not None:
+                                    return True
+
+                                if self.mpls_adjacency_flags is not None:
+                                    return True
+
+                                if self.outgoing_interface is not None:
+                                    return True
+
+                                if self.outgoing_interface_string is not None:
+                                    return True
+
+                                if self.outgoing_label is not None:
+                                    return True
+
+                                if self.outgoing_label_string is not None:
+                                    return True
+
+                                if self.outgoing_physical_interface is not None:
+                                    return True
+
+                                if self.prefix_or_id is not None:
+                                    return True
+
+                                if self.tunnel_id_present is not None:
+                                    return True
+
+                                if self.tunnel_interface is not None:
+                                    return True
+
+                                if self.tx_bytes is not None:
+                                    return True
+
+                                if self.tx_packets is not None:
+                                    return True
+
+                                return False
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_fib_common_oper as meta
+                                return meta._meta_table['MplsForwarding.Nodes.Node.LabelFib.Informations.Information.LabelInformation']['meta_info']
+
                         @property
                         def _common_path(self):
                             if self.parent is None:
@@ -14360,8 +15523,10 @@ class MplsForwarding(object):
                             if self.hardware_information is not None:
                                 return True
 
-                            if self.label_information is not None and self.label_information._has_data():
-                                return True
+                            if self.label_information is not None:
+                                for child_ref in self.label_information:
+                                    if child_ref._has_data():
+                                        return True
 
                             if self.label_value is not None:
                                 return True
@@ -14515,7 +15680,7 @@ class MplsForwarding(object):
                             	Interface Name
                             	**type**\:  str
                             
-                            	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+                            	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
                             
                             .. attribute:: mld_enabled
                             
@@ -14530,14 +15695,14 @@ class MplsForwarding(object):
                             .. attribute:: multi_label_drops
                             
                             	Multi\-label drops
-                            	**type**\:  long
+                            	**type**\:  int
                             
                             	**range:** 0..18446744073709551615
                             
                             .. attribute:: rpf_drops
                             
                             	RPF drops
-                            	**type**\:  long
+                            	**type**\:  int
                             
                             	**range:** 0..18446744073709551615
                             
@@ -14556,7 +15721,7 @@ class MplsForwarding(object):
                             	RPF interface handle
                             	**type**\:  str
                             
-                            	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+                            	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
                             
                             
 
@@ -14657,14 +15822,14 @@ class MplsForwarding(object):
                         .. attribute:: multi_label_drops
                         
                         	Multi\-label drops
-                        	**type**\:  long
+                        	**type**\:  int
                         
                         	**range:** 0..18446744073709551615
                         
                         .. attribute:: rpf_drops
                         
                         	RPF drops
-                        	**type**\:  long
+                        	**type**\:  int
                         
                         	**range:** 0..18446744073709551615
                         
@@ -15059,7 +16224,7 @@ class FibMpls(object):
                         .. attribute:: ldi_time_of_last_update_in_msec
                         
                         	The time of last update for LDI in msec
-                        	**type**\:  long
+                        	**type**\:  int
                         
                         	**range:** 0..18446744073709551615
                         
@@ -15101,7 +16266,7 @@ class FibMpls(object):
                         .. attribute:: leaf_time_in_milli_seconds
                         
                         	The time of last update in msec
-                        	**type**\:  long
+                        	**type**\:  int
                         
                         	**range:** 0..18446744073709551615
                         
@@ -15122,7 +16287,7 @@ class FibMpls(object):
                         .. attribute:: lspa_time_of_last_update_in_msec
                         
                         	The time of last update for LSPA in msec
-                        	**type**\:  long
+                        	**type**\:  int
                         
                         	**range:** 0..18446744073709551615
                         
@@ -15157,7 +16322,7 @@ class FibMpls(object):
                         .. attribute:: lwldi_time_of_last_update_in_msec
                         
                         	The time of last update for LW\-LDI in msec
-                        	**type**\:  long
+                        	**type**\:  int
                         
                         	**range:** 0..18446744073709551615
                         
@@ -15202,7 +16367,7 @@ class FibMpls(object):
                         .. attribute:: pl_time_of_last_update_in_msec
                         
                         	The time of last update for PL in msec
-                        	**type**\:  long
+                        	**type**\:  int
                         
                         	**range:** 0..18446744073709551615
                         
@@ -15360,7 +16525,7 @@ class FibMpls(object):
                                 .. attribute:: label_information_encap_id
                                 
                                 	Encap ID
-                                	**type**\:  long
+                                	**type**\:  int
                                 
                                 	**range:** 0..18446744073709551615
                                 
@@ -15402,14 +16567,14 @@ class FibMpls(object):
                                 .. attribute:: label_information_route_version
                                 
                                 	The version of the route
-                                	**type**\:  long
+                                	**type**\:  int
                                 
                                 	**range:** 0..18446744073709551615
                                 
                                 .. attribute:: label_information_time_in_milli_seconds
                                 
                                 	The time of last update in msec
-                                	**type**\:  long
+                                	**type**\:  int
                                 
                                 	**range:** 0..18446744073709551615
                                 
@@ -15535,7 +16700,7 @@ class FibMpls(object):
                                 	PW\-HE interface
                                 	**type**\:  str
                                 
-                                	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+                                	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
                                 
                                 .. attribute:: pwhecw_enabled
                                 
@@ -15564,7 +16729,7 @@ class FibMpls(object):
                                 	Tunnel Interface
                                 	**type**\:  str
                                 
-                                	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+                                	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
                                 
                                 .. attribute:: weight
                                 
@@ -15656,7 +16821,7 @@ class FibMpls(object):
                                     	Next hop interface name
                                     	**type**\:  str
                                     
-                                    	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+                                    	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
                                     
                                     .. attribute:: next_hop_protocol
                                     
@@ -15689,7 +16854,7 @@ class FibMpls(object):
                                     .. attribute:: route_download_version
                                     
                                     	Version of the route\-download for the label
-                                    	**type**\:  long
+                                    	**type**\:  int
                                     
                                     	**range:** 0..18446744073709551615
                                     
@@ -15710,28 +16875,28 @@ class FibMpls(object):
                                     .. attribute:: transmit_number_of_bytes_switched
                                     
                                     	Number of Bytes switched
-                                    	**type**\:  long
+                                    	**type**\:  int
                                     
                                     	**range:** 0..18446744073709551615
                                     
                                     .. attribute:: transmit_number_of_packets_switched
                                     
                                     	Number of packets switched
-                                    	**type**\:  long
+                                    	**type**\:  int
                                     
                                     	**range:** 0..18446744073709551615
                                     
                                     .. attribute:: transmit_number_of_tm_bytes_switched
                                     
                                     	Number of Traffic\-Matrix Bytes switched
-                                    	**type**\:  long
+                                    	**type**\:  int
                                     
                                     	**range:** 0..18446744073709551615
                                     
                                     .. attribute:: transmit_number_of_tm_packets_switched
                                     
                                     	Number of Traffic\-Matrix packets switched
-                                    	**type**\:  long
+                                    	**type**\:  int
                                     
                                     	**range:** 0..18446744073709551615
                                     
@@ -15908,7 +17073,7 @@ class FibMpls(object):
                                     .. attribute:: pd_ts_ms
                                     
                                     	pd ts ms
-                                    	**type**\:  long
+                                    	**type**\:  int
                                     
                                     	**range:** 0..18446744073709551615
                                     
@@ -16366,7 +17531,7 @@ class FibMpls(object):
                             	multicast mpls tunnel ifh
                             	**type**\:  str
                             
-                            	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+                            	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
                             
                             .. attribute:: multicast_tunnel_lspvif
                             
@@ -16519,7 +17684,7 @@ class FibMpls(object):
                             .. attribute:: rpf_create_ts
                             
                             	Time when the LRPF was created
-                            	**type**\:  long
+                            	**type**\:  int
                             
                             	**range:** 0..18446744073709551615
                             
@@ -16542,7 +17707,7 @@ class FibMpls(object):
                             	Array of interfaces in interface list
                             	**type**\:  list of str
                             
-                            	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+                            	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
                             
                             .. attribute:: rpf_if_map
                             
@@ -16552,14 +17717,14 @@ class FibMpls(object):
                             .. attribute:: rpf_mod_ts
                             
                             	Last time the LRPF modified
-                            	**type**\:  long
+                            	**type**\:  int
                             
                             	**range:** 0..18446744073709551615
                             
                             .. attribute:: rpf_pd_ts
                             
                             	Last time the PD action was sent for the LRPF
-                            	**type**\:  long
+                            	**type**\:  int
                             
                             	**range:** 0..18446744073709551615
                             
@@ -17081,7 +18246,7 @@ class FibMpls(object):
                         .. attribute:: ldi_time_of_last_update_in_msec
                         
                         	The time of last update for LDI in msec
-                        	**type**\:  long
+                        	**type**\:  int
                         
                         	**range:** 0..18446744073709551615
                         
@@ -17123,7 +18288,7 @@ class FibMpls(object):
                         .. attribute:: leaf_time_in_milli_seconds
                         
                         	The time of last update in msec
-                        	**type**\:  long
+                        	**type**\:  int
                         
                         	**range:** 0..18446744073709551615
                         
@@ -17144,7 +18309,7 @@ class FibMpls(object):
                         .. attribute:: lspa_time_of_last_update_in_msec
                         
                         	The time of last update for LSPA in msec
-                        	**type**\:  long
+                        	**type**\:  int
                         
                         	**range:** 0..18446744073709551615
                         
@@ -17179,7 +18344,7 @@ class FibMpls(object):
                         .. attribute:: lwldi_time_of_last_update_in_msec
                         
                         	The time of last update for LW\-LDI in msec
-                        	**type**\:  long
+                        	**type**\:  int
                         
                         	**range:** 0..18446744073709551615
                         
@@ -17224,7 +18389,7 @@ class FibMpls(object):
                         .. attribute:: pl_time_of_last_update_in_msec
                         
                         	The time of last update for PL in msec
-                        	**type**\:  long
+                        	**type**\:  int
                         
                         	**range:** 0..18446744073709551615
                         
@@ -17382,7 +18547,7 @@ class FibMpls(object):
                                 .. attribute:: label_information_encap_id
                                 
                                 	Encap ID
-                                	**type**\:  long
+                                	**type**\:  int
                                 
                                 	**range:** 0..18446744073709551615
                                 
@@ -17424,14 +18589,14 @@ class FibMpls(object):
                                 .. attribute:: label_information_route_version
                                 
                                 	The version of the route
-                                	**type**\:  long
+                                	**type**\:  int
                                 
                                 	**range:** 0..18446744073709551615
                                 
                                 .. attribute:: label_information_time_in_milli_seconds
                                 
                                 	The time of last update in msec
-                                	**type**\:  long
+                                	**type**\:  int
                                 
                                 	**range:** 0..18446744073709551615
                                 
@@ -17557,7 +18722,7 @@ class FibMpls(object):
                                 	PW\-HE interface
                                 	**type**\:  str
                                 
-                                	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+                                	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
                                 
                                 .. attribute:: pwhecw_enabled
                                 
@@ -17586,7 +18751,7 @@ class FibMpls(object):
                                 	Tunnel Interface
                                 	**type**\:  str
                                 
-                                	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+                                	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
                                 
                                 .. attribute:: weight
                                 
@@ -17678,7 +18843,7 @@ class FibMpls(object):
                                     	Next hop interface name
                                     	**type**\:  str
                                     
-                                    	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+                                    	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
                                     
                                     .. attribute:: next_hop_protocol
                                     
@@ -17711,7 +18876,7 @@ class FibMpls(object):
                                     .. attribute:: route_download_version
                                     
                                     	Version of the route\-download for the label
-                                    	**type**\:  long
+                                    	**type**\:  int
                                     
                                     	**range:** 0..18446744073709551615
                                     
@@ -17732,28 +18897,28 @@ class FibMpls(object):
                                     .. attribute:: transmit_number_of_bytes_switched
                                     
                                     	Number of Bytes switched
-                                    	**type**\:  long
+                                    	**type**\:  int
                                     
                                     	**range:** 0..18446744073709551615
                                     
                                     .. attribute:: transmit_number_of_packets_switched
                                     
                                     	Number of packets switched
-                                    	**type**\:  long
+                                    	**type**\:  int
                                     
                                     	**range:** 0..18446744073709551615
                                     
                                     .. attribute:: transmit_number_of_tm_bytes_switched
                                     
                                     	Number of Traffic\-Matrix Bytes switched
-                                    	**type**\:  long
+                                    	**type**\:  int
                                     
                                     	**range:** 0..18446744073709551615
                                     
                                     .. attribute:: transmit_number_of_tm_packets_switched
                                     
                                     	Number of Traffic\-Matrix packets switched
-                                    	**type**\:  long
+                                    	**type**\:  int
                                     
                                     	**range:** 0..18446744073709551615
                                     
@@ -17930,7 +19095,7 @@ class FibMpls(object):
                                     .. attribute:: pd_ts_ms
                                     
                                     	pd ts ms
-                                    	**type**\:  long
+                                    	**type**\:  int
                                     
                                     	**range:** 0..18446744073709551615
                                     
@@ -18388,7 +19553,7 @@ class FibMpls(object):
                             	multicast mpls tunnel ifh
                             	**type**\:  str
                             
-                            	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+                            	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
                             
                             .. attribute:: multicast_tunnel_lspvif
                             
@@ -18541,7 +19706,7 @@ class FibMpls(object):
                             .. attribute:: rpf_create_ts
                             
                             	Time when the LRPF was created
-                            	**type**\:  long
+                            	**type**\:  int
                             
                             	**range:** 0..18446744073709551615
                             
@@ -18564,7 +19729,7 @@ class FibMpls(object):
                             	Array of interfaces in interface list
                             	**type**\:  list of str
                             
-                            	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+                            	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
                             
                             .. attribute:: rpf_if_map
                             
@@ -18574,14 +19739,14 @@ class FibMpls(object):
                             .. attribute:: rpf_mod_ts
                             
                             	Last time the LRPF modified
-                            	**type**\:  long
+                            	**type**\:  int
                             
                             	**range:** 0..18446744073709551615
                             
                             .. attribute:: rpf_pd_ts
                             
                             	Last time the PD action was sent for the LRPF
-                            	**type**\:  long
+                            	**type**\:  int
                             
                             	**range:** 0..18446744073709551615
                             
@@ -19097,7 +20262,7 @@ class FibMpls(object):
                         	Interface Name
                         	**type**\:  str
                         
-                        	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+                        	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
                         
                         .. attribute:: fwdg
                         
@@ -19176,7 +20341,7 @@ class FibMpls(object):
                             	Tunnel interface
                             	**type**\:  str
                             
-                            	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+                            	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
                             
                             .. attribute:: tunnel_is_programmed_to_drop
                             
@@ -19355,7 +20520,7 @@ class FibMpls(object):
                             .. attribute:: ldi_time_of_last_update_in_msec
                             
                             	The time of last update for LDI in msec
-                            	**type**\:  long
+                            	**type**\:  int
                             
                             	**range:** 0..18446744073709551615
                             
@@ -19397,7 +20562,7 @@ class FibMpls(object):
                             .. attribute:: leaf_time_in_milli_seconds
                             
                             	The time of last update in msec
-                            	**type**\:  long
+                            	**type**\:  int
                             
                             	**range:** 0..18446744073709551615
                             
@@ -19411,7 +20576,7 @@ class FibMpls(object):
                             .. attribute:: lspa_time_of_last_update_in_msec
                             
                             	The time of last update for LSPA in msec
-                            	**type**\:  long
+                            	**type**\:  int
                             
                             	**range:** 0..18446744073709551615
                             
@@ -19446,7 +20611,7 @@ class FibMpls(object):
                             .. attribute:: lwldi_time_of_last_update_in_msec
                             
                             	The time of last update for LW\-LDI in msec
-                            	**type**\:  long
+                            	**type**\:  int
                             
                             	**range:** 0..18446744073709551615
                             
@@ -19491,7 +20656,7 @@ class FibMpls(object):
                             .. attribute:: pl_time_of_last_update_in_msec
                             
                             	The time of last update for PL in msec
-                            	**type**\:  long
+                            	**type**\:  int
                             
                             	**range:** 0..18446744073709551615
                             
@@ -19647,7 +20812,7 @@ class FibMpls(object):
                                     .. attribute:: label_information_encap_id
                                     
                                     	Encap ID
-                                    	**type**\:  long
+                                    	**type**\:  int
                                     
                                     	**range:** 0..18446744073709551615
                                     
@@ -19689,14 +20854,14 @@ class FibMpls(object):
                                     .. attribute:: label_information_route_version
                                     
                                     	The version of the route
-                                    	**type**\:  long
+                                    	**type**\:  int
                                     
                                     	**range:** 0..18446744073709551615
                                     
                                     .. attribute:: label_information_time_in_milli_seconds
                                     
                                     	The time of last update in msec
-                                    	**type**\:  long
+                                    	**type**\:  int
                                     
                                     	**range:** 0..18446744073709551615
                                     
@@ -19822,7 +20987,7 @@ class FibMpls(object):
                                     	PW\-HE interface
                                     	**type**\:  str
                                     
-                                    	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+                                    	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
                                     
                                     .. attribute:: pwhecw_enabled
                                     
@@ -19851,7 +21016,7 @@ class FibMpls(object):
                                     	Tunnel Interface
                                     	**type**\:  str
                                     
-                                    	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+                                    	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
                                     
                                     .. attribute:: weight
                                     
@@ -19943,7 +21108,7 @@ class FibMpls(object):
                                         	Next hop interface name
                                         	**type**\:  str
                                         
-                                        	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+                                        	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
                                         
                                         .. attribute:: next_hop_protocol
                                         
@@ -19976,7 +21141,7 @@ class FibMpls(object):
                                         .. attribute:: route_download_version
                                         
                                         	Version of the route\-download for the label
-                                        	**type**\:  long
+                                        	**type**\:  int
                                         
                                         	**range:** 0..18446744073709551615
                                         
@@ -19997,28 +21162,28 @@ class FibMpls(object):
                                         .. attribute:: transmit_number_of_bytes_switched
                                         
                                         	Number of Bytes switched
-                                        	**type**\:  long
+                                        	**type**\:  int
                                         
                                         	**range:** 0..18446744073709551615
                                         
                                         .. attribute:: transmit_number_of_packets_switched
                                         
                                         	Number of packets switched
-                                        	**type**\:  long
+                                        	**type**\:  int
                                         
                                         	**range:** 0..18446744073709551615
                                         
                                         .. attribute:: transmit_number_of_tm_bytes_switched
                                         
                                         	Number of Traffic\-Matrix Bytes switched
-                                        	**type**\:  long
+                                        	**type**\:  int
                                         
                                         	**range:** 0..18446744073709551615
                                         
                                         .. attribute:: transmit_number_of_tm_packets_switched
                                         
                                         	Number of Traffic\-Matrix packets switched
-                                        	**type**\:  long
+                                        	**type**\:  int
                                         
                                         	**range:** 0..18446744073709551615
                                         
@@ -20195,7 +21360,7 @@ class FibMpls(object):
                                         .. attribute:: pd_ts_ms
                                         
                                         	pd ts ms
-                                        	**type**\:  long
+                                        	**type**\:  int
                                         
                                         	**range:** 0..18446744073709551615
                                         
@@ -20653,7 +21818,7 @@ class FibMpls(object):
                                 	multicast mpls tunnel ifh
                                 	**type**\:  str
                                 
-                                	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+                                	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
                                 
                                 .. attribute:: multicast_tunnel_lspvif
                                 
@@ -20806,7 +21971,7 @@ class FibMpls(object):
                                 .. attribute:: rpf_create_ts
                                 
                                 	Time when the LRPF was created
-                                	**type**\:  long
+                                	**type**\:  int
                                 
                                 	**range:** 0..18446744073709551615
                                 
@@ -20829,7 +21994,7 @@ class FibMpls(object):
                                 	Array of interfaces in interface list
                                 	**type**\:  list of str
                                 
-                                	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+                                	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
                                 
                                 .. attribute:: rpf_if_map
                                 
@@ -20839,14 +22004,14 @@ class FibMpls(object):
                                 .. attribute:: rpf_mod_ts
                                 
                                 	Last time the LRPF modified
-                                	**type**\:  long
+                                	**type**\:  int
                                 
                                 	**range:** 0..18446744073709551615
                                 
                                 .. attribute:: rpf_pd_ts
                                 
                                 	Last time the PD action was sent for the LRPF
-                                	**type**\:  long
+                                	**type**\:  int
                                 
                                 	**range:** 0..18446744073709551615
                                 
@@ -21509,7 +22674,7 @@ class FibMpls(object):
                         	Interface Name
                         	**type**\:  str
                         
-                        	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+                        	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
                         
                         .. attribute:: active
                         
@@ -21733,7 +22898,7 @@ class FibMpls(object):
                         	Interface Name
                         	**type**\:  str
                         
-                        	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+                        	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
                         
                         .. attribute:: active
                         
@@ -21972,7 +23137,7 @@ class FibMpls(object):
                         	FRR interface
                         	**type**\:  str
                         
-                        	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+                        	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
                         
                         .. attribute:: frr_label
                         
@@ -22022,7 +23187,7 @@ class FibMpls(object):
                         	Outgoing interface
                         	**type**\:  str
                         
-                        	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+                        	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
                         
                         .. attribute:: outgoing_label
                         
@@ -22036,7 +23201,7 @@ class FibMpls(object):
                         	Tunnel interface
                         	**type**\:  str
                         
-                        	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+                        	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
                         
                         
 
@@ -22277,7 +23442,7 @@ class FibMpls(object):
                             	FRR interface
                             	**type**\:  str
                             
-                            	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+                            	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
                             
                             .. attribute:: frr_label
                             
@@ -22310,7 +23475,7 @@ class FibMpls(object):
                             	Outgoing interface
                             	**type**\:  str
                             
-                            	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+                            	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
                             
                             .. attribute:: outgoing_label
                             
@@ -22324,7 +23489,7 @@ class FibMpls(object):
                             	Tunnel interface
                             	**type**\:  str
                             
-                            	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+                            	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
                             
                             
 
@@ -22716,7 +23881,7 @@ class FibMpls(object):
                         	Interface Name
                         	**type**\:  str
                         
-                        	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+                        	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
                         
                         .. attribute:: entry_frr_state
                         
@@ -22733,7 +23898,7 @@ class FibMpls(object):
                         	FRR interface
                         	**type**\:  str
                         
-                        	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+                        	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
                         
                         .. attribute:: frr_label
                         
@@ -22783,7 +23948,7 @@ class FibMpls(object):
                         	Outgoing interface
                         	**type**\:  str
                         
-                        	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+                        	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
                         
                         .. attribute:: outgoing_label
                         
@@ -22797,7 +23962,7 @@ class FibMpls(object):
                         	Tunnel interface
                         	**type**\:  str
                         
-                        	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+                        	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
                         
                         
 
@@ -23038,7 +24203,7 @@ class FibMpls(object):
                             	FRR interface
                             	**type**\:  str
                             
-                            	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+                            	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
                             
                             .. attribute:: frr_label
                             
@@ -23071,7 +24236,7 @@ class FibMpls(object):
                             	Outgoing interface
                             	**type**\:  str
                             
-                            	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+                            	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
                             
                             .. attribute:: outgoing_label
                             
@@ -23085,7 +24250,7 @@ class FibMpls(object):
                             	Tunnel interface
                             	**type**\:  str
                             
-                            	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+                            	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
                             
                             
 
@@ -23905,7 +25070,7 @@ class FibMpls(object):
                     	Interface
                     	**type**\:  str
                     
-                    	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+                    	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
                     
                     .. attribute:: start_time
                     

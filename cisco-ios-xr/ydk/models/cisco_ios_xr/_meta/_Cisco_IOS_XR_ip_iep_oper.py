@@ -54,17 +54,23 @@ _meta_table = {
                 'hop_type',
                 'Cisco-IOS-XR-ip-iep-oper', False),
             _MetaInfoClassMember('if-index', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Interface Index of the path
                 ''',
                 'if_index',
                 'Cisco-IOS-XR-ip-iep-oper', False),
             _MetaInfoClassMember('index', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Index number at which the path entry is inserted
                 or modified
                 ''',
                 'index',
+                'Cisco-IOS-XR-ip-iep-oper', False),
+            _MetaInfoClassMember('mpls-label', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                MPLS label
+                ''',
+                'mpls_label',
                 'Cisco-IOS-XR-ip-iep-oper', False),
             ],
             'Cisco-IOS-XR-ip-iep-oper',
@@ -78,7 +84,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('identifier-id', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Identifier ID
                 ''',
                 'identifier_id',
@@ -145,17 +151,23 @@ _meta_table = {
                 'hop_type',
                 'Cisco-IOS-XR-ip-iep-oper', False),
             _MetaInfoClassMember('if-index', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Interface Index of the path
                 ''',
                 'if_index',
                 'Cisco-IOS-XR-ip-iep-oper', False),
             _MetaInfoClassMember('index', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Index number at which the path entry is inserted
                 or modified
                 ''',
                 'index',
+                'Cisco-IOS-XR-ip-iep-oper', False),
+            _MetaInfoClassMember('mpls-label', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                MPLS label
+                ''',
+                'mpls_label',
                 'Cisco-IOS-XR-ip-iep-oper', False),
             ],
             'Cisco-IOS-XR-ip-iep-oper',
@@ -218,13 +230,15 @@ _meta_table = {
             [
             _MetaInfoClassMember('identifiers', REFERENCE_CLASS, 'Identifiers' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_iep_oper', 'ExplicitPaths.Identifiers', 
                 [], [], 
-                '''                List of configured IP explicit path identifiers
+                '''                List of configured IP explicit path identifiers,
+                this corresponds to mplsTunnelHopTable in TE MIB
                 ''',
                 'identifiers',
                 'Cisco-IOS-XR-ip-iep-oper', False),
             _MetaInfoClassMember('names', REFERENCE_CLASS, 'Names' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_iep_oper', 'ExplicitPaths.Names', 
                 [], [], 
-                '''                List of configured IP explicit path names
+                '''                List of configured IP explicit path names, this
+                corresponds to mplsTunnelHopTable in TE MIB
                 ''',
                 'names',
                 'Cisco-IOS-XR-ip-iep-oper', False),
